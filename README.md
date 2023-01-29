@@ -2,7 +2,7 @@
 
 
 
-
+     '''
 ssh onp-k8s-cp-1 "sudo cat /var/log/cloud-init-output.log"
 ssh onp-k8s-cp-2 "sudo cat /var/log/cloud-init-output.log"
 ssh onp-k8s-cp-3 "sudo cat /var/log/cloud-init-output.log"

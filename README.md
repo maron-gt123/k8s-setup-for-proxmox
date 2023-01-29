@@ -15,7 +15,7 @@
      ssh onp-k8s-wk-1 "sudo journalctl -u cloud-final.service"
      ssh onp-k8s-wk-2 "sudo journalctl -u cloud-final.service"
      ssh onp-k8s-wk-3 "sudo journalctl -u cloud-final.service"
-## キー渡し<br>
+## 全ノードをクラスタ内に参画<br>
      # join_kubeadm_cp.yaml を onp-k8s-cp-2 と onp-k8s-cp-3 にコピー
      scp -3 onp-k8s-cp-1:~/join_kubeadm_cp.yaml onp-k8s-cp-2:~/
      scp -3 onp-k8s-cp-1:~/join_kubeadm_cp.yaml onp-k8s-cp-3:~/
@@ -33,3 +33,10 @@
      ssh onp-k8s-wk-1 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
      ssh onp-k8s-wk-2 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
      ssh onp-k8s-wk-3 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
+## コントロールプレーンの全ノードにkubeconfigを配布
+     ssh onp-k8s-cp-2 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
+     ssh onp-k8s-cp-3 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
+## 動作チェック
+     ssh onp-k8s-cp-1 "kubectl get node -o wide && kubectl get pod -A -o wide"
+     ssh onp-k8s-cp-2 "kubectl get node -o wide && kubectl get pod -A -o wide"
+     ssh onp-k8s-cp-3 "kubectl get node -o wide && kubectl get pod -A -o wide"

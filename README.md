@@ -1,6 +1,8 @@
 # kubernetesの各種セットアップ方法を記載
 
-### a
+## gatewayの設定<br>
+
+## clusterの設定<br>
 ### kubernetesログ確認<br>
      ssh onp-k8s-cp-1 "sudo cat /var/log/cloud-init-output.log"
      ssh onp-k8s-cp-2 "sudo cat /var/log/cloud-init-output.log"

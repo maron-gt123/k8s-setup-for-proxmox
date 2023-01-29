@@ -59,7 +59,6 @@ case $1 in
         ;;
 esac
 
-
 # Install Containerd
 cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
@@ -80,7 +79,13 @@ EOF
 sudo sysctl --system
 
 ## Install containerd
-sudo apt-get update && sudo apt-get install -y containerd
+apt-get update && apt-get install -y apt-transport-https curl gnupg2
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update && sudo apt-get install -y containerd.io
 
 # Configure containerd
 sudo mkdir -p /etc/containerd
@@ -89,13 +94,13 @@ sudo containerd config default | sudo tee /etc/containerd/config.toml > /dev/nul
 if grep -q "SystemdCgroup = true" "/etc/containerd/config.toml"; then
 echo "Config found, skip rewriting..."
 else
-sudo sed -i -e "s/SystemdCgroup \= false/SystemdCgroup \= true/g" /etc/containerd/config.toml
+sed -i -e "s/SystemdCgroup \= false/SystemdCgroup \= true/g" /etc/containerd/config.toml
 fi
 
 sudo systemctl restart containerd
 
 # Modify kernel parameters for Kubernetes
-cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+cat <<EOF | tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 vm.overcommit_memory = 1
@@ -109,13 +114,11 @@ EOF
 sysctl --system
 
 # Install kubeadm
-sudo apt-get update && sudo apt-get install -y apt-transport-https curl gnupg2
-sudo apt-get install -y ca-certificates curl
-sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-sudo apt-get update
-sudo apt-get install -y kubelet=1.24.1-00 kubeadm=1.24.1-00 kubectl=1.24.1-00
-sudo apt-mark hold kubelet kubeadm kubectl
+curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+apt-get update
+apt-get install -y kubelet=1.24.4-00 kubeadm=1.24.4-00 kubectl=1.24.4-00
+apt-mark hold kubelet kubeadm kubectl
 
 # Disable swap
 swapoff -a
@@ -173,6 +176,7 @@ frontend k8s-api
     mode tcp
     option tcplog
     default_backend k8s-api
+
 backend k8s-api
     mode tcp
     option tcplog
@@ -197,13 +201,16 @@ vrrp_script chk_haproxy {
     interval 2 
     weight 2 
 }
+
 # Configuration for Virtual Interface
 vrrp_instance LB_VIP {
     interface ${VIP_INTERFACE}
     state ${KEEPALIVED_STATE}
     priority ${KEEPALIVED_PRIORITY}
     virtual_router_id 51
+
     smtp_alert          # Enable Notifications Via Email
+
     authentication {
         auth_type AH
         auth_pass zaq12wsx	# Password for accessing vrrpd. Same on all devices
@@ -213,10 +220,12 @@ vrrp_instance LB_VIP {
         ${KEEPALIVED_UNICAST_PEERS[0]}		# Private IP address of the backup haproxy
         ${KEEPALIVED_UNICAST_PEERS[1]}		# Private IP address of the backup haproxy
     }
+
     # The virtual ip address shared between the two loadbalancers
     virtual_ipaddress {
         ${KUBE_API_SERVER_VIP}
     }
+
     # Use the Defined Script to Check whether to initiate a fail over
     track_script {
         chk_haproxy
@@ -289,6 +298,7 @@ apiServer:
   - k8s-api.onp-k8s.admin.local-tunnels.seichi.click
   extraArgs:
     feature-gates: "DelegateFSGroupToCSIDriver=false"
+
 # expose these components so that we can get metrics
 # https://prometheus-operator.dev/docs/kube-prometheus-on-kubeadm/#kubeadm-pre-requisites
 controllerManager:
@@ -299,6 +309,7 @@ scheduler:
   extraArgs:
     bind-address: "0.0.0.0"
     feature-gates: "DelegateFSGroupToCSIDriver=false"
+
 ---
 apiVersion: kubelet.config.k8s.io/v1beta1
 kind: KubeletConfiguration

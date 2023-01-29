@@ -3,6 +3,7 @@
 ## gatewayの設定<br>
 
 ## clusterの設定<br>
+以下のscriptを使用しkubeadm等をインストール<br>
 [script](https://github.com/maron-gt123/kubanetesu-cluster-setup/blob/main/cluster-setup/k8s-node-setup.sh)
 ### kubernetesログ確認<br>
      ssh onp-k8s-cp-1 "sudo cat /var/log/cloud-init-output.log"

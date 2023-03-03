@@ -9,9 +9,9 @@ NAS_PW=abc
 # region : create update.sh
 cat > update.sh <<EOF
 #!/bin/bash
-apt update
-apt upgrade -y
-apt autoremove -y
+sudo apt update
+sudo apt upgrade -y
+sudo apt autoremove -y
 EOF
 
 chmod 700 update.sh

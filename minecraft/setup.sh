@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # region : set variables
-SPIGOTSERVER_URL=https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/431/downloads/paper-1.19.3-431.jar
+PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/431/downloads/paper-1.19.3-431.jar
 NAS_ID=***
 NAS_PW=***
 # endregion
@@ -100,7 +100,7 @@ ufw reload
 
 
 # region : minecraft setup
-wget /minecraft/paper/$SPIGOTSERVER_URL
+wget /minecraft/paper/$PAPER_URL
 cat > /minecraft/paper/eula.txt <<EOF
 #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.m>
 #Mon Aug 15 14:38:32 JST 2022

@@ -14,7 +14,7 @@ sudo apt upgrade -y
 sudo apt autoremove -y
 EOF
 
-chmod 700 update.sh
+sudo chmod 700 update.sh
 
 ./update.sh
 # endregion
@@ -79,8 +79,7 @@ systemctl start autofs
 # endregion
 
 # region : nas mount
-cd /etc/
-cat >> fstab <<EOF
+cat >> /etc/fstab <<EOF
 # mount nas drive
 //nas.micnet/usbssd/mic-backup/`hostname`/plugins/ /minecraft/paper/plugins/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=${NAS_ID},password=${NAS_PW} 0 0
 //nas.micnet/usbssd/mic-backup/`hostname`/ /minecraft/paper/Backups/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=${NAS_ID},password=${NAS_PW} 0 0

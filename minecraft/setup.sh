@@ -2,8 +2,8 @@
 
 # region : set variables
 PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/431/downloads/paper-1.19.3-431.jar
-NAS_ID=***
-NAS_PW=***
+NAS_ID=abc
+NAS_PW=abc
 # endregion
 
 # region : create update.sh
@@ -21,8 +21,7 @@ chmod 700 update.sh
 
 
 # region : setting ntp
-cd /etc/systemd
-cat > timesyncd.conf <<EOF
+cat > /etc/systemd/timesyncd.conf <<EOF
 #  This file is part of systemd.
 #
 #  systemd is free software; you can redistribute it and/or modify it under the

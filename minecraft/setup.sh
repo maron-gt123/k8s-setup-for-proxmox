@@ -86,7 +86,6 @@ cat >> fstab <<EOF
 //nas.micnet/usbssd/mic-backup/`hostname`/plugins/ /minecraft/paper/plugins/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=${NAS_ID},password=${NAS_PW} 0 0
 //nas.micnet/usbssd/mic-backup/`hostname`/ /minecraft/paper/Backups/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=${NAS_ID},password=${NAS_PW} 0 0
 EOF
-mount -a
 # endregion
 
 # region : ufw setting

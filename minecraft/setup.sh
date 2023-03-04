@@ -2,8 +2,6 @@
 
 # region : set variables
 PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/431/downloads/paper-1.19.3-431.jar
-NAS_ID=abc
-NAS_PW=abc
 # endregion
 
 # region : create update.sh
@@ -76,14 +74,6 @@ apt install cifs-utils -y
 apt install autofs -y
 systemctl enable autofs
 systemctl start autofs
-# endregion
-
-# region : nas mount
-cat >> /etc/fstab <<EOF
-# mount nas drive
-//nas.micnet/usbssd/mic-backup/`hostname`/plugins/ /minecraft/paper/plugins/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=${NAS_ID},password=${NAS_PW} 0 0
-//nas.micnet/usbssd/mic-backup/`hostname`/ /minecraft/paper/Backups/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=${NAS_ID},password=${NAS_PW} 0 0
-EOF
 # endregion
 
 # region : ufw setting

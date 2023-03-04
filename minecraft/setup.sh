@@ -65,8 +65,9 @@ apt install zip -y
 # region : create　minecraft derectory
 mkdir /minecraft
 mkdir /minecraft/paper
-mkdir /minecraft/spigot/plugins
-mkdir /minecraft/spigot/Backups
+mkdir /minecraft/nas
+mkdir /minecraft/paper/plugins
+mkdir /minecraft/paper/Backups
 # endregion
 
 # region : install nas mount

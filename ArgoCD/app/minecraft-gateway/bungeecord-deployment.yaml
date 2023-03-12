@@ -33,7 +33,7 @@ spec:
               value: 1G
           volumeMounts:
             - name: minecraft-proxy-storage
-              mountPath: /kubanetesu-NFS/server
+              mountPath: /kubanetesu-NFS/bungeecord
       volumes:
         - name: minecraft-proxy-storage
           persistentVolumeClaim:

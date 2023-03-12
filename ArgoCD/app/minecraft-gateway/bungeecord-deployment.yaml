@@ -31,6 +31,9 @@ spec:
               value: 250M
             - name: MAX_MEMORY
               value: 1G
+          ports:
+            - containerPort: 53616
+              name: bungeecord
           volumeMounts:
             - name: minecraft-proxy-storage
               mountPath: /kubanetesu-NFS/bungeecord/

@@ -37,4 +37,4 @@ spec:
       volumes:
         - name: minecraft-proxy-storage
           persistentVolumeClaim:
-            claimName: iscsi-1024gb-claim
+            claimName: minecraft-proxy-pvc

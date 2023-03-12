@@ -6,7 +6,7 @@ metadata:
   labels:
     app: minecraft-proxy
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: minecraft-proxy
@@ -33,7 +33,7 @@ spec:
               value: 1G
           volumeMounts:
             - name: minecraft-proxy-storage
-              mountPath: /server
+              mountPath: /kubanetesu-NFS/server
       volumes:
         - name: minecraft-proxy-storage
           persistentVolumeClaim:

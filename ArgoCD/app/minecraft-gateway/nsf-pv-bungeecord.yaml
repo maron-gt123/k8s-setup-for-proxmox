@@ -14,5 +14,5 @@ spec:
     storage: 5Gi
   nfs:
     server: 192.168.6.53
-    path: /kubanetesu-NFS
+    path: /kubanetesu-NFS/bungeecord/
   persistentVolumeReclaimPolicy: Delete

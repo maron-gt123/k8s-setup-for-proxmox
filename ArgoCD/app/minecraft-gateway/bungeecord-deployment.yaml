@@ -1,12 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: minecraft
   name: minecraft-proxy
   labels:
     app: minecraft-proxy
+  # We wish this deployment to be reloaded
+  # when "bungeecord-config" and "bungeecord-plugin-configs" ConfigMap are updated
+  annotations:
+    configmap.reloader.stakater.com/reload: "bungeecord-config"
 spec:
-  replicas: 2
+  replicas: 1
+  revisionHistoryLimit: 0
   selector:
     matchLabels:
       app: minecraft-proxy
@@ -18,24 +22,30 @@ spec:
         app: minecraft-proxy
     spec:
       containers:
-        - image: itzg/bungeecord:java17-2022.4.1
+        - image: itzg/bungeecord:java17
           name: minecraft-proxy
           env:
             - name: TYPE
               value: WATERFALL
             - name: ENABLE_RCON
               value: "true"
+
             - name: INIT_MEMORY
               value: 250M
             - name: MAX_MEMORY
               value: 1G
           ports:
-            - containerPort: 53616
+            - containerPort: 25577
               name: bungeecord
           volumeMounts:
-            - name: minecraft-proxy-storage
-              mountPath: /kubanetesu-NFS/bungeecord/
+            - name: bungeecord-config
+              mountPath: /config/config.yml
+              subPath: config.yml
+
       volumes:
         - name: minecraft-proxy-storage
           persistentVolumeClaim:
             claimName: minecraft-proxy-pvc
+        - name: bungeecord-config
+          configMap:
+            name: bungeecord-config

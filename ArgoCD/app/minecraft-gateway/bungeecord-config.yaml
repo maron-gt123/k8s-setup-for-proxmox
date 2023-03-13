@@ -6,17 +6,17 @@ data:
   config.yml: |-
     servers:
       lobby:
+        motd: ''
         address: 192.168.15.87:25565
         restricted: false
-        motd: ''
       s1:
+        motd: ''
         address: 192.168.15.88:25565
         restricted: false
-        motd: ''
       s2:
+        motd: ''      
         address: 192.168.15.89:25565
         restricted: false
-        motd: ''
     listeners:
       - priorities:
           - lobby

@@ -16,5 +16,5 @@ spec:
       protocol: UDP
       targetPort: 53616
   selector:
-    app: bungeecord
+    app: minecraft-proxy
   loadBalancerIP: 192.168.15.70

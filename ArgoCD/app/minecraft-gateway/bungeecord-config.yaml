@@ -1,43 +1,38 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: minecraft
   name: bungeecord-config
 data:
-  config.yml: |
+  config.yml: |-
     servers:
       lobby:
-        address: 192.168.15.71:25565
+        address: 192.168.15.87:25565
         restricted: false
         motd: ''
       s1:
-        address: 192.168.15.72:25565
+        address: 192.168.15.88:25565
         restricted: false
         motd: ''
       s2:
-        address: 192.168.15.73:25565
+        address: 192.168.15.89:25565
         restricted: false
         motd: ''
-
     listeners:
       - priorities:
           - lobby
         forced_hosts:
           pvp.md-5.net: pvp
-
-        query_port: 53616
+        query_port: 25577
         motd: ''
         bind_local_address: true
         tab_list: GLOBAL_PING
         query_enabled: false
-        host: 0.0.0.0:25577
-
+        host: 0.0.0.0:53616
         max_players: 256
         tab_size: 60
         ping_passthrough: false
         force_default_server: true
         proxy_protocol: true
-
     # Warning: asterisk cannot be used for permissions setting
     permissions:
       default:
@@ -48,7 +43,6 @@ data:
         - bungeecord.command.list
         - bungeecord.command.server
         - bungeehubcommand.hub
-
         - bungeecord.command.alert
         - bungeecord.command.send
         - redisbungee.command.lastseen
@@ -57,17 +51,14 @@ data:
         - redisbungee.command.serverids
         - redisbungee.command.pproxy
         - redisbungee.command.plist
-
     groups:
       md_5:
         - admin
-
     custom_server_name: HexaCord
     player_limit: -1
     online_mode: true
     forge_support: false
     stats: 752477ce-c5e9-4e37-9361-2d4f26f65f14
-
     ip_forward: true
     prevent_proxy_connections: true
     always_handle_packets: false
@@ -80,7 +71,6 @@ data:
     connection_throttle_limit: 16
     network_compression_threshold: 256
     log_pings: false
-
     disabled_commands:
     log_commands: true
     inject_commands: false

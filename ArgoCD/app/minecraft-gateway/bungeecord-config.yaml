@@ -22,7 +22,7 @@ data:
           - lobby
         forced_hosts:
           pvp.md-5.net: pvp
-        query_port: 53616
+        query_port: 25565
         motd: '&1Another Bungee server'
         bind_local_address: true
         tab_list: GLOBAL_PING

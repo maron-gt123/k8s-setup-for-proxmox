@@ -6,15 +6,15 @@ data:
   config.yml: |-
     servers:
       lobby:
-        motd: ''
+        motd: '&1Just another Waterfall - Forced Host'
         address: 192.168.15.87:25565
         restricted: false
       s1:
-        motd: ''
+        motd: '&1Just another Waterfall - Forced Host'
         address: 192.168.15.88:25565
         restricted: false
       s2:
-        motd: ''      
+        motd: '&1Just another Waterfall - Forced Host'      
         address: 192.168.15.89:25565
         restricted: false
     listeners:
@@ -22,8 +22,8 @@ data:
           - lobby
         forced_hosts:
           pvp.md-5.net: pvp
-        query_port: 25577
-        motd: ''
+        query_port: 53616
+        motd: '&1Another Bungee server'
         bind_local_address: true
         tab_list: GLOBAL_PING
         query_enabled: false
@@ -38,19 +38,12 @@ data:
       default:
         - bungeecord.command.list
         - bungeecord.command.server
-        - bungeehubcommand.hub
       admin:
-        - bungeecord.command.list
-        - bungeecord.command.server
-        - bungeehubcommand.hub
         - bungeecord.command.alert
-        - bungeecord.command.send
-        - redisbungee.command.lastseen
-        - redisbungee.command.sendtoall
-        - redisbungee.command.serverid
-        - redisbungee.command.serverids
-        - redisbungee.command.pproxy
-        - redisbungee.command.plist
+        - bungeecord.command.end
+        - bungeecord.command.ip
+        - bungeecord.command.reload
+        - bungeecord.command.kick
     groups:
       md_5:
         - admin

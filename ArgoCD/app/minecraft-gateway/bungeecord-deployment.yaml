@@ -31,7 +31,7 @@ spec:
               value: "true"
 
             - name: INIT_MEMORY
-              value: 250M
+              value: 512M
             - name: MAX_MEMORY
               value: 1G
           ports:

@@ -14,7 +14,7 @@ data:
         address: 192.168.15.88:25565
         restricted: false
       s2:
-        motd: '&1Just another Waterfall - Forced Host'      
+        motd: '&1Just another Waterfall - Forced Host'
         address: 192.168.15.89:25565
         restricted: false
     listeners:

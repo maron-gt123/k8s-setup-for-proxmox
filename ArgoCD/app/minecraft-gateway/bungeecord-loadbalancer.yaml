@@ -11,10 +11,6 @@ spec:
       port: 53616
       protocol: TCP
       targetPort: 53616
-    - name: be
-      port: 53616
-      protocol: UDP
-      targetPort: 53616
   selector:
     app: minecraft-proxy
   loadBalancerIP: 192.168.15.70

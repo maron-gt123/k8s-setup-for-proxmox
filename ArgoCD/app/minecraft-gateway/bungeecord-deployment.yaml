@@ -35,8 +35,8 @@ spec:
             - name: MAX_MEMORY
               value: 1G
           ports:
-            - containerPort: 25577
-              name: bungeecord
+            - containerPort: 53616
+              name: minecraft-proxy
           volumeMounts:
             - name: bungeecord-config
               mountPath: /config/config.yml

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: minecraft-proxy
+  name: bungeecord
   labels:
-    app: minecraft-proxy
+    app: bungeecord
 spec:
   type: LoadBalancer
   ports:
@@ -12,5 +12,5 @@ spec:
       protocol: TCP
       targetPort: 53616
   selector:
-    app: minecraft-proxy
+    app: bungeecord
   loadBalancerIP: 192.168.15.70

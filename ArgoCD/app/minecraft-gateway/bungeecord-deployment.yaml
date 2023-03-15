@@ -33,7 +33,7 @@ spec:
             - name: MAX_MEMORY
               value: 1G
           ports:
-            - containerPort: 53616
+            - containerPort: 25577
               name: bungeecord
           volumeMounts:
             - name: bungeecord-config

@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: bungeecord-config
 data:
-  config.yml: |-
+  config.yml: |
     servers:
       lobby:
         motd: '&1Just another Waterfall - Forced Host'
@@ -32,7 +32,7 @@ data:
         tab_size: 60
         ping_passthrough: false
         force_default_server: true
-        proxy_protocol: true
+        proxy_protocol: false
     # Warning: asterisk cannot be used for permissions setting
     permissions:
       default:

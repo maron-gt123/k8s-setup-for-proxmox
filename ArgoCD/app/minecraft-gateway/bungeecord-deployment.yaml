@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: minecraft-proxy
+  name: bungeecord
   labels:
-    app: minecraft-proxy
+    app: bungeecord
   # We wish this deployment to be reloaded
   # when "bungeecord-config" and "bungeecord-plugin-configs" ConfigMap are updated
   annotations:
@@ -13,17 +13,17 @@ spec:
   revisionHistoryLimit: 0
   selector:
     matchLabels:
-      app: minecraft-proxy
+      app: bungeecord
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: minecraft-proxy
+        app: bungeecord
     spec:
       containers:
         - image: itzg/bungeecord:java17
-          name: minecraft-proxy
+          name: bungeecord
           env:
             - name: TYPE
               value: WATERFALL
@@ -36,16 +36,16 @@ spec:
               value: 1G
           ports:
             - containerPort: 53616
-              name: minecraft-proxy
+              name: bungee
           volumeMounts:
             - name: bungeecord-config
               mountPath: /config/config.yml
               subPath: config.yml
 
       volumes:
-        - name: minecraft-proxy-storage
+        - name: bungeecord-storage
           persistentVolumeClaim:
-            claimName: minecraft-proxy-pvc
+            claimName: bungeecord-pvc
         - name: bungeecord-config
           configMap:
             name: bungeecord-config

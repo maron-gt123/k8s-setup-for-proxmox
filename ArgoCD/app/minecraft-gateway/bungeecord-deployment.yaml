@@ -14,15 +14,13 @@ spec:
   selector:
     matchLabels:
       app: bungeecord
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
         app: bungeecord
     spec:
       containers:
-        - image: itzg/bungeecord:java17
+        - image: itzg/bungeecord:java17-2022.4.1
           name: bungeecord
           env:
             - name: TYPE
@@ -36,7 +34,7 @@ spec:
               value: 1G
           ports:
             - containerPort: 53616
-              name: bungee
+              name: bungeecord
           volumeMounts:
             - name: bungeecord-config
               mountPath: /config/config.yml

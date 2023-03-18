@@ -106,8 +106,8 @@ sudo wget https://raw.githubusercontent.com/maron-gt123/kubernetes-cluster-setup
 sudo wget https://raw.githubusercontent.com/maron-gt123/kubernetes-cluster-setup/main/minecraft/mic-stop.sh
 cd 
 
-chmod 700 /minecraft/paper/start.sh
-chmod 700 /minecraft/paper/stop.sh
+chmod 700 /minecraft/paper/mic-start.sh
+chmod 700 /minecraft/paper/mic-stop.sh
 
 # endregion
 

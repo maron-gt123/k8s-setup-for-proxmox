@@ -107,7 +107,7 @@ MEM=2048M
 # ---
 # region : start minecraft
 cd `dirname $0`
-screen -AdmS paper java -server -Xms${MEM} -Xmx${MEM} -jar ${JARFILE} nogui
+screen -AdmS paper java -server -Xms"${MEM}" -Xmx"${MEM}" -jar "${JARFILE}" nogui
 # ---
 EOF
 

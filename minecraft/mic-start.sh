@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # region : set variables
-JARFILE=/minecraft/paper/paper-1.19.3-431.jar
+JARFILE=/minecraft/paper/paper-*
 MEM=2048M
 # endregion
 

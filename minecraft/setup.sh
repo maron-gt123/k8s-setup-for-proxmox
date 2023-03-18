@@ -101,6 +101,10 @@ cat > /minecraft/paper/eula.txt <<EOF
 eula=true
 EOF
 
+cd /minecraft/paper
+sudo wget https://raw.githubusercontent.com/maron-gt123/kubernetes-cluster-setup/main/minecraft/mic-start.sh
+sudo wget https://raw.githubusercontent.com/maron-gt123/kubernetes-cluster-setup/main/minecraft/mic-stop.sh
+
 chmod 700 /minecraft/paper/start.sh
 chmod 700 /minecraft/paper/stop.sh
 

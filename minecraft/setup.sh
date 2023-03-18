@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # region : set variables
-PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/431/downloads/paper-1.19.3-431.jar
+PAPER_VER=paper-1.19.3-431.jar
+PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/431/downloads/${PAPER_VER}
 # endregion
 
 # region : create update.sh
@@ -87,7 +88,6 @@ echo "y" | ufw delete 3
 ufw reload
 # endregion
 
-
 # region : minecraft setup
 cd /minecraft/paper
 wget $PAPER_URL
@@ -96,6 +96,50 @@ cat > /minecraft/paper/eula.txt <<EOF
 #Mon Aug 15 14:38:32 JST 2022
 eula=true
 EOF
+
+cat > /minecraft/paper/start.sh <<EOF
+#!/bin/bash
+
+# region : set variables
+JARFILE=/minecraft/paper/${PAPER_VER}
+MEM=2048M
+# endregion
+# ---
+# region : start minecraft
+cd `dirname $0`
+screen -AdmS paper java -server -Xms${MEM} -Xmx${MEM} -jar ${JARFILE} nogui
+# ---
+EOF
+
+cat > /minecraft/paper/stop.sh <<EOF
+#!/bin/bash
+# region : set variables
+WAIT=60
+STARTSCRIPT=/minecraft/paper/start.sh
+SCREEN_NAME='paper'
+MINECRAFT_WORLD=/minecraft/paper
+HOSTNAME=`hostname`
+# endregion
+
+# ---
+# region : stop minecraft
+# world messsage
+screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "say '${WAIT}'秒後にサーバーを停止し、バックアップ作業 に入ります\015"'
+screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "say 10分後に再接続可能になるので、しばらくお待ち下さい\015"'
+
+# minecraft stop cmd
+sleep $WAIT
+screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "stop\015"'
+# ---
+
+# minecraft restart
+$STARTSCRIPT
+# ---
+EOF
+
+chmod 700 /minecraft/paper/start.sh
+chmod 700 /minecraft/paper/stop.sh
+
 # endregion
 
 echo --end--

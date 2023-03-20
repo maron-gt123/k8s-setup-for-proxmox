@@ -92,7 +92,7 @@ ufw reload
 
 # region : minecraft setup
 cd /minecraft/paper
-wget $PAPER_URL
+sudo wget $PAPER_URL
 cat > /minecraft/paper/eula.txt <<EOF
 #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.m>
 #Mon Aug 15 14:38:32 JST 2022

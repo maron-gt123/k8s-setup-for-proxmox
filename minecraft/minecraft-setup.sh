@@ -2,7 +2,7 @@
 
 # region : set variables
 PAPER_VER=paper-1.19.4-466.jar
-PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/431/downloads/${PAPER_VER}
+PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/1.19.4/builds/466/downloads/${PAPER_VER}
 HOSTNAME=$(hostname)
 
 # endregion

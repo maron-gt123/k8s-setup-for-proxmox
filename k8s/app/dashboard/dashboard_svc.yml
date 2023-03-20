@@ -7,7 +7,7 @@ metadata:
   namespace: kubernetes-dashboard # namespace の名前
 spec:
   type: LoadBalancer # minikube では未サポート
-  loadBalancerIP: 192.168.15.60
+  loadBalancerIP: 192.168.15.61
   ports:
     - name: dashboard-service-lb
       protocol: TCP

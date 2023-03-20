@@ -9,7 +9,7 @@ TEMPLATE_BOOT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
 BOOT_IMAGE_TARGET_VOLUME=local-lvm
 SNIPPET_TARGET_VOLUME=prox-backup-NFS
 SNIPPET_TARGET_PATH=/mnt/pve/${SNIPPET_TARGET_VOLUME}/snippets
-REPOSITORY_RAW_SOURCE_URL="https://raw.githubusercontent.com/maron-gt123/kubernetes-k8s-setup/main"
+REPOSITORY_RAW_SOURCE_URL="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main"
 
 VM_LIST=(
     # ---

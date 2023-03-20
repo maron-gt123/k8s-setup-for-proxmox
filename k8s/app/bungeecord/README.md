@@ -4,7 +4,7 @@
 
       sudo mkdir /k8s/bungeecord
       sudo chmod 700 /k8s/bungeecord
-      cd /k8/bungeecord/
+      cd /k8s/bungeecord/
       wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/bungeecord/bungeecord-config.yaml
       wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/bungeecord/bungeecord-deployment.yaml
       wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/bungeecord/bungeecord-loadbalancer.yaml

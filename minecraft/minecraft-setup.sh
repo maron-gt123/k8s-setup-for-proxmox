@@ -102,8 +102,8 @@ eula=true
 EOF
 
 cd /minecraft/paper/
-sudo wget https://raw.githubusercontent.com/maron-gt123/kubernetes-cluster-setup/main/minecraft/mic-start.sh
-sudo wget https://raw.githubusercontent.com/maron-gt123/kubernetes-cluster-setup/main/minecraft/mic-stop.sh
+sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-start.sh
+sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-stop.sh
 cd 
 
 chmod 700 /minecraft/paper/mic-start.sh

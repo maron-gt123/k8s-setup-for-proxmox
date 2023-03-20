@@ -31,12 +31,7 @@ Minecraft Server開始に必要な初回セットアップ方法
       for i in 7 8 9; do ping -c1 192.168.15.8$i; done 
                   
 ##  手動作業<br>
-1. scriptでは設定できない「ssh.config設定」「バックアップ用NAS設定」「crontab設定」「ipv6無効化」を別途設定
-    + ssh.config settig
-     ```
-     nano /etc/ssh/sshd_config
-     /etc/init.d/ssh reload
-     ```
+1. scriptでは設定できない「バックアップ用NAS設定」「crontab設定」「ipv6無効化」を別途設定
     + mount nas drive
      ```
      nano /etc/fstab

@@ -11,5 +11,6 @@
       wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/bungeecord/bungeecord-namespace.yaml
       wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/bungeecord/nsf-pv-bungeecord.yaml
       wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/bungeecord/nsf-pvc-bungeecord.yaml
+      cd
       kubectl apply -f /k8s/bungeecord/bungeecord-namespace.yaml
       kubectl apply -f /k8s/bungeecord/.

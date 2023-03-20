@@ -8,9 +8,9 @@
   * onp-k8s-wk-1
   * onp-k8s-wk-2
   * onp-k8s-wk-3
-* 錬成scriptはこちら[deploy-vm.sh](https://github.com/maron-gt123/kubernetes-setup-for-proxmox/blob/main/k8s/deploy-vm.sh)
-* 削除scriptはこちら[remove-vm.sh](https://github.com/maron-gt123/kubernetes-setup-for-proxmox/blob/main/k8s/remove-vm.sh)
-* 錬成後のsetupはこちら[k8s-node-setup.sh](https://github.com/maron-gt123/kubernetes-setup-for-proxmox/blob/main/k8s/k8s-node-setup.sh)
+* 錬成scriptはこちら[deploy-vm.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/k8s/deploy-vm.sh)
+* 削除scriptはこちら[remove-vm.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/k8s/remove-vm.sh)
+* 錬成後のsetupはこちら[k8s-node-setup.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/k8s/k8s-node-setup.sh)
 
 ### ping確認
 * VM錬成後、pingを実行し疎通確認を実施<br>

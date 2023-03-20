@@ -10,3 +10,7 @@
       wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/dashboard/recommended.yaml
       cd
       
+      kubectl apply -f /k8s/dashboard/darecommended.yaml
+      kubectl apply -f /k8s/dashboard/dashboard_account.yml
+      kubectl apply -f /k8s/dashboard/dashboard_rolebinding.yml
+      kubectl apply -f /k8s/dashboard/dashboard_svc.yml

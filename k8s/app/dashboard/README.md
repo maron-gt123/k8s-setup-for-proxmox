@@ -18,4 +18,4 @@
 ##  k8s dashboardトークンの発行
 * トークンについては以下の実行により表示
       
-      ssh onp-k8s-cp-1 "kubectl -n kubernetes-dashboard create token admin-user"
+      ssh onp-k8s-cp-1 kubectl -n kubernetes-dashboard create token admin-user

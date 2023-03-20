@@ -15,7 +15,8 @@
 ### 
 * ddd<>br
 
-      /bin/bash <(curl -s https://raw.githubusercontent.com/GiganticMinecraft/seichi_infra/${TARGET_BRANCH}/seichi-onp-k8s/cluster-boot-up/scripts/proxmox-host-terminal/deploy-vm.sh) ${TARGET_BRANCH}
+      TARGET_BRANCH=main
+      /bin/bash <(curl -s https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/${TARGET_BRANCH}/k8s/deploy-vm.sh) ${TARGET_BRANCH}
 
 ### ping確認
 * VM錬成後、pingを実行し疎通確認を実施<br>

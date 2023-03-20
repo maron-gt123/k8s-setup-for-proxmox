@@ -3,9 +3,7 @@
 # region : set variables
 PAPER_VER=paper-1.19.3-431.jar
 PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/431/downloads/${PAPER_VER}
-MEN2=${MEM}
-JARFILE2=${JARFILE}
-
+HOSTNAME=$(hostname)
 
 # endregion
 
@@ -100,6 +98,19 @@ cat > /minecraft/paper/eula.txt <<EOF
 #Mon Aug 15 14:38:32 JST 2022
 eula=true
 EOF
+
+if [ $HOSTNAME = "mic-lobby-SV" ]; then
+    cd /minecraft/paper/
+    sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-lobby-SV/bukkit.yml
+    sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-lobby-SV/server.properties
+    sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-lobby-SV/spigot.yml
+    cd
+else
+    cd /minecraft/paper/
+    sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-paper/server.properties
+    sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-paper/spigot.yml
+    cd
+fi
 
 cd /minecraft/paper/
 sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-start.sh

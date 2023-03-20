@@ -16,7 +16,7 @@ Minecraft Server開始に必要な初回セットアップ方法
     + VM Diskが配置可能な共有ストレージの構築
     + Snippetが配置可能な共有ストレージの構築
     + Network周りの構築
-2. proxmoxのコンソール上で[mic-deploy-vm.sh](https://github.com/maron-gt123/proxmox-in-create/blob/main/minecraft/mic-deploy-vm.sh)を実行すると、各種VMが錬成される<br>
+2. proxmoxのコンソール上で[mic-deploy-vm.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/minecraft/mic-deploy-vm.sh)を実行すると、各種VMが錬成される<br>
     + 実行シーケンス
       + テンプレート用イメージVMの作成
       + テンプレート用VMを活用した運用VMを3台錬成 

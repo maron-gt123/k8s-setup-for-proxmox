@@ -23,7 +23,7 @@ Minecraft Server開始に必要な初回セットアップ方法
       + snippetsによるCloud-initの初期設定
       + 錬成後のVM起動
       + snippets設定値の反映時間60sec
-      + 各VM内で内部処理[mic-setup.sh](https://github.com/maron-gt123/kubernetes-cluster-setup/blob/main/minecraft/setup.sh)
+      + 各VM内で内部処理[mic-setup.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/minecraft/minecraft-setup.sh)
       
 ##  ping確認
 + VM錬成後、pingを実行し疎通確認を実施

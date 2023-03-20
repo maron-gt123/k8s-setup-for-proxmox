@@ -27,6 +27,7 @@ Minecraft Server開始に必要な初回セットアップ方法
       
 ## 錬成
 * proxmoxホストコンソールで以下の処理を実施しVMを錬成
+
       TARGET_BRANCH=main
       /bin/bash <(curl -s https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/${TARGET_BRANCH}/k8s/deploy-vm.sh) ${TARGET_BRANCH}
 

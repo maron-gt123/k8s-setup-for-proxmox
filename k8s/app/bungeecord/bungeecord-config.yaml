@@ -37,9 +37,9 @@ data:
     # Warning: asterisk cannot be used for permissions setting
     permissions:
       default:
+      admin:
         - bungeecord.command.list
         - bungeecord.command.server
-      admin:
         - bungeecord.command.alert
         - bungeecord.command.end
         - bungeecord.command.ip

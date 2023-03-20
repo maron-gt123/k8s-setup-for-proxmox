@@ -32,4 +32,5 @@ sudo curl -O https://raw.githubusercontent.com/metallb/metallb/v0.13.9/config/ma
 cd
 
 kubectl apply -f /k8s/metallb/metallb-native.yaml
+sleep 10
 kubectl apply -f /k8s/metallb/ipaddresspool.yaml

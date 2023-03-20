@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: waterfall
+  name: bungeecord
+  labels:
+    app: bungeecord
+  # We wish this deployment to be reloaded
+  # when "bungeecord-config" and "bungeecord-plugin-configs" ConfigMap are updated
+  annotations:
+    configmap.reloader.stakater.com/reload: "bungeecord-config"
+spec:
+  replicas: 2
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: bungeecord
+  template:
+    metadata:
+      labels:
+        app: bungeecord
+    spec:
+      containers:
+        - image: itzg/bungeecord:java17-2022.4.1
+          name: bungeecord
+          env:
+            - name: TYPE
+              value: WATERFALL
+            - name: ENABLE_RCON
+              value: "true"
+
+            - name: INIT_MEMORY
+              value: 512M
+            - name: MAX_MEMORY
+              value: 1G
+          ports:
+            - containerPort: 25577
+              name: bungeecord
+          volumeMounts:
+            - name: bungeecord-config
+              mountPath: /config/config.yml
+              subPath: config.yml
+
+      volumes:
+        - name: bungeecord-storage
+          persistentVolumeClaim:
+            claimName: bungeecord-pvc
+        - name: bungeecord-config
+          configMap:
+            name: bungeecord-config

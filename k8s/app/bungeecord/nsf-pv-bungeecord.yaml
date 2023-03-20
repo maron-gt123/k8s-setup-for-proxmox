@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  namespace: waterfall
+  name: bungeecord-pv
+  labels:
+    app: bungeecord
+spec:
+  storageClassName: bungeecord
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 5Gi
+  nfs:
+    server: 192.168.6.53
+    path: /kubanetesu-NFS/bungeecord/
+  persistentVolumeReclaimPolicy: Delete

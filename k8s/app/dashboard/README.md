@@ -14,3 +14,8 @@
       kubectl apply -f /k8s/dashboard/dashboard_account.yml
       kubectl apply -f /k8s/dashboard/dashboard_rolebinding.yml
       kubectl apply -f /k8s/dashboard/dashboard_svc.yml
+      
+##  k8s dashboardトークンの発行
+* トークンについては以下の実行により表示
+      
+      kubectl -n kubernetes-dashboard create token admin-user

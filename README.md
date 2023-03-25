@@ -44,17 +44,17 @@
  * proxmoxのbridge network設定
    * onp-proxmox01-SV
      * management：vmbr10(192.168.10.50)
-     * cluster：vmbr1(192.168.1.50)
-     * service：vmbr15(192.168.15.50)
-     * storage：vmbr6(192.168.6.50)
+     * cluster：vmbr1(192.168.1.141)
+     * service：vmbr15(192.168.15.141)
+     * storage：vmbr6(192.168.6.141)
    * onp-proxmox02-SV
-     * cluster：vmbr1(192.168.1.51)
-     * service：vmbr15(192.168.15.51)
-     * storage：vmbr6(192.168.6.51)
+     * cluster：vmbr1(192.168.1.142)
+     * service：vmbr15(192.168.15.142)
+     * storage：vmbr6(192.168.6.142)
    * onp-proxmox03-SV
-     * cluster：vmbr1(192.168.1.52)
-     * service：vmbr15(192.168.15.52)
-     * storage：vmbr6(192.168.6.52)
+     * cluster：vmbr1(192.168.1.143)
+     * service：vmbr15(192.168.15.143)
+     * storage：vmbr6(192.168.6.143)
 
 ## インストール後の設定
 ### repositoryの変更

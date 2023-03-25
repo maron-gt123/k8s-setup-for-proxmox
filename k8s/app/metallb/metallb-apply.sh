@@ -4,7 +4,7 @@ sudo mkdir /k8s
 sudo chmod 777 /k8s
 
 mkdir /k8s/metallb
-sudo chmod 770 /k8s/metallb
+sudo chmod 70 /k8s/metallb
   
 cat > /k8s/metallb/ipaddresspool.yaml <<EOF
 apiVersion: metallb.io/v1beta1

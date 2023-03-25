@@ -7,7 +7,7 @@ TEMPLATE_VMID=9999
 CLOUDINIT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
 TEMPLATE_BOOT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
 BOOT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
-SNIPPET_TARGET_VOLUME=prox-backup-NFS
+SNIPPET_TARGET_VOLUME=prox-NFS
 SNIPPET_TARGET_PATH=/mnt/pve/${SNIPPET_TARGET_VOLUME}/snippets
 REPOSITORY_RAW_SOURCE_URL="https://raw.githubusercontent.com/maron-gt123/kubernetes-cluster-setup/main"
 
@@ -23,9 +23,9 @@ VM_LIST=(
     # targethost: VMの配置先となるProxmoxホストのホスト名
     # ---
     #vmid #vmname      #cpu #mem  #vmsrvip    #vmsanip     #targetip    #targethost
-    "201 mic-lobby-SV 4    4096  192.168.15.87 192.168.1.87 192.168.1.50 onp-proxmox01-SV"
-    "202 mic-paper-01 4    4096  192.168.15.88 192.168.1.88 192.168.1.51 onp-proxmox02-SV"
-    "203 mic-paper-02 4    4096  192.168.15.89 192.168.1.89 192.168.1.52 onp-proxmox03-SV"
+    "201 mic-lobby-SV 4    4096  192.168.15.87 192.168.1.87 192.168.1.141 onp-prox01-SV"
+    "202 mic-paper-01 4    4096  192.168.15.88 192.168.1.88 192.168.1.142 onp-prox02-SV"
+    "203 mic-paper-02 4    4096  192.168.15.89 192.168.1.89 192.168.1.143 onp-prox03-SV"
 )
 #endregion
 
@@ -38,7 +38,7 @@ wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.i
 
 # create a new VM and attach Network Adaptor
 # vmbr15=service Network Segment (192.168.15.0/24)
-# vmbr1=Storage Network Segment (192.168.1.0/24)
+# vmbr1=cluster Network Segment (192.168.1.0/24)
 qm create $TEMPLATE_VMID --cores 2 --memory 4096 --net0 virtio,bridge=vmbr15 --net1 virtio,bridge=vmbr1 --name minecraftSV-template
 
 # import the downloaded disk to $TEMPLATE_BOOT_IMAGE_TARGET_VOLUME storage

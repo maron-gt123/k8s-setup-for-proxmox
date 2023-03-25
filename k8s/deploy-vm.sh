@@ -7,7 +7,7 @@ TEMPLATE_VMID=8888
 CLOUDINIT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
 TEMPLATE_BOOT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
 BOOT_IMAGE_TARGET_VOLUME=local-lvm
-SNIPPET_TARGET_VOLUME=prox-backup-NFS
+SNIPPET_TARGET_VOLUME=prox-NFS
 SNIPPET_TARGET_PATH=/mnt/pve/${SNIPPET_TARGET_VOLUME}/snippets
 REPOSITORY_RAW_SOURCE_URL="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main"
 
@@ -23,12 +23,12 @@ VM_LIST=(
     # targethost: VMの配置先となるProxmoxホストのホスト名
     # ---
     #vmid #vmname      #cpu #mem  #vmsrvip    #vmsanip     #targetip    #targethost
-    "801 onp-k8s-cp-1 4    6144  192.168.15.81 192.168.6.81 192.168.1.50 onp-proxmox01-SV"
-    "802 onp-k8s-cp-2 4    6144  192.168.15.82 192.168.6.82 192.168.1.51 onp-proxmox02-SV"
-    "803 onp-k8s-cp-3 4    6144  192.168.15.83 192.168.6.83 192.168.1.52 onp-proxmox03-SV"
-    "881 onp-k8s-wk-1 6    12288 192.168.15.84 192.168.6.84 192.168.1.50 onp-proxmox01-SV"
-    "882 onp-k8s-wk-2 6    12288 192.168.15.85 192.168.6.85 192.168.1.51 onp-proxmox02-SV"
-    "883 onp-k8s-wk-3 6    12288 192.168.15.86 192.168.6.86 192.168.1.52 onp-proxmox03-SV"
+    "801 onp-k8s-cp-1 4    6144  192.168.15.81 192.168.6.81 192.168.1.141 onp-prox01-SV"
+    "802 onp-k8s-cp-2 4    6144  192.168.15.82 192.168.6.82 192.168.1.142 onp-prox02-SV"
+    "803 onp-k8s-cp-3 4    6144  192.168.15.83 192.168.6.83 192.168.1.143 onp-prox03-SV"
+    "881 onp-k8s-wk-1 6    12288 192.168.15.84 192.168.6.84 192.168.1.141 onp-prox01-SV"
+    "882 onp-k8s-wk-2 6    12288 192.168.15.85 192.168.6.85 192.168.1.142 onp-prox02-SV"
+    "883 onp-k8s-wk-3 6    12288 192.168.15.86 192.168.6.86 192.168.1.143 onp-prox03-SV"
 )
 #endregion
 

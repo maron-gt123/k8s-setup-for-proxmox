@@ -101,7 +101,7 @@ Minecraft Server開始に必要な初回セットアップ方法
 ## VMが正しく削除されない場合
   + proxmox内のVMを一斉に削除した場合、一部ストレージ領域が残る場合があるため、適宜手動で削除を実施する必要がある。
   ```
-  for host in 192.168.1.50 192.168.1.51 192.168.1.52 ; do
+  for host in 192.168.1.141 192.168.1.142 192.168.1.143 ; do
   # Cloudinitデータ削除
   ssh $host dmsetup remove vg01-vm--201--cloudinit
   ssh $host dmsetup remove vg01-vm--202--cloudinit

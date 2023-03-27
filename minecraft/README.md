@@ -62,19 +62,19 @@ Minecraft Server開始に必要な初回セットアップ方法
           EOF'"
           
           # fastab反映
-          ssh mic-lobby-SV "sudo systemctl daemon-reload'"
-          ssh mic-lobby-SV "sudo systemctl restart remote-fs.target'"
-          ssh mic-lobby-SV "sudo systemctl restart local-fs.target'"
+          ssh mic-lobby-SV "sudo sh -c 'sudo systemctl daemon-reload'"
+          ssh mic-lobby-SV "sudo sh -c 'sudo systemctl restart remote-fs.target'"
+          ssh mic-lobby-SV "sudo sh -c 'sudo systemctl restart local-fs.target'"
           ssh mic-lobby-SV "sudo sh -c 'sudo mount -a'"
           
-          ssh mic-paper-01 "sudo systemctl daemon-reload'"
-          ssh mic-paper-01 "sudo systemctl restart remote-fs.target'"
-          ssh mic-paper-01 "sudo systemctl restart local-fs.target'"
+          ssh mic-paper-01 "sudo sh -c 'sudo systemctl daemon-reload'"
+          ssh mic-paper-01 "sudo sh -c 'sudo systemctl restart remote-fs.target'"
+          ssh mic-paper-01 "sudo sh -c 'sudo systemctl restart local-fs.target'"
           ssh mic-paper-01 "sudo sh -c 'sudo mount -a'"
           
-          ssh mic-paper-02 "sudo systemctl daemon-reload'"
-          ssh mic-paper-02 "sudo systemctl restart remote-fs.target'"
-          ssh mic-paper-02 "sudo systemctl restart local-fs.target'"
+          ssh mic-paper-02 "sudo sh -c 'sudo systemctl daemon-reload'"
+          ssh mic-paper-02 "sudo sh -c 'sudo systemctl restart remote-fs.target'"
+          ssh mic-paper-02 "sudo sh -c 'sudo systemctl restart local-fs.target'"
           ssh mic-paper-02 "sudo sh -c 'sudo mount -a'"
      
     + crontab setting

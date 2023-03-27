@@ -6,7 +6,6 @@ WAIT=60
 STARTSCRIPT=/minecraft/paper/mic-start.sh
 SCREEN_NAME='paper'
 MINECRAFT_WORLD=/minecraft/paper
-MINECRAFT_BACKUP=/minecraft/nas
 HOSTNAME=`hostname`
 
 # endregion

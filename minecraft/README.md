@@ -46,11 +46,11 @@ Minecraft Server開始に必要な初回セットアップ方法
           # mount nas drive
           //nas.micnet/usbssd/mic-backup /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"
-          ssh mic-paper01 "sudo sh -c 'cat >> /etc/fstab << EOF
+          ssh mic-paper-01 "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount nas drive
           //nas.micnet/usbssd/mic-backup /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"     
-          ssh mic-paper02 "sudo sh -c 'cat >> /etc/fstab << EOF
+          ssh mic-paper-02 "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount nas drive
           //nas.micnet/usbssd/mic-backup /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"

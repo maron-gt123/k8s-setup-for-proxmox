@@ -6,7 +6,6 @@ WAIT=60
 STARTSCRIPT=/minecraft/paper/mic-start.sh
 SCREEN_NAME='paper'
 MINECRAFT_WORLD=/minecraft/paper
-HOSTNAME=`hostname`
 
 # endregion
 

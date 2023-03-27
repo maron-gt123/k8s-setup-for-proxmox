@@ -20,6 +20,8 @@ spec:
       labels:
         app: bungeecord
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: onp-k8s-wk-3
       containers:
         - image: itzg/bungeecord:java17-2022.4.1
           name: bungeecord

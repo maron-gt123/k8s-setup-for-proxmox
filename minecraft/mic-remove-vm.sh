@@ -7,9 +7,9 @@ TEMPLATE_VMID=9999
 vmid_lobby=201
 vmid_1=202
 vmid_2=203
-targetip_1=192.168.1.50
-targetip_2=192.168.1.51
-targetip_3=192.168.1.52
+targetip_1=192.168.1.141
+targetip_2=192.168.1.142
+targetip_3=192.168.1.143
 
 # endregion
 

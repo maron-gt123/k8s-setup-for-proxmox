@@ -90,7 +90,7 @@ Minecraft Server開始に必要な初回セットアップ方法
     sudo update-grub
      ```
 ## VMの削除
-+ VM削除に伴っては以下のscriptを実施[mic-remove-vm.sh](https://github.com/maron-gt123/proxmox-in-create/blob/main/minecraft/mic-remove-vm.sh)
++ VM削除に伴っては以下のscriptを実施[mic-remove-vm.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/minecraft/mic-remove-vm.sh)
 
 ## VM-deploy VM-remove時のVM-Disk lock解消
   + qmコマンドを使用したVMの錬成及びリビルド時にVM-Diskのロックが顕在化する場合あるため対処方法について記載<br>

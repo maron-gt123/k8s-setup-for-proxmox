@@ -64,6 +64,10 @@ spec:
           ports:
             - containerPort: 25577
               name: bungeecord
+            - containerPort: 18321
+              name: jmx-metrics
+            - containerPort: 9225
+              name: metrics
           volumeMounts:
             - name: bungeecord-config
               mountPath: /config/config.yml

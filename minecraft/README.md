@@ -42,9 +42,10 @@ Minecraft Server開始に必要な初回セットアップ方法
      ```
      USER=**
      PASSWORD=**
-     ssh mic-loby-SV sudo cat /etc/fstab < EOF
+     ssh mic-loby-SV sudo cat > /etc/fstab < EOF
      # mount nas drive
      //nas.micnet/usbssd/mic-backup /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+     EOF
      ```  
     + crontab setting
      ```

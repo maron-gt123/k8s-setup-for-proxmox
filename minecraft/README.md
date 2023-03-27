@@ -39,14 +39,15 @@ Minecraft Server開始に必要な初回セットアップ方法
 ##  手動作業<br>
 1. scriptでは設定できない「バックアップ用NAS設定」「crontab設定」「ipv6無効化」を別途設定
     + mount nas drive
-     ```
-     USER=[ユーザー名を明記]
-     PASSWORD=[パスワードを明記]
-     ssh mic-lobby-SV "sudo sh -c 'cat >> /etc/fstab << EOF
-     # mount nas drive
-     //nas.micnet/usbssd/mic-backup /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
-     EOF'"
-     ```  
+       
+       USER=[ユーザー名を明記]
+       PASSWORD=[パスワードを明記]
+       ssh mic-lobby-SV "sudo sh -c 'cat >> /etc/fstab << EOF
+       # mount nas drive
+       //nas.micnet/usbssd/mic-backup /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+       EOF'"
+     
+     
     + crontab setting
      ```
      #minecraft bukup sprict

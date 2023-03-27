@@ -42,23 +42,28 @@ Minecraft Server開始に必要な初回セットアップ方法
        
           USER=[ユーザー名を明記]
           PASSWORD=[パスワードを明記]
-          # lobbyサーバーのバックアップstorageマウント
+          # fastab編集
+          # lobby-server
           ssh mic-lobby-SV "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount nas drive
           //nas.micnet/usbssd/mic-backup /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"
-          ssh mic-lobby-SV "sudo sh -c 'sudo mount -a'"
-          # paper-01サーバーのバックアップstorageマウント
+          
+          # paper-01-server
           ssh mic-paper-01 "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount nas drive
           //nas.micnet/usbssd/mic-backup /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"
-          ssh mic-paper-01 "sudo sh -c 'sudo mount -a'"
-          # paper-02サーバーのバックアップstorageマウント
+          
+          # paper-02-server
           ssh mic-paper-02 "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount nas drive
           //nas.micnet/usbssd/mic-backup /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"
+          
+          # fastab反映
+          ssh mic-lobby-SV "sudo sh -c 'sudo mount -a'"
+          ssh mic-paper-01 "sudo sh -c 'sudo mount -a'"
           ssh mic-paper-02 "sudo sh -c 'sudo mount -a'"
      
     + crontab setting

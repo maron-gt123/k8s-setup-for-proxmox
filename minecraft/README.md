@@ -48,7 +48,7 @@ Minecraft Server開始に必要な初回セットアップ方法
           # mount minecraft Backup
           //nas.micnet/usbssd/mic-backup/lobby /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           # mount minecraft plugins
-          //nas.micnet/usbssd/mic-backup/plugins/lobby /minecraft/paper/plugins cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+          //nas.micnet/usbssd/mic-backup/plugins/lobby /minecraft/paper/plugins/lobby cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"
           
           # paper-01-server
@@ -56,7 +56,7 @@ Minecraft Server開始に必要な初回セットアップ方法
           # mount minecraft Backup
           //nas.micnet/usbssd/mic-backup/paper01 /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           # mount minecraft plugins
-          //nas.micnet/usbssd/mic-backup/plugins/paper01 /minecraft/paper/plugins cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+          //nas.micnet/usbssd/mic-backup/plugins/paper01 /minecraft/paper/plugins/paper01 cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"
           
           # paper-02-server
@@ -64,7 +64,7 @@ Minecraft Server開始に必要な初回セットアップ方法
           # mount minecraft Backup
           //nas.micnet/usbssd/mic-backup/paper02 /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           # mount minecraft plugins
-          //nas.micnet/usbssd/mic-backup/plugins/paper02 /minecraft/paper/plugins cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+          //nas.micnet/usbssd/mic-backup/plugins/paper02 /minecraft/paper/plugins/paper02 cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"
           
           # fastab反映

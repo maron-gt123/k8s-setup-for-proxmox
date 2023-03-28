@@ -46,7 +46,7 @@ data:
         - bungeecord.command.reload
         - bungeecord.command.kick
     groups:
-      md_5:
+      maron_12345:
         - admin
     custom_server_name: HexaCord
     player_limit: -1

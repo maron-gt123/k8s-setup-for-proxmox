@@ -6,7 +6,7 @@ metadata:
 spec:
   ports:
   - name: http-web
-    port: 81
+    port: 8
     protocol: TCP
     targetPort: 3000
   selector:

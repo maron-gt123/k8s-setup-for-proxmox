@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: prometheus-lb
   namespace: prometheus
+  labels:
+    app: kube-prometheus-stack-prometheus
 spec:
   ports:
   - name: http-web

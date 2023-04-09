@@ -15,4 +15,4 @@
 ## podの削除
 + prometheusを削除する場合はこちら
 
-        kubectl delet pod $(kubectl -n prometheus get pod | grep prometheus-kube-prometheus-prometheus | awk '{print $1}')
+      kubectl delet pod $(kubectl -n prometheus get pod | grep prometheus-kube-prometheus-prometheus | awk '{print $1}')

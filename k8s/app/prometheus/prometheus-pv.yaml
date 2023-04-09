@@ -2,12 +2,14 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: prometheus-pv
+  labels:
+    app: prometheus
 spec:
   capacity:
     storage: 10Gi
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce
   nfs:
-    server: 192.168.6.53
     path: /kubanetesu-NFS/prometheus/
+    server: 192.168.6.53
   persistentVolumeReclaimPolicy: Retain

@@ -6,7 +6,7 @@ metadata:
   labels:
     app: prometheus
 spec:
-  storageClassName: "prometheus"
+  storageClassName: "prometheus-pv"
   accessModes:
     - ReadWriteOnce
   resources:

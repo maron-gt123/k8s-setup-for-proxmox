@@ -6,9 +6,9 @@ metadata:
   labels:
     app: prometheus
 spec:
-  storageClassName: "prometheus"
+  storageClassName: prometheus
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 10Gi

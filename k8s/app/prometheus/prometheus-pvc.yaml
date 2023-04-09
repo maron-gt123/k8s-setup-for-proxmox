@@ -8,7 +8,9 @@ metadata:
 spec:
   storageClassName: prometheus
   accessModes:
-    - ReadWriteMany
+  - ReadWriteOnce
+  volumeName: prometheus-pv
+  volumeMode: Filesystem
   resources:
     requests:
       storage: 10Gi

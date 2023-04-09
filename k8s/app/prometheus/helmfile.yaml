@@ -7,4 +7,4 @@ releases:
     namespace: prometheus
     chart: prometheus-community/kube-prometheus-stack
     values:
-      - ./storage.yaml
+      - ./prometheus-values.yaml

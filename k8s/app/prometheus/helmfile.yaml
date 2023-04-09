@@ -7,12 +7,4 @@ releases:
     namespace: prometheus
     chart: prometheus-community/kube-prometheus-stack
     values:
-      server:
-        persistentVolume:
-          enabled: true
-          existingClaim: prometheus-pvc
-          annotations:
-            "pv.beta.kubernetes.io/gid": "0"
-        persistence:
-          enabled: true
-          existingClaim: prometheus-pvc
+      - ./values.yaml

@@ -12,6 +12,6 @@ spec:
   capacity:
     storage: 10Gi
 nfs:
-    server: 192.168.6.53
-    path: /kubanetesu-NFS/prometheus/
-  persistentVolumeReclaimPolicy: Delete
+  server: 192.168.6.53
+  path: /kubanetesu-NFS/prometheus/
+persistentVolumeReclaimPolicy: Delete

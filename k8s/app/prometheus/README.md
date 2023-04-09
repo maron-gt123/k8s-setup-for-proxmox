@@ -10,3 +10,4 @@
 　　  　    chmod +x helmfile
 　　   　   sudo mv helmfile /usr/local/bin/
 　　      　helmfile version
+            

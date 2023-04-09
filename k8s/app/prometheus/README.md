@@ -11,3 +11,7 @@
         sudo mv helmfile /usr/local/bin/
         helmfile version
             
+            
+## podの削除
++ 
+kubectl delet pod $(kubectl -n prometheus get pod | grep prometheus-kube-prometheus-prometheus | awk '{print $1}')

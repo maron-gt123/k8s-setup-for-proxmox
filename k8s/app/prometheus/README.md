@@ -11,7 +11,12 @@
         sudo mv helmfile /usr/local/bin/
         helmfile version
             
-            
+##  インストール
++   以下のコマンドでインストール実施
+
+        helmfile apply --skip-diff-on-install
+
+
 ## podの削除
 + prometheusを削除する場合はこちら
 

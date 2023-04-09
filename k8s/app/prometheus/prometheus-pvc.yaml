@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: prometheus-pvc
   namespace: prometheus
+  name: prometheus-pvc
   labels:
     app: prometheus
 spec:
-  storageClassName: "prometheus-pv"
+  storageClassName: "prometheus"
   accessModes:
     - ReadWriteOnce
   resources:

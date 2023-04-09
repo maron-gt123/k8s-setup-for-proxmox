@@ -16,3 +16,4 @@ releases:
         persistence:
           enabled: true
           existingClaim: prometheus-pvc
+

@@ -24,6 +24,11 @@ metallbのデプロイが完了している前提とします<br>
 
     kubectl -n argocd get secret/argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
     
+## ログインパスワードの変更
+任意のパスワードに設定してください<br>
+
+    argocd account update-password
+
 ## Argo CDへのrepo反映
     argocd app create apps \
       --repo https://github.com/maron-gt123/k8s-setup-for-proxmox.git \

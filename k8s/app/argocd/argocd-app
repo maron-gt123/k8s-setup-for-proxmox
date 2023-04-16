@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+spec:
+  destination:
+    namespace: my-namespace
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
+    path: k8s/app
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

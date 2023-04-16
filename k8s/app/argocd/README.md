@@ -17,7 +17,7 @@
     
 ## service設定
 
-    kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/argocd/argocd-server-lb.yaml
+    kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.15.60"}}'
 
 ## ログイン情報の開示
 

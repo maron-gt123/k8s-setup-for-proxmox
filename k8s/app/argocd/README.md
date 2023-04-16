@@ -23,7 +23,11 @@ metallbのデプロイが完了している前提とします<br>
 ## ログイン情報の開示
 
     kubectl -n argocd get secret/argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
-    
+
+## argocdCLIからのログイン
+
+    argocd login 192.168.15.60
+
 ## ログインパスワードの変更
 任意のパスワードに設定してください<br>
 

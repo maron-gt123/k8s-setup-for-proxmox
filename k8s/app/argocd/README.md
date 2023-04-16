@@ -16,6 +16,7 @@
     helm install -n argocd argocd argo/argo-cd
     
 ## service設定
+metallbのデプロイが完了している前提とします<br>
 
     kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.15.60"}}'
 

@@ -1,4 +1,5 @@
 # proxmox基盤をベースとした様々な仮想環境の構築<br>
+自身の自宅サーバーで使用するproxmox及びkubanetesu環境について記載します。
 
 ### 前提条件<br>
 * Proxmox Virtual Environment 7.3-4

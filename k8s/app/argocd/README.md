@@ -18,3 +18,8 @@
 ## service設定
 
     kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/argocd/argocd-server-lb.yaml
+
+## ログイン情報の開示
+
+    kubectl -n argocd get secret/argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+    

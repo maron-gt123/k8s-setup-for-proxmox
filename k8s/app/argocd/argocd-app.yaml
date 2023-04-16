@@ -1,10 +1,17 @@
-project: default
-source:
-  repoURL: 'https://github.com/maron-gt123/k8s-setup-for-proxmox.git'
-  path: k8s/app/bungeecord
-  targetRevision: HEAD
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: argocd
-syncPolicy:
-  automated: {}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-app
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
+    path: k8s/app/bungeecord
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

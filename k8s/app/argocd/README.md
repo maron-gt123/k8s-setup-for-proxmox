@@ -15,4 +15,6 @@
     helm repo add argo https://argoproj.github.io/argo-helm
     helm install -n argocd argocd argo/argo-cd
     
-#service設定
+## service設定
+
+    kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/argocd/argocd-server-lb.yaml

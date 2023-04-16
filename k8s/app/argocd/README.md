@@ -1,4 +1,4 @@
-#   Kubernetes clusterに Argo CDをインストール
+#Kubernetes clusterに Argo CDをインストール
 
 ##namespaceを作成
 

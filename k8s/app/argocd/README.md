@@ -24,10 +24,10 @@
     kubectl -n argocd get secret/argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
     
 ## Argo CDへのrepo反映
-argocd app create apps \
-  --repo https://github.com/maron-gt123/k8s-setup-for-proxmox.git \
-  --path  k8s/app/argocd\
-  --dest-server https://kubernetes.default.svc \
-  --revision main \
-  --sync-policy automated \
-  --dest-namespace argocd
+    argocd app create apps \
+      --repo https://github.com/maron-gt123/k8s-setup-for-proxmox.git \
+      --path  k8s/app/argocd\
+      --dest-server https://kubernetes.default.svc \
+      --revision main \
+      --sync-policy automated \
+      --dest-namespace argocd

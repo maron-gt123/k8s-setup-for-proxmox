@@ -16,7 +16,7 @@ spec:
     chart: kube-prometheus-stack
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: prometheus-community
+    namespace: prometheus
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

@@ -4,4 +4,4 @@ namespace: metallb-system
 
 resources:
   - github.com/metallb/metallb/config/native?ref=v0.13.9
-  - ./metallb-address-pool.yaml
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/metallb/metallb-address-pool.yaml

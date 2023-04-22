@@ -11,4 +11,4 @@ spec:
     protocol: TCP
     targetPort: minecraft
   type: LoadBalancer
-  loadBalancerIP: 172.16.3.130
+  loadBalancerIP: 192.168.15.131

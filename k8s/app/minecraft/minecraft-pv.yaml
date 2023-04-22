@@ -13,6 +13,6 @@ spec:
   capacity:
     storage: 5Gi
   nfs:
-    server: 192.168.1.200
-    path: /exports/fast-drive-02/k8s/sasa/minecraft/main
+    server: 192.168.6.53
+    path: /kubanetesu-NFS/minecraft/
   persistentVolumeReclaimPolicy: Delete

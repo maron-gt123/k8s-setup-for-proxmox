@@ -40,7 +40,7 @@ VM_LIST=(
 wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
 
 # create a new VM and attach Network Adaptor
-# vmbr15=service Network Segment (192.168.1.0/24)
+# vmbr15=service Network Segment (192.168.15.0/24)
 # vmbr6=Storage Network Segment (192.168.6.0/24)
 qm create $TEMPLATE_VMID --cores 2 --memory 4096 --net0 virtio,bridge=vmbr15 --net1 virtio,bridge=vmbr6 --name onp-k8s-template
 

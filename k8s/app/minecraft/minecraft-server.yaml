@@ -1,58 +1,46 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
-  name: minecraft-server
+  namespace: sasa
+  name: minecraft-lobby
   labels:
-    app: minecraft-server
+    app: minecraft-lobby
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: minecraft-server
-  serviceName: "minecraft-server"
-  replicas: 1
+      app: minecraft-lobby
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
-        app: minecraft-server
+        app: minecraft-lobby
     spec:
       containers:
-      - image: itzg/minecraft-server:2022.11.0-java17-alpine
-        name: minecraft-server
-        env:
-        - name: EULA
-          value: "TRUE"
-        - name: TZ
-          value: Asia/Tokyo
-        - name: TYPE
-          value: PAPER
-        - name: DIFFICULTY
-          value: peaceful
-        - name: OPS
-          value: maron_12345
-        ports:
-        - name: minecraft
-          containerPort: 25565
-        volumeMounts:
-        - name: minecraft-server-data
-          mountPath: /data
-        - name: minecraft-server-plugins
-          mountPath: /plugins
-  volumeClaimTemplates:
-  - metadata:
-      name: minecraft-server-data
-      labels:
-        "snapschedule/hourly": "enabled"
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 10Gi
-  - metadata:
-      name: minecraft-server-plugins
-      labels:
-        "snapschedule/hourly": "enabled"
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 10Gi
+        - image: itzg/minecraft-server:java17
+          name: minecraft-lobby
+          env:
+            - name: TYPE
+              value: PAPER
+            - name: ENABLE_RCON
+              value: "true"
+            - name: VERSION
+              value: "1.18.2"
+
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 2G
+
+            - name: UID
+              value: "0"
+            - name: GID
+              value: "0"
+          volumeMounts:
+            - name: minecraft-lobby-storage
+              mountPath: /data
+      volumes:
+        - name: minecraft-lobby-storage
+          persistentVolumeClaim:
+            claimName: minecraft-lobby-pvc

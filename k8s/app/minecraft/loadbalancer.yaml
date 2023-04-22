@@ -4,7 +4,7 @@ metadata:
   name: minecraft-server-lb
 spec:
   selector:
-    app: minecraft-server
+    app: minecraft
   ports:
   - name: minecraft
     port: 25565

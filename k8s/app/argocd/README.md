@@ -18,7 +18,7 @@
 ## service設定
 metallbのデプロイが完了している前提とします<br>
 
-    kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer", "loadBalancerIP": "192.168.15.60"}}'
+    kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/argocd/argocd-server-lb.yaml
 
 ## ログイン情報の開示
 

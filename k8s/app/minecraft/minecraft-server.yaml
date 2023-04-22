@@ -28,7 +28,7 @@ spec:
         - name: DIFFICULTY
           value: peaceful
         - name: OPS
-          value: unchama
+          value: maron_12345
         ports:
         - name: minecraft
           containerPort: 25565

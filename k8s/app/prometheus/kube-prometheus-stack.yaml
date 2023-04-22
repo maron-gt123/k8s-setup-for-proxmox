@@ -1,22 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus-stack
+  name: prometheus
+  namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://prometheus-community.github.io/helm-charts'
-    targetRevision: 16.11.0
+    repoURL: https://github.com/prometheus-community/helm-charts.git
     helm:
+      releaseName: prometheus
+      chart: prometheus
+      version: 14.4.0
       valueFiles:
         - values.yaml
-      parameters:
-        - name: prometheusOperator.admissionWebhooks.failurePolicy
-          value: Ignore
-    chart: kube-prometheus-stack
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: https://kubernetes.default.svc
     namespace: prometheus
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true

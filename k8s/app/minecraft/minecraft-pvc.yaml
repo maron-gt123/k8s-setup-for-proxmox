@@ -6,7 +6,7 @@ metadata:
   labels:
     app: minecraft
 spec:
-  storageClassName: minecraft
+  storageClassName: minecraft-pvc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

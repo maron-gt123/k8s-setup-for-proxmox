@@ -6,13 +6,20 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/prometheus-community/helm-charts.git
+    repoURL: https://prometheus-community.github.io/helm-charts
     helm:
       releaseName: prometheus
       chart: prometheus
-      version: 14.4.0
+      version: 16.11.0
       valueFiles:
         - values.yaml
+      parameters:
+        - name: prometheusOperator.admissionWebhooks.failurePolicy
+          value: Ignore
+    chart: kube-prometheus-stack
   destination:
     server: https://kubernetes.default.svc
     namespace: prometheus
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

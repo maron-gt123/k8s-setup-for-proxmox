@@ -16,5 +16,4 @@ metadata:
 spec:
   ipAddressPools:
   - default
-  interfaces:
-  - ens18
+

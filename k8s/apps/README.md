@@ -34,7 +34,7 @@ k8scluster構築後のセットアップについて示します。<br>
 * argocdCLIからのログイン<br>
 
       argocd login 192.168.15.60
-* パスワード変更
+* パスワード変更<br>
 
 　　　argocd account update-password
    

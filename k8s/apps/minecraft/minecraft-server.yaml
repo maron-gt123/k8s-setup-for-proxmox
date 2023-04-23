@@ -2,24 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: minecraft
-  name: minecraft
+  name: mic
   labels:
-    app: minecraft
+    app: mic
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: minecraft
+      app: mic
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: minecraft
+        app: mic
     spec:
       containers:
         - image: itzg/minecraft-server:java17
-          name: minecraft
+          name: mic
           env:
             - name: TYPE
               value: PAPER

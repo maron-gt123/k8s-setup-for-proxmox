@@ -40,9 +40,6 @@ spec:
           ports:
             - name: minecraft
               containerPort: 25565
-          volumeMounts:
-            - name: minecraft-storage
-              mountPath: /data
           resources:
             requests:
               memory: 2G

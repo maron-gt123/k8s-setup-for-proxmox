@@ -4,9 +4,9 @@ metadata:
   namespace: minecraft
   name: minecraft-pvc
   labels:
-    app: mic
+    app: minecraft-S3
 spec:
-  storageClassName: mic
+  storageClassName: minecraft-S3
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

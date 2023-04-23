@@ -50,4 +50,4 @@ spec:
             claimName: minecraft-pvc
         - name: server-config
           configMap:
-            name: server-config
+            name: common-mcserver-configs

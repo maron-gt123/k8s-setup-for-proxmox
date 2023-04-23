@@ -33,15 +33,15 @@ k8scluster構築後のセットアップについて示します。<br>
 ### argocdのログイン情報変更<br>
 * argocdCLIからのログイン<br>
 
-      argocd login 192.168.15.60
+      ssh onp-k8s-cp-1 argocd login 192.168.15.60
 * パスワード変更<br>
 
-      argocd account update-password
+      ssh onp-k8s-cp-1 argocd account update-password
    
 ### repo投入
 * githubに格納された各種manifest情報をargocdに格納
 
-      argocd app create apps \
+      ssh onp-k8s-cp-1 argocd app create apps \
         --repo https://github.com/maron-gt123/k8s-setup-for-proxmox.git \
         --path  k8s/apps/root\
         --dest-server https://kubernetes.default.svc \

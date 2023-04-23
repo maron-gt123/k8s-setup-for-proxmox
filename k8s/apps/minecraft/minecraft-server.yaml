@@ -2,14 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: minecraft
-  name: mic
+  name: minecraft-S3
   labels:
-    app: mic
+    app: minecraft-S3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mic
+      app: minecraft-S3
   strategy:
     type: Recreate
   template:
@@ -19,14 +19,14 @@ spec:
     spec:
       containers:
         - image: itzg/minecraft-server:java17
-          name: mic
+          name: minecraft-S3
           env:
             - name: TYPE
               value: PAPER
             - name: ENABLE_RCON
               value: "true"
             - name: VERSION
-              value: "1.19.2"
+              value: "1.18.2"
 
             - name: INIT_MEMORY
               value: 1G
@@ -40,6 +40,10 @@ spec:
           volumeMounts:
             - name: minecraft-storage
               mountPath: /data
+          resources:
+            requests:
+              memory: 2G
+              cpu: "2"
       volumes:
         - name: minecraft-storage
           persistentVolumeClaim:

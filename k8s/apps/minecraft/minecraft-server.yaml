@@ -48,3 +48,6 @@ spec:
         - name: minecraft-storage
           persistentVolumeClaim:
             claimName: minecraft-pvc
+        - name: server-config
+          configMap:
+            name: server-config

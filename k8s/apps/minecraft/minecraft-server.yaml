@@ -44,9 +44,9 @@ spec:
             requests:
               memory: 2G
               cpu: "2"
-          volumeMounts:
-            - name: server-config
-              mountPath: /data/config
+#          volumeMounts:
+#            - name: server-config
+#              mountPath: /data/config
 
       volumes:
         - name: minecraft-storage

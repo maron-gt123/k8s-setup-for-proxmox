@@ -2,24 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: minecraft
-  name: minecraft-S3
+  name: minecraft
   labels:
-    app: minecraft-S3
+    app: minecraft
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: minecraft-S3
+      app: minecraft
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: mic
+        app: minecraft
     spec:
       containers:
         - image: itzg/minecraft-server:java17
-          name: minecraft-S3
+          name: minecraft
           env:
             - name: TYPE
               value: PAPER

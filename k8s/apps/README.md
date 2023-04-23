@@ -31,5 +31,5 @@ k8scluster構築後のセットアップについて示します。<br>
     ssh onp-k8s-cp-1 kubectl -n argocd get secret/argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 
 ### argocdのログイン情報変更<br>
-*   argocdCLIからのログイン
+*   argocdCLIからのログイン<br>
         argocd login 192.168.15.60

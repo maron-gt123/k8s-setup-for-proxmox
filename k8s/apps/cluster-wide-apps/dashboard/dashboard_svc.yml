@@ -6,7 +6,7 @@ metadata:
   name: dashboard-service-lb # service(loadbalanser) の名前
   namespace: kubernetes-dashboard # namespace の名前
 spec:
-  type: LoadBalancer # minikube では未サポート
+  type: LoadBalancer
   loadBalancerIP: 192.168.15.61
   ports:
     - name: dashboard-service-lb
@@ -14,5 +14,5 @@ spec:
       port: 443 # serviceのIPでlistenするポート
       nodePort: 30085 # nodeのIPでlistenするポート（30000-32767）
       targetPort: 8443 # 転送先でlistenしているPort番号のポート
-  selector: # service のselctorは、matchLabels になる
+  selector: 
     k8s-app: kubernetes-dashboard # 転送先の pod のラベル

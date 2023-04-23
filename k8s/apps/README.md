@@ -27,17 +27,20 @@ k8scluster構築後のセットアップについて示します。<br>
     ssh onp-k8s-cp-1 kubectl -n argocd get secret/argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 
 ### argocdのログイン情報変更<br>
+* onp-k8s-cp-1にsshログイン<br>
+
+      ssh onp-k8s-cp-1 
 * argocdCLIからのログイン<br>
 
-      ssh onp-k8s-cp-1 argocd login 192.168.15.60
+      argocd login 192.168.15.60
 * パスワード変更<br>
 
-      ssh onp-k8s-cp-1 argocd account update-password
+      argocd account update-password
    
 ### repo投入
 * githubに格納された各種manifest情報をargocdに格納
 
-      ssh onp-k8s-cp-1 argocd app create apps \
+      argocd app create apps \
         --repo https://github.com/maron-gt123/k8s-setup-for-proxmox.git \
         --path  k8s/apps/root\
         --dest-server https://kubernetes.default.svc \

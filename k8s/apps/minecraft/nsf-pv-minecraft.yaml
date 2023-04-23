@@ -4,15 +4,15 @@ metadata:
   namespace: minecraft
   name: minecraft-pv
   labels:
-    app: minecraft
+    app: mic
 spec:
-  storageClassName: minecraft
+  storageClassName: mic
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
   capacity:
     storage: 5Gi
   nfs:
-    server: 192.168.6.53
+    server: 192.168.6.140
     path: /kubanetesu-NFS/minecraft/
-  persistentVolumeReclaimPolicy: Delete
+  persistentVolumeReclaimPolicy: Recycle

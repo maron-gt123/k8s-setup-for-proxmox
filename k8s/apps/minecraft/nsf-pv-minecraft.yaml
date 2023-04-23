@@ -4,7 +4,7 @@ metadata:
   namespace: minecraft
   name: minecraft-pv
   labels:
-    app: mic
+    app: minecraft
 spec:
   storageClassName: mic
   volumeMode: Filesystem

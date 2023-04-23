@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
-    path: k8s/app/dashboard
+    path: k8s/apps/cluster-wide-apps/dashboard
     targetRevision: HEAD
   syncPolicy:
     automated:

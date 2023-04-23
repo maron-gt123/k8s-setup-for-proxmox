@@ -6,10 +6,6 @@ k8scluster構築後のセットアップについて示します。<br>
     sleep 40s
     ssh onp-k8s-cp-1 kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/app/metallb/metallb-address-pool.yaml
 
-
-### dashboard認証コードの表示<br>
-    ssh onp-k8s-cp-1 kubectl -n kubernetes-dashboard create token admin-user
-
 ### argocdのセットアップ<br>
     # Argo CD CLIをインストール
     ssh onp-k8s-cp-1 curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
@@ -48,3 +44,7 @@ k8scluster構築後のセットアップについて示します。<br>
         --revision main \
         --sync-policy automated \
         --dest-namespace argocd
+
+
+### dashboard認証コードの表示<br>
+    ssh onp-k8s-cp-1 kubectl -n kubernetes-dashboard create token admin-user

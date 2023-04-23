@@ -21,22 +21,25 @@ spec:
         - image: itzg/minecraft-server:java17
           name: minecraft
           env:
+            - name: EULA
+              value: "TRUE"
+            - name: TZ
+              value: Asia/Tokyo
             - name: TYPE
               value: PAPER
             - name: ENABLE_RCON
               value: "true"
             - name: VERSION
               value: "1.18.2"
-
+            - name: DIFFICULTY
+              value: peaceful
             - name: INIT_MEMORY
               value: 1G
             - name: MAX_MEMORY
               value: 2G
-
-            - name: UID
-              value: "0"
-            - name: GID
-              value: "0"
+          ports:
+            - name: minecraft
+              containerPort: 25565
           volumeMounts:
             - name: minecraft-storage
               mountPath: /data

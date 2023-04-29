@@ -81,8 +81,8 @@ k8sのセットアップ
     ssh onp-k8s-wk-2 "sudo apt-get install nfs-common -y"
     ssh onp-k8s-wk-3 "sudo apt-get install nfs-common -y"
 
-## 錬成
-* proxmoxホストコンソールで以下の処理を実施しVMを錬成<br>
+## 削除
+* proxmoxホストコンソールで以下の処理を実施しVMを削除<br>
 
       TARGET_BRANCH=main
       /bin/bash <(curl -s https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/${TARGET_BRANCH}/k8s/remove-vm.sh) ${TARGET_BRANCH}

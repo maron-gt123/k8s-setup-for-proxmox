@@ -1,4 +1,5 @@
-# kubeadmを活用した高可用性kubernetesクラスタの構築
+# kubeadmを活用した高可用性kubernetesクラスタの構築<br>
+k8sのセットアップ
 
 ## VMの錬成<br>
 * kubanetesuの構築にあたりCP及びWKをそれぞれ3台構成で錬成する。
@@ -12,19 +13,19 @@
 * 削除scriptはこちら[remove-vm.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/k8s/remove-vm.sh)
 * 錬成後のsetupはこちら[k8s-node-setup.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/k8s/k8s-node-setup.sh)
 
-### 錬成
+## 錬成
 * proxmoxホストコンソールで以下の処理を実施しVMを錬成<br>
 
       TARGET_BRANCH=main
       /bin/bash <(curl -s https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/${TARGET_BRANCH}/k8s/deploy-vm.sh) ${TARGET_BRANCH}
 
-### ping確認
+## ping確認
 * VM錬成後、pingを実行し疎通確認を実施<br>
 
       for i in 1 2 3 4 5 6; do ping -c1 192.168.15.8$i; done
 
 
-### kubernetesログ確認<br>
+## kubernetesログ確認<br>
 * 各VMでk8s-node-setup.shの正常性をログで確認
 
       ssh onp-k8s-cp-1 "sudo cat /var/log/cloud-init-output.log"
@@ -80,6 +81,11 @@
     ssh onp-k8s-wk-2 "sudo apt-get install nfs-common -y"
     ssh onp-k8s-wk-3 "sudo apt-get install nfs-common -y"
 
+## 錬成
+* proxmoxホストコンソールで以下の処理を実施しVMを錬成<br>
+
+      TARGET_BRANCH=main
+      /bin/bash <(curl -s https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/${TARGET_BRANCH}/k8s/remove-vm.sh) ${TARGET_BRANCH}
 
 ## クラスタの削除後、クラスタの再作成に失敗する場合<br>
 クラスタの削除後、同じVMIDでVMを再作成できず、クラスタの作成に失敗することがあります。<br>

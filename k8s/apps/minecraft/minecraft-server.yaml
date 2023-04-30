@@ -44,15 +44,16 @@ spec:
             requests:
               memory: 2G
               cpu: "2"
-#            - name: minecraft-storage
-#              mountPath: /data
-#            - name: server-config
-#              mountPath: /data/config
+          volumeMounts:
+            - name: minecraft-storage
+              mountPath: /data
+            - name: server-config
+              mountPath: /data/config
 
       volumes:
         - name: minecraft-storage
           persistentVolumeClaim:
             claimName: minecraft-pvc
-#        - name: server-config
-#          configMap:
-#            name: common-mcserver-configs
+        - name: server-config
+          configMap:
+            name: common-mcserver-configs

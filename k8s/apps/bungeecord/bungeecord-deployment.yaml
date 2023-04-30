@@ -39,6 +39,8 @@ spec:
         - image: itzg/bungeecord:java17-2022.4.1
           name: bungeecord
           env:
+            - name: TZ
+              value: Asia/Tokyo
             - name: TYPE
               value: WATERFALL
             - name: ENABLE_RCON

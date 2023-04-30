@@ -3,6 +3,8 @@ kind: Service
 metadata:
   namespace: minecraft
   name: minecraft-server-lb
+  labels:
+    app: minecraft
 spec:
   selector:
     app: minecraft

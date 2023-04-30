@@ -88,15 +88,15 @@ spec:
         - name: bungeecord-storage
           persistentVolumeClaim:
             claimName: bungeecord-pvc
-#        - name: bungeecord-config
-#          configMap:
-#            name: bungeecord-config
-#        - name: bungeecord-plugin-configs
-#          configMap:
-#            name: bungeecord-plugin-configs
-#        # JMX exporterをinitContainerでダウンロードしてBugneeCordに受け渡すためのvolume
-#        - name: jmx-exporter-download-volume
-#          emptyDir: {}
-#        - name: jmx-exporter-config
-#          configMap:
-#            name: jmx-exporter-config
+        - name: bungeecord-config
+          configMap:
+            name: bungeecord-config
+        - name: bungeecord-plugin-configs
+          configMap:
+            name: bungeecord-plugin-configs
+        # JMX exporterをinitContainerでダウンロードしてBugneeCordに受け渡すためのvolume
+        - name: jmx-exporter-download-volume
+          emptyDir: {}
+        - name: jmx-exporter-config
+          configMap:
+            name: jmx-exporter-config

@@ -414,7 +414,7 @@ data:
     require-resource-pack=false
     max-players=100
     use-native-transport=true
-    online-mode=true
+    online-mode=false
     enable-status=true
     allow-flight=false
     broadcast-rcon-to-ops=true
@@ -471,7 +471,7 @@ data:
       debug: false
       save-user-cache-on-stop-only: false
       sample-count: 12
-      bungeecord: false
+      bungeecord: true
       player-shuffle: 0
       user-cache-size: 1000
       moved-wrongly-threshold: 0.0625

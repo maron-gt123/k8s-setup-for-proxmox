@@ -15,4 +15,4 @@ spec:
       nodePort: 32477
   selector:
     app: bungeecord
-  loadBalancerIP: 192.168.15.70
+  loadBalancerIP: 192.168.15.72

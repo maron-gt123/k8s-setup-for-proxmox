@@ -49,9 +49,6 @@ spec:
               mountPath: /data/bukkit.yml
               subPath: bukkit.yml
             - name: server-config
-              mountPath: /data/paper.yml
-              subPath: paper.yml
-            - name: server-config
               mountPath: /data/server.properties
               subPath: server.properties
             - name: server-config

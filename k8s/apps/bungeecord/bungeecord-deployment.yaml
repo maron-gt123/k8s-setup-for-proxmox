@@ -50,7 +50,7 @@ spec:
               value: 1G
             - name: PLUGINS
               value: >-
-                https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.0.2/bungeecord-prometheus-exporter-3.0.2.jar
+                https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.1.5/bungeecord-prometheus-exporter-3.1.5.jar
             # BungeeYAML (depended by SwiftMOTD):
             #   https://www.spigotmc.org/resources/bungeeyaml-original.13068/
             # SwiftMOTD:

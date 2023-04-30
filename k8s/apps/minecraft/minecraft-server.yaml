@@ -45,15 +45,18 @@ spec:
               memory: 2G
               cpu: "2"
           volumeMounts:
-#            - name: minecraft-storage
-#              mountPath: /data
+            - name: server-config
+              mountPath: /data/bukkit.yml
+              subPath: bukkit.yml
+            - name: server-config
+              mountPath: /data/paper.yml
+              subPath: paper.yml
             - name: server-config
               mountPath: /data/server.properties
               subPath: server.properties
-#            - name: server-config
-#              mountPath: /data/config/server.properties
-#              subPath: server.properties
-
+            - name: server-config
+              mountPath: /data/spigot.yml
+              subPath: spigot.yml
       volumes:
         - name: minecraft-storage
           persistentVolumeClaim:

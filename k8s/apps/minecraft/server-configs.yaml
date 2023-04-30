@@ -25,7 +25,7 @@ data:
       permissions-file: permissions.yml
       update-folder: update
       plugin-profiling: false
-      connection-throttle: 4000
+      connection-throttle: -1
       query-plugins: true
       deprecated-verbose: default
       shutdown-message: Server closed
@@ -410,7 +410,7 @@ data:
     generate-structures=true
     difficulty=easy
     network-compression-threshold=64
-    max-tick-time=60000
+    max-tick-time=-1
     require-resource-pack=false
     max-players=100
     use-native-transport=true

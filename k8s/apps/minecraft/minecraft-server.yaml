@@ -48,7 +48,11 @@ spec:
 #            - name: minecraft-storage
 #              mountPath: /data
             - name: server-config
-              mountPath: /data/config
+              mountPath: /data/server.properties
+              subPath: server.properties
+#            - name: server-config
+#              mountPath: /data/config/server.properties
+#              subPath: server.properties
 
       volumes:
         - name: minecraft-storage

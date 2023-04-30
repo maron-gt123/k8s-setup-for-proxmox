@@ -45,8 +45,8 @@ spec:
               memory: 2G
               cpu: "2"
           volumeMounts:
-            - name: minecraft-storage
-              mountPath: /data
+#            - name: minecraft-storage
+#              mountPath: /data
             - name: server-config
               mountPath: /data/config
 

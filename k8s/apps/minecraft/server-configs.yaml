@@ -408,7 +408,7 @@ data:
     query.port=25565
     pvp=false
     generate-structures=true
-    difficulty=easy
+    difficulty=peaceful
     network-compression-threshold=64
     max-tick-time=-1
     require-resource-pack=false
@@ -446,7 +446,7 @@ data:
     function-permission-level=2
     level-type=default
     text-filtering-config=
-    spawn-monsters=true
+    spawn-monsters=false
     enforce-whitelist=false
     spawn-protection=16
     resource-pack-sha1=

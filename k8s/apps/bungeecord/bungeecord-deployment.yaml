@@ -78,6 +78,9 @@ spec:
             - name: bungeecord-plugin-configs
               mountPath: /config/plugins/BungeeCordPrometheusExporter/config.json
               subPath: BungeeCordPrometheusExporter-config.json
+            - name: bungeecord-plugin-configs
+              mountPath: /config/plugins/BungeeCordPrometheusExporter/config.json
+              subPath: BungeeCordPrometheusExporter-config.json
 
             # JMX exporter 周りのファイルが入ったボリューム達のマウント設定
             - name: jmx-exporter-download-volume

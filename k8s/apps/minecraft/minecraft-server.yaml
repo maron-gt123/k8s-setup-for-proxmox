@@ -37,9 +37,9 @@ spec:
               value: 1G
             - name: MAX_MEMORY
               value: 2G
-#            - name: PLUGINS
-#              value: >-
-#                https://download.luckperms.net/1489/bukkit/loader/LuckPerms-Bukkit-5.4.77.jar
+            - name: PLUGINS
+              value: >-
+                https://www.spigotmc.org/resources/iportal-transportation-bungeecord-portals.29552/download?version=283107
           ports:
             - name: minecraft
               containerPort: 25565

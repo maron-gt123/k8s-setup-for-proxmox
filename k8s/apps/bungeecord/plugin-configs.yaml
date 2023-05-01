@@ -28,3 +28,6 @@ data:
     motds:
       generic: []
       dynamic: []
+
+  LuckPerms-config.yml: |
+    storage-method: MySQL

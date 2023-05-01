@@ -79,8 +79,11 @@ spec:
               mountPath: /config/plugins/BungeeCordPrometheusExporter/config.json
               subPath: BungeeCordPrometheusExporter-config.json
             - name: bungeecord-plugin-configs
-              mountPath: /config/plugins/BungeeCordPrometheusExporter/config.json
-              subPath: BungeeCordPrometheusExporter-config.json
+              mountPath: /config/plugins/SwiftMOTD/config.yml
+              subPath: SwiftMOTD-config.yml
+            - name: bungeecord-plugin-configs
+              mountPath: /config/plugins/LuckPerms/config.yml
+              subPath: LuckPerms-config.yml
 
             # JMX exporter 周りのファイルが入ったボリューム達のマウント設定
             - name: jmx-exporter-download-volume

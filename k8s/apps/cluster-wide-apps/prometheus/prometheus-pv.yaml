@@ -7,12 +7,12 @@ metadata:
     app: prometheus
 spec:
   storageClassName: prometheus
+  volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   capacity:
     storage: 10Gi
-  volumeMode: Filesystem
   nfs:
-    server: 192.168.6.53
+    server: 192.168.6.140
     path: /kubanetesu-NFS/prometheus/
-  persistentVolumeReclaimPolicy: Delete
+  persistentVolumeReclaimPolicy: Recycle

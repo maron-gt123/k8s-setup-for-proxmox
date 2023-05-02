@@ -3,7 +3,7 @@ k8scluster構築後のセットアップについて示します。<br>
 
 ### metallbのセットアップ<br>
     ssh onp-k8s-cp-1 kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/apps/cluster-wide-apps/metallb/metallb-native.yaml
-    sleep 40s
+    sleep 60s
     ssh onp-k8s-cp-1 kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/apps/cluster-wide-apps/metallb/metallb-address-pool.yaml
 
 ### argocdのセットアップ<br>
@@ -18,6 +18,8 @@ k8scluster構築後のセットアップについて示します。<br>
     # helm chart repo update
     ssh onp-k8s-cp-1 helm repo add argo https://argoproj.github.io/argo-helm
     ssh onp-k8s-cp-1 helm install -n argocd argocd argo/argo-cd
+    
+    sleep 60s
     
     # service is lordbalancer
     ssh onp-k8s-cp-1 kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/apps/cluster-wide-apps/argocd/argocd-server-lb.yaml

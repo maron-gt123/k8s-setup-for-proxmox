@@ -1,45 +1,17 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
- name: grafana-staging
- namespace: argocd
-spec:
- destination:
-   namespace: grafana
-   server: https://kubernetes.default.svc
- project: monitoring
- source:
-   path: kubernetes/grafana/staging
-   repoURL: https://github.com/xxx/xxx.git
-   targetRevision: HEAD
- syncPolicy:
-   automated:
-     prune: true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
- name: grafana-helm-staging
- namespace: argocd
-spec:
- destination:
-   namespace: grafana
-   server: https://kubernetes.default.svc
- project: monitoring
- source:
-   repoURL: https://github.com/helm/charts.git
-   targetRevision: 39723f2574290702c0fae03f4573ce31d3707e6c
-   path: stable/grafana
-   helm:
-     parametrs:
-     - name: persistence.storageClassName
-       value: gp2
-     - name: adminPassword
-       value: Password
-     releaseName: grafana
-     valueFiles:
-     - https://raw.githubusercontent.com/helm/charts/ce946802c980eac7e741931c92e0305df65b10ec/stable/grafana/values.yaml
-     - https://xxx.s3-ap-northeast-1.amazonaws.com/helm/grafana/staging/values.yaml?apply=1
- syncPolicy:
-   automated:
-     prune: true
+project: default
+source:
+  repoURL: 'https://prometheus-community.github.io/helm-charts'
+  targetRevision: 16.11.0
+  helm:
+    valueFiles:
+      - values.yaml
+    parameters:
+      - name: prometheusOperator.admissionWebhooks.failurePolicy
+        value: Ignore
+  chart: kube-prometheus-stack
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: prometheus-community
+syncPolicy:
+  syncOptions:
+    - CreateNamespace=true

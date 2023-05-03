@@ -122,11 +122,11 @@ spec:
 #            enabled: true
 #            port: 2381
 #            targetPort: 2381
-#  destination:
-#    server: https://kubernetes.default.svc
-#    namespace: prometheus
-#  syncPolicy:
-#    automated:
-#      prune: true
-#    syncOptions:
-#    - CreateNamespace=true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prometheus
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true

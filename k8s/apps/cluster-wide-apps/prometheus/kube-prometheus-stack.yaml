@@ -38,7 +38,7 @@ spec:
     helm:
       releaseName: prometheus
       skipCrds: true
-      values: |
+#      values: |
 #        defaultRules:
 #          create: true
 #          rules:

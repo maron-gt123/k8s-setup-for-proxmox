@@ -1,0 +1,6 @@
+releases:
+  - name: prometheus
+    namespace: default
+    chart: prometheus-community/prometheus
+    values:
+      - ./prometheus.yaml

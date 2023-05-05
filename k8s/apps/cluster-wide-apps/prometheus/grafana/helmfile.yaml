@@ -1,6 +1,0 @@
-releases:
-  - name: grafana
-    namespace: default
-    chart: grafana/grafana
-    values:
-      - ./grafana.yaml

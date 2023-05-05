@@ -1,0 +1,90 @@
+prometheus:
+  prometheusSpec:
+    scrapeInterval: "10s"
+    configMaps:
+     - "prometheus-targets"
+    additionalScrapeConfigs: 
+      - job_name: "prometheus"
+        static_configs:
+        - targets: ["localhost:9090"]
+      - job_name: 'node-exporter'
+        scrape_interval: 15s
+        file_sd_configs:
+          - files:
+            - /etc/prometheus/configmaps/prometheus-targets/sd_node.yaml
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __address__
+            replacement: $1:9100
+    #      - source_labels: [__address__]
+    #        target_label: __param_target
+    #      - source_labels: [__param_target]
+    #        target_label: instance
+      - job_name: "cadvisor"
+        scrape_interval: 15s
+        file_sd_configs:
+          - files:
+            - /etc/prometheus/configmaps/prometheus-targets/sd_cadvisor.yaml
+      - job_name: "blackbox_icmp"
+        scrape_interval: 5s
+        file_sd_configs:
+          - files:
+            - /etc/prometheus/configmaps/prometheus-targets/sd_node.yaml
+            - /etc/prometheus/configmaps/prometheus-targets/sd_snmp_ifmib.yaml
+         #   - sd_icmp_global.yaml
+        metrics_path: /probe
+        params:
+          module: [icmp]
+        relabel_configs:
+        - source_labels: [__address__]
+          target_label: __param_target
+        - source_labels: [__param_target]
+          target_label: instance
+        - target_label: __address__
+          replacement: manage1p.01.internal:9115
+      - job_name: "snmp_if_mib"
+        file_sd_configs:
+        - files:
+          - /etc/prometheus/configmaps/prometheus-targets/sd_snmp_ifmib.yaml
+          - /etc/prometheus/configmaps/prometheus-targets/sd_snmp_nec_ix.yaml
+        metrics_path: /snmp
+        params:
+          module: [if_mib]
+        relabel_configs:
+        - source_labels: [__address__]
+          target_label: __param_target
+        - source_labels: [__param_target]
+          target_label: instance
+        - target_label: __address__
+          replacement: manage1p.01.internal:9116
+      - job_name: "snmp_nec_ix"
+        file_sd_configs:
+          - files:
+            - /etc/prometheus/configmaps/prometheus-targets/sd_snmp_nec_ix.yaml
+        metrics_path: /snmp
+        params:
+          module: [nec_ix]
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __param_target
+          - source_labels: [__param_target]
+            target_label: instance
+          - target_label: __address__
+            replacement: manage1p.01.internal:9116
+      - job_name: "nut"
+        static_configs:
+          # Insert NUT server address here
+          - targets: ["manage1p.01.internal:3493"]
+      - job_name: "promtail"
+        scrape_interval: 15s
+        file_sd_configs:
+          - files:
+            - sd_node.yaml
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __address__
+            replacement: $1:9080
+    #      - source_labels: [__address__]
+    #        target_label: __param_target
+    #      - source_labels: [__param_target]
+    #        target_label: instance

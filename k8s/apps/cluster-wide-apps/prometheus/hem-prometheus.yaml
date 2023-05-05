@@ -12,9 +12,10 @@ spec:
       targetRevision: 45.7.1
       helm:
         valueFiles:
-          - k8s/apps/cluster-wide-apps/prometheus/values/kube-prometheus-stack.yaml
+          - $myRepo/k8s/apps/cluster-wide-apps/prometheus/values/kube-prometheus-stack.yaml
     - repoURL: 'https://github.com/maron-gt123/k8s-setup-for-proxmox.git'
       targetRevision: HEAD
+      ref: myRepo
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring

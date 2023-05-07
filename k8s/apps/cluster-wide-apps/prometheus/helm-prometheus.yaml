@@ -9,9 +9,9 @@ spec:
     - chart: kube-prometheus-stack
       repoURL: https://prometheus-community.github.io/helm-charts
       targetRevision: 45.7.1
-      helm:
-        valueFiles:
-          - k8s/apps/cluster-wide-apps/prometheus/values.yaml
+#      helm:
+#        valueFiles:
+#          - k8s/apps/cluster-wide-apps/prometheus/values.yaml
       repoURL: 'https://github.com/maron-gt123/k8s-setup-for-proxmox.git'
       targetRevision: HEAD
   destination:

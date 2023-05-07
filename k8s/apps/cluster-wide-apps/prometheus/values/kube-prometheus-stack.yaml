@@ -19,8 +19,11 @@ kubeEtcd:
     port: 2381
     targetPort: 2381
 prometheus:
-  additionalScrapeConfigs:
-    - job_name: 'minecraft-loby-SV'
-      scrape_interval: 10s
-      static_configs:
-        - targets: ['192.168.15.87:9090']
+  prometheusSpec:
+    additionalScrapeConfigs: 
+      - job_name: 'minecraft-loby-SV'
+        static_configs:
+          - targets: ['lobbySV.micnet:9225']
+      - job_name: 'minecraft-paper01-SV'
+        static_configs:
+          - targets: ['paper01.micnet:9225']

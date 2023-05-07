@@ -9,7 +9,8 @@ spec:
     - chart: kube-prometheus-stack
       repoURL: https://prometheus-community.github.io/helm-charts
       targetRevision: 45.7.1
-
+      values:
+        - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring

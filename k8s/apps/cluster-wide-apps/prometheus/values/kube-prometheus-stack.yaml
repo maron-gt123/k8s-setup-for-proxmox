@@ -18,4 +18,11 @@ kubeEtcd:
     enabled: true
     port: 2381
     targetPort: 2381
-
+prometheusSpec:
+  additionalScrapeConfigs: 
+    - job_name: 'minecraft-loby-SV'
+      static_configs:
+        - targets: ['lobbySV.micnet:9225']
+    - job_name: 'minecraft-paper01-SV'
+      static_configs:
+        - targets: ['paper01.micnet:9225']

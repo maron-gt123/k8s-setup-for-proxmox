@@ -10,41 +10,7 @@ spec:
     - chart: kube-prometheus-stack
       repoURL: https://prometheus-community.github.io/helm-charts
       targetRevision: 45.7.1
-      helm:
-        releaseName: prometheus
-        skipCrds: true
-        values: |
-          defaultRules:
-            create: true
-            rules:
-            kubeProxy: false
-          grafana:
-            enabled: true
-            namespaceOverride: ""
-            defaultDashboardsTimezone: Asia/Tokyo
-          kubeProxy:
-            enabled: false
-          kubeEtcd:
-            enabled: true
-            endpoints:
-              - 192.168.15.81
-              - 192.168.15.82
-              - 192.168.15.83
-            service:
-              enabled: true
-              port: 2381
-              targetPort: 2381
-          prometheus:
-            prometheusSpec:
-              additionalScrapeConfigs: 
-                - job_name: 'minecraft-loby-SV'
-                  static_configs:
-                    - targets: ['lobbySV.micnet:9225']
-                - job_name: 'minecraft-paper01-SV'
-                  static_configs:
-                    - targets: ['paper01.micnet:9225']          
- #   - repoURL: 'https://github.com/maron-gt123/k8s-setup-for-proxmox.git'
- #     targetRevision: HEAD
+
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring

@@ -1,9 +1,9 @@
 defaultRules:
   create: true
   rules:
-　　  kubeProxy: false
+　  kubeProxy: false
 grafana:
-　　defaultDashboardsTimezone: Asia/Tokyo
+  defaultDashboardsTimezone: Asia/Tokyo
 kubeProxy:
   enabled: false
 kubeEtcd:

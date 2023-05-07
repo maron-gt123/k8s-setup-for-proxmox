@@ -14,7 +14,7 @@ spec:
         - /k8s/apps/cluster-wide-apps/prometheus/values/kube-prometheus-stack.yaml
     - repoURL: 'https://github.com/maron-gt123/k8s-setup-for-proxmox.git'
       targetRevision: HEAD
-      ref: myRepo
+#      ref: myRepo
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring

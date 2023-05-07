@@ -13,6 +13,6 @@ spec:
   capacity:
     storage: 5Gi
   nfs:
-    server: 192.168.6.140
+    server: nas.storagenet
     path: /kubanetesu-NFS/minecraft/
   persistentVolumeReclaimPolicy: Recycle

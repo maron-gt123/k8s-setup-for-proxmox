@@ -11,8 +11,8 @@ spec:
       targetRevision: 45.7.1
       helm:
         valueFiles:
-          - $myRepo/values/kube-prometheus-stack.yaml
-    - repoURL: 'https://github.com/masebb/metrics-server.git'
+          - $myRepo/k8s/apps/cluster-wide-apps/prometheus/values.yaml
+    - repoURL: 'https://github.com/maron-gt123/k8s-setup-for-proxmox.git'
       targetRevision: HEAD
       ref: myRepo
   destination:

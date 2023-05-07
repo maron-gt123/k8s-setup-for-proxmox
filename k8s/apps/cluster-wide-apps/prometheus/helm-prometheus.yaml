@@ -49,6 +49,7 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring
   syncPolicy:
+    automated:
+      prune: true
     syncOptions:
       - ServerSideApply=true
-    automated: {}

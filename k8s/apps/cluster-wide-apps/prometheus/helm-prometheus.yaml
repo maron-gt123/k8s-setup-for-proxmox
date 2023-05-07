@@ -12,7 +12,7 @@ spec:
       helm:
         valueFiles:
           - k8s/apps/cluster-wide-apps/prometheus/values/kube-prometheus-stack.yaml
-    - repoURL: 'https://github.com/maron-gt123/k8s-setup-for-proxmox.git'
+        repoURL: 'https://github.com/maron-gt123/k8s-setup-for-proxmox.git'
       targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'

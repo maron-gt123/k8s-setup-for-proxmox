@@ -12,7 +12,7 @@ spec:
       helm:
       releaseName: prometheus
       skipCrds: true
-      value: >-
+      valueFiles: >-
         https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/apps/cluster-wide-apps/prometheus/values.yaml
 #        valueFiles:
 #          - main/k8s/apps/cluster-wide-apps/prometheus/values.yaml

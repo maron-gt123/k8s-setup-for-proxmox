@@ -42,10 +42,10 @@ spec:
           create: true
           rules:
             kubeProxy: false
-        grafana:
-          defaultDashboardsTimezone: Asia/Tokyo
-        kubeProxy:
-          enabled: false
+#        grafana:
+#          defaultDashboardsTimezone: Asia/Tokyo
+#        kubeProxy:
+#          enabled: false
 #        kubeEtcd:
 #          endpoints:
 #            - 192.168.6.81

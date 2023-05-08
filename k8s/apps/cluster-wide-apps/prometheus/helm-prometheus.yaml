@@ -29,19 +29,19 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
-  sources:
-    - chart: kube-prometheus-stack
-      repoURL: https://prometheus-community.github.io/helm-charts
-      targetRevision: 45.25.0
-      helm:
-        releaseName: prometheus
-        skipCrds: true
-        values: |
-          defaultRules:
-            create: true
-            rules:
-              kubeProxy: false
+  project: cluster-wide-apps
+  source:
+    chart: kube-prometheus-stack
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 45.25.0
+    helm:
+      releaseName: prometheus
+      skipCrds: true
+      values: |
+        defaultRules:
+          create: true
+          rules:
+            kubeProxy: false
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring

@@ -27,7 +27,7 @@ metadata:
   name: kube-prometheus-stack
   namespace: argocd
   finalizers:
-    - resources-finalizer.argocd.argoproj.io # cascade deletion on this App deletion
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   sources:
@@ -35,13 +35,13 @@ spec:
       repoURL: https://prometheus-community.github.io/helm-charts
       targetRevision: 45.25.0
       helm:
-      releaseName: prometheus
-      skipCrds: true
-      values: |
-        defaultRules:
-          create: true
-          rules:
-            kubeProxy: false
+        releaseName: prometheus
+        skipCrds: true
+        values: |
+          defaultRules:
+            create: true
+            rules:
+              kubeProxy: false
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring

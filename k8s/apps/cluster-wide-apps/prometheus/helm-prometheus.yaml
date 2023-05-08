@@ -4,7 +4,7 @@ metadata:
   name: prometheus-crd
   namespace: argocd
 spec:
-  project: cluster-wide-apps
+  project: default
   source:
     repoURL: https://github.com/prometheus-community/helm-charts.git
     path: charts/kube-prometheus-stack/crds/
@@ -32,9 +32,9 @@ spec:
     - chart: kube-prometheus-stack
       repoURL: https://prometheus-community.github.io/helm-charts
       targetRevision: 45.25.0
-      helm:
-      releaseName: prometheus
-      skipCrds: true
+#      helm:
+#      releaseName: prometheus
+#      skipCrds: true
 #      values: |
 #        defaultRules:
 #          create: true

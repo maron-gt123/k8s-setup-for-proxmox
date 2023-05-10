@@ -8,9 +8,9 @@ kubeProxy:
   enabled: false
 kubeEtcd:
   endpoints:
-  - 192.168.6.81
-  - 192.168.6.82
-  - 192.168.6.83
+    - 192.168.6.81
+    - 192.168.6.82
+    - 192.168.6.83
 service:
   enabled: true
   port: 2381

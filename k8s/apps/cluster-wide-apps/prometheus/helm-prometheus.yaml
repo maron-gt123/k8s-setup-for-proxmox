@@ -26,6 +26,6 @@ spec:
     namespace: monitoring
   syncPolicy:
     automated:
-      prune: false
+      prune: true
     syncOptions:
       - ServerSideApply=true

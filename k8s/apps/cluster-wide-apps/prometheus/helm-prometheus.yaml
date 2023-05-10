@@ -34,14 +34,14 @@ spec:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 45.25.0
-#    helm:
-#      releaseName: prometheus
-#      skipCrds: true
-#      values: |
-#        defaultRules:
-#          create: true
-#          rules:
-#            kubeProxy: false
+    helm:
+      releaseName: prometheus
+      skipCrds: true
+      values: |
+        defaultRules:
+          create: true
+          rules:
+            kubeProxy: false
 #        grafana:
 #          defaultDashboardsTimezone: Asia/Tokyo
 #        kubeProxy:

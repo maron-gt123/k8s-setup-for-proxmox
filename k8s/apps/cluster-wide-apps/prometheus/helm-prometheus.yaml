@@ -11,9 +11,9 @@ spec:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 45.26.0
-    helm:
-      valueFiles:
-      - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/apps/cluster-wide-apps/prometheus/values/values.yaml
+#    helm:
+#      valueFiles:
+#      - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/apps/cluster-wide-apps/prometheus/values/values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring

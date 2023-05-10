@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
     path: k8s/apps/cluster-wide-apps/prometheus
-    targetRevision: main
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true

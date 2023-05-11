@@ -1,0 +1,68 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: cluster-wide-apps
+  namespace: argocd
+spec:
+  description: The project of applications used by the entire cluster
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: "cluster-wide-apps"
+      server: https://kubernetes.default.svc
+    # Application 及び ApplicationSet リソースは
+    # argocd namespace に置かないとArgoCDに認識されないため、
+    # argocd namespace へのデプロイも許可する。
+    - namespace: "argocd"
+      server: https://kubernetes.default.svc
+    - namespace: "kube-system"
+      server: https://kubernetes.default.svc
+    - namespace: "metallb-system"
+      server: https://kubernetes.default.svc
+    - namespace: "monitoring"
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: bungeecord
+  namespace: argocd
+spec:
+  description: The project of gateway system
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: bungeecord
+      server: https://kubernetes.default.svc
+    # Application 及び ApplicationSet リソースは
+    # argocd namespace に置かないとArgoCDに認識されないため、
+    # argocd namespace へのデプロイも許可する。
+    - namespace: argocd
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: minecraft
+  namespace: argocd
+spec:
+  description: The project of minecraft system
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: minecraft
+      server: https://kubernetes.default.svc
+    # Application 及び ApplicationSet リソースは
+    # argocd namespace に置かないとArgoCDに認識されないため、
+    # argocd namespace へのデプロイも許可する。
+    - namespace: argocd
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"

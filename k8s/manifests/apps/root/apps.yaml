@@ -41,29 +41,29 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: seichi-debug-gateway-apps
+  name: bungeecord-apps
   namespace: argocd
 spec:
   generators:
     - git:
-        repoURL: https://github.com/GiganticMinecraft/seichi_infra
+        repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox
         revision: main
         directories:
-          - path: seichi-onp-k8s/manifests/seichi-kubernetes/apps/seichi-debug-gateway/*
+          - path: k8s/manifests/apps/bungeecord/*
   template:
     metadata:
       # 各Application が argocd namespace に配置されるため prefix した方が安全
-      name: "seichi-debug-gateway-{{path.basenameNormalized}}"
+      name: "bungeecord-{{path.basenameNormalized}}"
       namespace: argocd
     spec:
-      project: seichi-debug-gateway
+      project: bungeecord
       source:
-        repoURL: https://github.com/GiganticMinecraft/seichi_infra
+        repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox
         targetRevision: main
         path: "{{path}}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: seichi-debug-gateway
+        namespace: bungeecord
       syncPolicy:
         automated:
           prune: true

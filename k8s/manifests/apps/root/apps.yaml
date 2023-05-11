@@ -53,7 +53,7 @@ spec:
   template:
     metadata:
       # 各Application が argocd namespace に配置されるため prefix した方が安全
-      name: "bungeecord-{{path.basenameNormalized}}"
+      name: bungeecord
       namespace: argocd
     spec:
       project: bungeecord
@@ -64,6 +64,46 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: bungeecord
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: true
+        syncOptions:
+          - CreateNamespace=true
+        retry:
+          limit: -1
+          backoff:
+            duration: 5s
+            factor: 2
+            maxDuration: 2m
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: minecraft-apps
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox
+        revision: main
+        directories:
+          - path: k8s/manifests/apps/minecraft/*
+  template:
+    metadata:
+      # 各Application が argocd namespace に配置されるため prefix した方が安全
+      name: minecraft
+      namespace: argocd
+    spec:
+      project: minecraft
+      source:
+        repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox
+        targetRevision: main
+        path: "{{path}}"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: minecraft
       syncPolicy:
         automated:
           prune: true

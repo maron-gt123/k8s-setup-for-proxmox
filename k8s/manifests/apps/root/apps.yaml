@@ -49,7 +49,7 @@ spec:
         repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox
         revision: main
         directories:
-          - path: k8s/manifests/apps/bungeecord/*
+          - path: k8s/manifests/apps/bungeecord
   template:
     metadata:
       # 各Application が argocd namespace に配置されるため prefix した方が安全
@@ -89,7 +89,7 @@ spec:
         repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox
         revision: main
         directories:
-          - path: k8s/manifests/apps/minecraft/*
+          - path: k8s/manifests/apps/minecraft
   template:
     metadata:
       # 各Application が argocd namespace に配置されるため prefix した方が安全

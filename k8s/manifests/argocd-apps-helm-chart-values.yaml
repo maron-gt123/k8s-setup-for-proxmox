@@ -8,8 +8,7 @@ applications:
     source:
       repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox
       targetRevision: main
-      path: seichi-onp-k8s/manifests/seichi-kubernetes/apps/root
-      k8s
+      path: k8s/manifests/apps/root
       directory:
         recurse: true
     finalizers:

@@ -14,6 +14,7 @@ k8scluster構築後のセットアップについて示します。<br>
     
     # namespaceを作成
     ssh onp-k8s-cp-1 kubectl create namespace argocd
+    ssh onp-k8s-cp-1 kubectl create namespace cluster-wide-apps
     
     # helm chart repo update
     ssh onp-k8s-cp-1 helm repo add argo https://argoproj.github.io/argo-helm

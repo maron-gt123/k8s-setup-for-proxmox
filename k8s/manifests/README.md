@@ -23,7 +23,7 @@ k8scluster構築後のセットアップについて示します。<br>
     sleep 60s
     
     # service is lordbalancer
-    ssh onp-k8s-cp-1 kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/apps/cluster-wide-apps/argocd/argocd-server-lb.yaml
+    ssh onp-k8s-cp-1 kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/cluster-wide-apps/argocd/argocd-server-lb.yaml
     
     # argocd PW
     echo "argocdのパスワードはこちら" 

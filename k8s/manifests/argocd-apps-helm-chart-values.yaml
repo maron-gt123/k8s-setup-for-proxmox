@@ -1,3 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
 # Config values for the ArgoCD Helm Chart.
 # For default values, see
 # https://raw.githubusercontent.com/argoproj/argo-helm/798c8107c3d0015b8cb93d565cf714c16848b3e8/charts/argocd-apps/values.yaml

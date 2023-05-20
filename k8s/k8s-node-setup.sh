@@ -28,9 +28,9 @@ case $1 in
 esac
 
 # Set global variables
-KUBE_API_SERVER_VIP=192.168.6.100
+KUBE_API_SERVER_VIP=192.168.15.100
 VIP_INTERFACE=ens19
-NODE_IPS=( 192.168.6.81 192.168.6.82 192.168.6.83 )
+NODE_IPS=( 192.168.15.81 192.168.15.82 192.168.15.83 )
 
 # set per-node variables
 case $1 in
@@ -117,7 +117,7 @@ sysctl --system
 curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 apt-get update
-apt-get install -y kubelet=1.24.4-00 kubeadm=1.24.4-00 kubectl=1.24.4-00
+apt-get install -y kubelet=1.27.1-00 kubeadm=1.27.1-00 kubectl=1.27.1-00
 apt-mark hold kubelet kubeadm kubectl
 
 # Disable swap
@@ -275,15 +275,13 @@ bootstrapTokens:
   ttl: "24h"
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
-  kubeletExtraArgs:
-    feature-gates: "DelegateFSGroupToCSIDriver=false"
 ---
 apiVersion: kubeadm.k8s.io/v1beta3
 kind: ClusterConfiguration
 networking:
   serviceSubnet: "10.96.0.0/16"
   podSubnet: "10.128.0.0/16"
-kubernetesVersion: "v1.24.1"
+kubernetesVersion: "v1.27.1"
 controlPlaneEndpoint: "${KUBE_API_SERVER_VIP}:8443"
 apiServer:
   certSANs:
@@ -296,19 +294,15 @@ apiServer:
   #   https://k8s-api.onp-k8s.admin.local-tunnels.seichi.click:PORT
   # where PORT is the port at which the local tunnel is running.
   - k8s-api.onp-k8s.admin.local-tunnels.seichi.click
-  extraArgs:
-    feature-gates: "DelegateFSGroupToCSIDriver=false"
 
 # expose these components so that we can get metrics
 # https://prometheus-operator.dev/docs/kube-prometheus-on-kubeadm/#kubeadm-pre-requisites
 controllerManager:
   extraArgs:
     bind-address: "0.0.0.0"
-    feature-gates: "DelegateFSGroupToCSIDriver=false"
 scheduler:
   extraArgs:
     bind-address: "0.0.0.0"
-    feature-gates: "DelegateFSGroupToCSIDriver=false"
 
 ---
 apiVersion: kubelet.config.k8s.io/v1beta1
@@ -349,8 +343,6 @@ apiVersion: kubeadm.k8s.io/v1beta3
 kind: JoinConfiguration
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
-  kubeletExtraArgs:
-    feature-gates: "DelegateFSGroupToCSIDriver=false"
 discovery:
   bootstrapToken:
     apiServerEndpoint: "${KUBE_API_SERVER_VIP}:8443"
@@ -371,8 +363,6 @@ apiVersion: kubeadm.k8s.io/v1beta3
 kind: JoinConfiguration
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
-  kubeletExtraArgs:
-    feature-gates: "DelegateFSGroupToCSIDriver=false"
 discovery:
   bootstrapToken:
     apiServerEndpoint: "${KUBE_API_SERVER_VIP}:8443"

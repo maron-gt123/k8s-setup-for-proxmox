@@ -286,14 +286,14 @@ controlPlaneEndpoint: "${KUBE_API_SERVER_VIP}:8443"
 apiServer:
   certSANs:
   # We are directing the A-record of
-  #   k8s-api.onp-k8s.admin.local-tunnels.seichi.click
+  #   k8s-api.onp-k8s.admin.local-tunnels
   # to 127.0.0.1 (see terraform/cloudflare_dns_records.tf for details).
   #
   # So a client accessing the API can establish a tunneled connection from
   # their local machine to the API endpoint, which then becomes visible at 
-  #   https://k8s-api.onp-k8s.admin.local-tunnels.seichi.click:PORT
+  #   https://k8s-api.onp-k8s.admin.local-tunnels:PORT
   # where PORT is the port at which the local tunnel is running.
-  - k8s-api.onp-k8s.admin.local-tunnels.seichi.click
+  - k8s-api.onp-k8s.admin.local-tunnels
 
 # expose these components so that we can get metrics
 # https://prometheus-operator.dev/docs/kube-prometheus-on-kubeadm/#kubeadm-pre-requisites

@@ -331,6 +331,14 @@ helm install cilium cilium/cilium \
 
 # Install ArgoCD Helm chart
 helm repo add argo https://argoproj.github.io/argo-helm
+#helm install argocd argo/argo-cd \
+#    --version 5.5.4 \
+#    --create-namespace \
+#    --namespace argocd \
+#    --values https://
+#helm install argocd argo/argocd-apps \
+#    --version 0.0.1 \
+#    --values https://
 
 # Generate control plane certificate
 KUBEADM_UPLOADED_CERTS=$(kubeadm init phase upload-certs --upload-certs | tail -n 1)

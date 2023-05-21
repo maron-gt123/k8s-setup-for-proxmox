@@ -318,6 +318,9 @@ mkdir -p "$HOME"/.kube
 cp -i /etc/kubernetes/admin.conf "$HOME"/.kube/config
 chown "$(id -u)":"$(id -g)" "$HOME"/.kube/config
 
+# Helm repo add prometheus-community
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
 # Install Helm CLI
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 

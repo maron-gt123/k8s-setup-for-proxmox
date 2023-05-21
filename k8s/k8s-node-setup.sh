@@ -329,6 +329,9 @@ helm install cilium cilium/cilium \
     --set k8sServiceHost=${KUBE_API_SERVER_VIP} \
     --set k8sServicePort=8443
 
+# Install ArgoCD Helm chart
+helm repo add argo https://argoproj.github.io/argo-helm
+
 # Generate control plane certificate
 KUBEADM_UPLOADED_CERTS=$(kubeadm init phase upload-certs --upload-certs | tail -n 1)
 

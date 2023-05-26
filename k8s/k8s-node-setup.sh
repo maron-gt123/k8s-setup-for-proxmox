@@ -318,9 +318,6 @@ mkdir -p "$HOME"/.kube
 cp -i /etc/kubernetes/admin.conf "$HOME"/.kube/config
 chown "$(id -u)":"$(id -g)" "$HOME"/.kube/config
 
-# Helm repo add prometheus-community
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-
 # Install Helm CLI
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 
@@ -331,17 +328,6 @@ helm install cilium cilium/cilium \
     --set kubeProxyReplacement=strict \
     --set k8sServiceHost=${KUBE_API_SERVER_VIP} \
     --set k8sServicePort=8443
-
-# Install ArgoCD Helm chart
-helm repo add argo https://argoproj.github.io/argo-helm
-#helm install argocd argo/argo-cd \
-#    --version 5.5.4 \
-#    --create-namespace \
-#    --namespace argocd \
-#    --values https://
-#helm install argocd argo/argocd-apps \
-#    --version 0.0.1 \
-#    --values https://
 
 # Generate control plane certificate
 KUBEADM_UPLOADED_CERTS=$(kubeadm init phase upload-certs --upload-certs | tail -n 1)

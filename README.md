@@ -117,4 +117,9 @@
   * onp-proxmox03
     * backup格納用
 
-          # ---region---
+          # nfs-kernel-serverをインストール
+          ssh prox02 apt-get install nfs-kernel-server
+          ssh prox03 apt-get install nfs-kernel-server
+          
+          # exports設定
+          ssh prox02 apt-get install nfs-kernel-server

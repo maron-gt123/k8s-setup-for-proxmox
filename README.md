@@ -122,9 +122,13 @@
           ssh prox03 apt-get install nfs-kernel-server
           
           # exports設定
-          ssh prox02 cat >> /etc/exports <<EOF
+          # ssh prox02
+          cat >> /etc/exports <<EOF
+          # nfs config
           /mnt/pve/prox02 192.168.6.0/24(rw,sync,no_all_squash,no_root_squash,no_subtree_check)
           EOF
+          # ssh prox03
           ssh prox03 cat >> /etc/exports <<EOF
+          # nfs config
           /mnt/pve/prox03 192.168.6.0/24(rw,sync,no_all_squash,no_root_squash,no_subtree_check)
           EOF

@@ -112,9 +112,9 @@
 
 ### NFSサーバをproxmoxに導入
 * onp-proxmox02及びonp-proxmxo03にNFSサーバを構築
-* onp-proxmox02
- * snippets及びubuntu22.04のOSインストールデータ格納
-* onp-proxmox03
- * backup格納用
+  * onp-proxmox02
+    * snippets及びubuntu22.04のOSインストールデータ格納
+  * onp-proxmox03
+    * backup格納用
 
-        # ---region---
+          # ---region---

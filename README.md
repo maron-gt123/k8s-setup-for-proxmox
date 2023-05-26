@@ -109,3 +109,12 @@
       
       # echo
       echo "RAID情報の確認が取れない場合は以下参照(https://gist.github.com/fxkraus/595ab82e07cd6f8e057d31bc0bc5e779)"
+
+### NFSサーバをproxmoxに導入
+* onp-proxmox02及びonp-proxmxo03にNFSサーバを構築
+* onp-proxmox02
+ * snippets及びubuntu22.04のOSインストールデータ格納
+* onp-proxmox03
+ * backup格納用
+
+        # ---region---

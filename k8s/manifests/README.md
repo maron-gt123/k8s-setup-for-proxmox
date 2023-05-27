@@ -16,6 +16,6 @@ k8scluster構築後のセットアップについて示します。<br>
           # helm repo listの追加
           ## ArgoCD repo
           ssh onp-k8s-cp-1 helm repo add argo https://argoproj.github.io/argo-helm
-          ## kube-prometheus-stack repo
+          ## prometheus-community repo
           ssh onp-k8s-cp-1 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
           

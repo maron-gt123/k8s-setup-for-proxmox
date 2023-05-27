@@ -9,18 +9,18 @@ spec:
         repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox
         revision: main
         directories:
-          - path: k8s/manifests/apps/cluster-wide-app/*
+          - path: k8s/manifests/apps/cluster-wide-apps/metallb
   template:
     metadata:
       # 各Application が argocd namespace に配置されるため prefix した方が安全
-      name: "cluster-wide-apps-{{path.basenameNormalized}}"
+      name: "cluster-wide-apps-metallb
       namespace: argocd
     spec:
       project: cluster-wide-apps
       source:
         repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox
         targetRevision: main
-        path: "{{path}}"
+        path: k8s/manifests/apps/cluster-wide-apps/metallb
       destination:
         server: https://kubernetes.default.svc
         namespace: "cluster-wide-apps"

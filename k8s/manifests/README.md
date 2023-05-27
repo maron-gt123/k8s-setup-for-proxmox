@@ -6,6 +6,7 @@ k8scluster構築後のセットアップについて示します。<br>
   * 手順については以下の順序となります。
     * ArgoCLIのインストール
     * helm repo listの追加
+    * namespaceの作成
     * ArgoCDをhelmrepoから投入
           
           # onp-k8s-cp-1にArgoCLIのインストール
@@ -19,3 +20,16 @@ k8scluster構築後のセットアップについて示します。<br>
           ## prometheus-community repo
           ssh onp-k8s-cp-1 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
           
+          # namespaceの作成
+          ## cluster-wide-apps
+          ssh onp-k8s-cp-1 kubectl create namespace cluster-wide-apps
+          
+          # ArgoCDをhelmrepoから投入
+          helm install argocd argo/argo-cd \
+              --version 5.5.4 \
+              --create-namespace \
+              --namespace argocd \
+              --values https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/argocd-helm-chart-values.yaml
+          helm install argocd argo/argocd-apps \
+              --version 0.0.1 \
+              --values https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/argocd-apps-helm-chart-values.yaml

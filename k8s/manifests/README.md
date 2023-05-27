@@ -33,3 +33,8 @@ k8scluster構築後のセットアップについて示します。<br>
           helm install argocd argo/argocd-apps \
               --version 0.0.1 \
               --values https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/argocd-apps-helm-chart-values.yaml
+
+### dashboard認証コードの表示<br>
+* k8sdashboardのデプロイ完了後、以下のpashを取得しログイン。
+
+      kubectl -n kubernetes-dashboard create token admin-user

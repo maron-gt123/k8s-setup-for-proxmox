@@ -37,14 +37,14 @@
     * onp-proxmox02-SV
     * onp-proxmox03-SV
   * gateway:192.168.15.1
-  * DNS-Server:192.168.15.57
+  * DNS-Server:192.168.15.131
 * メアメタルネットワーク設定
  * 論理構成図は以下の構成図を参照
    * [物理構成図]()
    * [論理構成図](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/%E8%AB%96%E7%90%86%E6%A7%8B%E6%88%90%E5%9B%B3.pdf)
  * proxmoxのbridge network設定
    * onp-proxmox01-SV
-     * management：vmbr10(192.168.10.50)
+     * management：vmbr10(192.168.10.141)
      * cluster：vmbr1(192.168.1.141)
      * service：vmbr15(192.168.15.141)
      * storage：vmbr6(192.168.6.141)

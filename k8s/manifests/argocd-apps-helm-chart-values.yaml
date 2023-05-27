@@ -9,10 +9,6 @@ applications:
       repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox
       targetRevision: main
       path: k8s/manifests/apps/root
-      directory:
-        recurse: true
-    finalizers:
-    - resources-finalizer.argocd.argoproj.io
     destination:
       server: https://kubernetes.default.svc
       namespace: argocd
@@ -29,12 +25,9 @@ applications:
           duration: 5s
           factor: 2
           maxDuration: 2m
-
 projects:
   - name: argocd-root
     namespace: argocd
-    finalizers:
-    - resources-finalizer.argocd.argoproj.io
     description: The top-level project
     sourceRepos:
       - "*"

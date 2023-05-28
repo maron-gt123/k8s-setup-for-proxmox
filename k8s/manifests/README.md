@@ -35,9 +35,6 @@ k8scluster構築後のセットアップについて示します。<br>
               --create-namespace \
               --namespace argocd \
               --values https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/argocd-helm-chart-values.yaml
-          helm install argocd argo/argocd-apps \
-              --version 0.0.1 \
-              --values https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/argocd-apps-helm-chart-values.yaml
 
 ### ArgoCD認証パスワードの表示
 * ArgoCDのデプロイ完了後、パスワードを取得しログイン。

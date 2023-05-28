@@ -52,7 +52,7 @@ Minecraft Server開始に必要な初回セットアップ方法
           EOF'"
           
           # paper-01-server
-          ssh mic-paper-01 "sudo sh -c 'cat >> /etc/fstab << EOF
+          ssh mic-paper01 "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount minecraft Backup
           //nas.micnet/usbssd/mic-backup/paper01 /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           # mount minecraft plugins
@@ -60,7 +60,7 @@ Minecraft Server開始に必要な初回セットアップ方法
           EOF'"
           
           # paper-02-server
-          ssh mic-paper-02 "sudo sh -c 'cat >> /etc/fstab << EOF
+          ssh mic-paper02 "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount minecraft Backup
           //nas.micnet/usbssd/mic-backup/paper02 /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           # mount minecraft plugins

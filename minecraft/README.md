@@ -73,15 +73,15 @@ Minecraft Server開始に必要な初回セットアップ方法
           ssh mic-lobby-SV "sudo sh -c 'sudo systemctl restart local-fs.target'"
           ssh mic-lobby-SV "sudo sh -c 'sudo mount -a'"
           
-          ssh mic-paper-01 "sudo sh -c 'sudo systemctl daemon-reload'"
-          ssh mic-paper-01 "sudo sh -c 'sudo systemctl restart remote-fs.target'"
-          ssh mic-paper-01 "sudo sh -c 'sudo systemctl restart local-fs.target'"
-          ssh mic-paper-01 "sudo sh -c 'sudo mount -a'"
+          ssh mic-paper01 "sudo sh -c 'sudo systemctl daemon-reload'"
+          ssh mic-paper01 "sudo sh -c 'sudo systemctl restart remote-fs.target'"
+          ssh mic-paper01 "sudo sh -c 'sudo systemctl restart local-fs.target'"
+          ssh mic-paper01 "sudo sh -c 'sudo mount -a'"
           
-          ssh mic-paper-02 "sudo sh -c 'sudo systemctl daemon-reload'"
-          ssh mic-paper-02 "sudo sh -c 'sudo systemctl restart remote-fs.target'"
-          ssh mic-paper-02 "sudo sh -c 'sudo systemctl restart local-fs.target'"
-          ssh mic-paper-02 "sudo sh -c 'sudo mount -a'"
+          ssh mic-paper02 "sudo sh -c 'sudo systemctl daemon-reload'"
+          ssh mic-paper02 "sudo sh -c 'sudo systemctl restart remote-fs.target'"
+          ssh mic-paper02 "sudo sh -c 'sudo systemctl restart local-fs.target'"
+          ssh mic-paper02 "sudo sh -c 'sudo mount -a'"
      
     + crontab setting
      ```

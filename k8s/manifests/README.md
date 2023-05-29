@@ -26,15 +26,15 @@ k8scluster構築後のセットアップについて示します。<br>
           helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
           
           # namespaceの作成
-          ## cluster-wide-apps
-          kubectl create namespace cluster-wide-apps
+          ## argocd
+          kubectl create namespace argocd
           
-          # ArgoCDをhelmrepoから投入
-          helm install argocd argo/argo-cd \
-              --version 5.5.4 \
-              --create-namespace \
-              --namespace argocd \
-              --values https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/argocd-helm-chart-values.yaml
+          # ArgoCDをhelm repoから投入
+          helm install -n argocd argocd argo/argo-cd
+          
+          sleep 60
+          #app-of-apps.yaml apply
+          kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/root/app-of-apps.yaml
 
 ### ArgoCD認証パスワードの表示
 * ArgoCDのデプロイ完了後、パスワードを取得しログイン。

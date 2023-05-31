@@ -29,12 +29,7 @@ k8scluster構築後のセットアップについて示します。<br>
           # namespaceの作成
           ## argocd
           kubectl create namespace argocd
-          
-          # metallbの導入
-          kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/cluster-wide-apps/metallb/metallb-native.yaml
-          sleep 60
-          kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/cluster-wide-apps/metallb/metallb-address-pool.yaml
-          
+           
           # ArgoCDをhelm repoから投入
           helm install -n argocd argocd argo/argo-cd
           

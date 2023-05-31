@@ -44,8 +44,10 @@ k8sのセットアップ
       ssh onp-k8s-wk-2 "sudo journalctl -u cloud-final.service"
       ssh onp-k8s-wk-3 "sudo journalctl -u cloud-final.service"
 
-## 全ノードをクラスタ内に参画<br>
+## 全ノードをクラスタ内に参画及びCPノードにkubeconfigを配布<br>
 * joinデータを各CP及びWKに共有しクラスタに参画<br>
+* CP2及びCP3にkubeconfigを配布し、cluster機能を確立<br>
+* 軽い動作check
 
       # join_kubeadm_cp.yaml を onp-k8s-cp-2 と onp-k8s-cp-3 にコピー
       scp -3 onp-k8s-cp-1:~/join_kubeadm_cp.yaml onp-k8s-cp-2:~/
@@ -64,17 +66,13 @@ k8sのセットアップ
       ssh onp-k8s-wk-1 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
       ssh onp-k8s-wk-2 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
       ssh onp-k8s-wk-3 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
-
-## コントロールプレーンの全ノードにkubeconfigを配布
-* CP2及びCP3にkubeconfigを配布し、cluster機能を確立<br>
-
+      
+      # CP2及びCP3にkubeconfigを配布
       ssh onp-k8s-cp-2 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
       ssh onp-k8s-cp-3 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
-
-## 動作チェック
-    ssh onp-k8s-cp-1 "kubectl get node -o wide && kubectl get pod -A -o wide"
-    ssh onp-k8s-cp-2 "kubectl get node -o wide && kubectl get pod -A -o wide"
-    ssh onp-k8s-cp-3 "kubectl get node -o wide && kubectl get pod -A -o wide"
+      
+      # 動作check
+      ssh onp-k8s-cp-1 "kubectl get node -o wide && kubectl get pod -A -o wide"
      
 ## workerにnfsクライアントインストール
     ssh onp-k8s-wk-1 "sudo apt-get install nfs-common -y"

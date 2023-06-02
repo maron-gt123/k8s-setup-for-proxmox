@@ -32,7 +32,7 @@ data:
         bind_local_address: true
         tab_list: GLOBAL_PING
         query_enabled: false
-        host: 0.0.0.0:53616
+        host: 0.0.0.0:25577
         max_players: 256
         tab_size: 60
         ping_passthrough: false

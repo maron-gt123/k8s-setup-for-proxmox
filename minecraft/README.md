@@ -99,7 +99,7 @@ Minecraft Server開始に必要な初回セットアップ方法
 * proxmoxホストコンソールで以下の処理を実施しVMを削除
 
       TARGET_BRANCH=main
-      /bin/bash <(curl -s https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/mic-remove-vm.sh) ${TARGET_BRANCH}
+      /bin/bash <(curl -s https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/${TARGET_BRANCH}/minecraft/mic-remove-vm.sh) ${TARGET_BRANCH}
 
 ## VM-deploy VM-remove時のVM-Disk lock解消
   + qmコマンドを使用したVMの錬成及びリビルド時にVM-Diskのロックが顕在化する場合あるため対処方法について記載<br>

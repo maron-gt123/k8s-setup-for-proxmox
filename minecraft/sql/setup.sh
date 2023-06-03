@@ -50,3 +50,11 @@ timedatectl set-timezone Asia/Tokyo
 timedatectl
 cd
 
+# install mariadb
+apt -y install mariadb-server
+
+# install apache
+apt -y install apache2
+
+# install php
+apt -y install php-fpm

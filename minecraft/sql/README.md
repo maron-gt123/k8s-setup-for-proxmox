@@ -8,7 +8,6 @@
       * mariaDBのインストール
       * Apache2のインストール
       * phpのインストール
-      * phpmyadminのインストール
 * mariadbの初期設定
   * 初期設定については手動で設定する。※意図的な変更も加味して
     * 対話型で設定とする
@@ -28,4 +27,8 @@
       * yesを入力
     * Reload privilege tables now? [Y/n]
       * yesを入力
-  * 
+  * phpmyadminのインストール
+  
+        apt -y install phpmyadmin
+    * apache2を選択
+    * 以降すべての内容Yesで設定

@@ -13,3 +13,7 @@
     * 対話型で設定とする
     
           mysql_secure_installation
+    * Enter current password for root (enter for none):
+      * Ente入力
+    * Switch to unix_socket authentication [Y/n]
+      * 

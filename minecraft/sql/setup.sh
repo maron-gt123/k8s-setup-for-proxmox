@@ -59,8 +59,5 @@ apt -y install apache2
 # install php
 apt -y install php-fpm
 
-# install phpmyadmin
-apt -y install phpmyadmin
-
-echo "end setup"
+echo "phpmyadminのセットアップ及びmariadbの設定は自己解決ください"
 # ------end------

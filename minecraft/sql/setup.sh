@@ -59,4 +59,8 @@ apt -y install apache2
 # install php
 apt -y install php-fpm
 
+# install phpmyadmin
 apt -y install phpmyadmin
+
+echo "end setup"
+# ------end------

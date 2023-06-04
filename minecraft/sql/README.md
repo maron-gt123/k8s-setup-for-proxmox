@@ -19,3 +19,14 @@
       * noを入力
     * Change the root password? [Y/n]
       * yesを入力 任意のパスワードを入力
+Remove anonymous users? [Y/n]
+y
+
+Disallow root login remotely? [Y/n]
+y
+
+Remove test database and access to it? [Y/n]
+y
+
+Reload privilege tables now? [Y/n]
+

@@ -8,6 +8,7 @@
       * mariaDBのインストール
       * Apache2のインストール
       * phpのインストール
+      * phpmyadminのインストール
 * mariadbの初期設定
   * 初期設定については手動で設定する。※意図的な変更も加味して
     * 対話型で設定とする
@@ -19,14 +20,12 @@
       * noを入力
     * Change the root password? [Y/n]
       * yesを入力 任意のパスワードを入力
-Remove anonymous users? [Y/n]
-y
-
-Disallow root login remotely? [Y/n]
-y
-
-Remove test database and access to it? [Y/n]
-y
-
-Reload privilege tables now? [Y/n]
-
+    * Remove anonymous users? [Y/n]
+      * yesを入力
+    * Disallow root login remotely? [Y/n]
+      * yesを入力
+    * Remove test database and access to it? [Y/n]
+      * yesを入力
+    * Reload privilege tables now? [Y/n]
+      * yesを入力
+  * 

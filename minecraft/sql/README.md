@@ -34,7 +34,7 @@
     * 以降すべての内容Yesで設定 
   * apache2.configの編集
   
-        cat >> /etc/fstab << EOF
+        cat >> /etc/apache2/apache2.conf << EOF
         
         # phpmyadmin set
         Include /etc/phpmyadmin/apache.conf

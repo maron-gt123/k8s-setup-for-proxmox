@@ -10,4 +10,6 @@
       * phpのインストール
 * mariadbの初期設定
   * 初期設定については手動で設定する。※意図的な変更も加味して
-  
+    * 対話型で設定とする
+    
+          mysql_secure_installation

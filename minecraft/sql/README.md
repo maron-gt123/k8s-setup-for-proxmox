@@ -27,8 +27,18 @@
       * yesを入力
     * Reload privilege tables now? [Y/n]
       * yesを入力
-  * phpmyadminのインストール
+* phpmyadminのインストール
   
-        apt -y install phpmyadmin
-    * apache2を選択
-    * 以降すべての内容Yesで設定
+      apt -y install phpmyadmin
+  * apache2を選択
+    * 以降すべての内容Yesで設定 
+  * apache2.configの編集
+  
+        cat >> /etc/fstab << EOF
+        
+        # phpmyadmin set
+        Include /etc/phpmyadmin/apache.conf
+        EOF
+        
+        # apache restart
+        systemctl restart apache2

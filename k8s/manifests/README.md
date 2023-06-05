@@ -34,7 +34,7 @@ k8scluster構築後のセットアップについて示します。<br>
           #app-of-apps.yaml apply
           kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/root/app-of-apps.yaml
 
-### ArgoCD認証パスワードの表示
+### ArgoCD認証パスワードの変更
 * ArgoCDのデプロイ完了後、パスワードを取得しログイン
 
       # Argo CDの初期管理者パスワードを取得

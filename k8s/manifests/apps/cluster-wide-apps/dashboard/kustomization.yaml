@@ -6,4 +6,4 @@ resources:
   - https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
   - ./dashboard_account.yml
   - ./dashboard_rolebinding.yml
-  - ./dashboard_svc.yml
+  - ./dashboard-lb.yml

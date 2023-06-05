@@ -41,10 +41,8 @@ k8scluster構築後のセットアップについて示します。<br>
       PASSWORD=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
       # Argo CDにログイン
       echo "y" | argocd login 192.168.15.60 --username=admin --password=$PASSWORD
-
-* パスワード変更<br>
-
-      argocd account update-password
+      # パスワード変更
+      argocd account update-password --current-password $PASSWORD
 
 ### dashboard認証コードの表示<br>
 * k8sdashboardのデプロイ完了後、以下のpashを取得しログイン

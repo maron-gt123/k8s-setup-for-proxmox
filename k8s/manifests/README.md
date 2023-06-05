@@ -21,8 +21,6 @@ k8scluster構築後のセットアップについて示します。<br>
           rm argocd-linux-amd64
           
           # helm repo listの追加
-          ## ArgoCD repo
-          helm repo add argo https://argoproj.github.io/argo-helm
           ## prometheus-community repo
           helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
           
@@ -30,8 +28,8 @@ k8scluster構築後のセットアップについて示します。<br>
           ## argocd
           kubectl create namespace argocd
            
-          # ArgoCDをhelm repoから投入
-          helm install -n argocd argocd argo/argo-cd
+          # argocdデプロイ
+          kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
           
           sleep 60
           #app-of-apps.yaml apply

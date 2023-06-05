@@ -75,9 +75,11 @@ k8sのセットアップ
       ssh onp-k8s-cp-1 "kubectl get node -o wide && kubectl get pod -A -o wide"
      
 ## workerにnfsクライアントインストール
-    ssh onp-k8s-wk-1 "sudo apt-get install nfs-common -y"
-    ssh onp-k8s-wk-2 "sudo apt-get install nfs-common -y"
-    ssh onp-k8s-wk-3 "sudo apt-get install nfs-common -y"
+* pv及びpvcのデータストアとしてnsfを使用のためセットアップを実施<br>
+
+      ssh onp-k8s-wk-1 "sudo apt-get install nfs-common -y"
+      ssh onp-k8s-wk-2 "sudo apt-get install nfs-common -y"
+      ssh onp-k8s-wk-3 "sudo apt-get install nfs-common -y"
 
 ## 削除
 * proxmoxホストコンソールで以下の処理を実施しVMを削除<br>

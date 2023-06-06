@@ -1,8 +1,8 @@
 # kubeadmを活用した高可用性kubernetesクラスタの構築<br>
-k8sのセットアップ
+k8sのセットアップについて示す。前提条件として前述するproxmoxの環境であること
 
 ## VMの錬成<br>
-* kubanetesuの構築にあたりCP及びWKをそれぞれ3台構成で錬成する。
+* kの構築にあたりCP及びWKをそれぞれ3台構成で錬成する。
   * onp-k8s-cp-1
   * onp-k8s-cp-2
   * onp-k8s-cp-3

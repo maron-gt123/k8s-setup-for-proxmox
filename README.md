@@ -1,7 +1,8 @@
 # proxmox基盤をベースとした様々な仮想環境の構築<br>
-自身の自宅サーバーで使用するproxmox及びkubanetesu環境について記載します。
+自身の自宅サーバーで使用するproxmox及びVM配下で動作するk8s及び舞倉環境について記載します。
 
-### 前提条件<br>
+## 前提条件<br>
+### proxmox<br>
 * Proxmox Virtual Environment 7.3-4
   * ベアメタル3ノード運用
   * cluster構成を必須とする
@@ -14,16 +15,16 @@
   * cluster Network Segment(1G) (192.168.1.0/24)
   * Service Network Segment(1G) (192.168.15.0/24)
   * storage Network Segment(10G) (192.168.6.0/24)
-* kubernetes
-  * Internal
-    * Pod Network (10.128.0.0/16)
-    * Service Network (10.96.0.0/16)
-  * External
-    * Node IP
-      * Service Network (192.168.15.0-192.168.15.127)
-      * Storage Network (192.168.6.0-192.168.6.127)
+### k8s(proxmoxのVMとして動作)<br>
+* Internal
+  * Pod Network (10.128.0.0/16)
+  * Service Network (10.96.0.0/16)
+* External
+  * Node IP
+    * Service Network (192.168.15.0/24)
+    * Storage Network (192.168.6.0/24)
     * API Endpoint (192.168.6.100)
-    * LoadBalancer VIP (192.168.15.60-192.168.15.80)
+    * LoadBalancer VIP (192.168.15.50-192.168.15.80)
 ## proxmoxのインストール<br>
 * proxmoxのインストールについては以下からインストーラーを入手[proxmox_en](https://www.proxmox.com/en/)
 * インストール時の設定事項
@@ -31,28 +32,23 @@
   * timezone:Asia/Tokyo
   * keymap:japan
   * E-mail:任意
-  * management-interface:service-segmentと同一とする
   * hostname
-    * onp-proxmox01-SV
-    * onp-proxmox02-SV
-    * onp-proxmox03-SV
+    * onp-prox01-SV
+    * onp-prox02-SV
+    * onp-prox03-SV
   * gateway:192.168.15.1
   * DNS-Server:192.168.15.131
-* メアメタルネットワーク設定
- * 論理構成図は以下の構成図を参照
-   * [物理構成図]()
-   * [論理構成図](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/%E8%AB%96%E7%90%86%E6%A7%8B%E6%88%90%E5%9B%B3.pdf)
  * proxmoxのbridge network設定
-   * onp-proxmox01-SV
+   * onp-prox01-SV
      * management：vmbr10(192.168.10.141)
      * cluster：vmbr1(192.168.1.141)
      * service：vmbr15(192.168.15.141)
      * storage：vmbr6(192.168.6.141)
-   * onp-proxmox02-SV
+   * onp-prox02-SV
      * cluster：vmbr1(192.168.1.142)
      * service：vmbr15(192.168.15.142)
      * storage：vmbr6(192.168.6.142)
-   * onp-proxmox03-SV
+   * onp-prox03-SV
      * cluster：vmbr1(192.168.1.143)
      * service：vmbr15(192.168.15.143)
      * storage：vmbr6(192.168.6.143)

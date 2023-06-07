@@ -58,9 +58,9 @@
         mysql -u root -p
   * 新規ユーザ設定
 
-        create user '<任意のユーザ名>'@'%' identifind by '0000'
+        CREATE USER '<任意のユーザ名>'@'%' IDENTIFIED BY '<任意のパスワード>' ;
   * 新規ユーザに権限付与
   
-        grant ALL on *.* to <任意のユーザ名>@' %' ;
+        GRANT ALL ON *.* to <任意のユーザ名>@'%' ;
 
 

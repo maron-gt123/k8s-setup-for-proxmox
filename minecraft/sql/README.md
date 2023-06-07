@@ -40,5 +40,14 @@
         Include /etc/phpmyadmin/apache.conf
         EOF
         
-        # apache restart
-        systemctl restart apache2
+  * 	PHP-FPMの編集
+  
+         # </VirtualHost> </VirtualHost>間に記載
+         <FilesMatch \.php$>
+             SetHandler "proxy:unix:/var/run/php/php8.1-fpm.sock|fcgi://localhost/"
+         </FilesMatch>
+  * 設定反映
+ 
+        a2enmod proxy_fcgi setenvif
+        a2enconf php8.1-fpm
+        systemctl restart php8.1-fpm apache2

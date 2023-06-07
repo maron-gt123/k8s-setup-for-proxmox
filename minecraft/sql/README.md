@@ -51,7 +51,11 @@
         a2enmod proxy_fcgi setenvif
         a2enconf php8.1-fpm
         systemctl restart php8.1-fpm apache2
-
+  * mariadb 50-server.cnfの編集
+  
+        nano /etc/mysql/mariadb.conf.d/50-server.cnf
+        # 以下コメントアウト
+        bind-address            = 127.0.0.1
 * 権限関連
   * mariaDBへのログイン
   

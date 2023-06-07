@@ -40,7 +40,7 @@
         Include /etc/phpmyadmin/apache.conf
         EOF
         
-  * 	PHP-FPMの編集
+  * PHP-FPMの編集
   
          # </VirtualHost> </VirtualHost>間に記載
          <FilesMatch \.php$>

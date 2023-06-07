@@ -51,3 +51,16 @@
         a2enmod proxy_fcgi setenvif
         a2enconf php8.1-fpm
         systemctl restart php8.1-fpm apache2
+
+* 権限関連
+  * mariaDBへのログイン
+  
+        mysql -u root -p
+  * 新規ユーザ設定
+
+        create user '<任意のユーザ名>'@'%' identifind by '0000'
+  * 新規ユーザに権限付与
+  
+        grant ALL on *.* to <任意のユーザ名>@' %' ;
+
+

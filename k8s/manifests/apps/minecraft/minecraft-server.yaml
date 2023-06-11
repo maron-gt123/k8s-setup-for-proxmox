@@ -39,7 +39,6 @@ spec:
               value: 2G
             - name: PLUGINS
               value: >-
-                https://www.spigotmc.org/resources/iportal-transportation-bungeecord-portals.29552/download?version=283107,
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v2.5.0/minecraft-prometheus-exporter-2.5.0.jar
           ports:
             - name: minecraft

@@ -90,11 +90,6 @@ Minecraft Server開始に必要な初回セットアップ方法
           ssh mic-paper02 "sudo sh -c 'sudo systemctl restart local-fs.target'"
           ssh mic-paper02 "sudo sh -c 'sudo mount -a'"
      
-    + crontab setting
-     ```
-     #minecraft bukup sprict
-     * 4 * * * /minecraft/paper/mic-stop.sh > /var/log/mic-stop.log 2>&1
-     ```
     + ipv6 desable
      ```
     nano /etc/default/grub

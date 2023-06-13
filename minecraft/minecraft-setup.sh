@@ -5,24 +5,19 @@ PAPER_VER=1.20.1
 PAPER_JAR=paper-1.20.1-18.jar
 PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/${PAPER_VER}/builds/18/downloads/${PAPER_JAR}
 HOSTNAME=$(hostname)
+# --------------------
 
-# endregion
-
-# region : create update.sh
+# create update.sh
 cat > update.sh <<EOF
 #!/bin/bash
 sudo apt update
 sudo apt upgrade -y
 sudo apt autoremove -y
 EOF
-
 sudo chmod 700 update.sh
-
 ./update.sh
-# endregion
 
-
-# region : setting ntp
+# setting ntp
 cat > /etc/systemd/timesyncd.conf <<EOF
 #  This file is part of systemd.
 #
@@ -45,43 +40,33 @@ NTP=ntp-dns.micnet
 #PollIntervalMinSec=32
 #PollIntervalMaxSec=2048
 EOF
-
 systemctl restart systemd-timesyncd
 timedatectl timesync-status
-# endregion
 
-
-# region : setting timezone Asia/Tokyo
+# setting timezone Asia/Tokyo
 timedatectl set-timezone Asia/Tokyo
 timedatectl
-# endregion
 
-cd
-
-# region : install　java openjdk
+# install java openjdk
 apt install openjdk-17-jre -y
-# endregion
-
-# region : install　zip 
+# install zip 
 apt install zip -y
-# endregion
+# install git
+apt install git -y
+# install nas mount
+apt install cifs-utils -y
+apt install autofs -y
+systemctl enable autofs
+systemctl start autofs
 
-# region : create　minecraft derectory
+# create minecraft derectory
 mkdir /minecraft
 mkdir /minecraft/paper
 mkdir /minecraft/nas
 mkdir /minecraft/paper/plugins
 mkdir /minecraft/paper/Backups
-# endregion
 
-# region : install nas mount
-apt install cifs-utils -y
-apt install autofs -y
-systemctl enable autofs
-systemctl start autofs
-# endregion
-
-# region : ufw setting
+# ufw setting
 ufw status
 echo "y" | ufw enable
 ufw default deny
@@ -89,41 +74,32 @@ ufw allow from 192.168.15.0/24 to any port 22
 ufw allow from 192.168.15.0/24 to any port 9225
 ufw allow 25565
 ufw reload
-# endregion
 
-# region : minecraft setup
-cd /minecraft/paper
-sudo wget $PAPER_URL
+# ------minecraft setup------
+# paper.jar download
+wget -P /minecraft/paper $PAPER_URL
+# eula set
 cat > /minecraft/paper/eula.txt <<EOF
 #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.m>
 $(date +"#%a %b %d %H:%M:%S %Z %Y")
 eula=true
 EOF
-
+# config download
 if [ $HOSTNAME = "mic-lobby-SV" ]; then
-    cd /minecraft/paper/
-    sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-lobby-SV/bukkit.yml
-    sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-lobby-SV/server.properties
-    sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-lobby-SV/spigot.yml
-    cd
+    git clone --depth 1 https://github.com/maron-gt123/k8s-setup-for-proxmox.git
+    cp -r /k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/world/ /minecraft/paper/
+    cp /k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/bukkit.yml /minecraft/paper/
+    cp /k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/server.properties /minecraft/paper/
+    cp /k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/spigot.yml /minecraft/paper/
+    rm -r /k8s-setup-for-proxmox/
 else
-    cd /minecraft/paper/
-    sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-paper/server.properties
-    sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-paper/spigot.yml
-    cd
+    wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-paper/server.properties
+    wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-paper/spigot.yml
 fi
-
-cd /minecraft/paper/
-sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-start.sh
-sudo wget https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-stop.sh
-chmod 700 mic-start.sh
-chmod 700 mic-stop.sh
-cd 
-
+wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-start.sh
+wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-stop.sh
 chmod 700 /minecraft/paper/mic-start.sh
 chmod 700 /minecraft/paper/mic-stop.sh
-
-# endregion
 
 echo --end--
 

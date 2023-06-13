@@ -60,7 +60,7 @@ spec:
               subPath: spigot.yml
             - name: server-plugin-config
               mountPath: /data/plugins/PrometheusExporter/config.yml
-              subPath: MinecraftPrometheusExporter-config.yml
+              subPath: MCprometheusexporter-config.yml
 
       volumes:
         - name: minecraft-storage

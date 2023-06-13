@@ -464,7 +464,7 @@ data:
     #
     # IRC: #spigot @ irc.spi.gt ( http://www.spigotmc.org/pages/irc/ )
     # Forums: http://www.spigotmc.org/
-
+    
     config-version: 12
     settings:
       log-named-deaths: true

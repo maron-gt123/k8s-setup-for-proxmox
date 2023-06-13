@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # region : set variables
-PAPER_VER=paper-1.19.4-466.jar
-PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/1.19.4/builds/466/downloads/${PAPER_VER}
+PAPER_VER=1.20.1
+PAPER_JAR=paper-1.20.1-18.jar
+PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/${PAPER_VER}/builds/18/downloads/${PAPER_JAR}
 HOSTNAME=$(hostname)
 
 # endregion
@@ -95,7 +96,7 @@ cd /minecraft/paper
 sudo wget $PAPER_URL
 cat > /minecraft/paper/eula.txt <<EOF
 #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.m>
-#Mon Aug 15 14:38:32 JST 2022
+$(date +"#%a %b %d %H:%M:%S %Z %Y")
 eula=true
 EOF
 

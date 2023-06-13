@@ -68,4 +68,4 @@ spec:
             name: common-mcserver-configs
         - name: server-plugin-configs
           configMap:
-            name: server-plugin-configs
+            name: common-mcserver-plugin-configs

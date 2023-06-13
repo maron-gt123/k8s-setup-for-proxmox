@@ -35,7 +35,14 @@ Minecraft Server開始に必要な初回セットアップ方法
 + VM錬成後、pingを実行し疎通確認を実施
 
       for i in 7 8 9; do ping -c1 192.168.15.8$i; done 
-                  
+
+##  ログ確認
++ 各VMでminecraft-setup.shの正常性をログで確認
+
+      ssh mic-lobby-SV "sudo cat /var/log/cloud-init-output.log"
+      ssh mic-paper01 "sudo cat /var/log/cloud-init-output.log"
+      ssh mic-paper02 "sudo cat /var/log/cloud-init-output.log"
+
 ##  手動作業<br>
 1. scriptでは設定できない「バックアップ用NAS設定」「crontab設定」「ipv6無効化」を別途設定
     + mount nas drive

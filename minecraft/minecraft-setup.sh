@@ -87,19 +87,19 @@ EOF
 # config download
 if [ $HOSTNAME = "mic-lobby-SV" ]; then
     git clone --depth 1 https://github.com/maron-gt123/k8s-setup-for-proxmox.git
-    sudo cp -r /k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/world/ /minecraft/paper/
-    sudo cp /k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/bukkit.yml /minecraft/paper/
-    sudo cp /k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/server.properties /minecraft/paper/
-    sudo cp /k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/spigot.yml /minecraft/paper/
-    sudo rm -r /k8s-setup-for-proxmox/
+    cp -r /home/cloudinit/k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/world/ /minecraft/paper/
+    cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/bukkit.yml /minecraft/paper/
+    cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/server.properties /minecraft/paper/
+    cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/script/mic-lobby-SV/spigot.yml /minecraft/paper/
+    rm -r /home/cloudinit/k8s-setup-for-proxmox/
 else
-    sudo wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-paper/server.properties
-    sudo wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-paper/spigot.yml
+    wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-paper/server.properties
+    wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-paper/spigot.yml
 fi
-sudo wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-start.sh
-sudo wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-stop.sh
-sudo chmod 700 /minecraft/paper/mic-start.sh
-sudo chmod 700 /minecraft/paper/mic-stop.sh
+wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-start.sh
+wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/mic-stop.sh
+chmod 700 /minecraft/paper/mic-start.sh
+chmod 700 /minecraft/paper/mic-stop.sh
 
 echo --end--
 

@@ -38,7 +38,9 @@ spec:
             - name: MAX_MEMORY
               value: 2G
             - name: PLUGINS
-              value: https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v2.5.0/minecraft-prometheus-exporter-2.5.0.jar
+              value: >-
+                https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/download?version=357227,
+                https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v2.5.0/minecraft-prometheus-exporter-2.5.0.jar
           ports:
             - name: minecraft
               containerPort: 25565
@@ -56,9 +58,6 @@ spec:
             - name: server-config
               mountPath: /data/spigot.yml
               subPath: spigot.yml
-#            - name: server-plugin-configs
-#              mountPath: /data/plugins/MinecraftPrometheusExporter/config.json
-#              subPath: MinecraftPrometheusExporter-config.json
 
       volumes:
         - name: minecraft-storage

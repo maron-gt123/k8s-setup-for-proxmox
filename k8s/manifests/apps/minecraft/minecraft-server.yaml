@@ -39,7 +39,7 @@ spec:
               value: 2G
             - name: PLUGINS
               value: >-
-                https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/download?version=357227,
+                https://github.com/ViaVersion/ViaVersion/releases/download/4.7.0/ViaVersion-4.7.0.jar,
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v2.5.0/minecraft-prometheus-exporter-2.5.0.jar
           ports:
             - name: minecraft

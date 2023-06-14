@@ -4,7 +4,7 @@ metadata:
   name: prometheus-crd
   namespace: argocd
 spec:
-  project: cluster-wide-apps
+  project: default
   source:
     repoURL: https://github.com/prometheus-community/helm-charts.git
     path: charts/kube-prometheus-stack/crds/
@@ -30,7 +30,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io # cascade deletion on this App deletion
 spec:
-  project: cluster-wide-apps
+  project: default
   source:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
@@ -46,18 +46,6 @@ spec:
             alertmanager: false
         grafana:
           enabled: false
-        prometheus:
-          prometheusSpec:
-            storageSpec:
-              volumeClaimTemplate:
-                spec:
-                  resources:
-                    requests:
-                      storage: 50Gi
-            resources:
-              requests:
-                memory: 2Gi
-            retention: 60d
         alertmanager:
           enabled: false
         kubeProxy:

@@ -50,16 +50,16 @@ spec:
               cpu: "2"
           volumeMounts:
             - name: server-config
-              mountPath: /data/bukkit.yml
+              mountPath: /config/bukkit.yml
               subPath: bukkit.yml
             - name: server-config
-              mountPath: /data/server.properties
+              mountPath: /config/server.properties
               subPath: server.properties
             - name: server-config
-              mountPath: /data/spigot.yml
+              mountPath: /config/spigot.yml
               subPath: spigot.yml
             - name: server-plugin-config
-              mountPath: /data/config/PrometheusExporter/config.yml
+              mountPath: /plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml
 
       volumes:

@@ -35,36 +35,6 @@ spec:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 46.8.0
-    helm:
-      releaseName: prometheus
-      skipCrds: true
-      values: |
-        defaultRules:
-          create: true
-          rules:
-            kubeProxy: false
-            alertmanager: false
-        grafana:
-          enabled: false
-        prometheus:
-          prometheusSpec:
-            resources:
-              requests:
-                memory: 2Gi
-            retention: 60d
-        alertmanager:
-          enabled: false
-        kubeProxy:
-          enabled: false
-        kubeEtcd:
-          endpoints:
-            - 192.168.18.11
-            - 192.168.18.12
-            - 192.168.18.13
-          service:
-            enabled: true
-            port: 2381
-            targetPort: 2381
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

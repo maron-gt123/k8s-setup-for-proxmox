@@ -1,22 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus-app
-  namespace: argocd
+  name: prometheus
 spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
   project: default
   source:
-    helm:
-      name: kube-prometheus-stack
-      version: 46.8.0
-      repository: https://prometheus-community.github.io/helm-charts
-      repoURL: https://prometheus-community.github.io/helm-charts
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: monitoring
+    path: k8s/manifests/apps/prometheus
+    repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
+    targetRevision: main
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
+    automated: {}

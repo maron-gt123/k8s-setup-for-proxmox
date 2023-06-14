@@ -1,5 +1,5 @@
 kind: Namespace
 metadata:
   name: monitoring
-  labels:
-    name: monitoring
+#  labels:
+#    name: monitoring

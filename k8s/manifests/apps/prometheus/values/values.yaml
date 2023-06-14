@@ -5,6 +5,8 @@ defaultRules:
     alertmanager: false
 grafana:
   enabled: false
+alertmanager:
+  enabled: false
 kubeProxy:
   enabled: false
 kubeEtcd:

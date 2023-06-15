@@ -9,7 +9,7 @@ spec:
   sources:
     - chart: kube-prometheus-stack
       repoURL: https://prometheus-community.github.io/helm-charts
-      targetRevision: 46.8.0
+      targetRevision: 45.7.0
       helm:
         value: https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/prometheus/values/values.yaml
   destination:

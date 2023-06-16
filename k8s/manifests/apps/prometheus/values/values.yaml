@@ -10,7 +10,7 @@ prometheus:
     additionalScrapeConfigs: 
       - job_name: 'bungeecord'
         static_configs:
-          - targets: ['localhost:9225']
+          - targets: ['0.0.0.0:9225']
 alertmanager:
   enabled: false
 kubeProxy:

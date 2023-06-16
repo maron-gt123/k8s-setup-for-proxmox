@@ -51,6 +51,10 @@ spec:
             - name: MAX_MEMORY
               value: 1G
             - name: PLUGINS
+              # bungeecord-prometheus-exporter:
+              #   https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.1.5/bungeecord-prometheus-exporter-3.1.5.jar
+              # LunaChat
+              #   https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.1.5/bungeecord-prometheus-exporter-3.1.5.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar

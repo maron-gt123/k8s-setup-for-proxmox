@@ -43,7 +43,9 @@ k8scluster構築後のセットアップについて示します。<br>
       echo "y" | argocd login 192.168.15.60 --username=admin --password=$PASSWORD
       # パスワード変更
       argocd account update-password --current-password $PASSWORD
-      # 初期パスワード削除
+
+* ArgoCDの初期パスワードを削除
+
       kubectl -n argocd delete secret/argocd-initial-admin-secret
 
 ### dashboard認証コードの表示<br>

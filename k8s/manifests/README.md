@@ -51,4 +51,4 @@ k8scluster構築後のセットアップについて示します。<br>
 ### dashboard認証コードの表示<br>
 * k8sdashboardのデプロイ完了後、以下のpashを取得しログイン
 
-      ssh onp-k8s-cp-1 kubectl -n kubernetes-dashboard create token admin-user
+      kubectl -n kubernetes-dashboard create token admin-user

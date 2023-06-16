@@ -5,6 +5,12 @@ defaultRules:
     alertmanager: false
 grafana:
   enabled: false
+prometheus:
+  prometheusSpec:
+    additionalScrapeConfigs: 
+      - job_name: 'bungeecord'
+        static_configs:
+          - targets: ['localhost:9225']
 alertmanager:
   enabled: false
 kubeProxy:

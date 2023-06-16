@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: kubernetes-dashboard
 
 resources:
-  - https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta3/aio/deploy/recommended.yaml
+  - https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
   - ./dashboard_account.yml
   - ./dashboard_rolebinding.yml
   - ./dashboard-lb.yml

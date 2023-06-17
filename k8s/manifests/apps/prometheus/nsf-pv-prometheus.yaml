@@ -3,10 +3,8 @@ kind: PersistentVolume
 metadata:
   namespace: monitoring
   name: prometheus-pv
-  labels:
-    app: prometheus
 spec:
-  storageClassName: prometheus
+  storageClassName: prometheus-nsf
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

@@ -49,8 +49,8 @@ spec:
 #       value: https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/prometheus/values/values.yaml
         valueFiles: 
           - k8s/manifests/apps/prometheus/values/values.yaml
-    - repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
-      targetRevision: main
+          - repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
+            targetRevision: main
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

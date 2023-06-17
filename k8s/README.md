@@ -78,13 +78,13 @@ k8sのセットアップについて示す。前提条件として前述するpr
       ssh onp-k8s-wk-3 "sudo apt-get install nfs-common -y"
 
       # 動作check
-      echo "node"
+      echo "-----------------node-----------------"
       ssh onp-k8s-cp-1 "kubectl get node -o wide"
       echo ""
-      echo "pod"
+      echo "-----------------pod-----------------"
       ssh onp-k8s-cp-2 "kubectl get pod -A -o wide"
       echo ""
-      echo "service"
+      echo "-----------------service-----------------"
       ssh onp-k8s-cp-3 "kubectl get service -A -o wide"
 
 ## 削除

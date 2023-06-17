@@ -33,7 +33,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: kube-prometheus-stack
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io # cascade deletion on this App deletion

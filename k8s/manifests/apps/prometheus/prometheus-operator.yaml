@@ -40,44 +40,44 @@ metadata:
 spec:
   project: default
   sources:
-    - chart: kube-prometheus-stack
-      repoURL: https://prometheus-community.github.io/helm-charts
-      targetRevision: 46.8.0
-      helm:
-        skipCrds: true
-        value: |
-          defaultRules:
-            create: true
-            rules:
-              kubeProxy: false
-              alertmanager: false
-          grafana:
-            enabled: false
-            defaultDashboardsTimezone:  Asia/Tokyo
-          prometheus:
-            prometheusSpec:
-              storageSpec:
-                volumeClaimTemplate:
-                  spec:
-                    storageClassName: prometheus-nsf
-                    accessModes: ["ReadWriteMany"]
-                    resources:
-                      requests:
-                        storage: 10Gi
-          alertmanager:
-            enabled: false
-          kubeProxy:
-            enabled: false
-          kubeEtcd:
+    chart: kube-prometheus-stack
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 46.8.0
+    helm:
+      skipCrds: true
+      value: |
+        defaultRules:
+          create: true
+          rules:
+            kubeProxy: false
+            alertmanager: false
+        grafana:
+          enabled: false
+          defaultDashboardsTimezone:  Asia/Tokyo
+        prometheus:
+          prometheusSpec:
+            storageSpec:
+              volumeClaimTemplate:
+                spec:
+                  storageClassName: prometheus-nsf
+                  accessModes: ["ReadWriteMany"]
+                  resources:
+                    requests:
+                      storage: 10Gi
+        alertmanager:
+          enabled: false
+        kubeProxy:
+          enabled: false
+        kubeEtcd:
+          enabled: true
+          endpoints:
+            - 192.168.6.81
+            - 192.168.6.82
+            - 192.168.6.83
+          service:
             enabled: true
-            endpoints:
-              - 192.168.6.81
-              - 192.168.6.82
-              - 192.168.6.83
-            service:
-              enabled: true
-              port: 2381
-              targetPort: 2381
+            port: 2381
+            targetPort: 2381
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

@@ -12,12 +12,5 @@ spec:
   selector:
     app: kube-prometheus-stack-prometheus
     app.kubernetes.io/instance: kube-prometheus-stack
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/part-of: kube-prometheus-stack
-    app.kubernetes.io/version: 46.8.0
-    chart: kube-prometheus-stack-46.8.0
-    heritage: Helm
-    release: prometheus
-    self-monitor: 'true'
   type: LoadBalancer
   loadBalancerIP: 192.168.15.64

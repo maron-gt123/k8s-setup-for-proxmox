@@ -45,7 +45,9 @@ spec:
     targetRevision: 46.8.0
     helm:
       skipCrds: true
-      value: |
+      releaseName: prometheus
+      skipCrds: true
+      values: |
         defaultRules:
           create: true
           rules:
@@ -53,7 +55,6 @@ spec:
             alertmanager: false
         grafana:
           enabled: false
-          defaultDashboardsTimezone:  Asia/Tokyo
         prometheus:
           prometheusSpec:
             storageSpec:
@@ -64,12 +65,15 @@ spec:
                   resources:
                     requests:
                       storage: 10Gi
+            resources:
+              requests:
+                memory: 2Gi
+            retention: 60d
         alertmanager:
           enabled: false
         kubeProxy:
           enabled: false
         kubeEtcd:
-          enabled: true
           endpoints:
             - 192.168.6.81
             - 192.168.6.82

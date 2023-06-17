@@ -45,7 +45,12 @@ spec:
       targetRevision: 46.8.0
       helm:
         skipCrds: true
-        value: https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/prometheus/values/values.yaml
+#       old value pash
+#       value: https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/prometheus/values/values.yaml
+        valueFiles: 
+          - k8s/manifests/apps/prometheus/values/values.yaml
+    - repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
+      targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

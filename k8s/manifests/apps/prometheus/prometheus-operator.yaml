@@ -44,7 +44,6 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 46.8.0
     helm:
-      skipCrds: true
       releaseName: prometheus
       skipCrds: true
       values: |

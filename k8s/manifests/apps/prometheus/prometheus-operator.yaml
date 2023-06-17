@@ -53,7 +53,7 @@ spec:
               kubeProxy: false
               alertmanager: false
           grafana:
-            enabled: false
+            enabled: true
           prometheus:
             prometheusSpec:
               storageSpec:

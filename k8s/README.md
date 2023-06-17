@@ -47,6 +47,7 @@ k8sのセットアップについて示す。前提条件として前述するpr
 ## 全ノードをクラスタ内に参画及びCPノードにkubeconfigを配布<br>
 * joinデータを各CP及びWKに共有しクラスタに参画<br>
 * CP2及びCP3にkubeconfigを配布し、cluster機能を確立<br>
+* pv及びpvcのデータストアとしてnsfを使用のためセットアップを実施<br>
 * 軽い動作check
 
       # join_kubeadm_cp.yaml を onp-k8s-cp-2 と onp-k8s-cp-3 にコピー
@@ -66,20 +67,18 @@ k8sのセットアップについて示す。前提条件として前述するpr
       ssh onp-k8s-wk-1 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
       ssh onp-k8s-wk-2 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
       ssh onp-k8s-wk-3 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
-      
+
       # CP2及びCP3にkubeconfigを配布
       ssh onp-k8s-cp-2 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
       ssh onp-k8s-cp-3 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
-      
-      # 動作check
-      ssh onp-k8s-cp-1 "kubectl get node -o wide && kubectl get pod -A -o wide"
-     
-## workerにnfsクライアントインストール
-* pv及びpvcのデータストアとしてnsfを使用のためセットアップを実施<br>
 
+      # wk-1、wk2、2k3へnsfinstall
       ssh onp-k8s-wk-1 "sudo apt-get install nfs-common -y"
       ssh onp-k8s-wk-2 "sudo apt-get install nfs-common -y"
       ssh onp-k8s-wk-3 "sudo apt-get install nfs-common -y"
+
+      # 動作check
+      ssh onp-k8s-cp-1 "kubectl get node -o wide && kubectl get pod -A -o wide"
 
 ## 削除
 * proxmoxホストコンソールで以下の処理を実施しVMを削除<br>

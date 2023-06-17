@@ -8,9 +8,9 @@ grafana:
 prometheus:
   prometheusSpec:
     additionalScrapeConfigs: 
-      - job_name: 'bungeecord'
+      - job_name: "prometheus"
         static_configs:
-          - targets: ['0.0.0.0:9225']
+        - targets: ["localhost:9090"]
 alertmanager:
   enabled: false
 kubeProxy:

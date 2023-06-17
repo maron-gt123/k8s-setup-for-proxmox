@@ -25,10 +25,14 @@ grafana:
   defaultDashboardsTimezone:  Asia/Tokyo
 prometheus:
   prometheusSpec:
-    additionalScrapeConfigs: 
-      - job_name: "prometheus"
-        static_configs:
-        - targets: ["localhost:9090"]
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: prometheus-nsf
+          accessModes: ["ReadWriteMany"]
+          resources:
+            requests:
+              storage: 10Gi
 alertmanager:
   enabled: false
 kubeProxy:

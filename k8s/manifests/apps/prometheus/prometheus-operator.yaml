@@ -40,7 +40,7 @@ metadata:
 spec:
   project: default
   sources:
-    - chart: kube-prometheus-stack
+    - chart: prometheus
       repoURL: https://prometheus-community.github.io/helm-charts
       targetRevision: 46.8.0
       helm:

@@ -72,13 +72,15 @@ k8sのセットアップについて示す。前提条件として前述するpr
       ssh onp-k8s-cp-2 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
       ssh onp-k8s-cp-3 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
 
-      # wk-1、wk2、2k3へnsfinstall
+      # wk-1、wk2、2k3へnsfをinstall
       ssh onp-k8s-wk-1 "sudo apt-get install nfs-common -y"
       ssh onp-k8s-wk-2 "sudo apt-get install nfs-common -y"
       ssh onp-k8s-wk-3 "sudo apt-get install nfs-common -y"
 
       # 動作check
-      ssh onp-k8s-cp-1 "kubectl get node -o wide && kubectl get pod -A -o wide"
+      ssh onp-k8s-cp-1 "kubectl get node -o wide"
+      ssh onp-k8s-cp-2 "kubectl get pod -A -o wide"
+      ssh onp-k8s-cp-3 "kubectl get service -A -o wide"
 
 ## 削除
 * proxmoxホストコンソールで以下の処理を実施しVMを削除<br>

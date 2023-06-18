@@ -79,9 +79,15 @@ spec:
           prometheus:
             prometheusSpec:
               additionalScrapeConfigs: 
-                - job_name: 'prometheus'
+                - job_name: 'minecraft-lobby'
                   static_configs:
-                    - targets: ['localhost:9090']
+                    - targets: ['mic-lobby.micnet:9225']
+                - job_name: 'minecraft-S1'
+                  static_configs:
+                    - targets: ['mic-paper01.micnet:9225']
+                - job_name: 'minecraft-S2'
+                  static_configs:
+                    - targets: ['mic-paper02.micnet:9225']
               storageSpec:
                 volumeClaimTemplate:
                   spec:

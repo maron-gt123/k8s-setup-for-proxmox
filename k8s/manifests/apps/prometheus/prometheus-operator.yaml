@@ -82,6 +82,8 @@ spec:
                 - job_name: 'minecraft-lobby'
                   static_configs:
                     - targets: ['mic-lobby.micnet:9225']
+                  labels:
+                    server_name: 'mc-lobby_server'
                 - job_name: 'minecraft-S1'
                   static_configs:
                     - targets: ['mic-paper01.micnet:9225']

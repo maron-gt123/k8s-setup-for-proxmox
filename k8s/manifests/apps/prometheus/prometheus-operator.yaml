@@ -54,6 +54,7 @@ spec:
               alertmanager: false
           grafana:
             enabled: true
+            defaultDashboardsTimezone: Asia/Tokyo
           prometheus:
             prometheusSpec:
               storageSpec:

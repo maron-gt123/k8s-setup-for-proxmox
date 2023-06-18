@@ -38,9 +38,17 @@ spec:
             - name: MAX_MEMORY
               value: 2G
             - name: PLUGINS
+              # ViaVersion:
+              #   https://github.com/ViaVersion/ViaVersion/releases/download/4.7.0/ViaVersion-4.7.0.jar
+              # minecraft-prometheus-exporter:
+              #   https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v2.5.0/minecraft-prometheus-exporter-2.5.0.jar
               value: >-
                 https://github.com/ViaVersion/ViaVersion/releases/download/4.7.0/ViaVersion-4.7.0.jar,
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v2.5.0/minecraft-prometheus-exporter-2.5.0.jar
+              # mysql-inventory-bridge:
+              #   https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/
+              # iportal:
+              #   https://www.spigotmc.org/resources/iportal-transportation-bungeecord-portals.29552/
             - name: SPIGET_RESOURCES
               value: 7849,29552
           ports:

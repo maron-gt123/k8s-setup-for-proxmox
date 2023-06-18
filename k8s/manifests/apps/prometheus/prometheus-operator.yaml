@@ -81,7 +81,7 @@ spec:
               additionalScrapeConfigs: 
                 - job_name: 'minecraft-waterfall'
                   static_configs:
-                    - targets: ['192.1687.15.70:9225']
+                    - targets: ['192.168.15.70:9225']
                   labels:
                     server_name: 'mc-waterfall_server'
                 - job_name: 'minecraft-lobby'

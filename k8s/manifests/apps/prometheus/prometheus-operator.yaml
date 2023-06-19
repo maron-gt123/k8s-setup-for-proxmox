@@ -82,18 +82,22 @@ spec:
                 - job_name: 'prometheus'
                   static_configs:
                     - targets: ['localhost:9090']
-                - job_name: 'minecraft-proxy'
+                - job_name: 'bungeecord'
                   static_configs:
                     - targets: ['192.168.15.70:9225']
-                - job_name: 'minecraft-lobby'
+                      labels:
+                        proxy_name: 'minecraft-proxy'
+                - job_name: 'minecraft'
                   static_configs:
                     - targets: ['mic-lobby.micnet:9225']
-                - job_name: 'minecraft-S1'
-                  static_configs:
+                      labels: 
+                        server_name: 'minecraft-lobby-server'
                     - targets: ['mic-paper01.micnet:9225']
-                - job_name: 'minecraft-S2'
-                  static_configs:
+                      labels: 
+                        server_name: 'minecraft-S1-server'
                     - targets: ['mic-paper02.micnet:9225']
+                      labels: 
+                        server_name: 'minecraft-S2-server'
               storageSpec:
                 volumeClaimTemplate:
                   spec:

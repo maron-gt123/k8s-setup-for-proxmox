@@ -82,6 +82,18 @@ spec:
                 - job_name: 'prometheus'
                   static_configs:
                     - targets: ['localhost:9090']
+                - job_name: 'minecraft-proxy'
+                  static_configs:
+                    - targets: ['192.168.15.70:9225']
+                - job_name: 'minecraft-lobby'
+                  static_configs:
+                    - targets: ['mic-lobby.micnet:9225']
+                - job_name: 'minecraft-S1'
+                  static_configs:
+                    - targets: ['mic-paper01.micnet:9225']
+                - job_name: 'minecraft-S2'
+                  static_configs:
+                    - targets: ['mic-paper02.micnet:9225']
               storageSpec:
                 volumeClaimTemplate:
                   spec:

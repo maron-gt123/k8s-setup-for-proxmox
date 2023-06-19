@@ -79,9 +79,6 @@ spec:
           prometheus:
             prometheusSpec:
               additionalScrapeConfigs: 
-          prometheus:
-            prometheusSpec:
-              additionalScrapeConfigs: 
                 - job_name: 'prometheus'
                   static_configs:
                     - targets: ['localhost:9090']

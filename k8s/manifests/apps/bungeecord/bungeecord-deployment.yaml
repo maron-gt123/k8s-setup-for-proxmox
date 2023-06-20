@@ -96,9 +96,6 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
-      metadata: 
-        labels: 
-          index: "1"
 
       volumes:
         - name: bungeecord-storage

@@ -12,10 +12,6 @@ spec:
       port: 53616
       protocol: TCP
       targetPort: bungeecord
-    - name: prometheus
-      port: 9225
-      protocol: TCP
-      targetPort: metrics
   selector:
     app: bungeecord
   loadBalancerIP: 192.168.15.70

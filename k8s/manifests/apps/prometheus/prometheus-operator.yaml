@@ -98,6 +98,8 @@ spec:
                     - targets: ['mic-paper02.micnet:9225']
                       labels: 
                         server_name: 'minecraft-S2-server'
+              secrets:
+                - etcd-client
               storageSpec:
                 volumeClaimTemplate:
                   spec:

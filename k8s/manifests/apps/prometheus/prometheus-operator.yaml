@@ -123,6 +123,12 @@ spec:
               enabled: true
               port: 2381
               targetPort: 2381
+            serviceMonitor:
+              scheme: https
+              insecureSkipVerify: true
+              caFile: /etc/prometheus/secrets/etcd-client/ca.crt
+              certFile: /etc/prometheus/secrets/etcd-client/healthcheck-client.crt
+              keyFile: /etc/prometheus/secrets/etcd-client/healthcheck-client.key
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

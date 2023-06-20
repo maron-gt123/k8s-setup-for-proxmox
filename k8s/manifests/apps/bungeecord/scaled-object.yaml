@@ -2,6 +2,7 @@
 # scaledobjectの仕様上厳密には停止して起動する
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
+namespace: waterfall
 metadata:
   name: cron-scaledobject--bungeecord
 spec:

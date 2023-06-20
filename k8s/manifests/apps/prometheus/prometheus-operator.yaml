@@ -98,6 +98,14 @@ spec:
                     - targets: ['mic-paper02.micnet:9225']
                       labels: 
                         server_name: 'minecraft-S2-server'
+                    - job_name: 'bungeecord'
+                      honor_labels: true
+                      kubernetes_sd_configs:
+                        - role: endpoints
+                      relabel_configs:
+                        - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_label_role, __meta_kubernetes_service_label_env]
+                          action: keep
+                          regex: bungeecord;metrics;prod
               storageSpec:
                 volumeClaimTemplate:
                   spec:

@@ -116,13 +116,13 @@ spec:
             enabled: false
           kubeEtcd:
             endpoints:
-              - 192.168.6.81
-              - 192.168.6.82
-              - 192.168.6.83
+              - 192.168.15.81
+              - 192.168.15.82
+              - 192.168.15.83
             service:
               enabled: true
-              port: 2381
-              targetPort: 2381
+              port: 2379
+              targetPort: 2379
             serviceMonitor:
               scheme: https
               insecureSkipVerify: true

@@ -15,7 +15,6 @@ spec:
     matchLabels:
       app: bungeecord
       role: metrics
-      env: prod
 ---
 apiVersion: v1
 kind: Service
@@ -24,7 +23,6 @@ metadata:
   labels:
     app: bungeecord
     role: metrics
-    env: prod
 spec:
   type: ClusterIP
   ports:

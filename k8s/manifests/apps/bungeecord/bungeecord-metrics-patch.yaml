@@ -1,10 +1,20 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
+  labels:
+    app: bungeecord
+    release: prometheus
   name: bungeecord-metrics
 spec:
+  endpoints:
+    - interval: 30s
+      port: jmx-metrics
+    - interval: 30s
+      port: metrics
   selector:
     matchLabels:
+      app: bungeecord
+      role: metrics
       env: prod
 ---
 apiVersion: v1
@@ -12,4 +22,19 @@ kind: Service
 metadata:
   name: bungeecord-metrics
   labels:
+    app: bungeecord
+    role: metrics
     env: prod
+spec:
+  type: ClusterIP
+  ports:
+    - name: jmx-metrics
+      port: 18321
+      protocol: TCP
+      targetPort: jmx-metrics
+    - name: metrics
+      port: 9225
+      protocol: TCP
+      targetPort: metrics
+  selector:
+    app: bungeecord

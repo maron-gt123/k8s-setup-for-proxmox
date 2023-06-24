@@ -71,19 +71,19 @@ spec:
                     type: prometheus
                     url: http://prometheus-kube-prometheus-prometheus:9090
                     isDefault: true
-            dashboardProviders:
-              dashboardproviders.yaml:
-                apiVersion: 1
-                providers:
-                  - name: 'default'
-                    orgId: 1
-                    folder: ''
-                    type: file
-                    allowUiUpdates: true
-                    disableDeletion: true
-                    editable: false
-                    options:
-                      path: /var/lib/grafana/dashboards/default
+#            dashboardProviders:
+#              dashboardproviders.yaml:
+#                apiVersion: 1
+#                providers:
+#                  - name: 'default'
+#                    orgId: 1
+#                    folder: ''
+#                    type: file
+#                    allowUiUpdates: true
+#                    disableDeletion: true
+#                    editable: false
+#                    options:
+#                      path: /var/lib/grafana/dashboards/default
             dashboards:
               default:
                 cilium-agent:
@@ -105,10 +105,10 @@ spec:
                 argocd:
                   gnetId: 14584
                   revision: 1
-#                minecraft-server
-#                  gnetId: 11993
-#                  revision: 1
-#                  datasource: Prometheus
+                minecraft-server
+                  gnetId: 11993
+                  revision: 1
+                  datasource: Prometheus
           prometheus:
             prometheusSpec:
               additionalScrapeConfigs: 

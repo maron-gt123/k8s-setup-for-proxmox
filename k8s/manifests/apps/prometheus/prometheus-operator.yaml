@@ -84,27 +84,27 @@ spec:
 #                    editable: false
 #                    options:
 #                      path: /var/lib/grafana/dashboards/default
-            dashboards:
-              default:
-                cilium-agent:
-                  gnetId: 16611
-                  revision: 1
-                  datasource: Prometheus
-                cilium-operator:
-                  gnetId: 16612
-                  revision: 1
-                  datasource: Prometheus
-                cilium-hubble:
-                  gnetId: 16613
-                  revision: 1
-                  datasource: Prometheus
-                cilium-verdicts:
-                  gnetId: 18015
-                  revision: 3
-                  datasource: Prometheus
-                argocd:
-                  gnetId: 14584
-                  revision: 1
+#            dashboards:
+#              default:
+#                cilium-agent:
+#                  gnetId: 16611
+#                  revision: 1
+#                  datasource: Prometheus
+#                cilium-operator:
+#                  gnetId: 16612
+#                  revision: 1
+#                  datasource: Prometheus
+#                cilium-hubble:
+#                  gnetId: 16613
+#                  revision: 1
+#                  datasource: Prometheus
+#                cilium-verdicts:
+#                  gnetId: 18015
+#                  revision: 3
+#                  datasource: Prometheus
+#                argocd:
+#                  gnetId: 14584
+#                  revision: 1
 #                minecraft-server
 #                  gnetId: 11993
 #                  revision: 1

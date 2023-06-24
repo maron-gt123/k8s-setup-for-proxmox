@@ -124,10 +124,10 @@ spec:
                   static_configs:
                     - targets: ['mic-lobby.micnet:9225']
                       labels:
-                        server_name: 'server1'
+                        server_name: 'minecraft-server-lobby'
                     - targets: ['mic-paper01.micnet:9225']
                       labels:
-                        server_name: 'server2'
+                        server_name: 'minecraft-server-S1'
               storageSpec:
                 volumeClaimTemplate:
                   spec:

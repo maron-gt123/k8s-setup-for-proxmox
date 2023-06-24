@@ -120,17 +120,15 @@ spec:
                     - targets: ['192.168.15.70:9225']
                       labels:
                         proxy_name: 'minecraft-proxy'
+
                 - job_name: 'minecraft'
                   static_configs:
                     - targets: ['mic-lobby.micnet:9225']
-                      labels: 
-                        server_name: 'minecraft-lobby-server'
+                      labels:
+                        server_name: 'server1'
                     - targets: ['mic-paper01.micnet:9225']
-                      labels: 
-                        server_name: 'minecraft-S1-server'
-                    - targets: ['mic-paper02.micnet:9225']
-                      labels: 
-                        server_name: 'minecraft-S2-server'
+                      labels:
+                        server_name: 'server2'
               storageSpec:
                 volumeClaimTemplate:
                   spec:

@@ -105,7 +105,7 @@ spec:
                 argocd:
                   gnetId: 14584
                   revision: 1
-                minecraft-server
+                minecraft-server:
                   gnetId: 11993
                   revision: 1
                   datasource: Prometheus

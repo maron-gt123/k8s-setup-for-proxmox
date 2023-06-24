@@ -55,12 +55,12 @@ spec:
           grafana:
             enabled: true
             sidecar:
-#              datasources:
-#                defaultDatasourceEnabled: false
+              datasources:
+                defaultDatasourceEnabled: false
             defaultDashboardsTimezone: Asia/Tokyo
-#            plugins:
-#              - grafana-piechart-panel
-#              - isovalent-hubble-datasource
+            plugins:
+              - grafana-piechart-panel
+              - isovalent-hubble-datasource
             deploymentStrategy:
               type: Recreate
             datasources:
@@ -71,44 +71,44 @@ spec:
                     type: prometheus
                     url: http://prometheus-kube-prometheus-prometheus:9090
                     isDefault: true
-#            dashboardProviders:
-#              dashboardproviders.yaml:
-#                apiVersion: 1
-#                providers:
-#                  - name: 'default'
-#                    orgId: 1
-#                    folder: ''
-#                    type: file
-#                    allowUiUpdates: true
-#                    disableDeletion: true
-#                    editable: false
-#                    options:
-#                      path: /var/lib/grafana/dashboards/default
-#            dashboards:
-#              default:
-#                cilium-agent:
-#                  gnetId: 16611
-#                  revision: 1
-#                  datasource: Prometheus
-#                cilium-operator:
-#                  gnetId: 16612
-#                  revision: 1
-#                  datasource: Prometheus
-#                cilium-hubble:
-#                  gnetId: 16613
-#                  revision: 1
-#                  datasource: Prometheus
-#                cilium-verdicts:
-#                  gnetId: 18015
-#                  revision: 3
-#                  datasource: Prometheus
-#                argocd:
-#                  gnetId: 14584
-#                  revision: 1
-#                minecraft-server
-#                  gnetId: 11993
-#                  revision: 1
-#                  datasource: Prometheus
+            dashboardProviders:
+              dashboardproviders.yaml:
+                apiVersion: 1
+                providers:
+                  - name: 'default'
+                    orgId: 1
+                    folder: ''
+                    type: file
+                    allowUiUpdates: true
+                    disableDeletion: true
+                    editable: false
+                    options:
+                      path: /var/lib/grafana/dashboards/default
+            dashboards:
+              default:
+                cilium-agent:
+                  gnetId: 16611
+                  revision: 1
+                  datasource: Prometheus
+                cilium-operator:
+                  gnetId: 16612
+                  revision: 1
+                  datasource: Prometheus
+                cilium-hubble:
+                  gnetId: 16613
+                  revision: 1
+                  datasource: Prometheus
+                cilium-verdicts:
+                  gnetId: 18015
+                  revision: 3
+                  datasource: Prometheus
+                argocd:
+                  gnetId: 14584
+                  revision: 1
+                minecraft-server
+                  gnetId: 11993
+                  revision: 1
+                  datasource: Prometheus
           prometheus:
             prometheusSpec:
               additionalScrapeConfigs: 

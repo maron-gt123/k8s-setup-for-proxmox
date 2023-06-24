@@ -120,7 +120,6 @@ spec:
                     - targets: ['192.168.15.70:9225']
                       labels:
                         proxy_name: 'minecraft-proxy'
-
                 - job_name: 'minecraft'
                   static_configs:
                     - targets: ['mic-lobby.micnet:9225']

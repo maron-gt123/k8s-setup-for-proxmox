@@ -45,7 +45,6 @@ spec:
               value: WATERFALL
             - name: ENABLE_RCON
               value: "true"
-
             - name: INIT_MEMORY
               value: 512M
             - name: MAX_MEMORY

@@ -99,5 +99,5 @@ spec:
     app.kubernetes.io/name: argocd-applicationset-controller
   ports:
   - name: metrics
-    port: 8080
-    targetPort: 8080
+    port: 8082
+    targetPort: 8082

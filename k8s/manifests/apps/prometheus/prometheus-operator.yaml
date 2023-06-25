@@ -115,11 +115,6 @@ spec:
                 - job_name: 'prometheus'
                   static_configs:
                     - targets: ['localhost:9090']
-                - job_name: 'bungeecord'
-                  static_configs:
-                    - targets: ['192.168.15.70:9225']
-                      labels:
-                        proxy_name: 'minecraft-proxy'
                 - job_name: 'minecraft'
                   static_configs:
                     - targets: ['mic-lobby.micnet:9225']

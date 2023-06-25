@@ -1,6 +1,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
+  namespace: waterfall
   labels:
     app: bungeecord
     release: prometheus

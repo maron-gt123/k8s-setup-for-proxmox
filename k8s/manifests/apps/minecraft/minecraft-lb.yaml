@@ -13,6 +13,10 @@ spec:
     port: 25565
     protocol: TCP
     targetPort: minecraft
+  - name: minecraft-metrics
+    port: 9225
+    protocol: TCP
+    targetPort: minecraft-metrics
   selector:
     app: minecraft
   type: LoadBalancer

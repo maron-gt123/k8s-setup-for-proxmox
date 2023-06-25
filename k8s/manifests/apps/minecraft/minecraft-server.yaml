@@ -54,6 +54,8 @@ spec:
           ports:
             - name: minecraft
               containerPort: 25565
+            - name: minecraft-metrics
+              containerPort: 9225
           resources:
             requests:
               memory: 2G

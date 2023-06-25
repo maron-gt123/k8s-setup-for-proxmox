@@ -11,6 +11,18 @@ spec:
   endpoints:
   - port: metrics
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-metrics
+spec:
+  selector:
+    app.kubernetes.io/name: argocd-metrics
+  ports:
+  - name: metrics
+    port: 8080
+    targetPort: 8080
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -23,6 +35,18 @@ spec:
       app.kubernetes.io/name: argocd-server-metrics
   endpoints:
   - port: metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-server-metrics
+spec:
+  selector:
+    app.kubernetes.io/name: argocd-server-metrics
+  ports:
+  - name: metrics
+    port: 8080
+    targetPort: 8080
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -37,6 +61,18 @@ spec:
   endpoints:
   - port: metrics
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-repo-server-metrics
+spec:
+  selector:
+    app.kubernetes.io/name: argocd-repo-server
+  ports:
+  - name: metrics
+    port: 8080
+    targetPort: 8080
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -49,3 +85,15 @@ spec:
       app.kubernetes.io/name: argocd-applicationset-controller
   endpoints:
   - port: metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-applicationset-controller-metrics
+spec:
+  selector:
+    app.kubernetes.io/name: argocd-applicationset-controller
+  ports:
+  - name: metrics
+    port: 8080
+    targetPort: 8080

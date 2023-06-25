@@ -894,7 +894,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "editorMode": "code",
+          "editorMode": "builder",
           "exemplar": false,
           "expr": "sum(bungeecord_online_players{pod=~\"$proxy\"})",
           "instant": false,
@@ -1113,6 +1113,6 @@
   "timezone": "Asia/Tokyo",
   "title": "Minecraft Network",
   "uid": "AltFNh7nz",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }

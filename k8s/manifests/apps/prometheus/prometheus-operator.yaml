@@ -119,6 +119,9 @@ spec:
                     - targets: ['mic-paper01.micnet:9225']
                       labels:
                         server_name: 'minecraft-server-S1'
+                    - targets: ['192.168.15.71:9225']
+                      labels:
+                        server_name: 'minecraft-server-k8s'
               storageSpec:
                 volumeClaimTemplate:
                   spec:

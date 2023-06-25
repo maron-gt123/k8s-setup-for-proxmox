@@ -47,8 +47,8 @@ spec:
     app.kubernetes.io/name: argocd-server-metrics
   ports:
   - name: metrics
-    port: 8080
-    targetPort: 8080
+    port: 8083
+    targetPort: 8083
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -73,8 +73,8 @@ spec:
     app.kubernetes.io/name: argocd-repo-server
   ports:
   - name: metrics
-    port: 8080
-    targetPort: 8080
+    port: 8084
+    targetPort: 8084
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor

@@ -6,4 +6,5 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - ./argocd-server-lb.yaml
   - ./argocd-metrics-path.yaml
-  - ./argocd-cm-config.yaml
+patchesStrategicMerge:
+  - "argocd-cm-config.yaml"

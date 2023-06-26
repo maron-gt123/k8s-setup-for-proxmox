@@ -31,3 +31,45 @@ patches:
               - ExampleKind
             clusters:
               - "cluster-1"
+patchesJson6902:
+  - target:
+      group: ""
+      kind: ConfigMap
+      name: hubble-ca-cert
+      namespace: argocd
+    patch: |-
+      - op: add
+        path: /data/ca.crt
+        value: ""
+
+  - target:
+      group: ""
+      kind: Secret
+      name: hubble-relay-client-certs
+      namespace: argocd
+    patch: |-
+      - op: add
+        path: /data/ca.crt
+        value: ""
+      - op: add
+        path: /data/tls.crt
+        value: ""
+      - op: add
+        path: /data/tls.key
+        value: ""
+
+  - target:
+      group: ""
+      kind: Secret
+      name: hubble-server-certs
+      namespace: argocd
+    patch: |-
+      - op: add
+        path: /data/ca.crt
+        value: ""
+      - op: add
+        path: /data/tls.crt
+        value: ""
+      - op: add
+        path: /data/tls.key
+        value: ""

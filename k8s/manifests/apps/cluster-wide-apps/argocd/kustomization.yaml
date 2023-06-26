@@ -7,4 +7,27 @@ resources:
   - ./argocd-server-lb.yaml
   - ./argocd-metrics-path.yaml
 patches:
-  - argocd-cm-patch.yaml
+  - target:
+      kind: ConfigMap
+      name: argocd-cm
+      namespace: argocd
+    patch: |-
+      apiVersion: v1
+      kind: ConfigMap
+      metadata:
+        name: argocd-cm
+        namespace: argocd
+      data:
+        resource.exclusions: |
+          - apiGroups:
+              - cilium.io
+            kinds:
+              - CiliumIdentity
+            clusters:
+              - "*"
+          - apiGroups:
+              - example.com
+            kinds:
+              - ExampleKind
+            clusters:
+              - "cluster-1"

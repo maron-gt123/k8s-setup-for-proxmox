@@ -7,4 +7,4 @@ resources:
   - ./argocd-server-lb.yaml
   - ./argocd-metrics-path.yaml
 patches:
-  - production/argocd-cm-config.yaml
+  - argocd-cm-patch.yaml

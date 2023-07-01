@@ -139,6 +139,7 @@ spec:
           kubeProxy:
             enabled: false
           kubeEtcd:
+            enabled: true
             service:
               enabled: true
               port: 2381

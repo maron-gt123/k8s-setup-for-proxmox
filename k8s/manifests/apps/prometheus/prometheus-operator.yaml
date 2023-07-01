@@ -139,8 +139,6 @@ spec:
           kubeProxy:
             enabled: false
           kubeEtcd:
-            endpoints:
-              - 127.0.0.1
             service:
               enabled: true
               port: 2381

@@ -2,13 +2,15 @@
 k8sのセットアップについて示す。前提条件として前述するproxmoxの環境であること
 
 ## VMの錬成<br>
-* kの構築にあたりCP及びWKをそれぞれ3台構成で錬成する。
-  * onp-k8s-cp-1
-  * onp-k8s-cp-2
-  * onp-k8s-cp-3
-  * onp-k8s-wk-1
-  * onp-k8s-wk-2
-  * onp-k8s-wk-3
+* k8sの構築にあたりCP及びWKをそれぞれ3台構成で錬成する。
+  * control-plain
+    * onp-k8s-cp-1
+    * onp-k8s-cp-2
+    * onp-k8s-cp-3
+  * worker-plain
+    * onp-k8s-wk-1
+    * onp-k8s-wk-2
+    * onp-k8s-wk-3
 * 錬成scriptはこちら[deploy-vm.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/k8s/deploy-vm.sh)
 * 削除scriptはこちら[remove-vm.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/k8s/remove-vm.sh)
 * 錬成後のsetupはこちら[k8s-node-setup.sh](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/k8s/k8s-node-setup.sh)

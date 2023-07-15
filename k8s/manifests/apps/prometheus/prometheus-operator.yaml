@@ -105,6 +105,9 @@ spec:
                 argocd:
                   gnetId: 14584
                   revision: 1
+                node-exporter:
+                  gnetId: 1860
+                  revision: 31
           prometheus:
             prometheusSpec:
               additionalScrapeConfigs: 

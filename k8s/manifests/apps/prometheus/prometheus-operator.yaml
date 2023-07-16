@@ -119,6 +119,9 @@ spec:
                     - targets: ['ntp-dns.micnet:9100']
                       labels:
                         server_name: 'ntp-dns-server'
+                    - targets: ['ssh.micnet:9100']
+                      labels:
+                        server_name: 'ssh-server'
                 - job_name: 'minecraft'
                   static_configs:
                     - targets: ['mic-lobby.micnet:9225']

@@ -49,6 +49,8 @@ timedatectl
 
 # install java openjdk
 apt install openjdk-17-jre -y
+# install prometheus-node-exporter
+apt install prometheus prometheus-node-exporter -y
 # install zip 
 apt install zip -y
 # install git

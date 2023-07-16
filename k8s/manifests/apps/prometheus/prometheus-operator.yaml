@@ -116,7 +116,7 @@ spec:
                     - targets: ['localhost:9090']
                 - job_name: 'node'
                   static_configs:
-                    - targets: ['ntp-dns-server.micnet:9100']
+                    - targets: ['ntp-dns.micnet:9100']
                       labels:
                         server_name: 'ntp-dns-server'
                 - job_name: 'minecraft'

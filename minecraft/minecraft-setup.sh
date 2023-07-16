@@ -74,6 +74,7 @@ echo "y" | ufw enable
 ufw default deny
 ufw allow from 192.168.15.0/24 to any port 22
 ufw allow from 192.168.15.0/24 to any port 9225
+ufw allow from 192.168.15.0/24 to any port 9100
 ufw allow 25565
 ufw reload
 

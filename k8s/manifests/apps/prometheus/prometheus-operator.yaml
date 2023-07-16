@@ -141,6 +141,9 @@ spec:
             enabled: false
           kubeProxy:
             enabled: false
+          kubeEtcd:
+            service:
+              targetPort: 2381
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

@@ -54,9 +54,16 @@ spec:
               #   https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.1.5/bungeecord-prometheus-exporter-3.1.5.jar
               # LunaChat
               #   https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar
+              # floodgate-bungee
+              #   https://ci.opencollab.dev//job/GeyserMC/job/Floodgate/job/master/
+              # Geyser-BungeeCord
+              #   https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.1.5/bungeecord-prometheus-exporter-3.1.5.jar,
-                https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar
+                https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
+                https://ci.opencollab.dev//job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/bungee/build/libs/floodgate-bungee.jar,
+                https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/bungeecord/build/libs/Geyser-BungeeCord.jar
+                
             # BungeeYAML (depended by SwiftMOTD):
             #   https://www.spigotmc.org/resources/bungeeyaml-original.13068/
             # SwiftMOTD:

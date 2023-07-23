@@ -94,6 +94,9 @@ spec:
             - name: bungeecord-plugin-configs
               mountPath: /config/plugins/LunaChat/config.yml
               subPath: LunaChat-config.yml
+            - name: bungeecord-plugin-configs
+              mountPath: /config/plugins/Geyser-BungeeCord/config.yml
+              subPath: Geyser-config.yml
 
             # JMX exporter 周りのファイルが入ったボリューム達のマウント設定
             - name: jmx-exporter-download-volume

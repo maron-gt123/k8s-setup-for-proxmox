@@ -19,10 +19,6 @@ k8scluster構築後のセットアップについて示します。<br>
           sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
           rm argocd-linux-amd64
           
-          # helm repo listの追加
-          ## prometheus-community repo
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          
           # namespaceの作成
           ## argocd
           kubectl create namespace argocd

@@ -125,6 +125,24 @@ spec:
                     - targets: ['ssh.micnet:9100']
                       labels:
                         server_name: 'ssh-server'
+                    - targets: ['k8s-cp1.micnet:9100']
+                      labels:
+                        server_name: 'k8s-cp1-server'
+                    - targets: ['k8s-cp2.micnet:9100']
+                      labels:
+                        server_name: 'k8s-cp2-server'
+                    - targets: ['k8s-cp3.micnet:9100']
+                      labels:
+                        server_name: 'k8s-cp3-server'
+                    - targets: ['k8s-wk1.micnet:9100']
+                      labels:
+                        server_name: 'k8s-wk1-server'
+                    - targets: ['k8s-wk2.micnet:9100']
+                      labels:
+                        server_name: 'k8s-wk2-server'
+                    - targets: ['k8s-wk3.micnet:9100']
+                      labels:
+                        server_name: 'k8s-wk3-server'
                 - job_name: 'minecraft'
                   static_configs:
                     - targets: ['mic-lobby.micnet:9225']

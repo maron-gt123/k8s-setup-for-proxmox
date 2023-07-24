@@ -117,6 +117,14 @@ spec:
                 - job_name: 'prometheus'
                   static_configs:
                     - targets: ['localhost:9090']
+                - job_name: 'node'
+                  static_configs:
+                    - targets: ['ntp-dns.micnet:9100']
+                      labels:
+                        server_name: 'ntp-dns-server'
+                    - targets: ['ssh.micnet:9100']
+                      labels:
+                        server_name: 'ssh-server'
                 - job_name: 'minecraft'
                   static_configs:
                     - targets: ['mic-lobby.micnet:9225']

@@ -14,8 +14,8 @@ spec:
   project: default
   source:
     repoURL: https://github.com/prometheus-community/helm-charts.git
-    path: charts/kube-prometheus-stack/crds/
-    targetRevision: kube-prometheus-stack-47.0.0
+    path: charts/kube-prometheus-stack/charts/crds/
+    targetRevision: kube-prometheus-stack-48.0.0
     directory:
       recurse: true
   destination:
@@ -27,6 +27,7 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
+    - ServerSideApply=true
     - Replace=true
 ---
 #kube-prometheus-stack
@@ -42,7 +43,7 @@ spec:
   sources:
     - chart: kube-prometheus-stack
       repoURL: https://prometheus-community.github.io/helm-charts
-      targetRevision: 47.0.1
+      targetRevision: 48.1.2
       helm:
         releaseName: prometheus
         skipCrds: true
@@ -57,10 +58,12 @@ spec:
             sidecar:
               datasources:
                 defaultDatasourceEnabled: false
+                isDefaultDatasource: false
             defaultDashboardsTimezone: Asia/Tokyo
             plugins:
               - grafana-piechart-panel
               - isovalent-hubble-datasource
+              - grafana-sentry-datasource
             deploymentStrategy:
               type: Recreate
             datasources:
@@ -161,3 +164,4 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
+    - ServerSideApply=true

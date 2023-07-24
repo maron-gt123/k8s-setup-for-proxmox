@@ -115,7 +115,6 @@ runcmd:
   - su - cloudinit -c "chmod 600 ~/.ssh/authorized_keys"
   # run install scripts
   - su - cloudinit -c "curl -s ${REPOSITORY_RAW_SOURCE_URL}/k8s/k8s-node-setup.sh > ~/k8s-node-setup.sh"
-  - su - cloudinit -c "sudo apt install -y prometheus prometheus-node-exporter"
   - su - cloudinit -c "sudo bash ~/k8s-node-setup.sh ${vmname}"
 EOF
 

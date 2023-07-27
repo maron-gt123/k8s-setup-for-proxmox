@@ -47,12 +47,6 @@ timedatectl timesync-status
 timedatectl set-timezone Asia/Tokyo
 timedatectl
 
-# install java openjdk
-apt install openjdk-17-jre -y
-# install zip 
-apt install zip -y
-# install git
-apt install git -y
 # install nas mount
 apt install cifs-utils -y
 apt install autofs -y

@@ -6,8 +6,6 @@ MEM=2048M
 SCREEN_NAME=paper
 # endregion
 
-# ---
-
 # start minecraft
 cd `dirname $0`
 screen -AdmS ${SCREEN_NAME} java -server -Xms${MEM} -Xmx${MEM} -jar ${JARFILE} nogui

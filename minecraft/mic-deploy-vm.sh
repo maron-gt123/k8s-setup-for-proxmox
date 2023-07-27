@@ -114,6 +114,9 @@ runcmd:
   - su - cloudinit -c "curl -s ${REPOSITORY_RAW_SOURCE_URL}/minecraft/minecraft-setup.sh > ~/minecraft-setup.sh"
   - su - cloudinit -c "chmod 700 ~/minecraft-setup.sh"
   - su - cloudinit -c "sudo apt install prometheus prometheus-node-exporter -y"
+  - su - cloudinit -c "sudo apt install openjdk-17-jre -y"
+  - su - cloudinit -c "sudo apt install zip -y"
+  - su - cloudinit -c "sudo apt install git -y"
   - su - cloudinit -c "sudo bash ~/minecraft-setup.sh"
 EOF
 

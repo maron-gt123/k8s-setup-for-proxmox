@@ -26,6 +26,7 @@ VM_LIST=(
     "201 mic-lobby-SV 4    4096  192.168.15.87 192.168.1.87 192.168.1.141 onp-prox01-SV"
     "202 mic-paper-01 4    4096  192.168.15.88 192.168.1.88 192.168.1.142 onp-prox02-SV"
     "203 mic-paper-02 4    4096  192.168.15.89 192.168.1.89 192.168.1.143 onp-prox03-SV"
+    "299 maria-dbs-SV 2    2048  192.168.15.90 192.168.1.90 192.168.1.142 onp-prox02-SV"
 )
 #endregion
 
@@ -114,9 +115,6 @@ runcmd:
   - su - cloudinit -c "curl -s ${REPOSITORY_RAW_SOURCE_URL}/minecraft/minecraft-setup.sh > ~/minecraft-setup.sh"
   - su - cloudinit -c "chmod 700 ~/minecraft-setup.sh"
   - su - cloudinit -c "sudo apt install prometheus prometheus-node-exporter -y"
-  - su - cloudinit -c "sudo apt install openjdk-17-jre -y"
-  - su - cloudinit -c "sudo apt install zip -y"
-  - su - cloudinit -c "sudo apt install git -y"
   - su - cloudinit -c "sudo bash ~/minecraft-setup.sh"
 EOF
 

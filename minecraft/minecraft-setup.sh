@@ -47,23 +47,6 @@ timedatectl timesync-status
 timedatectl set-timezone Asia/Tokyo
 timedatectl
 
-apt install openjdk-17-jre -y
-apt install zip -y
-apt install git -y
-
-# install nas mount
-apt install cifs-utils -y
-apt install autofs -y
-systemctl enable autofs
-systemctl start autofs
-
-# create minecraft derectory
-mkdir /minecraft
-mkdir /minecraft/paper
-mkdir /minecraft/nas
-mkdir /minecraft/paper/plugins
-mkdir /minecraft/paper/Backups
-
 # ufw setting
 ufw status
 echo "y" | ufw enable
@@ -71,18 +54,45 @@ ufw default deny
 ufw allow from 192.168.15.0/24 to any port 22
 ufw allow from 192.168.15.0/24 to any port 9225
 ufw allow from 192.168.15.0/24 to any port 9100
+ufw allow from 192.168.1.0/24 to any port 3306
 ufw allow 25565
 ufw reload
 
-# ------minecraft setup------
-# paper.jar download
-wget -P /minecraft/paper $PAPER_URL
-# eula set
-cat > /minecraft/paper/eula.txt <<EOF
-#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.m>
-$(date +"#%a %b %d %H:%M:%S %Z %Y")
-eula=true
-EOF
+if [ $HOSTNAME = "maria-dbs-SV" ]; then
+    # install mariadb
+    apt -y install mariadb-server
+    # install apache
+    apt -y install apache2
+    # install php
+    apt -y install php-fpm
+else
+    # install java17
+    apt install -y openjdk-17-jre
+    # install zip
+    apt install -y zip
+    # install git
+    apt install -y git
+    # install nas mount
+    apt install -y cifs-utils
+    apt install -y autofs
+    systemctl enable autofs
+    systemctl start autofs
+    # create minecraft derectory
+    mkdir /minecraft
+    mkdir /minecraft/paper
+    mkdir /minecraft/nas
+    mkdir /minecraft/paper/plugins
+    mkdir /minecraft/paper/Backups
+    # ------minecraft setup------
+    # paper.jar download
+    wget -P /minecraft/paper $PAPER_URL
+    # eula set
+    cat > /minecraft/paper/eula.txt <<EOF
+    #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.m>
+    $(date +"#%a %b %d %H:%M:%S %Z %Y")
+    eula=true
+    EOF
+
 # config download
 if [ $HOSTNAME = "mic-lobby-SV" ]; then
     git clone --depth 1 https://github.com/maron-gt123/k8s-setup-for-proxmox.git

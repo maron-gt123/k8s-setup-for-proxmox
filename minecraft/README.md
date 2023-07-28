@@ -117,9 +117,11 @@ Minecraft Server開始に必要な初回セットアップ方法
   ssh $host dmsetup remove vg01-vm--201--cloudinit
   ssh $host dmsetup remove vg01-vm--202--cloudinit
   ssh $host dmsetup remove vg01-vm--203--cloudinit
+  ssh $host dmsetup remove vg01-vm--299--cloudinit
   # diskデータ削除
   ssh $host dmsetup remove vg01-vm--201--disk--0
   ssh $host dmsetup remove vg01-vm--202--disk--0
   ssh $host dmsetup remove vg01-vm--203--disk--0
+  ssh $host dmsetup remove vg01-vm--299--disk--0
   done
   ```

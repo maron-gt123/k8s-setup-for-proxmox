@@ -65,6 +65,8 @@ if [ $HOSTNAME = "maria-dbs-SV" ]; then
     apt -y install apache2
     # install php
     apt -y install php-fpm
+    # install phpmyadmin
+    apt -y install phpmyadmin
 else
     # install java17
     apt install -y openjdk-17-jre

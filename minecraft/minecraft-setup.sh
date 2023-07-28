@@ -92,6 +92,7 @@ else
     $(date +"#%a %b %d %H:%M:%S %Z %Y")
     eula=true
     EOF
+fi
 
 # config download
 if [ $HOSTNAME = "mic-lobby-SV" ]; then

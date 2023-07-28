@@ -88,10 +88,10 @@ else
     wget -P /minecraft/paper $PAPER_URL
     # eula set
     cat > /minecraft/paper/eula.txt <<EOF
-    #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.m>
-    $(date +"#%a %b %d %H:%M:%S %Z %Y")
-    eula=true
-    EOF
+#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.m>
+$(date +"#%a %b %d %H:%M:%S %Z %Y")
+eula=true
+EOF
 fi
 
 # config download
@@ -106,6 +106,9 @@ if [ $HOSTNAME = "mic-lobby-SV" ]; then
     rm -r /home/cloudinit/k8s-setup-for-proxmox/
     chmod 700 /minecraft/paper/mic-start.sh
     chmod 700 /minecraft/paper/mic-stop.sh
+    echo "---end---"
+elif [ $HOSTNAME = "maria-dbs-SV" ]; then
+    echo "---end---"
 else
     wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/server.properties
     wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/spigot.yml
@@ -113,5 +116,5 @@ else
     wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/paper/mic-stop.sh
     chmod 700 /minecraft/paper/mic-start.sh
     chmod 700 /minecraft/paper/mic-stop.sh
+    echo "---end---"
 fi
-echo --end--

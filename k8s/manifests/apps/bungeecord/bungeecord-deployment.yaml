@@ -1,3 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: waterfall
+  labels:
+    name: waterfall
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -68,8 +75,10 @@ spec:
             #   https://www.spigotmc.org/resources/bungeeyaml-original.13068/
             # SwiftMOTD:
             #   https://www.spigotmc.org/resources/swiftmotd.221/
+            # GeyserSkinManager:
+            #   https://www.spigotmc.org/resources/geyserskinmanager.88607/
             - name: SPIGET_PLUGINS
-              value: 13068,221
+              value: 13068,221,88607
 
             - name: JVM_OPTS
               value: >-

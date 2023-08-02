@@ -62,10 +62,6 @@ ufw reload
 if [ $HOSTNAME = "maria-dbs-SV" ]; then
     # install mariadb
     apt -y install mariadb-server
-    # install apache
-    apt -y install apache2
-    # install php
-    apt -y install php-fpm
 else
     # install java17
     apt install -y openjdk-17-jre

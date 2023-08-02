@@ -42,7 +42,6 @@ Minecraft Server開始に必要な初回セットアップ方法
       ssh mic-lobby-SV "sudo cat /var/log/cloud-init-output.log"
       ssh mic-paper01 "sudo cat /var/log/cloud-init-output.log"
       ssh mic-paper02 "sudo cat /var/log/cloud-init-output.log"
-      ssh sql-server "sudo cat /var/log/cloud-init-output.log"
 
 ##  手動作業<br>
 1. scriptでは設定できない「バックアップ用NAS設定」「crontab設定」「ipv6無効化」を別途設定

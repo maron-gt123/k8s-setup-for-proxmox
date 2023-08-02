@@ -51,11 +51,13 @@ timedatectl
 ufw status
 echo "y" | ufw enable
 ufw default deny
+# SSH
 ufw allow from 192.168.15.0/24 to any port 22
+# minecraft exporter
 ufw allow from 192.168.15.0/24 to any port 9225
+# node exporter
 ufw allow from 192.168.15.0/24 to any port 9100
-ufw allow from 192.168.15.0/24 to any port 3306
-ufw allow from 192.168.15.0/24 to any port 80
+# minecraft
 ufw allow 25565
 ufw reload
 

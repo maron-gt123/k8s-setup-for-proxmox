@@ -59,37 +59,27 @@ ufw allow from 192.168.15.0/24 to any port 80
 ufw allow 25565
 ufw reload
 
-if [ $HOSTNAME = "maria-dbs-SV" ]; then
-    # install mariadb
-    apt -y install mariadb-server
-else
-    # install java17
-    apt install -y openjdk-17-jre
-    # install zip
-    apt install -y zip
-    # install git
-    apt install -y git
-    # install nas mount
-    apt install -y cifs-utils
-    apt install -y autofs
-    systemctl enable autofs
-    systemctl start autofs
-    # create minecraft derectory
-    mkdir /minecraft
-    mkdir /minecraft/paper
-    mkdir /minecraft/nas
-    mkdir /minecraft/paper/plugins
-    mkdir /minecraft/paper/Backups
-    # ------minecraft setup------
-    # paper.jar download
-    wget -P /minecraft/paper $PAPER_URL
-    # eula set
-    cat > /minecraft/paper/eula.txt <<EOF
+# install nas mount
+apt install -y cifs-utils
+apt install -y autofs
+systemctl enable autofs
+systemctl start autofs
+# create minecraft derectory
+mkdir /minecraft
+mkdir /minecraft/paper
+mkdir /minecraft/nas
+mkdir /minecraft/paper/plugins
+mkdir /minecraft/paper/Backups
+
+# ------minecraft setup------
+# paper.jar download
+wget -P /minecraft/paper $PAPER_URL
+# eula set
+cat > /minecraft/paper/eula.txt <<EOF
 #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.m>
 $(date +"#%a %b %d %H:%M:%S %Z %Y")
 eula=true
 EOF
-fi
 
 # config download
 if [ $HOSTNAME = "mic-lobby-SV" ]; then
@@ -103,8 +93,6 @@ if [ $HOSTNAME = "mic-lobby-SV" ]; then
     rm -r /home/cloudinit/k8s-setup-for-proxmox/
     chmod 700 /minecraft/paper/mic-start.sh
     chmod 700 /minecraft/paper/mic-stop.sh
-    echo "---end---"
-elif [ $HOSTNAME = "maria-dbs-SV" ]; then
     echo "---end---"
 else
     wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/server.properties

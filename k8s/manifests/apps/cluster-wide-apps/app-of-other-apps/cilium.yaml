@@ -8,13 +8,10 @@ spec:
   source:
     chart: cilium
     repoURL: https://helm.cilium.io/
-    targetRevision: 1.13.4
+    targetRevision: 1.14.0
     helm:
       releaseName: cilium
       values: |
-        containerRuntime:
-          integration: containerd
-          socketPath: /var/run/containerd/containerd.sock
         kubeProxyReplacement: strict
         k8sServiceHost: 192.168.6.100 # modify it if necessary
         k8sServicePort: 8443
@@ -24,8 +21,18 @@ spec:
           algorithm: maglev
         hubble:
           enabled: true
+          tls:
+            enabled: false # todo: eventually enable tls as it's not a good manner
+            # auto:
+            #   enabled: true
+            #   method: certmanager
+            #   certManagerIssuerRef:
+            #     group: cert-manager.io
+            #     kind: ClusterIssuer
+            #     name: ca-issuer
           relay:
             enabled: true
+            rollOutPods: true
             podDisruptionBudget:
               enabled: true
             pprof:
@@ -35,8 +42,12 @@ spec:
                 enabled: true
                 labels:
                   release: prometheus
+            tls:
+              server:
+                enabled: false
           ui:
             enabled: true
+            rollOutPods: true
           metrics:
             enabled:
               - dns:query;ignoreAAAA
@@ -46,6 +57,13 @@ spec:
               - icmp
               - http
               - port-distribution
+              # - httpV2:exemplars=true;labelsContext=source_ip
+              - source_namespace
+              - source_workload
+              - destination_ip
+              - destination_namespace
+              - destination_workload
+              - traffic_direction
             enableOpenMetrics: true
             serviceMonitor:
               enabled: true
@@ -65,6 +83,7 @@ spec:
             enabled: true
         prometheus:
           enabled: true
+          trustCRDsExist: true
           serviceMonitor:
             enabled: true
             labels:

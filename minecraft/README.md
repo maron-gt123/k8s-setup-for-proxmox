@@ -34,7 +34,7 @@ Minecraft Server開始に必要な初回セットアップ方法
 ##  ping確認
 + VM錬成後、pingを実行し疎通確認を実施
 
-      for i in 87 88 89 90; do ping -c1 192.168.15.$i; done 
+      for i in 87 88 89; do ping -c1 192.168.15.$i; done 
 
 ##  ログ確認
 + 各VMでminecraft-setup.shの正常性をログで確認

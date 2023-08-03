@@ -24,7 +24,7 @@ k8sのセットアップについて示す。前提条件として前述するpr
 ## ping確認
 * VM錬成後、pingを実行し疎通確認を実施<br>
 
-      for i in 1 2 3; do ping -c1 k8s-cp$i.micnet; ping -c1 k8s-wk$i.micnet; done
+      for i in 1 2 3 4 5 6; do ping -c1 192.168.15.8$i; done
 
 
 ## kubernetesログ確認<br>

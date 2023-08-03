@@ -11,6 +11,6 @@ spec:
   capacity:
     storage: 20Gi
   nfs:
-    server: nas.storagenet
+    server: 192.168.6.140
     path: /kubanetesu-NFS/pyroscope/
   persistentVolumeReclaimPolicy: Recycle

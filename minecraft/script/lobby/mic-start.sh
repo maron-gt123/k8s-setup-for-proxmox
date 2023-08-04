@@ -10,6 +10,9 @@ SCREEN_NAME=paper
 cd `dirname $0`
 screen -AdmS ${SCREEN_NAME} java -server -Xms${MEM} -Xmx${MEM} -jar ${JARFILE} nogui
 
+# sleep 60s
+sleep 60s
+
 # time and water cycle is false
 screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doDaylightCycle false\015"'
 screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"'

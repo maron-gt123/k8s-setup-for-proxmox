@@ -53,25 +53,25 @@ Minecraft Server開始に必要な初回セットアップ方法
           # lobby-server
           ssh mic-lobby-SV "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount minecraft Backup
-          //nas.micnet/usbssd/mic-backup/lobby /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+          //192.168.15.140/usbssd/mic-backup/lobby /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           # mount minecraft plugins
-          //nas.micnet/usbssd/mic-backup/plugins/lobby /minecraft/paper/plugins/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+          //192.168.15.140/usbssd/mic-backup/plugins/lobby /minecraft/paper/plugins/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"
           
           # paper-01-server
           ssh mic-paper01 "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount minecraft Backup
-          //nas.micnet/usbssd/mic-backup/paper01 /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+          //192.168.15.140/usbssd/mic-backup/paper01 /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           # mount minecraft plugins
-          //nas.micnet/usbssd/mic-backup/plugins/paper01 /minecraft/paper/plugins/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+          //192.168.15.140/usbssd/mic-backup/plugins/paper01 /minecraft/paper/plugins/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"
           
           # paper-02-server
           ssh mic-paper02 "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount minecraft Backup
-          //nas.micnet/usbssd/mic-backup/paper02 /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+          //192.168.15.140/usbssd/mic-backup/paper02 /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           # mount minecraft plugins
-          //nas.micnet/usbssd/mic-backup/plugins/paper02 /minecraft/paper/plugins/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
+          //192.168.15.140/usbssd/mic-backup/plugins/paper02 /minecraft/paper/plugins/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
           EOF'"
           
           # fastab反映
@@ -90,13 +90,6 @@ Minecraft Server開始に必要な初回セットアップ方法
           ssh mic-paper02 "sudo sh -c 'sudo systemctl restart local-fs.target'"
           ssh mic-paper02 "sudo sh -c 'sudo mount -a'"
      
-    + ipv6 desable
-     ```
-    nano /etc/default/grub
-    GRUB_CMDLINE_LINUX_DEFAULT="maybe-ubiquity ipv6.disable=1"
-    GRUB_CMDLINE_LINUX="ipv6.disable=1"
-    sudo update-grub
-     ```
 ## VMの削除
 * proxmoxホストコンソールで以下の処理を実施しVMを削除
 

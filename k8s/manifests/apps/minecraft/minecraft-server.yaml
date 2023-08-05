@@ -74,16 +74,13 @@ spec:
           volumeMounts:
             - name: minecraft-storage
               mountPath: /data
-            - name: server-config
+            - name: common-mcserver-configs
               mountPath: /config/bukkit.yml
               subPath: bukkit.yml
-            - name: server-config
-              mountPath: /config/server.properties
-              subPath: server.properties
-            - name: server-config
+            - name: common-mcserver-configs
               mountPath: /config/spigot.yml
               subPath: spigot.yml
-            - name: server-plugin-config
+            - name: common-mcserver-plugin-configs
               mountPath: /plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml
 

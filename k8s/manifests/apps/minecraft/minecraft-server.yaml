@@ -47,7 +47,7 @@ spec:
             - name: ONLINE_MODE
               value: "FALSE"
             - name: MAX_TICK_TIME
-              value: -1
+              value: 60000
             - name: PLUGINS
               # ViaVersion:
               #   https://github.com/ViaVersion/ViaVersion/releases/download/4.7.0/ViaVersion-4.7.0.jar

@@ -46,8 +46,6 @@ spec:
               value: easy
             - name: ONLINE_MODE
               value: "FALSE"
-            - name: MAX_TICK_TIME
-              value: -1
             - name: PLUGINS
               # ViaVersion:
               #   https://github.com/ViaVersion/ViaVersion/releases/download/4.7.0/ViaVersion-4.7.0.jar
@@ -75,10 +73,10 @@ spec:
             - name: minecraft-storage
               mountPath: /data
             - name: mcserver-config
-              mountPath: /config/bukkit.yml
+              mountPath: /data/bukkit.yml
               subPath: mc-bukkit.yml
             - name: mcserver-config
-              mountPath: /config/spigot.yml
+              mountPath: /data/spigot.yml
               subPath: mc-spigot.yml
             - name: mcserver-plugin-config
               mountPath: /plugins/PrometheusExporter/config.yml

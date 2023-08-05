@@ -119,10 +119,10 @@ spec:
                     - targets: ['localhost:9090']
                 - job_name: 'node'
                   static_configs:
-                    - targets: ['ntp-dns.micnet:9100']
+                    - targets: ['192.168.15.131:9100']
                       labels:
                         server_name: 'ntp-dns-server'
-                    - targets: ['ssh.micnet:9100']
+                    - targets: ['192.168.15.130:9100']
                       labels:
                         server_name: 'ssh-server'
                     - targets: ['k8s-cp1.micnet:9100']

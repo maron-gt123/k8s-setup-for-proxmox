@@ -74,13 +74,13 @@ spec:
           volumeMounts:
             - name: minecraft-storage
               mountPath: /data
-            - name: common-mcserver-configs
+            - name: mcserver-config
               mountPath: /config/bukkit.yml
               subPath: bukkit.yml
-            - name: common-mcserver-configs
+            - name: mcserver-config
               mountPath: /config/spigot.yml
               subPath: spigot.yml
-            - name: common-mcserver-plugin-configs
+            - name: mcserver-plugin-config
               mountPath: /plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml
 
@@ -88,9 +88,9 @@ spec:
         - name: minecraft-storage
           persistentVolumeClaim:
             claimName: minecraft-pvc
-        - name: server-config
+        - name: mcserver-config
           configMap:
-            name: common-mcserver-configs
-        - name: server-plugin-config
+            name: mcserver-configs
+        - name: mcserver-plugin-config
           configMap:
-            name: common-mcserver-plugin-configs
+            name: mcserver-plugin-configs

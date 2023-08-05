@@ -76,10 +76,10 @@ spec:
               mountPath: /data
             - name: mcserver-config
               mountPath: /config/bukkit.yml
-              subPath: bukkit.yml
+              subPath: mc-bukkit.yml
             - name: mcserver-config
               mountPath: /config/spigot.yml
-              subPath: spigot.yml
+              subPath: mc-spigot.yml
             - name: mcserver-plugin-config
               mountPath: /plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml

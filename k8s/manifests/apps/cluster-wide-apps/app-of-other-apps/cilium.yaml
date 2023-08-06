@@ -22,7 +22,7 @@ spec:
         hubble:
           enabled: true
           tls:
-            enabled: false # todo: eventually enable tls as it's not a good manner
+            enabled: false
             # auto:
             #   enabled: true
             #   method: certmanager

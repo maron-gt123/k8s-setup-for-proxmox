@@ -43,13 +43,6 @@ spec:
               - icmp
               - http
               - port-distribution
-              # - httpV2:exemplars=true;labelsContext=source_ip
-              - source_namespace
-              - source_workload
-              - destination_ip
-              - destination_namespace
-              - destination_workload
-              - traffic_direction
             enableOpenMetrics: true
             serviceMonitor:
               enabled: true
@@ -69,7 +62,6 @@ spec:
             enabled: true
         prometheus:
           enabled: true
-          trustCRDsExist: true
           serviceMonitor:
             enabled: true
             labels:

@@ -81,6 +81,9 @@ spec:
             - name: mcserver-plugin-config
               mountPath: /plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml
+              - name: mcserver-plugin-config
+              mountPath: /plugins/MysqlInventoryBridge/config.yml
+              subPath: mysqlinventorybridge.yml
 
       volumes:
         - name: minecraft-storage

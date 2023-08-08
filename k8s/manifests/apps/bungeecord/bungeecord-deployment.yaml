@@ -43,6 +43,9 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
+        - resources:
+            requests:
+              memory: 768Mi
         - image: itzg/bungeecord:java17-2022.4.1
           name: bungeecord
           env:
@@ -52,10 +55,8 @@ spec:
               value: WATERFALL
             - name: ENABLE_RCON
               value: "true"
-            - name: INIT_MEMORY
-              value: 512M
-            - name: MAX_MEMORY
-              value: 1G
+            - name: MEMORY
+              value: 768m
             - name: PLUGINS
               # bungeecord-prometheus-exporter:
               #   https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.1.5/bungeecord-prometheus-exporter-3.1.5.jar

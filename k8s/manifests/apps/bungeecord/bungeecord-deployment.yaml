@@ -43,9 +43,6 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
-        - resources:
-            requests:
-              memory: 1024Mi
         - image: itzg/bungeecord:java17-2022.4.1
           name: bungeecord
           env:

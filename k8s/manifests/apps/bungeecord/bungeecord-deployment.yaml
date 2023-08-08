@@ -89,8 +89,6 @@ spec:
             - containerPort: 9225
               name: metrics
           volumeMounts:
-            - name: bungeecord-storage
-              mountPath: /server
             - name: bungeecord-config
               mountPath: /config/config.yml
               subPath: config.yml

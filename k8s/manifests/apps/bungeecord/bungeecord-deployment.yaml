@@ -113,9 +113,9 @@ spec:
             - name: bungeecord-plugin-configs
               mountPath: /config/plugins/GeyserSkinManager-BungeeCord/config.yml
               subPath: geyserskinmanager-bungeecord.yml
-            #- name: bungeecord-plugin-configs
-            #  mountPath: /config/plugins/GeyserSkinManager-BungeeCord/config.yml
-            #  subPath: geyserskinmanager-bungeecord.yml
+            - name: bungeecord-plugin-configs
+              mountPath: /config/plugins/LuckPerms/config.yml
+              subPath: LuckPerms-config.yml
 
             # JMX exporter 周りのファイルが入ったボリューム達のマウント設定
             - name: jmx-exporter-download-volume

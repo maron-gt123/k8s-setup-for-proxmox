@@ -33,7 +33,7 @@ data:
     database:
         mysql:
             #MySQL server address
-            host: 192.168.1.131
+            host: 192.168.15.131
             #MySQL server port (default 3306)
             port: 3306
             #Database name (NOTE! You need to create the database, then the plugin will create the tables.)

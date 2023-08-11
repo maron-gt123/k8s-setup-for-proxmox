@@ -57,8 +57,6 @@ spec:
             - name: PLUGINS
               # bungeecord-prometheus-exporter:
               #   https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.1.5/bungeecord-prometheus-exporter-3.1.5.jar
-              # LunaChat
-              #   https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar
               # floodgate-bungee
               #   https://ci.opencollab.dev//job/GeyserMC/job/Floodgate/job/master/
               # Geyser-BungeeCord
@@ -69,7 +67,6 @@ spec:
               #   https://download.luckperms.net/1515/bungee/loader/LuckPerms-Bungee-5.4.102.jar
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.1.5/bungeecord-prometheus-exporter-3.1.5.jar,
-                https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://ci.opencollab.dev//job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/bungee/build/libs/floodgate-bungee.jar,
                 https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/bungeecord/build/libs/Geyser-BungeeCord.jar,
                 https://github.com/Camotoy/GeyserSkinManager/releases/download/1.7/GeyserSkinManager-BungeeCord.jar,
@@ -101,9 +98,6 @@ spec:
             - name: bungeecord-plugin-configs
               mountPath: /config/plugins/SwiftMOTD/config.yml
               subPath: SwiftMOTD-config.yml
-            - name: bungeecord-plugin-configs
-              mountPath: /config/plugins/LunaChat/config.yml
-              subPath: LunaChat-config.yml
             - name: bungeecord-plugin-configs
               mountPath: /config/plugins/Geyser-BungeeCord/config.yml
               subPath: Geyser-config.yml

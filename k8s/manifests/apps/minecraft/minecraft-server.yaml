@@ -61,8 +61,10 @@ spec:
               #   https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/
               # iportal:
               #   https://www.spigotmc.org/resources/iportal-transportation-bungeecord-portals.29552/
+              # LunaChat
+              #   https://www.spigotmc.org/resources/lunachat.82293/
             - name: SPIGET_RESOURCES
-              value: 7849,29552
+              value: 7849,29552,82293
           ports:
             - name: minecraft
               containerPort: 25565
@@ -90,6 +92,9 @@ spec:
             - name: mcserver-plugin-config
               mountPath: /plugins/LuckPerms/config.yml
               subPath: LuckPerms-config.yml
+            - name: mcserver-plugin-config
+              mountPath: /plugins/LunaChat/config.yml
+              subPath: LunaChat-config.yml
 
       volumes:
         - name: minecraft-storage

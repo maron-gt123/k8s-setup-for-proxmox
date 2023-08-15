@@ -17,6 +17,10 @@ spec:
     port: 9225
     protocol: TCP
     targetPort: mc-metrics
+  - name: mc-dynmap
+    port: 8123
+    protocol: TCP
+    targetPort: mc-dynmap
   selector:
     app: minecraft
   type: LoadBalancer

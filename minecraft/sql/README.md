@@ -41,6 +41,7 @@
         EOF
         
   * PHP-FPMの編集
+    */etc/apache2/sites-available/default-ssl.conf 
   
          # </VirtualHost> </VirtualHost>間に記載
          <FilesMatch \.php$>

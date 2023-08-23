@@ -7,7 +7,7 @@ spec:
   storageClassName: loki-nsf
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   capacity:
     storage: 50Gi
   nfs:

@@ -22,12 +22,11 @@ spec:
             storageClassName: loki-nsf
             annotations: {}
             accessModes:
-            - ReadWriteMany
+            - ReadWriteOnce
             size: 10Gi
           config:
             compactor:
               retention_enabled: true
-
           serviceMonitor:
             enabled: true
             interval: ""

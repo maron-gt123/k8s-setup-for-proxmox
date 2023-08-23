@@ -21,8 +21,7 @@ spec:
             enabled: true
             storageClassName: loki-pv
             annotations: {}
-            accessModes: ReadWriteOnce
-            size: 10Gi
+            existingClaim: "azure-blob-storage-gzrs"
           config:
             compactor:
               retention_enabled: true

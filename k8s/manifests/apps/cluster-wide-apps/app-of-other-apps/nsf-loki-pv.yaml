@@ -23,7 +23,7 @@ metadata:
   labels:
     app: loki
 spec:
-  storageClassName: nsf-loki-pvc
+  storageClassName: loki-nsf
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce

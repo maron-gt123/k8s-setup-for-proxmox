@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: monitoring
     server: https://kubernetes.default.svc
-  project: cluster-wide-apps
+  project: default
   source:
     chart: loki-stack
     repoURL: https://grafana.github.io/helm-charts

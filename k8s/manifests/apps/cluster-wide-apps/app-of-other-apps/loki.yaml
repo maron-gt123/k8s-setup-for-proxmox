@@ -19,7 +19,7 @@ spec:
         loki:
           persistence:
             enabled: true
-            storageClassName: "loki-nsf"
+            storageClassName: loki-pv
             annotations: {}
             accessModes:
             - ReadWriteOnce

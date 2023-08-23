@@ -19,7 +19,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   namespace: monitoring
-  name: loki-pv
+  name: loki-pvc
   labels:
     app: loki
 spec:

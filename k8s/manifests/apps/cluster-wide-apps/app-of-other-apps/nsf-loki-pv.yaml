@@ -14,3 +14,19 @@ spec:
     server: 192.168.6.140
     path: /kubanetesu-NFS/loki/
   persistentVolumeReclaimPolicy: Recycle
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: monitoring
+  name: loki-pv
+  labels:
+    app: loki
+spec:
+  storageClassName: nsf-loki-pvc
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

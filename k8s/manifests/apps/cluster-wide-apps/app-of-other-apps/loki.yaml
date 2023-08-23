@@ -21,8 +21,7 @@ spec:
             enabled: true
             storageClassName: loki-pv
             annotations: {}
-            accessModes:
-            - ReadWriteOnce
+            accessModes: ReadWriteOnce
             size: 10Gi
           config:
             compactor:

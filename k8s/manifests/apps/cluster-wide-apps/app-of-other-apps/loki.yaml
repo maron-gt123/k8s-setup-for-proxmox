@@ -14,21 +14,6 @@ spec:
     chart: loki-stack
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 2.9.11
-    helm:
-      values: |
-        loki:
-          persistence:
-            enabled: true
-            size: 10Gi
-          config:
-            compactor:
-              retention_enabled: true
-        promtail:
-          serviceMonitor:
-            enabled: true
-            additionalLabels:
-              release: prometheus
-
   syncPolicy:
     automated:
       prune: true

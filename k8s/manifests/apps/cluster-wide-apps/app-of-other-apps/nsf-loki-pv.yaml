@@ -9,3 +9,6 @@ parameters:
   archiveOnDelete: "false"
   nfs.server: 192.168.6.140
   nfs.path: /kubanetesu-NFS/loki/
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+volumeBindingMode: Immediate

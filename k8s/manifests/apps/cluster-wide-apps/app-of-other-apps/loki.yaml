@@ -21,7 +21,9 @@ spec:
             enabled: true
             storageClassName: loki-pv
             annotations: {}
-            existingClaim: "loki-pvc"
+            accessModes:
+            - ReadWriteMany
+            size: 10Gi
           config:
             compactor:
               retention_enabled: true

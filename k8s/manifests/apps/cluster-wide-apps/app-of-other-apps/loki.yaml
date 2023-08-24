@@ -19,14 +19,12 @@ spec:
         loki:
           persistence:
             enabled: true
-            storageClassName: "loki-pv"
-            annotations: {}
-            accessModes:
-            - ReadWriteMany
             size: 10Gi
+
           config:
             compactor:
               retention_enabled: true
+
           serviceMonitor:
             enabled: true
             interval: ""

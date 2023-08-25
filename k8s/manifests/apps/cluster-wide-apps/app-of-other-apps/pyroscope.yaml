@@ -16,7 +16,7 @@ spec:
       values: |
         persistence:
           enabled: true
-          storageClassName: pyroscope-nsf
+          storageClassName: nfs
           accessModes:
             - ReadWriteOnce
           size: 20Gi

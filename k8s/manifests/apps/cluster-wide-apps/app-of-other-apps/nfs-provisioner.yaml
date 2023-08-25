@@ -15,7 +15,7 @@ spec:
             server: 192.168.6.140
             path: /kubanetesu-NFS
           storageClass:
-            name: nfs
+            name: nfs-storage
           accessModes: ReadWriteMany
           reclaimPolicy: Retain
   destination:

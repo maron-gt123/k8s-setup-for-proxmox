@@ -120,9 +120,9 @@ spec:
               subPath: jmx-exporter-config.yaml
 
       volumes:
-        - name: bungeecord-storage
-          persistentVolumeClaim:
-            claimName: bungeecord-pvc
+#        - name: bungeecord-storage
+#          persistentVolumeClaim:
+#            claimName: bungeecord-pvc
         - name: bungeecord-config
           configMap:
             name: bungeecord-config

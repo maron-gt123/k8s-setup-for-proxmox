@@ -13,9 +13,18 @@ spec:
       values: |-
           nfs:
             server: 192.168.6.140
-            path: /kubanetesu-NFS
+            path: /kubanetesu-NFS/
           storageClass:
+            provisionerName: nfs-storage
+            defaultClass: true
             name: nfs-storage
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
           accessModes: ReadWriteMany
           reclaimPolicy: Retain
   destination:

@@ -24,6 +24,12 @@ spec:
             accessModes:
             - ReadWriteMany
             size: 10Gi
+          persistence:
+            enabled: true ## trueにする
+          storageClassName: "nfs"
+          annotations: {}
+          existingClaim: ""
+
           config:
             compactor:
               retention_enabled: true

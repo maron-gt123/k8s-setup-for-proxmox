@@ -9,6 +9,14 @@ spec:
     repoURL: 'https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/'
     chart: nfs-subdir-external-provisioner
     targetRevision: 4.0.2
+    helm:
+      values: |-
+          nfs:
+            server: nas22.ethz.ch
+            path: /fs2202/eth_let_jhub_prod
+          storageClass:
+            name: nfs-idsd
+          accessModes: ReadWriteMany
   destination:
     server: https://kubernetes.default.svc
     namespace: default

@@ -19,11 +19,9 @@ spec:
         loki:
           persistence:
             enabled: true
-            storageClassName: "loki-pv"
+            storageClassName: "loki-sc"
             annotations: {}
-            accessModes:
-            - ReadWriteMany
-            size: 50Gi
+            existingClaim: "loki-pvc"
           config:
             compactor:
               retention_enabled: true

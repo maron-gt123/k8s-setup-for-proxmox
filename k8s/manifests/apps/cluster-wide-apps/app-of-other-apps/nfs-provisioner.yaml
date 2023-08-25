@@ -17,6 +17,7 @@ spec:
           storageClass:
             name: nfs
           accessModes: ReadWriteMany
+          reclaimPolicy: Retain
   destination:
     server: https://kubernetes.default.svc
     namespace: default

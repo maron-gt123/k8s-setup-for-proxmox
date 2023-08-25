@@ -1,3 +1,4 @@
+#pyroscope
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -24,6 +25,33 @@ spec:
           type: LoadBalancer
           port: 4040
           loadBalancerIP: 192.168.15.62
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+---
+# pyroscope-ebpf
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pyroscope-ebpf
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io # cascade deletion on this App deletion
+spec:
+  project: default
+  source:
+    chart: pyroscope-ebpf
+    repoURL: https://pyroscope-io.github.io/helm-chart
+    targetRevision: 0.1.31
+    helm:
+      releaseName: pyroscope-ebpf
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

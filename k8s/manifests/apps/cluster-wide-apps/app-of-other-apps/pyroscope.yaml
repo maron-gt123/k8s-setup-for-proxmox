@@ -17,9 +17,6 @@ spec:
       values: |
         persistence:
           enabled: true
-          storageClassName: pyroscope-nsf
-          accessModes:
-            - ReadWriteOnce
           size: 20Gi
         service:
           type: LoadBalancer

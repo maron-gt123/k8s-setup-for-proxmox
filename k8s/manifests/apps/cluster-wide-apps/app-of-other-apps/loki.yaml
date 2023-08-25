@@ -19,7 +19,7 @@ spec:
         loki:
           persistence:
             enabled: true
-          storageClassName: "nfs"
+          storageClassName: "nfs-storage"
           annotations: {}
           existingClaim: "loki-pvc"
 

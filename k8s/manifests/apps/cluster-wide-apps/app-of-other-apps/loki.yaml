@@ -19,9 +19,7 @@ spec:
         loki:
           persistence:
             enabled: true
-          storageClassName: "nfs-storage"
-          annotations: {}
-          existingClaim: "loki-pvc"
+            size: 50Gi
 
           config:
             compactor:

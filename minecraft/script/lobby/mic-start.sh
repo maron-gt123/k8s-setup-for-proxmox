@@ -2,7 +2,7 @@
 
 # region : set variables
 JARFILE=/minecraft/paper/paper-*
-MEM=2048M
+MEM=1024M
 SCREEN_NAME=paper
 # endregion
 

@@ -40,7 +40,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io # cascade deletion on this App deletion
 spec:
   project: default
-  sources:
+  source:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 48.3.2

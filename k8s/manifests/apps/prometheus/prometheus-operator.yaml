@@ -117,9 +117,11 @@ spec:
               argocd:
                 gnetId: 14584
                 revision: 1
+                datasource: Prometheus
               node-exporter:
                 gnetId: 1860
                 revision: 31
+                datasource: Prometheus
         prometheus:
           prometheusSpec:
             additionalScrapeConfigs: 

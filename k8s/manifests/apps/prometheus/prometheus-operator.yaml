@@ -202,7 +202,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-      - ServerSideApply=true

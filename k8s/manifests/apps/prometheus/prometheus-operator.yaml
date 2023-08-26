@@ -68,6 +68,9 @@ spec:
               - grafana-sentry-datasource
             deploymentStrategy:
               type: Recreate
+            persistence:
+              enabled: true
+              size: 10Gi
             datasources:
               datasources.yaml:
                 apiVersion: 1

@@ -26,9 +26,9 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
-    - ServerSideApply=true
-    - Replace=true
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - Replace=true
 ---
 #kube-prometheus-stack
 apiVersion: argoproj.io/v1alpha1

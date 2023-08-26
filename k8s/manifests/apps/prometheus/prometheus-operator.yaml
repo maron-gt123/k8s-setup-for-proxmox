@@ -59,6 +59,7 @@ spec:
             enabled: true
             sidecar:
               datasources:
+                enabled: false
                 defaultDatasourceEnabled: false
                 isDefaultDatasource: false
             defaultDashboardsTimezone: Asia/Tokyo

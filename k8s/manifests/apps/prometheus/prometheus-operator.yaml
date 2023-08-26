@@ -56,7 +56,6 @@ spec:
           loki:
             isDefault: false
           grafana:
-            enabled: true
             sidecar:
               datasources:
                 enabled: false

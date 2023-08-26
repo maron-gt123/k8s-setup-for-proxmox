@@ -56,6 +56,8 @@ spec:
         loki:
           isDefault: false
         grafana:
+          initChownData:
+            enabled: false
           sidecar:
             datasources:
               enabled: false

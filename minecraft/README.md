@@ -44,11 +44,13 @@ Minecraft Server開始に必要な初回セットアップ方法
       ssh mic-paper02 "sudo cat /var/log/cloud-init-output.log"
 
 ##  手動作業<br>
-1. scriptでは設定できない「バックアップ用NAS設定」「crontab設定」「ipv6無効化」を別途設定
-    + mount nas drive
+1. scriptでは設定できない「バックアップ用NAS設定」を別途設定
+    + 変数を指定
        
           USER=[ユーザー名を明記]
           PASSWORD=[パスワードを明記]
+    + fastabの編集
+
           # fastab編集
           # lobby-server
           ssh mic-lobby-SV "sudo sh -c 'cat >> /etc/fstab << EOF

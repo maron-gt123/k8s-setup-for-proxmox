@@ -1,0 +1,76 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-snmp-exporter
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io # cascade deletion on this App deletion
+spec:
+  project: cluster-wide-apps
+  source:
+    chart: prometheus-snmp-exporter
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 1.8.0
+    helm:
+      releaseName: prometheus-snmp-exporter
+      # https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-snmp-exporter/values.yaml
+      values: |
+        extraConfigmapMounts:
+          - name: snmp-exporter-configmap
+            mountPath: /etc/snmp_exporter
+            configMap: snmp-exporter-configmap
+            readOnly: true
+            defaultMode: 420
+        serviceMonitor:
+          enabled: true
+          params:
+            - name: prd-x510
+              target: 192.168.19.253
+              module:
+                - if_mib
+              labels:
+                release: prometheus
+              interval: 30s
+              scrapeTimeout: 30s
+              relabelings: []
+              additionalMetricsRelabels: {}
+            - name: prd-rtx830
+              target: 192.168.1.1
+              module:
+                - if_mib
+              labels:
+                release: prometheus
+              interval: 30s
+              scrapeTimeout: 30s
+              relabelings: []
+              additionalMetricsRelabels: {}
+            - name: seichi-cloud
+              target: 192.168.16.240
+              module:
+                - synology
+              labels:
+                release: prometheus
+              interval: 30s
+              scrapeTimeout: 30s
+              relabelings: []
+              additionalMetricsRelabels: {}
+            - name: unchama-sv-nas3
+              target: 192.168.16.230
+              module:
+                - synology
+              labels:
+                release: prometheus
+              interval: 30s
+              scrapeTimeout: 30s
+              relabelings: []
+              additionalMetricsRelabels: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

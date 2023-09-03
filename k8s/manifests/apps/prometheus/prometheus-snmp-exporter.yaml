@@ -15,12 +15,12 @@ spec:
       releaseName: prometheus-snmp-exporter
       # https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-snmp-exporter/values.yaml
       values: |
-        extraConfigmapMounts:
-          - name: snmp-exporter-configmap
-            mountPath: /etc/snmp_exporter
-            configMap: snmp-exporter-configmap
-            readOnly: true
-            defaultMode: 420
+#        extraConfigmapMounts:
+#          - name: snmp-exporter-configmap
+#            mountPath: /etc/snmp_exporter
+#            configMap: snmp-exporter-configmap
+#            readOnly: true
+#            defaultMode: 420
         serviceMonitor:
           enabled: true
           params:

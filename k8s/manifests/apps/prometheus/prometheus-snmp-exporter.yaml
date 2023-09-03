@@ -14,7 +14,36 @@ spec:
     helm:
       releaseName: prometheus-snmp-exporter
       # https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-snmp-exporter/values.yaml
-
+      values: |
+        extraConfigmapMounts:
+          - name: snmp-exporter-configmap
+            mountPath: /etc/snmp_exporter
+            configMap: snmp-exporter-configmap
+            readOnly: true
+            defaultMode: 420
+        serviceMonitor:
+          enabled: true
+          params:
+            - name: pdu
+              target: 192.168.15.132
+              module:
+                - if_mib
+              labels:
+                release: prometheus
+              interval: 30s
+              scrapeTimeout: 30s
+              relabelings: []
+              additionalMetricsRelabels: {}
+            - name: ix3110
+              target: 192.168.15.1
+              module:
+                - if_mib
+              labels:
+                release: prometheus
+              interval: 30s
+              scrapeTimeout: 30s
+              relabelings: []
+              additionalMetricsRelabels: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

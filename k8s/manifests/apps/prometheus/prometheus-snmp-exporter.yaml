@@ -64,6 +64,26 @@ spec:
     - CreateNamespace=true
 ---
 apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-snmp-exporter-lb
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/instance: prometheus-snmp-exporter
+    app.kubernetes.io/name: prometheus-snmp-exporter
+    app.kubernetes.io/part-of: prometheus-snmp-exporter
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 9116
+      targetPort: 9116
+  selector:
+    app.kubernetes.io/instance: prometheus-snmp-exporter
+    app.kubernetes.io/name: prometheus-snmp-exporter
+  type: LoadBalancer
+---
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: snmp-exporter-configmap

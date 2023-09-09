@@ -24,7 +24,7 @@ spec:
         serviceMonitor:
           enabled: true
           params:
-            - name: x510
+            - name: tst-x510
               target: 192.168.15.133
               module:
                 - if_mib
@@ -34,7 +34,7 @@ spec:
               scrapeTimeout: 30s
               relabelings: []
               additionalMetricsRelabels: {}
-            - name: ix3110-rt-ext
+            - name: test-ix-rt-ext
               target: 192.168.15.1
               module:
                 - nec_ix
@@ -44,7 +44,7 @@ spec:
               scrapeTimeout: 30s
               relabelings: []
               additionalMetricsRelabels: {}
-            - name: ix3110-rt-general
+            - name: test-ix-rt-general
               target: 192.168.15.1
               module:
                 - if_mib
@@ -60,30 +60,8 @@ spec:
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
     syncOptions:
-      - CreateNamespace=true
-      - ServerSideApply=true
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: prometheus-snmp-exporter-lb
-  namespace: monitoring
-  labels:
-    app.kubernetes.io/instance: prometheus-snmp-exporter
-    app.kubernetes.io/name: prometheus-snmp-exporter
-    app.kubernetes.io/part-of: prometheus-snmp-exporter
-spec:
-  ports:
-    - name: http
-      protocol: TCP
-      port: 9116
-      targetPort: 9116
-  selector:
-    app.kubernetes.io/instance: prometheus-snmp-exporter
-    app.kubernetes.io/name: prometheus-snmp-exporter
-  type: LoadBalancer
+    - CreateNamespace=true
 ---
 apiVersion: v1
 kind: ConfigMap

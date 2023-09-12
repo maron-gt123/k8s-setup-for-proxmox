@@ -74,7 +74,7 @@ k8sのセットアップについて示す。前提条件として前述するpr
       ssh onp-k8s-cp-2 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
       ssh onp-k8s-cp-3 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
 
-      # wk-1、wk2、wk3へnsfをinstall
+      # wk1、wk2、wk3へnsfをinstall
       ssh onp-k8s-wk-1 "sudo apt-get install nfs-common -y"
       ssh onp-k8s-wk-2 "sudo apt-get install nfs-common -y"
       ssh onp-k8s-wk-3 "sudo apt-get install nfs-common -y"

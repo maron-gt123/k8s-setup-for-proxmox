@@ -4,18 +4,19 @@
 
 ## 前提条件<br>
 ### proxmox<br>
-* Proxmox Virtual Environment 7.3-4
+* Proxmox Virtual Environment 8.0.4
   * ベアメタル3ノード運用
   * cluster構成を必須とする
 * QNAP TS-253D
   * iSCSI領域として使用
 * Ubuntu 22.04 LTS (cloud-init image)
   * kubernetes VMのベースとして使用
+  * minecraft VMのベースとして使用
 * Network Addressing
   * management Network Segment(1G) (192.168.10.0/24)
   * cluster Network Segment(1G) (192.168.1.0/24)
   * Service Network Segment(1G) (192.168.15.0/24)
-  * storage Network Segment(10G) (192.168.6.0/24)
+  * Storage Network Segment(10G) (192.168.6.0/24)
 ### k8s(proxmoxのVMとして動作)<br>
 * Internal
   * Pod Network (10.128.0.0/16)
@@ -29,16 +30,11 @@
 ## proxmoxのインストール<br>
 * proxmoxのインストールについては以下からインストーラーを入手[proxmox_en](https://www.proxmox.com/en/)
 * インストール時の設定事項
-  * country：japan
-  * timezone:Asia/Tokyo
-  * keymap:japan
-  * E-mail:任意
   * hostname
     * onp-prox01-SV
     * onp-prox02-SV
     * onp-prox03-SV
   * gateway:192.168.15.1
-  * DNS-Server:192.168.15.131
  * proxmoxのbridge network設定
    * onp-prox01-SV
      * management：vmbr10(192.168.10.141)

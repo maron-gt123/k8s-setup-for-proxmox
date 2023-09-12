@@ -3,7 +3,7 @@
 活用内容としては、マインクラフトのサーバー環境構築及び空きリソースを活用した検証用の位置づけとなります。
 
 ## 前提条件<br>
-### proxmox<br>
+### proxmox構成<br>
 ![概要図](https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/maronhome%20in%20kubernetes%20Cloud.svg)
 * Proxmox Virtual Environment 8.0.4
   * ベアメタル3ノード運用

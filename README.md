@@ -4,6 +4,7 @@
 
 ## 前提条件<br>
 ### proxmox<br>
+![概要図](./diagrams/seichi-network-infrastructure.drawio.svg)
 * Proxmox Virtual Environment 8.0.4
   * ベアメタル3ノード運用
   * cluster構成を必須とする

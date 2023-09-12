@@ -2,7 +2,7 @@
 k8scluster構築後のセットアップについて示します。<br>
 
 ### ArgoCDの導入<br>
-* helmchartを活用しArgoCDをデプロイし、本リポジトリのapps配下のmanifestから各種applicationを錬成します。
+* 公式githubrepositoryからArgoCDをデプロイし、本リポジトリのapps配下のmanifestから各種applicationを錬成します。
   * 手順については以下の順序となります。
     * SSHログイン
     
@@ -10,9 +10,9 @@ k8scluster構築後のセットアップについて示します。<br>
           ssh onp-k8s-cp-1
           
     * ArgoCLIのインストール
-    * helm repo listの追加　※argocd経由でデプロイするkube-prometheus-stackのため
     * namespaceの作成
     * ArgoCDを公式manifestから投入
+    * appを投入
           
           # onp-k8s-cp-1にArgoCLIのインストール
           curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64

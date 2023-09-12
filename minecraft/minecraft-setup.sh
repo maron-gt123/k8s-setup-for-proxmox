@@ -69,6 +69,7 @@ systemctl start autofs
 # create minecraft derectory
 mkdir /minecraft
 mkdir /minecraft/paper
+mkdir /minecraft/paper/config
 mkdir /minecraft/nas
 mkdir /minecraft/paper/plugins
 mkdir /minecraft/paper/Backups
@@ -101,6 +102,8 @@ else
     wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/spigot.yml
     wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/paper/mic-start.sh
     wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/paper/mic-stop.sh
+    wget -P /minecraft/paper/config https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/paper-world-defaults.yml
+    wget -P /minecraft/paper/config https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/paper-global.yml
     chmod 700 /minecraft/paper/mic-start.sh
     chmod 700 /minecraft/paper/mic-stop.sh
     echo "---end---"

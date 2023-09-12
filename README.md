@@ -29,23 +29,25 @@
     * LoadBalancer VIP (192.168.15.50-192.168.15.80)
 ## proxmoxのインストール<br>
 * proxmoxのインストールについては以下からインストーラーを入手[proxmox_en](https://www.proxmox.com/en/)
-* インストール時の設定事項
-  * hostname
-    * onp-prox01-SV
-    * onp-prox02-SV
-    * onp-prox03-SV
-  * gateway:192.168.15.1
+* インストール時の設定
  * proxmoxのbridge network設定
-   * onp-prox01-SV
+   * hostname
+     * onp-prox01-SV
+   * network
      * management：vmbr10(192.168.10.141)
      * cluster：vmbr1(192.168.1.141)
      * service：vmbr15(192.168.15.141)
      * storage：vmbr6(192.168.6.141)
-   * onp-prox02-SV
+     * gateway:192.168.15.1
+   * hostneme
+     * onp-prox02-SV
+   * network
      * cluster：vmbr1(192.168.1.142)
      * service：vmbr15(192.168.15.142)
      * storage：vmbr6(192.168.6.142)
-   * onp-prox03-SV
+   *hostname
+     * onp-prox03-SV
+   * network
      * cluster：vmbr1(192.168.1.143)
      * service：vmbr15(192.168.15.143)
      * storage：vmbr6(192.168.6.143)

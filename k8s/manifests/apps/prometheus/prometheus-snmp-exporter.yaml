@@ -44,7 +44,7 @@ spec:
               scrapeTimeout: 30s
               relabelings: []
               additionalMetricsRelabels: {}
-            - name: CRS309-1G-8S+
+            - name: crs309
               target: 192.168.15.135
               module:
                 - if_mib

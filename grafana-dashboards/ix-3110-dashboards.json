@@ -46,7 +46,7 @@
               }
             ]
           },
-          "unit": "bool"
+          "unit": "ms"
         },
         "overrides": []
       },
@@ -54,6 +54,72 @@
         "h": 4,
         "w": 4,
         "x": 0,
+        "y": 0
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sysUpTime{target=\"ix-rt-general\"}",
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "起動時間",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bool"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
         "y": 0
       },
       "id": 4,
@@ -119,7 +185,7 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 4,
+        "x": 8,
         "y": 0
       },
       "id": 9,
@@ -184,8 +250,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 3,
-        "x": 8,
+        "w": 4,
+        "x": 12,
         "y": 0
       },
       "id": 1,
@@ -250,8 +316,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 3,
-        "x": 11,
+        "w": 4,
+        "x": 16,
         "y": 0
       },
       "id": 2,
@@ -317,7 +383,7 @@
       "gridPos": {
         "h": 4,
         "w": 4,
-        "x": 14,
+        "x": 20,
         "y": 0
       },
       "id": 3,
@@ -381,16 +447,13 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 18,
-        "y": 0
+        "h": 7,
+        "w": 4,
+        "x": 0,
+        "y": 4
       },
-      "id": 8,
+      "id": 7,
       "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -399,7 +462,8 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
       },
       "pluginVersion": "10.0.3",
       "targets": [
@@ -409,14 +473,14 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoSchedRtUtl1Min{target=\"ix-rt-ext\"}",
+          "expr": "picoHeapUtil{target=\"ix-rt-ext\"}",
           "instant": false,
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "CPU使用率",
-      "type": "stat"
+      "title": "メモリ使用率",
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -447,16 +511,13 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 21,
-        "y": 0
+        "h": 7,
+        "w": 4,
+        "x": 4,
+        "y": 4
       },
-      "id": 7,
+      "id": 8,
       "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -465,7 +526,8 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
       },
       "pluginVersion": "10.0.3",
       "targets": [
@@ -475,14 +537,14 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoHeapUtil{target=\"ix-rt-ext\"}",
+          "expr": "picoSchedRtUtl1Min{target=\"ix-rt-ext\"}",
           "instant": false,
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "メモリ使用率",
-      "type": "stat"
+      "title": "CPU使用率",
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -510,7 +572,7 @@
             },
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 9,
+            "pointSize": 3,
             "scaleDistribution": {
               "type": "linear"
             },
@@ -544,8 +606,8 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 24,
-        "x": 0,
+        "w": 16,
+        "x": 8,
         "y": 4
       },
       "id": 16,
@@ -1025,7 +1087,7 @@
           "editorMode": "code",
           "expr": "picoSchedRtUtl1Sec{target=\"ix-rt-ext\"}",
           "instant": false,
-          "legendFormat": "{{target}}",
+          "legendFormat": "使用率",
           "range": true,
           "refId": "A"
         }
@@ -1119,7 +1181,7 @@
           "editorMode": "code",
           "expr": "picoHeapSize{target=\"ix-rt-ext\"}",
           "instant": false,
-          "legendFormat": "MAX",
+          "legendFormat": "最大",
           "range": true,
           "refId": "resource"
         },
@@ -1132,7 +1194,7 @@
           "expr": "picoHeapUtil{target=\"ix-rt-ext\"} / 100 * picoHeapSize{target=\"ix-rt-ext\"}",
           "hide": false,
           "instant": false,
-          "legendFormat": "USE",
+          "legendFormat": "使用中",
           "range": true,
           "refId": "A"
         }
@@ -1277,6 +1339,6 @@
   "timezone": "",
   "title": "ix-3110-SNMP-status",
   "uid": "fcfd24e5-0ba2-445c-a32c-77293544aaf5",
-  "version": 11,
+  "version": 15,
   "weekStart": ""
 }

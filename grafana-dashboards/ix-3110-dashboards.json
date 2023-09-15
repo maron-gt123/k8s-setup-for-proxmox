@@ -485,6 +485,100 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 9,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "picoCelsius{target=\"ix-rt-ext\"}",
+          "instant": false,
+          "legendFormat": "IX-3110",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "温度",
+      "type": "timeseries"
+    },
+    {
       "columns": [],
       "datasource": {
         "type": "prometheus",
@@ -495,7 +589,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 4
+        "y": 11
       },
       "id": 15,
       "scroll": true,
@@ -697,7 +791,7 @@
           "refId": "E"
         }
       ],
-      "title": "Status",
+      "title": "Portステータス",
       "transform": "table",
       "type": "table-old"
     },
@@ -737,7 +831,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 14
+        "y": 21
       },
       "id": 12,
       "options": {
@@ -809,7 +903,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 14
+        "y": 21
       },
       "id": 14,
       "options": {
@@ -907,7 +1001,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 24
+        "y": 31
       },
       "id": 5,
       "options": {
@@ -1001,7 +1095,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 24
+        "y": 31
       },
       "id": 6,
       "options": {
@@ -1043,7 +1137,7 @@
           "refId": "A"
         }
       ],
-      "title": "RAM",
+      "title": "メモリ",
       "type": "timeseries"
     },
     {
@@ -1067,7 +1161,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 32
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 13,
@@ -1176,13 +1270,13 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "ix-3110-SNMP-status",
   "uid": "fcfd24e5-0ba2-445c-a32c-77293544aaf5",
-  "version": 9,
+  "version": 11,
   "weekStart": ""
 }

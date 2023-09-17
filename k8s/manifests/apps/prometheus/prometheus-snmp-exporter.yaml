@@ -136,7 +136,14 @@ data:
         walk:
         - 1.3.6.1.2.1.2
         - 1.3.6.1.2.1.31.1.1
+        get:
+        - 1.3.6.1.2.1.1.3.0
         metrics:
+        - name: sysUpTime
+          oid: 1.3.6.1.2.1.1.3
+          type: gauge
+          help: The time (in hundredths of a second) since the network management portion
+            of the system was last re-initialized. - 1.3.6.1.2.1.1.3
         - name: ifNumber
           oid: 1.3.6.1.2.1.2.1
           type: gauge
@@ -149,20 +156,45 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
-        - name: ifDescr
-          oid: 1.3.6.1.2.1.2.2.1.2
-          type: DisplayString
-          help: A textual string containing information about the interface - 1.3.6.1.2.1.2.2.1.2
-          indexes:
-          - labelname: ifIndex
-            type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifType
           oid: 1.3.6.1.2.1.2.2.1.3
-          type: gauge
+          type: EnumAsInfo
           help: The type of interface - 1.3.6.1.2.1.2.2.1.3
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
           enum_values:
             1: other
             2: regular1822
@@ -442,6 +474,27 @@ data:
             280: sdci
             281: xboxWireless
             282: fastdsl
+            283: docsCableScte55d1FwdOob
+            284: docsCableScte55d1RetOob
+            285: docsCableScte55d2DsOob
+            286: docsCableScte55d2UsOob
+            287: docsCableNdf
+            288: docsCableNdr
+            289: ptm
+            290: ghn
+            291: otnOtsi
+            292: otnOtuc
+            293: otnOduc
+            294: otnOtsig
+            295: microwaveCarrierTermination
+            296: microwaveRadioLinkTerminal
+            297: ieee8021axDrni
+            298: ax25
+            299: ieee19061nanocom
+            300: cpri
+            301: omni
+            302: roe
+            303: p2pOverLan
         - name: ifMtu
           oid: 1.3.6.1.2.1.2.2.1.4
           type: gauge
@@ -450,6 +503,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifSpeed
           oid: 1.3.6.1.2.1.2.2.1.5
           type: gauge
@@ -458,6 +527,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifPhysAddress
           oid: 1.3.6.1.2.1.2.2.1.6
           type: PhysAddress48
@@ -465,6 +550,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifAdminStatus
           oid: 1.3.6.1.2.1.2.2.1.7
           type: gauge
@@ -472,6 +573,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
           enum_values:
             1: up
             2: down
@@ -483,6 +600,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
           enum_values:
             1: up
             2: down
@@ -499,6 +632,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifInOctets
           oid: 1.3.6.1.2.1.2.2.1.10
           type: counter
@@ -507,6 +656,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifInUcastPkts
           oid: 1.3.6.1.2.1.2.2.1.11
           type: counter
@@ -516,6 +681,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifInNUcastPkts
           oid: 1.3.6.1.2.1.2.2.1.12
           type: counter
@@ -525,6 +706,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifInDiscards
           oid: 1.3.6.1.2.1.2.2.1.13
           type: counter
@@ -534,6 +731,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifInErrors
           oid: 1.3.6.1.2.1.2.2.1.14
           type: counter
@@ -543,6 +756,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifInUnknownProtos
           oid: 1.3.6.1.2.1.2.2.1.15
           type: counter
@@ -552,6 +781,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifOutOctets
           oid: 1.3.6.1.2.1.2.2.1.16
           type: counter
@@ -560,6 +805,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifOutUcastPkts
           oid: 1.3.6.1.2.1.2.2.1.17
           type: counter
@@ -569,6 +830,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifOutNUcastPkts
           oid: 1.3.6.1.2.1.2.2.1.18
           type: counter
@@ -578,6 +855,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifOutDiscards
           oid: 1.3.6.1.2.1.2.2.1.19
           type: counter
@@ -586,6 +879,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifOutErrors
           oid: 1.3.6.1.2.1.2.2.1.20
           type: counter
@@ -594,6 +903,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifOutQLen
           oid: 1.3.6.1.2.1.2.2.1.21
           type: gauge
@@ -601,6 +926,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifSpecific
           oid: 1.3.6.1.2.1.2.2.1.22
           type: OctetString
@@ -609,13 +950,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
-        - name: ifName
-          oid: 1.3.6.1.2.1.31.1.1.1.1
-          type: DisplayString
-          help: The textual name of the interface - 1.3.6.1.2.1.31.1.1.1.1
-          indexes:
-          - labelname: ifIndex
-            type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifInMulticastPkts
           oid: 1.3.6.1.2.1.31.1.1.1.2
           type: counter
@@ -624,6 +974,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifInBroadcastPkts
           oid: 1.3.6.1.2.1.31.1.1.1.3
           type: counter
@@ -632,6 +998,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifOutMulticastPkts
           oid: 1.3.6.1.2.1.31.1.1.1.4
           type: counter
@@ -641,6 +1023,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifOutBroadcastPkts
           oid: 1.3.6.1.2.1.31.1.1.1.5
           type: counter
@@ -650,6 +1048,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifHCInOctets
           oid: 1.3.6.1.2.1.31.1.1.1.6
           type: counter
@@ -658,6 +1072,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifHCInUcastPkts
           oid: 1.3.6.1.2.1.31.1.1.1.7
           type: counter
@@ -667,6 +1097,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifHCInMulticastPkts
           oid: 1.3.6.1.2.1.31.1.1.1.8
           type: counter
@@ -675,6 +1121,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifHCInBroadcastPkts
           oid: 1.3.6.1.2.1.31.1.1.1.9
           type: counter
@@ -683,6 +1145,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifHCOutOctets
           oid: 1.3.6.1.2.1.31.1.1.1.10
           type: counter
@@ -691,6 +1169,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifHCOutUcastPkts
           oid: 1.3.6.1.2.1.31.1.1.1.11
           type: counter
@@ -700,6 +1194,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifHCOutMulticastPkts
           oid: 1.3.6.1.2.1.31.1.1.1.12
           type: counter
@@ -709,6 +1219,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifHCOutBroadcastPkts
           oid: 1.3.6.1.2.1.31.1.1.1.13
           type: counter
@@ -718,6 +1244,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifLinkUpDownTrapEnable
           oid: 1.3.6.1.2.1.31.1.1.1.14
           type: gauge
@@ -726,6 +1268,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
           enum_values:
             1: enabled
             2: disabled
@@ -737,6 +1295,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
         - name: ifPromiscuousMode
           oid: 1.3.6.1.2.1.31.1.1.1.16
           type: gauge
@@ -745,6 +1319,22 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
           enum_values:
             1: "true"
             2: "false"
@@ -756,17 +1346,25 @@ data:
           indexes:
           - labelname: ifIndex
             type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
           enum_values:
             1: "true"
             2: "false"
-        - name: ifAlias
-          oid: 1.3.6.1.2.1.31.1.1.1.18
-          type: DisplayString
-          help: This object is an 'alias' name for the interface as specified by a network
-            manager, and provides a non-volatile 'handle' for the interface - 1.3.6.1.2.1.31.1.1.1.18
-          indexes:
-          - labelname: ifIndex
-            type: gauge
         - name: ifCounterDiscontinuityTime
           oid: 1.3.6.1.2.1.31.1.1.1.19
           type: gauge
@@ -774,6 +1372,61 @@ data:
             more of this interface's counters suffered a discontinuity - 1.3.6.1.2.1.31.1.1.1.19
           indexes:
           - labelname: ifIndex
+            type: gauge
+          lookups:
+          - labels:
+            - ifIndex
+            labelname: ifAlias
+            oid: 1.3.6.1.2.1.31.1.1.1.18
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifDescr
+            oid: 1.3.6.1.2.1.2.2.1.2
+            type: DisplayString
+          - labels:
+            - ifIndex
+            labelname: ifName
+            oid: 1.3.6.1.2.1.31.1.1.1.1
+            type: DisplayString
+      ip_mib:
+        walk:
+        - 1.3.6.1.2.1.4.28
+        metrics:
+        - name: ipv4InterfaceIfIndex
+          oid: 1.3.6.1.2.1.4.28.1.1
+          type: gauge
+          help: The index value that uniquely identifies the interface to which this entry
+            is applicable - 1.3.6.1.2.1.4.28.1.1
+          indexes:
+          - labelname: ipv4InterfaceIfIndex
+            type: gauge
+        - name: ipv4InterfaceReasmMaxSize
+          oid: 1.3.6.1.2.1.4.28.1.2
+          type: gauge
+          help: The size of the largest IPv4 datagram that this entity can re-assemble
+            from incoming IPv4 fragmented datagrams received on this interface. - 1.3.6.1.2.1.4.28.1.2
+          indexes:
+          - labelname: ipv4InterfaceIfIndex
+            type: gauge
+        - name: ipv4InterfaceEnableStatus
+          oid: 1.3.6.1.2.1.4.28.1.3
+          type: gauge
+          help: The indication of whether IPv4 is enabled (up) or disabled (down) on this
+            interface - 1.3.6.1.2.1.4.28.1.3
+          indexes:
+          - labelname: ipv4InterfaceIfIndex
+            type: gauge
+          enum_values:
+            1: up
+            2: down
+        - name: ipv4InterfaceRetransmitTime
+          oid: 1.3.6.1.2.1.4.28.1.4
+          type: gauge
+          help: The time between retransmissions of ARP requests to a neighbor when resolving
+            the address or when probing the reachability of a neighbor. - 1.3.6.1.2.1.4.28.1.4
+          indexes:
+          - labelname: ipv4InterfaceIfIndex
             type: gauge
       mikrotik:
         walk:
@@ -832,6 +1485,20 @@ data:
           oid: 1.3.6.1.4.1.14988.1.1.1.1.1.8
           type: DisplayString
           help: ' - 1.3.6.1.4.1.14988.1.1.1.1.1.8'
+          indexes:
+          - labelname: mtxrWlStatIndex
+            type: gauge
+        - name: mtxrWlStatTxCCQ
+          oid: 1.3.6.1.4.1.14988.1.1.1.1.1.9
+          type: counter
+          help: ' - 1.3.6.1.4.1.14988.1.1.1.1.1.9'
+          indexes:
+          - labelname: mtxrWlStatIndex
+            type: gauge
+        - name: mtxrWlStatRxCCQ
+          oid: 1.3.6.1.4.1.14988.1.1.1.1.1.10
+          type: counter
+          help: ' - 1.3.6.1.4.1.14988.1.1.1.1.1.10'
           indexes:
           - labelname: mtxrWlStatIndex
             type: gauge
@@ -1019,6 +1686,16 @@ data:
           oid: 1.3.6.1.4.1.14988.1.1.1.2.1.19
           type: gauge
           help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.19'
+          indexes:
+          - labelname: mtxrWlRtabAddr
+            type: PhysAddress48
+            fixed_size: 6
+          - labelname: mtxrWlRtabIface
+            type: gauge
+        - name: mtxrWlRtabRadioName
+          oid: 1.3.6.1.4.1.14988.1.1.1.2.1.20
+          type: DisplayString
+          help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.20'
           indexes:
           - labelname: mtxrWlRtabAddr
             type: PhysAddress48
@@ -1226,6 +1903,16 @@ data:
             fixed_size: 6
           - labelname: mtxrWlCMRtabIface
             type: gauge
+        - name: mtxrWlCMRtabEapIdent
+          oid: 1.3.6.1.4.1.14988.1.1.1.5.1.13
+          type: DisplayString
+          help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.13'
+          indexes:
+          - labelname: mtxrWlCMRtabAddr
+            type: PhysAddress48
+            fixed_size: 6
+          - labelname: mtxrWlCMRtabIface
+            type: gauge
         - name: mtxrWlCMRtabEntryCount
           oid: 1.3.6.1.4.1.14988.1.1.1.6
           type: gauge
@@ -1336,13 +2023,6 @@ data:
           indexes:
           - labelname: mtxrWl60GIndex
             type: gauge
-        - name: mtxrWl60GRxSector
-          oid: 1.3.6.1.4.1.14988.1.1.1.8.1.10
-          type: gauge
-          help: ' - 1.3.6.1.4.1.14988.1.1.1.8.1.10'
-          indexes:
-          - labelname: mtxrWl60GIndex
-            type: gauge
         - name: mtxrWl60GTxSectorInfo
           oid: 1.3.6.1.4.1.14988.1.1.1.8.1.11
           type: DisplayString
@@ -1354,6 +2034,13 @@ data:
           oid: 1.3.6.1.4.1.14988.1.1.1.8.1.12
           type: gauge
           help: ' - 1.3.6.1.4.1.14988.1.1.1.8.1.12'
+          indexes:
+          - labelname: mtxrWl60GIndex
+            type: gauge
+        - name: mtxrWl60GPhyRate
+          oid: 1.3.6.1.4.1.14988.1.1.1.8.1.13
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.1.8.1.13'
           indexes:
           - labelname: mtxrWl60GIndex
             type: gauge
@@ -1399,13 +2086,6 @@ data:
           oid: 1.3.6.1.4.1.14988.1.1.1.9.1.6
           type: gauge
           help: ' - 1.3.6.1.4.1.14988.1.1.1.9.1.6'
-          indexes:
-          - labelname: mtxrWl60GStaIndex
-            type: gauge
-        - name: mtxrWl60GStaRxSector
-          oid: 1.3.6.1.4.1.14988.1.1.1.9.1.7
-          type: gauge
-          help: ' - 1.3.6.1.4.1.14988.1.1.1.9.1.7'
           indexes:
           - labelname: mtxrWl60GStaIndex
             type: gauge
@@ -1709,12 +2389,47 @@ data:
             1: "true"
         - name: mtxrHlFanSpeed1
           oid: 1.3.6.1.4.1.14988.1.1.3.17
-          type: DisplayString
+          type: gauge
           help: rpm - 1.3.6.1.4.1.14988.1.1.3.17
         - name: mtxrHlFanSpeed2
           oid: 1.3.6.1.4.1.14988.1.1.3.18
-          type: DisplayString
+          type: gauge
           help: rpm - 1.3.6.1.4.1.14988.1.1.3.18
+        - name: mtxrGaugeIndex
+          oid: 1.3.6.1.4.1.14988.1.1.3.100.1.1
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.3.100.1.1'
+          indexes:
+          - labelname: mtxrGaugeIndex
+            type: gauge
+        - name: mtxrGaugeName
+          oid: 1.3.6.1.4.1.14988.1.1.3.100.1.2
+          type: DisplayString
+          help: ' - 1.3.6.1.4.1.14988.1.1.3.100.1.2'
+          indexes:
+          - labelname: mtxrGaugeIndex
+            type: gauge
+        - name: mtxrGaugeValue
+          oid: 1.3.6.1.4.1.14988.1.1.3.100.1.3
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.3.100.1.3'
+          indexes:
+          - labelname: mtxrGaugeIndex
+            type: gauge
+        - name: mtxrGaugeUnit
+          oid: 1.3.6.1.4.1.14988.1.1.3.100.1.4
+          type: gauge
+          help: units - 1.3.6.1.4.1.14988.1.1.3.100.1.4
+          indexes:
+          - labelname: mtxrGaugeIndex
+            type: gauge
+          enum_values:
+            1: celsius
+            2: rpm
+            3: dV
+            4: dA
+            5: dW
+            6: status
         - name: mtxrLicSoftwareId
           oid: 1.3.6.1.4.1.14988.1.1.4.1
           type: DisplayString
@@ -2535,6 +3250,13 @@ data:
           indexes:
           - labelname: mtxrInterfaceStatsIndex
             type: gauge
+        - name: mtxrInterfaceStatsLinkDowns
+          oid: 1.3.6.1.4.1.14988.1.1.14.1.1.90
+          type: counter
+          help: ' - 1.3.6.1.4.1.14988.1.1.14.1.1.90'
+          indexes:
+          - labelname: mtxrInterfaceStatsIndex
+            type: gauge
         - name: mtxrPOEInterfaceIndex
           oid: 1.3.6.1.4.1.14988.1.1.15.1.1.1
           type: gauge
@@ -2638,6 +3360,55 @@ data:
           oid: 1.3.6.1.4.1.14988.1.1.16.1.1.7
           type: gauge
           help: dB - 1.3.6.1.4.1.14988.1.1.16.1.1.7
+          indexes:
+          - labelname: mtxrLTEModemInterfaceIndex
+            type: gauge
+        - name: mtxrLTEModemEnbId
+          oid: 1.3.6.1.4.1.14988.1.1.16.1.1.8
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.16.1.1.8'
+          indexes:
+          - labelname: mtxrLTEModemInterfaceIndex
+            type: gauge
+        - name: mtxrLTEModemSectorId
+          oid: 1.3.6.1.4.1.14988.1.1.16.1.1.9
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.16.1.1.9'
+          indexes:
+          - labelname: mtxrLTEModemInterfaceIndex
+            type: gauge
+        - name: mtxrLTEModemLac
+          oid: 1.3.6.1.4.1.14988.1.1.16.1.1.10
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.16.1.1.10'
+          indexes:
+          - labelname: mtxrLTEModemInterfaceIndex
+            type: gauge
+        - name: mtxrLTEModemIMEI
+          oid: 1.3.6.1.4.1.14988.1.1.16.1.1.11
+          type: DisplayString
+          help: ' - 1.3.6.1.4.1.14988.1.1.16.1.1.11'
+          indexes:
+          - labelname: mtxrLTEModemInterfaceIndex
+            type: gauge
+        - name: mtxrLTEModemIMSI
+          oid: 1.3.6.1.4.1.14988.1.1.16.1.1.12
+          type: DisplayString
+          help: ' - 1.3.6.1.4.1.14988.1.1.16.1.1.12'
+          indexes:
+          - labelname: mtxrLTEModemInterfaceIndex
+            type: gauge
+        - name: mtxrLTEModemUICC
+          oid: 1.3.6.1.4.1.14988.1.1.16.1.1.13
+          type: DisplayString
+          help: ' - 1.3.6.1.4.1.14988.1.1.16.1.1.13'
+          indexes:
+          - labelname: mtxrLTEModemInterfaceIndex
+            type: gauge
+        - name: mtxrLTEModemRAT
+          oid: 1.3.6.1.4.1.14988.1.1.16.1.1.14
+          type: DisplayString
+          help: ' - 1.3.6.1.4.1.14988.1.1.16.1.1.14'
           indexes:
           - labelname: mtxrLTEModemInterfaceIndex
             type: gauge
@@ -2778,6 +3549,203 @@ data:
           help: ' - 1.3.6.1.4.1.14988.1.1.19.1.1.10'
           indexes:
           - labelname: mtxrOpticalIndex
+            type: gauge
+        - name: mtxrIkeSACount
+          oid: 1.3.6.1.4.1.14988.1.1.20.1
+          type: gauge
+          help: IKE SA count - 1.3.6.1.4.1.14988.1.1.20.1
+        - name: mtxrIkeSAIndex
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.1
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.20.2.1.1'
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSAInitiatorCookie
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.2
+          type: DisplayString
+          help: initiator SPI - 1.3.6.1.4.1.14988.1.1.20.2.1.2
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSAResponderCookie
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.3
+          type: DisplayString
+          help: responder SPI - 1.3.6.1.4.1.14988.1.1.20.2.1.3
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSAResponder
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.4
+          type: gauge
+          help: IKE side - 1.3.6.1.4.1.14988.1.1.20.2.1.4
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+          enum_values:
+            0: "false"
+            1: "true"
+        - name: mtxrIkeSANatt
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.5
+          type: gauge
+          help: NAT is detected - 1.3.6.1.4.1.14988.1.1.20.2.1.5
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+          enum_values:
+            0: "false"
+            1: "true"
+        - name: mtxrIkeSAVersion
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.6
+          type: gauge
+          help: protocol version - 1.3.6.1.4.1.14988.1.1.20.2.1.6
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSAState
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.7
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.20.2.1.7'
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+          enum_values:
+            1: exchange
+            2: established
+            3: expired
+            4: eap
+        - name: mtxrIkeSAUptime
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.8
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.20.2.1.8'
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSASeen
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.9
+          type: gauge
+          help: time elapsed since last valid IKE packet - 1.3.6.1.4.1.14988.1.1.20.2.1.9
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSAIdentity
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.10
+          type: DisplayString
+          help: peer identity - 1.3.6.1.4.1.14988.1.1.20.2.1.10
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSAPh2Count
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.11
+          type: gauge
+          help: total ph2 SA pairs - 1.3.6.1.4.1.14988.1.1.20.2.1.11
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSALocalAddressType
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.12
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.20.2.1.12'
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+          enum_values:
+            0: unknown
+            1: ipv4
+            2: ipv6
+            3: ipv4z
+            4: ipv6z
+            16: dns
+        - name: mtxrIkeSALocalAddress
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.13
+          type: InetAddress
+          help: ' - 1.3.6.1.4.1.14988.1.1.20.2.1.13'
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSALocalPort
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.14
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.20.2.1.14'
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSAPeerAddressType
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.15
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.20.2.1.15'
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+          enum_values:
+            0: unknown
+            1: ipv4
+            2: ipv6
+            3: ipv4z
+            4: ipv6z
+            16: dns
+        - name: mtxrIkeSAPeerAddress
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.16
+          type: InetAddress
+          help: ' - 1.3.6.1.4.1.14988.1.1.20.2.1.16'
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSAPeerPort
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.17
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.20.2.1.17'
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSADynamicAddressType
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.18
+          type: gauge
+          help: ' - 1.3.6.1.4.1.14988.1.1.20.2.1.18'
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+          enum_values:
+            0: unknown
+            1: ipv4
+            2: ipv6
+            3: ipv4z
+            4: ipv6z
+            16: dns
+        - name: mtxrIkeSADynamicAddress
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.19
+          type: InetAddress
+          help: dynamic address allocated by mode config - 1.3.6.1.4.1.14988.1.1.20.2.1.19
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSATxBytes
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.20
+          type: counter
+          help: ph2 SA tx bytes - 1.3.6.1.4.1.14988.1.1.20.2.1.20
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSARxBytes
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.21
+          type: counter
+          help: ph2 SA rx bytes - 1.3.6.1.4.1.14988.1.1.20.2.1.21
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSATxPackets
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.22
+          type: counter
+          help: ph2 SA tx packets - 1.3.6.1.4.1.14988.1.1.20.2.1.22
+          indexes:
+          - labelname: mtxrIkeSAIndex
+            type: gauge
+        - name: mtxrIkeSARxPackets
+          oid: 1.3.6.1.4.1.14988.1.1.20.2.1.23
+          type: counter
+          help: ph2 SA rx packets - 1.3.6.1.4.1.14988.1.1.20.2.1.23
+          indexes:
+          - labelname: mtxrIkeSAIndex
             type: gauge
       nec_ix:
         walk:

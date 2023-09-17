@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 38,
+  "id": 39,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -79,7 +79,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sysUpTime{target=\"ix-rt-general\"}",
+          "expr": "sysUpTime{target=\"ix-3110-general\"}",
           "instant": false,
           "range": true,
           "refId": "A"
@@ -145,7 +145,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoPowerSupplyStatus{picoPowerSupplyIndex=\"1\",target=\"ix-rt-ext\"}",
+          "expr": "picoPowerSupplyStatus{picoPowerSupplyIndex=\"1\",target=\"ix-3110-ext\"}",
           "instant": false,
           "range": true,
           "refId": "A"
@@ -211,7 +211,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoPowerSupplyStatus{picoPowerSupplyIndex=\"2\",target=\"ix-rt-ext\"}",
+          "expr": "picoPowerSupplyStatus{picoPowerSupplyIndex=\"2\",target=\"ix-3110-ext\"}",
           "instant": false,
           "range": true,
           "refId": "A"
@@ -277,7 +277,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoVoltage{target=\"ix-rt-ext\"}",
+          "expr": "picoVoltage{target=\"ix-3110-ext\"}",
           "instant": false,
           "range": true,
           "refId": "A"
@@ -343,7 +343,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoFanStatus{target=\"ix-rt-ext\"}",
+          "expr": "picoFanStatus{target=\"ix-3110-ext\"}",
           "instant": false,
           "range": true,
           "refId": "A"
@@ -409,13 +409,274 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoFanRpm{target=\"ix-rt-ext\"}",
+          "expr": "picoFanRpm{target=\"ix-3110-ext\"}",
           "instant": false,
           "range": true,
           "refId": "A"
         }
       ],
       "title": "FAN回転数",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "irate(ifHCOutOctets{target=\"ix-3110-general\",ifDescr=\"GigaEthernet0\"}[5m])",
+          "instant": true,
+          "legendFormat": "GigaEthernet-0",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "irate(ifHCOutOctets{target=\"ix-3110-general\",ifDescr=\"GigaEthernet1\"}[5m])",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "GigaEthernet-1",
+          "range": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "irate(ifHCOutOctets{target=\"ix-3110-general\",ifDescr=\"GigaEthernet2\"}[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "GigaEthernet-2",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "irate(ifHCOutOctets{target=\"ix-3110-general\",ifDescr=\"GigaEthernet3\"}[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "GigaEthernet-3",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "irate(ifHCOutOctets{target=\"ix-3110-general\",ifDescr=\"BVI1\"}[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "LAN-bridge",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "irate(ifHCOutOctets{target=\"ix-3110-general\",ifDescr=\"GigaEthernet3.1-PPP\"}[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WAN-PPPoE",
+          "range": true,
+          "refId": "F"
+        }
+      ],
+      "title": "OUT-Traffic",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "irate(ifHCInOctets{target=\"ix-3110-general\",ifDescr=\"GigaEthernet0\"}[5m])",
+          "instant": false,
+          "legendFormat": "GigaEthernet-0",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "irate(ifHCInOctets{target=\"ix-3110-general\",ifDescr=\"GigaEthernet1\"}[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "GigaEthernet-1",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "irate(ifHCInOctets{target=\"ix-3110-general\",ifDescr=\"GigaEthernet2\"}[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "GigaEthernet-2",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "irate(ifHCInOctets{target=\"ix-3110-general\",ifDescr=\"GigaEthernet3\"}[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "GigaEthernet-3",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "irate(ifHCInOctets{target=\"ix-3110-general\",ifDescr=\"BVI1\"}[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "LAN-bridge",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "irate(ifHCInOctets{target=\"ix-3110-general\",ifDescr=\"GigaEthernet3.1-PPP\"}[5m])",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "WAN-PPPoE",
+          "range": true,
+          "refId": "F"
+        }
+      ],
+      "title": "IN-Traffic",
       "type": "stat"
     },
     {
@@ -450,7 +711,7 @@
         "h": 7,
         "w": 4,
         "x": 0,
-        "y": 4
+        "y": 12
       },
       "id": 7,
       "options": {
@@ -473,7 +734,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoHeapUtil{target=\"ix-rt-ext\"}",
+          "expr": "picoHeapUtil{target=\"ix-3110-ext\"}",
           "instant": false,
           "range": true,
           "refId": "A"
@@ -514,7 +775,7 @@
         "h": 7,
         "w": 4,
         "x": 4,
-        "y": 4
+        "y": 12
       },
       "id": 8,
       "options": {
@@ -537,7 +798,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoSchedRtUtl1Min{target=\"ix-rt-ext\"}",
+          "expr": "picoSchedRtUtl1Min{target=\"ix-3110-ext\"}",
           "instant": false,
           "range": true,
           "refId": "A"
@@ -608,7 +869,7 @@
         "h": 7,
         "w": 16,
         "x": 8,
-        "y": 4
+        "y": 12
       },
       "id": 16,
       "options": {
@@ -630,7 +891,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoCelsius{target=\"ix-rt-ext\"}",
+          "expr": "picoCelsius{target=\"ix-3110-ext\"}",
           "instant": false,
           "legendFormat": "IX-3110",
           "range": true,
@@ -639,223 +900,6 @@
       ],
       "title": "温度",
       "type": "timeseries"
-    },
-    {
-      "columns": [],
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "fontSize": "100%",
-      "gridPos": {
-        "h": 10,
-        "w": 24,
-        "x": 0,
-        "y": 11
-      },
-      "id": 15,
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 9,
-        "desc": true
-      },
-      "styles": [
-        {
-          "alias": "Out",
-          "align": "auto",
-          "colorMode": "row",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(0, 0, 0, 0)",
-            "rgba(55, 135, 45, 0.34)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Value #A",
-          "thresholds": [
-            "0",
-            "1"
-          ],
-          "type": "number",
-          "unit": "Bps"
-        },
-        {
-          "alias": "In",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "link": false,
-          "mappingType": 1,
-          "pattern": "Value #B",
-          "thresholds": [],
-          "type": "number",
-          "unit": "Bps"
-        },
-        {
-          "alias": "Name",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "ifName",
-          "thresholds": [],
-          "type": "string",
-          "unit": "short"
-        },
-        {
-          "alias": "Alias",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "ifAlias",
-          "thresholds": [],
-          "type": "string",
-          "unit": "short"
-        },
-        {
-          "alias": "Total out",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Value #C",
-          "thresholds": [],
-          "type": "number",
-          "unit": "decbytes"
-        },
-        {
-          "alias": "Total in",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Value #D",
-          "thresholds": [],
-          "type": "number",
-          "unit": "decbytes"
-        },
-        {
-          "alias": "Bandwidth",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 0,
-          "mappingType": 1,
-          "pattern": "Value #E",
-          "thresholds": [],
-          "type": "number",
-          "unit": "Mbits"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "/.*/",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        }
-      ],
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "editorMode": "code",
-          "expr": "irate(ifHCOutOctets{target=\"ix-rt-general\"}[5m])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "out",
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "irate(ifHCInOctets{target=\"ix-rt-ext\"}[5m])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "in",
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "delta(ifHCOutOctets{target=\"ix-rt-ext\"}[$__range])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "total out",
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "delta(ifHCInOctets{target=\"ix-rt-ext\"}[$__range])",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "total in",
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "ifHighSpeed{target=\"ix-rt-ext\"}",
-          "format": "table",
-          "instant": true,
-          "legendFormat": "high speed",
-          "refId": "E"
-        }
-      ],
-      "title": "Portステータス",
-      "transform": "table",
-      "type": "table-old"
     },
     {
       "datasource": {
@@ -893,7 +937,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 21
+        "y": 19
       },
       "id": 12,
       "options": {
@@ -919,9 +963,9 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "irate(ifHCOutOctets{target=\"ix-rt-general\"}[5m])",
+          "expr": "irate(ifHCOutOctets{target=\"ix-3110-general\"}[5m])",
           "intervalFactor": 1,
-          "legendFormat": "{{ifName}} ({{ifAlias}})",
+          "legendFormat": "{{ifName}}",
           "range": true,
           "refId": "B"
         }
@@ -965,7 +1009,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 21
+        "y": 19
       },
       "id": 14,
       "options": {
@@ -991,9 +1035,9 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "irate(ifHCOutOctets{target=\"ix-rt-general\"}[5m])",
+          "expr": "irate(ifHCOutOctets{target=\"ix-3110-general\"}[5m])",
           "intervalFactor": 1,
-          "legendFormat": "{{ifName}} ({{ifAlias}})",
+          "legendFormat": "{{ifName}}",
           "range": true,
           "refId": "B"
         }
@@ -1063,7 +1107,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 31
+        "y": 29
       },
       "id": 5,
       "options": {
@@ -1085,7 +1129,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoSchedRtUtl1Sec{target=\"ix-rt-ext\"}",
+          "expr": "picoSchedRtUtl1Sec{target=\"ix-3110-ext\"}",
           "instant": false,
           "legendFormat": "使用率",
           "range": true,
@@ -1157,7 +1201,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 31
+        "y": 29
       },
       "id": 6,
       "options": {
@@ -1179,7 +1223,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoHeapSize{target=\"ix-rt-ext\"}",
+          "expr": "picoHeapSize{target=\"ix-3110-ext\"}",
           "instant": false,
           "legendFormat": "最大",
           "range": true,
@@ -1191,7 +1235,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "picoHeapUtil{target=\"ix-rt-ext\"} / 100 * picoHeapSize{target=\"ix-rt-ext\"}",
+          "expr": "picoHeapUtil{target=\"ix-3110-ext\"} / 100 * picoHeapSize{target=\"ix-3110-ext\"}",
           "hide": false,
           "instant": false,
           "legendFormat": "使用中",
@@ -1223,7 +1267,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 39
+        "y": 37
       },
       "hiddenSeries": false,
       "id": 13,
@@ -1262,7 +1306,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "irate(ifHCOutOctets{target=\"ix-rt-general\"}[5m])",
+          "expr": "irate(ifHCOutOctets{target=\"ix-3110-general\"}[5m])",
           "instant": false,
           "intervalFactor": 1,
           "legendFormat": "Out: {{ifName}}",
@@ -1274,7 +1318,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "-irate(ifHCInOctets{target=\"ix-rt-general\"}[5m])",
+          "expr": "-irate(ifHCInOctets{target=\"ix-3110-general\"}[5m])",
           "intervalFactor": 1,
           "legendFormat": "In: {{ifName}}",
           "range": true,
@@ -1312,7 +1356,7 @@
       }
     }
   ],
-  "refresh": "",
+  "refresh": "5s",
   "schemaVersion": 38,
   "style": "dark",
   "tags": [],
@@ -1332,13 +1376,13 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "ix-3110-SNMP-status",
   "uid": "fcfd24e5-0ba2-445c-a32c-77293544aaf5",
-  "version": 15,
+  "version": 7,
   "weekStart": ""
 }

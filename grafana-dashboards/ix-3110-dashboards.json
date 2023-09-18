@@ -81,6 +81,7 @@
           "editorMode": "code",
           "expr": "sysUpTime{target=\"ix-3110-general\"}",
           "instant": false,
+          "legendFormat": "{{target}}",
           "range": true,
           "refId": "A"
         }
@@ -98,7 +99,25 @@
           "color": {
             "mode": "thresholds"
           },
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "未実装"
+                },
+                "1": {
+                  "index": 1,
+                  "text": "正常"
+                },
+                "2": {
+                  "index": 2,
+                  "text": "異常"
+                }
+              },
+              "type": "value"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -147,6 +166,7 @@
           "editorMode": "code",
           "expr": "picoPowerSupplyStatus{picoPowerSupplyIndex=\"1\",target=\"ix-3110-ext\"}",
           "instant": false,
+          "legendFormat": "IX-3110",
           "range": true,
           "refId": "A"
         }
@@ -164,7 +184,25 @@
           "color": {
             "mode": "thresholds"
           },
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "未実装"
+                },
+                "1": {
+                  "index": 1,
+                  "text": "正常"
+                },
+                "2": {
+                  "index": 2,
+                  "text": "異常"
+                }
+              },
+              "type": "value"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -213,6 +251,7 @@
           "editorMode": "code",
           "expr": "picoPowerSupplyStatus{picoPowerSupplyIndex=\"2\",target=\"ix-3110-ext\"}",
           "instant": false,
+          "legendFormat": "IX-3110",
           "range": true,
           "refId": "A"
         }
@@ -279,6 +318,7 @@
           "editorMode": "code",
           "expr": "picoVoltage{target=\"ix-3110-ext\"}",
           "instant": false,
+          "legendFormat": "IX-3110",
           "range": true,
           "refId": "A"
         }
@@ -296,7 +336,21 @@
           "color": {
             "mode": "thresholds"
           },
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "index": 0,
+                  "text": "正常"
+                },
+                "2": {
+                  "index": 1,
+                  "text": "異常"
+                }
+              },
+              "type": "value"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -345,6 +399,7 @@
           "editorMode": "code",
           "expr": "picoFanStatus{target=\"ix-3110-ext\"}",
           "instant": false,
+          "legendFormat": "IX-3110",
           "range": true,
           "refId": "A"
         }
@@ -411,6 +466,7 @@
           "editorMode": "code",
           "expr": "picoFanRpm{target=\"ix-3110-ext\"}",
           "instant": false,
+          "legendFormat": "IX-3110",
           "range": true,
           "refId": "A"
         }
@@ -736,6 +792,7 @@
           "editorMode": "code",
           "expr": "picoHeapUtil{target=\"ix-3110-ext\"}",
           "instant": false,
+          "legendFormat": "IX-3110",
           "range": true,
           "refId": "A"
         }
@@ -800,6 +857,7 @@
           "editorMode": "code",
           "expr": "picoSchedRtUtl1Min{target=\"ix-3110-ext\"}",
           "instant": false,
+          "legendFormat": "IX-3110",
           "range": true,
           "refId": "A"
         }
@@ -1071,7 +1129,7 @@
             },
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointSize": 2,
             "scaleDistribution": {
               "type": "linear"
             },
@@ -1361,28 +1419,16 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": [
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "PBFA97CFB590B2093"
-        },
-        "filters": [],
-        "hide": 0,
-        "name": "Filters",
-        "skipUrlSync": false,
-        "type": "adhoc"
-      }
-    ]
+    "list": []
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "ix-3110-SNMP-status",
   "uid": "fcfd24e5-0ba2-445c-a32c-77293544aaf5",
-  "version": 7,
+  "version": 11,
   "weekStart": ""
 }

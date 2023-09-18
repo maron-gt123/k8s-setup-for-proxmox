@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    grafana_dashboard: "1"
+  name: grafana-dashboard
+data:
+  ix-3110-dashboards.json: |-
+  k8s_bungeecord_dashboards.json: |-
+  minecraft-server-dashboard.json: |-

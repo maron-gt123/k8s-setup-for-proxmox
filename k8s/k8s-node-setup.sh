@@ -144,8 +144,8 @@ esac
 
 # Install HAProxy
 apt-get install -y --no-install-recommends software-properties-common
-add-apt-repository ppa:vbernat/haproxy-2.4 -y
-sudo apt-get install -y haproxy=2.4.\*
+add-apt-repository ppa:vbernat/haproxy-2.8 -y
+sudo apt-get install -y haproxy=2.8.\*
 
 cat > /etc/haproxy/haproxy.cfg <<EOF
 global
@@ -282,7 +282,7 @@ kind: ClusterConfiguration
 networking:
   serviceSubnet: "10.96.0.0/16"
   podSubnet: "10.128.0.0/16"
-kubernetesVersion: "v1.27.1"
+kubernetesVersion: "v1.27.5"
 controlPlaneEndpoint: "${KUBE_API_SERVER_VIP}:8443"
 apiServer:
   certSANs:

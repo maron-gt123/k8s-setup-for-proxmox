@@ -55,7 +55,7 @@ data:
                   }
                 ]
               },
-              "unit": "ms"
+              "unit": "timeticks"
             },
             "overrides": []
           },
@@ -131,7 +131,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
+                    "color": "green"
                     "value": null
                   },
                   {

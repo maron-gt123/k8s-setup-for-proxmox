@@ -59,6 +59,9 @@ spec:
           initChownData:
             enabled: false
           sidecar:
+            dashboards:
+              enabled: true
+              label: grafana_dashboard
             datasources:
               enabled: false
               defaultDatasourceEnabled: false

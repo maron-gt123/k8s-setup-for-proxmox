@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   labels:
     grafana_dashboard: "1"
-  name: ix-3110-grafana-dashboard
+  name: grafana-db-ix-3110
   namespace: monitoring
 data:
   ix-3110-dashboards.json: |-

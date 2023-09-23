@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   labels:
     grafana_dashboard: "1"
-  name: k8s-bungee-grafana-dashboard
+  name: grafana-db-k8s-bungeecord
   namespace: monitoring
 data:
   k8s_bungeecord_dashboards.json: |-

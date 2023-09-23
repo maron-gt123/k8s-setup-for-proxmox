@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   labels:
     grafana_dashboard: "1"
-  name: grafana-dashboard
+  name: grafana-db-mc-server
   namespace: monitoring
 data:
   minecraft-server-dashboard.json: |-

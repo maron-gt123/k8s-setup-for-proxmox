@@ -22,6 +22,10 @@ data:
         motd: '&1Just another Waterfall - Forced Host'
         address: 192.168.15.71:25565
         restricted: false
+      music:
+        motd: '&1Just another Waterfall - Forced Host'
+        address: 192.168.15.72:25565
+        restricted: false
     listeners:
       - priorities:
           - lobby

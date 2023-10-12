@@ -1,0 +1,114 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: minecraft
+  name: minecraft-music
+  labels:
+    app: minecraft-music
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft-music
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: minecraft-music
+    spec:
+      containers:
+        - image: itzg/minecraft-server:java17
+          name: minecraft-music
+          env:
+            - name: EULA
+              value: "TRUE"
+            - name: TZ
+              value: Asia/Tokyo
+            - name: TYPE
+              value: PAPER
+            - name: ENABLE_RCON
+              value: "true"
+            - name: VERSION
+              value: "1.20.2"
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 2G
+            - name: DIFFICULTY
+              value: peaceful
+            - name: ONLINE_MODE
+              value: "FALSE"
+            - name: PLUGINS
+              # ViaVersion:
+              #   https://github.com/ViaVersion/ViaVersion/releases/download/4.7.0/ViaVersion-4.7.0.jar
+              # minecraft-prometheus-exporter:
+              #   https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v2.5.0/minecraft-prometheus-exporter-2.5.0.jar
+              # LuckPerms-Bukkit
+              #   https://download.luckperms.net/1515/bukkit/loader/LuckPerms-Bukkit-5.4.102.jar
+              # Advanced-Portals-0.9.3
+              #   https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar
+              value: >-
+                https://github.com/ViaVersion/ViaVersion/releases/download/4.7.0/ViaVersion-4.7.0.jar,
+                https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v2.5.0/minecraft-prometheus-exporter-2.5.0.jar,
+                https://download.luckperms.net/1515/bukkit/loader/LuckPerms-Bukkit-5.4.102.jar,
+                https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar
+              # mysql-inventory-bridge:
+              #   https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/
+              # LunaChat
+              #   https://www.spigotmc.org/resources/lunachat.82293/
+              # DecentHolograms
+              #   https://www.spigotmc.org/resources/decentholograms-1-8-1-20-1-papi-support-no-dependencies.96927/
+            - name: SPIGET_RESOURCES
+              value: 7849,82293,96927
+          ports:
+            - name: minecraft
+              containerPort: 25565
+            - name: mc-metrics
+              containerPort: 9225
+            - name: mc-dynmap
+              containerPort: 8123
+          resources:
+            requests:
+              memory: 2G
+              cpu: "2"
+          volumeMounts:
+            - name: minecraft-music-storage
+              mountPath: /data
+            - name: mcserver-music-config
+              mountPath: /data/bukkit.yml
+              subPath: mc-bukkit.yml
+            - name: mcserver-music-config
+              mountPath: /data/spigot.yml
+              subPath: mc-spigot.yml
+            - name: mcserver-music-plugin-config
+              mountPath: /plugins/PrometheusExporter/config.yml
+              subPath: prometheusexporter.yml
+            - name: mcserver-music-plugin-config
+              mountPath: /plugins/MysqlInventoryBridge/config.yml
+              subPath: mysqlinventorybridge.yml
+            - name: mcserver-music-plugin-config
+              mountPath: /plugins/LuckPerms/config.yml
+              subPath: LuckPerms-config.yml
+            - name: mcserver-music-plugin-config
+              mountPath: /plugins/LunaChat/config.yml
+              subPath: LunaChat-config.yml   
+            - name: mcserver-music-plugin-config
+              mountPath: /data/plugins/AdvancedPortals/config.yml
+              subPath: Advanced-config.yml
+            - name: mcserver-music-plugin-config
+              mountPath: /data/plugins/AdvancedPortals/destinations.yml
+              subPath: Advanced-destinations.yml
+            - name: mcserver-music-plugin-config
+              mountPath: /data/plugins/AdvancedPortals/portals.yml
+              subPath: Advanced-portals.yml
+      volumes:
+        - name: minecraft-music-storage
+          persistentVolumeClaim:
+            claimName: minecraft-music-pvc
+        - name: mcserver-music-config
+          configMap:
+            name: mcserver-music-configs
+        - name: mcserver-music-plugin-config
+          configMap:
+            name: mcserver-plugin-configs

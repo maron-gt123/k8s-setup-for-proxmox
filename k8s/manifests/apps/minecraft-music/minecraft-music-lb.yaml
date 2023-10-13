@@ -2,22 +2,22 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: minecraft
-  name: minecraft-music-server-lb
+  name: mc-music-server-lb
   labels:
-    app: minecraft-music
+    app: mc-music
 spec:
   selector:
-    app: minecraft-music
+    app: mc-music
   ports:
-  - name: minecraft-music
+  - name: mc-music
     port: 25565
     protocol: TCP
-    targetPort: minecraft-music
+    targetPort: mc-music
   - name: mc-metrics
     port: 9225
     protocol: TCP
     targetPort: mc-metrics-music
   selector:
-    app: minecraft-music
+    app: mc-music
   type: LoadBalancer
   loadBalancerIP: 192.168.15.72

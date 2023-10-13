@@ -16,7 +16,7 @@ spec:
   - name: mc-metrics
     port: 9225
     protocol: TCP
-    targetPort: mc-metrics-music
+    targetPort: mc-metrics-msc
   selector:
     app: mc-music
   type: LoadBalancer

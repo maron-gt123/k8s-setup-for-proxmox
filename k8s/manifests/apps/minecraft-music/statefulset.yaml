@@ -10,8 +10,6 @@ spec:
   selector:
     matchLabels:
       app: mc-music
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:

@@ -27,7 +27,7 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 37,
+      "id": 69,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -1554,7 +1554,7 @@ data:
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "-irate(ifHCOutOctets{target=\"crs309-general\",ifName=\"SFP1\"}[$__rate_interval])*8",
+              "expr": "-irate(ifHCOutOctets{target=\"crs309-general\",ifName=~\"SFP([1-9])\"}[$__rate_interval])*8",
               "instant": false,
               "legendFormat": "Out-{{ifName}}",
               "range": true,
@@ -1566,194 +1566,12 @@ data:
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "irate(ifHCInOctets{target=\"crs309-general\",ifName=\"SFP1\"}[$__rate_interval])*8",
+              "expr": "irate(ifHCInOctets{target=\"crs309-general\",ifName=~\"SFP([1-9])\"}[$__rate_interval])*8",
               "hide": false,
               "instant": false,
               "legendFormat": "In-{{ifName}}",
               "range": true,
               "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "-irate(ifHCOutOctets{target=\"crs309-general\",ifName=\"SFP2\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "Out-{{ifName}}",
-              "range": true,
-              "refId": "C"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "irate(ifHCInOctets{target=\"crs309-general\",ifName=\"SFP2\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "In-{{ifName}}",
-              "range": true,
-              "refId": "D"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "-irate(ifHCOutOctets{target=\"crs309-general\",ifName=\"SFP3\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "Out-{{ifName}}",
-              "range": true,
-              "refId": "E"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "irate(ifHCInOctets{target=\"crs309-general\",ifName=\"SFP3\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "In-{{ifName}}",
-              "range": true,
-              "refId": "F"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "-irate(ifHCOutOctets{target=\"crs309-general\",ifName=\"SFP4\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "Out-{{ifName}}",
-              "range": true,
-              "refId": "G"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "irate(ifHCInOctets{target=\"crs309-general\",ifName=\"SFP4\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "In-{{ifName}}",
-              "range": true,
-              "refId": "H"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "-irate(ifHCOutOctets{target=\"crs309-general\",ifName=\"SFP5\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "Out-{{ifName}}",
-              "range": true,
-              "refId": "I"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "irate(ifHCInOctets{target=\"crs309-general\",ifName=\"SFP5\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "In-{{ifName}}",
-              "range": true,
-              "refId": "J"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "-irate(ifHCOutOctets{target=\"crs309-general\",ifName=\"SFP6\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "Out-{{ifName}}",
-              "range": true,
-              "refId": "K"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "irate(ifHCInOctets{target=\"crs309-general\",ifName=\"SFP6\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "In-{{ifName}}",
-              "range": true,
-              "refId": "L"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "-irate(ifHCOutOctets{target=\"crs309-general\",ifName=\"SFP7\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "Out-{{ifName}}",
-              "range": true,
-              "refId": "M"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "irate(ifHCInOctets{target=\"crs309-general\",ifName=\"SFP7\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "In-{{ifName}}",
-              "range": true,
-              "refId": "N"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "-irate(ifHCOutOctets{target=\"crs309-general\",ifName=\"SFP8\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "Out-{{ifName}}",
-              "range": true,
-              "refId": "O"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "irate(ifHCInOctets{target=\"crs309-general\",ifName=\"SFP8\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "In-{{ifName}}",
-              "range": true,
-              "refId": "P"
             }
           ],
           "title": "送受信レート遷移(SFP)",
@@ -5019,6 +4837,6 @@ data:
       "timezone": "",
       "title": "CRS309-SNMP-status",
       "uid": "ad65864e-7d1a-4951-bdbb-2133b9bba637",
-      "version": 17,
+      "version": 1,
       "weekStart": ""
     }

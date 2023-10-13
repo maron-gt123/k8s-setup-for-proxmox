@@ -17,8 +17,6 @@ spec:
   selector:
     matchLabels:
       app: minecraft
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:

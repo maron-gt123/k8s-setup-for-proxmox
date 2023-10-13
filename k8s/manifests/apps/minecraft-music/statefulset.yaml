@@ -2,24 +2,24 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   namespace: minecraft
-  name: minecraft-music
+  name: mc-music
   labels:
-    app: minecraft-music
+    app: mc-music
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: minecraft-music
+      app: mc-music
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: minecraft-music
+        app: mc-music
     spec:
       containers:
         - image: itzg/minecraft-server:java17
-          name: minecraft-music
+          name: mc-music
           env:
             - name: EULA
               value: "TRUE"
@@ -64,7 +64,7 @@ spec:
             - name: SPIGET_RESOURCES
               value: 7849,82293,96927
           ports:
-            - name: minecraft-music
+            - name: mc-music
               containerPort: 25565
             - name: mc-metrics-music
               containerPort: 9225

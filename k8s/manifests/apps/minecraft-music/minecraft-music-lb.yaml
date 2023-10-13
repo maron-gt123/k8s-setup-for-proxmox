@@ -7,20 +7,16 @@ metadata:
     app: minecraft-music
 spec:
   selector:
-    app: minecraft
+    app: minecraft-music
   ports:
-  - name: minecraft
+  - name: minecraft-music
     port: 25565
     protocol: TCP
-    targetPort: minecraft
+    targetPort: minecraft-music
   - name: mc-metrics
     port: 9225
     protocol: TCP
-    targetPort: mc-metrics
-  - name: mc-dynmap
-    port: 8123
-    protocol: TCP
-    targetPort: mc-dynmap
+    targetPort: mc-metrics-music
   selector:
     app: minecraft-music
   type: LoadBalancer

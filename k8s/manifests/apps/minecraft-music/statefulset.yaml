@@ -64,12 +64,10 @@ spec:
             - name: SPIGET_RESOURCES
               value: 7849,82293,96927
           ports:
-            - name: minecraft
+            - name: minecraft-music
               containerPort: 25565
-            - name: mc-metrics
+            - name: mc-metrics-music
               containerPort: 9225
-            - name: mc-dynmap
-              containerPort: 8123
           resources:
             requests:
               memory: 2G
@@ -113,4 +111,4 @@ spec:
             name: mcserver-music-configs
         - name: mcserver-music-plugin-config
           configMap:
-            name: mcserver-plugin-configs
+            name: mcserver-music-plugin-configs

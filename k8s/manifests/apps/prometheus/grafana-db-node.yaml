@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    grafana_dashboard: "1"
+  name: grafana-db-x510-28gtx
+  namespace: monitoring
+data:
+  x510-28gtx-dashboards.json: |-

@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deploymen
+kind: StatefulSet
 metadata:
   namespace: minecraft
   name: minecraft-music

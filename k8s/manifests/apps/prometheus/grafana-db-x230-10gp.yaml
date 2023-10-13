@@ -2734,7 +2734,7 @@ data:
               "refId": "J"
             }
           ],
-          "title": "インターフェース\"port1.0.1\"",
+          "title": "インターフェース\"Gigabit-Ethernet-1.0.1\"",
           "type": "timeseries"
         },
         {
@@ -2988,7 +2988,7 @@ data:
               "refId": "J"
             }
           ],
-          "title": "インターフェース\"port1.0.2\"",
+          "title": "インターフェース\"Gigabit-Ethernet-1.0.2\"",
           "type": "timeseries"
         },
         {
@@ -3242,7 +3242,7 @@ data:
               "refId": "J"
             }
           ],
-          "title": "インターフェース\"port1.0.3\"",
+          "title": "インターフェース\"Gigabit-Ethernet-1.0.3\"",
           "type": "timeseries"
         },
         {
@@ -3496,7 +3496,7 @@ data:
               "refId": "J"
             }
           ],
-          "title": "インターフェース\"port1.0.4\"",
+          "title": "インターフェース\"Gigabit-Ethernet-1.0.4\"",
           "type": "timeseries"
         },
         {
@@ -3750,7 +3750,7 @@ data:
               "refId": "J"
             }
           ],
-          "title": "インターフェース\"port1.0.5\"",
+          "title": "インターフェース\"Gigabit-Ethernet-1.0.5\"",
           "type": "timeseries"
         },
         {
@@ -4004,7 +4004,7 @@ data:
               "refId": "J"
             }
           ],
-          "title": "インターフェース\"port1.0.6\"",
+          "title": "インターフェース\"Gigabit-Ethernet-1.0.6\"",
           "type": "timeseries"
         },
         {
@@ -4258,7 +4258,7 @@ data:
               "refId": "J"
             }
           ],
-          "title": "インターフェース\"port1.0.7\"",
+          "title": "インターフェース\"Gigabit-Ethernet-1.0.7\"",
           "type": "timeseries"
         },
         {
@@ -4512,7 +4512,7 @@ data:
               "refId": "J"
             }
           ],
-          "title": "インターフェース\"port1.0.8\"",
+          "title": "インターフェース\"Gigabit-Ethernet-1.0.8\"",
           "type": "timeseries"
         },
         {
@@ -4766,7 +4766,7 @@ data:
               "refId": "J"
             }
           ],
-          "title": "インターフェース\"port1.0.9\"",
+          "title": "インターフェース\"Gigabit-Ethernet-SFP-1.0.9\"",
           "type": "timeseries"
         },
         {
@@ -5020,7 +5020,7 @@ data:
               "refId": "J"
             }
           ],
-          "title": "インターフェース\"port1.0.10\"",
+          "title": "インターフェース\"Gigabit-Ethernet-SFP-1.0.10\"",
           "type": "timeseries"
         }
       ],

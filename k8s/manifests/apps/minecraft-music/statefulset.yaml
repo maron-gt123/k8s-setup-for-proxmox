@@ -39,6 +39,12 @@ spec:
               value: "FALSE"
             - name: LEVEL_TYPE
               value: flat
+            - name: SPAWN_ANIMALS
+              value: "false"
+            - name: SPAWN_MONSTERS
+              value: "false"
+            - name: SPAWN_NPCS
+              value: "false"
             - name: PLUGINS
               # ViaVersion:
               #   https://github.com/ViaVersion/ViaVersion/releases/download/4.8.1/ViaVersion-4.8.1.jar

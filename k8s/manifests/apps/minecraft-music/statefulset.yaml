@@ -91,9 +91,6 @@ spec:
               mountPath: /plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml
             - name: mcserver-music-plugin-config
-              mountPath: /plugins/MysqlInventoryBridge/config.yml
-              subPath: mysqlinventorybridge.yml
-            - name: mcserver-music-plugin-config
               mountPath: /plugins/LuckPerms/config.yml
               subPath: LuckPerms-config.yml
             - name: mcserver-music-plugin-config

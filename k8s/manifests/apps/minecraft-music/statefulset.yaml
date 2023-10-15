@@ -59,14 +59,12 @@ spec:
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v2.5.0/minecraft-prometheus-exporter-2.5.0.jar,
                 https://download.luckperms.net/1515/bukkit/loader/LuckPerms-Bukkit-5.4.102.jar,
                 https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar
-              # mysql-inventory-bridge:
-              #   https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/
               # LunaChat
               #   https://www.spigotmc.org/resources/lunachat.82293/
               # DecentHolograms
               #   https://www.spigotmc.org/resources/decentholograms-1-8-1-20-1-papi-support-no-dependencies.96927/
             - name: SPIGET_RESOURCES
-              value: 7849,82293,96927
+              value: 82293,96927
           ports:
             - name: mc-music
               containerPort: 25565

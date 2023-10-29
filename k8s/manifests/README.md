@@ -48,3 +48,7 @@ k8scluster構築後のセットアップについて示します。<br>
 * k8sdashboardのデプロイ完了後、以下のpashを取得しログイン
 
       kubectl -n kubernetes-dashboard create token admin-user
+
+### 全体構成図<br>
+* ArgoCDによる錬成後以下のような収容となる
+  ![収容時](https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/kubanetesu.svg)

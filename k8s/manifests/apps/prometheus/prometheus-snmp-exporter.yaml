@@ -25,7 +25,7 @@ spec:
           enabled: true
           params:
             - name: x510
-              target: 192.168.15.133
+              target: x510-28gtx.micnet
               module:
                 - if_mib
               labels:
@@ -35,7 +35,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: x230
-              target: 192.168.15.134
+              target: x230-10gp.micnet
               module:
                 - if_mib
               labels:
@@ -45,7 +45,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: crs309-ext
-              target: 192.168.15.135
+              target: csr-309.micnet
               module:
                 - mikrotik
               labels:
@@ -55,7 +55,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: crs309-general
-              target: 192.168.15.135
+              target: csr-309.micnet
               module:
                 - if_mib
               labels:
@@ -65,7 +65,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: ix-3110-ext
-              target: 192.168.15.1
+              target: ix-3110.micnet
               module:
                 - nec_ix
               labels:
@@ -75,7 +75,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: ix-3110-general
-              target: 192.168.15.1
+              target: ix-3110.micnet
               module:
                 - if_mib
               labels:

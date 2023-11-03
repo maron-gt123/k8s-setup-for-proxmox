@@ -8,23 +8,23 @@ data:
     servers:
       lobby:
         motd: '&1Just another Waterfall - Forced Host'
-        address: 192.168.15.87:25565
+        address: mic-lobby.micnet:25565
         restricted: false
       s1:
         motd: '&1Just another Waterfall - Forced Host'
-        address: 192.168.15.88:25565
+        address: mic-paper01.micnet:25565
         restricted: false
       s2:
         motd: '&1Just another Waterfall - Forced Host'
-        address: 192.168.15.89:25565
+        address: mic-paper02.micnet:25565
         restricted: false
       k8s:
         motd: '&1Just another Waterfall - Forced Host'
-        address: 192.168.15.71:25565
+        address: mic-k8s.micnet:25565
         restricted: false
       music:
         motd: '&1Just another Waterfall - Forced Host'
-        address: 192.168.15.72:25565
+        address: mic-k8s-music.micnet:25565
         restricted: false
     listeners:
       - priorities:

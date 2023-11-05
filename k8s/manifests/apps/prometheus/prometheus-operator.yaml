@@ -143,6 +143,9 @@ spec:
                   - targets: ['sql.micnet:9100']
                     labels:
                       server_name: 'ssh-server'
+                  - targets: ['dns.micnet:9100']
+                    labels:
+                      server_name: 'dns-server'
                   - targets: ['nas.micnet:9100']
                     labels:
                       server_name: 'nas-server'

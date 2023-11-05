@@ -92,15 +92,15 @@ spec:
             - name: mcserver-music-plugin-config
               mountPath: /plugins/LunaChat/config.yml
               subPath: LunaChat-config.yml   
-            - name: mcserver-music-plugin-config
-              mountPath: /data/plugins/AdvancedPortals/config.yml
-              subPath: Advanced-config.yml
-            - name: mcserver-music-plugin-config
-              mountPath: /data/plugins/AdvancedPortals/destinations.yml
-              subPath: Advanced-destinations.yml
-            - name: mcserver-music-plugin-config
-              mountPath: /data/plugins/AdvancedPortals/portals.yml
-              subPath: Advanced-portals.yml
+            #- name: mcserver-music-plugin-config
+            #  mountPath: /data/plugins/AdvancedPortals/config.yml
+            #  subPath: Advanced-config.yml
+            #- name: mcserver-music-plugin-config
+            #  mountPath: /data/plugins/AdvancedPortals/destinations.yml
+            #  subPath: Advanced-destinations.yml
+            #- name: mcserver-music-plugin-config
+            #  mountPath: /data/plugins/AdvancedPortals/portals.yml
+            #  subPath: Advanced-portals.yml
       volumes:
         - name: minecraft-music-storage
           persistentVolumeClaim:

@@ -15,4 +15,4 @@ spec:
   nfs:
     server: 192.168.6.140
     path: /kubanetesu-NFS/minecraft-music/
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Retain

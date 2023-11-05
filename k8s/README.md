@@ -94,9 +94,7 @@ k8sのセットアップについて示す。前提条件として前述するpr
 * defaultではlocakhostのみであるため変更する
 
       ssh onp-k8s-cp-1 "sudo sed -i 's/listen-metrics-urls=http:\/\/127.0.0.1:2381/listen-metrics-urls=http:\/\/127.0.0.1:2381,http:\/\/192.168.6.81:2381/' /etc/kubernetes/manifests/etcd.yaml"
-
       ssh onp-k8s-cp-2 "sudo sed -i 's/listen-metrics-urls=http:\/\/127.0.0.1:2381/listen-metrics-urls=http:\/\/127.0.0.1:2381,http:\/\/192.168.6.82:2381/' /etc/kubernetes/manifests/etcd.yaml"
-
       ssh onp-k8s-cp-3 "sudo sed -i 's/listen-metrics-urls=http:\/\/127.0.0.1:2381/listen-metrics-urls=http:\/\/127.0.0.1:2381,http:\/\/192.168.6.83:2381/' /etc/kubernetes/manifests/etcd.yaml"
 
 ## 削除

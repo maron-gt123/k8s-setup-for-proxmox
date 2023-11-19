@@ -149,6 +149,15 @@ spec:
                   - targets: ['nas.micnet:9100']
                     labels:
                       server_name: 'nas-server'
+                  - targets: ['prox01.micnet:9100']
+                    labels:
+                      server_name: 'proxmox01-server'
+                  - targets: ['prox02.micnet:9100']
+                    labels:
+                      server_name: 'proxmox02-server'
+                  - targets: ['prox03.micnet:9100']
+                    labels:
+                      server_name: 'proxmox03-server'
                   - targets: ['k8s-cp01.micnet:9100']
                     labels:
                       server_name: 'k8s-cp1-server'

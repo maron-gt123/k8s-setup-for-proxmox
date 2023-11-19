@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  namespace: minecraft
+  namespace: minecraft-music
   name: minecraft-music-pv
   labels:
     app: minecraft-music

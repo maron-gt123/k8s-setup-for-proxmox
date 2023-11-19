@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: minecraft
+  namespace: minecraft-music
   name: mcserver-music-plugin-configs
 data:
   prometheusexporter.yml: |

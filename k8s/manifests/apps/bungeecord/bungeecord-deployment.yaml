@@ -53,7 +53,7 @@ spec:
             - name: ENABLE_RCON
               value: "true"
             - name: MEMORY
-              value: 1024m
+              value: 768m
             - name: PLUGINS
               # bungeecord-prometheus-exporter:
               #   https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.1.5/bungeecord-prometheus-exporter-3.1.5.jar

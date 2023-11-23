@@ -27,7 +27,7 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 43,
+      "id": 10,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -90,7 +90,7 @@ data:
             },
             "textMode": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.1.5",
           "targets": [
             {
               "datasource": {
@@ -154,7 +154,7 @@ data:
             },
             "textMode": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.1.5",
           "targets": [
             {
               "datasource": {
@@ -180,8 +180,6 @@ data:
           "fieldConfig": {
             "defaults": {
               "mappings": [],
-              "max": 4000000000,
-              "min": 0,
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -232,19 +230,91 @@ data:
             },
             "textMode": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.1.5",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
                 "uid": "PBFA97CFB590B2093"
               },
+              "disableTextWrap": false,
               "editorMode": "code",
-              "expr": "sum by(server_name) (mc_jvm_memory)",
+              "expr": "mc_jvm_memory{type='allocated', server_name=\"minecraft-server-lobby\"} - scalar(mc_jvm_memory{type='free', server_name=\"minecraft-server-lobby\"})",
+              "fullMetaSearch": false,
+              "includeNullMetadata": true,
               "instant": false,
               "legendFormat": "{{server_name}}",
               "range": true,
-              "refId": "A"
+              "refId": "A",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "mc_jvm_memory{type='allocated', server_name=\"minecraft-server-S1\"} - scalar(mc_jvm_memory{type='free', server_name=\"minecraft-server-S1\"})",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{server_name}}",
+              "range": true,
+              "refId": "B",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "mc_jvm_memory{type='allocated', server_name=\"minecraft-server-S2\"} - scalar(mc_jvm_memory{type='free', server_name=\"minecraft-server-S2\"})",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{server_name}}",
+              "range": true,
+              "refId": "C",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "mc_jvm_memory{type='allocated', server_name=\"minecraft-server-k8s\"} - scalar(mc_jvm_memory{type='free', server_name=\"minecraft-server-k8s\"})",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{server_name}}",
+              "range": true,
+              "refId": "D",
+              "useBackend": false
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "mc_jvm_memory{type='allocated', server_name=\"minecraft-server-music\"} - scalar(mc_jvm_memory{type='free', server_name=\"minecraft-server-music\"})",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "instant": false,
+              "legendFormat": "{{server_name}}",
+              "range": true,
+              "refId": "E",
+              "useBackend": false
             }
           ],
           "title": "JVMメモリ数",
@@ -300,7 +370,7 @@ data:
             },
             "textMode": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.1.5",
           "targets": [
             {
               "datasource": {
@@ -342,6 +412,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "linear",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -461,6 +532,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "stepAfter",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -584,8 +656,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -678,8 +749,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -798,8 +868,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -891,8 +960,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -997,8 +1065,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1116,8 +1183,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1235,8 +1301,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1354,8 +1419,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1473,8 +1537,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1593,8 +1656,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1714,8 +1776,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1835,8 +1896,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1956,8 +2016,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2077,8 +2136,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2213,8 +2271,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2351,9 +2408,13 @@ data:
         "list": [
           {
             "current": {
-              "selected": true,
+              "selected": false,
               "text": "BOAT_ONE_CM",
               "value": "BOAT_ONE_CM"
+            },
+            "datasource": {
+              "type": "prometheus",
+              "uid": "PBFA97CFB590B2093"
             },
             "definition": "label_values(mc_player_statistic,statistic)",
             "hide": 0,
@@ -2382,6 +2443,6 @@ data:
       "timezone": "",
       "title": "Minecraft-Server",
       "uid": "cc534e75-9834-4b8b-be66-549664230bb5",
-      "version": 6,
+      "version": 1,
       "weekStart": ""
     }

@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/prometheus-community/helm-charts.git
     path: charts/kube-prometheus-stack/charts/crds/
-    targetRevision: kube-prometheus-stack-48.0.0
+    targetRevision: kube-prometheus-stack-54.0.1
     directory:
       recurse: true
   destination:
@@ -43,7 +43,7 @@ spec:
   source:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 48.3.2
+    targetRevision: 54.1.0
     helm:
       releaseName: prometheus
       skipCrds: true
@@ -216,10 +216,6 @@ spec:
            enabled: true
            port: 2381
            targetPort: 2381
-   
-# ========================
-# kubectl -n monitoring create secret generic etcd-client-cert --from-file=/etc/kubernetes/pki/etcd/ca.crt --from-file=/etc/kubernetes/pki/etcd/healthcheck-client.crt --from-file=/etc/kubernetes/pki/etcd/healthcheck-client.key
-# ========================
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

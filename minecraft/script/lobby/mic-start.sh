@@ -2,13 +2,14 @@
 
 # region : set variables
 JARFILE=/minecraft/paper/paper-*
-MEM=1024M
+MINMEM=500M
+MAXMEM=1024M
 SCREEN_NAME=paper
 # endregion
 
 # start minecraft
 cd `dirname $0`
-screen -AdmS ${SCREEN_NAME} java -server -Xms${MEM} -Xmx${MEM} -jar ${JARFILE} nogui
+screen -AdmS ${SCREEN_NAME} java -server -Xms${MINMEM} -Xmx${MAXMEM} -jar ${JARFILE} nogui
 
 # sleep 60s
 sleep 60s

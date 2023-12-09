@@ -123,6 +123,17 @@ spec:
             - name: bungeecord-plugin-configs
               mountPath: /config/plugins/LuckPerms/config.yml
               subPath: LuckPerms-config.yml
+            # 普通にマウントすると、auto-update (常に最新のvolume内容がコンテナ内から見える) の挙動を
+            # 提供するために symlink による一時ディレクトリがマウントされることになるが、
+            # itzg/bungeecord が利用するファイル同期の仕組み (itzg/mc-image-helper) は
+            # symlink を展開してしまうため、設定ファイルのパスが壊れてしまう。
+            #
+            # subPathを利用してマウントすればsymlinkが作られることを回避できるためそのようにしている。
+            # 参考: https://stackoverflow.com/a/63114800
+            # 参考: https://stackoverflow.com/a/50687707
+            - name: server-icon-download-volume
+              mountPath: /config/server-icon.png
+              subPath: server-icon.png
 
             # JMX exporter 周りのファイルが入ったボリューム達のマウント設定
             - name: jmx-exporter-download-volume

@@ -145,3 +145,6 @@ spec:
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-config
+        # サーバーアイコンをinitContainerでダウンロードしてBugneeCordに受け渡すためのvolume
+        - name: server-icon-download-volume
+          emptyDir: {}

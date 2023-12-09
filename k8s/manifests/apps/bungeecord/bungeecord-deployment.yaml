@@ -28,19 +28,19 @@ spec:
         app: bungeecord
     spec:
       initContainers:
-        #- name: server-icon-downloader
-        #  image: busybox:1.36.1
-        #  env:
-        #    - name: SERVER_ICON_URL
-        #      # https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/a47b0c0ad303f248f1d50a7b5b3ac508f4435389/minecraft/branding/server-icon.png
-        #      value: https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/a47b0c0ad303f248f1d50a7b5b3ac508f4435389/minecraft/branding/server-icon.png
-        #  volumeMounts:
-        #    - name: server-icon-download-volume
-        #      mountPath: /root/server-icon-download
-        #  command:
-        #    - "sh"
-        #    - "-c"
-        #    - 'wget -O /root/server-icon-download/server-icon.png "${SERVER_ICON_URL}"'
+        - name: server-icon-downloader
+          image: busybox:1.36.1
+          env:
+            - name: SERVER_ICON_URL
+              # https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/a47b0c0ad303f248f1d50a7b5b3ac508f4435389/minecraft/branding/server-icon.png
+              value: https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/a47b0c0ad303f248f1d50a7b5b3ac508f4435389/minecraft/branding/server-icon.png
+          volumeMounts:
+            - name: server-icon-download-volume
+              mountPath: /root/server-icon-download
+          command:
+            - "sh"
+            - "-c"
+            - 'wget -O /root/server-icon-download/server-icon.png "${SERVER_ICON_URL}"'
         - name: jmx-exporter-downloader
           image: busybox:1.36.0
           env:

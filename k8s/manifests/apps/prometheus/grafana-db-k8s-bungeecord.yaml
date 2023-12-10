@@ -34,7 +34,6 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 33,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -62,6 +61,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "linear",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -131,13 +131,24 @@ data:
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sum by(pod, server) (bungeecord_online_players{pod=~\"$proxy\"})",
+              "expr": "sum by(server) (bungeecord_online_players)",
               "hide": false,
               "instant": false,
               "interval": "",
-              "legendFormat": "{{server}}({{pod}})",
+              "legendFormat": "{{server}}",
               "range": true,
               "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "expr": "",
+              "hide": false,
+              "instant": false,
+              "range": true,
+              "refId": "B"
             }
           ],
           "title": "オンラインプレイヤー",
@@ -168,6 +179,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "linear",
                 "lineStyle": {
                   "fill": "solid"
@@ -237,9 +249,9 @@ data:
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "increase(bungeecord_player_chats_total{pod=~\"$proxy\"}[1m])",
+              "expr": "increase(bungeecord_player_chats_total[1m])",
               "hide": false,
-              "legendFormat": "chats ({{pod}})",
+              "legendFormat": "chats",
               "range": true,
               "refId": "A"
             },
@@ -250,10 +262,10 @@ data:
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "increase(bungeecord_server_list_pings_total{pod=~\"$proxy\"}[1m])",
+              "expr": "increase(bungeecord_server_list_pings_total[1m])",
               "hide": false,
               "interval": "",
-              "legendFormat": "server list pings ({{pod}})",
+              "legendFormat": "server list pings",
               "range": true,
               "refId": "B"
             },
@@ -264,10 +276,10 @@ data:
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "increase(bungeecord_player_connects_total{pod=~\"$proxy\"}[1m])",
+              "expr": "increase(bungeecord_player_connects_total[1m])",
               "hide": false,
               "interval": "",
-              "legendFormat": "connects ({{pod}})",
+              "legendFormat": "connects",
               "range": true,
               "refId": "C"
             },
@@ -277,9 +289,9 @@ data:
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "increase(bungeecord_player_kicks_total{pod=~\"$proxy\"}[1m])",
+              "expr": "increase(bungeecord_player_kicks_total[1m])",
               "hide": false,
-              "legendFormat": "kicks ({{pod}})",
+              "legendFormat": "kicks",
               "range": true,
               "refId": "D"
             },
@@ -290,10 +302,10 @@ data:
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "increase(bungeecord_player_disconnects_total{pod=~\"$proxy\"}[1m])",
+              "expr": "increase(bungeecord_player_disconnects_total[1m])",
               "hide": false,
               "interval": "",
-              "legendFormat": "disconnects ({{pod}})",
+              "legendFormat": "disconnects",
               "range": true,
               "refId": "F"
             }
@@ -325,6 +337,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineStyle": {
                   "fill": "solid"
@@ -394,10 +407,10 @@ data:
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sum by(type, pod) (bungeecord_jvm_memory{type=\"used\", pod=~\"$proxy\"})",
+              "expr": "sum by(type) (bungeecord_jvm_memory{type=\"used\"})",
               "hide": false,
               "interval": "",
-              "legendFormat": "{{server}} used({{pod}})",
+              "legendFormat": "used",
               "range": true,
               "refId": "C"
             },
@@ -408,10 +421,10 @@ data:
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sum by(type, pod) (bungeecord_jvm_memory{type=\"free\", pod=~\"$proxy\"})",
+              "expr": "sum by(type) (bungeecord_jvm_memory{type=\"free\"})",
               "hide": false,
               "interval": "",
-              "legendFormat": "{{server}} free({{pod}})",
+              "legendFormat": "free",
               "range": true,
               "refId": "A"
             }
@@ -443,6 +456,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "linear",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -505,9 +519,9 @@ data:
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sum by(pod) (bungeecord_jvm_threads_current{pod=~\"$proxy\"})",
+              "expr": "bungeecord_jvm_threads_current",
               "interval": "",
-              "legendFormat": "TOTAL ({{pod}})",
+              "legendFormat": "TOTAL",
               "range": true,
               "refId": "A"
             },
@@ -516,12 +530,12 @@ data:
                 "type": "prometheus",
                 "uid": "PBFA97CFB590B2093"
               },
-              "editorMode": "builder",
+              "editorMode": "code",
               "exemplar": false,
-              "expr": "sum by(state, pod) (bungeecord_jvm_threads_state{pod=~\"$proxy\"})",
+              "expr": "sum by(state) (bungeecord_jvm_threads_state)",
               "hide": false,
               "interval": "",
-              "legendFormat": "{{state}} ({{pod}})",
+              "legendFormat": "{{state}}",
               "range": true,
               "refId": "B"
             }
@@ -543,7 +557,7 @@ data:
               "displayName": "",
               "links": [],
               "mappings": [],
-              "max": 4000000000,
+              "max": 805306368,
               "min": 0,
               "thresholds": {
                 "mode": "absolute",
@@ -582,7 +596,7 @@ data:
             "showThresholdMarkers": true,
             "text": {}
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.1.5",
           "repeat": "proxies",
           "repeatDirection": "v",
           "targets": [
@@ -593,7 +607,7 @@ data:
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sum(bungeecord_jvm_memory{type='allocated', pod=~\"$proxy\"}) - scalar(sum(bungeecord_jvm_memory{type='free', pod=~\"$proxy\"}))",
+              "expr": "sum(bungeecord_jvm_memory{type='allocated'}) - scalar(sum(bungeecord_jvm_memory{type='free'}))",
               "instant": false,
               "interval": "",
               "intervalFactor": 1,
@@ -601,7 +615,7 @@ data:
               "refId": "A"
             }
           ],
-          "title": "$proxy メモリ",
+          "title": "メモリ",
           "type": "gauge"
         },
         {
@@ -651,7 +665,7 @@ data:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.1.5",
           "targets": [
             {
               "datasource": {
@@ -660,9 +674,9 @@ data:
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "bungeecord_managed_servers{pod=~\"$proxy\"}",
+              "expr": "bungeecord_managed_servers",
               "interval": "",
-              "legendFormat": "{{pod}}",
+              "legendFormat": "__auto",
               "range": true,
               "refId": "A"
             }
@@ -717,7 +731,7 @@ data:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.1.5",
           "targets": [
             {
               "datasource": {
@@ -726,9 +740,9 @@ data:
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "bungeecord_installed_network_plugins{pod=~\"$proxy\"}",
+              "expr": "bungeecord_installed_network_plugins",
               "interval": "",
-              "legendFormat": "{{pod}}",
+              "legendFormat": "__auto",
               "range": true,
               "refId": "A"
             }
@@ -783,18 +797,18 @@ data:
             },
             "textMode": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.1.5",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
                 "uid": "PBFA97CFB590B2093"
               },
-              "editorMode": "builder",
+              "editorMode": "code",
               "exemplar": false,
-              "expr": "sum by(pod) (bungeecord_server_list_pings_total{pod=~\"$proxy\"})",
+              "expr": "bungeecord_server_list_pings_total",
               "interval": "",
-              "legendFormat": "average player ping ({{pod}})",
+              "legendFormat": "average player ping",
               "range": true,
               "refId": "A"
             }
@@ -849,16 +863,16 @@ data:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.1.5",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
                 "uid": "PBFA97CFB590B2093"
               },
-              "editorMode": "builder",
+              "editorMode": "code",
               "exemplar": false,
-              "expr": "sum(bungeecord_online_players{pod=~\"$proxy\"})",
+              "expr": "sum(bungeecord_online_players)",
               "instant": false,
               "interval": "",
               "legendFormat": "Online Players",
@@ -915,7 +929,7 @@ data:
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.1.5",
           "targets": [
             {
               "datasource": {
@@ -943,46 +957,16 @@ data:
         "bungeecord"
       ],
       "templating": {
-        "list": [
-          {
-            "current": {
-              "selected": true,
-              "text": "All",
-              "value": "$__all"
-            },
-            "datasource": {
-              "type": "prometheus",
-              "uid": "PBFA97CFB590B2093"
-            },
-            "definition": "label_values(bungeecord_managed_servers,pod)",
-            "hide": 0,
-            "includeAll": true,
-            "multi": false,
-            "name": "proxy",
-            "options": [],
-            "query": {
-              "query": "label_values(bungeecord_managed_servers,pod)",
-              "refId": "PrometheusVariableQueryEditor-VariableQuery"
-            },
-            "refresh": 1,
-            "regex": "",
-            "skipUrlSync": false,
-            "sort": 0,
-            "tagValuesQuery": "",
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
-          }
-        ]
+        "list": []
       },
       "time": {
-        "from": "now-24h",
+        "from": "now-5m",
         "to": "now"
       },
       "timepicker": {},
       "timezone": "Asia/Tokyo",
       "title": "Minecraft Network",
       "uid": "AltFNh7nz",
-      "version": 3,
+      "version": 1,
       "weekStart": ""
     }

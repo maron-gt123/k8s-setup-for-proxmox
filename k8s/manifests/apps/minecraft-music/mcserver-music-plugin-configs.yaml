@@ -1091,7 +1091,15 @@ data:
     #    world: it will be the world name
     #    pos:
     #      X:
-    #      Y:
+
+    lobby:
+      world: world
+      pos:
+        X: -4.6080466492768055
+        Y: -60.0
+        Z: 9.390216272177778
+        pitch: 33.44807
+        yaw: -91.10605
 
   Advanced-portals.yml: |
     #  ExamplePortal:
@@ -1111,3 +1119,17 @@ data:
     #      tppos:
     #        X:
     #        Y:
+
+    lobby:
+      world: world
+      triggerblock: WATER
+      destination: lobby
+      bungee: lobby
+      pos1:
+        X: -5
+        Y: -55
+        Z: 11
+      pos2:
+        X: -5
+        Y: -61
+        Z: 7

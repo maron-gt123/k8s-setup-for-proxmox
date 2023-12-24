@@ -76,14 +76,14 @@ spec:
               #   https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/
               # GeyserSkinManager-BungeeCord
               #   https://github.com/Camotoy/GeyserSkinManager/releases/tag/1.7
-              # LuckPerms-Bungee-5.4.102
-              #   https://download.luckperms.net/1515/bungee/loader/LuckPerms-Bungee-5.4.102.jar
+              # LuckPerms-Bungee-5.4.113
+              #   https://download.luckperms.net/1526/bungee/loader/LuckPerms-Bungee-5.4.113.jar
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.1.5/bungeecord-prometheus-exporter-3.1.5.jar,
                 https://ci.opencollab.dev//job/GeyserMC/job/Floodgate/job/master/lastSuccessfulBuild/artifact/bungee/build/libs/floodgate-bungee.jar,
                 https://ci.opencollab.dev//job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/bungeecord/build/libs/Geyser-BungeeCord.jar,
                 https://github.com/Camotoy/GeyserSkinManager/releases/download/1.7/GeyserSkinManager-BungeeCord.jar,
-                https://download.luckperms.net/1515/bungee/loader/LuckPerms-Bungee-5.4.102.jar
+                https://download.luckperms.net/1526/bungee/loader/LuckPerms-Bungee-5.4.113.jar
               # BungeeYAML (depended by SwiftMOTD):
               #   https://www.spigotmc.org/resources/bungeeyaml-original.13068/
               # SwiftMOTD:

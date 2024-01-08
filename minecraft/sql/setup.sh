@@ -35,7 +35,7 @@ cat > /etc/systemd/timesyncd.conf <<EOF
 # See timesyncd.conf(5) for details.
 
 [Time]
-NTP=ntp-dns.micnet
+NTP=ntp.jst.mfeed.ad.jp
 #FallbackNTP=ntp.ubuntu.com
 #RootDistanceMaxSec=5
 #PollIntervalMinSec=32

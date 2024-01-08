@@ -56,7 +56,7 @@ spec:
             kubeProxy: false
             alertmanager: false
             windows: false
-         prometheus-windows-exporter:
+        prometheus-windows-exporter:
           prometheus:
             monitor:
               enabled: false

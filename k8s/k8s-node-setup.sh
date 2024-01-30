@@ -80,18 +80,12 @@ EOF
 sudo sysctl --system
 
 ## Install containerd
-apt-get update && apt-get install -y apt-transport-https curl gnupg2
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
- echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update && sudo apt-get install -y containerd.io
+sudo apt-get update && sudo apt-get install -y containerd apt-transport-https curl gnupg2
 
 # Configure containerd
 sudo mkdir -p /etc/containerd
 sudo containerd config default | sudo tee /etc/containerd/config.toml > /dev/null
-
+sudo sed -i 's#sandbox_image = "registry.k8s.io/pause:3.8"#sandbox_image = "registry.k8s.io/pause:3.9"#g' /etc/containerd/config.toml
 if grep -q "SystemdCgroup = true" "/etc/containerd/config.toml"; then
 echo "Config found, skip rewriting..."
 else
@@ -101,6 +95,7 @@ fi
 sudo systemctl restart containerd
 
 # Modify kernel parameters for Kubernetes
+# inotify instance number is very limited in Ubuntu 22.04 and it has to be at least more than pod number * 2
 cat <<EOF | tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
@@ -111,15 +106,17 @@ kernel.panic_on_oops = 1
 kernel.keys.root_maxkeys = 1000000
 kernel.keys.root_maxbytes = 25000000
 net.ipv4.conf.*.rp_filter = 0
+net.ipv4.tcp_fastopen=3
+fs.inotify.max_user_watches=65536
+fs.inotify.max_user_instances=8192
 EOF
 sysctl --system
 
 # Install kubeadm
-curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-apt-get update
-apt-get install -y kubelet=1.27.5-00 kubeadm=1.27.5-00 kubectl=1.27.5-00
-apt-mark hold kubelet kubeadm kubectl
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+apt-get install -y kubeadm=1.28.5-1.1 kubectl=1.28.5-1.1 kubelet=1.28.5-1.1
+apt-mark hold kubelet kubectl
 
 # Disable swap
 swapoff -a
@@ -193,7 +190,7 @@ EOF
 echo "net.ipv4.ip_nonlocal_bind = 1" >> /etc/sysctl.conf
 sysctl -p
 
-apt-get update && apt-get -y install keepalived
+apt-get -y install keepalived
 
 cat > /etc/keepalived/keepalived.conf <<EOF
 # Define the script used to check if haproxy is still working
@@ -251,6 +248,9 @@ systemctl reload haproxy
 # Pull images first
 kubeadm config images pull
 
+# install k9s
+wget https://github.com/derailed/k9s/releases/download/v0.28.2/k9s_Linux_amd64.tar.gz -O - | tar -zxvf - k9s && sudo mv ./k9s /usr/local/bin/
+
 # Ends except first-control-plane
 case $1 in
     onp-k8s-cp-1)
@@ -265,6 +265,7 @@ esac
 
 # Set kubeadm bootstrap token using openssl
 KUBEADM_BOOTSTRAP_TOKEN=$(openssl rand -hex 3).$(openssl rand -hex 8)
+KUBEADM_LOCAL_ENDPOINT=$(ip -4 addr show ens20 | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | awk 'NR==1{print $1}')
 
 # Set init configuration for the first control plane
 cat > "$HOME"/init_kubeadm.yaml <<EOF
@@ -276,13 +277,24 @@ bootstrapTokens:
   ttl: "24h"
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
+  kubeletExtraArgs:
+    node-ip: "$KUBEADM_LOCAL_ENDPOINT"
+localAPIEndpoint:
+  advertiseAddress: "$KUBEADM_LOCAL_ENDPOINT"
+  bindPort: 6443
+skipPhases:
+  - addon/kube-proxy
 ---
 apiVersion: kubeadm.k8s.io/v1beta3
 kind: ClusterConfiguration
 networking:
-  serviceSubnet: "10.96.0.0/16"
-  podSubnet: "10.128.0.0/16"
-kubernetesVersion: "v1.27.5"
+  serviceSubnet: "10.96.64.0/18"
+  podSubnet: "10.96.128.0/18"
+etcd:
+  local:
+    extraArgs:
+      listen-metrics-urls: http://0.0.0.0:2381
+kubernetesVersion: "v1.28.5"
 controlPlaneEndpoint: "${KUBE_API_SERVER_VIP}:8443"
 apiServer:
   certSANs:
@@ -304,6 +316,7 @@ controllerManager:
 scheduler:
   extraArgs:
     bind-address: "0.0.0.0"
+clusterName: "maron-cloud"
 
 ---
 apiVersion: kubelet.config.k8s.io/v1beta1

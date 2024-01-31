@@ -359,7 +359,7 @@ kind: JoinConfiguration
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
   kubeletExtraArgs:
-    node-ip: "******"
+    node-ip: "abcdefg"
 discovery:
   bootstrapToken:
     apiServerEndpoint: "${KUBE_API_SERVER_VIP}:8443"
@@ -368,7 +368,7 @@ discovery:
 controlPlane:
   certificateKey: "$KUBEADM_UPLOADED_CERTS"
   localAPIEndpoint:
-    advertiseAddress: "******"
+    advertiseAddress: "abcdefg"
     bindPort: 6443
 EOF
 
@@ -384,7 +384,7 @@ kind: JoinConfiguration
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
   kubeletExtraArgs:
-    node-ip: "******"
+    node-ip: "abcdefg"
 discovery:
   bootstrapToken:
     apiServerEndpoint: "${KUBE_API_SERVER_VIP}:8443"

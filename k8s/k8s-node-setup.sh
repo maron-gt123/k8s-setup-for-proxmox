@@ -358,6 +358,8 @@ apiVersion: kubeadm.k8s.io/v1beta3
 kind: JoinConfiguration
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
+  kubeletExtraArgs:
+    node-ip: "******"
 discovery:
   bootstrapToken:
     apiServerEndpoint: "${KUBE_API_SERVER_VIP}:8443"
@@ -365,6 +367,9 @@ discovery:
     unsafeSkipCAVerification: true
 controlPlane:
   certificateKey: "$KUBEADM_UPLOADED_CERTS"
+  localAPIEndpoint:
+    advertiseAddress: "******"
+    bindPort: 6443
 EOF
 
 # Set join configuration for worker nodes
@@ -378,6 +383,8 @@ apiVersion: kubeadm.k8s.io/v1beta3
 kind: JoinConfiguration
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
+  kubeletExtraArgs:
+    node-ip: "******"
 discovery:
   bootstrapToken:
     apiServerEndpoint: "${KUBE_API_SERVER_VIP}:8443"

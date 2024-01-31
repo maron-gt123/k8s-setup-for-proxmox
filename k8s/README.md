@@ -55,7 +55,13 @@ k8sのセットアップについて示す。前提条件として前述するpr
       # join_kubeadm_cp.yaml を onp-k8s-cp-2 と onp-k8s-cp-3 にコピー
       scp -3 onp-k8s-cp-1:~/join_kubeadm_cp.yaml onp-k8s-cp-2:~/
       scp -3 onp-k8s-cp-1:~/join_kubeadm_cp.yaml onp-k8s-cp-3:~/
+
+      # join_kubeadm_cp.yaml を 書き換え
+      ssh onp-k8s-cp-1 "sed -i 's/"\*\*\*\*\*\*"/"192.168.6.81"/g' join_kubeadm_cp.yaml"
+      ssh onp-k8s-cp-2 "sed -i 's/"\*\*\*\*\*\*"/"192.168.6.82"/g' join_kubeadm_cp.yaml"
+      ssh onp-k8s-cp-3 "sed -i 's/"\*\*\*\*\*\*"/"192.168.6.83"/g' join_kubeadm_cp.yaml"
       
+
       # onp-k8s-cp-2 と onp-k8s-cp-3 で kubeadm join
       ssh onp-k8s-cp-2 "sudo kubeadm join --config ~/join_kubeadm_cp.yaml"
       ssh onp-k8s-cp-3 "sudo kubeadm join --config ~/join_kubeadm_cp.yaml"
@@ -64,7 +70,12 @@ k8sのセットアップについて示す。前提条件として前述するpr
       scp -3 onp-k8s-cp-1:~/join_kubeadm_wk.yaml onp-k8s-wk-1:~/
       scp -3 onp-k8s-cp-1:~/join_kubeadm_wk.yaml onp-k8s-wk-2:~/
       scp -3 onp-k8s-cp-1:~/join_kubeadm_wk.yaml onp-k8s-wk-3:~/
-     
+
+      # join_kubeadm_wk.yaml を 書き換え
+      ssh onp-k8s-wk-1 "sed -i 's/"\*\*\*\*\*\*"/"192.168.6.84"/g' join_kubeadm_wk.yaml"
+      ssh onp-k8s-wk-2 "sed -i 's/"\*\*\*\*\*\*"/"192.168.6.85"/g' join_kubeadm_wk.yaml"
+      ssh onp-k8s-wk-3 "sed -i 's/"\*\*\*\*\*\*"/"192.168.6.86"/g' join_kubeadm_wk.yaml"
+
       # onp-k8s-wk-1 と onp-k8s-wk-2 と onp-k8s-wk-3 で kubeadm join
       ssh onp-k8s-wk-1 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
       ssh onp-k8s-wk-2 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"

@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://github.com/prometheus-community/helm-charts.git
     path: charts/kube-prometheus-stack/charts/crds/
-    targetRevision: kube-prometheus-stack-54.0.1
+    targetRevision: kube-prometheus-stack-56.0.0
     directory:
       recurse: true
   destination:
@@ -43,7 +43,7 @@ spec:
   source:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 54.1.0
+    targetRevision: 56.3.0
     helm:
       releaseName: prometheus
       skipCrds: true
@@ -59,6 +59,10 @@ spec:
         prometheus-windows-exporter:
           prometheus:
             monitor:
+              enabled: false
+        nodeExporter:
+          operatingSystems:
+            darwin:
               enabled: false
         loki:
           isDefault: false
@@ -93,10 +97,6 @@ spec:
                   type: prometheus
                   url: http://prometheus-kube-prometheus-prometheus:9090
                   isDefault: true
-                - name: Loki
-                  type: Loki
-                  url: http://loki:3100
-                  isDefault: false
           dashboardProviders:
             dashboardproviders.yaml:
               apiVersion: 1

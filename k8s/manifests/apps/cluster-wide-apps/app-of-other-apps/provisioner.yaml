@@ -27,6 +27,7 @@ spec:
               memory: 128Mi
           accessModes: ReadWriteMany
           reclaimPolicy: Retain
+          persistentVolumeReclaimPolicy: Retain
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system

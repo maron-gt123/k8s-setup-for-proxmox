@@ -8,7 +8,7 @@ metadata:
 spec:
   ports:
   - name: server
-    port: 8211
+    port: 53167
     protocol: UDP
     targetPort: server
   - name: query

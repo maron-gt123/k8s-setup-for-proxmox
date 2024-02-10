@@ -4,7 +4,7 @@ metadata:
   namespace: palworld
   labels:
     app: palworld-server
-  name: palworld-server
+  name: palworld-lb
 spec:
   ports:
   - name: server
@@ -18,4 +18,4 @@ spec:
   selector:
     app: palworld-server
   type: LoadBalancer
-  loadBalancerIP: 192.168.15.51
+  loadBalancerIP: 192.168.15.65

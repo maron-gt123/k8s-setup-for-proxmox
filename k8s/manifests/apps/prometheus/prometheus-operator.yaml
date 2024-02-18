@@ -97,13 +97,6 @@ spec:
                   type: prometheus
                   url: http://prometheus-kube-prometheus-prometheus:9090
                   isDefault: true
-                - name: MariaDB
-                  type: mysql
-                  url: sql.micnet:3306
-                  isDefault: false
-                  user: minecraft
-                  secureJsonData:
-                    password: masaya0209
           dashboardProviders:
             dashboardproviders.yaml:
               apiVersion: 1

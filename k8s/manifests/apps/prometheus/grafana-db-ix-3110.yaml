@@ -27,7 +27,6 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 7,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -79,9 +78,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "name"
+            "textMode": "name",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -147,9 +147,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "name"
+            "textMode": "name",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -214,9 +215,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -299,9 +301,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -379,9 +382,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -460,9 +464,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -527,9 +532,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -559,12 +565,20 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
+                    "color": "red",
                     "value": null
                   },
                   {
-                    "color": "red",
-                    "value": 80
+                    "color": "green",
+                    "value": 1
+                  },
+                  {
+                    "color": "blue",
+                    "value": 1000000
+                  },
+                  {
+                    "color": "purple",
+                    "value": 5000000
                   }
                 ]
               },
@@ -591,9 +605,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -691,12 +706,20 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
+                    "color": "red",
                     "value": null
                   },
                   {
-                    "color": "red",
-                    "value": 80
+                    "color": "green",
+                    "value": 1
+                  },
+                  {
+                    "color": "blue",
+                    "value": 1000000
+                  },
+                  {
+                    "color": "purple",
+                    "value": 5000000
                   }
                 ]
               },
@@ -723,9 +746,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -844,6 +868,8 @@ data:
           },
           "id": 7,
           "options": {
+            "minVizHeight": 200,
+            "minVizWidth": 200,
             "orientation": "auto",
             "reduceOptions": {
               "calcs": [
@@ -853,9 +879,10 @@ data:
               "values": false
             },
             "showThresholdLabels": false,
-            "showThresholdMarkers": true
+            "showThresholdMarkers": true,
+            "sizing": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -909,6 +936,8 @@ data:
           },
           "id": 8,
           "options": {
+            "minVizHeight": 200,
+            "minVizWidth": 200,
             "orientation": "auto",
             "reduceOptions": {
               "calcs": [
@@ -918,9 +947,10 @@ data:
               "values": false
             },
             "showThresholdLabels": false,
-            "showThresholdMarkers": true
+            "showThresholdMarkers": true,
+            "sizing": "auto"
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -949,6 +979,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -962,6 +993,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "linear",
                 "lineWidth": 1,
                 "pointSize": 3,
@@ -1077,8 +1109,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1171,8 +1202,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1279,8 +1309,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1554,8 +1583,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1703,8 +1731,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1851,8 +1878,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1999,8 +2025,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2160,8 +2185,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2415,8 +2439,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2669,8 +2692,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -2923,8 +2945,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -3133,8 +3154,7 @@ data:
         }
       ],
       "refresh": "5s",
-      "schemaVersion": 38,
-      "style": "dark",
+      "schemaVersion": 39,
       "tags": [],
       "templating": {
         "list": []

@@ -88,7 +88,6 @@ spec:
             - grafana-piechart-panel
             - isovalent-hubble-datasource
             - grafana-sentry-datasource
-            - influxdb-08
           deploymentStrategy:
             type: Recreate
           persistence:

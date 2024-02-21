@@ -97,13 +97,13 @@ spec:
                   type: prometheus
                   url: http://prometheus-kube-prometheus-prometheus:9090
                   isDefault: true
-                - name: influxdb
-                  type: influxdb
-                  url: http://sql.micnet:8086
-                  isDefault: false
-                  user: admin
-                  secureJsonData:
-                    password: masaya0209
+#                - name: influxdb
+#                  type: influxdb
+#                  url: http://sql.micnet:8086
+#                  isDefault: false
+#                  user: admin
+#                  secureJsonData:
+#                    password: masaya0209
           dashboardProviders:
             dashboardproviders.yaml:
               apiVersion: 1

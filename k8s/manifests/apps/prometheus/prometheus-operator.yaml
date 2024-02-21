@@ -60,6 +60,10 @@ spec:
           prometheus:
             monitor:
               enabled: false
+        kubelet:
+          serviceMonitor:
+            attachMetadata:
+              node: true
         nodeExporter:
           operatingSystems:
             darwin:
@@ -84,6 +88,7 @@ spec:
             - grafana-piechart-panel
             - isovalent-hubble-datasource
             - grafana-sentry-datasource
+            - influxdb-08
           deploymentStrategy:
             type: Recreate
           persistence:
@@ -98,8 +103,8 @@ spec:
                   url: http://prometheus-kube-prometheus-prometheus:9090
                   isDefault: true
                 - name: influxdb
-                  type: InfluxDB
-                  url: sql.micnet:8086
+                  type: influxdb
+                  url: http://sql.micnet:8086
                   isDefault: false
                   user: admin
                   secureJsonData:

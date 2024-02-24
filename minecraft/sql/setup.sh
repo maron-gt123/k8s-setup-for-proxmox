@@ -69,6 +69,8 @@ wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.6.1-amd64.deb
 sudo dpkg -i influxdb2-2.6.1-amd64.deb
 wget https://dl.influxdata.com/influxdb/releases/influxdb2-client-2.6.1-amd64.deb
 sudo dpkg -i influxdb2-client-2.6.1-amd64.deb
+rm influxdb2-2.6.1-amd64.deb
+rm influxdb2-client-2.6.1-amd64.deb
 
 echo "phpmyadminのセットアップ及びmariadbの設定は自己解決ください"
 # ------end------

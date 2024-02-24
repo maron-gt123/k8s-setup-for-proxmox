@@ -18,6 +18,11 @@ EOF
 chmod 700 update.sh
 ./update.sh
 
+# authorized_keys create
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+curl -sS https://github.com/maron-gt123.keys >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+
 # setting ntp
 cat > /etc/systemd/timesyncd.conf <<EOF
 #  This file is part of systemd.

@@ -83,5 +83,8 @@ sudo dpkg -i influxdb2-client-2.6.1-amd64.deb
 rm influxdb2-2.6.1-amd64.deb
 rm influxdb2-client-2.6.1-amd64.deb
 
+systemctl enable influxdb
+systemctl start influxdb
+
 echo "phpmyadminのセットアップ及びmariadbの設定は自己解決ください"
 # ------end------

@@ -61,7 +61,10 @@ ufw allow from 192.168.1.0/24 to any port 22
 ufw allow from 192.168.15.0/24 to any port 22
 ufw allow from 192.168.1.0/24 to any port 9100
 ufw allow from 192.168.15.0/24 to any port 9100
+ufw allow from 192.168.15.0/24 to any port 8086
+ufw allow from 192.168.1.0/24 to any port 8086
 ufw allow from 192.168.15.0/24 to any port 80
+
 
 # install prometheus-node-exporter
 apt install -y prometheus prometheus-node-exporter

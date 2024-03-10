@@ -175,21 +175,27 @@ data:
           },
           "fieldConfig": {
             "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
               "mappings": [],
-              "min": 0,
+              "max": 3000,
+              "min": 400,
               "thresholds": {
-                "mode": "absolute",
+                "mode": "percentage",
                 "steps": [
                   {
-                    "color": "blue",
+                    "color": "green",
                     "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 60
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
                   }
                 ]
               },
-              "unit": "m"
+              "unit": "watt"
             },
             "overrides": []
           },
@@ -201,10 +207,9 @@ data:
           },
           "id": 10,
           "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "vertical",
+            "minVizHeight": 200,
+            "minVizWidth": 200,
+            "orientation": "auto",
             "reduceOptions": {
               "calcs": [
                 "lastNotNull"
@@ -212,8 +217,9 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto",
-            "wideLayout": true
+            "showThresholdLabels": true,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
           },
           "pluginVersion": "10.2.3",
           "targets": [
@@ -222,12 +228,12 @@ data:
                 "type": "influxdb",
                 "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"voltagemeter\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricityOfDay\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"smart-meter\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"power\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"weight\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
-          "title": "電気使用時間/1日",
-          "type": "stat"
+          "title": "スマートメータ瞬時電力",
+          "type": "gauge"
         },
         {
           "datasource": {
@@ -436,37 +442,23 @@ data:
           },
           "fieldConfig": {
             "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
               "mappings": [],
+              "max": 600,
               "min": 200,
               "thresholds": {
-                "mode": "absolute",
+                "mode": "percentage",
                 "steps": [
                   {
                     "color": "green",
                     "value": null
                   },
                   {
-                    "color": "#2a7b7e",
-                    "value": 360
-                  },
-                  {
-                    "color": "blue",
-                    "value": 370
-                  },
-                  {
-                    "color": "purple",
-                    "value": 380
-                  },
-                  {
                     "color": "orange",
-                    "value": 390
+                    "value": 60
                   },
                   {
                     "color": "red",
-                    "value": 400
+                    "value": 80
                   }
                 ]
               },
@@ -482,9 +474,8 @@ data:
           },
           "id": 5,
           "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
+            "minVizHeight": 200,
+            "minVizWidth": 200,
             "orientation": "auto",
             "reduceOptions": {
               "calcs": [
@@ -493,8 +484,9 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto",
-            "wideLayout": true
+            "showThresholdLabels": true,
+            "showThresholdMarkers": true,
+            "sizing": "auto"
           },
           "pluginVersion": "10.2.3",
           "targets": [
@@ -508,7 +500,7 @@ data:
             }
           ],
           "title": "ラックサーバ総電力",
-          "type": "stat"
+          "type": "gauge"
         },
         {
           "datasource": {
@@ -987,7 +979,7 @@ data:
           "fieldConfig": {
             "defaults": {
               "color": {
-                "mode": "thresholds"
+                "mode": "palette-classic"
               },
               "custom": {
                 "axisBorderShow": false,
@@ -1022,8 +1014,7 @@ data:
                 }
               },
               "mappings": [],
-              "max": 600,
-              "min": 200,
+              "min": 300,
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -1065,6 +1056,15 @@ data:
               },
               "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"voltagemeter\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"weight\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
+              },
+              "hide": false,
+              "query": "from(bucket: \"smart-meter\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"power\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"weight\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "refId": "B"
             }
           ],
           "title": "サーバーラック電力",
@@ -1174,6 +1174,6 @@ data:
       "timezone": "",
       "title": "switchbot",
       "uid": "ff46f499-e334-4aca-9a7f-b2bcb58db989",
-      "version": 14,
+      "version": 15,
       "weekStart": ""
     }

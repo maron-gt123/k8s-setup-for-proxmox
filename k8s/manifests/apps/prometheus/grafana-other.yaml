@@ -27,14 +27,13 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 39,
       "links": [],
       "liveNow": false,
       "panels": [
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -91,9 +90,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"EBE5327EEA28\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"battery\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"front-temperature\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"battery\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -103,7 +102,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -160,9 +159,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"CEFC5816F76E\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"battery\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"back-temperature\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"battery\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -172,7 +171,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -221,9 +220,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"C04E3091EBA6\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricityOfDay\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"voltagemeter\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricityOfDay\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -233,7 +232,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -291,9 +290,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"voltage\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"C04E3091EBA6\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"voltagemeter\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"voltage\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -303,7 +302,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -355,9 +354,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"EBE5327EEA28\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"front-temperature\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -367,7 +366,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -421,9 +420,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"CEFC5816F76E\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"front-temperature\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -433,7 +432,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -502,9 +501,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"C04E3091EBA6\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"weight\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"voltagemeter\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"weight\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -514,7 +513,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -562,9 +561,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"C04E3091EBA6\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricCurrent\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"voltagemeter\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricCurrent\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -574,7 +573,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -626,9 +625,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"CEFC5816F76E\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"back-temperature\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -638,7 +637,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -692,19 +691,19 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"EBE5327EEA28\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"back-temperature\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
-          "title": "湿度（ラック前面）",
+          "title": "湿度（ラック後面）",
           "type": "stat"
         },
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -785,9 +784,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"CEFC5816F76E\" or r[\"device\"] == \"EBE5327EEA28\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"front-temperature\" or r[\"device\"] == \"back-temperature\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -797,7 +796,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -879,9 +878,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"CEFC5816F76E\" or r[\"device\"] == \"EBE5327EEA28\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"front-temperature\" or r[\"device\"] == \"back-temperature\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -891,7 +890,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -971,9 +970,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"C04E3091EBA6\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"voltage\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"voltagemeter\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"voltage\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -983,7 +982,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -1062,9 +1061,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"C04E3091EBA6\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"weight\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"voltagemeter\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"weight\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -1074,7 +1073,7 @@ data:
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+            "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
           },
           "fieldConfig": {
             "defaults": {
@@ -1086,7 +1085,7 @@ data:
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
-                "axisPlacement": "right",
+                "axisPlacement": "auto",
                 "barAlignment": 0,
                 "drawStyle": "line",
                 "fillOpacity": 10,
@@ -1128,7 +1127,7 @@ data:
             "overrides": []
           },
           "gridPos": {
-            "h": 6,
+            "h": 8,
             "w": 24,
             "x": 0,
             "y": 44
@@ -1151,9 +1150,9 @@ data:
             {
               "datasource": {
                 "type": "influxdb",
-                "uid": "f5b90049-7b2f-491b-8403-d5a44638d7f8"
+                "uid": "f5af0d59-95d1-45cc-8075-4b84a631c517"
               },
-              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"device_data\")\r\n  |> filter(fn: (r) => r[\"device\"] == \"C04E3091EBA6\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricCurrent\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+              "query": "from(bucket: \"switchbot\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"device\"] == \"voltagemeter\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricCurrent\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
               "refId": "A"
             }
           ],
@@ -1175,6 +1174,6 @@ data:
       "timezone": "",
       "title": "switchbot",
       "uid": "ff46f499-e334-4aca-9a7f-b2bcb58db989",
-      "version": 12,
+      "version": 14,
       "weekStart": ""
     }

@@ -5977,3 +5977,1354 @@ data:
       version: 2
       auth:
         community: MaronCloud
+    pdu:
+      walk:
+      - 1.3.6.1.4.1.17420.1
+      metrics:
+      - name: devID
+        oid: 1.3.6.1.4.1.17420.1.2.1
+        type: gauge
+        help: The ID number of dev. - 1.3.6.1.4.1.17420.1.2.1
+      - name: devIP
+        oid: 1.3.6.1.4.1.17420.1.2.2
+        type: DisplayString
+        help: Indicate current IP address, netmask, default gateway, and DNS server.
+          - 1.3.6.1.4.1.17420.1.2.2
+      - name: devMAC
+        oid: 1.3.6.1.4.1.17420.1.2.3
+        type: DisplayString
+        help: Indicate current MAC address. - 1.3.6.1.4.1.17420.1.2.3
+      - name: devVersion
+        oid: 1.3.6.1.4.1.17420.1.2.4
+        type: DisplayString
+        help: Indicate current firmware version. - 1.3.6.1.4.1.17420.1.2.4
+      - name: devInfo
+        oid: 1.3.6.1.4.1.17420.1.2.5
+        type: DisplayString
+        help: Indicate the count of attached PDUs and their id. - 1.3.6.1.4.1.17420.1.2.5
+      - name: devValues
+        oid: 1.3.6.1.4.1.17420.1.2.6
+        type: DisplayString
+        help: Indicate the PDU values (currents) from PDU1 to PDU16 - 1.3.6.1.4.1.17420.1.2.6
+      - name: devTemperature
+        oid: 1.3.6.1.4.1.17420.1.2.7
+        type: gauge
+        help: Indicate the PDU temperature in Celsius degree - 1.3.6.1.4.1.17420.1.2.7
+      - name: devHumidity
+        oid: 1.3.6.1.4.1.17420.1.2.8
+        type: gauge
+        help: Indicate the PDU humidity in percentage (%) - 1.3.6.1.4.1.17420.1.2.8
+      - name: pdu01Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.11
+        type: gauge
+        help: Indicate the current of PDU-01 detect. - 1.3.6.1.4.1.17420.1.2.9.1.11
+      - name: pdu01SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.1.12
+      - name: pdu01OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.1.13'
+      - name: pdu01Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.1.14.1
+      - name: pdu01Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.1.14.2
+      - name: pdu01Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.1.14.3
+      - name: pdu01Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.1.14.4
+      - name: pdu01Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.1.14.5
+      - name: pdu01Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.1.14.6
+      - name: pdu01Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.1.14.7
+      - name: pdu01Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.1.14.8
+      - name: pdu01Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.1.15
+      - name: pdu01Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.1.16
+      - name: pdu01Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.1.17
+      - name: pdu01ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.1.18
+      - name: pdu01ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.1.19
+      - name: pdu01Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.1.20
+      - name: pdu01DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.1.21
+      - name: pdu01DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.1.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.1.22
+      - name: pdu02Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.11
+        type: gauge
+        help: Indicate the current of PDU-02 detect. - 1.3.6.1.4.1.17420.1.2.9.2.11
+      - name: pdu02SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.2.12
+      - name: pdu02OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.2.13'
+      - name: pdu02Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.2.14.1
+      - name: pdu02Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.2.14.2
+      - name: pdu02Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.2.14.3
+      - name: pdu02Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.2.14.4
+      - name: pdu02Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.2.14.5
+      - name: pdu02Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.2.14.6
+      - name: pdu02Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.2.14.7
+      - name: pdu02Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.2.14.8
+      - name: pdu02Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.2.15
+      - name: pdu02Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.2.16
+      - name: pdu02Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.2.17
+      - name: pdu02ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.2.18
+      - name: pdu02ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.2.19
+      - name: pdu02Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.2.20
+      - name: pdu02DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.2.21
+      - name: pdu02DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.2.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.2.22
+      - name: pdu03Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.11
+        type: gauge
+        help: Indicate the current of PDU-03 detect. - 1.3.6.1.4.1.17420.1.2.9.3.11
+      - name: pdu03SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.3.12
+      - name: pdu03OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.3.13'
+      - name: pdu03Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.3.14.1
+      - name: pdu03Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.3.14.2
+      - name: pdu03Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.3.14.3
+      - name: pdu03Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.3.14.4
+      - name: pdu03Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.3.14.5
+      - name: pdu03Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.3.14.6
+      - name: pdu03Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.3.14.7
+      - name: pdu03Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.3.14.8
+      - name: pdu03Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.3.15
+      - name: pdu03Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.3.16
+      - name: pdu03Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.3.17
+      - name: pdu03ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.3.18
+      - name: pdu03ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.3.19
+      - name: pdu03Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.3.20
+      - name: pdu03DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.3.21
+      - name: pdu03DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.3.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.3.22
+      - name: pdu04Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.11
+        type: gauge
+        help: Indicate the current of PDU-04 detect. - 1.3.6.1.4.1.17420.1.2.9.4.11
+      - name: pdu04SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.4.12
+      - name: pdu04OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.4.13'
+      - name: pdu04Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.4.14.1
+      - name: pdu04Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.4.14.2
+      - name: pdu04Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.4.14.3
+      - name: pdu04Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.4.14.4
+      - name: pdu04Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.4.14.5
+      - name: pdu04Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.4.14.6
+      - name: pdu04Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.4.14.7
+      - name: pdu04Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.4.14.8
+      - name: pdu04Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.4.15
+      - name: pdu04Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.4.16
+      - name: pdu04Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.4.17
+      - name: pdu04ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.4.18
+      - name: pdu04ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.4.19
+      - name: pdu04Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.4.20
+      - name: pdu04DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.4.21
+      - name: pdu04DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.4.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.4.22
+      - name: pdu05Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.11
+        type: gauge
+        help: Indicate the current of PDU-05 detect. - 1.3.6.1.4.1.17420.1.2.9.5.11
+      - name: pdu05SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.5.12
+      - name: pdu05OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.5.13'
+      - name: pdu05Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.5.14.1
+      - name: pdu05Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.5.14.2
+      - name: pdu05Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.5.14.3
+      - name: pdu05Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.5.14.4
+      - name: pdu05Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.5.14.5
+      - name: pdu05Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.5.14.6
+      - name: pdu05Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.5.14.7
+      - name: pdu05Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.5.14.8
+      - name: pdu05Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.5.15
+      - name: pdu05Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.5.16
+      - name: pdu05Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.5.17
+      - name: pdu05ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.5.18
+      - name: pdu05ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.5.19
+      - name: pdu05Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.5.20
+      - name: pdu05DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.5.21
+      - name: pdu05DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.5.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.5.22
+      - name: pdu06Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.11
+        type: gauge
+        help: Indicate the current of PDU-06 detect. - 1.3.6.1.4.1.17420.1.2.9.6.11
+      - name: pdu06SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.6.12
+      - name: pdu06OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.6.13'
+      - name: pdu06Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.6.14.1
+      - name: pdu06Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.6.14.2
+      - name: pdu06Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.6.14.3
+      - name: pdu06Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.6.14.4
+      - name: pdu06Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.6.14.5
+      - name: pdu06Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.6.14.6
+      - name: pdu06Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.6.14.7
+      - name: pdu06Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.6.14.8
+      - name: pdu06Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.6.15
+      - name: pdu06Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.6.16
+      - name: pdu06Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.6.17
+      - name: pdu06ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.6.18
+      - name: pdu06ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.6.19
+      - name: pdu06Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.6.20
+      - name: pdu06DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.6.21
+      - name: pdu06DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.6.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.6.22
+      - name: pdu07Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.11
+        type: gauge
+        help: Indicate the current of PDU-07 detect. - 1.3.6.1.4.1.17420.1.2.9.7.11
+      - name: pdu07SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.7.12
+      - name: pdu07OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.7.13'
+      - name: pdu07Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.7.14.1
+      - name: pdu07Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.7.14.2
+      - name: pdu07Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.7.14.3
+      - name: pdu07Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.7.14.4
+      - name: pdu07Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.7.14.5
+      - name: pdu07Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.7.14.6
+      - name: pdu07Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.7.14.7
+      - name: pdu07Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.7.14.8
+      - name: pdu07Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.7.15
+      - name: pdu07Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.7.16
+      - name: pdu07Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.7.17
+      - name: pdu07ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.7.18
+      - name: pdu07ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.7.19
+      - name: pdu07Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.7.20
+      - name: pdu07DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.7.21
+      - name: pdu07DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.7.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.7.22
+      - name: pdu08Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.11
+        type: gauge
+        help: Indicate the current of PDU-08 detect. - 1.3.6.1.4.1.17420.1.2.9.8.11
+      - name: pdu08SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.8.12
+      - name: pdu08OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.8.13'
+      - name: pdu08Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.8.14.1
+      - name: pdu08Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.8.14.2
+      - name: pdu08Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.8.14.3
+      - name: pdu08Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.8.14.4
+      - name: pdu08Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.8.14.5
+      - name: pdu08Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.8.14.6
+      - name: pdu08Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.8.14.7
+      - name: pdu08Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.8.14.8
+      - name: pdu08Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.8.15
+      - name: pdu08Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.8.16
+      - name: pdu08Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.8.17
+      - name: pdu08ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.8.18
+      - name: pdu08ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.8.19
+      - name: pdu08Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.8.20
+      - name: pdu08DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.8.21
+      - name: pdu08DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.8.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.8.22
+      - name: pdu09Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.11
+        type: gauge
+        help: Indicate the current of PDU-09 detect. - 1.3.6.1.4.1.17420.1.2.9.9.11
+      - name: pdu09SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.9.12
+      - name: pdu09OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.9.13'
+      - name: pdu09Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.9.14.1
+      - name: pdu09Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.9.14.2
+      - name: pdu09Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.9.14.3
+      - name: pdu09Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.9.14.4
+      - name: pdu09Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.9.14.5
+      - name: pdu09Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.9.14.6
+      - name: pdu09Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.9.14.7
+      - name: pdu09Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.9.14.8
+      - name: pdu09Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.9.15
+      - name: pdu09Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.9.16
+      - name: pdu09Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.9.17
+      - name: pdu09ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.9.18
+      - name: pdu09ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.9.19
+      - name: pdu09Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.9.20
+      - name: pdu09DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.9.21
+      - name: pdu09DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.9.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.9.22
+      - name: pdu10Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.11
+        type: gauge
+        help: Indicate the current of PDU-10 detect. - 1.3.6.1.4.1.17420.1.2.9.10.11
+      - name: pdu10SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.10.12
+      - name: pdu10OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.10.13'
+      - name: pdu10Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.10.14.1
+      - name: pdu10Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.10.14.2
+      - name: pdu10Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.10.14.3
+      - name: pdu10Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.10.14.4
+      - name: pdu10Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.10.14.5
+      - name: pdu10Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.10.14.6
+      - name: pdu10Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.10.14.7
+      - name: pdu10Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.10.14.8
+      - name: pdu10Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.10.15
+      - name: pdu10Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.10.16
+      - name: pdu10Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.10.17
+      - name: pdu10ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.10.18
+      - name: pdu10ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.10.19
+      - name: pdu10Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.10.20
+      - name: pdu10DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.10.21
+      - name: pdu10DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.10.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.10.22
+      - name: pdu11Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.11
+        type: gauge
+        help: Indicate the current of PDU-11 detect. - 1.3.6.1.4.1.17420.1.2.9.11.11
+      - name: pdu11SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.11.12
+      - name: pdu11OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.11.13'
+      - name: pdu11Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.11.14.1
+      - name: pdu11Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.11.14.2
+      - name: pdu11Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.11.14.3
+      - name: pdu11Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.11.14.4
+      - name: pdu11Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.11.14.5
+      - name: pdu11Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.11.14.6
+      - name: pdu11Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.11.14.7
+      - name: pdu11Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.11.14.8
+      - name: pdu11Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.11.15
+      - name: pdu11Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.11.16
+      - name: pdu11Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.11.17
+      - name: pdu11ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.11.18
+      - name: pdu11ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.11.19
+      - name: pdu11Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.11.20
+      - name: pdu11DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.11.21
+      - name: pdu11DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.11.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.11.22
+      - name: pdu12Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.11
+        type: gauge
+        help: Indicate the current of PDU-12 detect. - 1.3.6.1.4.1.17420.1.2.9.12.11
+      - name: pdu12SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.12.12
+      - name: pdu12OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.12.13'
+      - name: pdu12Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.12.14.1
+      - name: pdu12Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.12.14.2
+      - name: pdu12Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.12.14.3
+      - name: pdu12Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.12.14.4
+      - name: pdu12Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.12.14.5
+      - name: pdu12Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.12.14.6
+      - name: pdu12Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.12.14.7
+      - name: pdu12Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.12.14.8
+      - name: pdu12Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.12.15
+      - name: pdu12Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.12.16
+      - name: pdu12Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.12.17
+      - name: pdu12ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.12.18
+      - name: pdu12ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.12.19
+      - name: pdu12Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.12.20
+      - name: pdu12DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.12.21
+      - name: pdu12DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.12.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.12.22
+      - name: pdu13Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.11
+        type: gauge
+        help: Indicate the current of PDU-13 detect. - 1.3.6.1.4.1.17420.1.2.9.13.11
+      - name: pdu13SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.13.12
+      - name: pdu13OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.13.13'
+      - name: pdu13Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.13.14.1
+      - name: pdu13Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.13.14.2
+      - name: pdu13Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.13.14.3
+      - name: pdu13Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.13.14.4
+      - name: pdu13Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.13.14.5
+      - name: pdu13Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.13.14.6
+      - name: pdu13Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.13.14.7
+      - name: pdu13Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.13.14.8
+      - name: pdu13Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.13.15
+      - name: pdu13Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.13.16
+      - name: pdu13Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.13.17
+      - name: pdu13ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.13.18
+      - name: pdu13ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.13.19
+      - name: pdu13Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.13.20
+      - name: pdu13DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.13.21
+      - name: pdu13DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.13.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.13.22
+      - name: pdu14Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.11
+        type: gauge
+        help: Indicate the current of PDU-14 detect. - 1.3.6.1.4.1.17420.1.2.9.14.11
+      - name: pdu14SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.14.12
+      - name: pdu14OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.14.13'
+      - name: pdu14Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.14.14.1
+      - name: pdu14Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.14.14.2
+      - name: pdu14Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.14.14.3
+      - name: pdu14Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.14.14.4
+      - name: pdu14Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.14.14.5
+      - name: pdu14Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.14.14.6
+      - name: pdu14Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.14.14.7
+      - name: pdu14Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.14.14.8
+      - name: pdu14Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.14.15
+      - name: pdu14Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.14.16
+      - name: pdu14Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.14.17
+      - name: pdu14ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.14.18
+      - name: pdu14ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.14.19
+      - name: pdu14Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.14.20
+      - name: pdu14DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.14.21
+      - name: pdu14DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.14.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.14.22
+      - name: pdu15Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.11
+        type: gauge
+        help: Indicate the current of PDU-15 detect. - 1.3.6.1.4.1.17420.1.2.9.15.11
+      - name: pdu15SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.15.12
+      - name: pdu15OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.15.13'
+      - name: pdu15Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.15.14.1
+      - name: pdu15Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.15.14.2
+      - name: pdu15Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.15.14.3
+      - name: pdu15Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.15.14.4
+      - name: pdu15Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.15.14.5
+      - name: pdu15Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.15.14.6
+      - name: pdu15Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.15.14.7
+      - name: pdu15Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.15.14.8
+      - name: pdu15Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.15.15
+      - name: pdu15Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.15.16
+      - name: pdu15Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.15.17
+      - name: pdu15ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.15.18
+      - name: pdu15ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.15.19
+      - name: pdu15Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.15.20
+      - name: pdu15DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.15.21
+      - name: pdu15DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.15.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.15.22
+      - name: pdu16Value
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.11
+        type: gauge
+        help: Indicate the current of PDU-16 detect. - 1.3.6.1.4.1.17420.1.2.9.16.11
+      - name: pdu16SubValues
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.12
+        type: DisplayString
+        help: Indicate the outlet values (currents) from Outlet1 to Outlet8 - 1.3.6.1.4.1.17420.1.2.9.16.12
+      - name: pdu16OutletStatus
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.13
+        type: DisplayString
+        help: 'Indicate the outlet statuses (On or Off) from Outlet1 to Outlet8 1: Outlet
+          ON 0: Outlet OFF -1: Outlet is not available -2: Outlet powr lost or Breaker
+          triggered - 1.3.6.1.4.1.17420.1.2.9.16.13'
+      - name: pdu16Outlet1Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.14.1
+        type: DisplayString
+        help: Indicate the configuration of Outlet1 - 1.3.6.1.4.1.17420.1.2.9.16.14.1
+      - name: pdu16Outlet2Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.14.2
+        type: DisplayString
+        help: Indicate the configuration of Outlet2 - 1.3.6.1.4.1.17420.1.2.9.16.14.2
+      - name: pdu16Outlet3Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.14.3
+        type: DisplayString
+        help: Indicate the configuration of Outlet3 - 1.3.6.1.4.1.17420.1.2.9.16.14.3
+      - name: pdu16Outlet4Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.14.4
+        type: DisplayString
+        help: Indicate the configuration of Outlet4 - 1.3.6.1.4.1.17420.1.2.9.16.14.4
+      - name: pdu16Outlet5Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.14.5
+        type: DisplayString
+        help: Indicate the configuration of Outlet5 - 1.3.6.1.4.1.17420.1.2.9.16.14.5
+      - name: pdu16Outlet6Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.14.6
+        type: DisplayString
+        help: Indicate the configuration of Outlet6 - 1.3.6.1.4.1.17420.1.2.9.16.14.6
+      - name: pdu16Outlet7Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.14.7
+        type: DisplayString
+        help: Indicate the configuration of Outlet7 - 1.3.6.1.4.1.17420.1.2.9.16.14.7
+      - name: pdu16Outlet8Config
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.14.8
+        type: DisplayString
+        help: Indicate the configuration of Outlet8 - 1.3.6.1.4.1.17420.1.2.9.16.14.8
+      - name: pdu16Threshold1
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.15
+        type: gauge
+        help: Indicate current threshold 1 (warning current). - 1.3.6.1.4.1.17420.1.2.9.16.15
+      - name: pdu16Threshold2
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.16
+        type: gauge
+        help: Indicate current threshold 2 (critical current). - 1.3.6.1.4.1.17420.1.2.9.16.16
+      - name: pdu16Voltage
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.17
+        type: gauge
+        help: Indicate voltage of PDU. - 1.3.6.1.4.1.17420.1.2.9.16.17
+      - name: pdu16ModelName
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.18
+        type: DisplayString
+        help: Indicate PDU model name. - 1.3.6.1.4.1.17420.1.2.9.16.18
+      - name: pdu16ModelNo
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.19
+        type: DisplayString
+        help: Indicate PDU model number. - 1.3.6.1.4.1.17420.1.2.9.16.19
+      - name: pdu16Identify
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.20
+        type: DisplayString
+        help: Indicate PDU identify. - 1.3.6.1.4.1.17420.1.2.9.16.20
+      - name: pdu16DelayOn
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.21
+        type: DisplayString
+        help: Indicate PDU Outlet On delay time - 1.3.6.1.4.1.17420.1.2.9.16.21
+      - name: pdu16DelayOff
+        oid: 1.3.6.1.4.1.17420.1.2.9.16.22
+        type: DisplayString
+        help: Indicate PDU Outlet Off delay time - 1.3.6.1.4.1.17420.1.2.9.16.22
+      - name: Voltage
+        oid: 1.3.6.1.4.1.17420.1.3.1
+        type: DisplayString
+        help: Indicate the voltage, unit is V Please divide by 100 to get real value
+          - 1.3.6.1.4.1.17420.1.3.1
+      - name: Frequency
+        oid: 1.3.6.1.4.1.17420.1.3.2
+        type: DisplayString
+        help: Indicate the frequency, unit is Hz Please divide by 100 to get real value
+          - 1.3.6.1.4.1.17420.1.3.2
+      - name: PowerFactor
+        oid: 1.3.6.1.4.1.17420.1.3.3
+        type: DisplayString
+        help: Indicate the power factor Please divide by 100 to get real value - 1.3.6.1.4.1.17420.1.3.3
+      - name: ActivePower
+        oid: 1.3.6.1.4.1.17420.1.3.4
+        type: DisplayString
+        help: Indicate the active power, unit is Watt Please divide by 100 to get real
+          value - 1.3.6.1.4.1.17420.1.3.4
+      - name: ApparentPower
+        oid: 1.3.6.1.4.1.17420.1.3.5
+        type: DisplayString
+        help: Indicate the apparent power, unit is VA Please divide by 100 to get real
+          value - 1.3.6.1.4.1.17420.1.3.5
+      - name: MainEnergy
+        oid: 1.3.6.1.4.1.17420.1.3.6
+        type: DisplayString
+        help: Indicate the energy since the PDU start working, unit is kWh This value
+          can not be reset - 1.3.6.1.4.1.17420.1.3.6
+      - name: TotalCurrent
+        oid: 1.3.6.1.4.1.17420.1.3.7
+        type: DisplayString
+        help: Indicate the total branch of current, unit is A Please divide by 100 to
+          get real value - 1.3.6.1.4.1.17420.1.3.7
+      - name: AccuEnergy
+        oid: 1.3.6.1.4.1.17420.1.3.8
+        type: DisplayString
+        help: Indicate the energy after reset, unit is kWh Please divide by 1000 to
+          get real value - 1.3.6.1.4.1.17420.1.3.8
+      - name: ResetAccuEnergy
+        oid: 1.3.6.1.4.1.17420.1.3.9
+        type: gauge
+        help: 1 can reset Accumulated Energy - 1.3.6.1.4.1.17420.1.3.9
+      - name: ECER
+        oid: 1.3.6.1.4.1.17420.1.3.10
+        type: gauge
+        help: Electricity Carbon Emissiion Rate - 1.3.6.1.4.1.17420.1.3.10
+      - name: tempLower
+        oid: 1.3.6.1.4.1.17420.1.4.42
+        type: gauge
+        help: Indicate temperature lower threshold - 1.3.6.1.4.1.17420.1.4.42
+      - name: tempUpper
+        oid: 1.3.6.1.4.1.17420.1.4.43
+        type: gauge
+        help: Indicate temperature upper threshold - 1.3.6.1.4.1.17420.1.4.43
+      - name: humidityLower
+        oid: 1.3.6.1.4.1.17420.1.4.44
+        type: gauge
+        help: Indicate humidity lower threshold - 1.3.6.1.4.1.17420.1.4.44
+      - name: humidityLower
+        oid: 1.3.6.1.4.1.17420.1.4.45
+        type: gauge
+        help: Indicate humidity upper threshold - 1.3.6.1.4.1.17420.1.4.45
+      version: 2
+      auth:
+        community: public

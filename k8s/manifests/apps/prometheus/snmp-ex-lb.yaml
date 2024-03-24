@@ -5,10 +5,10 @@ metadata:
   namespace: monitoring
 spec:
   ports:
-  - name: http-web
+  - name: http
     port: 80
     protocol: TCP
-    targetPort: 3000
+    targetPort: 9116
   selector:
     app.kubernetes.io/instance: prometheus
     app.kubernetes.io/name: grafana

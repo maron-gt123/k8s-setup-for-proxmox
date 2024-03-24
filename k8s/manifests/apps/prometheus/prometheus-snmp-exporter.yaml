@@ -87,7 +87,7 @@ spec:
             - name: pdu-sat
               target: pdu.micnet
               module:
-                - pdu
+                - pdu_sat
               labels:
                 release: prometheus
               interval: 30s

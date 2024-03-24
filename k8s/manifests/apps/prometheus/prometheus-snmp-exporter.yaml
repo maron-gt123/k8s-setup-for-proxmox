@@ -5987,7 +5987,7 @@ data:
       version: 2
       auth:
         community: MaronCloud
-    pdu:
+    pdu_sat:
       walk:
       - 1.3.6.1.4.1.17420.1
       metrics:

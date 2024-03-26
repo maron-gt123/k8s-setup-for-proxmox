@@ -7331,10 +7331,10 @@ data:
         oid: 1.3.6.1.4.1.17420.1.4.44
         type: gauge
         help: Indicate humidity lower threshold - 1.3.6.1.4.1.17420.1.4.44
-      - name: humidityLower
+      - name: humidityUpper
         oid: 1.3.6.1.4.1.17420.1.4.45
         type: gauge
         help: Indicate humidity upper threshold - 1.3.6.1.4.1.17420.1.4.45
-      version: 1
+      version: 2
       auth:
         community: public

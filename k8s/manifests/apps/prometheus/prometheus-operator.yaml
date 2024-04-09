@@ -97,6 +97,16 @@ spec:
                   type: prometheus
                   url: http://prometheus-kube-prometheus-prometheus:9090
                   isDefault: true
+                - name: InfluxDB_v2_Flux
+                  type: influxdb
+                  url: http://sql.net:8086
+                  jsonData:
+                    version: Flux
+                    organization: maroncloud
+                    defaultBucket: switchbot
+                    tlsSkipVerify: true
+                  secureJsonData:
+                    token: m4jDCN4QMkDGctKB4V48B2OK-_stBRAsv-X36dWMcVjReYkxVvMGTok3C-lqA0kuRWOjxcot-e9Ds1lXumvujg==
           dashboardProviders:
             dashboardproviders.yaml:
               apiVersion: 1

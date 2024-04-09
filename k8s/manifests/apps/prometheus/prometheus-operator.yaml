@@ -99,7 +99,7 @@ spec:
                   isDefault: true
                 - name: InfluxDB_v2_Flux
                   type: influxdb
-                  url: http://sql.net:8086
+                  url: http://sql.micnet:8086
                   jsonData:
                     version: Flux
                     organization: maroncloud

@@ -27,7 +27,6 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 69,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -78,9 +77,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "name"
+            "textMode": "name",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -145,9 +145,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "name"
+            "textMode": "name",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -212,9 +213,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -230,6 +232,258 @@ data:
             }
           ],
           "title": "起動時間",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "mappings": [
+                {
+                  "options": {
+                    "1": {
+                      "color": "green",
+                      "index": 0,
+                      "text": "UP"
+                    },
+                    "2": {
+                      "color": "red",
+                      "index": 1,
+                      "text": "DOWN"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "transparent",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "mamp"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 12,
+            "x": 0,
+            "y": 4
+          },
+          "id": 33,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.2.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by(ifName) (ifOperStatus{target=\"crs309-general\"})",
+              "instant": false,
+              "legendFormat": "{{ifName}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Link status",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "index": 0,
+                      "text": "N/A"
+                    },
+                    "4294967295": {
+                      "index": 1,
+                      "text": "10Gb/s"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "green",
+                    "value": 1000000000
+                  },
+                  {
+                    "color": "purple",
+                    "value": 2000000000
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 12,
+            "x": 12,
+            "y": 4
+          },
+          "id": 3,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.2.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by(ifName) (ifSpeed{target=\"crs309-general\"})",
+              "format": "time_series",
+              "instant": true,
+              "legendFormat": "{{ifName}}",
+              "range": false,
+              "refId": "A"
+            }
+          ],
+          "title": "Speed rate",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "transparent",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 0
+                  },
+                  {
+                    "color": "blue",
+                    "value": 1000
+                  },
+                  {
+                    "color": "green",
+                    "value": 10000
+                  }
+                ]
+              },
+              "unit": "bps"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 24,
+            "x": 0,
+            "y": 8
+          },
+          "id": 8,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "10.2.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "irate(ifHCOutOctets{target=\"crs309-general\"}[$__rate_interval])*8",
+              "instant": false,
+              "legendFormat": "送信-{{ifName}}",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "irate(ifHCInOctets{target=\"crs309-general\"}[$__rate_interval])*8",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "受信-{{ifName}}",
+              "range": true,
+              "refId": "B"
+            }
+          ],
+          "title": "送受信レート",
           "type": "stat"
         },
         {
@@ -271,7 +525,7 @@ data:
             "h": 4,
             "w": 12,
             "x": 0,
-            "y": 4
+            "y": 12
           },
           "id": 4,
           "options": {
@@ -286,9 +540,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -348,9 +603,9 @@ data:
             "h": 4,
             "w": 12,
             "x": 12,
-            "y": 4
+            "y": 12
           },
-          "id": 3,
+          "id": 34,
           "options": {
             "colorMode": "background",
             "graphMode": "none",
@@ -363,9 +618,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -428,7 +684,7 @@ data:
             "h": 4,
             "w": 12,
             "x": 0,
-            "y": 8
+            "y": 16
           },
           "id": 5,
           "options": {
@@ -443,9 +699,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -506,7 +763,7 @@ data:
             "h": 4,
             "w": 12,
             "x": 12,
-            "y": 8
+            "y": 16
           },
           "id": 6,
           "options": {
@@ -521,9 +778,10 @@ data:
               "fields": "",
               "values": false
             },
-            "textMode": "auto"
+            "textMode": "auto",
+            "wideLayout": true
           },
-          "pluginVersion": "10.0.3",
+          "pluginVersion": "10.2.3",
           "targets": [
             {
               "datasource": {
@@ -546,698 +804,13 @@ data:
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "description": "Status link/states: The current operational state of the interface",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "custom": {
-                "align": "auto",
-                "cellOptions": {
-                  "type": "color-text"
-                },
-                "filterable": false,
-                "inspect": false
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "super-light-yellow",
-                    "value": null
-                  }
-                ]
-              },
-              "unit": "short"
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byType",
-                  "options": "string"
-                },
-                "properties": [
-                  {
-                    "id": "custom.align",
-                    "value": "center"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byType",
-                  "options": "number"
-                },
-                "properties": [
-                  {
-                    "id": "custom.align",
-                    "value": "center"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Status link/states"
-                },
-                "properties": [
-                  {
-                    "id": "thresholds",
-                    "value": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "green",
-                          "value": null
-                        },
-                        {
-                          "color": "#299c46",
-                          "value": 1
-                        },
-                        {
-                          "color": "semi-dark-red",
-                          "value": 2
-                        },
-                        {
-                          "color": "#EAB839",
-                          "value": 3
-                        },
-                        {
-                          "color": "#6a6a6a",
-                          "value": 4
-                        },
-                        {
-                          "color": "#6ED0E0",
-                          "value": 5
-                        },
-                        {
-                          "color": "#EF843C",
-                          "value": 6
-                        },
-                        {
-                          "color": "dark-purple",
-                          "value": 7
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "id": "mappings",
-                    "value": [
-                      {
-                        "options": {
-                          "1": {
-                            "index": 6,
-                            "text": "UP"
-                          },
-                          "2": {
-                            "index": 5,
-                            "text": "DOWN"
-                          },
-                          "3": {
-                            "index": 4,
-                            "text": "Testing"
-                          },
-                          "4": {
-                            "index": 3,
-                            "text": "Unknown"
-                          },
-                          "5": {
-                            "index": 2,
-                            "text": "Dormant"
-                          },
-                          "6": {
-                            "index": 1,
-                            "text": "Not present"
-                          },
-                          "7": {
-                            "index": 0,
-                            "text": "lowerLayerDown"
-                          }
-                        },
-                        "type": "value"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "custom.width",
-                    "value": 130
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "mode": "gradient",
-                      "type": "color-background"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Rate"
-                },
-                "properties": [
-                  {
-                    "id": "unit",
-                    "value": "bps"
-                  },
-                  {
-                    "id": "thresholds",
-                    "value": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "rgb(77, 79, 79)",
-                          "value": null
-                        },
-                        {
-                          "color": "#EAB839",
-                          "value": 50000000
-                        },
-                        {
-                          "color": "#6ED0E0",
-                          "value": 100000000
-                        },
-                        {
-                          "color": "#299c46",
-                          "value": 1000000000
-                        },
-                        {
-                          "color": "semi-dark-purple",
-                          "value": 1000000010
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "id": "custom.width",
-                    "value": 119
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "TX Sum"
-                },
-                "properties": [
-                  {
-                    "id": "unit",
-                    "value": "bits"
-                  },
-                  {
-                    "id": "thresholds",
-                    "value": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "rgb(77, 79, 79)",
-                          "value": null
-                        },
-                        {
-                          "color": "super-light-yellow",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "id": "custom.width",
-                    "value": 118
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "RX Sum"
-                },
-                "properties": [
-                  {
-                    "id": "unit",
-                    "value": "bits"
-                  },
-                  {
-                    "id": "thresholds",
-                    "value": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "rgb(77, 79, 79)",
-                          "value": null
-                        },
-                        {
-                          "color": "super-light-yellow",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "id": "custom.width",
-                    "value": 118
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "MAC"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 152
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Link down count"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 118
-                  },
-                  {
-                    "id": "thresholds",
-                    "value": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "rgb(77, 79, 79)",
-                          "value": null
-                        },
-                        {
-                          "color": "super-light-yellow",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Int. index"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 88
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "MTU"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 118
-                  },
-                  {
-                    "id": "unit",
-                    "value": "none"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Type of interface"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 140
-                  },
-                  {
-                    "id": "mappings",
-                    "value": [
-                      {
-                        "options": {
-                          "ethernetCsmacd": {
-                            "text": "Physical"
-                          },
-                          "ieee80211": {
-                            "text": "Wireless"
-                          }
-                        },
-                        "type": "value"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "custom.filterable",
-                    "value": true
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Name"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width"
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 11,
-            "w": 24,
-            "x": 0,
-            "y": 12
-          },
-          "id": 9,
-          "options": {
-            "cellHeight": "sm",
-            "footer": {
-              "countRows": false,
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "frameIndex": 0,
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "10.0.3",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "ifPhysAddress{target=\"crs309-general\"}",
-              "format": "table",
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "ifOperStatus{target=\"crs309-general\"}",
-              "format": "table",
-              "hide": false,
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "ifSpeed{target=\"crs309-general\"}",
-              "format": "table",
-              "hide": false,
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "E"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "ifMtu{target=\"crs309-general\"}",
-              "format": "table",
-              "hide": false,
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "G"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "ifType_info{target=\"crs309-general\"}",
-              "format": "table",
-              "hide": false,
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "H"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "ifAlias{target=\"crs309-general\"}",
-              "format": "table",
-              "hide": false,
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "J"
-            }
-          ],
-          "title": "インターフェースサマリ",
-          "transformations": [
-            {
-              "id": "seriesToColumns",
-              "options": {
-                "byField": "ifName"
-              }
-            },
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {
-                  "Time": true,
-                  "Time 1": true,
-                  "Time 2": true,
-                  "Time 3": true,
-                  "Time 4": true,
-                  "Time 5": true,
-                  "Time 6": true,
-                  "Time 7": true,
-                  "Time 8": true,
-                  "Time 9": true,
-                  "Value #A": true,
-                  "Value #H": true,
-                  "Value #J": true,
-                  "__name__": true,
-                  "__name__ 1": true,
-                  "__name__ 2": true,
-                  "__name__ 3": true,
-                  "__name__ 4": true,
-                  "__name__ 5": true,
-                  "__name__ 6": true,
-                  "__name__ 7": true,
-                  "__name__ 8": true,
-                  "__name__ 9": true,
-                  "ifIndex": false,
-                  "ifIndex 1": true,
-                  "ifIndex 2": true,
-                  "ifIndex 3": true,
-                  "ifIndex 4": true,
-                  "ifIndex 5": true,
-                  "ifIndex 6": true,
-                  "instance": true,
-                  "instance 1": true,
-                  "instance 2": true,
-                  "instance 3": true,
-                  "instance 4": true,
-                  "instance 5": true,
-                  "instance 6": true,
-                  "instance 7": true,
-                  "instance 8": true,
-                  "instance 9": true,
-                  "job": true,
-                  "job 1": true,
-                  "job 2": true,
-                  "job 3": true,
-                  "job 4": true,
-                  "job 5": true,
-                  "job 6": true,
-                  "job 7": true,
-                  "job 8": true,
-                  "job 9": true,
-                  "mtxrInterfaceStatsIndex": true,
-                  "mtxrInterfaceStatsIndex 1": true,
-                  "mtxrInterfaceStatsIndex 2": true,
-                  "mtxrInterfaceStatsIndex 3": true
-                },
-                "indexByName": {
-                  "Time": 12,
-                  "Value #A": 16,
-                  "Value #B": 3,
-                  "Value #C": 8,
-                  "Value #D": 9,
-                  "Value #E": 6,
-                  "Value #F": 4,
-                  "Value #G": 7,
-                  "Value #H": 11,
-                  "Value #J": 18,
-                  "__name__": 13,
-                  "ifAlias": 10,
-                  "ifIndex": 0,
-                  "ifName": 2,
-                  "ifPhysAddress": 5,
-                  "ifType": 1,
-                  "instance": 14,
-                  "job": 15,
-                  "mtxrInterfaceStatsIndex": 17
-                },
-                "renameByName": {
-                  "Time": "",
-                  "Value #A": "",
-                  "Value #B": "Status link/states",
-                  "Value #C": "RX Sum",
-                  "Value #D": "TX Sum",
-                  "Value #E": "Rate",
-                  "Value #F": "Link down count",
-                  "Value #G": "MTU",
-                  "Value #H": "",
-                  "Value #J": "",
-                  "__name__": "",
-                  "ifAlias": "Comment",
-                  "ifIndex": "Int. index",
-                  "ifName": "Name",
-                  "ifPhysAddress": "MAC",
-                  "ifType": "Type of interface",
-                  "instance": "",
-                  "mtxrInterfaceStatsIndex": "",
-                  "mtxrInterfaceStatsIndex 1": ""
-                }
-              }
-            }
-          ],
-          "type": "table"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "fieldConfig": {
-            "defaults": {
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "transparent",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 0
-                  },
-                  {
-                    "color": "blue",
-                    "value": 1000
-                  },
-                  {
-                    "color": "green",
-                    "value": 10000
-                  }
-                ]
-              },
-              "unit": "bps"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 23
-          },
-          "id": 8,
-          "options": {
-            "colorMode": "background",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "10.0.3",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "irate(ifHCOutOctets{target=\"crs309-general\"}[$__rate_interval])*8",
-              "instant": false,
-              "legendFormat": "送信-{{ifName}}",
-              "range": true,
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "irate(ifHCInOctets{target=\"crs309-general\"}[$__rate_interval])*8",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "受信-{{ifName}}",
-              "range": true,
-              "refId": "B"
-            }
-          ],
-          "title": "送受信レートsummary",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
           "fieldConfig": {
             "defaults": {
               "color": {
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -1251,6 +824,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "linear",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -1287,9 +861,9 @@ data:
           },
           "gridPos": {
             "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 23
+            "w": 24,
+            "x": 0,
+            "y": 20
           },
           "id": 2,
           "options": {
@@ -1312,9 +886,9 @@ data:
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "mtxrHlProcessorTemperature{target=\"crs309-ext\"} /10",
+              "expr": "mtxrHlProcessorTemperature{target=\"crs309-ext\"}",
               "instant": false,
-              "legendFormat": "温度",
+              "legendFormat": "CPU温度",
               "range": true,
               "refId": "A"
             }
@@ -1334,6 +908,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -1347,6 +922,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -1412,7 +988,7 @@ data:
             "h": 9,
             "w": 6,
             "x": 0,
-            "y": 31
+            "y": 28
           },
           "id": 21,
           "options": {
@@ -1481,6 +1057,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -1494,6 +1071,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "linear",
                 "lineWidth": 1,
                 "pointSize": 5,
@@ -1532,7 +1110,7 @@ data:
             "h": 9,
             "w": 18,
             "x": 6,
-            "y": 31
+            "y": 28
           },
           "id": 7,
           "options": {
@@ -1583,7 +1161,7 @@ data:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 40
+            "y": 37
           },
           "id": 23,
           "panels": [],
@@ -1602,6 +1180,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -1615,6 +1194,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -1680,7 +1260,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 0,
-            "y": 41
+            "y": 38
           },
           "id": 10,
           "options": {
@@ -1751,6 +1331,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -1764,6 +1345,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -1829,7 +1411,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 6,
-            "y": 41
+            "y": 38
           },
           "id": 11,
           "options": {
@@ -1899,6 +1481,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -1912,6 +1495,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -1977,7 +1561,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 12,
-            "y": 41
+            "y": 38
           },
           "id": 14,
           "options": {
@@ -2047,6 +1631,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -2060,6 +1645,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -2125,7 +1711,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 18,
-            "y": 41
+            "y": 38
           },
           "id": 15,
           "options": {
@@ -2195,6 +1781,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -2208,6 +1795,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -2273,7 +1861,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 0,
-            "y": 48
+            "y": 45
           },
           "id": 16,
           "options": {
@@ -2343,6 +1931,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -2356,6 +1945,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -2421,7 +2011,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 6,
-            "y": 48
+            "y": 45
           },
           "id": 17,
           "options": {
@@ -2491,6 +2081,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -2504,6 +2095,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -2569,7 +2161,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 12,
-            "y": 48
+            "y": 45
           },
           "id": 18,
           "options": {
@@ -2639,6 +2231,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -2652,6 +2245,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -2717,7 +2311,7 @@ data:
             "h": 7,
             "w": 6,
             "x": 18,
-            "y": 48
+            "y": 45
           },
           "id": 19,
           "options": {
@@ -2781,7 +2375,7 @@ data:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 55
+            "y": 52
           },
           "id": 13,
           "panels": [],
@@ -2800,6 +2394,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -2813,6 +2408,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -2847,7 +2443,7 @@ data:
             "h": 11,
             "w": 6,
             "x": 0,
-            "y": 56
+            "y": 53
           },
           "id": 22,
           "options": {
@@ -3055,6 +2651,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -3068,6 +2665,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -3102,7 +2700,7 @@ data:
             "h": 11,
             "w": 6,
             "x": 6,
-            "y": 56
+            "y": 53
           },
           "id": 24,
           "options": {
@@ -3309,6 +2907,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -3322,6 +2921,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -3356,7 +2956,7 @@ data:
             "h": 11,
             "w": 6,
             "x": 12,
-            "y": 56
+            "y": 53
           },
           "id": 25,
           "options": {
@@ -3563,6 +3163,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -3576,6 +3177,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -3610,7 +3212,7 @@ data:
             "h": 11,
             "w": 6,
             "x": 18,
-            "y": 56
+            "y": 53
           },
           "id": 26,
           "options": {
@@ -3817,6 +3419,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -3830,6 +3433,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -3864,7 +3468,7 @@ data:
             "h": 11,
             "w": 6,
             "x": 0,
-            "y": 67
+            "y": 64
           },
           "id": 27,
           "options": {
@@ -4071,6 +3675,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -4084,6 +3689,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -4118,7 +3724,7 @@ data:
             "h": 11,
             "w": 6,
             "x": 6,
-            "y": 67
+            "y": 64
           },
           "id": 28,
           "options": {
@@ -4325,6 +3931,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -4338,6 +3945,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -4372,7 +3980,7 @@ data:
             "h": 11,
             "w": 6,
             "x": 12,
-            "y": 67
+            "y": 64
           },
           "id": 29,
           "options": {
@@ -4579,6 +4187,7 @@ data:
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
                 "axisLabel": "",
@@ -4592,6 +4201,7 @@ data:
                   "tooltip": false,
                   "viz": false
                 },
+                "insertNulls": false,
                 "lineInterpolation": "smooth",
                 "lineWidth": 2,
                 "pointSize": 5,
@@ -4626,7 +4236,7 @@ data:
             "h": 11,
             "w": 6,
             "x": 18,
-            "y": 67
+            "y": 64
           },
           "id": 30,
           "options": {
@@ -4823,8 +4433,7 @@ data:
         }
       ],
       "refresh": "",
-      "schemaVersion": 38,
-      "style": "dark",
+      "schemaVersion": 39,
       "tags": [],
       "templating": {
         "list": []

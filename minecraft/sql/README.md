@@ -8,6 +8,7 @@
       * mariaDBのインストール
       * Apache2のインストール
       * phpのインストール
+      * influxdbのインストール
 * mariadbの初期設定
   * 初期設定については手動で設定する。※意図的な変更も加味して
     * 対話型で設定とする
@@ -44,14 +45,14 @@
     */etc/apache2/sites-available/default-ssl.conf 
   
          # </VirtualHost> </VirtualHost>間に記載
-         <FilesMatch \.php$>
-             SetHandler "proxy:unix:/var/run/php/php8.1-fpm.sock|fcgi://localhost/"
-         </FilesMatch>
+                <FilesMatch \.php$>
+                    SetHandler "proxy:unix:/var/run/php/php8.1-fpm.sock|fcgi://localhost/"
+                </FilesMatch>
   * 設定反映
  
         a2enmod proxy_fcgi setenvif
-        a2enconf php8.1-fpm
-        systemctl restart php8.1-fpm apache2
+        a2enconf php8.3-fpm
+        systemctl restart php8.3-fpm apache2
   * mariadb 50-server.cnfの編集
   
         nano /etc/mysql/mariadb.conf.d/50-server.cnf

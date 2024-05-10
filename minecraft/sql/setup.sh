@@ -41,10 +41,12 @@ cat > /etc/systemd/timesyncd.conf <<EOF
 
 [Time]
 NTP=ntp.jst.mfeed.ad.jp
-#FallbackNTP=ntp.ubuntu.com
+#FallbackNTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org 2.debian.pool.ntp.org 3.debian.pool.ntp.org
 #RootDistanceMaxSec=5
 #PollIntervalMinSec=32
 #PollIntervalMaxSec=2048
+#ConnectionRetrySec=30
+#SaveIntervalSec=60
 EOF
 
 systemctl restart systemd-timesyncd
@@ -57,14 +59,11 @@ cd
 
 echo "y" | ufw enable
 ufw default deny
-ufw allow from 192.168.1.0/24 to any port 22
-ufw allow from 192.168.15.0/24 to any port 22
-ufw allow from 192.168.1.0/24 to any port 9100
-ufw allow from 192.168.15.0/24 to any port 9100
-ufw allow from 192.168.15.0/24 to any port 8086
-ufw allow from 192.168.1.0/24 to any port 8086
-ufw allow from 192.168.15.0/24 to any port 80
-ufw allow from 192.168.1.0/24 to any port 3306
+ufw allow from 192.168.10.0/24 to any port 22
+ufw allow from 192.168.10.0/24 to any port 9100
+ufw allow from 192.168.10.0/24 to any port 8086
+ufw allow from 192.168.10.0/24 to any port 80
+ufw allow from 192.168.10.0/24 to any port 3306
 
 
 # install prometheus-node-exporter

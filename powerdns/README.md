@@ -15,5 +15,10 @@
               gmysql-user=<pdns_ID>
               gmysql-password=<password>
        
-    *  fdf
-    *  
+    *  PowerDNSを起動
+    
+           sudo systemctl start pdns
+           sudo systemctl enable pdns
+    
+    
+    * ｄさｖｄｓ 

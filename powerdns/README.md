@@ -25,4 +25,5 @@
           git clone https://github.com/poweradmin/poweradmin.git
           cd poweradmin
           git checkout tags/v****
+          cd
     * ｄさｖｄｓ 

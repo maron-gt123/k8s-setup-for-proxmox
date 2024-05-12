@@ -81,3 +81,9 @@
     * 新規ユーザに権限付与
   
           GRANT ALL PRIVILEGES ON poweradmin_db.* TO '<任意のユーザ名>'@'<powerdnsホストアドレス>';
+  * 権限反映
+    
+        FLUSH PRIVILEGES;
+  * ログアウト
+
+        exit;

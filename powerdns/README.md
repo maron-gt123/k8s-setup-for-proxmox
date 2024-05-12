@@ -26,4 +26,8 @@
           cd poweradmin
           git checkout tags/v****
           cd
+    * htmlに格納
+ 
+          cp -r poweradmin/ /var/www/html/poweradmin
+          rm -rf /var/www/html/poweradmin/.git
     * ｄさｖｄｓ 

@@ -2,7 +2,7 @@
 *  本件では自宅サーバーのバックエンドとして動作している内部DNS(powerdns)について記載
 
 ### 設定
-*  本scriptを実行し各種依存関係となるソフトをインストール
+*  本scriptを実行し各種依存関係となるソフトをインストール   [script](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/powerdns/setup.sh)
 *  手動設定
     *  PowerDNSの設定ファイルを編集
 

@@ -30,4 +30,7 @@
  
           cp -r poweradmin/ /var/www/html/poweradmin
           rm -rf /var/www/html/poweradmin/.git
+    * webブラウザアクセス
+
+          http://192.168.10.132/poweradmin/
     * ｄさｖｄｓ 

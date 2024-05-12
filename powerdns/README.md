@@ -6,7 +6,12 @@
 *  手動設定
     *  PowerDNSの設定ファイルを編集
 
-          sudo nano /etc/powerdns/pdns.conf
+           sudo nano /etc/powerdns/pdns.conf
+           launch=gmysql
+           gmysql-host=192.168.10.131
+           gmysql-dbname=powerdns
+           gmysql-user=<pdns_ID>
+           gmysql-password=<password>
        
     *  fdf
     *  

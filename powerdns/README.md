@@ -6,7 +6,7 @@
 *  手動設定
     *  PowerDNSの設定ファイルを編集
 
-         sudo nano /etc/powerdns/pdns.conf
+          sudo nano /etc/powerdns/pdns.conf
        
     *  fdf
     *  

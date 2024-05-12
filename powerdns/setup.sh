@@ -60,6 +60,7 @@ echo "y" | ufw enable
 ufw default deny
 ufw allow from 192.168.10.0/24 to any port 22
 ufw allow from 192.168.10.0/24 to any port 80
+ufw allow from 192.168.10.0/24 to any port 443
 ufw allow 53
 
 # install

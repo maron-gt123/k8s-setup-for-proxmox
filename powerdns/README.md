@@ -20,5 +20,9 @@
            sudo systemctl start pdns
            sudo systemctl enable pdns
     
-    
+    * プロジェクトファイルのダウンロード   [バージョン管理](https://github.com/poweradmin/poweradmin)
+ 
+          git clone https://github.com/poweradmin/poweradmin.git
+          cd poweradmin
+          git checkout tags/v****
     * ｄさｖｄｓ 

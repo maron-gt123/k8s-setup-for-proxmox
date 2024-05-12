@@ -7,6 +7,7 @@
     *  PowerDNSの設定ファイルを編集
 
            sudo nano /etc/powerdns/pdns.conf
+       
            launch=gmysql
            gmysql-host=192.168.10.131
            gmysql-dbname=powerdns

@@ -72,3 +72,12 @@
           GRANT ALL ON *.* to <任意のユーザ名>@'%' ;
 
   * powerdnsデータ管理用
+    * DB作成
+
+           CREATE DATABASE poweradmin_db;
+    * 新規ユーザ設定
+
+          CREATE USER '<任意のユーザ名>'@'<powerdnsホストアドレス>' IDENTIFIED BY '<任意のパスワード>' ;
+    * 新規ユーザに権限付与
+  
+          GRANT ALL PRIVILEGES ON poweradmin_db.* TO '<任意のユーザ名>'@'<powerdnsホストアドレス>';

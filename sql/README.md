@@ -59,14 +59,16 @@
         # 以下コメントアウト
         bind-address            = 127.0.0.1
 * 権限関連
+  * 本番環境としてはminecraftのユーザー管理及びインベントリ管理、powerdnsのバックエンドDBとして機能させるため2つのユーザーを作成します。
   * mariaDBへのログイン
   
         mysql -u root -p
-  * 新規ユーザ設定
+  * minecraftデータ管理用
+    * 新規ユーザ設定
 
-        CREATE USER '<任意のユーザ名>'@'%' IDENTIFIED BY '<任意のパスワード>' ;
-  * 新規ユーザに権限付与
+          CREATE USER '<任意のユーザ名>'@'%' IDENTIFIED BY '<任意のパスワード>' ;
+    * 新規ユーザに権限付与
   
-        GRANT ALL ON *.* to <任意のユーザ名>@'%' ;
+          GRANT ALL ON *.* to <任意のユーザ名>@'%' ;
 
-
+  * powerdnsデータ管理用

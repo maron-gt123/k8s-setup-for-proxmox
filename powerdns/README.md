@@ -54,6 +54,11 @@
               </Directory>
           </VirtualHost>
           EOF
+    * ロケール設定
+     * 一部ロケールの設定不一致によるwebUI表示に影響ありのため設定を実施
+
+           sudo locale-gen ja_JP.UTF-8
+           sudo update-locale LANG=ja_JP.UTF-8
     * Apache2再起動
 
           sudo a2ensite poweradmin

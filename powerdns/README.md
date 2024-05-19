@@ -71,5 +71,6 @@
           sudo systemctl restart apache2
     *   webGUIへのアクセス
         * 以下画面が表示されれば成功
+           * 初期ユーザー名はadmin
       ![スタート画面](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/powerdns/poweradmin_startmonitor.png)
     * ｄｄ

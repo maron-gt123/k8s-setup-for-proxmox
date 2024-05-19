@@ -69,6 +69,7 @@
 
           sudo a2ensite poweradmin
           sudo systemctl restart apache2
-    *   sd
-      ![概要図](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/powerdns/poweradmin_startmonitor.png)
+    *   webGUIへのアクセス
+        * 以下画面が表示されれば成功
+      ![スタート画面](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/powerdns/poweradmin_startmonitor.png)
     * ｄｄ

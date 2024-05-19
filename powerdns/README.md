@@ -34,6 +34,9 @@
        * install設定に沿って設定を実施とするが原則mariaDBへのアカウント設定とphpの設定関連
 
              http://<poweradminIPaddress>/poweradmin/install/
+    * install設定完了後のinstalldirectory削除
+ 
+             rm -rf /var/www/html/poweradmin/install
 
     * Apache2の設定
 

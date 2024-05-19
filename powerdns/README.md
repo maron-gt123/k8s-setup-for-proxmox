@@ -85,3 +85,6 @@
              threads=4
              max-cache-entries=1000000
              max-negative-ttl=3600
+       * 設定反映
+         
+             sudo systemctl restart pdns-recursor

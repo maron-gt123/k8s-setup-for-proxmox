@@ -31,8 +31,10 @@
           cd
           rm -rf /var/www/html/poweradmin/.git
     * webブラウザアクセス
+       * install設定に沿って設定を実施とするが原則mariaDBへのアカウント設定とphpの設定関連
 
-          http://<poweradminIPaddress>/poweradmin/
+             http://<poweradminIPaddress>/poweradmin/install/
+
     * Apache2の設定
 
           sudo nano /etc/apache2/sites-available/poweradmin.conf

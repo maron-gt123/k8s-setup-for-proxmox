@@ -78,6 +78,9 @@ apt -y install apache2
 # install php
 apt -y install php-fpm
 
+# install pdns-backend-mysql
+apt -y install pdns-backend-mysql
+
 # install influxdb
 wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.6.1-amd64.deb
 sudo dpkg -i influxdb2-2.6.1-amd64.deb

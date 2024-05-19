@@ -32,7 +32,7 @@
           rm -rf /var/www/html/poweradmin/.git
     * webブラウザアクセス
 
-          http://192.168.10.132/poweradmin/
+          http://<poweradminIPaddress>/poweradmin/
     * Apache2の設定
 
           sudo nano /etc/apache2/sites-available/poweradmin.conf

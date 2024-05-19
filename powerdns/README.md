@@ -40,12 +40,9 @@
 
     * Apache2の設定
 
-          sudo nano /etc/apache2/sites-available/poweradmin.conf
-      
-    * Apache2に以下の設定追記
-
+          cat > /etc/apache2/sites-available/poweradmin.conf <<EOF
           <VirtualHost *:80>
-              ServerAdmin webmaster@localhost
+              ServerAdmin webmaster@<IPaddress>
               DocumentRoot /var/www/html/poweradmin
               ErrorLog ${APACHE_LOG_DIR}/error.log
               CustomLog ${APACHE_LOG_DIR}/access.log combined
@@ -56,6 +53,7 @@
                   Require all granted
               </Directory>
           </VirtualHost>
+          EOF
     * Apache2再起動
 
           sudo a2ensite poweradmin

@@ -51,8 +51,8 @@
                   Require all granted
               </Directory>
           </VirtualHost>
-    *Apache2再起動
+       *Apache2再起動
 
-       sudo a2ensite poweradmin
-       sudo systemctl restart apache2
+          sudo a2ensite poweradmin
+          sudo systemctl restart apache2
     * ｄｄ

@@ -36,7 +36,7 @@
              http://<poweradminIPaddress>/poweradmin/install/
     * install設定完了後のinstalldirectory削除
  
-             rm -rf /var/www/html/poweradmin/install
+          rm -rf /var/www/html/poweradmin/install
 
     * Apache2の設定
 

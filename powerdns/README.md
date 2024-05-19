@@ -59,6 +59,7 @@
 
               sudo locale-gen ja_JP.UTF-8
               sudo update-locale LANG=ja_JP.UTF-8
+              sudo localectl set-locale LANG=ja_JP.UTF-8
         * Apacheの環境変数も合わせて実施(本内容は追記してください)
 
               sudo nano /etc/apache2/envvars

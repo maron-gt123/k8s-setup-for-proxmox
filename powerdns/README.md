@@ -3,7 +3,9 @@
 
 ### 設定
 *  本scriptを実行し各種依存関係となるソフトをインストール   [script](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/powerdns/setup.sh)
-*   script実行後各種設定を実施とする前提条件は以下
+*  script実行後各種設定を実施とする前提条件は以下
+   *  powerdns:4.7.3
+   *  poweradmin:3.7.0
 *  手動設定
     *  PowerDNSの設定ファイルを編集
 

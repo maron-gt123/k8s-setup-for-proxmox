@@ -14,6 +14,7 @@
               gmysql-dbname=powerdns
               gmysql-user=<pdns_ID>
               gmysql-password=<password>
+              local-port=8053
        
     *  PowerDNSを起動
     

@@ -70,8 +70,18 @@
 
           sudo a2ensite poweradmin
           sudo systemctl restart apache2
-    *   webGUIへのアクセス
+    * webGUIへのアクセス
         * 以下画面が表示されれば成功
            * 初期ユーザー名はadmin
       ![スタート画面](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/powerdns/poweradmin_startmonitor.png)
-    * ｄｄ
+    * recursorの設定
+       * /etc/powerdns/recursor.confを編集
+     
+             allow-from=192.168.10.0/24, 192.168.15.0/24, 192.168.1.0/24
+             forward-zones=micnet=127.0.0.1:8053, maroncloud=127.0.0.1:8053
+             forward-zones-recurse=.=9.9.9.9
+             local-address=192.168.10.132, 127.0.0.1
+             local-port=53
+             threads=4
+             max-cache-entries=1000000
+             max-negative-ttl=3600

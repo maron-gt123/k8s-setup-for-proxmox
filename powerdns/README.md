@@ -70,5 +70,5 @@
           sudo a2ensite poweradmin
           sudo systemctl restart apache2
     *   sd
-      ![概要図](https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/maronhome%20in%20kubernetes%20Cloud.svg)
+      ![概要図](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/powerdns/poweradmin_startmonitor.png)
     * ｄｄ

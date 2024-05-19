@@ -59,6 +59,11 @@
 
               sudo locale-gen ja_JP.UTF-8
               sudo update-locale LANG=ja_JP.UTF-8
+        * Apacheの環境変数も合わせて実施(本内容は追記してください)
+
+              sudo nano /etc/apache2/envvars
+              export LANG=ja_JP.UTF-8
+              export LC_ALL=ja_JP.UTF-8
     * Apache2再起動
 
           sudo a2ensite poweradmin

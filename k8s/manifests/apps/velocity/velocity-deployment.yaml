@@ -8,7 +8,7 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: velocity-SV
+  namespace: velocity-sv
   name: velocity
   labels:
     app: velocity

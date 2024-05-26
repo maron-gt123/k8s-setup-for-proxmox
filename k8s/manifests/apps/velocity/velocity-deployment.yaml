@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: velocity-SV
+  name: velocity-sv
   labels:
     name: velocity
 ---

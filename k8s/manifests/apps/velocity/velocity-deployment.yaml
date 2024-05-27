@@ -37,6 +37,17 @@ spec:
               value: "true"
             - name: MEMORY
               value: 768m
+            - name: PLUGINS
+              # bungeecord-prometheus-exporter:
+              # https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.5/bungeecord-prometheus-exporter-3.2.5.jar
+              # LuckPerms-Velocity:
+              # https://download.luckperms.net/1543/velocity/LuckPerms-Velocity-5.4.130.jar
+              # GeyserSkinManager-Velocity:
+              # https://github.com/Camotoy/GeyserSkinManager/releases/download/1.7/GeyserSkinManager-Velocity.jar
+              value: >-
+                https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.5/bungeecord-prometheus-exporter-3.2.5.jar,
+                https://download.luckperms.net/1543/velocity/LuckPerms-Velocity-5.4.130.jar,
+                https://github.com/Camotoy/GeyserSkinManager/releases/download/1.7/GeyserSkinManager-Velocity.jar
           ports:
             - containerPort: 25577
               name: velocity

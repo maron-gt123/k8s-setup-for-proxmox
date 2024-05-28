@@ -60,7 +60,7 @@ spec:
           command:
             - "sh"
             - "-c"
-            - 'curl -o /root/geyser-download/geyser-velocity.jar "${GEYSER_URL}"'
+            - 'wget -O /root/geyser-download/geyser-velocity.jar "${GEYSER_URL}"'
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:

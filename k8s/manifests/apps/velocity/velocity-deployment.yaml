@@ -51,12 +51,13 @@ spec:
             - "sh"
             - "-c"
             - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
-        # jmx-exporterのダウンロード
+        # geyser-velocityのダウンロード
         - name: geyser-downloader
           image: busybox:1.36.1
           env:
             - name: GEYSER_URL
-              value: "https://download.geysermc.org/v2/projects/geyser/versions/2.3.1/builds/539/downloads/velocity"
+              # value: "https://download.geysermc.org/v2/projects/geyser/versions/2.3.1/builds/539/downloads/velocity"
+              value: "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/velocity"
           volumeMounts:
             - name: geyser-download-volume
               mountPath: /root/geyser-download
@@ -64,6 +65,19 @@ spec:
             - "sh"
             - "-c"
             - 'wget -O /root/geyser-download/geyser-velocity.jar "${GEYSER_URL}"'
+        # floodgate-velocityのダウンロード
+        - name: floodgate-downloader
+          image: busybox:1.36.1
+          env:
+            - name: FLOODGATE_URL
+              value: "https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity"
+          volumeMounts:
+            - name: floodgate-download-volume
+              mountPath: /root/floodgate-download
+          command:
+            - "sh"
+            - "-c"
+            - 'wget -O /root/floodgate-download/floodgate-velocity.jar "${FLOODGATE_URL}"'
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
@@ -119,6 +133,9 @@ spec:
             - name: geyser-download-volume
               mountPath: /server/plugins/geyser-velocity.jar
               subPath: geyser-velocity.jar
+            - name: floodgate-download-volume
+              mountPath: /server/plugins/floodgate-velocity.jar
+              subPath: floodgate-velocity.jar
       volumes:
         # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: jmx-exporter-download-volume
@@ -129,6 +146,9 @@ spec:
         # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: server-icon-download-volume
           emptyDir: {}
-        # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
+        # geyser-velocity.jarをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: geyser-download-volume
+          emptyDir: {}
+        # floodgate-velocity.jarをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
+        - name: floodgate-download-volume
           emptyDir: {}

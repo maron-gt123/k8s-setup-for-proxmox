@@ -76,12 +76,9 @@ spec:
             - name: MEMORY
               value: 768m
             - name: PLUGINS
-              # bungeecord-prometheus-exporter:
-              # https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.5/bungeecord-prometheus-exporter-3.2.5.jar
-              # LuckPerms-Velocity:
-              # https://download.luckperms.net/1543/velocity/LuckPerms-Velocity-5.4.130.jar
-              # GeyserSkinManager-Velocity:
-              # https://github.com/Camotoy/GeyserSkinManager/releases/download/1.7/GeyserSkinManager-Velocity.jar
+              # bungeecord-prometheus-exporter
+              # LuckPerms-Velocity
+              # GeyserSkinManager-Velocity
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.5/bungeecord-prometheus-exporter-3.2.5.jar,
                 https://download.luckperms.net/1543/velocity/LuckPerms-Velocity-5.4.130.jar,
@@ -96,15 +93,16 @@ spec:
               name: jmx-metrics
             - containerPort: 9225
               name: metrics
+          startupProbe:
+            tcpSocket:
+              port: 25577
+            # 最大120秒待つ
+            failureThreshold: 6
+            periodSeconds: 20
           volumeMounts:
-            # 普通にマウントすると、auto-update (常に最新のvolume内容がコンテナ内から見える) の挙動を
-            # 提供するために symlink による一時ディレクトリがマウントされることになるが、
-            # itzg/bungeecord が利用するファイル同期の仕組み (itzg/mc-image-helper) は
-            # symlink を展開してしまうため、設定ファイルのパスが壊れてしまう。
-            #
-            # subPathを利用してマウントすればsymlinkが作られることを回避できるためそのようにしている。
-            # 参考: https://stackoverflow.com/a/63114800
-            # 参考: https://stackoverflow.com/a/50687707
+            # itzg/bungeecord は /config に設定ファイルをマウントしておけばコピーをしてくれる。
+            # 環境変数の置き換えはPrefix等の設定が必要なので、必要になったら設定するように。
+            # https://github.com/itzg/docker-bungeecord/tree/9113d93882d1945d5469141b77eb922233842be9#volumes
             - name: server-icon-download-volume
               mountPath: /config/server-icon.png
               subPath: server-icon.png
@@ -119,12 +117,15 @@ spec:
               mountPath: /server/plugins/geyser-velocity.jar
               subPath: geyser-velocity.jar
       volumes:
+        # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: jmx-exporter-download-volume
           emptyDir: {}
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-config
+        # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: server-icon-download-volume
           emptyDir: {}
+        # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: geyser-download-volume
           emptyDir: {}

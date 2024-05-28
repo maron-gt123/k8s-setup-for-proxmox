@@ -55,12 +55,12 @@ spec:
             - name: GEYSER_URL
               value: "https://download.geysermc.org/v2/projects/geyser/versions/2.3.1/builds/539/downloads/velocity"
           volumeMounts:
-            - name: velocity-download-volume
-              mountPath: /root/velocity-download
+            - name: geyser-download-volume
+              mountPath: /root/geyser-download
           command:
             - "sh"
             - "-c"
-            - 'curl -o /root/velocity-download/velocity.jar "${GEYSER_URL}"'
+            - 'curl -o /root/geyser-download/geyser-velocity.jar "${GEYSER_URL}"'
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
@@ -108,7 +108,6 @@ spec:
             - name: server-icon-download-volume
               mountPath: /config/server-icon.png
               subPath: server-icon.png
-
             # JMX exporter 周りのファイルが入ったボリューム達のマウント設定
             - name: jmx-exporter-download-volume
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
@@ -116,6 +115,8 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
+            - name: geyser-download-volume
+              mountPath: /server/plugins
       volumes:
         - name: jmx-exporter-download-volume
           emptyDir: {}
@@ -124,4 +125,6 @@ spec:
             name: jmx-exporter-config
         # サーバーアイコンをinitContainerでダウンロードしてBugneeCordに受け渡すためのvolume
         - name: server-icon-download-volume
+          emptyDir: {}
+        - name: geyser-download-volume
           emptyDir: {}

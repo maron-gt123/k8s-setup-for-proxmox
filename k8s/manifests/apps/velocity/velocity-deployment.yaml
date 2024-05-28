@@ -49,6 +49,18 @@ spec:
             - "sh"
             - "-c"
             - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
+        - name: geyser-downloader
+          image: busybox:1.36.1
+          env:
+            - name: GEYSER_URL
+              value: "https://download.geysermc.org/v2/projects/geyser/versions/2.3.1/builds/539/downloads/velocity"
+          volumeMounts:
+            - name: velocity-download-volume
+              mountPath: /root/velocity-download
+          command:
+            - "sh"
+            - "-c"
+            - 'curl -o /root/velocity-download/velocity.jar "${GEYSER_URL}"'
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:

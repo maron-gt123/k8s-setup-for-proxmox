@@ -24,6 +24,7 @@ spec:
         app: velocity
     spec:
       initContainers:
+        # serverアイコンのダウンロード
         - name: server-icon-downloader
           image: busybox:1.36.1
           env:
@@ -37,6 +38,7 @@ spec:
             - "sh"
             - "-c"
             - 'wget -O /root/server-icon-download/server-icon.png "${SERVER_ICON_URL}"'
+        # jmx-exporterのダウンロード
         - name: jmx-exporter-downloader
           image: busybox:1.36.0
           env:
@@ -49,6 +51,7 @@ spec:
             - "sh"
             - "-c"
             - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
+        # jmx-exporterのダウンロード
         - name: geyser-downloader
           image: busybox:1.36.1
           env:

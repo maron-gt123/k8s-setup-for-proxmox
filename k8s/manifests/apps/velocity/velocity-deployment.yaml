@@ -121,7 +121,7 @@ spec:
             failureThreshold: 6
             periodSeconds: 20
           volumeMounts:
-            - name: bungeecord-plugin-configs
+            - name: velocity-plugin-configs
               mountPath: /config/plugins/velocity-prometheus-exporter/config.json
               subPath: BungeeCordPrometheusExporter-config.json
             # itzg/bungeecord は /config に設定ファイルをマウントしておけばコピーをしてくれる。
@@ -147,9 +147,9 @@ spec:
               subPath: floodgate-velocity.jar
       volumes:
         # config mapで指定した各種plugin configデータを受け渡すためのvolume
-        - name: bungeecord-plugin-configs
+        - name: velocity-plugin-configs
           configMap:
-            name: bungeecord-plugin-configs
+            name: velocity-plugin-configs
         # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: jmx-exporter-download-volume
           emptyDir: {}

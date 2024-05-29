@@ -121,6 +121,10 @@ spec:
             failureThreshold: 6
             periodSeconds: 20
           volumeMounts:
+            # velocityのconfigファイルが入ったボリューム達のマウント設定
+            - name: velocity-configs
+              mountPath: /config/velocity.toml
+              subPath: velocity.toml
             # geyserskinmanagerのconfigファイルが入ったボリューム達のマウント設定
             - name: velocity-plugin-configs
               mountPath: /config/plugins/geyserskinmanager-velocity/config.yml
@@ -171,6 +175,10 @@ spec:
               mountPath: /server/plugins/floodgate-velocity.jar
               subPath: floodgate-velocity.jar
       volumes:
+        # config mapで指定したconfigデータを受け渡すためのvolume
+        - name: velocity-configs
+          configMap:
+            name: velocity-configs
         # config mapで指定した各種plugin configデータを受け渡すためのvolume
         - name: velocity-plugin-configs
           configMap:

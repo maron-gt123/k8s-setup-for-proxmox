@@ -121,6 +121,9 @@ spec:
             failureThreshold: 6
             periodSeconds: 20
           volumeMounts:
+            - name: bungeecord-plugin-configs
+              mountPath: /config/plugins/velocity-prometheus-exporter/config.json
+              subPath: BungeeCordPrometheusExporter-config.json
             # itzg/bungeecord は /config に設定ファイルをマウントしておけばコピーをしてくれる。
             # 環境変数の置き換えはPrefix等の設定が必要なので、必要になったら設定するように。
             # https://github.com/itzg/docker-bungeecord/tree/9113d93882d1945d5469141b77eb922233842be9#volumes
@@ -134,13 +137,19 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
+            # geyser-velocity 周りのファイルが入ったボリューム達のマウント設定
             - name: geyser-download-volume
               mountPath: /server/plugins/geyser-velocity.jar
               subPath: geyser-velocity.jar
+            # floodgate-velocity 周りのファイルが入ったボリューム達のマウント設定
             - name: floodgate-download-volume
               mountPath: /server/plugins/floodgate-velocity.jar
               subPath: floodgate-velocity.jar
       volumes:
+        # config mapで指定した各種plugin configデータを受け渡すためのvolume
+        - name: bungeecord-plugin-configs
+          configMap:
+            name: bungeecord-plugin-configs
         # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: jmx-exporter-download-volume
           emptyDir: {}

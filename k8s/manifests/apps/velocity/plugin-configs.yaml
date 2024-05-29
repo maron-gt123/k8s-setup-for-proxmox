@@ -36,6 +36,107 @@ data:
       "redis_online_player": "false",
       "redis_bungee_online_proxies": "false"
     }
+  minimotd-velocity-main.conf: |
+    {
+      # MiniMOTD Main Configuration
+      
+      # Enable server list icon related features
+      icon-enabled=true
+      # Enable MOTD-related features
+      motd-enabled=true
+      # The list of MOTDs to display
+      # 
+      # - Supported placeholders: <online_players>, <max_players>
+      # - Putting more than one will cause one to be randomly chosen each refresh
+      motds=[
+          {
+              # Set the icon to use with this MOTD
+              #  Either use 'random' to randomly choose an icon, or use the name
+              #  of a file in the icons folder (excluding the '.png' extension)
+              #    ex: icon="myIconFile"
+              icon=random
+              line1="<rainbow>MiniMOTD Default"
+              line2="MiniMessage <gradient:blue:red>Gradients"
+          },
+          {
+              # Set the icon to use with this MOTD
+              #  Either use 'random' to randomly choose an icon, or use the name
+              #  of a file in the icons folder (excluding the '.png' extension)
+              #    ex: icon="myIconFile"
+              icon=random
+              line1="<blue>Another <bold><red>MOTD"
+              line2="<italic><underlined><gradient:red:green>much wow"
+          }
+      ]
+      player-count-settings {
+          # Should the displayed online player count be allowed to exceed the displayed maximum player count?
+          # If false, the online player count will be capped at the maximum player count
+          allow-exceeding-maximum=false
+          # Setting this to true will disable the hover text showing online player usernames
+          disable-player-list-hover=false
+          # Settings for the fake player count feature
+          fake-players {
+              # Modes: add, constant, minimum, random, percent
+              # 
+              # - add: This many fake players will be added
+              #     ex: fake-players="3"
+              # - constant: A constant value for the player count
+              #     ex: fake-players="=42"
+              # - minimum: The minimum bound of the player count
+              #     ex: fake-players="7+"
+              # - random: A random number of fake players in this range will be added
+              #     ex: fake-players="3:6"
+              # - percent: The player count will be inflated by this much, rounding up
+              #     ex: fake-players="25%"
+              fake-players="25%"
+              # Enable fake player count feature
+              fake-players-enabled=false
+          }
+          # Setting this to true will disable the player list hover (same as 'disable-player-list-hover'),
+          # but will also cause the player count to appear as '???'
+          hide-player-count=false
+          # Changes the Max Players to be X more than the online players
+          # ex: x=3 -> 16/19 players online.
+          just-x-more-settings {
+              # Enable this feature
+              just-x-more-enabled=false
+              x-value=3
+          }
+          # Changes the Max Players value
+          max-players=69
+          # Enable modification of the max player count
+          max-players-enabled=true
+          # The list of server names that affect player counts/listing.
+          # Only applicable when running the plugin on a proxy (Velocity or Waterfall/Bungeecord).
+          # When set to an empty list, the default count & list as determined by the proxy will be used.
+          servers=[]
+      }
+    }
+  minimotd-velocity-plugin_settings.conf: |
+    {
+      # MiniMOTD Plugin Configuration
+      
+      # Settings only applicable when running the plugin on a proxy (Velocity or Waterfall/Bungeecord)
+      proxy-settings {
+          # Here you can assign configs in the 'extra-configs' folder to specific virtual hosts
+          # Either use the name of the config in 'extra-configs', or use "default" to use the configuration in main.conf
+          # 
+          # Format is "hostname:port"="configName|default"
+          # Parts of domains can be substituted for wildcards, i.e. "*.mydomain.com:25565". Wildcard-containing configs are
+          # checked in the order they are declared if there are no exact matches.
+          virtual-host-configs {
+              "minigames.example.com:25565"=default
+              "skyblock.example.com:25565"=skyblock
+              "survival.example.com:25565"=survival
+          }
+          # Set whether to enable virtual host testing mode.
+          # When enabled, MiniMOTD will print virtual host debug info to the console on each server ping.
+          virtual-host-test-mode=false
+      }
+      # Do you want the plugin to check for updates on GitHub at launch?
+      # https://github.com/jpenilla/MiniMOTD
+      update-checker=true
+    }
   Geyser-config.yml: |
     {
       # --------------------------------
@@ -56,7 +157,7 @@ data:
         # Generally, you should only uncomment and change this if you want to limit what IPs can connect to your server.
         #address: 0.0.0.0
         # The port that will listen for connections
-        port: 19132
+        port: 25577
         # Some hosting services change your Java port everytime you start the server and require the same port to be used for Bedrock.
         # This option makes the Bedrock port the same as the Java port every time you start the server.
         # This option is for the plugin version only.
@@ -66,7 +167,7 @@ data:
         motd1: "Geyser"
         motd2: "Another Geyser server."
         # The Server Name that will be sent to Minecraft: Bedrock Edition clients. This is visible in both the pause menu and the settings menu.
-        server-name: "Geyser"
+        server-name: "Mic-Server-Geyser"
         # How much to compress network traffic to the Bedrock client. The higher the number, the more CPU usage used, but
         # the smaller the bandwidth used. Does not have any effect below -1 or above 9. Set to -1 to disable.
         compression-level: 6
@@ -93,7 +194,7 @@ data:
         # Authentication type. Can be offline, online, or floodgate (see https://github.com/GeyserMC/Geyser/wiki/Floodgate).
         # For plugin versions, it's recommended to keep the `address` field to "auto" so Floodgate support is automatically configured.
         # If Floodgate is installed and `address:` is set to "auto", then "auth-type: floodgate" will automatically be used.
-        auth-type: online
+        auth-type: floodgate
         # Allow for password-based authentication methods through Geyser. Only useful in online mode.
         # If this is false, users must authenticate to Microsoft using a code provided by Geyser on their desktop.
         allow-password-authentication: true
@@ -264,6 +365,77 @@ data:
     }
   floodgate-config.yml: |
     {
+      # In Floodgate bedrock player data is send encrypted
+      # The following value should point to the key Floodgate generated.
+      # The public key should be used for the Geyser(s) and the private key for the Floodgate(s)
+      key-file-name: key.pem
+      
+      # Floodgate prepends a prefix to bedrock usernames to avoid conflicts
+      # However, certain conflicts can cause issues with some plugins so this prefix is configurable using the property below
+      # It is recommended to use a prefix that does not contain alphanumerical to avoid the possibility of duplicate usernames.
+      username-prefix: "geyser."
+      
+      # Should spaces be replaced with '_' in bedrock usernames?
+      replace-spaces: true
+      
+      # The default locale for Floodgate. By default, Floodgate uses the system locale
+      # default-locale: en_US
+      # Should the proxy send the bedrock player data to the servers it is connecting to?
+      # This requires Floodgate to be installed on the servers.
+      # You'll get kicked if you don't use the plugin. The default value is false because of it
+      send-floodgate-data: false
+      
+      
+      disconnect:
+        # The disconnect message Geyser users should get when connecting
+        # to the server with an invalid key
+        invalid-key: Please connect through the official Geyser
+        # The disconnect message Geyser users should get when connecting
+        # to the server with the correct key but not with the correct data format
+        invalid-arguments-length: Expected {} arguments, got {}. Is Geyser up-to-date?
+      
+      # Configuration for player linking
+      player-link:
+        # Whether to enable the linking system. Turning this off will prevent
+        # players from using the linking feature even if they are already linked.
+        enabled: true
+      
+        # Whether to require a linked account in order to be able to join the server.
+        require-link: false
+      
+        # Set the following option to true when you want to host your own linking database.
+        # -> This can work in addition to global linking.
+        # Note that you have to install a linking database implementation before enabling this, because
+        # it'll cause errors otherwise.
+        enable-own-linking: false
+      
+        # The following three options only apply when 'enable-own-linking' is set to 'true'
+      
+        # Whether to allow the use of /linkaccount and /unlinkaccount
+        # You can also use allow specific people to use the commands using the
+        # permissions floodgate.command.linkaccount and floodgate.command.unlinkaccount.
+        # This is only for linking, already connected people will stay connected
+        allowed: true
+        # The amount of time until a link code expires in seconds.
+        link-code-timeout: 300
+        # The player linking database type you want to use. This option is only used when there
+        # are multiple database implementations found in the configuration directory.
+        type: sqlite
+      
+        # Whether to enable global linking. Global Linking is a central server where people can link their
+        # accounts (Java and Bedrock) and join on servers that have Global Linking enabled. The goal of
+        # Global Linking is to make linking easier by not having to link your accounts on every server.
+        # -> Your server-specific linking database will have priority over global linking.
+        # Global Linking should normally only be disabled when you don't have internet access or when
+        # you have limited internet access.
+        enable-global-linking: true
+      
+      metrics:
+        enabled: true
+        uuid: af7280fe-d5ef-47f3-873c-f06f1a6f492d
+      
+      # Do not change this
+      config-version: 3
     }
   LuckPerms-config.yml: |
     {

@@ -65,7 +65,8 @@ data:
             line1="<blue>Another <bold><red>MOTD"
             line2="<italic><underlined><gradient:red:green>much wow"
         }
-      player-count-settings {
+    ]
+    player-count-settings {
         # Should the displayed online player count be allowed to exceed the displayed maximum player count?
         # If false, the online player count will be capped at the maximum player count
         allow-exceeding-maximum=false

@@ -121,6 +121,7 @@ spec:
             failureThreshold: 6
             periodSeconds: 20
           volumeMounts:
+             # BungeeCordPrometheusExporterのconfigファイルが入ったボリューム達のマウント設定
             - name: velocity-plugin-configs
               mountPath: /config/plugins/velocity-prometheus-exporter/config.json
               subPath: BungeeCordPrometheusExporter-config.json

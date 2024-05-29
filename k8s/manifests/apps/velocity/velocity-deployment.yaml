@@ -96,10 +96,12 @@ spec:
               # bungeecord-prometheus-exporter
               # LuckPerms-Velocity
               # GeyserSkinManager-Velocity
+              # minimotd-velocity
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.5/bungeecord-prometheus-exporter-3.2.5.jar,
                 https://download.luckperms.net/1543/velocity/LuckPerms-Velocity-5.4.130.jar,
-                https://github.com/Camotoy/GeyserSkinManager/releases/download/1.7/GeyserSkinManager-Velocity.jar
+                https://github.com/Camotoy/GeyserSkinManager/releases/download/1.7/GeyserSkinManager-Velocity.jar,
+                https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.0/VELOCITY/minimotd-velocity-2.1.0.jar
             - name: JVM_OPTS
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml

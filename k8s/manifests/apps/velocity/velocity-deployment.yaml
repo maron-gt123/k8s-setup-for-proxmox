@@ -130,13 +130,13 @@ spec:
               mountPath: /config/plugins/velocity-prometheus-exporter/config.json
               subPath: BungeeCordPrometheusExporter-config.json
             # minimotd-velocity-mainのconfigファイルが入ったボリューム達のマウント設定
-            #- name: velocity-plugin-configs
-            #  mountPath: /config/plugins/minimotd-velocity/main.conf
-            #  subPath: minimotd-velocity-main.conf
+            - name: velocity-plugin-configs
+              mountPath: /config/plugins/minimotd-velocity/main.conf
+              subPath: minimotd-velocity-main.conf
             # minimotd-velocity-plugin_settingsのconfigファイルが入ったボリューム達のマウント設定
-            #- name: velocity-plugin-configs
-            #  mountPath: /config/plugins/minimotd-velocity/plugin_settings.conf
-            #  subPath: minimotd-velocity-plugin_settings.conf
+            - name: velocity-plugin-configs
+              mountPath: /config/plugins/minimotd-velocity/plugin_settings.conf
+              subPath: minimotd-velocity-plugin_settings.conf
             # Geyserのconfigファイルが入ったボリューム達のマウント設定
             - name: velocity-plugin-configs
               mountPath: /config/plugins/Geyser-Velocity/config.yml

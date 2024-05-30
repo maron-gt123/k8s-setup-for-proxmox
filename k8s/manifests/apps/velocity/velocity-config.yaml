@@ -79,11 +79,9 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = "mic-lobby.micnet:25565"
-    S1 = "mic-paper01.micnet:25565"
-    S2 = "mic-paper02.micnet:25565"
-    k8s = "mic-k8s.micnet:25565"
-    music = "mic-k8s-music.micnet:25565"
+    lobby = "127.0.0.1:30066"
+    factions = "127.0.0.1:30067"
+    minigames = "127.0.0.1:30068"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [

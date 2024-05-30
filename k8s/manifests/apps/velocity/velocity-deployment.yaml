@@ -123,7 +123,7 @@ spec:
           volumeMounts:
             # velocityのconfigファイルが入ったボリューム達のマウント設定
             - name: velocity-configs
-              mountPath: /server/velocity.toml
+              mountPath: /config/velocity.toml
               subPath: velocity.toml
             # geyserskinmanagerのconfigファイルが入ったボリューム達のマウント設定
             - name: velocity-plugin-configs

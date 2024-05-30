@@ -23,7 +23,7 @@ data:
     online-mode = true
     
     # Should the proxy enforce the new public key security standard? By default, this is on.
-    force-key-authentication = false
+    force-key-authentication = true
     
     # If client's ISP/AS sent from this proxy is different from the one from Mojang's
     # authentication server, the player is kicked. This disallows some VPN and proxy
@@ -41,7 +41,7 @@ data:
     #                  unable to implement network level firewalling (on a shared host).
     # - "modern":      Forward player IPs and UUIDs as part of the login process using
     #                  Velocity's native forwarding. Only applicable for Minecraft 1.13 or higher.
-    player-info-forwarding-mode = "none"
+    player-info-forwarding-mode = "NONE"
     
     # If you are using modern or BungeeGuard IP forwarding, configure a file that contains a unique secret here.
     # The file is expected to be UTF-8 encoded and not empty.
@@ -79,11 +79,9 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = "mic-lobby.micnet:25565"
-    S1 = "mic-paper01.micnet:25565"
-    S2 = "mic-paper02.micnet:25565"
-    k8s = "mic-k8s.micnet:25565"
-    music = "mic-k8s-music.micnet:25565"
+    lobby = "127.0.0.1:30066"
+    factions = "127.0.0.1:30067"
+    minigames = "127.0.0.1:30068"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [

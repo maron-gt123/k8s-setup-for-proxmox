@@ -45,7 +45,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: crs309-ext
-              target: csr-309.micnet
+              target: crs309.micnet
               module:
                 - mikrotik
               labels:
@@ -55,7 +55,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: crs309-general
-              target: csr-309.micnet
+              target: crs309.micnet
               module:
                 - if_mib
               labels:
@@ -65,7 +65,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: ix-3110-ext
-              target: ix-3110.micnet
+              target: ix-3110.maroncloud
               module:
                 - nec_ix
               labels:
@@ -75,7 +75,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: ix-3110-general
-              target: ix-3110.micnet
+              target: ix-3110.maroncloud
               module:
                 - if_mib
               labels:

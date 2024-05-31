@@ -116,6 +116,11 @@ spec:
             - name: JVM_OPTS
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
+            - name: FORWARDING_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: forwarding-secret
+                  key: forwarding.secret
           ports:
             - containerPort: 25577
               name: velocity

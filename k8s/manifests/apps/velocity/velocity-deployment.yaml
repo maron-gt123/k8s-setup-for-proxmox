@@ -12,6 +12,10 @@ metadata:
   name: velocity
   labels:
     app: velocity
+  # We wish this deployment to be reloaded
+  # when "bungeecord-config" and "bungeecord-plugin-configs" ConfigMap are updated
+  annotations:
+    configmap.reloader.stakater.com/reload: "jmx-exporter-config,velocity-configs,velocity-plugin-configs"
 spec:
   replicas: 1
   revisionHistoryLimit: 0
@@ -24,13 +28,6 @@ spec:
         app: velocity
     spec:
       initContainers:
-        # Secret情報の取得用
-        - name: generate-forwarding-secret
-          image: busybox:1.36.1
-          command: ['sh', '-c', 'echo -n $(uuidgen) > /secret/forwarding.secret']
-          volumeMounts:
-            - name: secret-volume
-              mountPath: /secret
         # serverアイコンのダウンロード
         - name: server-icon-downloader
           image: busybox:1.36.1
@@ -114,11 +111,6 @@ spec:
             - name: JVM_OPTS
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
-            - name: FORWARDING_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: forwarding-secret-template
-                  key: forwarding.secret.template
           ports:
             - containerPort: 25577
               name: velocity
@@ -134,12 +126,9 @@ spec:
             periodSeconds: 20
           volumeMounts:
             # velocityのconfigファイルが入ったボリューム達のマウント設定
-            - name: secret-volume
-              mountPath: /config/forwarding.secret
-              subPath: forwarding.secret
-            - name: velocity-configs
-              mountPath: /config/velocity.toml
-              subPath: velocity.toml
+            #- name: velocity-configs
+            #  mountPath: /config/velocity.toml
+            #  subPath: velocity.toml
             # geyserskinmanagerのconfigファイルが入ったボリューム達のマウント設定
             - name: velocity-plugin-configs
               mountPath: /config/plugins/geyserskinmanager-velocity/config.yml
@@ -204,9 +193,6 @@ spec:
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-config
-        # secret配列格納用
-        - name: secret-volume
-          emptyDir: {}
         # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: server-icon-download-volume
           emptyDir: {}

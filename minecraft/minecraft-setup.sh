@@ -121,18 +121,18 @@ SCREEN_NAME=paper
 # endregion
 
 # start minecraft
-cd `dirname $0`
-screen -AdmS ${SCREEN_NAME} java -server -Xms${MINMEM} -Xmx${MAXMEM} -jar ${JARFILE} nogui
+cd \$(dirname \$0)
+screen -AdmS \${SCREEN_NAME} java -server -Xms\${MINMEM} -Xmx\${MAXMEM} -jar \${JARFILE} nogui
 
 # sleep 60s
 sleep 60s
 # time and water cycle is false
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doDaylightCycle false\015"'
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"'
+screen -p 0 -S \$SCREEN_NAME} -X eval 'stuff "gamerule doDaylightCycle false\015"'
+screen -p 0 -S \$SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"'
 
 # time and water is set
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "time set day\015"'
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "weather clear\015"'
+screen -p 0 -S \$SCREEN_NAME} -X eval 'stuff "time set day\015"'
+screen -p 0 -S \$SCREEN_NAME} -X eval 'stuff "weather clear\015"'
 EOF
     chmod 700 /minecraft/paper/mic-start.sh
     rm -r /home/cloudinit/k8s-setup-for-proxmox/
@@ -145,15 +145,15 @@ else
     cat > /minecraft/paper/mic-start.sh << EOF
 #!/bin/bash
 # region : set variables
-JARFILE=/minecraft/paper/paper-${PAPER_VER}-${PAPER_NO}.jar
+JARFILE=/minecraft/paper/paper-\${PAPER_VER}-\${PAPER_NO}.jar
 MINMEM=500M
 MAXMEM=2048M
 SCREEN_NAME=paper
 # endregion
 
 # start minecraft
-cd `dirname $0`
-screen -AdmS ${SCREEN_NAME} java -server -Xms${MINMEM} -Xmx"${MAXMEM}" -jar "${JARFILE}" nogui
+cd \$(dirname \$0)
+screen -AdmS \${SCREEN_NAME} java -server -Xms\${MINMEM} -Xmx\${MAXMEM} -jar \${JARFILE} nogui
 EOF
     chmod 700 /minecraft/paper/mic-start.sh
     echo "---end---"

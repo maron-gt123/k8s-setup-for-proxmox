@@ -58,7 +58,7 @@ rm $CLOUDINIT_IMAGE
 # region create vm from template
 for array in "${VM_LIST[@]}"
 do
-    echo "${array}" | while read -r vmid vmname cpu mem vmsrvip vmsanip targetip targethost
+    echo "${array}" | while read -r vmid vmname cpu mem vmsrvip targetip targethost
     do
         # clone from template
         # in clone phase, can't create vm-disk to local volume

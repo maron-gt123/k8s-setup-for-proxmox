@@ -103,7 +103,7 @@ screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "stop\015"'
 # minecraft restart
 $STARTSCRIPT
 EOF
-
+chmod 700 /minecraft/paper/mic-stop.sh
 # config download
 if [ $HOSTNAME = "mic-lobby-SV" ]; then
     git clone --depth 1 https://github.com/maron-gt123/k8s-setup-for-proxmox.git
@@ -126,7 +126,6 @@ screen -AdmS ${SCREEN_NAME} java -server -Xms${MINMEM} -Xmx${MAXMEM} -jar ${JARF
 
 # sleep 60s
 sleep 60s
-
 # time and water cycle is false
 screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doDaylightCycle false\015"'
 screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"'
@@ -135,19 +134,27 @@ screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"
 screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "time set day\015"'
 screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "weather clear\015"'
 EOF
-
-    rm -r /home/cloudinit/k8s-setup-for-proxmox/
     chmod 700 /minecraft/paper/mic-start.sh
-    chmod 700 /minecraft/paper/mic-stop.sh
+    rm -r /home/cloudinit/k8s-setup-for-proxmox/
     echo "---end---"
 else
     wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/server.properties
     wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/spigot.yml
-    wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/paper/mic-start.sh
-    wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/script/paper/mic-stop.sh
     wget -P /minecraft/paper/config https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/paper-world-defaults.yml
     wget -P /minecraft/paper/config https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/paper-global.yml
+    cat > /minecraft/paper/mic-start.sh << EOF
+#!/bin/bash
+# region : set variables
+JARFILE=/minecraft/paper/paper-${PAPER_VER}-${PAPER_NO}.jar
+MINMEM=500M
+MAXMEM=2048M
+SCREEN_NAME=paper
+# endregion
+
+# start minecraft
+cd `dirname $0`
+screen -AdmS ${SCREEN_NAME} java -server -Xms${MINMEM} -Xmx${MAXMEM} -jar ${JARFILE} nogui
+EOF
     chmod 700 /minecraft/paper/mic-start.sh
-    chmod 700 /minecraft/paper/mic-stop.sh
     echo "---end---"
 fi

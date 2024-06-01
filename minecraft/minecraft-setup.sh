@@ -94,12 +94,13 @@ SCREEN_NAME='paper'
 MINECRAFT_WORLD=/minecraft/paper
 # --- endregion ----
 
+cd \$(dirname \$0)
 # world messsage
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "say '${WAIT}'秒後にサーバーを停止し、バックアップ作業 に入ります\015"'
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "say 10分後に再接続可能になるので、しばらくお待ち下さい\015"'
-sleep $WAIT
+screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "say '\${WAIT}'秒後にサーバーを停止し、バックアップ作業 に入ります\015"'
+screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "say 10分後に再接続可能になるので、しばらくお待ち下さい\015"'
+sleep \${WAIT}
 # minecraft stop cmd
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "stop\015"'
+screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "stop\015"'
 # minecraft restart
 $STARTSCRIPT
 EOF

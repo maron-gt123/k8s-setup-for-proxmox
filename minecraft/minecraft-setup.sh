@@ -78,40 +78,31 @@ mkdir /minecraft/paper/Backups
 # paper.jar download
 wget -P /minecraft/paper $PAPER_URL
 # eula set
-cat > /minecraft/paper/eula.txt <<EOF
+cat > /minecraft/paper/eula.txt << EOF
 #By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.m>
 $(date +"#%a %b %d %H:%M:%S %Z %Y")
 eula=true
 EOF
 
 
-cat > /minecraft/paper/mic-start.sh << EOF
+cat > /minecraft/paper/mic-stop.sh << EOF
 #!/bin/bash
-# region : set variables
-JARFILE=/minecraft/paper/paper-${PAPER_VER}-${PAPER_NO}.jar
-MINMEM=500M
-MAXMEM=2048M
-SCREEN_NAME=paper
-# endregion
+# ----- region -----
+WAIT=60
+STARTSCRIPT=/minecraft/paper/mic-start.sh
+SCREEN_NAME='paper'
+MINECRAFT_WORLD=/minecraft/paper
+# --- endregion ----
 
-# start minecraft
-cd `dirname $0`
-screen -AdmS ${SCREEN_NAME} java -server -Xms${MINMEM} -Xmx${MAXMEM} -jar ${JARFILE} nogui
-
-# sleep 60s
-sleep 60s
-
-# time and water cycle is false
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doDaylightCycle false\015"'
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"'
-
-# time and water is set
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "time set day\015"'
-screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "weather clear\015"'
-
-# ---end---
+# world messsage
+screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "say '${WAIT}'秒後にサーバーを停止し、バックアップ作業 に入ります\015"'
+screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "say 10分後に再接続可能になるので、しばらくお待ち下さい\015"'
+sleep $WAIT
+# minecraft stop cmd
+screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "stop\015"'
+# minecraft restart
+$STARTSCRIPT
 EOF
-
 
 # config download
 if [ $HOSTNAME = "mic-lobby-SV" ]; then
@@ -143,13 +134,8 @@ if [ $HOSTNAME = "mic-lobby-SV" ]; then
     # time and water is set
     screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "time set day\015"'
     screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "weather clear\015"'
-    
-    # ---end---
-    
 EOF
     
-    cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/script/lobby/mic-start.sh /minecraft/paper/
-    cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/script/lobby/mic-stop.sh /minecraft/paper/
     rm -r /home/cloudinit/k8s-setup-for-proxmox/
     chmod 700 /minecraft/paper/mic-start.sh
     chmod 700 /minecraft/paper/mic-stop.sh

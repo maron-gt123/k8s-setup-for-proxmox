@@ -14,7 +14,7 @@ sudo apt update
 sudo apt -y upgrade
 sudo apt -y autoremove
 EOF
-sudo chmod 700 update.sh
+sudo chmod 700 /root/update.sh
 ./update.sh
 
 # setting ntp

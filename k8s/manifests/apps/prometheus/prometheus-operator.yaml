@@ -147,13 +147,13 @@ spec:
                   - targets: ['ssh.micnet:9100']
                     labels:
                       server_name: 'sql-server'
-                  - targets: ['sql.micnet:9100']
+                  - targets: ['sql.maroncloud:9100']
                     labels:
                       server_name: 'ssh-server'
-                  - targets: ['dns.micnet:9100']
+                  - targets: ['dns.maroncloud:9100']
                     labels:
                       server_name: 'dns-server'
-                  - targets: ['nas.micnet:9100']
+                  - targets: ['nas.maroncloud:9100']
                     labels:
                       server_name: 'nas-server'
                   - targets: ['prox01.micnet:9100']

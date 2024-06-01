@@ -127,12 +127,12 @@ screen -AdmS \${SCREEN_NAME} java -server -Xms\${MINMEM} -Xmx\${MAXMEM} -jar \${
 # sleep 60s
 sleep 60s
 # time and water cycle is false
-screen -p 0 -S \$SCREEN_NAME} -X eval 'stuff "gamerule doDaylightCycle false\015"'
-screen -p 0 -S \$SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"'
+screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "gamerule doDaylightCycle false\015"'
+screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"'
 
 # time and water is set
-screen -p 0 -S \$SCREEN_NAME} -X eval 'stuff "time set day\015"'
-screen -p 0 -S \$SCREEN_NAME} -X eval 'stuff "weather clear\015"'
+screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "time set day\015"'
+screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "weather clear\015"'
 EOF
     chmod 700 /minecraft/paper/mic-start.sh
     rm -r /home/cloudinit/k8s-setup-for-proxmox/

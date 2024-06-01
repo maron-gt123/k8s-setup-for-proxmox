@@ -52,12 +52,12 @@ ufw status
 echo "y" | ufw enable
 ufw default deny
 # SSH
-ufw allow from 192.168.15.0/24 to any port 22
 # minecraft exporter
-ufw allow from 192.168.15.0/24 to any port 9225
 # node exporter
-ufw allow from 192.168.15.0/24 to any port 9100
 # minecraft
+ufw allow from 192.168.15.0/24 to any port 22
+ufw allow from 192.168.15.0/24 to any port 9225
+ufw allow from 192.168.15.0/24 to any port 9100
 ufw allow 25565
 ufw reload
 
@@ -84,6 +84,35 @@ $(date +"#%a %b %d %H:%M:%S %Z %Y")
 eula=true
 EOF
 
+
+cat > /minecraft/paper/mic-start.sh << EOF
+#!/bin/bash
+# region : set variables
+JARFILE=/minecraft/paper/paper-${PAPER_VER}-${PAPER_NO}.jar
+MINMEM=500M
+MAXMEM=2048M
+SCREEN_NAME=paper
+# endregion
+
+# start minecraft
+cd `dirname $0`
+screen -AdmS ${SCREEN_NAME} java -server -Xms${MINMEM} -Xmx${MAXMEM} -jar ${JARFILE} nogui
+
+# sleep 60s
+sleep 60s
+
+# time and water cycle is false
+screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doDaylightCycle false\015"'
+screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"'
+
+# time and water is set
+screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "time set day\015"'
+screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "weather clear\015"'
+
+# ---end---
+EOF
+
+
 # config download
 if [ $HOSTNAME = "mic-lobby-SV" ]; then
     git clone --depth 1 https://github.com/maron-gt123/k8s-setup-for-proxmox.git
@@ -91,6 +120,34 @@ if [ $HOSTNAME = "mic-lobby-SV" ]; then
     cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/bukkit.yml /minecraft/paper/
     cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/server.properties /minecraft/paper/
     cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/spigot.yml /minecraft/paper/
+    cat > /minecraft/paper/mic-start.sh << EOF
+    #!/bin/bash
+    # region : set variables
+    JARFILE=/minecraft/paper/paper-${PAPER_VER}-${PAPER_NO}.jar
+    MINMEM=500M
+    MAXMEM=2048M
+    SCREEN_NAME=paper
+    # endregion
+    
+    # start minecraft
+    cd `dirname $0`
+    screen -AdmS ${SCREEN_NAME} java -server -Xms${MINMEM} -Xmx${MAXMEM} -jar ${JARFILE} nogui
+    
+    # sleep 60s
+    sleep 60s
+    
+    # time and water cycle is false
+    screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doDaylightCycle false\015"'
+    screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"'
+    
+    # time and water is set
+    screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "time set day\015"'
+    screen -p 0 -S ${SCREEN_NAME} -X eval 'stuff "weather clear\015"'
+    
+    # ---end---
+    
+EOF
+    
     cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/script/lobby/mic-start.sh /minecraft/paper/
     cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/script/lobby/mic-stop.sh /minecraft/paper/
     rm -r /home/cloudinit/k8s-setup-for-proxmox/

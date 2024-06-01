@@ -8,11 +8,11 @@ HOSTNAME=$(hostname)
 # --------------------
 
 # create update.sh
-cat > update.sh <<EOF
+cat > /root/update.sh <<EOF
 #!/bin/bash
 sudo apt update
-sudo apt upgrade -y
-sudo apt autoremove -y
+sudo apt -y upgrade
+sudo apt -y autoremove
 EOF
 sudo chmod 700 update.sh
 ./update.sh

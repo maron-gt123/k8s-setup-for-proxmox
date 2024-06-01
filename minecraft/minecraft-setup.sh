@@ -153,7 +153,7 @@ SCREEN_NAME=paper
 
 # start minecraft
 cd `dirname $0`
-screen -AdmS ${SCREEN_NAME} java -server -Xms${MINMEM} -Xmx${MAXMEM} -jar ${JARFILE} nogui
+screen -AdmS ${SCREEN_NAME} java -server -Xms${MINMEM} -Xmx"${MAXMEM}" -jar "${JARFILE}" nogui
 EOF
     chmod 700 /minecraft/paper/mic-start.sh
     echo "---end---"

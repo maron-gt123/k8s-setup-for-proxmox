@@ -3,6 +3,8 @@
 #region set variables
 
 TARGET_BRANCH=$1
+CLOUDINIT_IMAGE=noble-server-cloudimg-amd64.img
+CLOUDINIT_IMAGE_URL=https://cloud-images.ubuntu.com/noble/current/${CLOUDINIT_IMAGE}
 TEMPLATE_VMID=9999
 CLOUDINIT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
 TEMPLATE_BOOT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
@@ -32,8 +34,8 @@ VM_LIST=(
 
 #region create-template
 
-# download the image(ubuntu 22.04 LTS)
-wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
+# download the cloudinit image
+wget $CLOUDINIT_IMAGE_URL
 # create a new VM and attach Network Adaptor
 # vmbr15=service Network Segment (192.168.15.0/24)
 qm create $TEMPLATE_VMID --cores 2 --memory 4096 --net0 virtio,bridge=vmbr15 --name minecraftSV-template
@@ -50,7 +52,7 @@ qm set $TEMPLATE_VMID --serial0 socket --vga serial0
 # migrate to template
 qm template $TEMPLATE_VMID
 # cleanup
-rm jammy-server-cloudimg-amd64.img
+rm $CLOUDINIT_IMAGE
 #endregion
 
 # region create vm from template

@@ -146,7 +146,7 @@ else
     cat > /minecraft/paper/mic-start.sh << EOF
 #!/bin/bash
 # region : set variables
-JARFILE=/minecraft/paper/paper-\${PAPER_VER}-\${PAPER_NO}.jar
+JARFILE=/minecraft/paper/paper-${PAPER_VER}-${PAPER_NO}.jar
 MINMEM=500M
 MAXMEM=2048M
 SCREEN_NAME=paper

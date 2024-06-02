@@ -102,6 +102,7 @@ runcmd:
   - su - cloudinit -c "sudo apt install -y openjdk-21-jre"
   - su - cloudinit -c "sudo apt install -y zip"
   - su - cloudinit -c "sudo apt install -y git"
+  - su - cloudinit -c "sudo apt install -y linux-modules-extra-$(uname -r)"
   - su - cloudinit -c "sudo bash ~/minecraft-setup.sh"
   # change default shell to bash
   - chsh -s $(which bash) cloudinit

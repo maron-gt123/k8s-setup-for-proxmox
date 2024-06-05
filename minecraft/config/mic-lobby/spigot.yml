@@ -36,8 +36,7 @@ commands:
 settings:
   save-user-cache-on-stop-only: false
   sample-count: 12
-  # velocityの標準設定
-  bungeecord: true
+  bungeecord: false
   timeout-time: 60
   restart-on-crash: true
   restart-script: ./start.sh

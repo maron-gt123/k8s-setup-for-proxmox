@@ -112,6 +112,7 @@ if [ $HOSTNAME = "mic-lobby-SV" ]; then
     cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/bukkit.yml /minecraft/paper/
     cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/server.properties /minecraft/paper/
     cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/spigot.yml /minecraft/paper/
+    cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/paper-global.yml /minecraft/paper/config
     cat > /minecraft/paper/mic-start.sh << EOF
 #!/bin/bash
 # region : set variables

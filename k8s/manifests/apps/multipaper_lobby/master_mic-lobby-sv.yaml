@@ -23,7 +23,7 @@ spec:
         app: mic-lobby-sv
     spec:
       containers:
-        - image: akiicat/multipaper-master:java21
+        - image: akiicat/multipaper-master
           name: mic-lobby-sv
           env:
             - name: EULA

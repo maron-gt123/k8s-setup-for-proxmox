@@ -90,6 +90,8 @@ spec:
           env:
             - name: TZ
               value: Asia/Tokyo
+            - name: LANG
+              value: ja_JP.UTF-8
             - name: TYPE
               value: VELOCITY
             - name: ENABLE_RCON

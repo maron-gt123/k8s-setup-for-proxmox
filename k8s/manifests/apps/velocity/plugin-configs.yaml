@@ -53,7 +53,7 @@ data:
             #  of a file in the icons folder (excluding the '.png' extension)
             #    ex: icon="myIconFile"
             icon=random
-            line1="<rainbow>MiniMOTD This is minecraft-server for Maroncloud"
+            line1="<rainbow>This is minecraft-server for Maroncloud"
             line2="MiniMessage <gradient:blue:red>これは検証用です"
         },
         {

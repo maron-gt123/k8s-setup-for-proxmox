@@ -25,6 +25,11 @@ spec:
       containers:
         - name: mic-lobby-sv-primary
           image: akiicat/multipaper-master:java21
+          env:
+            - name: EULA
+              value: "TRUE"
+            - name: TZ
+              value: Asia/Tokyo
           resources:
             limits:
               memory: 2048Mi

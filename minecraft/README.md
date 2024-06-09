@@ -98,6 +98,15 @@ Minecraft Server開始に必要な初回セットアップ方法
           ssh mic-paper02 "sudo sh -c 'sudo systemctl restart local-fs.target'"
           ssh mic-paper02 "sudo sh -c 'sudo mount -a'"
      
+
+## NASに格納されている各種個別configを格納
+1. セキュリティ関係としてGitHubでは公開できない設定をNASを経由して格納
+    + Whitelistの格納
+      
+          # whitelist格納
+          ssh mic-lobby-SV "sudo sh -c 'sudo cp /minecraft/paper/nas/whitelist.txt /minecraft/paper/'"
+          # その他worldはvelocityの認証機能から意図しないプロキシを経由しないため、whitelistはロビーのみとする
+
 ## VMの削除
 * proxmoxホストコンソールで以下の処理を実施しVMを削除
 

@@ -8,56 +8,21 @@ metadata:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
+  name: mic-lobby-sv-primary
   namespace: mic-lobby-sv
-  name: mic-lobby-sv
   labels:
-    app: mic-lobby-sv
+    app: mic-lobby-sv-primary
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: mic-lobby-sv
-  template:
-    metadata:
-      labels:
-        app: mic-lobby-sv
-    spec:
-      containers:
-        - image: akiicat/multipaper-master
-          name: mic-lobby-sv
-          env:
-            - name: EULA
-              value: "TRUE"
-            - name: TZ
-              value: Asia/Tokyo
-            - name: TYPE
-              value: PAPER
-            - name: ENABLE_RCON
-              value: "true"
-            - name: VERSION
-              value: "1.20.6"
-            - name: INIT_MEMORY
-              value: 1G
-            - name: MAX_MEMORY
-              value: 2G
-            - name: DIFFICULTY
-              value: easy
-            - name: ONLINE_MODE
-              value: "FALSE"
-            - name: LEVEL_TYPE
-              value: flat
-            - name: SPAWN_ANIMALS
-              value: "false"
-            - name: SPAWN_MONSTERS
-              value: "false"
-            - name: SPAWN_NPCS
-              value: "false"
-            - name: OPS
-              value: "maron_12345"
-          ports:
-            - name: mic-lobby-sv
-              containerPort: 25565
-          resources:
-            requests:
-              memory: 2G
-              cpu: "2"
+  containers:
+    - name: mic-lobby-sv-primary
+      image: multipaper-primary:latest
+      imagePullPolicy: Never
+      resources:
+        limits:
+          memory: 2048Mi
+          cpu: 1000m
+        requests:
+          memory: 2048Mi
+          cpu: 1000m
+      ports:
+        - containerPort: 35353

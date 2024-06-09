@@ -53,8 +53,8 @@ data:
             #  of a file in the icons folder (excluding the '.png' extension)
             #    ex: icon="myIconFile"
             icon=random
-            line1="<rainbow>MiniMOTD Default"
-            line2="MiniMessage <gradient:blue:red>Gradients"
+            line1="<rainbow>MiniMOTD This is minecraft-server for Maroncloud"
+            line2="MiniMessage <gradient:blue:red>これは検証用です"
         },
         {
             # Set the icon to use with this MOTD

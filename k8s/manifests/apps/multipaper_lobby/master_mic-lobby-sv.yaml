@@ -9,21 +9,21 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   namespace: mic-lobby-sv
-  name: mic-lobby-sv-primary
+  name: primary-sv
   labels:
-    app: mic-lobby-sv-primary
+    app: primary-sv
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mic-lobby-sv-primary
+      app: primary-sv
   template:
     metadata:
       labels:
-        app: mic-lobby-sv-primary
+        app: primary-sv
     spec:
       containers:
-        - name: mic-lobby-sv-primary
+        - name: primary-sv
           image: akiicat/multipaper-master:java21
           env:
             - name: EULA
@@ -38,5 +38,5 @@ spec:
               memory: 2048Mi
               cpu: 1000m
           ports:
-            - name: mic-lobby-sv-primary
+            - name: primary-sv
               containerPort: 35353

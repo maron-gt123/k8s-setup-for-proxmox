@@ -104,7 +104,7 @@ Minecraft Server開始に必要な初回セットアップ方法
     + Whitelistの格納
       
           # whitelist格納
-          ssh mic-lobby-SV "sudo sh -c 'sudo cp /minecraft/paper/nas/whitelist.txt /minecraft/paper/'"
+          ssh mic-lobby-SV "sudo sh -c 'sudo cp /minecraft/paper/nas/whitelist.json /minecraft/paper/'"
           # その他worldはvelocityの認証機能から意図しないプロキシを経由しないため、whitelistはロビーのみとする
 
 ## VMの削除

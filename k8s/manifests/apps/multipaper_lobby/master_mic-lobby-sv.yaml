@@ -21,17 +21,17 @@ spec:
     metadata:
       labels:
         app: mic-lobby-sv-primary
-
-  containers:
-    - name: mic-lobby-sv-primary
-      image: multipaper-primary:latest
-      imagePullPolicy: Never
-      resources:
-        limits:
-          memory: 2048Mi
-          cpu: 1000m
-        requests:
-          memory: 2048Mi
-          cpu: 1000m
-      ports:
-        - containerPort: 35353
+    spec:
+      containers:
+        - name: mic-lobby-sv-primary
+          image: multipaper-primary:latest
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: 2048Mi
+              cpu: 1000m
+            requests:
+              memory: 2048Mi
+              cpu: 1000m
+          ports:
+            - containerPort: 35353

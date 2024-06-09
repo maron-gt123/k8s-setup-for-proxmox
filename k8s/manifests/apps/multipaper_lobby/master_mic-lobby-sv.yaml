@@ -24,12 +24,9 @@ spec:
             - name: TZ
               value: Asia/Tokyo
           resources:
-            limits:
-              memory: 2048Mi
-              cpu: 1000m
             requests:
-              memory: 2048Mi
-              cpu: 1000m
+              memory: 2G
+              cpu: "2"
           ports:
             - name: primary-sv
               containerPort: 35353

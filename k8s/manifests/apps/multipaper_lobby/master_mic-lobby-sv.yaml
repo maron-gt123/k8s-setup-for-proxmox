@@ -8,11 +8,20 @@ metadata:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mic-lobby-sv-primary
   namespace: mic-lobby-sv
+  name: mic-lobby-sv-primary
   labels:
     app: mic-lobby-sv-primary
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mic-lobby-sv-primary
+  template:
+    metadata:
+      labels:
+        app: mic-lobby-sv-primary
+
   containers:
     - name: mic-lobby-sv-primary
       image: multipaper-primary:latest

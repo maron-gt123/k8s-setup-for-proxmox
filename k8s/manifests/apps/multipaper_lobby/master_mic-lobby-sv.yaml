@@ -24,8 +24,7 @@ spec:
     spec:
       containers:
         - name: mic-lobby-sv-primary
-          image: multipaper-primary:latest
-          imagePullPolicy: Never
+          image: akiicat/multipaper-master:java21
           resources:
             limits:
               memory: 2048Mi
@@ -34,4 +33,5 @@ spec:
               memory: 2048Mi
               cpu: 1000m
           ports:
-            - containerPort: 35353
+            - name: mic-lobby-sv-primary
+              containerPort: 35353

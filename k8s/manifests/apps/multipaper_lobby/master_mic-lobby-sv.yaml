@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: primary-sv
-          image: akiicat/multipaper-master:java21
+          image: akiicat/multipaper-master
           env:
             - name: EULA
               value: "TRUE"

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: mic-lobby-sv
+  name: primary-sv-pvc
+  labels:
+    app: primary-sv-pvc
+spec:
+  storageClassName: primary-sv
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi

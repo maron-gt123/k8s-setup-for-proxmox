@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: mic-lobby-sv
-  name: multipaper-lobby-sv
+  name: multi-lobby-sv
   labels:
-    app: multipaper-lobby-sv
+    app: multi-lobby-sv
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: multipaper-lobby-sv
+      app: multi-lobby-sv
   template:
     metadata:
       labels:
-        app: multipaper-lobby-sv
+        app: multi-lobby-sv
     spec:
       containers:
         - image: noevidenz/multipaper:edge
-          name: velocity
+          name: multi-lobby-sv
           env:
             - name: EULA
               value: "TRUE"
@@ -28,7 +28,7 @@ spec:
             - name: MAX_MEMORY
               value: 2G
           ports:
-            - name: multipaper-lobby-sv
+            - name: multi-lobby-sv
               containerPort: 25565
           resources:
             requests:

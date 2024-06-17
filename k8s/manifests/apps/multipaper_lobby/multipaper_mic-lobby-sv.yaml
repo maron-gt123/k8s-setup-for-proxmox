@@ -6,7 +6,7 @@ metadata:
   labels:
     app: multi-lobby-sv
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: multi-lobby-sv
@@ -36,10 +36,10 @@ spec:
             requests:
               memory: 2G
               cpu: "2"
-          volumeMounts:
-            - name: multipaper-configs
-              mountPath: /app/multipaper.yml
-              subPath: multipaper.yml
+          #volumeMounts:
+          #  - name: multipaper-configs
+          #    mountPath: /app/multipaper.yml
+          #    subPath: multipaper.yml
       volumes:
         - name: multipaper-configs
           configMap:

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: mic-lobby-sv
+  name: multipaper-lobby-sv
+  labels:
+    app: multipaper-lobby-sv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: multipaper-lobby-sv
+  template:
+    metadata:
+      labels:
+        app: multipaper-lobby-sv
+    spec:
+      containers:
+        - image: noevidenz/multipaper:edge
+          name: velocity
+          env:
+            - name: EULA
+              value: "TRUE"
+            - name: TZ
+              value: Asia/Tokyo
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 2G
+          ports:
+            - name: multipaper-lobby-sv
+              containerPort: 25565
+          resources:
+            requests:
+              memory: 2G
+              cpu: "2"

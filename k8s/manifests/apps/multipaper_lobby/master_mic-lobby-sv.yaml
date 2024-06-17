@@ -30,6 +30,9 @@ spec:
           ports:
             - name: primary-sv
               containerPort: 35353
+          volumeMounts:
+            - name: primary-sv-storage
+              mountPath: /server
       volumes:
         - name: primary-sv-storage
           persistentVolumeClaim:

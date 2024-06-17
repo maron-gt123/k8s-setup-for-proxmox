@@ -17,10 +17,8 @@ spec:
     spec:
       containers:
         - name: primary-sv
-          image: remcospigot/multipaper-master:latest
+          image: noevidenz/multipaper-master:edge
           env:
-            - name: EULA
-              value: "TRUE"
             - name: TZ
               value: Asia/Tokyo
           resources:
@@ -29,10 +27,10 @@ spec:
               cpu: "2"
           ports:
             - name: primary-sv
-              containerPort: 35353
+              containerPort: 25565
           volumeMounts:
             - name: primary-sv-storage
-              mountPath: /data
+              mountPath: /app
       volumes:
         - name: primary-sv-storage
           persistentVolumeClaim:

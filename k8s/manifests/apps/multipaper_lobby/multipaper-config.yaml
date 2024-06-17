@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: minecraft
+  namespace: mic-lobby-sv
   name: multipaper-configs
 data:
   multipaper.yml: |

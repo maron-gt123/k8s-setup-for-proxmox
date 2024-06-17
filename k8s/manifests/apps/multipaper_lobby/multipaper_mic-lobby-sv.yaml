@@ -27,7 +27,7 @@ spec:
               value: 1G
             - name: MAX_MEMORY
               value: 2G
-            - name: DmultipaperMasterAddress
+            - name: RELEASE_URL
               value: "192.168.15.111:35353"
           ports:
             - name: multi-lobby-sv

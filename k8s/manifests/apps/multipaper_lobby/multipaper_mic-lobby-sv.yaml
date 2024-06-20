@@ -38,7 +38,7 @@ spec:
             - name: multipaper-configs
               mountPath: /app/multipaper.yml
               subPath: multipaper.yml
-      volumes:
-        - name: multipaper-configs
-          configMap:
-            name: multipaper-configs
+          volumes:
+            - name: multipaper-configs
+              configMap:
+                name: multipaper-configs

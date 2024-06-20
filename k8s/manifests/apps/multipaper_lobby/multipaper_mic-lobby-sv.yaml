@@ -35,9 +35,9 @@ spec:
               memory: 2G
               cpu: "2"
           #volumeMounts:
-          #  - name: multipaper-configs
-          #    mountPath: /app/multipaper.yml
-          #    subPath: multipaper.yml
+            - name: multipaper-configs
+              mountPath: /app/multipaper.yml
+              subPath: multipaper.yml
       volumes:
         - name: multipaper-configs
           configMap:

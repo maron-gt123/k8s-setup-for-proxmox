@@ -32,7 +32,7 @@ spec:
               containerPort: 25565
           resources:
             requests:
-              memory: 2G
+              memory: 2Gi
               cpu: "2"
           #volumeMounts:
             - name: multipaper-configs

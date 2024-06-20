@@ -23,9 +23,10 @@ spec:
               value: "TRUE"
             - name: TZ
               value: Asia/Tokyo
-            - name: JAVA_TOOL_OPTIONS
-              value: >-
-                DmultipaperMasterAddress=192.168.15.111:35353
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 2G
           ports:
             - name: multi-lobby-sv
               containerPort: 25565

@@ -28,7 +28,7 @@ spec:
             - name: MAX_MEMORY
               value: 2G
             - name: JAVA_TOOL_OPTIONS
-              value: "-Xmx1G -DmultipaperMasterAddress=0.0.0.0:35353"
+              value: "-Xmx1G -DmultipaperMasterAddress=primary-sv-ex-service:35353"
             - name: PLUGINS
               value: >-
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar,

@@ -26,8 +26,10 @@ spec:
               memory: 2G
               cpu: "2"
           ports:
-            - name: primary-sv
+            - name: multipaper-external-port
               containerPort: 25565
+            - name: multipaper-internal-port
+              containerPort: 35353
           volumeMounts:
             - name: primary-sv-storage
               mountPath: /app

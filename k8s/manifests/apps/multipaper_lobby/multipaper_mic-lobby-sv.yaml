@@ -34,7 +34,7 @@ spec:
             requests:
               memory: 2Gi
               cpu: "2"
-              #volumeMounts:
+          volumeMounts:
             - name: multipaper-configs
               mountPath: /app/multipaper.yml
               subPath: multipaper.yml

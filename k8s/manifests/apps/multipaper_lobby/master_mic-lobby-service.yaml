@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: mic-lobby-sv
-  name: master_mic-lobby-service
+  name: primary-sv-ex-service
   labels:
     app: primary-sv
 spec:

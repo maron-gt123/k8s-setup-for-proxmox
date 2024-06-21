@@ -27,6 +27,8 @@ spec:
               value: 1G
             - name: MAX_MEMORY
               value: 2G
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Xmx1G -DmultipaperMasterAddress=master:35353"
           ports:
             - name: multi-lobby-sv
               containerPort: 25565
@@ -34,11 +36,11 @@ spec:
             requests:
               memory: 2Gi
               cpu: "2"
-          volumeMounts:
-            - name: multipaper-configs
-              mountPath: /app/multipaper.yml
-              subPath: multipaper.yml
-      volumes:
-        - name: multipaper-configs
-          configMap:
-            name: multipaper-configs
+#          volumeMounts:
+#            - name: multipaper-configs
+#              mountPath: /app/multipaper.yml
+#              subPath: multipaper.yml
+#      volumes:
+#        - name: multipaper-configs
+#          configMap:
+#            name: multipaper-configs

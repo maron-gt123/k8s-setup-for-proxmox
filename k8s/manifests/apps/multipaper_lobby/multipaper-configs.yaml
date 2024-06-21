@@ -12,7 +12,7 @@ data:
     
     master-connection:
       advertise-to-built-in-proxy: true
-      master-address: 0.0.0.0:35353
+      master-address: 192.168.15.110:35353
       my-name: server20291
     optimizations:
       dont-save-just-for-lighting-updates: false

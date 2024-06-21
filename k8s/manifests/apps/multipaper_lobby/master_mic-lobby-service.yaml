@@ -8,7 +8,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - name: multipaper-external-port
+    - name: multipaper-internal-port
       port: 35353
       protocol: TCP
       targetPort: 35353

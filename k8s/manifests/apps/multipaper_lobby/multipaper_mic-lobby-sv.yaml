@@ -28,7 +28,7 @@ spec:
             - name: MAX_MEMORY
               value: 2G
             - name: JAVA_TOOL_OPTIONS
-              value: "-Xmx1G -DmultipaperMasterAddress=master:35353"
+              value: "-Xmx1G -DmultipaperMasterAddress=0.0.0.0:35353"
           ports:
             - name: multi-lobby-sv
               containerPort: 25565

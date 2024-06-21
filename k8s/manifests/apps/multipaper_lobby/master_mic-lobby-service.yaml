@@ -2,16 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: mic-lobby-sv
-  name: master-path
+  name: master_mic-lobby-service
   labels:
     app: primary-sv
-    role: path
 spec:
   type: ClusterIP
   ports:
-    - name: primary-sv
+    - name: multipaper-external-port
       port: 35353
       protocol: TCP
-      targetPort: jmx-metrics
+      targetPort: 35353
   selector:
     app: primary-sv

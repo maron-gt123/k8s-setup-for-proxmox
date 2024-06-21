@@ -23,10 +23,6 @@ spec:
               value: "TRUE"
             - name: TZ
               value: Asia/Tokyo
-            - name: INIT_MEMORY
-              value: 1G
-            - name: MAX_MEMORY
-              value: 2G
             - name: JAVA_TOOL_OPTIONS
               value: "-Xmx1G -DmultipaperMasterAddress=primary-sv-ex-service:35353"
             - name: PLUGINS

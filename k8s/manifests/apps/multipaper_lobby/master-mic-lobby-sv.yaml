@@ -26,9 +26,9 @@ spec:
               memory: 2G
               cpu: "2"
           ports:
-            - name: multipaper-ex-port
+            - name: multipaper-ex
               containerPort: 25565
-            - name: multipaper-int-port
+            - name: multipaper-int
               containerPort: 35353
           volumeMounts:
             - name: primary-sv-storage

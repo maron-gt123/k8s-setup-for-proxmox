@@ -17,34 +17,9 @@ spec:
         app: multi-lobby-sv
     spec:
       initContainers:
-        # jmx-exporterのダウンロード
-        - name: jmx-exporter-downloader
-          image: busybox:1.36.1
-          env:
-            - name: JMX_EXPORTER_URL
-              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar"
-          volumeMounts:
-            - name: jmx-exporter-download-volume
-              mountPath: /root/jmx-exporter-download
-          command:
-            - "sh"
-            - "-c"
-            - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
-        # minecraft-prometeus-exporterのダウンロード
-        - name: mc-prometeus-exporter-downloader
-          image: busybox:1.36.1
-          env:
-            - name: MC_PROMETEUSEXPORTER_URL
-              value: "https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar"
-          volumeMounts:
-            - name: mc-prometeus-exporter-download-volume
-              mountPath: /root/mc-prometeus-exporter-download
-          command:
-            - "sh"
-            - "-c"
-            - 'wget -O /root/mc-prometeus-exporter-download/minecraft-prometheus-exporter.jar "${MC_PROMETEUSEXPORTER_URL}"'
       containers:
         - image: noevidenz/multipaper:edge
+          user: root # this line sets the user inside the container
           name: multi-lobby-sv
           env:
             - name: EULA
@@ -55,6 +30,7 @@ spec:
               value: >-
                 -Xmx1G
                 -DmultipaperMasterAddress=primary-sv-service:35353
+                -Dproperties.allow-nether=false
                 -Dproperties.difficulty=peaceful
                 -Dproperties.level-type=minecraft\:flat
                 -Dproperties.max-tick-time=-1
@@ -64,6 +40,7 @@ spec:
                 -Dproperties.spawn-monsters=false
                 -Dproperties.spawn-npcs=false
                 -Dproperties.white-list=true
+                -Dbukkit.settings.allow-end=false
           ports:
             - name: multi-lobby-sv
               containerPort: 25565
@@ -74,26 +51,4 @@ spec:
               memory: 2Gi
               cpu: "2"
           volumeMounts:
-            # prometheusexporterの設定ファイル適応
-            - name: multipaper-plugin-configs
-              mountPath: /app/plugins/PrometheusExporter/config.yml
-              subPath: prometheusexporter.yml
-            # JMX exporter 周りのファイルが入ったボリューム達のマウント設定
-            - name: jmx-exporter-download-volume
-              mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
-              subPath: jmx-exporter-javaagent.jar
-            # minecraft-prometheus-exporter 周りのファイルが入ったボリューム達のマウント設定
-            - name: mc-prometeus-exporter-download-volume
-              mountPath: /app/plugins/minecraft-prometheus-exporter.jar
-              subPath: minecraft-prometheus-exporter.jar
       volumes:
-        # 各種plugin configファイルの格納先
-        - name: multipaper-plugin-configs
-          configMap:
-            name: multipaper-plugin-configs
-        # JMX exporterをinitContainerでダウンロードして受け渡すためのvolume
-        - name: jmx-exporter-download-volume
-          emptyDir: {}
-        # minecraft-prometeus-exporterをinitContainerでダウンロードして受け渡すためのvolume
-        - name: mc-prometeus-exporter-download-volume
-          emptyDir: {}

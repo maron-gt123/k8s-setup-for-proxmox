@@ -24,11 +24,9 @@ spec:
             - name: TZ
               value: Asia/Tokyo
             - name: JAVA_TOOL_OPTIONS
-              value: "-Xmx1G -DmultipaperMasterAddress=primary-sv-ex-service:35353"
-            - name: PLUGINS
-              value: >-
-                https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar,
-                https://download.luckperms.net/1549/bukkit/loader/LuckPerms-Bukkit-5.4.134.jar
+              value: >- 
+                - Xmx1G
+                - DmultipaperMasterAddress=primary-sv-ex-service:35353
           ports:
             - name: multi-lobby-sv
               containerPort: 25565

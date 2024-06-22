@@ -4,6 +4,7 @@ metadata:
   name: multipaper-configs-pvc
   namespace: mic-lobby-sv
 spec:
+  storageClassName: nfs-storage
   accessModes:
     - ReadWriteOnce
   resources:

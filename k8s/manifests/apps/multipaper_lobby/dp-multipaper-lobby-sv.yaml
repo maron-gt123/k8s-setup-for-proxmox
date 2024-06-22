@@ -50,4 +50,12 @@ spec:
               memory: 2Gi
               cpu: "2"
           volumeMounts:
+            # bukkit.yamlの設定ファイル適応
+            - name: config-copy
+              mountPath: /app/bukkit.yml
+              subPath: bukkit.yml
       volumes:
+        # 各種configファイルの格納先
+        - name: multipaper-configs
+          configMap:
+            name: multipaper-configs

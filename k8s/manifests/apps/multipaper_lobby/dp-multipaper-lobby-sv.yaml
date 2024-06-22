@@ -25,8 +25,8 @@ spec:
               value: Asia/Tokyo
             - name: JAVA_TOOL_OPTIONS
               value: >- 
-                - Xmx1G,
-                - DmultipaperMasterAddress=primary-sv-ex-service:35353
+                Xmx1G
+                DmultipaperMasterAddress=primary-sv-ex-service:35353
           ports:
             - name: multi-lobby-sv
               containerPort: 25565

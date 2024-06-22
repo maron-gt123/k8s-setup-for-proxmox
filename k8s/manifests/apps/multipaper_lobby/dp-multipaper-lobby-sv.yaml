@@ -17,6 +17,9 @@ spec:
         app: multi-lobby-sv
     spec:
       initContainers:
+      securityContext:
+        runAsUser: 1000 # 一般ユーザーID
+        runAsGroup: 3000 # 一般グループID
       containers:
         - image: noevidenz/multipaper:edge
           name: multi-lobby-sv

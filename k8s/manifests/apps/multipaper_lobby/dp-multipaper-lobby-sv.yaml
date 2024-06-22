@@ -61,4 +61,4 @@ spec:
         # 各種configファイルの格納先
         - name: multipaper-configs
           configMap:
-            name: multipaper-configs
+            name: multipaper-configs-pvc

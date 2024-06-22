@@ -43,25 +43,6 @@ spec:
             - "sh"
             - "-c"
             - 'wget -O /root/mc-prometeus-exporter-download/minecraft-prometheus-exporter.jar "${MC_PROMETEUSEXPORTER_URL}"'
-        # 読み取り専用回避策
-        - name: config-copier
-          image: busybox:1.36.1
-          command:
-            - "sh"
-            - "-c"
-            - |
-              cp /config/bukkit.yml /config-copy/bukkit.yml
-              cp /config/server.properties /config-copy/server.properties
-              cp /plugin-config/prometheusexporter.yml /plugin-config-copy/prometheusexporter.yml
-          volumeMounts:
-            - name: multipaper-configs
-              mountPath: /config
-            - name: multipaper-plugin-configs
-              mountPath: /plugin-config
-            - name: config-copy
-              mountPath: /config-copy
-            - name: plugin-config-copy
-              mountPath: /plugin-config-copy
       containers:
         - image: noevidenz/multipaper:edge
           name: multi-lobby-sv
@@ -74,6 +55,15 @@ spec:
               value: >-
                 -Xmx1G
                 -DmultipaperMasterAddress=primary-sv-service:35353
+                -Dproperties.difficulty=peaceful
+                -Dproperties.level-type=minecraft\:flat
+                -Dproperties.max-tick-time=-1
+                -Dproperties.max-world-size=500
+                -Dproperties.online-mode=false
+                -Dproperties.spawn-animals=false
+                -Dproperties.spawn-monsters=false
+                -Dproperties.spawn-npcs=false
+                -Dproperties.white-list=true
           ports:
             - name: multi-lobby-sv
               containerPort: 25565
@@ -84,16 +74,8 @@ spec:
               memory: 2Gi
               cpu: "2"
           volumeMounts:
-            # bukkit.yamlの設定ファイル適応
-            - name: config-copy
-              mountPath: /app/bukkit.yml
-              subPath: bukkit.yml
-            # server.propertiesの設定ファイル適応
-            - name: config-copy
-              mountPath: /app/server.properties
-              subPath: server.properties
             # prometheusexporterの設定ファイル適応
-            - name: plugin-config-copy
+            - name: multipaper-plugin-configs
               mountPath: /app/plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml
             # JMX exporter 周りのファイルが入ったボリューム達のマウント設定
@@ -105,10 +87,6 @@ spec:
               mountPath: /app/plugins/minecraft-prometheus-exporter.jar
               subPath: minecraft-prometheus-exporter.jar
       volumes:
-        # 各種configファイルの格納先
-        - name: multipaper-configs
-          configMap:
-            name: multipaper-configs
         # 各種plugin configファイルの格納先
         - name: multipaper-plugin-configs
           configMap:
@@ -118,9 +96,4 @@ spec:
           emptyDir: {}
         # minecraft-prometeus-exporterをinitContainerでダウンロードして受け渡すためのvolume
         - name: mc-prometeus-exporter-download-volume
-          emptyDir: {}
-        # 読み取り専用回避用
-        - name: config-copy
-          emptyDir: {}
-        - name: plugin-config-copy
           emptyDir: {}

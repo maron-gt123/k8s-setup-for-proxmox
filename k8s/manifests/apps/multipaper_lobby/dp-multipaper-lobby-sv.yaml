@@ -23,6 +23,7 @@ spec:
       containers:
         - image: noevidenz/multipaper:edge
           name: multi-lobby-sv
+          user: root # コンテナ内のプロセスをrootとして実行
           env:
             - name: EULA
               value: "TRUE"
@@ -58,7 +59,3 @@ spec:
               mountPath: /app/bukkit.yml
               subPath: bukkit.yml
       volumes:
-        # 各種configファイルの格納先
-        - name: multipaper-configs
-          configMap:
-            name: multipaper-configs-pvc

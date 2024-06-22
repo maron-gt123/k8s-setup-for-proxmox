@@ -6,6 +6,7 @@ metadata:
   labels:
     app: multi-lobby-sv
 spec:
+  # 負荷分散数を設定
   replicas: 2
   selector:
     matchLabels:
@@ -27,19 +28,22 @@ spec:
               value: >-
                 -Xmx1G
                 -DmultipaperMasterAddress=primary-sv-ex-service:35353
-                -Dbukkit.settings.allowend=false
           ports:
             - name: multi-lobby-sv
               containerPort: 25565
+            - name: metrics
+              containerPort: 9225
           resources:
             requests:
               memory: 2Gi
               cpu: "2"
           volumeMounts:
+            # bukkit.yamlの設定ファイル適応
             - name: multipaper-configs
               mountPath: /app/bukkit.yml
               subPath: bukkit.yml
       volumes:
+        # 各種configファイルの格納先
         - name: multipaper-configs
           configMap:
             name: multipaper-configs

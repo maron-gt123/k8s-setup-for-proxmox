@@ -12,9 +12,5 @@ spec:
       port: 35353
       protocol: TCP
       targetPort: 35353
-    - name: multipaper-ex
-      port: 25565
-      protocol: TCP
-      targetPort: 25565
   selector:
     app: primary-sv

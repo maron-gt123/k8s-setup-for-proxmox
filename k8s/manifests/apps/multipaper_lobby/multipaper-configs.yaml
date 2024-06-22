@@ -4,41 +4,36 @@ metadata:
   namespace: mic-lobby-sv
   name: multipaper-configs
 data:
-  multipaper.yml: |
-    # This is the main configuration file for MultiPaper.
-    # There's quite alot to configure. Read the docs for more information.
-    #
-    # Docs: https://github.com/PureGero/MultiPaper/blob/main/MULTIPAPER_YAML.md
-    
-    master-connection:
-      advertise-to-built-in-proxy: true
-      master-address: 192.168.15.110:35353
-      my-name: server20291
-    optimizations:
-      dont-save-just-for-lighting-updates: false
-      max-footstep-packets-sent-per-player: -1
-      reduce-player-position-updates-in-unloaded-chunks: false
-      ticks-per-inactive-entity-tracking: 1
-      use-event-based-io: true
-    peer-connection:
-      compression-threshold: 0
-      consolidation-delay: 0
-    sync-settings:
-      files:
-        files-to-not-sync:
-        - plugins/bStats
-        files-to-only-upload-on-server-stop:
-        - plugins/MyPluginDirectory/my_big_database.db
-        files-to-sync-in-real-time:
-        - plugins/MyPluginDirectory/userdata
-        files-to-sync-on-startup:
-        - myconfigfile.yml
-        - plugins/MyPlugin.jar
-        log-file-syncs: true
-      persistent-player-entity-ids: true
-      persistent-vehicle-entity-ids-seconds: 15
-      sync-entity-ids: true
-      sync-json-files: true
-      sync-permissions: false
-      sync-scoreboards: true
-      use-local-player-count-for-server-is-full-kick: false
+  bukkit.yml: |
+    settings:
+      allow-end: false
+      warn-on-overload: true
+      permissions-file: permissions.yml
+      update-folder: update
+      plugin-profiling: false
+      connection-throttle: 4000
+      query-plugins: true
+      deprecated-verbose: default
+      shutdown-message: Server closed
+      minimum-api: none
+      use-map-color-cache: true
+    spawn-limits:
+      monsters: 70
+      animals: 10
+      water-animals: 5
+      water-ambient: 20
+      water-underground-creature: 5
+      axolotls: 5
+      ambient: 15
+    chunk-gc:
+      period-in-ticks: 600
+    ticks-per:
+      animal-spawns: 400
+      monster-spawns: 1
+      water-spawns: 1
+      water-ambient-spawns: 1
+      water-underground-creature-spawns: 1
+      axolotl-spawns: 1
+      ambient-spawns: 1
+      autosave: 6000
+    aliases: now-in-commands.yml

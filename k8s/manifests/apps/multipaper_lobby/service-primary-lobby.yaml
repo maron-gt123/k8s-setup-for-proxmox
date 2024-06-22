@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: mic-lobby-sv
-  name: primary-sv-ex-service
+  name: primary-sv-service
   labels:
     app: primary-sv
 spec:
@@ -12,5 +12,9 @@ spec:
       port: 35353
       protocol: TCP
       targetPort: 35353
+    - name: multipaper-ex
+      port: 25565
+      protocol: TCP
+      targetPort: 25565
   selector:
     app: primary-sv

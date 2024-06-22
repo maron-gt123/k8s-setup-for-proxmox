@@ -27,7 +27,7 @@ spec:
               value: >-
                 -Xmx1G
                 -DmultipaperMasterAddress=primary-sv-ex-service:35353
-                -Dbukkitallowend=false
+                -Dbukkit.settings.allowend=false
           ports:
             - name: multi-lobby-sv
               containerPort: 25565

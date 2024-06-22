@@ -18,6 +18,7 @@ spec:
       containers:
         - name: primary-sv
           image: noevidenz/multipaper-master:edge
+          user: root # this line sets the user inside the container
           env:
             - name: TZ
               value: Asia/Tokyo

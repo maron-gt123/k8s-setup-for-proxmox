@@ -14,3 +14,21 @@ spec:
       targetPort: 35353
   selector:
     app: primary-sv
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: mic-lobby-sv
+  name: primary-sv-lb
+  labels:
+    app: primary-sv
+spec:
+  type: LoadBalancer
+  ports:
+    - name: multipaper-ex
+      port: 25565
+      protocol: TCP
+      targetPort: 25565
+  selector:
+    app: primary-sv
+  loadBalancerIP: 192.168.15.87

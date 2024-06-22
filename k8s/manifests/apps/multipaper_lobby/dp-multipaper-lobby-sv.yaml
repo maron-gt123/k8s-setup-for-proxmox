@@ -19,7 +19,6 @@ spec:
       initContainers:
       containers:
         - image: noevidenz/multipaper:edge
-          user: root # this line sets the user inside the container
           name: multi-lobby-sv
           env:
             - name: EULA

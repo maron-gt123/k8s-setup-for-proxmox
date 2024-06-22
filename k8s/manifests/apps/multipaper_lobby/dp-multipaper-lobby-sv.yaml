@@ -17,13 +17,9 @@ spec:
         app: multi-lobby-sv
     spec:
       initContainers:
-      securityContext:
-        runAsUser: 1000 # 一般ユーザーID
-        runAsGroup: 3000 # 一般グループID
       containers:
         - image: noevidenz/multipaper:edge
           name: multi-lobby-sv
-          user: multipaper
           env:
             - name: EULA
               value: "TRUE"
@@ -55,10 +51,10 @@ spec:
               cpu: "2"
           volumeMounts:
             # bukkit.yamlの設定ファイル適応
-            - name: multipaper-configs
-              mountPath: /app/bukkit.yml
-              subPath: bukkit.yml
+            #- name: multipaper-configs
+            #  mountPath: /app/bukkit.yml
+            #  subPath: bukkit.yml
       volumes:
-        - name: multipaper-configs
-          configMap:
-            name: multipaper-configs
+        #- name: multipaper-configs
+        #  configMap:
+        #    name: multipaper-configs

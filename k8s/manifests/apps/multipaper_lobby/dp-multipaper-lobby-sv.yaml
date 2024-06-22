@@ -42,6 +42,10 @@ spec:
             - name: multipaper-configs
               mountPath: /app/bukkit.yml
               subPath: bukkit.yml
+            # server.propertiesの設定ファイル適応
+            - name: multipaper-configs
+              mountPath: /app/server.properties
+              subPath: server.properties
       volumes:
         # 各種configファイルの格納先
         - name: multipaper-configs

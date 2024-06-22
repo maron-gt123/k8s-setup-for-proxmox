@@ -23,7 +23,7 @@ spec:
       containers:
         - image: noevidenz/multipaper:edge
           name: multi-lobby-sv
-          user: root # コンテナ内のプロセスをrootとして実行
+          user: multipaper
           env:
             - name: EULA
               value: "TRUE"

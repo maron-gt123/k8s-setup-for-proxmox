@@ -35,3 +35,11 @@ spec:
             requests:
               memory: 2Gi
               cpu: "2"
+          volumeMounts:
+            - name: multipaper-configs
+              mountPath: /app/bukkit.yml
+              subPath: bukkit.yml
+      volumes:
+        - name: multipaper-configs
+          configMap:
+            name: multipaper-configs

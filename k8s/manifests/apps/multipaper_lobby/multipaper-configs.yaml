@@ -38,3 +38,14 @@ data:
       ambient-spawns: 1
       autosave: 6000
     aliases: now-in-commands.yml
+  whitelist.json: |
+    [
+      {
+        "uuid": "a4ea87de-f923-4889-9bd2-7d4899803d2d",
+        "name": "latch1225"
+      },
+      {
+        "uuid": "ebd6ed5c-7a32-49fd-b287-df57f2ffb33b",
+        "name": "maron_12345"
+      }
+    ]  

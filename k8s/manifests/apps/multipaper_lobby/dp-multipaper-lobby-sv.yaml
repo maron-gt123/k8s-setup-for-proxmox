@@ -19,7 +19,13 @@ spec:
       initContainers:
         - name: copy-config
           image: busybox
-          command: ['sh', '-c', 'cp /mnt/config/bukkit.yml /app/bukkit.yml']
+          command:
+            - sh
+            - -c
+            - >
+              cp /mnt/config/bukkit.yml /app/bukkit.yml &&
+              cp /mnt/config/whitelist.json /app/whitelist.json &&
+              cp /mnt/config/paper-global.yml /app/config/paper-global.yml
           volumeMounts:
             - name: config-volume
               mountPath: /mnt/config
@@ -27,7 +33,14 @@ spec:
               mountPath: /app
         - name: set-permissions
           image: busybox
-          command: ['sh', '-c', 'chown -R 1000:1000 /app && chmod -R 755 /app']      
+          command:
+            - sh
+            - -c
+            - >
+              chown -R 1000:1000 /app &&
+              chmod -R 755 /app
+              chown -R 1000:1000 /app/config &&
+              chmod -R 755 /app/config
           volumeMounts:
             - name: app-dir
               mountPath: /app

@@ -67,9 +67,10 @@ spec:
               memory: 2Gi
               cpu: "2"
           volumeMounts:
+            - name: config-volume
+              mountPath: /mnt/config
             - name: emptydir
-              mountPath: /app/bukkit.yml
-              subPath: bukkit.yml
+              mountPath: /mnt/emptydir
       volumes:
         - name: config-volume
           configMap:

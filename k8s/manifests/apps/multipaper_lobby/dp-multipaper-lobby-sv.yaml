@@ -19,7 +19,7 @@ spec:
       initContainers:
         - name: copy-config
           image: busybox
-          command: ['sh', '-c', 'cp /mnt/config/bukkit.yml /app/bukkit.yml && cp /mnt/config/whitelist.json /app/whitelist.json && cp /mnt/config/paper-global.yml /app/config/paper-global.yml']
+          command: ['sh', '-c', 'mkdir -p /app/config && cp /mnt/config/bukkit.yml /app/bukkit.yml && cp /mnt/config/whitelist.json /app/whitelist.json && cp /mnt/config/paper-global.yml /app/config/paper-global.yml']
           volumeMounts:
             - name: config-volume
               mountPath: /mnt/config

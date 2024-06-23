@@ -84,10 +84,11 @@ data:
     S2 = "mic-paper02.micnet:25565"
     k8s = "mic-k8s.micnet:25565"
     music = "mic-k8s-music.micnet:25565"
+    temp = "primary-sv-ex-service:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
-        "lobby"
+        "temp"
     ]
     
     [forced-hosts]
@@ -106,6 +107,9 @@ data:
     ]
     "music.example.com" = [
         "music"
+    ]
+    "temp.example.com" = [
+        "temp"
     ]
     
     [advanced]

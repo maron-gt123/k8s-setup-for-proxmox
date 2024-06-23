@@ -108,9 +108,6 @@ data:
     "music.example.com" = [
         "music"
     ]
-    "temp.example.com" = [
-        "temp"
-    ]
     
     [advanced]
     # How large a Minecraft packet has to be before we compress it. Setting this to zero will

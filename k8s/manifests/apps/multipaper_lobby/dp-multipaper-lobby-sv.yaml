@@ -17,9 +17,20 @@ spec:
         app: multi-lobby-sv
     spec:
       initContainers:
+        - name: copy-config
+          image: busybox
+          command: ['sh', '-c', 'cp /mnt/config/bukkit.yml /app/bukkit.yml']
+          volumeMounts:
+            - name: config-volume
+              mountPath: /mnt/config
+            - name: app-dir
+              mountPath: /app
         - name: set-permissions
           image: busybox
           command: ['sh', '-c', 'chown -R 1000:1000 /app && chmod -R 755 /app']      
+          volumeMounts:
+            - name: app-dir
+              mountPath: /app
           securityContext:
             runAsUser: 0
       containers:
@@ -54,10 +65,11 @@ spec:
               memory: 2Gi
               cpu: "2"
           volumeMounts:
-            - name: multipaper-configs
-              mountPath: /app/bukkiit.yml
-              subPath: bukkiit.yml
+            - name: app-dir
+              mountPath: /app
       volumes:
-        - name: multipaper-configs
+        - name: config-volume
           configMap:
             name: multipaper-configs
+        - name: app-dir
+          emptyDir: {}

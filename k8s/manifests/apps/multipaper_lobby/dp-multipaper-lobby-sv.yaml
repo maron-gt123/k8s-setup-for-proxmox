@@ -17,6 +17,12 @@ spec:
         app: multi-lobby-sv
     spec:
       initContainers:
+        - name: bukkit-permissions
+          image: busybox
+          command: ["sh", "-c", "chown -R 1000:1000 /mnt/config && chmod -R 755 /mnt/config"]
+          volumeMounts:
+            - name: config-volume
+              mountPath: /mnt/config
       containers:
         - image: noevidenz/multipaper:edge
           name: multi-lobby-sv
@@ -50,11 +56,14 @@ spec:
               memory: 2Gi
               cpu: "2"
           volumeMounts:
-            # bukkit.yamlの設定ファイル適応
-            #- name: multipaper-configs
-            #  mountPath: /app/bukkit.yml
-            #  subPath: bukkit.yml
+            # bukkit.ymlの設定ファイル適応
+            - name: config-volume
+              mountPath: /app/bukkit.yml
+              subPath: bukkit.yml
       volumes:
-        #- name: multipaper-configs
-        #  configMap:
-        #    name: multipaper-configs
+        - name: config-volume
+          configMap:
+            name: multipaper-configs
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000

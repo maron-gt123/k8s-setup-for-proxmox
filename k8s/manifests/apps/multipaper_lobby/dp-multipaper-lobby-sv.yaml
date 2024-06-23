@@ -44,7 +44,7 @@ spec:
             - name: JAVA_TOOL_OPTIONS
               value: >-
                 -Xmx1G
-                -DmultipaperMasterAddress=primary-sv-service:35353
+                -DmultipaperMasterAddress=primary-sv-int-service:35353
                 -Dproperties.allow-nether=false
                 -Dproperties.difficulty=peaceful
                 -Dproperties.level-type=minecraft\:flat

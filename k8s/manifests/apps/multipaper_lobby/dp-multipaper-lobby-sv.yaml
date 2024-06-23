@@ -17,23 +17,11 @@ spec:
         app: multi-lobby-sv
     spec:
       initContainers:
-        - name: copy-config
-          image: busybox
-          command: ["sh", "-c", "cp -r /mnt/config/* /mnt/emptydir/"]
-          volumeMounts:
-            - name: config-volume
-              mountPath: /mnt/config
-            - name: emptydir
-              mountPath: /mnt/emptydir
         - name: set-permissions
           image: busybox
-          command: ["sh", "-c", "chown -R 1000:1000 /mnt/emptydir && chmod -R 755 /mnt/emptydir"]
-          volumeMounts:
-            - name: emptydir
-              mountPath: /mnt/emptydir
+          command: ['sh', '-c', 'chown -R 1000:1000 /app && chmod -R 755 /app']      
           securityContext:
             runAsUser: 0
-            runAsGroup: 0
       containers:
         - image: noevidenz/multipaper:edge
           name: multi-lobby-sv
@@ -56,7 +44,6 @@ spec:
                 -Dproperties.spawn-monsters=false
                 -Dproperties.spawn-npcs=false
                 -Dproperties.white-list=true
-                -Dbukkit.settings.allow-end=false
           ports:
             - name: multi-lobby-sv
               containerPort: 25565
@@ -67,16 +54,10 @@ spec:
               memory: 2Gi
               cpu: "2"
           volumeMounts:
-            - name: config-volume
-              mountPath: /mnt/config
-            - name: emptydir
-              mountPath: /mnt/emptydir
+            - name: multipaper-configs
+              mountPath: /app/bukkiit.yml
+              subPath: bukkiit.yml
       volumes:
-        - name: config-volume
+        - name: multipaper-configs
           configMap:
             name: multipaper-configs
-        - name: emptydir
-          emptyDir: {}
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000

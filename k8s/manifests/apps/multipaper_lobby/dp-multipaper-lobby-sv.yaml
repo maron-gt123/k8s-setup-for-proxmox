@@ -47,9 +47,6 @@ spec:
                 -DmultipaperMasterAddress=primary-sv-int-service:35353
                 -Dproperties.allow-nether=false
                 -Dproperties.difficulty=peaceful
-                #-Dproperties.level-type=minecraft\:flat
-                #-Dproperties.max-tick-time=-1
-                #-Dproperties.max-world-size=500
                 -Dproperties.online-mode=false
                 -Dproperties.spawn-animals=false
                 -Dproperties.spawn-monsters=false

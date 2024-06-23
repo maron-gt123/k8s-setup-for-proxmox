@@ -54,7 +54,7 @@ spec:
                 -Dproperties.spawn-animals=false
                 -Dproperties.spawn-monsters=false
                 -Dproperties.spawn-npcs=false
-                -Dproperties.white-list=true
+                -Dproperties.white-list=false
                 -Dspigot.settings.bungeecord=true
           ports:
             - name: multi-lobby-sv

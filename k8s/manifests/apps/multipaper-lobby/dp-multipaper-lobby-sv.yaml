@@ -26,7 +26,7 @@ spec:
               mkdir -p /app/config &&
               cp /mnt/config/bukkit.yml /app/bukkit.yml &&
               cp /mnt/config/whitelist.json /app/whitelist.json &&
-              cp /mnt/config/server.properties /app/server.properties &&
+              #cp /mnt/config/server.properties /app/server.properties &&
               cp /mnt/config/paper-global.yml /app/config/paper-global.yml
           volumeMounts:
             - name: config-volume
@@ -61,6 +61,15 @@ spec:
                 -Xmx1G
                 -DmultipaperMasterAddress=primary-sv-int-service:35353
                 -Dspigot.settings.bungeecord=true
+                -Dproperties.allow-nether=false
+                -Dproperties.difficulty=peaceful
+                -Dproperties.max-tick-time=-1
+                -Dproperties.max-world-size=500
+                -Dproperties.online-mode=false
+                -Dproperties.spawn-animals=false
+                -Dproperties.spawn-monsters=false
+                -Dproperties.spawn-npcs=false
+                -Dproperties.white-list=true
           ports:
             - name: multi-lobby-sv
               containerPort: 25565

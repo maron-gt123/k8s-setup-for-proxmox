@@ -50,6 +50,8 @@ spec:
               value: "https://dev.bukkit.org/projects/worldedit/files/latest"
             - name: WORLDGUARD_URL
               value: "https://dev.bukkit.org/projects/worldguard/files/latest"
+            - name: SPAWN_URL
+              value: "https://cdn.modrinth.com/data/Pw3KRjwE/versions/mgrZ4A8t/Spawn-2.4.1.jar"
           command:
             - sh
             - -c
@@ -61,7 +63,8 @@ spec:
               wget -O /app/plugins/Advanced-Portals.jar "${ADVANCEDPORTALS_URL}" &&
               wget -O /app/plugins/DecentHolograms.jar "${DECENTHOLOGRAMS_URL}" &&
               wget -O /app/plugins/worldedit.jar "${WORLDEDIT_URL}" &&
-              wget -O /app/plugins/worldguard.jar "${WORLDGUARD_URL}"
+              wget -O /app/plugins/worldguard.jar "${WORLDGUARD_URL}" &&
+              wget -O /app/plugins/Spawn.jar "${SPAWN_URL}"
           volumeMounts:
             - name: app-dir
               mountPath: /app
@@ -90,8 +93,6 @@ spec:
               value: "TRUE"
             - name: TZ
               value: Asia/Tokyo
-            - name: SPIGET_RESOURCES
-              value: 94841
             - name: JAVA_TOOL_OPTIONS
               value: >-
                 -Xmx1G

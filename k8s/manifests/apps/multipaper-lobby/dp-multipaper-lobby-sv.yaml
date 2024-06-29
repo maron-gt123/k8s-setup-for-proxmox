@@ -50,8 +50,6 @@ spec:
               value: "https://dev.bukkit.org/projects/worldedit/files/latest"
             - name: WORLDGUARD_URL
               value: "https://dev.bukkit.org/projects/worldguard/files/latest"
-            - name: SPAWNPLUGIN_URL
-              value: "https://www.spigotmc.org/resources/spawnplugin-1-12-1-19.94841/download?version=434462"
           command:
             - sh
             - -c
@@ -63,8 +61,7 @@ spec:
               wget -O /app/plugins/Advanced-Portals.jar "${ADVANCEDPORTALS_URL}" &&
               wget -O /app/plugins/DecentHolograms.jar "${DECENTHOLOGRAMS_URL}" &&
               wget -O /app/plugins/worldedit.jar "${WORLDEDIT_URL}" &&
-              wget -O /app/plugins/worldguard.jar "${WORLDGUARD_URL}" &&
-              curl -L -o /app/plugins/SpawnPlugin.jar "${SPAWNPLUGIN_URL}"
+              wget -O /app/plugins/worldguard.jar "${WORLDGUARD_URL}"
           volumeMounts:
             - name: app-dir
               mountPath: /app
@@ -98,6 +95,8 @@ spec:
                 -Xmx1G
                 -DmultipaperMasterAddress=primary-sv-int-service:35353
                 -Dspigot.settings.bungeecord=true
+            - name: SPIGET_RESOURCES
+              value: 94841
           ports:
             - name: multi-lobby-sv
               containerPort: 25565

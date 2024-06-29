@@ -40,13 +40,20 @@ spec:
               value: "https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar"
             - name: LUCKPERMS_URL
               value: "https://download.luckperms.net/1549/bukkit/loader/LuckPerms-Bukkit-5.4.134.jar"
+          volumeMounts:
+            - name: prometheus-exporter-download-volume
+              mountPath: /mnt/prometheus-exporter-download
+            - name: luckperms-download-volume
+              mountPath: /mnt/luckperms-download
+            - name: plugins-dir
+              mountPath: /app/plugins
           command:
             - sh
             - -c
             - >
               mkdir -p /app/plugins &&
-              wget -P /app/plugins "${PROMETHEUS_EXPORTER_URL}" &&
-              wget -P /app/plugins "${LUCKPERMS_URL}"
+              wget -O /mnt/prometheus-exporter-download/minecraft-prometheus-exporter.jar "${PROMETHEUS_EXPORTER_URL}" &&
+              wget -O /mnt/luckperms-download/LuckPerms-Bukkit.jar "${LUCKPERMS_URL}"
           volumeMounts:
             - name: plugins-dir
               mountPath: /app/plugins
@@ -99,4 +106,8 @@ spec:
         - name: app-dir
           emptyDir: {}
         - name: plugins-dir
+          emptyDir: {}
+        - name: prometheus-exporter-download-volume
+          emptyDir: {}
+        - name: luckperms-download-volume
           emptyDir: {}

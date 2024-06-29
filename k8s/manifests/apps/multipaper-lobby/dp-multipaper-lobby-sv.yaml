@@ -63,8 +63,8 @@ spec:
               wget -O /app/plugins/Advanced-Portals.jar "${ADVANCEDPORTALS_URL}" &&
               wget -O /app/plugins/DecentHolograms.jar "${DECENTHOLOGRAMS_URL}" &&
               wget -O /app/plugins/SpawnPlugin.jar "${SPAWNPLUGIN_URL}" &&
-              wget -O /app/plugins/SpawnPlugin.jar "${WORLDEDIT_URL}" &&
-              wget -O /app/plugins/SpawnPlugin.jar "${WORLDGUARD_URL}"
+              wget -O /app/plugins/worldedit.jar "${WORLDEDIT_URL}" &&
+              wget -O /app/plugins/worldguard.jar "${WORLDGUARD_URL}"
           volumeMounts:
             - name: app-dir
               mountPath: /app

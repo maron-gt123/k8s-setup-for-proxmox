@@ -62,9 +62,9 @@ spec:
               wget -O /app/plugins/LunaChat.jar "${LUNACHAT_URL}" &&
               wget -O /app/plugins/Advanced-Portals.jar "${ADVANCEDPORTALS_URL}" &&
               wget -O /app/plugins/DecentHolograms.jar "${DECENTHOLOGRAMS_URL}" &&
-              wget -O /app/plugins/SpawnPlugin.jar "${SPAWNPLUGIN_URL}" &&
-              wget -O /app/plugins/worldedit.jar "${WORLDEDIT_URL}" &&
-              wget -O /app/plugins/worldguard.jar "${WORLDGUARD_URL}"
+              curl -L -o /app/plugins/SpawnPlugin.jar "${SPAWNPLUGIN_URL}" &&
+              curl -L -o /app/plugins/worldedit.jar "${WORLDEDIT_URL}" &&
+              curl -L -o /app/plugins/worldguard.jar "${WORLDGUARD_URL}"
           volumeMounts:
             - name: app-dir
               mountPath: /app

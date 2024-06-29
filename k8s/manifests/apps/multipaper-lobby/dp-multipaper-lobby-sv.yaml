@@ -47,6 +47,9 @@ spec:
               mkdir -p /app/plugins &&
               wget -P /app/plugins "${PROMETHEUS_EXPORTER_URL}" &&
               wget -P /app/plugins "${LUCKPERMS_URL}"
+          volumeMounts:
+            - name: app-dir
+              mountPath: /app/plugins
         - name: set-permissions
           image: busybox:1.36.1
           command:

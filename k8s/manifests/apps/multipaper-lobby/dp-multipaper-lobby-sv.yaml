@@ -46,12 +46,12 @@ spec:
               value: "https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar"
             - name: DECENTHOLOGRAMS_URL
               value: "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar"
-            - name: SPAWNPLUGIN_URL
-              value: "https://www.spigotmc.org/resources/spawnplugin-1-12-1-19.94841/download?version=434462"
             - name: WORLDEDIT_URL
               value: "https://dev.bukkit.org/projects/worldedit/files/latest"
             - name: WORLDGUARD_URL
               value: "https://dev.bukkit.org/projects/worldguard/files/latest"
+            - name: SPAWNPLUGIN_URL
+              value: "https://www.spigotmc.org/resources/spawnplugin-1-12-1-19.94841/download?version=434462"
           command:
             - sh
             - -c
@@ -62,9 +62,9 @@ spec:
               wget -O /app/plugins/LunaChat.jar "${LUNACHAT_URL}" &&
               wget -O /app/plugins/Advanced-Portals.jar "${ADVANCEDPORTALS_URL}" &&
               wget -O /app/plugins/DecentHolograms.jar "${DECENTHOLOGRAMS_URL}" &&
-              curl -L -o /app/plugins/SpawnPlugin.jar "${SPAWNPLUGIN_URL}" &&
               curl -L -o /app/plugins/worldedit.jar "${WORLDEDIT_URL}" &&
-              curl -L -o /app/plugins/worldguard.jar "${WORLDGUARD_URL}"
+              curl -L -o /app/plugins/worldguard.jar "${WORLDGUARD_URL}" &&
+              curl -L -o /app/plugins/SpawnPlugin.jar "${SPAWNPLUGIN_URL}"
           volumeMounts:
             - name: app-dir
               mountPath: /app

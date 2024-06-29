@@ -40,13 +40,31 @@ spec:
               value: "https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar"
             - name: LUCKPERMS_URL
               value: "https://download.luckperms.net/1549/bukkit/loader/LuckPerms-Bukkit-5.4.134.jar"
+            - name: LUNACHAT_URL
+              value: "https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar"
+            - name: ADVANCEDPORTALS_URL
+              value: "https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar"
+            - name: DECENTHOLOGRAMS_URL
+              value: "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar"
+            - name: SPAWNPLUGIN_URL
+              value: "https://www.spigotmc.org/resources/spawnplugin-1-12-1-19.94841/download?version=434462"
+            - name: WORLDEDIT_URL
+              value: "https://dev.bukkit.org/projects/worldedit/files/latest"
+            - name: WORLDGUARD_URL
+              value: "https://dev.bukkit.org/projects/worldguard/files/latest"
           command:
             - sh
             - -c
             - >
               mkdir -p /app/plugins &&
               wget -O /app/plugins/minecraft-prometheus-exporter.jar "${PROMETHEUS_EXPORTER_URL}" &&
-              wget -O /app/plugins/LuckPerms-Bukkit.jar "${LUCKPERMS_URL}"
+              wget -O /app/plugins/LuckPerms-Bukkit.jar "${LUCKPERMS_URL}" &&
+              wget -O /app/plugins/LunaChat.jar "${LUNACHAT_URL}" &&
+              wget -O /app/plugins/Advanced-Portals.jar "${ADVANCEDPORTALS_URL}" &&
+              wget -O /app/plugins/DecentHolograms.jar "${DECENTHOLOGRAMS_URL}" &&
+              wget -O /app/plugins/SpawnPlugin.jar "${SPAWNPLUGIN_URL}" &&
+              wget -O /app/plugins/SpawnPlugin.jar "${WORLDEDIT_URL}" &&
+              wget -O /app/plugins/SpawnPlugin.jar "${WORLDGUARD_URL}"
           volumeMounts:
             - name: app-dir
               mountPath: /app
@@ -97,10 +115,4 @@ spec:
           configMap:
             name: multipaper-configs
         - name: app-dir
-          emptyDir: {}
-        - name: plugins-dir
-          emptyDir: {}
-        - name: prometheus-exporter-download-volume
-          emptyDir: {}
-        - name: luckperms-download-volume
           emptyDir: {}

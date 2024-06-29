@@ -18,7 +18,7 @@ spec:
     spec:
       initContainers:
         - name: copy-config
-          image: busybox
+          image: busybox:1.36.1
           command:
             - sh
             - -c
@@ -26,14 +26,29 @@ spec:
               mkdir -p /app/config &&
               cp /mnt/config/bukkit.yml /app/bukkit.yml &&
               cp /mnt/config/whitelist.json /app/whitelist.json &&
+              cp /mnt/config/server.properties /app/server.properties &&
               cp /mnt/config/paper-global.yml /app/config/paper-global.yml
           volumeMounts:
             - name: config-volume
               mountPath: /mnt/config
             - name: app-dir
               mountPath: /app
+        - name: plugins-get
+          image: busybox:1.36.1
+          env:
+            - name: PROMETHEUS_EXPORTER_URL
+              value: "https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar"
+            - name: LUCKPERMS_URL
+              value: "https://download.luckperms.net/1549/bukkit/loader/LuckPerms-Bukkit-5.4.134.jar"
+          command:
+            - sh
+            - -c
+            - >
+              mkdir -p /app/plugins &&
+              wget -P /app/plugins "${PROMETHEUS_EXPORTER_URL}" &&
+              wget -P /app/plugins "${LUCKPERMS_URL}"
         - name: set-permissions
-          image: busybox
+          image: busybox:1.36.1
           command:
             - sh
             - -c
@@ -41,7 +56,9 @@ spec:
               chown -R 1000:1000 /app &&
               chmod -R 755 /app &&
               chown -R 1000:1000 /app/config &&
-              chmod -R 755 /app/config
+              chmod -R 755 /app/config &&
+              chown -R 1000:1000 /app/plugins &&
+              chmod -R 755 /app/plugins
           volumeMounts:
             - name: app-dir
               mountPath: /app
@@ -60,15 +77,6 @@ spec:
                 -Xmx1G
                 -DmultipaperMasterAddress=primary-sv-int-service:35353
                 -Dspigot.settings.bungeecord=true
-                -Dproperties.allow-nether=false
-                -Dproperties.difficulty=peaceful
-                -Dproperties.max-tick-time=-1
-                -Dproperties.max-world-size=500
-                -Dproperties.online-mode=false
-                -Dproperties.spawn-animals=false
-                -Dproperties.spawn-monsters=false
-                -Dproperties.spawn-npcs=false
-                -Dproperties.white-list=true
           ports:
             - name: multi-lobby-sv
               containerPort: 25565
@@ -86,4 +94,6 @@ spec:
           configMap:
             name: multipaper-configs
         - name: app-dir
+          emptyDir: {}
+        - name: plugins-dir
           emptyDir: {}

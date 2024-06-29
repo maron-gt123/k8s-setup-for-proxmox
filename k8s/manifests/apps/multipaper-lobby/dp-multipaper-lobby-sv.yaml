@@ -90,13 +90,13 @@ spec:
               value: "TRUE"
             - name: TZ
               value: Asia/Tokyo
+            - name: SPIGET_RESOURCES
+              value: 94841
             - name: JAVA_TOOL_OPTIONS
               value: >-
                 -Xmx1G
                 -DmultipaperMasterAddress=primary-sv-int-service:35353
                 -Dspigot.settings.bungeecord=true
-            - name: SPIGET_RESOURCES
-              value: 94841
           ports:
             - name: multi-lobby-sv
               containerPort: 25565

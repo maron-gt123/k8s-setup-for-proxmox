@@ -49,7 +49,7 @@ spec:
             - name: WORLDEDIT_URL
               value: "https://dev.bukkit.org/projects/worldedit/files/5145924/download"
             - name: WORLDGUARD_URL
-              value: "https://dev.bukkit.org/projects/worldguard/files/latest"
+              value: "https://dev.bukkit.org/projects/worldguard/files/4554903/download"
             - name: SPAWN_URL
               value: "https://cdn.modrinth.com/data/Pw3KRjwE/versions/mgrZ4A8t/Spawn-2.4.1.jar"
           command:

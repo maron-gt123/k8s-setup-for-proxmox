@@ -47,7 +47,7 @@ spec:
             - name: DECENTHOLOGRAMS_URL
               value: "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar"
             - name: WORLDEDIT_URL
-              value: "https://dev.bukkit.org/projects/worldedit/files/latest"
+              value: "https://dev.bukkit.org/projects/worldedit/files/5145924"
             - name: WORLDGUARD_URL
               value: "https://dev.bukkit.org/projects/worldguard/files/latest"
             - name: SPAWN_URL

@@ -97,7 +97,7 @@ spec:
               value: >-
                 -Xmx1G
                 -DmultipaperMasterAddress=primary-sv-int-service:35353
-                -Dspigot.settings.bungeecord=true
+                -Dspigot.settings.bungeecord=false
           ports:
             - name: multi-lobby-sv
               containerPort: 25565

@@ -16,6 +16,18 @@ spec:
         app: primary-sv
     spec:
       initContainers:
+        - name: copy-config
+          image: busybox:1.36.1
+          command:
+            - sh
+            - -c
+            - >
+              cp /mnt/config/whitelist.json /app/whitelist.json
+          volumeMounts:
+            - name: multipaper-configs
+              mountPath: /mnt/config
+            - name: primary-sv-storage
+              mountPath: /app
       containers:
         - name: primary-sv
           image: noevidenz/multipaper-master:edge

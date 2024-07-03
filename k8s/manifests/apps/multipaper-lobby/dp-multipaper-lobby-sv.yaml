@@ -25,7 +25,6 @@ spec:
             - >
               mkdir -p /app/config &&
               cp /mnt/config/bukkit.yml /app/bukkit.yml &&
-              cp /mnt/config/whitelist.json /app/whitelist.json &&
               cp /mnt/config/server.properties /app/server.properties &&
               cp /mnt/config/paper-global.yml /app/config/paper-global.yml
           volumeMounts:

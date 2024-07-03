@@ -6,7 +6,7 @@ metadata:
   labels:
     app: primary-sv-pvc
 spec:
-  storageClassName: nfs-storage
+  storageClassName: nsf-primary-sv
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

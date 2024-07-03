@@ -1,1 +1,17 @@
-
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: mic-lobby-sv
+  name: multipaper-sv-rcon-service
+  labels:
+    app: multi-lobby-sv
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 192.168.15.73
+  ports:
+    - name: rcon-service
+      port: 25575
+      protocol: TCP
+      targetPort: 25575
+  selector:
+    app: multi-lobby-sv

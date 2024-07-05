@@ -34,7 +34,7 @@ data:
     # -------------------- General settings --------------------
     
     #Language setting
-    lang: en
+    lang: jp
     
     # Whether to enable channel chat function
     enableChannelChat: true
@@ -297,7 +297,7 @@ data:
     # - To get around this, you can use a player's uuid directly in the command, or enable this option.
     # - When this is set to 'true', the server facility is used. This may use a number of methods,
     #   including checking the servers local cache, or making a request to the Mojang API.
-    use-server-uuid-cache: false
+    use-server-uuid-cache: true
     
     
     
@@ -351,11 +351,11 @@ data:
       # - The standard DB engine port is used by default
       #   (MySQL: 3306, PostgreSQL: 5432, MongoDB: 27017)
       # - Specify as "host:port" if differs
-      address: localhost
+      address: sql.maroncloud
     
       # The name of the database to store LuckPerms data in.
       # - This must be created already. Don't worry about this setting if you're using MongoDB.
-      database: minecraft
+      database: 
     
       # Credentials for the database.
       username: root

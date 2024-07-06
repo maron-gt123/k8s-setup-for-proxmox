@@ -23,8 +23,8 @@ spec:
             - -c
             - >
               wget -O /app/world.zip https://github.com/maron-gt123/k8s-setup-for-proxmox/archive/refs/heads/main.zip &&
-              unzip /app/world.zip -d /app &&
-              cp -r /app/k8s-setup-for-proxmox-main/k8s/manifests/apps/multipaper-lobby/world/ /app &&
+              unzip -o /app/world.zip -d /app &&
+              cp -r /app/k8s-setup-for-proxmox-main/k8s/manifests/apps/multipaper-lobby/world/* /app &&
               rm /app/world.zip &&
               rm -r /app/k8s-setup-for-proxmox-main
           volumeMounts:

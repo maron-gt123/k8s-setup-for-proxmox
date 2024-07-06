@@ -185,21 +185,12 @@ spec:
                       server_name: 'k8s-wk3-server'
               - job_name: 'minecraft'
                 static_configs:
-                  - targets: ['mic-lobby.micnet:9225']
-                    labels:
-                      server_name: 'minecraft-server-lobby'
                   - targets: ['mic-paper01.micnet:9225']
                     labels:
                       server_name: 'minecraft-server-S1'
                   - targets: ['mic-paper02.micnet:9225']
                     labels:
                       server_name: 'minecraft-server-S2'
-                  - targets: ['mic-k8s.micnet:9225']
-                    labels:
-                      server_name: 'minecraft-server-k8s'
-                  - targets: ['mic-k8s-music.micnet:9225']
-                    labels:
-                      server_name: 'minecraft-server-music'
             storageSpec:
               volumeClaimTemplate:
                 spec:

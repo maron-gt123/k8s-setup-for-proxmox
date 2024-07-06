@@ -24,8 +24,9 @@ spec:
             - >
               wget -O /app/world.zip https://github.com/maron-gt123/k8s-setup-for-proxmox/archive/refs/heads/main.zip &&
               unzip /app/world.zip -d /app &&
-              mv /app/k8s-setup-for-proxmox-main/k8s/manifests/apps/multipaper-lobby/world/* /app &&
-              rm /app/world.zip
+              cp -r /app/k8s-setup-for-proxmox-main/k8s/manifests/apps/multipaper-lobby/world/ /app &&
+              rm /app/world.zip &&
+              rm -r /app/k8s-setup-for-proxmox-main
           volumeMounts:
             - name: primary-sv-storage
               mountPath: /app

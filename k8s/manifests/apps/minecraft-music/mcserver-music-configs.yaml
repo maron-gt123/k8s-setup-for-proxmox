@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: minecraft-music
+  namespace: mc-music-sv
   name: mcserver-music-configs
 data:
   mc-bukkit.yml: |

@@ -34,7 +34,7 @@ data:
     # -------------------- General settings --------------------
     
     #Language setting
-    lang: jp
+    lang: ja
     
     # Whether to enable channel chat function
     enableChannelChat: true
@@ -975,3 +975,81 @@ data:
     # If LuckPerms should attempt to resolve Vanilla command target selectors for LP commands.
     # See here for more info: https://minecraft.wiki/w/Target_selectors
     resolve-command-selectors: false
+  holograms-S1_Gateway.yml: |
+    location: world:7.065:-57.000:9.394
+    enabled: true
+    display-range: 48
+    update-range: 48
+    update-interval: 20
+    facing: 0.0
+    down-origin: false
+    pages:
+    - lines:
+      - content: '&4 S1_World'
+        height: 0.3
+      actions: {}
+  holograms-S2_Gateway.yml: |
+    location: world:-8.190:-57.000:9.540
+    enabled: true
+    display-range: 48
+    update-range: 48
+    update-interval: 20
+    facing: 0.0
+    down-origin: false
+    pages:
+    - lines:
+      - content: '&4 S2_World'
+        height: 0.3
+      actions: {}
+  holograms-music-Gateway.yml: |
+    location: world:-7.943:-57.000:21.042
+    enabled: true
+    display-range: 48
+    update-range: 48
+    update-interval: 20
+    facing: 0.0
+    down-origin: false
+    pages:
+    - lines:
+      - content: '&4 music_World'
+        height: 0.3
+      actions: {}
+  holograms-k8s_Gateway.yml: |
+    location: world:7.263:-57.000:21.069
+    enabled: true
+    display-range: 48
+    update-range: 48
+    update-interval: 20
+    facing: 0.0
+    down-origin: false
+    pages:
+    - lines:
+      - content: '&4 k8s_World'
+        height: 0.3
+      actions: {}
+  spawn.yml: |
+    # #######################################
+    #                                      #
+    #             Spawn Plugin             #
+    #                                      #
+    # #######################################
+    
+    settings:
+      tpmessage-enable: true
+      spawn-on-join: true
+    
+    messages:
+      tpmessage: '&aYou have been teleported to the Spawn'
+      error-nospawnpoint: '&cNo Spawn Point set'
+      success-setspawn: '&aSpawn point set Correctly'
+      cmd-spawn-usage: '&cUsage: /spawn'
+      cmd-setspawn-usage: '&cUsage: /setspawn'
+    
+    spawn:
+      world: world
+      x: -0.19490791613759675
+      y: -59.9375
+      z: -6.676581961788842
+      yaw: 9.149715
+      pitch: 29.39987
+      

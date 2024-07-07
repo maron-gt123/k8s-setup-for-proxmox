@@ -74,14 +74,14 @@ spec:
             - name: minecraft-music-storage
               mountPath: /data
             - name: mcserver-music-config
-              mountPath: /data/bukkit.yml
+              mountPath: /config/bukkit.yml
               subPath: mc-bukkit.yml
             - name: mcserver-music-config
-              mountPath: /data/spigot.yml
+              mountPath: /config/spigot.yml
               subPath: mc-spigot.yml
-            #- name: mcserver-music-config
-            #  mountPath: /data/config/paper-global.yml
-            #  subPath: mc-paper-global.yml
+            - name: mcserver-music-config
+              mountPath: /config/config/paper-global.yml
+              subPath: mc-paper-global.yml
             - name: mcserver-music-plugin-config
               mountPath: /plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml

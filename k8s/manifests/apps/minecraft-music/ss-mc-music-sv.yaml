@@ -15,6 +15,23 @@ spec:
       labels:
         app: mc-music
     spec:
+      initContainers:
+        # permissionsを設定します。multipapaerはroot権限では動作しないためここでこれまでの格納分をすべて適切な権限に落としています
+        - name: set-permissions
+          image: busybox:1.36.1
+          command:
+            - sh
+            - -c
+            - >
+              chown -R 1000:1000 /data &&
+              chmod -R 755 /data &&
+              chown -R 1000:1000 /config &&
+              chmod -R 755 /config
+          volumeMounts:
+            - name: minecraft-music-storage
+              mountPath: /data
+          securityContext:
+            runAsUser: 0
       containers:
         - image: itzg/minecraft-server:java17
           name: mc-music

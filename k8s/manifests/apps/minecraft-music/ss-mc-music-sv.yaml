@@ -47,6 +47,8 @@ spec:
               value: "false"
             - name: OPS
               value: "maron_12345"
+            - name: ALLOW_NETHER
+              value: "false"
             - name: PLUGINS
               # minecraft-prometheus-exporter:
               # LuckPerms-Bukkit

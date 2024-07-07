@@ -33,6 +33,10 @@ spec:
               mountPath: /config
             - name: minecraft-music-storage
               mountPath: /data
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            privileged: true
         # permissionsを設定します。multipapaerはroot権限では動作しないためここでこれまでの格納分をすべて適切な権限に落としています
         - name: set-permissions
           image: busybox:1.36.1
@@ -51,6 +55,8 @@ spec:
               mountPath: /data
           securityContext:
             runAsUser: 0
+            runAsGroup: 0
+            privileged: true
       containers:
         - image: itzg/minecraft-server:java17
           name: mc-music

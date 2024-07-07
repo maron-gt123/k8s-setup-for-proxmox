@@ -84,7 +84,7 @@ data:
     S1 = "mic-paper01.micnet:25565"
     S2 = "mic-paper02.micnet:25565"
     k8s = "mic-k8s.micnet:25565"
-    music = "mic-k8s-music.micnet:25565"
+    music = "mc-music-service.mc-music-sv.svc.cluster.local:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [

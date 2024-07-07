@@ -48,6 +48,10 @@ k8scluster構築後のセットアップについて示します。<br>
 * k8sdashboardのデプロイ完了後、以下のpashを取得しログイン
 
       kubectl -n kubernetes-dashboard create token admin-user
+### pod内へのリモートアクセス<br>
+* 以下のコマンドでリモートログインが可能
+
+      kubectl exec -it <pod-name> -- /bin/bash
 
 ### 全体構成図<br>
 * ArgoCDによる錬成後以下のような収容となる

@@ -12,10 +12,6 @@ spec:
     port: 25565
     protocol: TCP
     targetPort: 25565
-  - name: mc-metrics
-    port: 9225
-    protocol: TCP
-    targetPort: 9225
   selector:
     app: mc-music
 ---
@@ -35,3 +31,21 @@ spec:
     matchLabels:
       app: mc-music
       role: metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: mc-music-sv
+  name: mc-music-metrics
+  labels:
+    app: mc-music
+    role: metrics
+spec:
+  type: ClusterIP
+  ports:
+    - name: metrics
+      port: 9225
+      protocol: TCP
+      targetPort: metrics
+  selector:
+    app: mc-music

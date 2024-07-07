@@ -13,7 +13,7 @@ spec:
   selector:
     matchLabels:
       app: mc-music
-      role: metrics
+      role: mc-music-metrics
 ---
 apiVersion: v1
 kind: Service
@@ -22,7 +22,7 @@ metadata:
   name: mc-music-metrics
   labels:
     app: mc-music
-    role: mc-metrics
+    role: mc-music-metrics
 spec:
   type: ClusterIP
   ports:

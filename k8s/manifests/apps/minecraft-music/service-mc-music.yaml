@@ -14,38 +14,3 @@ spec:
     targetPort: 25565
   selector:
     app: mc-music
----
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  namespace: mc-music-sv
-  labels:
-    app: mc-music
-    release: prometheus
-  name: mc-music-metrics
-spec:
-  endpoints:
-    - interval: 30s
-      port: mc-metrics
-  selector:
-    matchLabels:
-      app: mc-music
-      role: metrics
----
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: mc-music-sv
-  name: mc-music-metrics
-  labels:
-    app: mc-music
-    role: metrics
-spec:
-  type: ClusterIP
-  ports:
-    - name: metrics
-      port: 9225
-      protocol: TCP
-      targetPort: metrics
-  selector:
-    app: mc-music

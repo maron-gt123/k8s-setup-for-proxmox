@@ -29,7 +29,7 @@ spec:
               cp /config/spigot.yml /data/spigot.yml &&
               cp /config/paper-global.yml /data/config/paper-global.yml
           volumeMounts:
-            - name: config-volume
+            - name: mcserver-music-config
               mountPath: /config
             - name: minecraft-music-storage
               mountPath: /data

@@ -100,7 +100,7 @@ spec:
       volumes:
         - name: minecraft-music-storage
           persistentVolumeClaim:
-            claimName: minecraft-music-pvc
+            claimName: mc-music-pvc
         - name: mcserver-music-config
           configMap:
             name: mcserver-music-configs

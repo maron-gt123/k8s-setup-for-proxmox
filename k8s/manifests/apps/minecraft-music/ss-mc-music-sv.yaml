@@ -25,9 +25,9 @@ spec:
             - -c
             - >
               mkdir -p /data/config &&
-              cp /config/bukkit.yml /data/bukkit.yml &&
-              cp /config/spigot.yml /data/spigot.yml &&
-              cp /config/paper-global.yml /data/config/paper-global.yml
+              cp /config/mc-bukkit.yml /data/bukkit.yml &&
+              cp /config/mc-spigot.yml /data/spigot.yml &&
+              cp /config/mc-paper-global.yml /data/config/paper-global.yml
           volumeMounts:
             - name: mcserver-music-config
               mountPath: /config

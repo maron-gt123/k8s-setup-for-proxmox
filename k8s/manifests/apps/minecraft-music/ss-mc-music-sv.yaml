@@ -45,7 +45,7 @@ spec:
               chown 1000:1000 /data/spigot.yml &&
               chmod 755 /data/spigot.yml &&
               chown 1000:1000 /config/paper-global.yml &&
-              chmod 755 /config/paper-global.yml &&
+              chmod 755 /config/paper-global.yml
           volumeMounts:
             - name: minecraft-music-storage
               mountPath: /data

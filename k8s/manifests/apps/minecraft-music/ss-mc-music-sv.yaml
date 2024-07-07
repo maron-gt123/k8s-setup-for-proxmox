@@ -23,8 +23,6 @@ spec:
             - sh
             - -c
             - >
-              chown -R 1000:1000 /data &&
-              chmod -R 755 /data &&
               chown -R 1000:1000 /config &&
               chmod -R 755 /config
           volumeMounts:

@@ -27,9 +27,9 @@ spec:
         #      cp -r /app/k8s-setup-for-proxmox-main/k8s/manifests/apps/multipaper-lobby/world/ /app &&
         #      rm /app/world.zip &&
         #      rm -r /app/k8s-setup-for-proxmox-main
-          volumeMounts:
-            - name: primary-sv-storage
-              mountPath: /app
+        #  volumeMounts:
+        #    - name: primary-sv-storage
+        #     mountPath: /app
       containers:
         - name: primary-sv
           image: noevidenz/multipaper-master:1.20

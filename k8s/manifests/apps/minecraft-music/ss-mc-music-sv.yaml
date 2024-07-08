@@ -83,7 +83,7 @@ spec:
               mountPath: /config/spigot.yml
               subPath: mc-spigot.yml
             - name: mcserver-music-config
-              mountPath: /config/config/paper-global.yml
+              mountPath: /config/paper-global.yml
               subPath: mc-paper-global.yml
             - name: mcserver-music-plugin-config
               mountPath: /plugins/PrometheusExporter/config.yml

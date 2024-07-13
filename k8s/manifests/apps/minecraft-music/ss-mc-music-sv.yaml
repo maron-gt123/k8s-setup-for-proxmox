@@ -33,52 +33,52 @@ spec:
         - image: itzg/minecraft-server:java17
           name: mc-music
           env:
+            # minecraftのeulaについて「同意」の宣言
             - name: EULA
-              # minecraftのeulaについて「同意」の宣言
               value: "TRUE"
+            # サーバーのtime設定を日本標準時に
             - name: TZ
-              # サーバーのtime設定を日本標準時に
               value: Asia/Tokyo
+            # 本docer_imageの起動サーバ宣言を指定
             - name: TYPE
-              # 本docer_imageの起動サーバ宣言を指定
               value: PAPER
+            # 本docer_imageの起動サーバーverを指定
             - name: VERSION
-              # 本docer_imageの起動サーバーverを指定
               value: "1.20.6"
+            # rconの設定を「true」に
             - name: ENABLE_RCON
-              # rconの設定を「true」に
               value: "true"
             - name: RCON_PASSWORD
               value: "maroncloud"
+            # 最小利用メモリ
             - name: INIT_MEMORY
-              # 最小利用メモリ
               value: 1G
+            # 最大利用メモリ
             - name: MAX_MEMORY
-              # 最大利用メモリ
               value: 2G
+            # netherの精製か可否
             - name: ALLOW_NETHER
-              # netherの精製か可否
               value: "false"
+            # ゲームモードの設定
             - name: DIFFICULTY
-              # ゲームモードの設定
               value: peaceful
+            # velocity経由でのログインのためfalseに設定
             - name: ONLINE_MODE
-              # velocity経由でのログインのためfalseに設定
               value: "FALSE"
+            # worldの精製条件
             - name: LEVEL_TYPE
-              # worldの精製条件
               value: flat
+            # 動物系mobのspown設定
             - name: SPAWN_ANIMALS
-              # 動物系mobのspown設定
               value: "false"
+            # 敵対系mobのspown設定
             - name: SPAWN_MONSTERS
-              # 敵対系mobのspown設定
               value: "false"
+            # npc系mobのspown設定
             - name: SPAWN_NPCS
-              # npc系mobのspown設定
               value: "false"
+            # 管理者権限指定
             - name: OPS
-              # 管理者権限指定
               value: "maron_12345"
             - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
@@ -108,62 +108,62 @@ spec:
               memory: 2G
               cpu: "2"
           volumeMounts:
-              # minecraft-musicサーバーの永続ストレージマウント
+            # minecraft-musicサーバーの永続ストレージマウント
             - name: minecraft-music-storage
               mountPath: /data
-              # worldedit.jarのマウント
+            # worldedit.jarのマウント
             - name: worldedit-download-volume
               mountPath: /data/plugins/worldedit.jar
               subPath: worldedit.jar.jar
-              # bukkit configのマウント
+            # bukkit configのマウント
             - name: mcserver-music-config
               mountPath: /config/bukkit.yml
               subPath: mc-bukkit.yml
-              # spigot configのマウント
+            # spigot configのマウント
             - name: mcserver-music-config
               mountPath: /config/spigot.yml
               subPath: mc-spigot.yml
-              # paper-global configのマウント
+            # paper-global configのマウント
             - name: mcserver-music-config
               mountPath: /config/paper-global.yml
               subPath: mc-paper-global.yml
-              # plugins-prometeus configのマウント
+            # plugins-prometeus configのマウント
             - name: mcserver-music-plugin-config
               mountPath: /plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml
-              # plugins-Luckperms configのマウント
+            # plugins-Luckperms configのマウント
             - name: mcserver-music-plugin-config
               mountPath: /plugins/LuckPerms/config.yml
               subPath: LuckPerms-config.yml
-              # plugins-Lunachat configのマウント
+            # plugins-Lunachat configのマウント
             - name: mcserver-music-plugin-config
               mountPath: /plugins/LunaChat/config.yml
               subPath: LunaChat-config.yml   
-              # plugins-AdvancedPortals configのマウント
+            # plugins-AdvancedPortals configのマウント
             - name: mcserver-music-plugin-config
               mountPath: /plugins/AdvancedPortals/config.yml
               subPath: Advanced-config.yml
-              # plugins-AdvancedPortals-destinations configのマウント
+            # plugins-AdvancedPortals-destinations configのマウント
             - name: mcserver-music-plugin-config
               mountPath: /plugins/AdvancedPortals/destinations.yml
               subPath: Advanced-destinations.yml
-              # plugins-AdvancedPortals-portals configのマウント
+            # plugins-AdvancedPortals-portals configのマウント
             - name: mcserver-music-plugin-config
               mountPath: /plugins/AdvancedPortals/portals.yml
               subPath: Advanced-portals.yml
       volumes:
+        # minecraft-musicサーバーの永続ストレージの指定
         - name: minecraft-music-storage
-          # minecraft-musicサーバーの永続ストレージの指定
           persistentVolumeClaim:
             claimName: mc-music-pvc
-        - name: worldedit-download-volume
         # worldedit.jarをinitContainerでダウンロードしてpaperに受け渡すためのvolume
+        - name: worldedit-download-volume
           emptyDir: {}
+        # configmapであるmcserver-music-configsの指定 
         - name: mcserver-music-config
-          # configmapであるmcserver-music-configsの指定 
           configMap:
             name: mcserver-music-configs
+        # configmapであるmcserver-music-plugin-configsの指定
         - name: mcserver-music-plugin-config
-          # configmapであるmcserver-music-plugin-configsの指定
           configMap:
             name: mcserver-music-plugin-configs

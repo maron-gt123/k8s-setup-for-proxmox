@@ -48,6 +48,8 @@ spec:
             - name: ENABLE_RCON
               # rconの設定を「true」に
               value: "true"
+            - name: RCON_PASSWORD
+              value: "maroncloud"
             - name: INIT_MEMORY
               # 最小利用メモリ
               value: 1G

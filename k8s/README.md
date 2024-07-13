@@ -57,7 +57,6 @@ k8sのセットアップについて示す。前提条件として前述するpr
       scp -3 onp-k8s-cp-1:~/join_kubeadm_cp.yaml onp-k8s-cp-3:~/
 
       # join_kubeadm_cp.yaml を 書き換え
-        sed -i 's/abcdefg/192.168.6.82/g' ~/join_kubeadm_cp22.yaml
       ssh onp-k8s-cp-1 "sed -i 's/abcdefg/192.168.6.81/g' ~/join_kubeadm_cp.yaml"
       ssh onp-k8s-cp-2 "sed -i 's/abcdefg/192.168.6.82/g' ~/join_kubeadm_cp.yaml"
       ssh onp-k8s-cp-3 "sed -i 's/abcdefg/192.168.6.83/g' ~/join_kubeadm_cp.yaml"

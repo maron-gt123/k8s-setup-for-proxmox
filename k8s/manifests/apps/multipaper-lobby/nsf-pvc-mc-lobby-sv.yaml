@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  namespace: mic-lobby-sv
+  namespace: mc-lobby-sv
   name: primary-sv-pvc
   labels:
-    app: primary-sv-pvc
+    app: mc-lobby-pvc
 spec:
-  storageClassName: nsf-primary-sv
+  storageClassName: nsf-mc-lobby-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

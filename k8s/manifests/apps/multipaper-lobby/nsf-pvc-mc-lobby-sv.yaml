@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   namespace: mc-lobby-sv
-  name: primary-sv-pvc
+  name: mc-lobby-pvc
   labels:
     app: mc-lobby-pvc
 spec:

@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  namespace: minecraft
-  name: minecraft-pv
+  namespace: mc-sv
+  name: mc-pv
   labels:
-    app: minecraft
+    app: mc
 spec:
-  storageClassName: minecraft
+  storageClassName: mc-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

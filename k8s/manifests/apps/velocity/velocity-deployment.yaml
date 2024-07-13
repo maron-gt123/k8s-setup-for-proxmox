@@ -28,60 +28,39 @@ spec:
         app: velocity
     spec:
       initContainers:
-        # serverアイコンのダウンロード
-        - name: server-icon-downloader
+        # initcontainersで各種必要なファイルをダウンロードします。
+        - name: downloader
           image: busybox:1.36.1
           env:
+            # serverアイコンのダウンロードURL
             - name: SERVER_ICON_URL
-              # https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/a47b0c0ad303f248f1d50a7b5b3ac508f4435389/minecraft/branding/server-icon.png
               value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/a47b0c0ad303f248f1d50a7b5b3ac508f4435389/minecraft/branding/server-icon.png"
-          volumeMounts:
-            - name: server-icon-download-volume
-              mountPath: /root/server-icon-download
-          command:
-            - "sh"
-            - "-c"
-            - 'wget -O /root/server-icon-download/server-icon.png "${SERVER_ICON_URL}"'
-        # jmx-exporterのダウンロード
-        - name: jmx-exporter-downloader
-          image: busybox:1.36.1
-          env:
+            # JMX_prometeus_exporterのダウンロードURL
             - name: JMX_EXPORTER_URL
               value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar"
-          volumeMounts:
-            - name: jmx-exporter-download-volume
-              mountPath: /root/jmx-exporter-download
-          command:
-            - "sh"
-            - "-c"
-            - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
-        # geyser-velocityのダウンロード
-        - name: geyser-downloader
-          image: busybox:1.36.1
-          env:
+            # GEYSER_MCのダウンロードURL
             - name: GEYSER_URL
-              # value: "https://download.geysermc.org/v2/projects/geyser/versions/2.3.1/builds/539/downloads/velocity"
-              value: "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/velocity"
-          volumeMounts:
-            - name: geyser-download-volume
-              mountPath: /root/geyser-download
-          command:
-            - "sh"
-            - "-c"
-            - 'wget -O /root/geyser-download/geyser-velocity.jar "${GEYSER_URL}"'
-        # floodgate-velocityのダウンロード
-        - name: floodgate-downloader
-          image: busybox:1.36.1
-          env:
+              value: "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/velocity"          
+            # FLOODGATE_MCのダウンロードURL
             - name: FLOODGATE_URL
-              value: "https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity"
-          volumeMounts:
+              value: "https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity"          
+          volumeMounts:          
+            - name: server-icon-download-volume
+              mountPath: /root/server-icon-download          
+            - name: jmx-exporter-download-volume
+              mountPath: /root/jmx-exporter-download          
+            - name: geyser-download-volume
+              mountPath: /root/geyser-download          
             - name: floodgate-download-volume
               mountPath: /root/floodgate-download
           command:
-            - "sh"
-            - "-c"
-            - 'wget -O /root/floodgate-download/floodgate-velocity.jar "${FLOODGATE_URL}"'
+            - sh
+            - -c
+            - >
+              wget -O /root/server-icon-download/server-icon.png "${SERVER_ICON_URL}" &&
+              wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}" &&
+              wget -O /root/geyser-download/geyser-velocity.jar "${GEYSER_URL}" &&
+              wget -O /root/floodgate-download/floodgate-velocity.jar "${FLOODGATE_URL}"
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
@@ -92,8 +71,6 @@ spec:
               value: Asia/Tokyo
             - name: TYPE
               value: VELOCITY
-            - name: ENABLE_RCON
-              value: "true"
             - name: MEMORY
               value: 768m
             - name: PLUGINS

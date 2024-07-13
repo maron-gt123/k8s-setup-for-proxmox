@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: mic-lobby-sv
-  name: multipaper-configs
+  namespace: mc-lobby-sv
+  name: mc-lobby-configs
 data:
   bukkit.yml: |
     settings:

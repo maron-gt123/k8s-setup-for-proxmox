@@ -14,5 +14,5 @@ spec:
     storage: 5Gi
   nfs:
     server: 192.168.6.140
-    path: /kubanetesu-NFS/minecraft-music/
+    path: /kubanetesu-NFS/mc-music/
   persistentVolumeReclaimPolicy: Retain

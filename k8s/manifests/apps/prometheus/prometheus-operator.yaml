@@ -146,10 +146,10 @@ spec:
                 static_configs:
                   - targets: ['ssh.micnet:9100']
                     labels:
-                      server_name: 'sql-server'
+                      server_name: 'ssh-server'
                   - targets: ['sql.maroncloud:9100']
                     labels:
-                      server_name: 'ssh-server'
+                      server_name: 'sql-server'
                   - targets: ['dns.maroncloud:9100']
                     labels:
                       server_name: 'dns-server'

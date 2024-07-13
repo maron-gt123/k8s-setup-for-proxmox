@@ -86,6 +86,10 @@ spec:
             - name: mcserver-config
               mountPath: /config/spigot.yml
               subPath: mc-spigot.yml
+            # paper-global configのマウント
+            - name: mcserver-music-config
+              mountPath: /config/paper-global.yml
+              subPath: mc-paper-global.yml
             # PrometheusExporter configのマウント
             - name: mcserver-plugin-config
               mountPath: /plugins/PrometheusExporter/config.yml

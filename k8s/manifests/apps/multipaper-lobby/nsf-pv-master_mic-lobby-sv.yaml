@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  namespace: mic-lobby-sv
-  name: primary-sv-pv
+  namespace: mc-lobby-sv
+  name: mc-lobby-pv
   labels:
-    app: primary-sv-pv
+    app: mc-lobby-pv
 spec:
-  storageClassName: nsf-primary-sv
+  storageClassName: nsf-mc-lobby-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
@@ -14,5 +14,5 @@ spec:
     storage: 5Gi
   nfs:
     server: 192.168.6.140
-    path: /kubanetesu-NFS/mic-lobby-sv-primary-sv/
+    path: /kubanetesu-NFS/mc-lobby-sv/
   persistentVolumeReclaimPolicy: Retain

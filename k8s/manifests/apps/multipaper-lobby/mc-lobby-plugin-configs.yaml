@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: mic-lobby-sv
-  name: multipaper-plugin-configs
+  namespace: mc-lobby-sv
+  name: mc-lobby-plugin-configs
 data:
   prometheusexporter.yml: |
     host: 0.0.0.0

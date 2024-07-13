@@ -14,3 +14,21 @@ spec:
     targetPort: 25565
   selector:
     app: mc-music
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: mc-music-sv
+  name: mc-music-rcon-service
+  labels:
+    app: mc-music
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 192.168.15.72
+  ports:
+    - name: rcon-service
+      port: 25575
+      protocol: TCP
+      targetPort: 25575
+  selector:
+    app: mc-music

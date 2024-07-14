@@ -3,6 +3,8 @@
 #region set variables
 
 TARGET_BRANCH=$1
+CLOUDINIT_IMAGE=noble-server-cloudimg-amd64.img
+CLOUDINIT_IMAGE_URL=https://cloud-images.ubuntu.com/noble/current/${CLOUDINIT_IMAGE}
 TEMPLATE_VMID=8888
 CLOUDINIT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
 TEMPLATE_BOOT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
@@ -35,14 +37,15 @@ VM_LIST=(
 # ---
 
 #region create-template
-# download the image(ubuntu 22.04 LTS)
-wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
+
+# download the cloudinit image
+wget $CLOUDINIT_IMAGE_URL
 # create a new VM and attach Network Adaptor
 # vmbr15=service Network Segment (192.168.15.0/24)
 # vmbr6=Storage Network Segment (192.168.6.0/24)
 qm create $TEMPLATE_VMID --cores 2 --memory 4096 --net0 virtio,bridge=vmbr15 --net1 virtio,bridge=vmbr6 --name onp-k8s-template
 # import the downloaded disk to $TEMPLATE_BOOT_IMAGE_TARGET_VOLUME storage
-qm importdisk $TEMPLATE_VMID jammy-server-cloudimg-amd64.img $TEMPLATE_BOOT_IMAGE_TARGET_VOLUME
+qm importdisk $TEMPLATE_VMID $CLOUDINIT_IMAGE $TEMPLATE_BOOT_IMAGE_TARGET_VOLUME
 # finally attach the new disk to the VM as scsi drive
 qm set $TEMPLATE_VMID --scsihw virtio-scsi-pci --scsi0 $TEMPLATE_BOOT_IMAGE_TARGET_VOLUME:vm-$TEMPLATE_VMID-disk-0
 # add Cloud-Init CD-ROM drive
@@ -54,7 +57,7 @@ qm set $TEMPLATE_VMID --serial0 socket --vga serial0
 # migrate to template
 qm template $TEMPLATE_VMID
 # cleanup
-rm jammy-server-cloudimg-amd64.img
+rm $CLOUDINIT_IMAGE
 
 # region create vm from template
 for array in "${VM_LIST[@]}"

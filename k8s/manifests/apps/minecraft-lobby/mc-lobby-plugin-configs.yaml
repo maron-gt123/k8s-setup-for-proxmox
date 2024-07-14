@@ -287,7 +287,7 @@ data:
     # - When set to "global" this setting is effectively ignored.
     # - In all other cases, the value here is added to all players in a "server" context.
     # - See: https://luckperms.net/wiki/Context
-    server: lobby
+    server: mc-lobby
     
     # If the servers own UUID cache/lookup facility should be used when there is no record for a player
     # already in LuckPerms.
@@ -945,7 +945,7 @@ data:
     #
     # - Note that due to the design of the storage implementation, usernames must still be 16 characters
     #   or less.
-    allow-invalid-usernames: false
+    allow-invalid-usernames: true
     
     # If LuckPerms should not require users to confirm bulkupdate operations.
     #
@@ -973,7 +973,7 @@ data:
     register-command-list-data: true
     
     # If LuckPerms should attempt to resolve Vanilla command target selectors for LP commands.
-    # See here for more info: https://minecraft.wiki/w/Target_selectors
+    # See here for more info: https://minecraft.gamepedia.com/Commands#Target_selectors
     resolve-command-selectors: false
   holograms-S1_Gateway.yml: |
     location: world:7.065:-57.000:9.394

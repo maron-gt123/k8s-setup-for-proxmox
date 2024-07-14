@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: minecraft
+  namespace: mc-sv
   name: mcserver-configs
 data:
   mc-bukkit.yml: |

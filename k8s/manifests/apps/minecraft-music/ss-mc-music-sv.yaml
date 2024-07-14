@@ -26,7 +26,7 @@ spec:
               mountPath: /root/worldedit-download
           command:
             - sh
-            - c
+            - -c
             - >
               wget -O /root/worldedit-download/worldedit-bukkit.jar "${WORLDEDIT_URL}"
       containers:

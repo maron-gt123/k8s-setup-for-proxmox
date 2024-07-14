@@ -345,3 +345,22 @@ data:
     watchdog:
       early-warning-delay: 10000
       early-warning-every: 5000
+  mc-whitelist.json: |
+    [
+      {
+        "uuid": "a4ea87de-f923-4889-9bd2-7d4899803d2d",
+        "name": "latch1225"
+      },
+      {
+        "uuid": "ebd6ed5c-7a32-49fd-b287-df57f2ffb33b",
+        "name": "maron_12345"
+      },
+      {
+        "uuid": "00000000-0000-0000-0009-01f15afac14e",
+        "name": ".HarshPilot62425"
+      },
+      {
+        "uuid": "00000000-0000-0000-0009-01f18712bd98",
+        "name": ".sasasagi"
+      }
+    ]

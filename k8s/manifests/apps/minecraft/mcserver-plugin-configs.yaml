@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: minecraft
+  namespace: mc-sv
   name: mcserver-plugin-configs
 data:
   prometheusexporter.yml: |

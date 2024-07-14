@@ -123,7 +123,7 @@ spec:
         - name: minecraft-storage
           persistentVolumeClaim:
             claimName: minecraft-pvc
-        # configmapであるmcserver-music-configsの指定
+        # configmapであるmcserver-configsの指定
         - name: mcserver-config
           configMap:
             name: mcserver-configs

@@ -159,6 +159,13 @@ spec:
             - name: mcserver-lobby-config
               mountPath: /config/whitelist.json
               subPath: mc-whitelist.json
+            # jmx-exporterの設定
+            - name: jmx-exporter-download-volume
+              mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
+              subPath: jmx-exporter-javaagent.jar
+            - name: common-jmx-exporter-config
+              mountPath: /jmx-exporter/jmx-exporter-config.yaml
+              subPath: jmx-exporter-config.yaml
             # world-editのマウント
             - name: world-edit-download-volume
               mountPath: /data
@@ -177,6 +184,9 @@ spec:
         - name: mcserver-lobby-plugin-config
           configMap:
             name:  mc-lobby-plugin-configs
+        - name: -jmx-exporter-config
+          configMap:
+            name: -jmx-exporter-config
         # worldデータをinitContainerでダウンロードしてpaperに受け渡すためのvolume
         - name: world-download-volume
           emptyDir: {}
@@ -185,4 +195,7 @@ spec:
           emptyDir: {}
         # world-guard.jarをinitContainerでダウンロードしてpaperに受け渡すためのvolume
         - name: world-guard-download-volume
+          emptyDir: {}
+        # JMX exporterをinitContainerでダウンロードしてBugneeCordに受け渡すためのvolume
+        - name: jmx-exporter-download-volume
           emptyDir: {}

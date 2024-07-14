@@ -28,7 +28,7 @@ spec:
             - sh
             - c
             - >
-              wget -O /root/download/worldedit.jar "${WORLDEDIT_URL}"
+              wget -O /root/worldedit-download/worldedit.jar "${WORLDEDIT_URL}"
       containers:
         - image: itzg/minecraft-server:java17
           name: mc-music

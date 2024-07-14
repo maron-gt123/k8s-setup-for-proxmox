@@ -17,7 +17,7 @@ spec:
     spec:
       initContainers:
       containers:
-        - image: itzg/minecraft-server:java17
+        - image: itzg/minecraft-server:java21
           name: mc
           env:
             # minecraftのeulaについて「同意」の宣言

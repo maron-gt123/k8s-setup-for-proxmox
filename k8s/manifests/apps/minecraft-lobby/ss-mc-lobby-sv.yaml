@@ -28,7 +28,6 @@ spec:
               cp -r /data/k8s-setup-for-proxmox-main/k8s/manifests/apps/minecraft-lobby/world/ /data &&
               rm /data/world.zip &&
               rm -r /data/k8s-setup-for-proxmox-main &&
-              chown -R 1000:1000 /data
           volumeMounts:
             - name: world-download-volume
               mountPath: /data
@@ -56,14 +55,9 @@ spec:
               wget -O /root/world-edit-download/worldedit-bukkit.jar "${WORLD_EDIT_URL}" &&
               wget -O /root/world-guard-download/worldguard-bukkit.jar "${WORLD_GUARD_URL}" &&
               wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}" &&
-              chown -R 1000:1000 /root/world-edit-download /root/world-guard-download /root/jmx-exporter-download
       containers:
         - image: itzg/minecraft-server:java21
           name: mc-lobby
-          securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
-            fsGroup: 1000
           env:
             # minecraftのeulaについて「同意」の宣言
             - name: EULA

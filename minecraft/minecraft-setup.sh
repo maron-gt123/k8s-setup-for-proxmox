@@ -84,8 +84,22 @@ $(date +"#%a %b %d %H:%M:%S %Z %Y")
 eula=true
 EOF
 
+cat > /minecraft/paper/mc-start.sh << EOF
+#!/bin/bash
+# region : set variables
+JARFILE=/minecraft/paper/paper-${PAPER_VER}-${PAPER_NO}.jar
+MINMEM=500M
+MAXMEM=2048M
+SCREEN_NAME=paper
+# endregion
 
-cat > /minecraft/paper/mic-stop.sh << EOF
+# start minecraft
+cd \$(dirname \$0)
+screen -AdmS \${SCREEN_NAME} java -server -Xms\${MINMEM} -Xmx\${MAXMEM} -jar \${JARFILE} nogui
+EOF
+chmod 700 /minecraft/paper/mc-start.sh
+
+cat > /minecraft/paper/mc-stop.sh << EOF
 #!/bin/bash
 # ----- region -----
 WAIT=60
@@ -104,59 +118,12 @@ screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "stop\015"'
 # minecraft restart
 $STARTSCRIPT
 EOF
-chmod 700 /minecraft/paper/mic-stop.sh
+chmod 700 /minecraft/paper/mc-stop.sh
+
 # config download
-if [ $HOSTNAME = "mic-lobby-SV" ]; then
-    git clone --depth 1 https://github.com/maron-gt123/k8s-setup-for-proxmox.git
-    cp -r /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/world/ /minecraft/paper/
-    cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/bukkit.yml /minecraft/paper/
-    cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/server.properties /minecraft/paper/
-    cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/spigot.yml /minecraft/paper/
-    cp /home/cloudinit/k8s-setup-for-proxmox/minecraft/config/mic-lobby/paper-global.yml /minecraft/paper/config
-    cat > /minecraft/paper/mic-start.sh << EOF
-#!/bin/bash
-# region : set variables
-JARFILE=/minecraft/paper/paper-${PAPER_VER}-${PAPER_NO}.jar
-MINMEM=500M
-MAXMEM=2048M
-SCREEN_NAME=paper
-# endregion
+wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/server.properties
+wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/spigot.yml
+wget -P /minecraft/paper/config https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/paper-world-defaults.yml
+wget -P /minecraft/paper/config https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/paper-global.yml
 
-# start minecraft
-cd \$(dirname \$0)
-screen -AdmS \${SCREEN_NAME} java -server -Xms\${MINMEM} -Xmx\${MAXMEM} -jar \${JARFILE} nogui
-
-# sleep 60s
-sleep 60s
-# time and water cycle is false
-screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "gamerule doDaylightCycle false\015"'
-screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "gamerule doWeatherCycle false\015"'
-
-# time and water is set
-screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "time set day\015"'
-screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "weather clear\015"'
-EOF
-    chmod 700 /minecraft/paper/mic-start.sh
-    rm -r /home/cloudinit/k8s-setup-for-proxmox/
-    echo "---end---"
-else
-    wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/server.properties
-    wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/spigot.yml
-    wget -P /minecraft/paper/config https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/paper-world-defaults.yml
-    wget -P /minecraft/paper/config https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/paper-global.yml
-    cat > /minecraft/paper/mic-start.sh << EOF
-#!/bin/bash
-# region : set variables
-JARFILE=/minecraft/paper/paper-${PAPER_VER}-${PAPER_NO}.jar
-MINMEM=500M
-MAXMEM=2048M
-SCREEN_NAME=paper
-# endregion
-
-# start minecraft
-cd \$(dirname \$0)
-screen -AdmS \${SCREEN_NAME} java -server -Xms\${MINMEM} -Xmx\${MAXMEM} -jar \${JARFILE} nogui
-EOF
-    chmod 700 /minecraft/paper/mic-start.sh
-    echo "---end---"
-fi
+echo "---end---"

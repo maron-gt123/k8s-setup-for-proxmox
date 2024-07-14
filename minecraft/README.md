@@ -2,13 +2,12 @@
 Minecraft Server開始に必要な初回セットアップ方法
 
 ## VMホスト<br>
-+ Ubuntu22.04 LTS(cloud-init image)<br>
-  + Minecraftホスト用として使用<br>
-+ Minecraft Service Network Segment<br>
-  + VLAN 15 Service Network (192.168.15.0/24)<br>
-    + Lobby Server (192.168.15.87)<br>
-    + s1 Server (192.168.15.88)<br>
-    + s2 Server (192.168.15.89)<br>
++ Ubuntu24.04 LTS(cloud-init image)
+  + Minecraftホスト用として使用
++ Minecraft Service Network Segment
+  + VLAN 15 Service Network (192.168.15.0/24)
+    + s1 Server (192.168.15.87)<br>
+    + s2 Server (192.168.15.88)<br>
 
 ## 作成フロー(VMの錬成)<br>
 1. 以下は本リポジトリではサポートしません。事前構築をお願いします<br>
@@ -34,12 +33,11 @@ Minecraft Server開始に必要な初回セットアップ方法
 ##  ping確認
 + VM錬成後、pingを実行し疎通確認を実施
 
-      for i in 87 88 89; do ping -c1 192.168.15.$i; done 
+      for i in 87 88; do ping -c1 192.168.15.$i; done 
 
 ##  ログ確認
 + 各VMでminecraft-setup.shの正常性をログで確認
 
-      ssh mic-lobby-SV "sudo cat /var/log/cloud-init-output.log"
       ssh mic-paper01 "sudo cat /var/log/cloud-init-output.log"
       ssh mic-paper02 "sudo cat /var/log/cloud-init-output.log"
 
@@ -52,16 +50,6 @@ Minecraft Server開始に必要な初回セットアップ方法
     + fastabの編集
 
           # fastab編集
-          # lobby-server
-          ssh mic-lobby-SV "sudo sh -c 'cat >> /etc/fstab << EOF
-          # mount minecraft Backup
-          //192.168.15.140/usbssd/mic-backup/lobby /minecraft/paper/Backups cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
-          # mount minecraft plugins
-          //192.168.15.140/usbssd/mic-backup/plugins/lobby /minecraft/paper/plugins/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
-          # mount minecraft nas
-          //192.168.15.140/usbssd/mic-backup /minecraft/paper/nas/ cifs noauto,user,x-systemd.automount,x-systemd.device-timeout=30,_netdev,noperm,username=$USER,password=$PASSWORD 0 0
-          EOF'"
-          
           # paper-01-server
           ssh mic-paper01 "sudo sh -c 'cat >> /etc/fstab << EOF
           # mount minecraft Backup
@@ -83,11 +71,6 @@ Minecraft Server開始に必要な初回セットアップ方法
           EOF'"
           
           # fastab反映
-          ssh mic-lobby-SV "sudo sh -c 'sudo systemctl daemon-reload'"
-          ssh mic-lobby-SV "sudo sh -c 'sudo systemctl restart remote-fs.target'"
-          ssh mic-lobby-SV "sudo sh -c 'sudo systemctl restart local-fs.target'"
-          ssh mic-lobby-SV "sudo sh -c 'sudo mount -a'"
-          
           ssh mic-paper01 "sudo sh -c 'sudo systemctl daemon-reload'"
           ssh mic-paper01 "sudo sh -c 'sudo systemctl restart remote-fs.target'"
           ssh mic-paper01 "sudo sh -c 'sudo systemctl restart local-fs.target'"
@@ -98,15 +81,6 @@ Minecraft Server開始に必要な初回セットアップ方法
           ssh mic-paper02 "sudo sh -c 'sudo systemctl restart local-fs.target'"
           ssh mic-paper02 "sudo sh -c 'sudo mount -a'"
      
-
-## NASに格納されている各種個別configを格納
-1. セキュリティ関係としてGitHubでは公開できない設定をNASを経由して格納
-    + Whitelistの格納
-      
-          # whitelist格納
-          ssh mic-lobby-SV "sudo sh -c 'sudo cp /minecraft/paper/nas/whitelist.json /minecraft/paper/'"
-          # その他worldはvelocityの認証機能から意図しないプロキシを経由しないため、whitelistはロビーのみとする
-
 ## VMの削除
 * proxmoxホストコンソールで以下の処理を実施しVMを削除
 

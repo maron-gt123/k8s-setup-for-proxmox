@@ -39,7 +39,6 @@
        * cluster：vmbr1(192.168.1.141)
        * service：vmbr15(192.168.15.141)
        * storage：vmbr6(192.168.6.141)
-       * gateway:192.168.15.1
    * hostneme
      * onp-prox02-SV
      * network

@@ -102,7 +102,7 @@ spec:
             - name: ENABLE_WHITELIST
               value: "true"
             - name: WHITELIST
-              valus: latch1225,maron_12345
+              valus: maron_12345
             # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
             - name: PLUGINS
               # minecraft-prometheus-exporter3.1.0

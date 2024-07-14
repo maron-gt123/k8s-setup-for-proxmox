@@ -3,8 +3,8 @@
 #region set variables
 
 TARGET_BRANCH=$1
-CLOUDINIT_IMAGE=noble-server-cloudimg-amd64.img
-CLOUDINIT_IMAGE_URL=https://cloud-images.ubuntu.com/noble/current/${CLOUDINIT_IMAGE}
+CLOUDINIT_IMAGE=jammy-server-cloudimg-amd64.img
+CLOUDINIT_IMAGE_URL=https://cloud-images.ubuntu.com/jammy/current/${CLOUDINIT_IMAGE}
 TEMPLATE_VMID=8888
 CLOUDINIT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
 TEMPLATE_BOOT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01

@@ -131,9 +131,6 @@ spec:
               memory: 2G
               cpu: "2"
           volumeMounts:
-            # mc-lobbyサーバーの永続ストレージマウント
-            - name: mc-lobby-storage
-              mountPath: /data
             # bukkit configのマウント
             - name: mcserver-lobby-config
               mountPath: /config/bukkit.yml
@@ -155,9 +152,6 @@ spec:
               mountPath: /data/plugins/worldguard-bukkit.jar
               subPath: worldguard-bukkit.jar
       volumes:
-        - name: mc-lobby-storage
-          persistentVolumeClaim:
-            claimName: mc-lobby-pvc
         - name: mcserver-lobby-config
           configMap:
             name: mc-lobby-configs

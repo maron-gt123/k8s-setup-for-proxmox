@@ -58,7 +58,7 @@ spec:
               wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}" &&
               chown -R 1000:1000 /root/world-edit-download /root/world-guard-download /root/jmx-exporter-download
       containers:
-        - image: itzg/minecraft-server:2024.6.1-java21
+        - image: itzg/minecraft-server:java21
           name: mc-lobby
           securityContext:
             runAsUser: 1000

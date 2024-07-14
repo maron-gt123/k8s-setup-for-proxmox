@@ -28,7 +28,7 @@ spec:
             - sh
             - c
             - >
-              wget -O /root/worldedit-download/worldedit.jar "${WORLDEDIT_URL}"
+              wget -O /root/worldedit-download/worldedit-bukkit.jar "${WORLDEDIT_URL}"
       containers:
         - image: itzg/minecraft-server:java17
           name: mc-music
@@ -113,8 +113,8 @@ spec:
               mountPath: /data
             # worldedit.jarのマウント
             - name: worldedit-download-volume
-              mountPath: /data/plugins/worldedit.jar
-              subPath: worldedit.jar.jar
+              mountPath: /data/plugins/worldedit-bukkit.jar
+              subPath: worldedit-bukkit.jar
             # bukkit configのマウント
             - name: mcserver-music-config
               mountPath: /config/bukkit.yml

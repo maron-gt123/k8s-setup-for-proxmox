@@ -27,7 +27,8 @@ spec:
               unzip -o /data/world.zip -d /data &&
               cp -r /data/k8s-setup-for-proxmox-main/k8s/manifests/apps/minecraft-lobby/world/ /data &&
               rm /data/world.zip &&
-              rm -r /data/k8s-setup-for-proxmox-main
+              rm -r /data/k8s-setup-for-proxmox-main &&
+              chown -R 1000:1000 /data
           volumeMounts:
             - name: world-download-volume
               mountPath: /data
@@ -54,10 +55,15 @@ spec:
             - >
               wget -O /root/world-edit-download/worldedit-bukkit.jar "${WORLD_EDIT_URL}" &&
               wget -O /root/world-guard-download/worldguard-bukkit.jar "${WORLD_GUARD_URL}" &&
-              wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"
+              wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}" &&
+              chown -R 1000:1000 /root/world-edit-download /root/world-guard-download /root/jmx-exporter-download
       containers:
         - image: itzg/minecraft-server:java21
           name: mc-lobby
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
           env:
             # minecraftのeulaについて「同意」の宣言
             - name: EULA
@@ -107,18 +113,18 @@ spec:
             - name: ENABLE_WHITELIST
               value: "true"
             # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
-            #- name: PLUGINS
+            - name: PLUGINS
               # minecraft-prometheus-exporter3.1.0
               # LuckPerms-Bukkit5.4.137
               # Advanced-Portals-0.9.3
               # LunaChat
               # DecentHolograms
-            # value: >-
-            #    https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar,
-            #    https://download.luckperms.net/1552/bukkit/loader/LuckPerms-Bukkit-5.4.137.jar,
-            #    https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
-            #    https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
-            #    https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
+              value: >-
+                https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar,
+                https://download.luckperms.net/1552/bukkit/loader/LuckPerms-Bukkit-5.4.137.jar,
+                https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
+                https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
+                https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
             - name: JVM_OPTS
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml

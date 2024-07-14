@@ -33,51 +33,36 @@ spec:
         - image: itzg/minecraft-server:java21
           name: mc-music
           env:
-            # minecraftのeulaについて「同意」の宣言
             - name: EULA
               value: "TRUE"
-            # サーバーのtime設定を日本標準時に
             - name: TZ
               value: Asia/Tokyo
-            # 本docer_imageの起動サーバ宣言を指定
             - name: TYPE
               value: PAPER
-            # 本docer_imageの起動サーバーverを指定
             - name: VERSION
               value: "1.20.6"
-            # rconの設定を「true」に
             - name: ENABLE_RCON
               value: "true"
             - name: RCON_PASSWORD
               value: "maroncloud"
-            # 最小利用メモリ
             - name: INIT_MEMORY
               value: 1G
-            # 最大利用メモリ
             - name: MAX_MEMORY
               value: 2G
-            # netherの精製か可否
             - name: ALLOW_NETHER
               value: "false"
-            # ゲームモードの設定
             - name: DIFFICULTY
               value: peaceful
-            # velocity経由でのログインのためfalseに設定
             - name: ONLINE_MODE
               value: "FALSE"
-            # worldの精製条件
             - name: LEVEL_TYPE
               value: flat
-            # 動物系mobのspown設定
             - name: SPAWN_ANIMALS
               value: "false"
-            # 敵対系mobのspown設定
             - name: SPAWN_MONSTERS
               value: "false"
-            # npc系mobのspown設定
             - name: SPAWN_NPCS
               value: "false"
-            # 管理者権限指定
             - name: OPS
               value: "maron_12345"
             - name: PLUGINS
@@ -90,14 +75,9 @@ spec:
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar,
                 https://download.luckperms.net/1552/bukkit/loader/LuckPerms-Bukkit-5.4.137.jar,
                 https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
-                https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar
-            - name: SPIGET_RESOURCES
-              # Spiget API経由でダウンロード可能なpluginは本docer_imageの機能を活用し格納
-              # LunaChat
-              #   https://www.spigotmc.org/resources/lunachat.82293/
-              # DecentHolograms
-              #   https://www.spigotmc.org/resources/decentholograms-1-8-1-20-1-papi-support-no-dependencies.96927/
-              value: 96927
+                https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
+                https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
+            - name: SPIGET_RESOURCE
           ports:
             - name: mc-music
               containerPort: 25565

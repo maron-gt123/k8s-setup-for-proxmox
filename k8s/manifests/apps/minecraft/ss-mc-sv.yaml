@@ -54,16 +54,14 @@ spec:
               # LuckPerms-Bukkit
               # Advanced-Portals-0.9.3
               # LunaChat
+              # DecentHolograms
+              # mysql-inventory-bridge
               value: >-
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar,
                 https://download.luckperms.net/1552/bukkit/loader/LuckPerms-Bukkit-5.4.137.jar,
                 https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
-                https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar
-            # Spiget API経由でダウンロード可能なpluginは本docer_imageの機能を活用し格納
-            - name: SPIGET_RESOURCES
-              # mysql-inventory-bridge:  (https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/)
-              # DecentHolograms:  (https://www.spigotmc.org/resources/decentholograms-1-8-1-20-1-papi-support-no-dependencies.96927/)
-              value: 7849,96927
+                https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
+                https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
           ports:
             - name: mc
               containerPort: 25565

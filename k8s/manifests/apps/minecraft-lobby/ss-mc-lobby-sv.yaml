@@ -29,7 +29,7 @@ spec:
               rm /data/world.zip &&
               rm -r /data/k8s-setup-for-proxmox-main
           volumeMounts:
-            - name: mc-lobby-storage
+            - name: world-download-volume
               mountPath: /data
         # pluginデータのダウンロード及び配置
         - name: plugins-downloader
@@ -145,6 +145,9 @@ spec:
               subPath: mc-paper-global.yml
             # world-editのマウント
             - name: world-edit-download-volume
+              mountPath: /data
+            # world-editのマウント
+            - name: world-edit-download-volume
               mountPath: /data/plugins/worldedit-bukkit.jar
               subPath: worldedit-bukkit.jar
             # world-guardのマウント
@@ -158,6 +161,9 @@ spec:
         - name: mcserver-lobby-plugin-config
           configMap:
             name:  mc-lobby-plugin-configs
+        # worldデータをinitContainerでダウンロードしてpaperに受け渡すためのvolume
+        - name: world-download-volume
+          emptyDir: {}
         # world-edit.jarをinitContainerでダウンロードしてpaperに受け渡すためのvolume
         - name: world-edit-download-volume
           emptyDir: {}

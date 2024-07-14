@@ -1,27 +1,27 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  namespace: mic-lobby-sv
+  namespace: mc-lobby-sv
   labels:
-    app: multi-lobby-sv
+    app: mc-lobby
     release: prometheus
-  name: multipaper-metrics
+  name: mc-lobby-metrics
 spec:
   endpoints:
     - interval: 30s
       port: metrics
   selector:
     matchLabels:
-      app: multi-lobby-sv
+      app: mc-lobby
       role: metrics
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: mic-lobby-sv
-  name: multipaper-metrics
+  namespace: mc-lobby-sv
+  name: mc-metrics
   labels:
-    app: multi-lobby-sv
+    app: mc-lobby
     role: metrics
 spec:
   type: ClusterIP
@@ -31,4 +31,4 @@ spec:
       protocol: TCP
       targetPort: metrics
   selector:
-    app: multi-lobby-sv
+    app: mc-lobby

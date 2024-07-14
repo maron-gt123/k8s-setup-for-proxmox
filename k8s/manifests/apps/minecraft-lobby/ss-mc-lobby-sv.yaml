@@ -51,7 +51,7 @@ spec:
               wget -O /root/world-edit-download/worldedit-bukkit.jar "${WORLD_EDIT_URL}" &&
               wget -O /root/world-guard-download/worldguard-bukkit.jar "${WORLD_GUARD_URL}"
       containers:
-        - image: itzg/minecraft-server:java17
+        - image: itzg/minecraft-server:java21
           name: mc-lobby
           env:
             # minecraftのeulaについて「同意」の宣言

@@ -59,7 +59,7 @@ data:
       restart-on-crash: true
       restart-script: ./start.sh
       player-shuffle: 0
-      bungeecord: true
+      bungeecord: false
       user-cache-size: 1000
       moved-wrongly-threshold: 0.0625
       moved-too-quickly-multiplier: 10.0

@@ -98,9 +98,6 @@ spec:
                 https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
-            - name: JVM_OPTS
-              value: >-
-                -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
             - name: COPY_CONFIG_DEST
               # /config をサーバーディレクトリにコピーするようにする
               # https://github.com/itzg/docker-minecraft-server/tree/9458005b5bd78b8139e13e66c29a449a12dd6218#optional-plugins-mods-and-config-attach-points

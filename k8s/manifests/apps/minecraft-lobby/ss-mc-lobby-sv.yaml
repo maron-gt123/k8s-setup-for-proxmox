@@ -101,8 +101,6 @@ spec:
             # whitelist設定
             - name: ENABLE_WHITELIST
               value: "true"
-            - name: WHITELIST
-              valus: maron_12345
             # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
             - name: PLUGINS
               # minecraft-prometheus-exporter3.1.0
@@ -143,6 +141,10 @@ spec:
             - name: mcserver-lobby-config
               mountPath: /config/paper-global.yml
               subPath: mc-paper-global.yml
+            # whitelist configのマウント
+            - name: mcserver-lobby-config
+              mountPath: /config/whitelist.json
+              subPath: mc-whitelist.json
             # world-editのマウント
             - name: world-edit-download-volume
               mountPath: /data

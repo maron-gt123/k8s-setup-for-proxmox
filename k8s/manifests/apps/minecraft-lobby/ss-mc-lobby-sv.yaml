@@ -31,7 +31,7 @@ spec:
           volumeMounts:
             - name: world-download-volume
               mountPath: /data
-        # pluginデータのダウンロード及び配置
+        # pluginデータ及びJMX_exporterのダウンロード及び配置
         - name: plugins-downloader
           image: busybox:1.36.1
           env:
@@ -39,17 +39,22 @@ spec:
               value: "https://dev.bukkit.org/projects/worldedit/files/5507246/download"
             - name: WORLD_GUARD_URL
               value: "https://dev.bukkit.org/projects/worldguard/files/5344377/download"
+            - name: JMX_EXPORTER_URL
+              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.20.0/jmx_prometheus_javaagent-0.20.0.jar"
           volumeMounts:
             - name: world-edit-download-volume
               mountPath: /root/world-edit-download
             - name: world-guard-download-volume
               mountPath: /root/world-guard-download
+            - name: jmx-exporter-download-volume
+              mountPath: /root/jmx-exporter-download
           command:
             - sh
             - -c
             - >
               wget -O /root/world-edit-download/worldedit-bukkit.jar "${WORLD_EDIT_URL}" &&
-              wget -O /root/world-guard-download/worldguard-bukkit.jar "${WORLD_GUARD_URL}"
+              wget -O /root/world-guard-download/worldguard-bukkit.jar "${WORLD_GUARD_URL}" &&
+              wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"
       containers:
         - image: itzg/minecraft-server:java21
           name: mc-lobby
@@ -117,6 +122,13 @@ spec:
               # DecentHolograms
               #   https://www.spigotmc.org/resources/decentholograms-1-8-1-20-1-papi-support-no-dependencies.96927/
               value: 82293,96927
+            - name: JVM_OPTS
+              value: >-
+                -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
+            - name: COPY_CONFIG_DEST
+              # /config をサーバーディレクトリにコピーするようにする
+              # https://github.com/itzg/docker-minecraft-server/tree/9458005b5bd78b8139e13e66c29a449a12dd6218#optional-plugins-mods-and-config-attach-points
+              value: /data
           ports:
             - name: mc-lobby
               containerPort: 25565
@@ -124,6 +136,8 @@ spec:
               containerPort: 25575
             - name: mc-metrics
               containerPort: 35353
+            - name: jmx-metrics
+              containerPort: 18321
           resources:
             requests:
               memory: 2G
@@ -139,7 +153,7 @@ spec:
               subPath: mc-spigot.yml
             # paper-global configのマウント
             - name: mcserver-lobby-config
-              mountPath: /config/paper-global.yml
+              mountPath: /config/config/paper-global.yml
               subPath: mc-paper-global.yml
             # whitelist configのマウント
             - name: mcserver-lobby-config

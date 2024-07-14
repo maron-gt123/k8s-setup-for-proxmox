@@ -168,9 +168,6 @@ spec:
               subPath: jmx-exporter-config.yaml
             # world-editのマウント
             - name: world-edit-download-volume
-              mountPath: /data
-            # world-editのマウント
-            - name: world-edit-download-volume
               mountPath: /data/plugins/worldedit-bukkit.jar
               subPath: worldedit-bukkit.jar
             # world-guardのマウント

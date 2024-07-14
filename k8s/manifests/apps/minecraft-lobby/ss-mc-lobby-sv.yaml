@@ -184,9 +184,9 @@ spec:
         - name: mcserver-lobby-plugin-config
           configMap:
             name:  mc-lobby-plugin-configs
-        - name: -jmx-exporter-config
+        - name: jmx-exporter-config
           configMap:
-            name: -jmx-exporter-config
+            name: jmx-exporter-config
         # worldデータをinitContainerでダウンロードしてpaperに受け渡すためのvolume
         - name: world-download-volume
           emptyDir: {}

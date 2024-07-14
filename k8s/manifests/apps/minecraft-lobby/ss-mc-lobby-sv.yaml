@@ -36,9 +36,9 @@ spec:
           image: busybox:1.36.1
           env:
             - name: WORLD_EDIT_URL
-              value: "https://dev.bukkit.org/projects/worldedit/files/5507246"
+              value: "https://dev.bukkit.org/projects/worldedit/files/5507246/download"
             - name: WORLD_GUARD_URL
-              value: "https://dev.bukkit.org/projects/worldguard/files/5344377"
+              value: "https://dev.bukkit.org/projects/worldguard/files/5344377/download"
           volumeMounts:
             - name: world-edit-download-volume
               mountPath: /root/world-edit-download

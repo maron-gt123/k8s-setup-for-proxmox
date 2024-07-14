@@ -6,7 +6,6 @@ metadata:
 data:
   bukkit.yml: |
     settings:
-      # エンドを無効化
       allow-end: false
       warn-on-overload: true
       permissions-file: permissions.yml

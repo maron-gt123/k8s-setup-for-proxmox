@@ -24,9 +24,8 @@ VM_LIST=(
     # targethost: VMの配置先となるProxmoxホストのホスト名
     # ---
     #vmid   #vmname  #cpu  #mem     #vmsrvip     #targetip    #targethost
-    "201 mic-lobby-SV 4    4096  192.168.15.87 192.168.1.141 onp-prox01-SV"
-    "202 mic-paper-01 4    4096  192.168.15.88 192.168.1.142 onp-prox02-SV"
-    "203 mic-paper-02 4    4096  192.168.15.89 192.168.1.143 onp-prox03-SV"
+    "201 mic-paper-01 4    4096  192.168.15.87 192.168.1.141 onp-prox01-SV"
+    "202 mic-paper-02 4    4096  192.168.15.88 192.168.1.142 onp-prox02-SV"
 )
 #endregion
 

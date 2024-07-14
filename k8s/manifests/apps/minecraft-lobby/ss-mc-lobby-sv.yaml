@@ -23,9 +23,9 @@ spec:
             - sh
             - -c
             - >
-              wget -O /app/world.zip https://github.com/maron-gt123/k8s-setup-for-proxmox/archive/refs/heads/main.zip &&
-              unzip -o /app/world.zip -d /data &&
-              cp -r /app/k8s-setup-for-proxmox-main/k8s/manifests/apps/minecraft-lobby/world/ /data &&
+              wget -O /data/world.zip https://github.com/maron-gt123/k8s-setup-for-proxmox/archive/refs/heads/main.zip &&
+              unzip -o /data/world.zip -d /data &&
+              cp -r /data/k8s-setup-for-proxmox-main/k8s/manifests/apps/minecraft-lobby/world/ /data &&
               rm /data/world.zip &&
               rm -r /data/k8s-setup-for-proxmox-main
           volumeMounts:

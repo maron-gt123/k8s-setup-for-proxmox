@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  namespace: mc-lobby-sv
   name: jmx-exporter-config
 data:
   # https://github.com/prometheus/jmx_exporter/tree/ca972bfe693cca03d3a0fac802968e33828a1dd9#configuration

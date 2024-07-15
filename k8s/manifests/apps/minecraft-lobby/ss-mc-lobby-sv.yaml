@@ -116,19 +116,19 @@ spec:
           volumeMounts:
             # bukkit configのマウント
             - name: mcserver-lobby-config
-              mountPath: /config/bukkit.yml
+              mountPath: /data/bukkit.yml
               subPath: mc-bukkit.yml
             # spigot configのマウント
             - name: mcserver-lobby-config
-              mountPath: /config/spigot.yml
+              mountPath: /data/spigot.yml
               subPath: mc-spigot.yml
             # paper-global configのマウント
             - name: mcserver-lobby-config
-              mountPath: /config/config/paper-global.yml
+              mountPath: /data/config/paper-global.yml
               subPath: mc-paper-global.yml
             # whitelist configのマウント
             - name: mcserver-lobby-config
-              mountPath: /config/whitelist.json
+              mountPath: /data/whitelist.json
               subPath: mc-whitelist.json
             # world-editのマウント
             - name: world-edit-download-volume

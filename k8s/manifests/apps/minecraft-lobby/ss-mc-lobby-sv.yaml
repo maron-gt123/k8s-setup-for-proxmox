@@ -114,30 +114,56 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
-            # bukkit configのマウント
+            # bukkit/spigot/paper-global関連のconfigをマウント
             - name: mcserver-lobby-config
               mountPath: /config/bukkit.yml
               subPath: mc-bukkit.yml
-            # spigot configのマウント
             - name: mcserver-lobby-config
               mountPath: /config/spigot.yml
               subPath: mc-spigot.yml
-            # paper-global configのマウント
             - name: mcserver-lobby-config
               mountPath: /config/config/paper-global.yml
               subPath: mc-paper-global.yml
-            # whitelist configのマウント
             - name: mcserver-lobby-config
               mountPath: /config/whitelist.json
               subPath: mc-whitelist.json
-            # world-editのマウント
+            
+            # world-edit/world-guardをマウント
             - name: world-edit-download-volume
               mountPath: /data/plugins/worldedit-bukkit.jar
               subPath: worldedit-bukkit.jar
-            # world-guardのマウント
             - name: world-guard-download-volume
               mountPath: /data/plugins/worldguard-bukkit.jar
               subPath: worldguard-bukkit.jar
+            
+            # Plugin関連のconfigをマウント
+            - name: mcserver-lobby-plugin-config
+              mountPath: /plugins/LuckPerms/config.yml
+              subPath: luckperms.yml
+            - name: mcserver-lobby-plugin-config
+              mountPath: /plugins/PrometheusExporter/config.yml
+              subPath: prometheusexporter.yml
+            - name: mcserver-lobby-plugin-config
+              mountPath: /plugins/LunaChat/config.yml
+              subPath: lunachat.yml
+            - name: mcserver-lobby-plugin-config
+              mountPath: /plugins/DecentHolograms/holograms/S1_Gateway.yml
+              subPath: holograms-S1_Gateway.yml
+            - name: mcserver-lobby-plugin-config
+              mountPath: /plugins/DecentHolograms/holograms/S2_Gateway.yml
+              subPath: holograms-S2_Gateway.yml
+            - name: mcserver-lobby-plugin-config
+              mountPath: /plugins/DecentHolograms/holograms/music-Gateway.yml
+              subPath: holograms-music-Gateway.yml
+            - name: mcserver-lobby-plugin-config
+              mountPath: /plugins/DecentHolograms/holograms/k8s_Gateway.yml
+              subPath: holograms-k8s_Gateway.yml
+            - name: mcserver-lobby-plugin-config
+              mountPath: /plugins/WorldEdit/config.yml
+              subPath: worldedit-config.yml
+            - name: mcserver-lobby-plugin-config
+              mountPath: /plugins/WorldGuard/config.yml
+              subPath: worldgard-config.yml
       volumes:
         - name: data
           emptyDir: {}

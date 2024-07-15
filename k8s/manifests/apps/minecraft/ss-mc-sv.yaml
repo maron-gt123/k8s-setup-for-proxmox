@@ -20,33 +20,22 @@ spec:
         - image: itzg/minecraft-server:java21
           name: mc
           env:
-            # minecraftのeulaについて「同意」の宣言
             - name: EULA
               value: "TRUE"
-            # サーバーのtime設定を日本標準時に
             - name: TZ
               value: Asia/Tokyo
-            # 本docer_imageの起動サーバ宣言を指定
             - name: TYPE
               value: PAPER
-            # 本docer_imageの起動サーバーverを指定
             - name: VERSION
               value: "1.20.6"
-            # rconの設定を「true」に
             - name: ENABLE_RCON
               value: "true"
-            - name: RCON_PASSWORD
-              value: "maroncloud"
-            # 最小利用メモリ
             - name: INIT_MEMORY
               value: 1G
-            # 最大利用メモリ
             - name: MAX_MEMORY
               value: 2G
-            # ゲーム難易度
             - name: DIFFICULTY
               value: easy
-            # velocity経由でのログインのためfalseに設定
             - name: ONLINE_MODE
               value: "FALSE"
             - name: PLUGINS
@@ -62,6 +51,8 @@ spec:
                 https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
+            - name: COPY_CONFIG_DEST
+              value: /data
           ports:
             - name: mc
               containerPort: 25565
@@ -77,43 +68,36 @@ spec:
             # mc-musicサーバーの永続ストレージマウント
             - name: minecraft-storage
               mountPath: /data
-            # bukkit configのマウント
+            # bukkit/spigot/paper-global関連のconfigをマウント
             - name: mcserver-config
               mountPath: /config/bukkit.yml
               subPath: mc-bukkit.yml
-            # spigot configのマウント
             - name: mcserver-config
               mountPath: /config/spigot.yml
               subPath: mc-spigot.yml
-            # paper-global configのマウント
             - name: mcserver-config
-              mountPath: /config/paper-global.yml
+              mountPath: /config/config/paper-global.yml
               subPath: mc-paper-global.yml
-            # PrometheusExporter configのマウント
+            
+            # Plugin関連のconfigをマウント
             - name: mcserver-plugin-config
               mountPath: /plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml
-            # MysqlInventoryBridge configのマウント
             - name: mcserver-plugin-config
               mountPath: /plugins/MysqlInventoryBridge/config.yml
               subPath: mysqlinventorybridge.yml
-            # LuckPerms configのマウント
             - name: mcserver-plugin-config
               mountPath: /plugins/LuckPerms/config.yml
               subPath: LuckPerms-config.yml
-            # LunaChat configのマウント
             - name: mcserver-plugin-config
               mountPath: /plugins/LunaChat/config.yml
               subPath: LunaChat-config.yml   
-            # AdvancedPortals configのマウント
             - name: mcserver-plugin-config
               mountPath: /plugins/AdvancedPortals/config.yml
               subPath: Advanced-config.yml
-            # AdvancedPortals_destinations configのマウント
             - name: mcserver-plugin-config
               mountPath: /plugins/AdvancedPortals/destinations.yml
               subPath: Advanced-destinations.yml
-            # AdvancedPortals_portals configのマウント
             - name: mcserver-plugin-config
               mountPath: /plugins/AdvancedPortals/portals.yml
               subPath: Advanced-portals.yml

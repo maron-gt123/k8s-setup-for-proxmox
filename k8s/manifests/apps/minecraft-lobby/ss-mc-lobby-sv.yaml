@@ -111,6 +111,8 @@ spec:
               memory: 2G
               cpu: "2"
           volumeMounts:
+            - name: data
+              mountPath: /data
             # bukkit configのマウント
             - name: mcserver-lobby-config
               mountPath: /data/bukkit.yml
@@ -136,6 +138,8 @@ spec:
               mountPath: /data/plugins/worldguard-bukkit.jar
               subPath: worldguard-bukkit.jar
       volumes:
+        - name: data
+          emptyDir: {}
         - name: mcserver-lobby-config
           configMap:
             name: mc-lobby-configs

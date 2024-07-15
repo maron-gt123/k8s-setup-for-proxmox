@@ -105,7 +105,7 @@ spec:
         # minecraft-musicサーバーの永続ストレージの指定
         - name: minecraft-storage
           persistentVolumeClaim:
-            claimName: minecraft-pvc
+            claimName: mc-pvc
         # configmapであるmcserver-configsの指定
         - name: mcserver-config
           configMap:

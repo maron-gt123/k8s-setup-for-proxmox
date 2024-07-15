@@ -96,7 +96,7 @@ spec:
                 https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
-            - name: SPIGET_RESOURCE
+            - name: COPY_CONFIG_DEST
               value: /data
           ports:
             - name: mc-lobby

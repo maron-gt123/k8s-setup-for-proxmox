@@ -97,6 +97,7 @@ spec:
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
             - name: SPIGET_RESOURCE
+              value: /data
           ports:
             - name: mc-lobby
               containerPort: 25565
@@ -115,19 +116,19 @@ spec:
               mountPath: /data
             # bukkit configのマウント
             - name: mcserver-lobby-config
-              mountPath: /data/bukkit.yml
+              mountPath: /config/bukkit.yml
               subPath: mc-bukkit.yml
             # spigot configのマウント
             - name: mcserver-lobby-config
-              mountPath: /data/spigot.yml
+              mountPath: /config/spigot.yml
               subPath: mc-spigot.yml
             # paper-global configのマウント
             - name: mcserver-lobby-config
-              mountPath: /config/paper-global.yml
+              mountPath: /config/config/paper-global.yml
               subPath: mc-paper-global.yml
             # whitelist configのマウント
             - name: mcserver-lobby-config
-              mountPath: /data/whitelist.json
+              mountPath: /config/whitelist.json
               subPath: mc-whitelist.json
             # world-editのマウント
             - name: world-edit-download-volume

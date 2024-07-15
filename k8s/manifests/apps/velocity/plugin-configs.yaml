@@ -53,8 +53,8 @@ data:
             #  of a file in the icons folder (excluding the '.png' extension)
             #    ex: icon="myIconFile"
             icon=random
-            line1="<rainbow>MiniMOTD This is minecraft-server for Maroncloud"
-            line2="MiniMessage <gradient:blue:red>これは検証用です"
+            line1="<rainbow>This is minecraft-server for Maroncloud"
+            line2="<gradient:blue:red>このサーバーは個人利用です"
         },
         {
             # Set the icon to use with this MOTD
@@ -62,8 +62,8 @@ data:
             #  of a file in the icons folder (excluding the '.png' extension)
             #    ex: icon="myIconFile"
             icon=random
-            line1="<blue>Another <bold><red>MOTD"
-            line2="<italic><underlined><gradient:red:green>much wow"
+            line1="<red>This is server a comunity server"
+            line2="<gradient:blue:red>white listで管理されています"
         }
     ]
     player-count-settings {

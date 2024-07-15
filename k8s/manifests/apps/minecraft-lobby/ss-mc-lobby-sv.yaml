@@ -123,7 +123,7 @@ spec:
               subPath: mc-spigot.yml
             # paper-global configのマウント
             - name: mcserver-lobby-config
-              mountPath: /data/config/paper-global.yml
+              mountPath: /config/paper-global.yml
               subPath: mc-paper-global.yml
             # whitelist configのマウント
             - name: mcserver-lobby-config

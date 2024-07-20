@@ -21,7 +21,7 @@ spec:
           image: busybox:1.36.1
           env:
             - name: WORLD_URL
-              value: "https://github.com/maron-gt123/k8s-setup-for-proxmox/archive/refs/heads/main.zip"
+              value: "https://github.com/maron-gt123/k8s-setup-for-proxmox/releases/download/1.11/world.zip"
           volumeMounts:
             - name: world-download-volume
               mountPath: /data
@@ -32,9 +32,6 @@ spec:
               echo "start downloading world data" &&
               wget -qO /data/world.zip "${WORLD_URL}" &&
               unzip -o /data/world.zip -d /data &&
-              cp -r /data/k8s-setup-for-proxmox-main/k8s/manifests/apps/minecraft-lobby/world/ /data &&
-              rm /data/world.zip &&
-              rm -r /data/k8s-setup-for-proxmox-main &&
               echo "successfully imported world data"
         # pluginデータのダウンロード及び配置
         - name: plugins-downloader

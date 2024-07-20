@@ -101,6 +101,7 @@ spec:
                 https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
+            # config関連を/configから/dataへmcopy
             - name: COPY_CONFIG_DEST
               value: /data
           ports:
@@ -117,10 +118,12 @@ spec:
               memory: 2G
               cpu: "2"
           volumeMounts:
+            # world関連の格納先マウント
             - name: data
               mountPath: /data
             - name: world-download-volume
               mountPath: /data/world
+
             # bukkit/spigot/paper-global関連のconfigをマウント
             - name: mcserver-lobby-config
               mountPath: /config/bukkit.yml

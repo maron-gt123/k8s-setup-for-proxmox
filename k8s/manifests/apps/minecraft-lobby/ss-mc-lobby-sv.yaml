@@ -24,7 +24,7 @@ spec:
               value: "https://github.com/maron-gt123/k8s-setup-for-proxmox/releases/download/1.0/world.tar"
           volumeMounts:
             - name: world-download-volume
-              mountPath: /data
+              mountPath: /root/world-download
           command:
             - sh
             - -c
@@ -122,6 +122,8 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
+            - name: world-download-volume
+              mountPath: /data/world
             # bukkit/spigot/paper-global関連のconfigをマウント
             - name: mcserver-lobby-config
               mountPath: /config/bukkit.yml

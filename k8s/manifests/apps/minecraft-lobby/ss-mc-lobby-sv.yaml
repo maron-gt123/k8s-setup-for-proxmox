@@ -95,12 +95,15 @@ spec:
               # LuckPerms-Bukkit5.4.137
               # Advanced-Portals-0.9.3
               # LunaChat
+              # DecentHolograms
+              # SpawnPlugin
               value: >-
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar,
                 https://download.luckperms.net/1552/bukkit/loader/LuckPerms-Bukkit-5.4.137.jar,
                 https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
-                https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
+                https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar,
+                https://mc-plugins.net/_cdn/plugins/bukkit-spigot/SpawnPlugin_1.0.3.jar
             # config関連を/configから/dataへmcopy
             - name: COPY_CONFIG_DEST
               value: /data
@@ -163,8 +166,11 @@ spec:
               mountPath: /plugins/WorldGuard/config.yml
               subPath: worldgard-config.yml
             - name: mcserver-lobby-plugin-config
-              mountPath: /data/plugins/AdvancedPortals/config.yml
+              mountPath: /plugins/AdvancedPortals/config.yml
               subPath: advancedportals-config.yml
+            - name: mcserver-lobby-plugin-config
+              mountPath: /plugins/SpawnPlugin/config.yml
+              subPath: spawn.yml
 
             # hologramsの詳細configをマウント
             - name: mcserver-lobby-holograms-config
@@ -182,10 +188,10 @@ spec:
 
             # advancedportalsの詳細configをマウント
             - name: mcserver-lobby-advancedportals-config
-              mountPath: /data/plugins/AdvancedPortals/destinations.yml
+              mountPath: /plugins/AdvancedPortals/destinations.yml
               subPath: destinations.yml
             - name: mcserver-lobby-advancedportals-config
-              mountPath: /data/plugins/AdvancedPortals/portals.yml
+              mountPath: /plugins/AdvancedPortals/portals.yml
               subPath: portals.yml
 
       volumes:

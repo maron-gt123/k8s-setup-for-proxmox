@@ -32,7 +32,7 @@ spec:
               echo "start downloading world data" &&
               wget --no-check-certificate -qO /root/world-download/world.tar "${WORLD_URL}" &&
               tar -xvf /root/world-download/world.tar -C /root/world-download/ &&
-              rm world.tar &&
+              rm /root/world-download/world.tar &&
               ls -l /root/world-download/world &&
               if [ -d "/root/world-download/world/region" ] && [ -f "/root/world-download/world/level.dat" ]; then
                 echo "successfully imported world data";

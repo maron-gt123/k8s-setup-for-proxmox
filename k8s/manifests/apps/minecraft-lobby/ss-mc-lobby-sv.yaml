@@ -29,9 +29,10 @@ spec:
             - sh
             - -c
             - >
-              echo "start downloading world data" &&
-              wget -qO /data/world.zip "${WORLD_URL}" | tar -xz -C /data &&
-              echo "successfully imported world data"
+        echo "start downloading world data" &&
+        wget -qO /data/world.tar "${WORLD_URL}" &&
+        tar -xvf /data/world.tar -C /data &&
+        echo "successfully imported world data"
         # pluginデータのダウンロード及び配置
         - name: plugins-downloader
           image: busybox:1.36.1

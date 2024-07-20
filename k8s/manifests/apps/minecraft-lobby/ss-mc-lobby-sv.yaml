@@ -30,11 +30,11 @@ spec:
             - -c
             - >
               echo "start downloading world data" &&
-              wget --no-check-certificate -qO /data/world.tar "${WORLD_URL}" &&
-              mkdir -p /data/world &&
-              tar -xvf /data/world.tar -C /data/world &&
-              ls -l /data/world &&
-              if [ -d "/data/world/region" ] && [ -f "/data/world/level.dat" ]; then
+              wget --no-check-certificate -qO /root/world-download/world.tar "${WORLD_URL}" &&
+              mkdir -p /root/world-download/world &&
+              tar -xvf /root/world-download/world.tar -C /root/world-download/world &&
+              ls -l /root/world-download/world &&
+              if [ -d "/root/world-download/world/region" ] && [ -f "/root/world-download/world/level.dat" ]; then
                 echo "successfully imported world data";
               else
                 echo "failed to import world data";

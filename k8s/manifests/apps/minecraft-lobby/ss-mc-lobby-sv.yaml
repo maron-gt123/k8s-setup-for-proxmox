@@ -31,8 +31,9 @@ spec:
             - >
               echo "start downloading world data" &&
               wget --no-check-certificate -qO /data/world.tar "${WORLD_URL}" &&
-              tar -xvf /data/world.tar -C /data &&
-              if [ -d "/data/region" ] && [ -f "/data/level.dat" ]; then
+              mkdir -p /data/world &&
+              tar -xvf /data/world.tar -C /data/world &&
+              if [ -d "/data/world/region" ] && [ -f "/data/world/level.dat" ]; then
                 echo "successfully imported world data";
               else
                 echo "failed to import world data";

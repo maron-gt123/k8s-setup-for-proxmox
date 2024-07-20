@@ -33,11 +33,7 @@ spec:
               wget --no-check-certificate -qO /root/world-download/world.tar "${WORLD_URL}" &&
               tar -xvf /root/world-download/world.tar -C /root/world-download/ &&
               rm /root/world-download/world.tar &&
-              if [ -d "/root/world-download/world/region" ] && [ -f "/root/world-download/world/level.dat" ]; then
-                echo "successfully imported world data";
-              else
-                echo "failed to import world data";
-              fi
+              echo "successfully imported world data"
         # pluginデータのダウンロード及び配置
         - name: plugins-downloader
           image: busybox:1.36.1

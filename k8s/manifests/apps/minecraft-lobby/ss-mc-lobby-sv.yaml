@@ -56,15 +56,6 @@ spec:
       containers:
         - image: itzg/minecraft-server:java21
           name: mc-lobby
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - sh
-                  - -c
-                  - >
-                    sleep 30 &&
-                    echo "say Hello World" | rcon -H localhost -P 25575 -p maron_cloud
           env:
             - name: EULA
               value: "TRUE"

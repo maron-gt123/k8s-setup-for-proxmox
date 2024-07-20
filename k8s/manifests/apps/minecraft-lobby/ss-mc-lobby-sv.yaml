@@ -19,9 +19,10 @@ spec:
         # lobbyサーバーをgithubに格納されているワールドデータに指定するためのダウンロード及び配置作業
         - name: download-world
           image: busybox:1.36.1
-          volumeMounts:
+          env:
             - name: WORLD_URL # GitHubに格納したworldデータ
               value: "https://github.com/maron-gt123/k8s-setup-for-proxmox/archive/refs/heads/main.zip"
+          volumeMounts:
             - name: world-download-volume
               mountPath: /data
           command:

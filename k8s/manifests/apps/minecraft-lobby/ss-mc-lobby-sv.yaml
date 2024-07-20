@@ -20,7 +20,7 @@ spec:
         - name: download-world
           image: busybox:1.36.1
           env:
-            - name: WORLD_URL # GitHubに格納したworldデータ
+            - name: WORLD_URL
               value: "https://github.com/maron-gt123/k8s-setup-for-proxmox/archive/refs/heads/main.zip"
           volumeMounts:
             - name: world-download-volume
@@ -30,7 +30,7 @@ spec:
             - -c
             - >
               echo "start downloading world data" &&
-              wget -qO- /data/world.zip "${WORLD_URL}" &&
+              wget -qO /data/world.zip "${WORLD_URL}" &&
               unzip -o /data/world.zip -d /data &&
               cp -r /data/k8s-setup-for-proxmox-main/k8s/manifests/apps/minecraft-lobby/world/ /data &&
               rm /data/world.zip &&

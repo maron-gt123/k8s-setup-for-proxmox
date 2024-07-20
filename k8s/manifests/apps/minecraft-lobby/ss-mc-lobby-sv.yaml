@@ -154,44 +154,65 @@ spec:
               mountPath: /plugins/LunaChat/config.yml
               subPath: lunachat.yml
             - name: mcserver-lobby-plugin-config
-              mountPath: /plugins/DecentHolograms/holograms/S1_Gateway.yml
-              subPath: holograms-S1_Gateway.yml
-            - name: mcserver-lobby-plugin-config
-              mountPath: /plugins/DecentHolograms/holograms/S2_Gateway.yml
-              subPath: holograms-S2_Gateway.yml
-            - name: mcserver-lobby-plugin-config
-              mountPath: /plugins/DecentHolograms/holograms/music-Gateway.yml
-              subPath: holograms-music-Gateway.yml
-            - name: mcserver-lobby-plugin-config
-              mountPath: /plugins/DecentHolograms/holograms/k8s_Gateway.yml
-              subPath: holograms-k8s_Gateway.yml
-            - name: mcserver-lobby-plugin-config
               mountPath: /plugins/WorldEdit/config.yml
               subPath: worldedit-config.yml
             - name: mcserver-lobby-plugin-config
               mountPath: /plugins/WorldGuard/config.yml
               subPath: worldgard-config.yml
+            - name: mcserver-lobby-plugin-config
+              mountPath: /data/plugins/AdvancedPortals/config.yml
+              subPath: advancedportals-config.yml
+
+            # hologramsの詳細configをマウント
+            - name: mcserver-lobby-holograms-config
+              mountPath: /plugins/DecentHolograms/holograms/S1_Gateway.yml
+              subPath: holograms-S1_Gateway.yml
+            - name: mcserver-lobby-holograms-config
+              mountPath: /plugins/DecentHolograms/holograms/S2_Gateway.yml
+              subPath: holograms-S2_Gateway.yml
+            - name: mcserver-lobby-holograms-config
+              mountPath: /plugins/DecentHolograms/holograms/music-Gateway.yml
+              subPath: holograms-music-Gateway.yml
+            - name: mcserver-lobby-holograms-config
+              mountPath: /plugins/DecentHolograms/holograms/k8s_Gateway.yml
+              subPath: holograms-k8s_Gateway.yml
+
+            # advancedportalsの詳細configをマウント
+            - name: mcserver-lobby-advancedportals-config
+              mountPath: /data/plugins/AdvancedPortals/destinations.yml
+              subPath: destinations.yml
+            - name: mcserver-lobby-advancedportals-config
+              mountPath: /data/plugins/AdvancedPortals/portals.yml
+              subPath: portals.yml
+
       volumes:
+        # paperのボリューム
         - name: data
           emptyDir: {}
+
+        # configmmapの指定
         - name: mcserver-lobby-config
           configMap:
             name: mc-lobby-configs
         - name: mcserver-lobby-plugin-config
           configMap:
-            name:  mc-lobby-plugin-configs
+            name: mc-lobby-plugin-configs
+        - name: mcserver-lobby-holograms-config
+          configMap:
+            name: mc-lobby-holograms-configs
+        - name: mcserver-lobby-advancedportals-config
+          configMap:
+            name: mc-lobby-advancedportals-configs
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-config
-        # worldデータをinitContainerでダウンロードしてpaperに受け渡すためのvolume
+
+        # initContainerでダウンロードしてpaperに受け渡すためのvolume
         - name: world-download-volume
           emptyDir: {}
-        # world-edit.jarをinitContainerでダウンロードしてpaperに受け渡すためのvolume
         - name: world-edit-download-volume
           emptyDir: {}
-        # world-guard.jarをinitContainerでダウンロードしてpaperに受け渡すためのvolume
         - name: world-guard-download-volume
           emptyDir: {}
-        # JMX exporterをinitContainerでダウンロードしてBugneeCordに受け渡すためのvolume
         - name: jmx-exporter-download-volume
           emptyDir: {}

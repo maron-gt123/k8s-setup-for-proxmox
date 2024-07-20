@@ -976,7 +976,30 @@ data:
     # See here for more info: https://minecraft.gamepedia.com/Commands#Target_selectors
     resolve-command-selectors: false
   spawn.yml: |
-  
+    # #######################################
+    #                                      #
+    #             Spawn Plugin             #
+    #                                      #
+    # #######################################
+    
+    settings:
+      tpmessage-enable: true
+      spawn-on-join: true
+    
+    messages:
+      tpmessage: '&aYou have been teleported to the Spawn'
+      error-nospawnpoint: '&cNo Spawn Point set'
+      success-setspawn: '&aSpawn point set Correctly'
+      cmd-spawn-usage: '&cUsage: /spawn'
+      cmd-setspawn-usage: '&cUsage: /setspawn'
+    
+    spawn:
+      world: world
+      x: -0.19490791613759675
+      y: -59.9375
+      z: -6.676581961788842
+      yaw: 9.149715
+      pitch: 29.39987
   advancedportals-config.yml: |
     # Advanced Portals Config
     

@@ -19,18 +19,22 @@ spec:
         # lobbyサーバーをgithubに格納されているワールドデータに指定するためのダウンロード及び配置作業
         - name: download-world
           image: busybox:1.36.1
+          volumeMounts:
+            - name: WORLD_URL # GitHubに格納したworldデータ
+              value: "https://github.com/maron-gt123/k8s-setup-for-proxmox/archive/refs/heads/main.zip"
+            - name: world-download-volume
+              mountPath: /data
           command:
             - sh
             - -c
             - >
-              wget -O /config/world.zip https://github.com/maron-gt123/k8s-setup-for-proxmox/archive/refs/heads/main.zip &&
-              unzip -o /config/world.zip -d /config &&
-              cp -r /config/k8s-setup-for-proxmox-main/k8s/manifests/apps/minecraft-lobby/world/ /config &&
-              rm /config/world.zip &&
-              rm -r /config/k8s-setup-for-proxmox-main
-          volumeMounts:
-            - name: world-download-volume
-              mountPath: /config
+              echo "start downloading world data" &&
+              wget -qO- /data/world.zip "${WORLD_URL}" &&
+              unzip -o /data/world.zip -d /data &&
+              cp -r /data/k8s-setup-for-proxmox-main/k8s/manifests/apps/minecraft-lobby/world/ /data &&
+              rm /data/world.zip &&
+              rm -r /data/k8s-setup-for-proxmox-main &&
+              echo "successfully imported world data"
         # pluginデータのダウンロード及び配置
         - name: plugins-downloader
           image: busybox:1.36.1

@@ -74,7 +74,7 @@ spec:
               value: >-
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar,
                 https://download.luckperms.net/1552/bukkit/loader/LuckPerms-Bukkit-5.4.137.jar,
-                https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
+                https://github.com/sekwah41/Advanced-Portals/releases/download/v0.10.0/Advanced-Portals-0.10.0.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
             # config関連を/configから/dataへmcopy

@@ -77,6 +77,9 @@ spec:
                 https://github.com/sekwah41/Advanced-Portals/releases/download/v0.9.3/Advanced-Portals-0.9.3.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
+            # config関連を/configから/dataへmcopy
+            - name: COPY_CONFIG_DEST
+              value: /data
             - name: SPIGET_RESOURCE
           ports:
             - name: mc-music
@@ -106,7 +109,7 @@ spec:
               mountPath: /config/spigot.yml
               subPath: mc-spigot.yml
             - name: mcserver-music-config
-              mountPath: /config/paper-global.yml
+              mountPath: /config/config/paper-global.yml
               subPath: mc-paper-global.yml
               
             # plugins関連の configのマウント

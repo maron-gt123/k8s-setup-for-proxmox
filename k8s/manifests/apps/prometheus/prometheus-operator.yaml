@@ -60,6 +60,10 @@ spec:
           prometheus:
             monitor:
               enabled: false
+        kubelet:
+          serviceMonitor:
+            attachMetadata:
+              node: true
         nodeExporter:
           operatingSystems:
             darwin:
@@ -67,8 +71,6 @@ spec:
         loki:
           isDefault: false
         grafana:
-          initChownData:
-            enabled: false
           sidecar:
             dashboards:
               enabled: true
@@ -84,6 +86,7 @@ spec:
             - grafana-piechart-panel
             - isovalent-hubble-datasource
             - grafana-sentry-datasource
+          grafana.ini:
           deploymentStrategy:
             type: Recreate
           persistence:

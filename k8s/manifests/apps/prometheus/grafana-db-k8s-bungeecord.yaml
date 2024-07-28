@@ -293,7 +293,7 @@ data:
               "editorMode": "code",
               "expr": "increase(bungeecord_player_kicks_total[1m])",
               "hide": false,
-              "legendFormat": "__auto",
+              "legendFormat": "kicks",
               "range": true,
               "refId": "D"
             },

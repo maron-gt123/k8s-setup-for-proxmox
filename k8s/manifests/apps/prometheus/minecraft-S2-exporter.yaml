@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft-exporter
+  namespace: monitoring
+  labels:
+    app: minecraft-exporter-S2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft-exporter-S2
+  template:
+    metadata:
+      labels:
+        app: minecraft-exporter-S2
+    spec:
+      containers:
+      - name: minecraft-exporter
+        image: sladkoff/minecraft-prometheus-exporter:latest
+        ports:
+        - containerPort: 9150
+          name: metrics
+        env:
+        - name: MC_RCON_HOST
+          value: "<your-minecraft-server-ip>"
+        - name: MC_RCON_PORT
+          value: "25575"
+        - name: MC_RCON_PASSWORD
+          value: "<your-rcon-password>"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minecraft-exporter-S2
+  namespace: monitoring
+  labels:
+    app: minecraft-exporter-S2
+spec:
+  ports:
+  - name: metrics
+    port: 9150
+    targetPort: 9150
+  selector:
+    app: minecraft-exporter-S2
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: minecraft-exporter-S2
+  namespace: monitoring
+  labels:
+    release: prometheus-operator-S2
+spec:
+  selector:
+    matchLabels:
+      app: minecraft-exporter-S2
+  endpoints:
+  - port: metrics
+    interval: 30s

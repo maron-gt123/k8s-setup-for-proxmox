@@ -23,11 +23,11 @@ spec:
           name: metrics
         env:
         - name: MC_RCON_HOST
-          value: "<your-minecraft-server-ip>"
+          value: "mic-paper01.micnet"
         - name: MC_RCON_PORT
           value: "25575"
         - name: MC_RCON_PASSWORD
-          value: "<your-rcon-password>"
+          value: "maroncloud"
 ---
 apiVersion: v1
 kind: Service

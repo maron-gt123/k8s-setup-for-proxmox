@@ -43,7 +43,7 @@ spec:
   source:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 61.3.2
+    targetRevision: 61.4.0
     helm:
       releaseName: prometheus
       skipCrds: true
@@ -188,14 +188,6 @@ spec:
                   - targets: ['k8s-wk03.micnet:9100']
                     labels:
                       server_name: 'k8s-wk3-server'
-              - job_name: 'minecraft'
-                static_configs:
-                  - targets: ['mic-paper01.micnet:9225']
-                    labels:
-                      server_name: 'minecraft-server-S1'
-                  - targets: ['mic-paper02.micnet:9225']
-                    labels:
-                      server_name: 'minecraft-server-S2'
             storageSpec:
               volumeClaimTemplate:
                 spec:

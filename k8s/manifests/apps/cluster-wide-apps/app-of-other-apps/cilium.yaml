@@ -55,6 +55,7 @@ spec:
           prometheus:
             enabled: true
             serviceMonitor:
+              trustCRDsExist: true
               enabled: true
               labels:
                 release: prometheus

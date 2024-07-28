@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: minecraft-exporter
+  name: minecraft-exporter-S1
   namespace: monitoring
   labels:
     app: minecraft-exporter-S1

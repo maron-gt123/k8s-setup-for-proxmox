@@ -8,7 +8,7 @@ spec:
   source:
     chart: cilium
     repoURL: https://helm.cilium.io/
-    targetRevision: 1.15.7
+    targetRevision: 1.16.0
     helm:
       releaseName: cilium
       values: |
@@ -62,9 +62,9 @@ spec:
             enabled: true
         prometheus:
           enabled: true
-          trustCRDsExist: true
           serviceMonitor:
             enabled: true
+            trustCRDsExist: true
             labels:
               release: prometheus
   destination:

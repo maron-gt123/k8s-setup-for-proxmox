@@ -1,3 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: s1-service
+  namespace: monitoring
+spec:
+  type: ExternalName
+  externalName: mic-paper01.micnet
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: s2-service
+  namespace: monitoring
+spec:
+  type: ExternalName
+  externalName: mic-paper02.micnet
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
@@ -11,7 +29,6 @@ spec:
       app: s1-service
   endpoints:
   - port: 9150
-    target: mic-paper01.micnet
     interval: 30s
     scheme: http
 ---
@@ -28,6 +45,5 @@ spec:
       app: s2-service
   endpoints:
   - port: 9150
-    target: mic-paper02.micnet
     interval: 30s
     scheme: http

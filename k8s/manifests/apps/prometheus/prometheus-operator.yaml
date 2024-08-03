@@ -88,7 +88,6 @@ spec:
             - grafana-piechart-panel
             - isovalent-hubble-datasource
             - grafana-sentry-datasource
-          grafana.ini:
           deploymentStrategy:
             type: Recreate
           persistence:

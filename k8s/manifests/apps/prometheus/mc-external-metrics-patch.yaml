@@ -18,14 +18,14 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: s1-service-monitor
+  name: s2-service-monitor
   namespace: monitoring
   labels:
     release: prometheus
 spec:
   selector:
     matchLabels:
-      app: s1-service
+      app: s2-service
   endpoints:
   - port: 9150
     target: mic-paper02.micnet

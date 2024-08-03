@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: minecraft-exporter-S1
+  name: minecraft-exporter-s1
   namespace: monitoring
   labels:
-    app: minecraft-exporter-S1
+    app: minecraft-exporter-s1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: minecraft-exporter-S1
+      app: minecraft-exporter-s1
   template:
     metadata:
       labels:
-        app: minecraft-exporter-S1
+        app: minecraft-exporter-s1
     spec:
       containers:
       - name: minecraft-exporter
@@ -32,29 +32,29 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: minecraft-exporter-S1
+  name: minecraft-exporter-s1
   namespace: monitoring
   labels:
-    app: minecraft-exporter-S1
+    app: minecraft-exporter-s1
 spec:
   ports:
   - name: metrics
     port: 9150
     targetPort: 9150
   selector:
-    app: minecraft-exporter-S1
+    app: minecraft-exporter-s1
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: minecraft-exporter-S1
+  name: minecraft-exporter-s1
   namespace: monitoring
   labels:
-    release: prometheus-operator-S1
+    release: prometheus-operator-s1
 spec:
   selector:
     matchLabels:
-      app: minecraft-exporter-S1
+      app: minecraft-exporter-s1
   endpoints:
   - port: metrics
     interval: 30s

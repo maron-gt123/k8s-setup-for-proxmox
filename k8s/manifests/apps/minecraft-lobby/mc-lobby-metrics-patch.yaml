@@ -29,6 +29,6 @@ spec:
     - name: metrics
       port: 9225
       protocol: TCP
-      targetPort: metrics
+      targetPort: 9225
   selector:
     app: mc-lobby

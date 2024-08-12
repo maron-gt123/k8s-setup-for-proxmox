@@ -103,6 +103,12 @@ spec:
                 https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar,
                 https://mc-plugins.net/_cdn/plugins/bukkit-spigot/SpawnPlugin_1.0.3.jar
             # config関連を/configから/dataへmcopy
+            - name: RCON_CMDS_STARTUP
+              value: |-
+                weather clear
+                time set day
+                gamerule doWeatherCycle false
+                gamerule doDaylightCycle false
             - name: COPY_CONFIG_DEST
               value: /data
           ports:

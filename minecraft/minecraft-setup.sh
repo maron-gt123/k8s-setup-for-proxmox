@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # region : set variables
-PAPER_VER=1.20.6
-PAPER_NO=137
+PAPER_VER=1.21.1
+PAPER_NO=12
 PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/${PAPER_VER}/builds/${PAPER_NO}/downloads/paper-${PAPER_VER}-${PAPER_NO}.jar
 HOSTNAME=$(hostname)
 # --------------------

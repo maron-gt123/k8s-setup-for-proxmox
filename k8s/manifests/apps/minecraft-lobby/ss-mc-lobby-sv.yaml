@@ -108,7 +108,7 @@ spec:
           ports:
             - name: mc-lobby
               containerPort: 25565
-            - name: mc-lobby-metrics
+            - name: lobby-metrics
               containerPort: 9225
             - name: jmx-metrics
               containerPort: 18321

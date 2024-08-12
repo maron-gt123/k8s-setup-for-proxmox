@@ -12,7 +12,7 @@ spec:
       port: mc-metrics
   selector:
     matchLabels:
-      app: mc-music
+      app: mc
       role: mc-metrics
 ---
 apiVersion: v1

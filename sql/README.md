@@ -46,7 +46,7 @@
   
          # </VirtualHost> </VirtualHost>間に記載
                 <FilesMatch \.php$>
-                    SetHandler "proxy:unix:/var/run/php/php8.1-fpm.sock|fcgi://localhost/"
+                    SetHandler "proxy:unix:/var/run/php/php8.3-fpm.sock|fcgi://localhost/"
                 </FilesMatch>
   * 設定反映
  

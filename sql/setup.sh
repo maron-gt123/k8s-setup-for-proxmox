@@ -1,18 +1,15 @@
 # !/bin/bash
 
 # region : set variables
-
-
+NTP=ntp.jst.mfeed.ad.jp
 # ------end region------
-
-
 
 # update.sh create
 cat > update.sh <<EOF
 #!/bin/bash
 sudo apt update
-sudo apt upgrade -y
-sudo apt autoremove -y
+sudo apt -y upgrade
+sudo apt -y autoremove
 EOF
 
 chmod 700 update.sh
@@ -40,7 +37,7 @@ cat > /etc/systemd/timesyncd.conf <<EOF
 # See timesyncd.conf(5) for details.
 
 [Time]
-NTP=ntp.jst.mfeed.ad.jp
+NTP=${NTP}
 #FallbackNTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org 2.debian.pool.ntp.org 3.debian.pool.ntp.org
 #RootDistanceMaxSec=5
 #PollIntervalMinSec=32
@@ -82,15 +79,15 @@ apt -y install php-fpm
 apt -y install pdns-backend-mysql
 
 # install influxdb
-wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.6.1-amd64.deb
-sudo dpkg -i influxdb2-2.6.1-amd64.deb
-wget https://dl.influxdata.com/influxdb/releases/influxdb2-client-2.6.1-amd64.deb
-sudo dpkg -i influxdb2-client-2.6.1-amd64.deb
-rm influxdb2-2.6.1-amd64.deb
-rm influxdb2-client-2.6.1-amd64.deb
+# wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.6.1-amd64.deb
+# sudo dpkg -i influxdb2-2.6.1-amd64.deb
+# wget https://dl.influxdata.com/influxdb/releases/influxdb2-client-2.6.1-amd64.deb
+# sudo dpkg -i influxdb2-client-2.6.1-amd64.deb
+# rm influxdb2-2.6.1-amd64.deb
+# rm influxdb2-client-2.6.1-amd64.deb
 
-systemctl enable influxdb
-systemctl start influxdb
+# systemctl enable influxdb
+# systemctl start influxdb
 
 echo "phpmyadminのセットアップ及びmariadbの設定は自己解決ください"
 # ------end------

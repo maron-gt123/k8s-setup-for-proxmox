@@ -3,25 +3,20 @@
 # region : set variables
 TARGET_BRANCH=$1
 TEMPLATE_VMID=9999
-VMID_1=201
-VMID_2=202
-TARGETIP_1=192.168.1.141
-TARGETIP_2=192.168.1.142
+VM_LIST=(
+    #vmid   #vmname  #cpu  #mem #targetip
+    "201 mic-paper-01 4    4096 192.168.1.143"
+    "202 mic-paper-02 4    4096 192.168.1.143"
+)
 # endregion
 
-
-# stop vm
-ssh "${TARGETIP_2}" qm stop "${VMID_1}"
-ssh "${TARGETIP_3}" qm stop "${VMID_2}"
-
-# delete vm
-## on onp-proxmox01-SV
-ssh "${TARGETIP_1}" qm destroy "${VMID_1}" --destroy-unreferenced-disks true --purge true
-ssh "${TARGETIP_1}" qm destroy "${TEMPLATE_VMID}" --destroy-unreferenced-disks true --purge true
-## wait due to prevent to cluster-data mismatch on proxmox
-sleep 20s
-
-## on onp-proxmox02-SV
-ssh "${TARGETIP_2}" qm destroy "${VMID_2}" --destroy-unreferenced-disks true --purge true
-## wait due to prevent to cluster-data mismatch on proxmox
-sleep 20s
+for array in "${VM_LIST[@]}"
+do
+    echo "${array}" | while read -r vmid vmname cpu mem targetip
+    do
+        # stop vm
+        ssh "${targetip}" qm stop "${vmid}"
+        # delete vm
+        ssh "${targetip}" qm destroy "${vmid}" --destroy-unreferenced-disks true --purge true
+        ## wait due to prevent to cluster-data mismatch on proxmox
+        sleep 20s

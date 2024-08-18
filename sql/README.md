@@ -87,3 +87,6 @@
   * ログアウト
 
         exit;
+  * データベースのインポート
+  
+        mysql -u root -p powerdns < /usr/share/doc/pdns-backend-mysql/schema.mysql.sql

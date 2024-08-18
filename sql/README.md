@@ -75,6 +75,8 @@
     * DB作成
 
            CREATE DATABASE powerdns;
+           CREATE DATABASE mc_LuckPerms;
+           CREATE DATABASE mc_inventory;
     * 新規ユーザ設定
 
           CREATE USER '<任意のユーザ名>'@'<powerdnsホストアドレス>' IDENTIFIED BY '<任意のパスワード>' ;

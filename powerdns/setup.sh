@@ -5,6 +5,8 @@
 
 # ------end region------
 
+sudo nmcli connection modify "Wired connection 1" ipv4.method manual ipv4.addresses 192.168.10.132/24
+
 # update.sh create
 cat > update.sh <<EOF
 #!/bin/bash

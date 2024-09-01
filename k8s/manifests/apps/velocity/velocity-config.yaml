@@ -80,8 +80,8 @@ data:
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
     lobby = "mc-lobby-service.mc-lobby-sv.svc.cluster.local:25565"
-    S1 = "mic-paper01.micnet:25565"
-    S2 = "mic-paper02.micnet:25565"
+    S1 = "mc-paper01.mcnet:25565"
+    S2 = "mc-paper02.mcnet:25565"
     k8s = "mc-service.mc-sv.svc.cluster.local:25565"
     music = "mc-music-service.mc-music-sv.svc.cluster.local:25565"
     

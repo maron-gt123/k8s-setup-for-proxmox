@@ -143,15 +143,15 @@ spec:
                   - targets: ['localhost:9090']
               - job_name: 'minecraft'
                 static_configs:
-                  - targets: ['mic-paper01.micnet:9225']
+                  - targets: ['mc-paper01.mcnet:9225']
                     labels:
-                      server_name: 'minecraft-server-S1'
-                  - targets: ['mic-paper02.micnet:9225']
+                      server_name: 'mc-server-S1'
+                  - targets: ['mc-paper02.mcnet:9225']
                     labels:
-                      server_name: 'minecraft-server-S2'
+                      server_name: 'mc-server-S2'
               - job_name: 'node exporter'
                 static_configs:
-                  - targets: ['ssh.micnet:9100']
+                  - targets: ['ssh.maroncloud:9100']
                     labels:
                       server_name: 'ssh-server'
                   - targets: ['sql.maroncloud:9100']
@@ -163,31 +163,31 @@ spec:
                   - targets: ['nas.maroncloud:9100']
                     labels:
                       server_name: 'nas-server'
-                  - targets: ['prox01.micnet:9100']
+                  - targets: ['prox01.mcnet:9100']
                     labels:
                       server_name: 'proxmox01-server'
-                  - targets: ['prox02.micnet:9100']
+                  - targets: ['prox02.mcnet:9100']
                     labels:
                       server_name: 'proxmox02-server'
-                  - targets: ['prox03.micnet:9100']
+                  - targets: ['prox03.mcnet:9100']
                     labels:
                       server_name: 'proxmox03-server'
-                  - targets: ['k8s-cp01.micnet:9100']
+                  - targets: ['k8s-cp01.mcnet:9100']
                     labels:
                       server_name: 'k8s-cp1-server'
-                  - targets: ['k8s-cp02.micnet:9100']
+                  - targets: ['k8s-cp02.mcnet:9100']
                     labels:
                       server_name: 'k8s-cp2-server'
-                  - targets: ['k8s-cp03.micnet:9100']
+                  - targets: ['k8s-cp03.mcnet:9100']
                     labels:
                       server_name: 'k8s-cp3-server'
-                  - targets: ['k8s-wk01.micnet:9100']
+                  - targets: ['k8s-wk01.mcnet:9100']
                     labels:
                       server_name: 'k8s-wk1-server'
-                  - targets: ['k8s-wk02.micnet:9100']
+                  - targets: ['k8s-wk02.mcnet:9100']
                     labels:
                       server_name: 'k8s-wk2-server'
-                  - targets: ['k8s-wk03.micnet:9100']
+                  - targets: ['k8s-wk03.mcnet:9100']
                     labels:
                       server_name: 'k8s-wk3-server'
             storageSpec:

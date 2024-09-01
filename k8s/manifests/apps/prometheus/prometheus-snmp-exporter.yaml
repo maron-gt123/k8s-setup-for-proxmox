@@ -25,7 +25,7 @@ spec:
           enabled: true
           params:
             - name: x510
-              target: x510-28gtx.micnet
+              target: x510-28gtx.mcnet
               module:
                 - if_mib
               labels:
@@ -35,7 +35,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: x230
-              target: x230-10gp.micnet
+              target: x230-10gp.mcnet
               module:
                 - if_mib
               labels:
@@ -45,7 +45,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: crs309-ext
-              target: crs309.micnet
+              target: crs309.mcnet
               module:
                 - mikrotik
               labels:
@@ -55,7 +55,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: crs309-general
-              target: crs309.micnet
+              target: crs309.mcnet
               module:
                 - if_mib
               labels:
@@ -85,7 +85,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: pdu-sat
-              target: pdu.micnet
+              target: pdu.mcnet
               module:
                 - pdu_sat
               labels:

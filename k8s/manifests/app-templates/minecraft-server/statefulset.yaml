@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  namespace: mc-lobby-sv
-  name: mc-lobby
+  namespace: mc-template-sv
+  name: mc-template
   labels:
-    app: mc-lobby
+    app: mc-template
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mc-lobby
+      app: mc-template
   template:
     metadata:
       labels:
-        app: mc-lobby
+        app: mc-template
     spec:
       initContainers:
         - name: jmx-exporter-downloader

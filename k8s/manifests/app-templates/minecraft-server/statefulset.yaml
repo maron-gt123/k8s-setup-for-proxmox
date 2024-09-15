@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  namespace: mc-lobby-sv
+  name: mc-lobby
+  labels:
+    app: mc-lobby
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mc-lobby
+  template:
+    metadata:
+      labels:
+        app: mc-lobby
+    spec:
+      initContainers:
+        - name: jmx-exporter-downloader
+          image: busybox:1.36.1
+          env:
+            - name: JMX_EXPORTER_URL
+              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar"
+          volumeMounts:
+            - name: jmx-exporter-download-volume
+              mountPath: /root/jmx-exporter-download
+          command:
+            - "sh"
+            - "-c"
+            - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
+      containers:
+        - image: itzg/minecraft-server:java21
+          name: mc-template
+          env:
+            - name: EULA
+              value: "TRUE"
+            - name: TZ
+              value: Asia/Tokyo
+            - name: TYPE
+              value: PAPER
+            - name: VERSION
+              value: "1.21.1"
+            - name: ENABLE_RCON
+              value: "true"
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 2G
+            - name: PLUGINS
+              # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
+              # minecraft-prometheus-exporter3.1.0
+              # LuckPerms-Bukkit5.4.137
+              # Advanced-Portals-0.9.3
+              # LunaChat
+              # DecentHolograms
+              value: >-
+                https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.0/minecraft-prometheus-exporter-3.1.0.jar,
+                https://download.luckperms.net/1556/bukkit/loader/LuckPerms-Bukkit-5.4.141.jar,
+                https://github.com/sekwah41/Advanced-Portals/releases/download/v0.10.0/Advanced-Portals-0.10.0.jar,
+                https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
+                https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.9/DecentHolograms-2.8.9.jar
+            - name: JVM_OPTS
+              value: >-
+                -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
+            # config関連を/configから/dataへmcopy
+            - name: COPY_CONFIG_DEST
+              value: /data
+          ports:
+            - name: minecraft
+              containerPort: 25565
+            - name: metrics
+              containerPort: 9225
+            - name: jmx-metrics
+              containerPort: 18321
+          resources:
+            requests:
+              memory: 2G
+              cpu: "2"
+          volumeMounts:
+            # world関連の格納先マウント
+            - name: data
+              mountPath: /data
+            - name: world-download-volume
+              mountPath: /data/world
+      volumes:
+        # paperのボリューム
+        - name: data
+          emptyDir: {}
+        # configmmapの指定
+        - name: jmx-exporter-config
+          configMap:
+            name: jmx-exporter-config
+        # initContainerでダウンロードしてpaperに受け渡すためのvolume
+        - name: jmx-exporter-download-volume
+          emptyDir: {}

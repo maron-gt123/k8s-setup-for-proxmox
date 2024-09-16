@@ -7,13 +7,12 @@ resources:
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/metrics-patch.yaml
   - ./ns-velocity.yaml
 patches:
-  - patch: |-
-      - op: replace
-      path: metadata/namespace
-      value: velocity-sv
-
-    target:
+  - target:
       group: apps
+      version: v1
       kind: Deployment
       name: proxy
-      version: v1
+    patch: |-
+      - op: add
+        path: /metadata/namespace
+        value: velocity-sv

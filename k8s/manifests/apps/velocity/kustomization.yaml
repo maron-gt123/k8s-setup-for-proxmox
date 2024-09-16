@@ -7,7 +7,7 @@ resources:
   - ./ns-velocity.yaml
   - ./velocity-lb.yaml
   - ./velocity-config.yaml
-  - ./plugin-configs.yaml
+  - ./plugin-config.yaml
   - ./velocity-metrics-patch.yaml
 patches:
   # deployment.yamlのmanifest編集

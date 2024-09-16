@@ -38,3 +38,13 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/1/name
         value: velocity
+  # jmx-exporter-config.yamlのmanifest編集
+  - target:
+      group: apps
+      version: v1
+      kind: ConfigMap
+      name: jmx-exporter-config
+    patch: |-
+      - op: replace
+        path: /metadata/namespace
+        value: velocity-sv

@@ -11,6 +11,7 @@ patches:
       kind: StatefulSet
       name: mc-template
     patch: |-
+      # name関連の編集
       - op: replace
         path: /metadata/name
         value: mc-lobby
@@ -26,6 +27,7 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/name
         value: mc-lobby
+      # world dataのダウンロード
       - op: add
         path: /spec/template/spec/initContainers/-
         value:
@@ -46,6 +48,11 @@ patches:
               tar -xvf /root/world-download/world.tar -C /root/world-download/ &&
               rm /root/world-download/world.tar &&
               echo "successfully imported world data"
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts
+        value: 
+          name: world-download-volume
+          mountPath: /data/world
       - op: add
         path: /spec/template/spec/volumes/-
         value:

@@ -23,6 +23,9 @@ patches:
       - op: replace
         path: /spec/template/metadata/labels/app
         value: mc-lobby
+      - op: replace
+        path: /spec/template/spec/containers/0/name
+        value: mc-lobby
       - op: add
         path: /spec/template/spec/initContainers
         value:

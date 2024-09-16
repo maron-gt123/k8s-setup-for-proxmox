@@ -6,3 +6,14 @@ resources:
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/jmx-exporter-config.yaml
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/metrics-patch.yaml
   #- https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/service-proxy-metrics.yaml
+patches:
+  - patch: |-
+      - op: replace
+      path: metadata/namespace
+      value: velocity-sv
+
+    target:
+      group: apps
+      kind: Deployment
+      name: proxy
+      version: v1

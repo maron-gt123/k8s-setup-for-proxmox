@@ -2,10 +2,10 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   namespace: proxy-sv
+  name: proxy-metrics
   labels:
-    app: velocity
+    app: proxy
     release: prometheus
-  name: velocity-metrics
 spec:
   endpoints:
     - interval: 30s
@@ -14,16 +14,16 @@ spec:
       port: metrics
   selector:
     matchLabels:
-      app: velocity
+      app: proxy
       role: metrics
 ---
 apiVersion: v1
 kind: Service
 metadata:
   namespace: proxy-sv
-  name: velocity-metrics
+  name: proxy-metrics
   labels:
-    app: velocity
+    app: proxy
     role: metrics
 spec:
   type: ClusterIP
@@ -37,4 +37,4 @@ spec:
       protocol: TCP
       targetPort: metrics
   selector:
-    app: velocity
+    app: proxy

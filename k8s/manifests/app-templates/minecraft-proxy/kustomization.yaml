@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - "./deployment.yaml"
   - "./service-proxy-metrics.yaml"
+  - "./jmx-exporter-config.yaml"

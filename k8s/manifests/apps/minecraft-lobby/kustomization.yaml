@@ -12,7 +12,7 @@ patches:
       name: mc-template
     patch: |-
       - op: add
-        path: /spec/template/spec/initContainers/-
+        path: /spec/template/spec/initContainers/
         value:
           name: download-world
           image: busybox:1.36.1

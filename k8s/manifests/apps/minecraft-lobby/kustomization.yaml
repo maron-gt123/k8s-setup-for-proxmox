@@ -49,7 +49,7 @@ patches:
               rm /root/world-download/world.tar &&
               echo "successfully imported world data"
       - op: add
-        path: /spec/template/spec/containers/0/volumeMounts
+        path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
           name: world-download-volume
           mountPath: /data/world

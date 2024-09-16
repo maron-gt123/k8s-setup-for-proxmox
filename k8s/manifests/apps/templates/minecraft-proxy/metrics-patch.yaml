@@ -1,6 +1,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
+  namespace: proxy-sv
   labels:
     app: velocity
     release: prometheus
@@ -19,6 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: proxy-sv
   name: velocity-metrics
   labels:
     app: velocity

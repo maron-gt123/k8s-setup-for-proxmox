@@ -73,11 +73,11 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
-        - resources:
-            requests:
-              memory: 768Mi
         - image: itzg/bungeecord:java21
           name: proxy
+          resources:
+            requests:
+              memory: 768Mi
           env:
             - name: TZ
               value: Asia/Tokyo

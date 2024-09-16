@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: proxy-sv
   name: proxy
   labels:
     app: proxy

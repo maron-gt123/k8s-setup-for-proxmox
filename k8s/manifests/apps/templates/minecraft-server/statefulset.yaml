@@ -79,8 +79,6 @@ spec:
             # world関連の格納先マウント
             - name: data
               mountPath: /data
-            - name: world-download-volume
-              mountPath: /data/world
       volumes:
         # paperのボリューム
         - name: data

@@ -46,3 +46,18 @@ patches:
               tar -xvf /root/world-download/world.tar -C /root/world-download/ &&
               rm /root/world-download/world.tar &&
               echo "successfully imported world data"
+      - op: add
+        path: /spec/template/spec/volumes/-
+        value:
+          name: world-download-volume
+          emptyDir: {}
+      - op: add
+        path: /spec/template/spec/volumes/-
+        value:
+          name: world-edit-download-volume
+          emptyDir: {}
+      - op: add
+        path: /spec/template/spec/volumes/-
+        value:
+          name: world-guard-download-volume
+          emptyDir: {}

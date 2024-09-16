@@ -4,8 +4,11 @@ namespace: velocity-sv
 resources:
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/deployment.yaml
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/jmx-exporter-config.yaml
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/metrics-patch.yaml
   - ./ns-velocity.yaml
+  - ./velocity-lb.yaml
+  - ./velocity-config.yaml
+  - ./plugin-configs.yaml
+  - ./velocity-metrics-patch.yaml
 patches:
   # deployment.yamlのmanifest編集
   - target:
@@ -49,6 +52,3 @@ patches:
       - op: replace
         path: /metadata/namespace
         value: velocity-sv
-
-  # metrics-patch.yamlのmanifest編集
-

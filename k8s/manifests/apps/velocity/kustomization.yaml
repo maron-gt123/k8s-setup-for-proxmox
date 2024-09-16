@@ -32,3 +32,9 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/name
         value: velocity
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/requests/memory
+        value: 1024Mi
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0/value
+        value: 1024m

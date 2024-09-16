@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  namespace: mc-template-sv
   name: mc-template
   labels:
     app: mc-template

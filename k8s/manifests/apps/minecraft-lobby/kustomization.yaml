@@ -18,7 +18,7 @@ patches:
         path: /metadata/labels/app
         value: mc-lobby
       - op: replace
-        path: /spec/selector/app
+        path: /spec/selector/matchLabels/app
         value: mc-lobby
       - op: replace
         path: /spec/template/metadata/labels/app

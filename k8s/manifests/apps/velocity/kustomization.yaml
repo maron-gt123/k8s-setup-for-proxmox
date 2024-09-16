@@ -30,11 +30,11 @@ patches:
         path: /spec/template/metadata/labels/app
         value: velocity
       - op: replace
-        path: /spec/template/spec/containers/0/name
-        value: velocity
-      - op: replace
         path: /spec/template/spec/containers/0/resources/requests/memory
         value: 1024Mi
       - op: replace
         path: /spec/template/spec/containers/1/env/2/value
         value: 1024m
+      - op: replace
+        path: /spec/template/spec/containers/1/name
+        value: velocity

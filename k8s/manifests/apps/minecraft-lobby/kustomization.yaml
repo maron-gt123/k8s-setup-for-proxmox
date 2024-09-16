@@ -15,7 +15,7 @@ patches:
         path: /metadata/name
         value: mc-lobby
       - op: replace
-        path: /metadata/labels
+        path: /metadata/labels/app
         value: mc-lobby
       - op: replace
         path: /spec/selector/app

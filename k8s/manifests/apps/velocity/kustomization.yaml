@@ -48,3 +48,22 @@ patches:
       - op: replace
         path: /metadata/namespace
         value: velocity-sv
+  # metrics-patch.yamlのmanifest編集
+  - target:
+      group: apps
+      version: v1
+      kind: ServiceMonitor
+      name: velocity-metrics
+    patch: |-
+      - op: replace
+        path: /metadata/namespace
+        value: velocity-sv
+  - target:
+      group: apps
+      version: v1
+      kind: Service
+      name: velocity-metrics
+    patch: |-
+      - op: replace
+        path: /metadata/namespace
+        value: velocity-sv

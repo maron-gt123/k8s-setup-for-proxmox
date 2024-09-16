@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   namespace: proxy-sv
-  name: proxy-metrics
+  name: mc-proxy-metrics
   labels:
     app: proxy
     release: prometheus
@@ -21,7 +21,7 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: proxy-sv
-  name: proxy-metrics
+  name: mc-proxy-metrics
   labels:
     app: proxy
     role: metrics

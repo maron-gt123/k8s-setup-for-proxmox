@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - "./deployment.yaml"
-  - "./service-proxy-metrics.yaml"
-  - "./jmx-exporter-config.yaml"
-  - "./metrics-patch.yaml"
+  - "/k8s/manifests/apps/templates/minecraft-proxy/deployment.yaml"
+  - "/k8s/manifests/apps/templates/minecraft-proxy/service-proxy-metrics.yaml"
+  - "/k8s/manifests/apps/templates/minecraft-proxy/jmx-exporter-config.yaml"
+  - "/k8s/manifests/apps/templates/minecraft-proxy/metrics-patch.yaml"

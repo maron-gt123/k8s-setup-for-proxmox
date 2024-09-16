@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: velocity
+  name: proxy
   labels:
-    app: velocity
+    app: proxy
   # We wish this deployment to be reloaded
   # when "bungeecord-config" and "bungeecord-plugin-configs" ConfigMap are updated
   annotations:
@@ -13,11 +13,11 @@ spec:
   revisionHistoryLimit: 0
   selector:
     matchLabels:
-      app: velocity
+      app: proxy
   template:
     metadata:
       labels:
-        app: velocity
+        app: proxy
     spec:
       initContainers:
         # initcontainersでサーバーアイコンをダウンロード
@@ -73,7 +73,7 @@ spec:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
         - image: itzg/bungeecord:java21
-          name: velocity
+          name: proxy
           env:
             - name: TZ
               value: Asia/Tokyo
@@ -100,7 +100,7 @@ spec:
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
           ports:
             - containerPort: 25577
-              name: velocity
+              name: service
             - containerPort: 18321
               name: jmx-metrics
             - containerPort: 9225

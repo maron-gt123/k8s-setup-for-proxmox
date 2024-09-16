@@ -38,6 +38,7 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/1/name
         value: velocity
+
   # jmx-exporter-config.yamlのmanifest編集
   - target:
       group: apps
@@ -48,22 +49,41 @@ patches:
       - op: replace
         path: /metadata/namespace
         value: velocity-sv
+
   # metrics-patch.yamlのmanifest編集
   - target:
       group: apps
       version: v1
       kind: ServiceMonitor
-      name: velocity-metrics
+      name: proxy-metrics
     patch: |-
       - op: replace
         path: /metadata/namespace
         value: velocity-sv
+      - op: replace
+        path: /metadata/name
+        value: velocity-metrics
+      - op: replace
+        path: /metadata/labels/app
+        value: velocity
+      - op: replace
+        path: /spec/selector/matchLabels/app
+        value: velocity 
   - target:
       group: apps
       version: v1
       kind: Service
-      name: velocity-metrics
+      name: proxy-metrics
     patch: |-
       - op: replace
         path: /metadata/namespace
         value: velocity-sv
+      - op: replace
+        path: /metadata/name
+        value: velocity-metrics
+      - op: replace
+        path: /metadata/labels/app
+        value: velocity
+      - op: replace
+        path: /spec/selector/app
+        value: velocity 

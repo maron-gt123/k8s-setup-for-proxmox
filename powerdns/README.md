@@ -81,7 +81,7 @@
        * /etc/powerdns/recursor.confを編集
      
              allow-from=192.168.10.0/24, 192.168.15.0/24, 192.168.1.0/24
-             forward-zones=micnet=127.0.0.1:8053, maroncloud=127.0.0.1:8053
+             forward-zones=mcnet=127.0.0.1:8053, maroncloud=127.0.0.1:8053, 10.168.192.in-addr.arpa=127.0.0.1:8053, 15.168.192.in-addr.arpa=127.0.0.1:8053
              forward-zones-recurse=.=9.9.9.9
              local-address=192.168.10.132, 127.0.0.1
              local-port=53

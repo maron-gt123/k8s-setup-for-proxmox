@@ -1,8 +1,7 @@
 # !/bin/bash
 
 # region : set variables
-
-
+NTP=ntp.jst.mfeed.ad.jp
 # ------end region------
 
 sudo nmcli connection modify "Wired connection 1" ipv4.method manual ipv4.addresses 192.168.10.132/24,192.168.10.1
@@ -11,8 +10,8 @@ sudo nmcli connection modify "Wired connection 1" ipv4.method manual ipv4.addres
 cat > update.sh <<EOF
 #!/bin/bash
 sudo apt update
-sudo apt upgrade -y
-sudo apt autoremove -y
+sudo apt -y upgrade
+sudo apt -y autoremove
 EOF
 
 chmod 700 update.sh
@@ -40,7 +39,7 @@ cat > /etc/systemd/timesyncd.conf <<EOF
 # See timesyncd.conf(5) for details.
 
 [Time]
-NTP=ntp.jst.mfeed.ad.jp
+NTP=${NTP}
 #FallbackNTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org 2.debian.pool.ntp.org 3.debian.pool.ntp.org
 #RootDistanceMaxSec=5
 #PollIntervalMinSec=32

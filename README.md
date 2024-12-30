@@ -5,7 +5,7 @@
 ## 前提条件<br>
 ### proxmox構成<br>
 ![概要図](https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/maronhome%20in%20kubernetes%20Cloud.svg)
-* Proxmox Virtual Environment 8.0.4
+* Proxmox Virtual Environment 8.3.1
   * ベアメタル3ノード運用
   * cluster構成を必須とする
 * QNAP TS-253D

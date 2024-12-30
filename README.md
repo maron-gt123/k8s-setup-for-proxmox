@@ -15,7 +15,6 @@
   * minecraft VMのベースとして使用
 * Network Addressing
   * management Network Segment(1G) (192.168.10.0/24)
-  * cluster Network Segment(1G) (192.168.1.0/24)
   * Service Network Segment(1G) (192.168.15.0/24)
   * Storage Network Segment(10G) (192.168.6.0/24)
 ### k8s(proxmoxのVMとして動作)<br>
@@ -36,19 +35,16 @@
      * onp-prox01-SV
      * network
        * management：vmbr10(192.168.10.141)
-       * cluster：vmbr1(192.168.1.141)
        * service：vmbr15(192.168.15.141)
        * storage：vmbr6(192.168.6.141)
    * hostneme
      * onp-prox02-SV
      * network
-       * cluster：vmbr1(192.168.1.142)
        * service：vmbr15(192.168.15.142)
        * storage：vmbr6(192.168.6.142)
    * hostname
      * onp-prox03-SV
      * network
-       * cluster：vmbr1(192.168.1.143)
        * service：vmbr15(192.168.15.143)
        * storage：vmbr6(192.168.6.143)
 

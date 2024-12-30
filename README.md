@@ -54,7 +54,7 @@
 
       #proxmox-enterprise-repository disable
       cat > /etc/apt/sources.list.d/pve-enterprise.list << EOF
-      #deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise
+      #deb https://enterprise.proxmox.com/debian/pve bookworm pve-enterprise
       EOF
       
       # proxmox-No-Subscription-repository add

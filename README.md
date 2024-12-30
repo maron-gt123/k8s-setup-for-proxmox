@@ -59,15 +59,15 @@
       
       # proxmox-No-Subscription-repository add
       cat > /etc/apt/sources.list << EOF
-      deb http://ftp.debian.org/debian bullseye main contrib
-      deb http://ftp.debian.org/debian bullseye-updates main contrib
-
-      # PVE pve-no-subscription repository provided by proxmox.com,
+      deb http://ftp.debian.org/debian bookworm main contrib
+      deb http://ftp.debian.org/debian bookworm-updates main contrib
+      
+      # Proxmox VE pve-no-subscription repository provided by proxmox.com,
       # NOT recommended for production use
-      deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
+      deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription
       
       # security updates
-      deb http://security.debian.org/debian-security bullseye-security main contrib
+      deb http://security.debian.org/debian-security bookworm-security main contrib
       EOF
 
 ### MegaRAIDドライバの導入

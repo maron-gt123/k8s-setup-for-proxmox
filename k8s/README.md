@@ -112,7 +112,7 @@ k8sのセットアップについて示す。前提条件として前述するpr
 これは、クラスタの削除時に複数ノードでコマンドqm destroyが実行された際に、Device Mapperで生成された仮想ディスクデバイスの一部が消えずに残留することがあるためです。<br>
 
     
-    for host in 192.168.1.141 192.168.1.142 192.168.1.143 ; do
+    for host in 192.168.6.141 192.168.6.142 192.168.6.143 ; do
     # Cloudinitデータ削除
     ssh $host dmsetup remove vg01-vm--801--cloudinit
     ssh $host dmsetup remove vg01-vm--802--cloudinit

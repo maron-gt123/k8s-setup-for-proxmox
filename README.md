@@ -10,7 +10,7 @@
   * cluster構成を必須とする
 * QNAP TS-253D
   * iSCSI領域として使用
-* Ubuntu 22.04 LTS (cloud-init image)
+* Ubuntu 24.04 LTS (cloud-init image)
   * kubernetes VMのベースとして使用
   * minecraft VMのベースとして使用
 * Network Addressing
@@ -92,12 +92,7 @@
 
       # install debian package
       dpkg -i megacli_8.07.14-2_all.deb
-      
-      # run
-      /opt/MegaRAID/MegaCli/MegaCli64 -h
-      /opt/MegaRAID/MegaCli/MegaCli64 -AdpCount
-      /opt/MegaRAID/MegaCli/MegaCli64 -AdpAllInfo -aALL
-      
+      ln -s /opt/MegaRAID/MegaCli/MegaCli64 /usr/local/bin/megacli
       # echo
       echo "RAID情報の確認が取れない場合は以下参照(https://gist.github.com/fxkraus/595ab82e07cd6f8e057d31bc0bc5e779)"
 

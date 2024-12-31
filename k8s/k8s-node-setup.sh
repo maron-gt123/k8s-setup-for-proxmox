@@ -108,7 +108,7 @@ fi
 sudo systemctl restart containerd
 
 # Modify kernel parameters for Kubernetes
-# inotify instance number is very limited in Ubuntu 22.04 and it has to be at least more than pod number * 2
+# inotify instance number is very limited in Ubuntu 24.04 and it has to be at least more than pod number * 2
 cat <<EOF | tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1

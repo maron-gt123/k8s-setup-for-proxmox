@@ -4,7 +4,7 @@
 
 ## 前提条件<br>
 ### proxmox構成<br>
-![概要図](https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/maronhome%20in%20kubernetes%20Cloud.svg)
+![概要図](https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/%E8%AB%96%E7%90%86%E6%A7%8B%E6%88%90%E5%9B%B3.drawio.svg)
 * Proxmox Virtual Environment 8.3.1
   * ベアメタル3ノード運用
   * cluster構成を必須とする

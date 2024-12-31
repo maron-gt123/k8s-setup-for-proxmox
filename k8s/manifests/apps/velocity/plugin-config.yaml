@@ -506,7 +506,7 @@ data:
     #
     # - A H2 database is the default option.
     # - If you want to edit data manually in "traditional" storage files, we suggest using YAML.
-    storage-method: MySQL
+    storage-method: MariaDB
     
     # The following block defines the settings for remote database storage methods.
     #
@@ -518,7 +518,7 @@ data:
       # - The standard DB engine port is used by default
       #   (MySQL: 3306, PostgreSQL: 5432, MongoDB: 27017)
       # - Specify as "host:port" if differs
-      address: 192.168.15.131:3306
+      address: 192.168.10.131
     
       # The name of the database to store LuckPerms data in.
       # - This must be created already. Don't worry about this setting if you're using MongoDB.

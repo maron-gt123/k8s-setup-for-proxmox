@@ -287,7 +287,7 @@ data:
     # - When set to "global" this setting is effectively ignored.
     # - In all other cases, the value here is added to all players in a "server" context.
     # - See: https://luckperms.net/wiki/Context
-    server: music
+    server: lobby
     
     # If the servers own UUID cache/lookup facility should be used when there is no record for a player
     # already in LuckPerms.
@@ -339,7 +339,7 @@ data:
     #
     # - A H2 database is the default option.
     # - If you want to edit data manually in "traditional" storage files, we suggest using YAML.
-    storage-method: MySQL
+    storage-method: MariaDB
     
     # The following block defines the settings for remote database storage methods.
     #

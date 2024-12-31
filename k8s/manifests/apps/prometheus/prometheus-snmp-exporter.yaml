@@ -85,7 +85,7 @@ spec:
               relabelings: []
               additionalMetricsRelabels: {}
             - name: pdu-sat
-              target: pdu.mcnet
+              target: pdu.maroncloud
               module:
                 - pdu_sat
               labels:

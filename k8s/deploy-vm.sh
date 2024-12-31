@@ -3,11 +3,11 @@
 #region set variables
 
 TARGET_BRANCH=$1
-CLOUDINIT_IMAGE=jammy-server-cloudimg-amd64.img
-CLOUDINIT_IMAGE_URL=https://cloud-images.ubuntu.com/jammy/current/${CLOUDINIT_IMAGE}
+CLOUDINIT_IMAGE=noble-server-cloudimg-amd64.img
+CLOUDINIT_IMAGE_URL=https://cloud-images.ubuntu.com/noble/current/${CLOUDINIT_IMAGE}
 TEMPLATE_VMID=8888
-CLOUDINIT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
-TEMPLATE_BOOT_IMAGE_TARGET_VOLUME=iSCSI-network-01-lun01
+CLOUDINIT_IMAGE_TARGET_VOLUME=iSCSI-network01-lun01
+TEMPLATE_BOOT_IMAGE_TARGET_VOLUME=iSCSI-network01-lun01
 BOOT_IMAGE_TARGET_VOLUME=local-lvm
 SNIPPET_TARGET_VOLUME=prox-NFS
 SNIPPET_TARGET_PATH=/mnt/pve/${SNIPPET_TARGET_VOLUME}/snippets
@@ -25,12 +25,12 @@ VM_LIST=(
     # targethost: VMの配置先となるProxmoxホストのホスト名
     # ---
     #vmid #vmname      #cpu #mem  #vmsrvip    #vmsanip     #targetip    #targethost
-    "801 onp-k8s-cp-1 4    8192  192.168.15.81 192.168.6.81 192.168.1.141 onp-prox01-SV"
-    "802 onp-k8s-cp-2 4    8192  192.168.15.82 192.168.6.82 192.168.1.142 onp-prox02-SV"
-    "803 onp-k8s-cp-3 4    8192  192.168.15.83 192.168.6.83 192.168.1.143 onp-prox03-SV"
-    "881 onp-k8s-wk-1 6    16384 192.168.15.84 192.168.6.84 192.168.1.141 onp-prox01-SV"
-    "882 onp-k8s-wk-2 6    16384 192.168.15.85 192.168.6.85 192.168.1.142 onp-prox02-SV"
-    "883 onp-k8s-wk-3 6    16384 192.168.15.86 192.168.6.86 192.168.1.143 onp-prox03-SV"
+    "801 onp-k8s-cp-1 4    8192  192.168.15.81 192.168.6.81 192.168.6.141 onp-prox01"
+    "802 onp-k8s-cp-2 4    8192  192.168.15.82 192.168.6.82 192.168.6.142 onp-prox02"
+    "803 onp-k8s-cp-3 4    8192  192.168.15.83 192.168.6.83 192.168.6.143 onp-prox03"
+    "881 onp-k8s-wk-1 6    16384 192.168.15.84 192.168.6.84 192.168.6.141 onp-prox01"
+    "882 onp-k8s-wk-2 6    16384 192.168.15.85 192.168.6.85 192.168.6.142 onp-prox02"
+    "883 onp-k8s-wk-3 6    16384 192.168.15.86 192.168.6.86 192.168.6.143 onp-prox03"
 )
 #endregion
 
@@ -43,7 +43,7 @@ wget $CLOUDINIT_IMAGE_URL
 # create a new VM and attach Network Adaptor
 # vmbr15=service Network Segment (192.168.15.0/24)
 # vmbr6=Storage Network Segment (192.168.6.0/24)
-qm create $TEMPLATE_VMID --cores 2 --memory 4096 --net0 virtio,bridge=vmbr15 --net1 virtio,bridge=vmbr6 --name onp-k8s-template
+qm create $TEMPLATE_VMID --cores 2 --memory 4096 --net0 virtio,bridge=vmbr15 --net1 virtio,bridge=vmbr06 --name onp-k8s-template
 # import the downloaded disk to $TEMPLATE_BOOT_IMAGE_TARGET_VOLUME storage
 qm importdisk $TEMPLATE_VMID $CLOUDINIT_IMAGE $TEMPLATE_BOOT_IMAGE_TARGET_VOLUME
 # finally attach the new disk to the VM as scsi drive

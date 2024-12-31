@@ -38,7 +38,7 @@ spec:
             - name: TYPE
               value: PAPER
             - name: VERSION
-              value: "1.21.1"
+              value: "1.21.3"
             - name: ENABLE_RCON
               value: "true"
             - name: INIT_MEMORY

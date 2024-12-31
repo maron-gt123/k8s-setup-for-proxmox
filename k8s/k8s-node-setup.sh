@@ -154,8 +154,8 @@ esac
 
 # Install HAProxy
 apt-get install -y --no-install-recommends software-properties-common
-add-apt-repository ppa:vbernat/haproxy-2.8 -y
-sudo apt-get install -y haproxy=2.8.\*
+add-apt-repository ppa:vbernat/haproxy-3.1 -y
+sudo apt-get install -y haproxy=3.1.\*
 
 cat > /etc/haproxy/haproxy.cfg <<EOF
 global
@@ -207,10 +207,10 @@ apt-get -y install keepalived
 
 cat > /etc/keepalived/keepalived.conf <<EOF
 # Define the script used to check if haproxy is still working
-vrrp_script chk_haproxy { 
+vrrp_script chk_haproxy {
     script "sudo /usr/bin/killall -0 haproxy"
-    interval 2 
-    weight 2 
+    interval 2
+    weight 2
 }
 
 # Configuration for Virtual Interface
@@ -262,7 +262,7 @@ systemctl reload haproxy
 kubeadm config images pull
 
 # install k9s
-wget https://github.com/derailed/k9s/releases/download/v0.28.2/k9s_Linux_amd64.tar.gz -O - | tar -zxvf - k9s && sudo mv ./k9s /usr/local/bin/
+wget https://github.com/derailed/k9s/releases/download/v0.32.5/k9s_Linux_amd64.tar.gz -O - | tar -zxvf - k9s && sudo mv ./k9s /usr/local/bin/
 
 # Ends except first-control-plane
 case $1 in
@@ -307,7 +307,7 @@ etcd:
   local:
     extraArgs:
       listen-metrics-urls: http://0.0.0.0:2381
-kubernetesVersion: "v1.28.5"
+kubernetesVersion: "v1.32.0"
 controlPlaneEndpoint: "${KUBE_API_SERVER_VIP}:8443"
 apiServer:
   certSANs:
@@ -352,7 +352,7 @@ curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bas
 helm repo add cilium https://helm.cilium.io/
 helm install cilium cilium/cilium \
     --namespace kube-system \
-    --set kubeProxyReplacement=true \
+    --set kubeProxyReplacement=strict \
     --set k8sServiceHost=${KUBE_API_SERVER_VIP} \
     --set k8sServicePort=8443
 

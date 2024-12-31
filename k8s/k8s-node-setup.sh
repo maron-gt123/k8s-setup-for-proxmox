@@ -128,8 +128,8 @@ sysctl --system
 # Install kubeadm
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
-apt-get install -y kubeadm=1.32.0-1.1 kubectl=1.32.0-1.1 kubelet=1.32.0-1.1
-apt-mark hold kubelet kubectl
+sudo apt-get install -y kubeadm=1.32.0-1.1 kubectl=1.32.0-1.1 kubelet=1.32.0-1.1
+sudo apt-mark hold kubelet kubectl
 
 # Disable swap
 swapoff -a

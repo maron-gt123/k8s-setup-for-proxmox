@@ -18,9 +18,6 @@ patches:
       name: proxy
     patch: |-
       - op: replace
-        path: /metadata/namespace
-        value: velocity-sv
-      - op: replace
         path: /metadata/name
         value: velocity
       - op: replace

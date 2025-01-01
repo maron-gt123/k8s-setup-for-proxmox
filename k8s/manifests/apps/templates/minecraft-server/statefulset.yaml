@@ -87,13 +87,13 @@ spec:
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
             # bukkit/spigot/paper-global configのマウント
-            - name: mcserver-template-config
+            - name: mc-config
               mountPath: /config/bukkit.yml
               subPath: mc-bukkit.yml
-            - name: mcserver-template-config
+            - name: mc-config
               mountPath: /config/spigot.yml
               subPath: mc-spigot.yml
-            - name: mcserver-template-config
+            - name: mc-config
               mountPath: /config/config/paper-global.yml
               subPath: mc-paper-global.yml
       volumes:
@@ -108,10 +108,10 @@ spec:
         - name: jmx-exporter-download-volume
           emptyDir: {}
         # configmap格納先 
-        - name: mcserver-template-config
+        - name: mc-config
           configMap:
-            name: mcserver-template-configs
+            name: mc-configs
         # plugin-configmap格納先
-        - name: mcserver-template-plugin-config
+        - name: mc-plugin-config
           configMap:
-            name: mcserver-template-plugin-configs
+            name: mc-plugin-configs

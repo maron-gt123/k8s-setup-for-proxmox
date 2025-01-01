@@ -80,7 +80,7 @@ patches:
         value: mc-lobby
       - op: replace
         path: /spec/ports/name
-        value: mc-lobby
+        value: minecraft
       - op: replace
         path: /spec/selector/app
         value: mc-lobby

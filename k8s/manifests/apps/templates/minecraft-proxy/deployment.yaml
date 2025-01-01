@@ -72,7 +72,7 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
-        - image: itzg/bungeecord:java21
+        - image: itzg/bungeecord:latest
           name: proxy
           resources:
             requests:

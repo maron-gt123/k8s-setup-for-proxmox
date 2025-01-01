@@ -40,7 +40,7 @@ spec:
           env:
             # JMX_prometeus_exporterのダウンロードURL
             - name: JMX_EXPORTER_URL
-              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar"
+              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.20.0/jmx_prometheus_javaagent-0.20.0.jar"
           volumeMounts:
             - name: jmx-exporter-download-volume
               mountPath: /root/jmx-exporter-download

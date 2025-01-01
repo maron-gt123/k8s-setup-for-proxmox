@@ -65,11 +65,11 @@ spec:
             - name: COPY_CONFIG_DEST
               value: /data
           ports:
-            - name: minecraft
+            - name: mc-service
               containerPort: 25565
-            - name: metrics
+            - name: mc-metrics
               containerPort: 9225
-            - name: jmx-metrics
+            - name: mc-jmx-metrics
               containerPort: 18321
           resources:
             requests:

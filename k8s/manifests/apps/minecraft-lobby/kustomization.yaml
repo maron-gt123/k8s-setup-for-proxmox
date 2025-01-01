@@ -29,24 +29,6 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/name
         value: mc-lobby
-      - op: replace
-        path: /spec/template/spec/containers/0/volumeMounts/2/name
-        value: mcserver-lobby-config
-      - op: replace
-        path: /spec/template/spec/containers/0/volumeMounts/2/subPath
-        value: mc-lobby-bukkit.yml
-      - op: replace
-        path: /spec/template/spec/containers/0/volumeMounts/3/name
-        value: mcserver-lobby-config
-      - op: replace
-        path: /spec/template/spec/containers/0/volumeMounts/3/subPath
-        value: mc-lobby-spigot.yml
-      - op: replace
-        path: /spec/template/spec/containers/0/volumeMounts/4/name
-        value: mcserver-lobby-config
-      - op: replace
-        path: /spec/template/spec/containers/0/volumeMounts/4/subPath
-        value: mc-lobby-paper-global.yml
       # world dataのダウンロード
       - op: add
         path: /spec/template/spec/initContainers/-

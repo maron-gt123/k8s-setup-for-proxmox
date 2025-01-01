@@ -79,7 +79,7 @@ patches:
         path: /metadata/labels/app
         value: mc-lobby
       - op: replace
-        path: /spec/ports/name
+        path: /spec/ports/0/name
         value: minecraft
       - op: replace
         path: /spec/selector/app

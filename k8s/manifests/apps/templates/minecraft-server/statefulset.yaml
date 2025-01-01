@@ -79,6 +79,13 @@ spec:
             # world関連の格納先マウント
             - name: data
               mountPath: /data
+            # JMX exporter 周りのファイルが入ったボリューム達のマウント設定
+            - name: jmx-exporter-download-volume
+              mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
+              subPath: jmx-exporter-javaagent.jar
+            - name: common-jmx-exporter-config
+              mountPath: /jmx-exporter/jmx-exporter-config.yaml
+              subPath: jmx-exporter-config.yaml
       volumes:
         # paperのボリューム
         - name: data

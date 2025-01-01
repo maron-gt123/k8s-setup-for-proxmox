@@ -29,6 +29,13 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/name
         value: mc-lobby
+      # ホワイトリストマウント
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts/-
+        value:
+          name: mc-config
+          mountPath: /config/whitelist.json
+          subPath: mc-whitelist.json
       # world dataのダウンロード
       - op: add
         path: /spec/template/spec/initContainers/-

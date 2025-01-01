@@ -30,9 +30,6 @@ patches:
         path: /spec/template/spec/containers/0/name
         value: mc-lobby
       - op: replace
-        path: /spec/template/spec/containers/0/ports/0/name
-        value: mc-lobby-sv
-      - op: replace
         path: /spec/template/spec/containers/0/volumeMounts/2/name
         value: mcserver-lobby-config
       - op: replace
@@ -101,9 +98,6 @@ patches:
       - op: replace
         path: /metadata/labels/app
         value: mc-lobby
-      - op: replace
-        path: /spec/ports/0/name
-        value: mc-lobby-sv
       - op: replace
         path: /spec/selector/app
         value: mc-lobby

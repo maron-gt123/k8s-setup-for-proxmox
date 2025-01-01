@@ -68,3 +68,19 @@ patches:
         value:
           name: world-guard-download-volume
           emptyDir: {}
+  - target:
+      kind: Service
+      name: mc-template-service
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: mc-lobby-service
+      - op: replace
+        path: /metadata/labels/app
+        value: mc-lobby
+      - op: replace
+        path: /spec/ports/name
+        value: mc-lobby
+      - op: replace
+        path: /spec/selector/app
+        value: mc-lobby

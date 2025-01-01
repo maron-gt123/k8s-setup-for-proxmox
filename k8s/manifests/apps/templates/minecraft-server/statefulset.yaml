@@ -86,6 +86,16 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
+            # bukkit/spigot/paper-global configのマウント
+            - name: mcserver-template-config
+              mountPath: /config/bukkit.yml
+              subPath: mc-bukkit.yml
+            - name: mcserver-template-config
+              mountPath: /config/spigot.yml
+              subPath: mc-spigot.yml
+            - name: mcserver-template-config
+              mountPath: /config/config/paper-global.yml
+              subPath: mc-paper-global.yml
       volumes:
         # paperのボリューム
         - name: data

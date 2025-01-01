@@ -97,3 +97,11 @@ spec:
         # initContainerでダウンロードしてpaperに受け渡すためのvolume
         - name: jmx-exporter-download-volume
           emptyDir: {}
+        # configmap格納先 
+        - name: mcserver-template-config
+          configMap:
+            name: mcserver-template-configs
+        # plugin-configmap格納先
+        - name: mcserver-template-plugin-config
+          configMap:
+            name: mcserver-template-plugin-configs

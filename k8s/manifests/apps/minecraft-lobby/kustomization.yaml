@@ -29,6 +29,9 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/name
         value: mc-lobby
+      - op: replace
+        path: /spec/template/spec/containers/0/ports/0/name
+        value: mc-lobby-sv
       # world dataのダウンロード
       - op: add
         path: /spec/template/spec/initContainers/-
@@ -82,7 +85,7 @@ patches:
         value: mc-lobby
       - op: replace
         path: /spec/ports/0/name
-        value: minecraft
+        value: mc-lobby-sv
       - op: replace
         path: /spec/selector/app
         value: mc-lobby

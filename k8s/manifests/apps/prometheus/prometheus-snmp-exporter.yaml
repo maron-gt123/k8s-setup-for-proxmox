@@ -7337,4 +7337,4 @@ data:
         help: Indicate humidity upper threshold - 1.3.6.1.4.1.17420.1.4.45
       version: 1
       auth:
-        community: public
+        community: MaronCloud

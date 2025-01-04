@@ -8,6 +8,7 @@ resources:
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-common-plugin-config.yaml
   - ./ns-mc-lobby-sv.yaml
   - ./mc-lobby-configs.yaml
+  - ./mc-lobby-metrics-patch.yaml
 
 patches:
   - target:

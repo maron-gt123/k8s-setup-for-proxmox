@@ -54,6 +54,10 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/env/13/value
         value: "false"
+      # ENABLE_WHITELIST
+      - op: replace
+        path: /spec/template/spec/containers/0/env/14/value
+        value: "true"
       # ホワイトリストマウント
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-

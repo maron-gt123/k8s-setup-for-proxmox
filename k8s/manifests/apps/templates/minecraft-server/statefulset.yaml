@@ -48,11 +48,11 @@ spec:
             - name: ALLOW_NETHER
               value: "true"
             - name: DIFFICULTY
-              value: peaceful
+              value: easy
             - name: ONLINE_MODE
               value: "FALSE"
             - name: LEVEL_TYPE
-              value: flat
+              value: normal
             - name: SPAWN_ANIMALS
               value: "true"
             - name: SPAWN_MONSTERS

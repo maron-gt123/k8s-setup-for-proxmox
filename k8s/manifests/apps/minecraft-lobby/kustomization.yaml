@@ -29,6 +29,31 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/name
         value: mc-lobby
+      # server.propertiesの編集
+      # ALLOW_NETHER
+      - op: replace
+        path: /spec/template/spec/containers/0/env/7/value
+        value: "false"
+      # DIFFICULTY
+      - op: replace
+        path: /spec/template/spec/containers/0/env/8/value
+        value: peaceful
+      # LEVEL_TYPE
+      - op: replace
+        path: /spec/template/spec/containers/0/env/10/value
+        value: flat
+      # SPAWN_ANIMALS
+      - op: replace
+        path: /spec/template/spec/containers/0/env/11/value
+        value: "false"
+      # SPAWN_MONSTERS
+      - op: replace
+        path: /spec/template/spec/containers/0/env/12/value
+        value: "false"
+      # SPAWN_NPCS
+      - op: replace
+        path: /spec/template/spec/containers/0/env/13/value
+        value: "false"
       # ホワイトリストマウント
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-

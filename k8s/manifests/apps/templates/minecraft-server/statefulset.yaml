@@ -50,7 +50,7 @@ spec:
             - name: DIFFICULTY
               value: easy
             - name: ONLINE_MODE
-              value: "FALSE"
+              value: "false"
             - name: LEVEL_TYPE
               value: normal
             - name: SPAWN_ANIMALS
@@ -59,6 +59,8 @@ spec:
               value: "true"
             - name: SPAWN_NPCS
               value: "true"
+            - name: ENABLE_WHITELIST
+              value: "false"
             - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # minecraft-prometheus-exporter3.1.0

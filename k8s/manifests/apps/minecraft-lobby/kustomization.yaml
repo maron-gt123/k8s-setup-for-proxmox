@@ -154,6 +154,10 @@ patches:
         value:
           name: world-guard-download-volume
           emptyDir: {}
+      # spawn pluginのダウンロード
+      - op: add
+        path: /spec/containers/0/env/15/value
+        value: https://cdn.modrinth.com/data/Pw3KRjwE/versions/mgrZ4A8t/Spawn-2.4.1.jar
   - target:
       kind: Service
       name: mc-template-service

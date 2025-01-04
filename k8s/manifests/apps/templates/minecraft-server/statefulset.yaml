@@ -122,6 +122,11 @@ spec:
             - name: mc-common-plugin-config
               mountPath: /config/plugins/AdvancedPortals/config.yml
               subPath: advancedportals-config.yml
+            # LuckPermsのマウント
+            - name: mc-plugin-config
+              mountPath: /config/plugins/LuckPerms/config.yml
+              subPath: luckperms.yml
+
       volumes:
         # paperのボリューム
         - name: data

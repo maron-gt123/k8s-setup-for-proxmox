@@ -112,6 +112,16 @@ spec:
             - name: mc-config
               mountPath: /config/config/paper-global.yml
               subPath: mc-paper-global.yml
+            # prometeus/LunaChat/AdvancedPortals(common)のマウント
+            - name: mc-common-plugin-config
+              mountPath: /config/plugins/PrometheusExporter/config.yml
+              subPath: prometheusexporter.yml
+            - name: mc-common-plugin-config
+              mountPath: /config/plugins/LunaChat/config.yml
+              subPath: lunachat.yml
+            - name: mc-common-plugin-config
+              mountPath: /config/plugins/AdvancedPortals/config.yml
+              subPath: advancedportals-config.yml
       volumes:
         # paperのボリューム
         - name: data
@@ -127,6 +137,10 @@ spec:
         - name: mc-config
           configMap:
             name: mc-configs
+        # plugin-common-configmap格納先
+        - name: mc-common-plugin-config
+          configMap:
+            name: mc-common-plugin-configs
         # plugin-configmap格納先
         - name: mc-plugin-config
           configMap:

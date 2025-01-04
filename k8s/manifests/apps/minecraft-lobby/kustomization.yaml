@@ -2,14 +2,20 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: mc-lobby-sv
 resources:
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/statefulset.yaml
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/service.yaml
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/jmx-exporter-config.yaml
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-common-plugin-config.yaml
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-template-metrics-patch.yaml
+  # namespace
   - ./ns-mc-lobby-sv.yaml
+  # statefulset
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/statefulset.yaml
+  # service
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/service.yaml
+  # metrics-service
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-template-metrics-patch.yaml
+  # mc-config
   - ./mc-lobby-configs.yaml
-
+  # mc-plugin-config
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-common-plugin-config.yaml
+  #  imx-exporter-config
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/jmx-exporter-config.yaml
 patches:
   - target:
       kind: StatefulSet
@@ -88,21 +94,61 @@ patches:
               tar -xvf /root/world-download/world.tar -C /root/world-download/ &&
               rm /root/world-download/world.tar &&
               echo "successfully imported world data"
+      # world edit & guardのダウンロード
+      - op: add
+        path: /spec/template/spec/initContainers/-
+        value:
+          name: download-world-edit&guard
+          image: busybox:1.36.1
+          env:
+            - name: WORLDEDIT_URL
+              value: "https://dev.bukkit.org/projects/worldedit/files/5935693/download"
+            - name: WORLDGUARD_URL
+              value: "https://dev.bukkit.org/projects/worldguard/files/5888870/download"
+          volumeMounts:
+            - name: world-edit-download-volume
+              mountPath: /root/world-edit-download
+            - name: world-guard-download-volume
+              mountPath: /root/world-guard-download
+          command:
+            - sh
+            - -c
+            - >
+              wget -O /root/world-edit-download/worldedit.jar "${WORLDEDIT_URL}"
+              wget -O /root/world-guard-download/worldguard.jar "${WORLDGUARD_URL}"
+      # world dataのマウント
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
           name: world-download-volume
           mountPath: /data/world
+      # world-editのマウント
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts/-
+        value: 
+          name: world-edit-download-volume
+          mountPath: /data/plugins/worldedit.jar
+          subPath: worldedit.jar
+      # world-guardのマウント
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts/-
+        value: 
+          name: world-guard-download-volume
+          mountPath: /data/plugins/worldguard.jar
+          subPath: worldguard.jar
+      # world dataの格納先
       - op: add
         path: /spec/template/spec/volumes/-
         value:
           name: world-download-volume
           emptyDir: {}
+      # world-editの格納先
       - op: add
         path: /spec/template/spec/volumes/-
         value:
           name: world-edit-download-volume
           emptyDir: {}
+      # world-guardの格納先
       - op: add
         path: /spec/template/spec/volumes/-
         value:

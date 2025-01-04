@@ -114,7 +114,7 @@ patches:
             - sh
             - -c
             - >
-              wget -O /root/world-edit-download/worldedit.jar "${WORLDEDIT_URL}"
+              wget -O /root/world-edit-download/worldedit.jar "${WORLDEDIT_URL}" &&
               wget -O /root/world-guard-download/worldguard.jar "${WORLDGUARD_URL}"
       # world dataのマウント
       - op: add

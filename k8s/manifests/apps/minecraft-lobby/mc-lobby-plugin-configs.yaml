@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   namespace: mc-lobby-sv
-  name: mc-lobby-plugin-configs
+  name: mc-plugin-configs
 data:
   prometheusexporter.yml: |
     host: 0.0.0.0

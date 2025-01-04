@@ -45,8 +45,20 @@ spec:
               value: 1G
             - name: MAX_MEMORY
               value: 2G
+            - name: ALLOW_NETHER
+              value: "true"
+            - name: DIFFICULTY
+              value: peaceful
             - name: ONLINE_MODE
               value: "FALSE"
+            - name: LEVEL_TYPE
+              value: flat
+            - name: SPAWN_ANIMALS
+              value: "true"
+            - name: SPAWN_MONSTERS
+              value: "true"
+            - name: SPAWN_NPCS
+              value: "true"
             - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # minecraft-prometheus-exporter3.1.0

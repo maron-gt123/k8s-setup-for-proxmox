@@ -60,7 +60,7 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/env/14/value
         value: "true"
-      # ホワイトリストマウント
+      # whitelistマウント
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value:
@@ -115,6 +115,29 @@ patches:
       - op: replace
         path: /metadata/name
         value: mc-lobby-service
+      - op: replace
+        path: /metadata/labels/app
+        value: mc-lobby
+      - op: replace
+        path: /spec/selector/app
+        value: mc-lobby
+  - target:
+      kind: ServiceMonitor
+      name: mc-template-metrics
+    patch: |-
+      - op: replace
+        path: /metadata/labels/app
+        value: mc-lobby
+      - op: replace
+        path: /metadata/name
+        value: mc-lobby-metrics
+      - op: replace
+        path: /spec/selector/matchLabels/app
+        value: mc-lobby
+  - target:
+      kind: Service
+      name: mc-metrics
+    patch: |-
       - op: replace
         path: /metadata/labels/app
         value: mc-lobby

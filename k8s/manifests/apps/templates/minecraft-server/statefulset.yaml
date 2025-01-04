@@ -45,6 +45,8 @@ spec:
               value: 1G
             - name: MAX_MEMORY
               value: 2G
+            - name: ONLINE_MODE
+              value: FALSE
             - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # minecraft-prometheus-exporter3.1.0

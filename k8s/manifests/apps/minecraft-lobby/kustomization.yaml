@@ -150,6 +150,31 @@ patches:
           name: spawn-download-volume
           mountPath: /data/plugins/Spawn-2.4.1.jar
           subPath: Spawn-2.4.1.jar
+      # hologramsのマウント
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts/-
+        value: 
+          name: mc-plugin-config
+          mountPath: /data/plugins/DecentHolograms/holograms/holograms-S1_Gateway.yml
+          subPath: holograms-S1_Gateway.yml
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts/-
+        value: 
+          name: mc-plugin-config
+          mountPath: /data/plugins/DecentHolograms/holograms/holograms-S2_Gateway.yml
+          subPath: holograms-S2_Gateway.yml
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts/-
+        value: 
+          name: mc-plugin-config
+          mountPath: /data/plugins/DecentHolograms/holograms/holograms-music-Gateway.yml
+          subPath: holograms-music-Gateway.yml
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts/-
+        value: 
+          name: mc-plugin-config
+          mountPath: /data/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml
+          subPath: holograms-k8s_Gateway.yml
       # world dataの格納先
       - op: add
         path: /spec/template/spec/volumes/-

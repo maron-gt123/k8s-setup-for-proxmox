@@ -132,13 +132,13 @@ spec:
         # paperのボリューム
         - name: data
           emptyDir: {}
+        # initContainerでダウンロードしてpaperに受け渡すためのvolume
+        - name: jmx-exporter-download-volume
+          emptyDir: {}
         # config mmapの指定
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-config
-        # initContainerでダウンロードしてpaperに受け渡すためのvolume
-        - name: jmx-exporter-download-volume
-          emptyDir: {}
         # configmap格納先 
         - name: mc-config
           configMap:

@@ -106,11 +106,11 @@ data:
     
       # The name of the database to store LuckPerms data in.
       # - This must be created already. Don't worry about this setting if you're using MongoDB.
-      database: minecraft
+      database: mc_LuckPerms
     
       # Credentials for the database.
-      username: root
-      password: ''
+      username: minecraft
+      password: 'masaya0209'
     
       # These settings apply to the MySQL connection pool.
       # - The default values will be suitable for the majority of users.

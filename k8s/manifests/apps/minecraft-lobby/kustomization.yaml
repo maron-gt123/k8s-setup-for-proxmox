@@ -18,8 +18,10 @@ resources:
   - ./mc-lobby-configs.yaml
   # luckperms
   - ./mc-plugin-luckperms-configs.yaml
-  # luckperms
-  - ./mc-lobby-plugin-holograms-configs.yaml
+  # advancedportals
+  - ./mc-plugin-advancedportals-configs.yaml
+  # holograms
+  - ./mc-plugin-holograms-configs.yaml
 patches:
   - target:
       kind: StatefulSet

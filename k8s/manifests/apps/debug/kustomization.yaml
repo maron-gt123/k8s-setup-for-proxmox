@@ -11,10 +11,10 @@ resources:
   # metrics-service
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-template-metrics-patch.yaml
   # mc-config
-  - ./mc-lobby-configs.yaml
+  - ./mc-debug-configs.yaml
   # mc-common-plugin-config
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-common-plugin-config.yaml
   # mc-plugin-config
-  - ./mc-lobby-plugin-configs.yaml
+  - ./mc-debug-plugin-configs.yaml
   #  imx-exporter-config
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/jmx-exporter-config.yaml

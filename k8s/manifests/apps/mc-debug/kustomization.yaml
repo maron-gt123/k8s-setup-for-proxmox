@@ -19,4 +19,4 @@ resources:
   # luckperms
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-plugin-luckperms-config.yaml
   # advancedportals
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/mc-plugin-advancedportals-config.yaml
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-plugin-advancedportals-config.yaml

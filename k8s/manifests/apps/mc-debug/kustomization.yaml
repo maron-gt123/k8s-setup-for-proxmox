@@ -10,6 +10,8 @@ resources:
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/service.yaml
   # metrics-service
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-metrics-patch.yaml
+  # jmx-exporter-config
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/jmx-exporter-config.yaml
 patches:
   - target:
       kind: StatefulSet
@@ -36,9 +38,6 @@ patches:
       # mc-bukkit
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/3
-      # jmx-exporter-config
-      - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/2
       # mc-plugin-advancedportals
       - op: remove
         path: /spec/template/spec/volumes/6
@@ -51,6 +50,3 @@ patches:
        # configmap
       - op: remove
         path: /spec/template/spec/volumes/3
-       # jmx-exporter-config
-      - op: remove
-        path: /spec/template/spec/volumes/2

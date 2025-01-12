@@ -135,7 +135,7 @@ spec:
         # initContainerでダウンロードしてpaperに受け渡すためのvolume
         - name: jmx-exporter-download-volume
           emptyDir: {}
-        # config mmapの指定
+        # jmx-exporter-configの指定
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-config

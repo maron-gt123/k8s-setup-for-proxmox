@@ -1,9 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: mc-lobby-sv
+namespace: mc-debug-sv
 resources:
   # namespace
-  - ./ns-mc-lobby-sv.yaml
+  - ./ns-mc-debug-sv.yaml
   # statefulset
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/statefulset.yaml
   # service

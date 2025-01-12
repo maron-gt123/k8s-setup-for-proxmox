@@ -119,13 +119,14 @@ spec:
             - name: mc-common-plugin-config
               mountPath: /config/plugins/LunaChat/config.yml
               subPath: lunachat.yml
-            - name: mc-common-plugin-config
-              mountPath: /config/plugins/AdvancedPortals/config.yml
-              subPath: advancedportals-config.yml
             # LuckPermsのマウント
             - name: mc-plugin-luckperms-config
               mountPath: /config/plugins/LuckPerms/config.yml
               subPath: luckperms.yml
+            # advancedportalsのマウント
+            - name: mc-plugin-advancedportals-config
+              mountPath: /config/plugins/AdvancedPortals/config.yml
+              subPath: advancedportals-config.yml
 
       volumes:
         # paperのボリューム
@@ -150,3 +151,7 @@ spec:
         - name: mc-plugin-luckperms-config
           configMap:
             name: mc-plugin-luckperms-configs
+        # advancedportals格納先
+        - name: mc-plugin-advancedportals-config
+          configMap:
+            name: mc-plugin-advancedportals-configs

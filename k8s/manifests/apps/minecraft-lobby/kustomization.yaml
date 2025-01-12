@@ -23,22 +23,6 @@ patches:
       kind: StatefulSet
       name: mc-template
     patch: |-
-      # name関連の編集
-      - op: replace
-        path: /metadata/name
-        value: mc-lobby
-      - op: replace
-        path: /metadata/labels/app
-        value: mc-lobby
-      - op: replace
-        path: /spec/selector/matchLabels/app
-        value: mc-lobby
-      - op: replace
-        path: /spec/template/metadata/labels/app
-        value: mc-lobby
-      - op: replace
-        path: /spec/template/spec/containers/0/name
-        value: mc-lobby
       # server.propertiesの編集
       # ALLOW_NETHER
       - op: replace

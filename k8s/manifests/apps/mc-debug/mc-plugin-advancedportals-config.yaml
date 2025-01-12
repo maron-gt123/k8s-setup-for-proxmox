@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: mc-lobby-sv
+  name: mc-plugin-advancedportals-configs
+data:
+  prometheusexporter.yml: |

@@ -28,8 +28,8 @@ patches:
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/5
       # prometheusexporter
-      - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/6
+      #- op: remove
+      #  path: /spec/template/spec/containers/0/volumeMounts/6
       # lunachat
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/7

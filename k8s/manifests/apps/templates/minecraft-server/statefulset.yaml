@@ -123,7 +123,7 @@ spec:
               mountPath: /config/plugins/AdvancedPortals/config.yml
               subPath: advancedportals-config.yml
             # LuckPermsのマウント
-            - name: mc-template-plugin-luckperms-config
+            - name: mc-plugin-luckperms-config
               mountPath: /config/plugins/LuckPerms/config.yml
               subPath: luckperms.yml
 
@@ -147,6 +147,6 @@ spec:
           configMap:
             name: mc-common-plugin-configs
         # luckperms格納先
-        - name: mc-template-plugin-luckperms-config
+        - name: mc-plugin-luckperms-config
           configMap:
-            name: mc-template-plugin-luckperms-configs
+            name: mc-plugin-luckperms-configs

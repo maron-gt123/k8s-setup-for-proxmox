@@ -10,3 +10,47 @@ resources:
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/service.yaml
   # metrics-service
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-metrics-patch.yaml
+patches:
+  - target:
+      kind: StatefulSet
+      name: minecraft
+    patch: |-
+      # jmx-exporter-config
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/2
+      # mc-bukkit
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/3
+      # mc-spigot
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/4
+      # mc-paper-global
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/5
+      # prometheusexporter
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/6
+      # lunachat
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/7
+      # luckperms
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/8
+      # advancedportals
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/9
+      # config mmap
+      - op: remove
+        path: /spec/template/spec/volumes/1
+       # mc-config
+      - op: remove
+        path: /spec/template/spec/volumes/3
+       #  mc-common-plugin-config
+      - op: remove
+        path: /spec/template/spec/volumes/4
+       # mc-plugin-luckperms
+      - op: remove
+        path: /spec/template/spec/volumes/5
+       # mc-plugin-advancedportals
+      - op: remove
+        path: /spec/template/spec/volumes/6

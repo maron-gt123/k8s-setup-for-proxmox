@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   namespace: mc-lobby-sv
-  name: mc-plugin-configs
+  name: mc-lobby-plugin-holograms-configs
 data:
   holograms-S1_Gateway.yml: |
     location: world:7.065:-57.000:9.394

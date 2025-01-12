@@ -27,7 +27,8 @@ patches:
       kind: StatefulSet
       name: minecraft
     patch: |-
-      # server.propertiesの編集
+      
+      # ------server.propertiesの編集------
       # ALLOW_NETHER
       - op: replace
         path: /spec/template/spec/containers/0/env/7/value
@@ -64,7 +65,7 @@ patches:
           mountPath: /config/whitelist.json
           subPath: mc-whitelist.json
 
-      # minecraft lobbyのワールド生成関連
+      # ------minecraft lobbyのワールド生成関連------
       # world dataのダウンロード
       - op: add
         path: /spec/template/spec/initContainers/-
@@ -99,6 +100,7 @@ patches:
           name: world-download-volume
           emptyDir: {}
           
+      # ------minecraft lobby用plugins関連------
       # world-editのマウント
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
@@ -124,25 +126,25 @@ patches:
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: mc-plugin-config
-          mountPath: /data/plugins/DecentHolograms/holograms/holograms-S1_Gateway.yml
+          name: mc-lobby-plugin-holograms-configs
+          mountPath: /config/plugins/DecentHolograms/holograms/holograms-S1_Gateway.yml
           subPath: holograms-S1_Gateway.yml
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: mc-plugin-config
-          mountPath: /data/plugins/DecentHolograms/holograms/holograms-S2_Gateway.yml
+          name: mc-lobby-plugin-holograms-configs
+          mountPath: /config/plugins/DecentHolograms/holograms/holograms-S2_Gateway.yml
           subPath: holograms-S2_Gateway.yml
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: mc-plugin-config
-          mountPath: /data/plugins/DecentHolograms/holograms/holograms-music-Gateway.yml
+          name: mc-lobby-plugin-holograms-configs
+          mountPath: /config/plugins/DecentHolograms/holograms/holograms-music-Gateway.yml
           subPath: holograms-music-Gateway.yml
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: mc-plugin-config
-          mountPath: /data/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml
+          name: mc-lobby-plugin-holograms-configs
+          mountPath: /config/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml
           subPath: holograms-k8s_Gateway.yml
 

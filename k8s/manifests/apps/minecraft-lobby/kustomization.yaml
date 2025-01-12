@@ -12,10 +12,10 @@ resources:
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-metrics-patch.yaml
   # jmx-exporter-config
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/jmx-exporter-config.yaml
-  # mc-config
-  - ./mc-lobby-configs.yaml
   # mc-common-plugin-config
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-common-plugin-config.yaml
+  # mc-config
+  - ./mc-lobby-configs.yaml
   # luckperms
   - ./mc-plugin-luckperms-configs.yaml
   # luckperms
@@ -23,7 +23,7 @@ resources:
 patches:
   - target:
       kind: StatefulSet
-      name: mc-template
+      name: minecraft
     patch: |-
       # server.propertiesの編集
       # ALLOW_NETHER
@@ -61,6 +61,8 @@ patches:
           name: mc-config
           mountPath: /config/whitelist.json
           subPath: mc-whitelist.json
+
+      # minecraft lobbyのワールド生成関連
       # world dataのダウンロード
       - op: add
         path: /spec/template/spec/initContainers/-
@@ -88,6 +90,13 @@ patches:
         value: 
           name: world-download-volume
           mountPath: /data/world
+      # world dataの格納先
+      - op: add
+        path: /spec/template/spec/volumes/-
+        value:
+          name: world-download-volume
+          emptyDir: {}
+          
       # world-editのマウント
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
@@ -134,9 +143,4 @@ patches:
           name: mc-plugin-config
           mountPath: /data/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml
           subPath: holograms-k8s_Gateway.yml
-      # world dataの格納先
-      - op: add
-        path: /spec/template/spec/volumes/-
-        value:
-          name: world-download-volume
-          emptyDir: {}
+

@@ -126,25 +126,25 @@ patches:
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: mc-lobby-plugin-holograms-configs
+          name: mc-plugin-holograms-configs
           mountPath: /config/plugins/DecentHolograms/holograms/holograms-S1_Gateway.yml
           subPath: holograms-S1_Gateway.yml
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: mc-lobby-plugin-holograms-configs
+          name: mc-plugin-holograms-configs
           mountPath: /config/plugins/DecentHolograms/holograms/holograms-S2_Gateway.yml
           subPath: holograms-S2_Gateway.yml
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: mc-lobby-plugin-holograms-configs
+          name: mc-plugin-holograms-configs
           mountPath: /config/plugins/DecentHolograms/holograms/holograms-music-Gateway.yml
           subPath: holograms-music-Gateway.yml
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: mc-lobby-plugin-holograms-configs
+          name: mc-plugin-holograms-configs
           mountPath: /config/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml
           subPath: holograms-k8s_Gateway.yml
 

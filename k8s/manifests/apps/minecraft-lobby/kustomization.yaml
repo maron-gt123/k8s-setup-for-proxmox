@@ -103,21 +103,21 @@ patches:
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: world-edit-download-volume
+          name: init-download-volume
           mountPath: /data/plugins/worldedit.jar
           subPath: worldedit.jar
       # world-guardのマウント
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: world-guard-download-volume
+          name: init-download-volume
           mountPath: /data/plugins/worldguard.jar
           subPath: worldguard.jar
       # spawnのマウント
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
         value: 
-          name: spawn-download-volume
+          name: init-download-volume
           mountPath: /data/plugins/Spawn-2.4.1.jar
           subPath: Spawn-2.4.1.jar
       # hologramsのマウント

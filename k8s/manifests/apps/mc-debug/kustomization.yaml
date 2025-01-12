@@ -9,7 +9,7 @@ resources:
   # service
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/service.yaml
   # metrics-service
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-template-metrics-patch.yaml
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-metrics-patch.yaml
   # mc-config
   - ./mc-debug-config.yaml
   # mc-common-plugin-config

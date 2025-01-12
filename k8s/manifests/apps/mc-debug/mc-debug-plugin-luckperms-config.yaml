@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   namespace: mc-lobby-sv
-  name: mc-debug-plugin-luckperms-configs
+  name: mc-luckperms-configs
 data:
   luckperms.yml: |
     ####################################################################################################

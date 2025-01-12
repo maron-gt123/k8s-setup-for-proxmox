@@ -147,4 +147,9 @@ patches:
           name: mc-plugin-holograms-configs
           mountPath: /config/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml
           subPath: holograms-k8s_Gateway.yml
-
+      - op: add
+        path: /spec/template/spec/volumes/-
+        value: 
+          name: mc-plugin-holograms-config
+          configMap:
+            name: mc-plugin-holograms-configs

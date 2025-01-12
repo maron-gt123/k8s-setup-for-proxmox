@@ -21,12 +21,31 @@ spec:
             - name: JMX_EXPORTER_URL
               value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.20.0/jmx_prometheus_javaagent-0.20.0.jar"
           volumeMounts:
-            - name: jmx-exporter-download-volume
-              mountPath: /root/jmx-exporter-download
+            - name: initContainer-download-volume
+              mountPath: /root/initContainer-download
           command:
             - "sh"
             - "-c"
-            - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
+            - 'wget -O /root/initContainer-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
+        - name: plugins-download
+          image: busybox:1.36.1
+          env:
+            - name: WORLDEDIT_URL
+              value: "https://dev.bukkit.org/projects/worldedit/files/5935693/download"
+            - name: WORLDGUARD_URL
+              value: "https://dev.bukkit.org/projects/worldguard/files/5888870/download"
+            - name: SPAWN_URL
+              value: "https://cdn.modrinth.com/data/Pw3KRjwE/versions/mgrZ4A8t/Spawn-2.4.1.jar"
+          volumeMounts:
+            - name: initContainer-download-volume
+              mountPath: /root/initContainer-download
+          command:
+            - sh
+            - -c
+            - >
+              wget -O /root/initContainer-download/worldedit.jar "${WORLDEDIT_URL}" &&
+              wget -O /root/initContainer-download/worldguard.jar "${WORLDGUARD_URL}" &&
+              wget -O /root/initContainer-download/Spawn-2.4.1.jar "${SPAWN_URL}"
       containers:
         - image: itzg/minecraft-server:java21
           name: minecraft
@@ -133,7 +152,7 @@ spec:
         - name: data
           emptyDir: {}
         # initContainerでダウンロードしてpaperに受け渡すためのvolume
-        - name: jmx-exporter-download-volume
+        - name: initContainer-download-volume
           emptyDir: {}
         # jmx-exporter-configの指定
         - name: jmx-exporter-config

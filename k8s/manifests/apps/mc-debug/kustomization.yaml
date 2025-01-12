@@ -15,42 +15,42 @@ patches:
       kind: StatefulSet
       name: minecraft
     patch: |-
-      # jmx-exporter-config
+      # advancedportalsのマウント
       - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/2
-      # mc-bukkit
+        path: /spec/template/spec/containers/0/volumeMounts/9
+      # LuckPermsのマウント
       - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/3
-      # mc-spigot
+        path: /spec/template/spec/containers/0/volumeMounts/8
+      # prometheusexporter
       - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/4
+        path: /spec/template/spec/containers/0/volumeMounts/7
+      # lunachat
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/6
       # mc-paper-global
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/5
-      # prometheusexporter
+      # mc-spigot
       - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/6
-      # lunachat
+        path: /spec/template/spec/containers/0/volumeMounts/4
+      # mc-bukkit
       - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/7
-      # luckperms
+        path: /spec/template/spec/containers/0/volumeMounts/3
+      # jmx-exporter-config
       - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/8
-      # advancedportals
-      - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/9
-      # config mmap
-      - op: remove
-        path: /spec/template/spec/volumes/2
-       # mc-config
-      - op: remove
-        path: /spec/template/spec/volumes/3
-       #  mc-common-plugin-config
-      - op: remove
-        path: /spec/template/spec/volumes/4
-       # mc-plugin-luckperms
-      - op: remove
-        path: /spec/template/spec/volumes/5
-       # mc-plugin-advancedportals
+        path: /spec/template/spec/containers/0/volumeMounts/2
+      # mc-plugin-advancedportals
       - op: remove
         path: /spec/template/spec/volumes/6
+       # luckperms
+      - op: remove
+        path: /spec/template/spec/volumes/5
+       #  plugin-common-configmap
+      - op: remove
+        path: /spec/template/spec/volumes/4
+       # configmap
+      - op: remove
+        path: /spec/template/spec/volumes/3
+       # jmx-exporter-config
+      - op: remove
+        path: /spec/template/spec/volumes/2

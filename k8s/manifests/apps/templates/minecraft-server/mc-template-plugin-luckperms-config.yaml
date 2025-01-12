@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   namespace: mc-lobby-sv
-  name: mc-plugin-luckperms-configs
+  name: mc-template-plugin-luckperms-configs
 data:
   luckperms.yml: |
     ####################################################################################################
@@ -38,7 +38,7 @@ data:
     # - When set to "global" this setting is effectively ignored.
     # - In all other cases, the value here is added to all players in a "server" context.
     # - See: https://luckperms.net/wiki/Context
-    server: lobby
+    server: 
     
     # If the servers own UUID cache/lookup facility should be used when there is no record for a player
     # already in LuckPerms.
@@ -90,7 +90,7 @@ data:
     #
     # - A H2 database is the default option.
     # - If you want to edit data manually in "traditional" storage files, we suggest using YAML.
-    storage-method: MariaDB
+    storage-method: h2
     
     # The following block defines the settings for remote database storage methods.
     #
@@ -106,11 +106,11 @@ data:
     
       # The name of the database to store LuckPerms data in.
       # - This must be created already. Don't worry about this setting if you're using MongoDB.
-      database: mc_LuckPerms
+      database: minecraft
     
       # Credentials for the database.
-      username: minecraft
-      password: 'masaya0209'
+      username: 
+      password: ''
     
       # These settings apply to the MySQL connection pool.
       # - The default values will be suitable for the majority of users.

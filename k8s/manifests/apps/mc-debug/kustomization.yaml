@@ -18,3 +18,5 @@ resources:
   - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/jmx-exporter-config.yaml
   # luckperms
   - ./mc-debug-plugin-luckperms-config.yaml
+  # advancedportals
+  - ./mc-plugin-advancedportals-config.yaml

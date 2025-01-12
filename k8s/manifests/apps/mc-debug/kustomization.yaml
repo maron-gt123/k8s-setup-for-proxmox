@@ -40,13 +40,13 @@ patches:
         path: /spec/template/spec/containers/0/volumeMounts/3
       # mc-plugin-advancedportals
       - op: remove
-        path: /spec/template/spec/volumes/7
+        path: /spec/template/spec/volumes/6
        # luckperms
       - op: remove
-        path: /spec/template/spec/volumes/6
+        path: /spec/template/spec/volumes/5
        #  plugin-common-configmap
       - op: remove
-        path: /spec/template/spec/volumes/5
+        path: /spec/template/spec/volumes/4
        # configmap
       - op: remove
-        path: /spec/template/spec/volumes/4
+        path: /spec/template/spec/volumes/3

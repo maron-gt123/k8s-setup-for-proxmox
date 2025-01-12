@@ -1,8 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: mc-lobby-sv
-  name: mc-template-plugin-luckperms-configs
+  name: mc-plugin-luckperms-configs
 data:
   luckperms.yml: |
     ####################################################################################################

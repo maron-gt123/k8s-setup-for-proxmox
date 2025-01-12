@@ -31,14 +31,14 @@ patches:
       #- op: remove
       #  path: /spec/template/spec/containers/0/volumeMounts/6
       # lunachat
-      - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/7
+      #- op: remove
+      #  path: /spec/template/spec/containers/0/volumeMounts/7
       # luckperms
-      - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/8
+      #- op: remove
+      #  path: /spec/template/spec/containers/0/volumeMounts/8
       # advancedportals
-      - op: remove
-        path: /spec/template/spec/containers/0/volumeMounts/9
+      #- op: remove
+      #  path: /spec/template/spec/containers/0/volumeMounts/9
       # config mmap
       - op: remove
         path: /spec/template/spec/volumes/1

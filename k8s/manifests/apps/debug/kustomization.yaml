@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: mc-lobby-sv
+resources:
+  # namespace
+  - ./ns-mc-lobby-sv.yaml
+  # statefulset
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/statefulset.yaml
+  # service
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/service.yaml
+  # metrics-service
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-template-metrics-patch.yaml
+  # mc-config
+  - ./mc-lobby-configs.yaml
+  # mc-common-plugin-config
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-common-plugin-config.yaml
+  # mc-plugin-config
+  - ./mc-lobby-plugin-configs.yaml
+  #  imx-exporter-config
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/jmx-exporter-config.yaml

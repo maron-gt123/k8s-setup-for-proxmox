@@ -132,7 +132,7 @@ spec:
         # paperのボリューム
         - name: data
           emptyDir: {}
-        # configmmapの指定
+        # config mmapの指定
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-config

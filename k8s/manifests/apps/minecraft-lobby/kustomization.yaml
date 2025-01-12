@@ -82,33 +82,6 @@ patches:
               tar -xvf /root/world-download/world.tar -C /root/world-download/ &&
               rm /root/world-download/world.tar &&
               echo "successfully imported world data"
-      # world edit & guardのダウンロード
-      - op: add
-        path: /spec/template/spec/initContainers/-
-        value:
-          name: plugins-download
-          image: busybox:1.36.1
-          env:
-            - name: WORLDEDIT_URL
-              value: "https://dev.bukkit.org/projects/worldedit/files/5935693/download"
-            - name: WORLDGUARD_URL
-              value: "https://dev.bukkit.org/projects/worldguard/files/5888870/download"
-            - name: SPAWN_URL
-              value: "https://cdn.modrinth.com/data/Pw3KRjwE/versions/mgrZ4A8t/Spawn-2.4.1.jar"
-          volumeMounts:
-            - name: world-edit-download-volume
-              mountPath: /root/world-edit-download
-            - name: world-guard-download-volume
-              mountPath: /root/world-guard-download
-            - name: spawn-download-volume
-              mountPath: /root/spawn-download
-          command:
-            - sh
-            - -c
-            - >
-              wget -O /root/world-edit-download/worldedit.jar "${WORLDEDIT_URL}" &&
-              wget -O /root/world-guard-download/worldguard.jar "${WORLDGUARD_URL}" &&
-              wget -O /root/spawn-download/Spawn-2.4.1.jar "${SPAWN_URL}"
       # world dataのマウント
       - op: add
         path: /spec/template/spec/containers/0/volumeMounts/-
@@ -166,22 +139,4 @@ patches:
         path: /spec/template/spec/volumes/-
         value:
           name: world-download-volume
-          emptyDir: {}
-      # world-editの格納先
-      - op: add
-        path: /spec/template/spec/volumes/-
-        value:
-          name: world-edit-download-volume
-          emptyDir: {}
-      # world-guardの格納先
-      - op: add
-        path: /spec/template/spec/volumes/-
-        value:
-          name: world-guard-download-volume
-          emptyDir: {}
-      # spawnの格納先
-      - op: add
-        path: /spec/template/spec/volumes/-
-        value:
-          name: spawn-download-volume
           emptyDir: {}

@@ -99,6 +99,13 @@ spec:
             # config関連を/configから/dataへmcopy
             - name: COPY_CONFIG_DEST
               value: /data
+            - name: REPLACE_ENV_VARIABLE_PREFIX
+              value: CFG_
+            - name: CFG_LUCKPERMS-SERVER
+              value: ""
+            - name: RCON_CMDS_STARTUP
+              value: |-
+
           ports:
             - name: mc-service
               containerPort: 25565

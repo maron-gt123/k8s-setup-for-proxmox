@@ -9,5 +9,3 @@ resources:
   - ./metrics-patch.yaml
   # jmx-exporter-config
   - ./jmx-exporter-config.yaml
-  # 環境変数
-  - ./env.yaml

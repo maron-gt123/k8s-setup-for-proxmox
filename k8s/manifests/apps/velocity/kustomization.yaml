@@ -20,3 +20,10 @@ vars:
       apiVersion: v1
     fieldref:
       fieldpath: data.RESOURCE_MEMORY
+  - name: RESOURCE__PROXY_MEMORY
+    objref:
+      kind: ConfigMap
+      name: mc-proxy-env
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.RESOURCE__PROXY_MEMORY

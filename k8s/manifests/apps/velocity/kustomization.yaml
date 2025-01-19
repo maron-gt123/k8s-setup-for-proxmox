@@ -10,6 +10,8 @@ resources:
   - ./velocity-config.yaml
   # plugin-config
   - ./plugin-config.yaml
+  # params
+  - ./params.yaml
 configMapGenerator:
   - name: params-config
     behavior: merge

@@ -58,6 +58,10 @@ spec:
               value: PAPER
             - name: VERSION
               value: "1.21.3"
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 2G
             - name: ONLINE_MODE
               value: "false"
             - name: PLUGINS

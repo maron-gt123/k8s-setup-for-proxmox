@@ -83,8 +83,16 @@ spec:
               value: /data
             - name: REPLACE_ENV_VARIABLE_PREFIX
               value: CFG_
-            - name: CFG_LUCKPERMS-SERVER
+            - name: CFG_LUCKPERMS_SERVER_NAME
               value: ""
+            - name: CFG_LUCKPERMS_SQLSERVER_ADDRESS
+              value: "192.168.10.131"
+            - name: CFG_LUCKPERMS_SQLSERVER_DATABASE
+              value: "mc_LuckPerms"
+            - name: CFG_LUCKPERMS_SQLSERVER_USERNAME
+              value: "minecraft"
+            - name: CFG_LUCKPERMS_SQLSERVER_PASSWORD
+              value: "masaya0209"
             - name: RCON_CMDS_STARTUP
               value: |-
 

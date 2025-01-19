@@ -42,4 +42,4 @@ patches:
         valueFrom:
           configMapKeyRef:
             name: external-env
-            key: JAVA_HEAP_SIZE
+            key: RESOURCE_PROXY_MEMORY

@@ -9,7 +9,9 @@ resources:
   - ./mc-metrics-patch.yaml
   # jmx-exporter-config
   - ./jmx-exporter-config.yaml
-  # mc-common-plugin-config
-  - ./mc-common-plugin-config.yaml
+  # prometheusexporter-config
+  - ./mc-plugin-prometheusexporter-config.yaml
   # luckperms-config
   - ./mc-plugin-luckperms-config.yaml
+  # lunachat-config
+  - ./mc-plugin-lunachat-config.yaml

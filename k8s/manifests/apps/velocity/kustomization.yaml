@@ -27,3 +27,8 @@ vars:
       apiVersion: v1
     fieldref:
       fieldpath: data.RESOURCE__PROXY_MEMORY
+configMapGenerator:
+  - name: mc-proxy-env
+    literals:
+      - RESOURCE_MEMORY=1024Mi
+      - RESOURCE__PROXY_MEMORY=1024m

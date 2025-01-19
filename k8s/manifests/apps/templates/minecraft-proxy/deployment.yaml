@@ -74,14 +74,14 @@ spec:
           name: mc-proxy
           resources:
             requests:
-              memory: 768Mi
+              memory: "$(RESOURCE_MEMORY)"
           env:
             - name: TZ
               value: Asia/Tokyo
             - name: TYPE
               value: VELOCITY
             - name: MEMORY
-              value: 768m
+              value: "$(RESOURCE__PROXY_MEMORY)"
             - name: PLUGINS
               # bungeecord-prometheus-exporter
               # LuckPerms-Velocity

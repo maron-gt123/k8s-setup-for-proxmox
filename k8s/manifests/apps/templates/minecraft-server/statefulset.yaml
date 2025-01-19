@@ -131,11 +131,12 @@ spec:
             - name: mc-config
               mountPath: /config/whitelist.json
               subPath: mc-whitelist.json
-            # prometeus/LunaChat/AdvancedPortals(common)のマウント
-            - name: mc-common-plugin-config
+            # prometeusのマウント
+            - name: mc-plugin-prometheusexporter-config
               mountPath: /config/plugins/PrometheusExporter/config.yml
               subPath: prometheusexporter.yml
-            - name: mc-common-plugin-config
+            # LunaChatのマウント
+            - name: mc-plugin-lunachat-config
               mountPath: /config/plugins/LunaChat/config.yml
               subPath: lunachat.yml
             # LuckPermsのマウント
@@ -162,15 +163,19 @@ spec:
         - name: mc-config
           configMap:
             name: mc-configs
-        # plugin-common-configmap格納先
-        - name: mc-common-plugin-config
+        # prometheusexporter-configmap格納先
+        - name: mc-plugin-prometheusexporter-config
           configMap:
-            name: mc-common-plugin-configs
-        # luckperms格納先
+            name: mc-plugin-prometheusexporter-config
+        # lunachat-configmap格納先
+        - name: mc-plugin-lunachat-config
+          configMap:
+            name: mc-plugin-lunachat-config
+        # luckperms-configmap格納先
         - name: mc-plugin-luckperms-config
           configMap:
-            name: mc-plugin-luckperms-configs
-        # advancedportals格納先
+            name: mc-plugin-luckperms-config
+        # advancedportals-configmap格納先
         - name: mc-plugin-advancedportals-config
           configMap:
-            name: mc-plugin-advancedportals-configs
+            name: mc-plugin-advancedportals-config

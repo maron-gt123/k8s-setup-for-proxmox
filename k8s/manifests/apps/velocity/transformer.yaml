@@ -9,6 +9,6 @@ patch: |
   - op: replace
     path: /spec/loadBalancerIP
     value: "192.168.15.70"
-  - target:
-      kind: Service
-      name: mc-proxy-lb
+target:
+  kind: Service
+  name: mc-proxy-lb

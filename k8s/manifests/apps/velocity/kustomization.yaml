@@ -5,7 +5,7 @@ resources:
   # namespace
   - ./ns-velocity.yaml
   # template
-  - ../../templates/minecraft-proxy
+  - ../templates/minecraft-proxy
   # velocity-config
   - ./velocity-config.yaml
   # plugin-config

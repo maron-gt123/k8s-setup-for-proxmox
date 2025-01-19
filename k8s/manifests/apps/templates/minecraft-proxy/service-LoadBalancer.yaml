@@ -13,4 +13,4 @@ spec:
       targetPort: mc-proxy
   selector:
     app: mc-proxy
-  loadBalancerIP: ${LOAD_BALANCER_IP}
+  loadBalancerIP: 172.1.0.0

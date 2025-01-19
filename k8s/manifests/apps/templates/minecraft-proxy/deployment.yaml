@@ -72,6 +72,9 @@ spec:
       containers:
         - image: itzg/bungeecord:latest
           name: mc-proxy
+          envFrom:
+            - configMapRef:
+                name: params-config
           resources:
             requests:
               memory: "$(RESOURCE_MEMORY)"

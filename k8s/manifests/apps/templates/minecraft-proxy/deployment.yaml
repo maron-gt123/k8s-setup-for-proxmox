@@ -75,6 +75,9 @@ spec:
           resources:
             requests:
               memory: "$(RESOURCE_MEMORY)"
+          envFrom:
+            - configMapRef:
+                name: mc-proxy-env
           env:
             - name: TZ
               value: Asia/Tokyo

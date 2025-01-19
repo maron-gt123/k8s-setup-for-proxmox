@@ -13,4 +13,4 @@ spec:
       targetPort: mc-proxy
   selector:
     app: mc-proxy
-  loadBalancerIP: "$(VIP_IP_ADDRESS)"
+  loadBalancerIP: 192.168.15.70

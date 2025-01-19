@@ -10,11 +10,10 @@ resources:
   - ./velocity-config.yaml
   # plugin-config
   - ./plugin-config.yaml
-  # 環境変数
-  - ./env.yaml
-configurations:
-  - path: spec/loadBalancerIP
-    kind: Service
+configMapGenerator:
+  - name: mc-proxy-env
+    envs:
+      - env.yaml
 vars:
   - name: RESOURCE_MEMORY
     objref:

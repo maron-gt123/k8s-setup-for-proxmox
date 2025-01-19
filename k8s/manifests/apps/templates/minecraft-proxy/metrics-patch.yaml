@@ -1,10 +1,9 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  namespace: proxy-sv
   name: mc-proxy-metrics
   labels:
-    app: proxy
+    app: "$(APP_NAME)"
     release: prometheus
 spec:
   endpoints:
@@ -14,16 +13,15 @@ spec:
       port: metrics
   selector:
     matchLabels:
-      app: proxy
+      app: "$(APP_NAME)"
       role: metrics
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: proxy-sv
   name: mc-proxy-metrics
   labels:
-    app: proxy
+    app: "$(APP_NAME)"
     role: metrics
 spec:
   type: ClusterIP
@@ -37,4 +35,4 @@ spec:
       protocol: TCP
       targetPort: metrics
   selector:
-    app: proxy
+    app: "$(APP_NAME)"

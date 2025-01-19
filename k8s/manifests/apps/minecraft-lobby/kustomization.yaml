@@ -27,44 +27,6 @@ patches:
       kind: StatefulSet
       name: minecraft
     patch: |-
-      
-      # ------server.propertiesの編集------
-      # ALLOW_NETHER
-      - op: replace
-        path: /spec/template/spec/containers/0/env/7/value
-        value: "false"
-      # DIFFICULTY
-      - op: replace
-        path: /spec/template/spec/containers/0/env/8/value
-        value: peaceful
-      # LEVEL_TYPE
-      - op: replace
-        path: /spec/template/spec/containers/0/env/10/value
-        value: flat
-      # SPAWN_ANIMALS
-      - op: replace
-        path: /spec/template/spec/containers/0/env/11/value
-        value: "false"
-      # SPAWN_MONSTERS
-      - op: replace
-        path: /spec/template/spec/containers/0/env/12/value
-        value: "false"
-      # SPAWN_NPCS
-      - op: replace
-        path: /spec/template/spec/containers/0/env/13/value
-        value: "false"
-      # ENABLE_WHITELIST
-      - op: replace
-        path: /spec/template/spec/containers/0/env/14/value
-        value: "true"
-      # whitelistマウント
-      - op: add
-        path: /spec/template/spec/containers/0/volumeMounts/-
-        value:
-          name: mc-config
-          mountPath: /config/whitelist.json
-          subPath: mc-whitelist.json
-
       # ------minecraft lobbyのワールド生成関連------
       # world dataのダウンロード
       - op: add

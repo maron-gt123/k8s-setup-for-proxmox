@@ -13,13 +13,6 @@ resources:
 
 patches:
   - target:
-      kind: Service
-      name: mc-proxy-lb
-    patch: |-
-      - op: replace
-        path: /spec/loadBalancerIP
-        value: 192.168.15.70
-  - target:
       kind: Deployment
       name: mc-proxy
     patch: |-
@@ -29,3 +22,4 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/env/2/value
         value: 1024m
+  - path: service-LoadBalancer.yaml

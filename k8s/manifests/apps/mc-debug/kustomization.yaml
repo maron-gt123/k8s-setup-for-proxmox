@@ -5,7 +5,7 @@ resources:
   # namespace
   - ./ns-mc-debug-sv.yaml
   # template
-- ../templates/minecraft-server
+  - ../templates/minecraft-server
   # mc-config
   - ./mc-debug-config.yaml
 patches:

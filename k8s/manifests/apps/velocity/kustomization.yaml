@@ -17,3 +17,11 @@ configMapGenerator:
     behavior: merge
     envs:
       - params.yaml
+vars:
+  - name: VIP_IP_ADDRESS
+    objref:
+      kind: ConfigMap
+      name: params-config
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.VIP_IP_ADDRESS

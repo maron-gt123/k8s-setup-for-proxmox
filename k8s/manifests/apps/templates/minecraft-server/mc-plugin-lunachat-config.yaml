@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-plugin-lunachat-configs
+  name: mc-plugin-lunachat-config
 data:
   lunachat.yml: |
     # LunaChat v3.0.16

@@ -128,7 +128,7 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
-            # bukkit/spigot/paper-global configのマウント
+            # bukkit/spigot/paper-global/whitelist configのマウント
             - name: mc-config
               mountPath: /config/bukkit.yml
               subPath: mc-bukkit.yml
@@ -138,6 +138,9 @@ spec:
             - name: mc-config
               mountPath: /config/config/paper-global.yml
               subPath: mc-paper-global.yml
+            - name: mc-config
+              mountPath: /config/whitelist.json
+              subPath: mc-whitelist.json
             # prometeus/LunaChat/AdvancedPortals(common)のマウント
             - name: mc-common-plugin-config
               mountPath: /config/plugins/PrometheusExporter/config.yml

@@ -10,29 +10,17 @@ resources:
   - ./velocity-config.yaml
   # plugin-config
   - ./plugin-config.yaml
+
 configMapGenerator:
-  - name: mc-proxy-env
+  - name: env-config
     envs:
-      - env.yaml
+      - ./variables.env
+
 vars:
-  - name: RESOURCE_MEMORY
-    objref:
-      kind: ConfigMap
-      name: mc-proxy-env
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.RESOURCE_MEMORY
-  - name: RESOURCE__PROXY_MEMORY
-    objref:
-      kind: ConfigMap
-      name: mc-proxy-env
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.RESOURCE__PROXY_MEMORY
   - name: LOAD_BALANCER_IP
     objref:
       kind: ConfigMap
-      name: mc-proxy-env
+      name: env-config
       apiVersion: v1
     fieldref:
-      fieldpath: data.LOAD_BALANCER_IP
+      fieldPath: data.LOAD_BALANCER_IP

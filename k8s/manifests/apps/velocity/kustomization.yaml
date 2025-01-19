@@ -10,33 +10,10 @@ resources:
   - ./velocity-config.yaml
   # plugin-config
   - ./plugin-config.yaml
+  # params
+  - ./params.env
 configMapGenerator:
-patches:
-  # deployment.yamlのmanifest編集
-  - target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: proxy
-    patch: |-
-      - op: replace
-        path: /metadata/name
-        value: velocity
-      - op: replace
-        path: /metadata/labels/app
-        value: velocity
-      - op: replace
-        path: /spec/selector/matchLabels/app
-        value: velocity
-      - op: replace
-        path: /spec/template/metadata/labels/app
-        value: velocity
-      - op: replace
-        path: /spec/template/spec/containers/0/resources/requests/memory
-        value: 1024Mi
-      - op: replace
-        path: /spec/template/spec/containers/0/name
-        value: velocity
-      - op: replace
-        path: /spec/template/spec/containers/0/env/2/value
-        value: 1024m
+  - name: params-config
+    behavior: merge
+    envs:
+      - params.env

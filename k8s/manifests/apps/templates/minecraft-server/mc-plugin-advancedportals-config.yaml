@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-plugin-advancedportals-config
+  name: mc-plugin-advancedportals-common-config
 data:
-  advancedportals-config.yml: |
+  advancedportals-common-config.yml: |
     # Advanced Portals Config
     
     # To set this file back to its default state just delete it and reload the server or restart it!

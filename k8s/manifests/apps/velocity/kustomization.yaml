@@ -16,4 +16,4 @@ configMapGenerator:
   - name: params-config
     behavior: merge
     envs:
-      - params.env
+      - params.yaml

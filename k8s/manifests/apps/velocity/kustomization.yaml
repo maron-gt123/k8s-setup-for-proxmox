@@ -10,19 +10,16 @@ resources:
   - ./velocity-config.yaml
   # plugin-config
   - ./plugin-config.yaml
-  - ./transformer.yaml
 
-transformers:
-  - ./transformer.yaml
-#configMapGenerator:
-#  - name: env-config
-#    envs:
-#      - ./variables.env
-#vars:
-#  - name: LOAD_BALANCER_IP
-#    objref:
-#      kind: ConfigMap
-#      name: env-config
-#      apiVersion: v1
-#    fieldref:
-#      fieldPath: data.LOAD_BALANCER_IP
+configMapGenerator:
+  - name: env-config
+    envs:
+      - ./variables.env
+vars:
+  - name: LOAD_BALANCER_IP
+    objref:
+      kind: ConfigMap
+      name: env-config
+      apiVersion: v1
+    fieldref:
+      fieldPath: data.LOAD_BALANCER_IP

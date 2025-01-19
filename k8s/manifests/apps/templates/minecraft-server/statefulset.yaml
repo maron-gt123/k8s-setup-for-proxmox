@@ -126,7 +126,11 @@ spec:
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
  
-            # bukkit/spigot/paper-global/whitelist configのマウント
+            # server.properties/bukkit/spigot/paper-global/whitelist configのマウント
+            # server.propertiesの格納先
+            - name: mc-config
+              mountPath: /config/server.properties
+              subPath: mc-server.properties
             # bukkitの格納先
             - name: mc-config
               mountPath: /config/bukkit.yml

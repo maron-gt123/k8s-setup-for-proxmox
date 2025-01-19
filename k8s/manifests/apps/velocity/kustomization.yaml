@@ -12,3 +12,11 @@ resources:
   - ./plugin-config.yaml
   # params
   - ./env.yaml
+vars:
+  - name: RESOURCE_MEMORY
+    objref:
+      kind: ConfigMap
+      name: mc-proxy-env
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.RESOURCE_MEMORY

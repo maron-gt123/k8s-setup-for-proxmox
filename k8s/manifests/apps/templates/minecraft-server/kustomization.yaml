@@ -11,3 +11,5 @@ resources:
   - ./jmx-exporter-config.yaml
   # mc-common-plugin-config
   - ./mc-common-plugin-config.yaml
+  # luckperms-config
+  - ./mc-plugin-luckperms-config.yaml

@@ -59,16 +59,14 @@ spec:
             - name: FLOODGATE_URL
               value: "https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity"
           volumeMounts:     
-            - name: geyser-download-volume
-              mountPath: /root/geyser-download
-            - name: floodgate-download-volume
-              mountPath: /root/floodgate-download
+            - name: ini-plugin-download-volume
+              mountPath: /root/ini-plugin-download
           command:
             - sh
             - -c
             - >
-              wget -O /root/geyser-download/geyser-velocity.jar "${GEYSER_URL}" &&
-              wget -O /root/floodgate-download/floodgate-velocity.jar "${FLOODGATE_URL}"
+              wget -O /root/ini-plugin-download/geyser-velocity.jar "${GEYSER_URL}" &&
+              wget -O /root/ini-plugin-download/floodgate-velocity.jar "${FLOODGATE_URL}"
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
@@ -124,10 +122,10 @@ spec:
             - name: jmx-exporter-download-volume
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
-            - name: geyser-download-volume
+            - name: ini-plugin-download-volume
               mountPath: /server/plugins/geyser-velocity.jar
               subPath: geyser-velocity.jar
-            - name: floodgate-download-volume
+            - name: ini-plugin-download-volume
               mountPath: /server/plugins/floodgate-velocity.jar
               subPath: floodgate-velocity.jar
               
@@ -193,9 +191,6 @@ spec:
         # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: server-icon-download-volume
           emptyDir: {}
-        # geyser-velocity.jarをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
-        - name: geyser-download-volume
-          emptyDir: {}
-        # floodgate-velocity.jarをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
-        - name: floodgate-download-volume
+        # geyser-velocity.jarとfloodgate-velocity.jarをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
+        - name: ini-plugin-download-volume
           emptyDir: {}

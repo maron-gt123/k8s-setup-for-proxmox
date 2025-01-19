@@ -25,15 +25,18 @@ patches:
       # lunachat
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/7
-      # mc-paper-global
+      # whitelist
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/6
-      # mc-spigot
+      # mc-paper-global
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/5
-      # mc-bukkit
+      # mc-spigot
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/4
+      # mc-bukkit
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/3
       # mc-plugin-advancedportals
       - op: remove
         path: /spec/template/spec/volumes/6

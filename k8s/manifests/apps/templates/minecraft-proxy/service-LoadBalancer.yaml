@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "$(APP_NAME_SERVICE)"
+  name: mc-proxy-lb
   labels:
-    app: "$(APP_NAME)"
+    app: mc-proxy
 spec:
   type: LoadBalancer
   ports:
     - name: proxy-service
       port: 53616
       protocol: TCP
-      targetPort: "$(APP_NAME)"
+      targetPort: mc-proxy
   selector:
-    app: "$(APP_NAME)"
+    app: mc-proxy
   loadBalancerIP: "$(VIP_IP_ADDRESS)"

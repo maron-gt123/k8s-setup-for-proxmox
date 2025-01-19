@@ -13,7 +13,8 @@ resources:
   # 環境変数
   - ./env.yaml
 configurations:
-  - varReference.yaml
+  - path: spec/loadBalancerIP
+    kind: Service
 vars:
   - name: RESOURCE_MEMORY
     objref:

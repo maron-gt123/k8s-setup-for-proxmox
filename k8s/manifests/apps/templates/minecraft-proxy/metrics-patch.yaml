@@ -3,7 +3,7 @@ kind: ServiceMonitor
 metadata:
   name: mc-proxy-metrics
   labels:
-    app: "$(APP_NAME)"
+    app: mc-proxy
     release: prometheus
 spec:
   endpoints:
@@ -13,7 +13,7 @@ spec:
       port: metrics
   selector:
     matchLabels:
-      app: "$(APP_NAME)"
+      app: mc-proxy
       role: metrics
 ---
 apiVersion: v1
@@ -21,7 +21,7 @@ kind: Service
 metadata:
   name: mc-proxy-metrics
   labels:
-    app: "$(APP_NAME)"
+    app: mc-proxy
     role: metrics
 spec:
   type: ClusterIP
@@ -35,4 +35,4 @@ spec:
       protocol: TCP
       targetPort: metrics
   selector:
-    app: "$(APP_NAME)"
+    app: mc-proxy

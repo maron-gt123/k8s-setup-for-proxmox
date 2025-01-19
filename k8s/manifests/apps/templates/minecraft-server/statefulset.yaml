@@ -111,26 +111,36 @@ spec:
             # world関連の格納先マウント
             - name: data
               mountPath: /data
-            # JMX exporter 周りのファイルが入ったボリューム達のマウント設定
+
+            ## JMX exporter 周りのファイルが入ったボリューム達のマウント設定
+            # jmx-exporterの格納先
             - name: init-download-volume
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
+            # jmx-exporter-configの格納先
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
+ 
             # bukkit/spigot/paper-global/whitelist configのマウント
+            # bukkitの格納先
             - name: mc-config
               mountPath: /config/bukkit.yml
               subPath: mc-bukkit.yml
+            # spigotの格納先
             - name: mc-config
               mountPath: /config/spigot.yml
               subPath: mc-spigot.yml
+             # paper-globalの格納先
             - name: mc-config
               mountPath: /config/config/paper-global.yml
               subPath: mc-paper-global.yml
+             # whitelistの格納先
             - name: mc-config
               mountPath: /config/whitelist.json
               subPath: mc-whitelist.json
+
+            ## plugins関連のマウント
             # prometeusのマウント
             - name: mc-plugin-prometheusexporter-config
               mountPath: /config/plugins/PrometheusExporter/config.yml

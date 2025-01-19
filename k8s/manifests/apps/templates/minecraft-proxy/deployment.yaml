@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "$(APP_NAME)"
+  name: mc-proxy
   labels:
-    app: "$(APP_NAME)"
+    app: mc-proxy
   # We wish this deployment to be reloaded
   # when "bungeecord-config" and "bungeecord-plugin-configs" ConfigMap are updated
   annotations:
@@ -13,11 +13,11 @@ spec:
   revisionHistoryLimit: 0
   selector:
     matchLabels:
-      app: "$(APP_NAME)"
+      app: mc-proxy
   template:
     metadata:
       labels:
-        app: "$(APP_NAME)"
+        app: mc-proxy
     spec:
       initContainers:
         # initcontainersでサーバーアイコンをダウンロード
@@ -71,7 +71,7 @@ spec:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
         - image: itzg/bungeecord:latest
-          name: "$(APP_NAME)"
+          name: mc-proxy
           resources:
             requests:
               memory: 768Mi

@@ -2,13 +2,20 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: velocity-sv
 resources:
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/deployment.yaml
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/jmx-exporter-config.yaml
+  # namespace
   - ./ns-velocity.yaml
-  - ./velocity-lb.yaml
+  # deployment
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/deployment.yaml
+  # service
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-proxy/service-LoadBalancer.yaml
+  # metrics-service
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-proxy/metrics-patch.yaml
+  # jmx-exporter-config
+  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-proxy/jmx-exporter-config.yaml
+  # velocity-config
   - ./velocity-config.yaml
+  # plugin-config
   - ./plugin-config.yaml
-  - ./velocity-metrics-patch.yaml
 patches:
   # deployment.yamlのmanifest編集
   - target:
@@ -38,14 +45,3 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/env/2/value
         value: 1024m
-
-  # jmx-exporter-config.yamlのmanifest編集
-  - target:
-      group: apps
-      version: v1
-      kind: ConfigMap
-      name: jmx-exporter-config
-    patch: |-
-      - op: replace
-        path: /metadata/namespace
-        value: velocity-sv

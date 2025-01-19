@@ -15,3 +15,5 @@ resources:
   - ./mc-plugin-luckperms-config.yaml
   # lunachat-config
   - ./mc-plugin-lunachat-config.yaml
+  # advancedportals-common-config
+  - ./mc-plugin-advancedportals-common-config.yaml

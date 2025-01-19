@@ -13,7 +13,7 @@ resources:
   - ./transformer.yaml
 
 transformers:
-  - transformer.yaml
+  - ./transformer.yaml
 #configMapGenerator:
 #  - name: env-config
 #    envs:

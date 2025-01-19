@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: mc-plugin-luckperms-configs
-data:
-  luckperms.yml: |

@@ -49,9 +49,6 @@ spec:
       containers:
         - image: itzg/minecraft-server:java21
           name: minecraft
-          envFrom:
-            - configMapRef:
-                name: mc-properties-config
           env:
             - name: EULA
               value: "TRUE"

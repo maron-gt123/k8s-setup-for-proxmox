@@ -4,16 +4,8 @@ namespace: mc-lobby-sv
 resources:
   # namespace
   - ./ns-mc-lobby-sv.yaml
-  # statefulset
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/statefulset.yaml
-  # service
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/templates/minecraft-server/service.yaml
-  # metrics-service
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-metrics-patch.yaml
-  # jmx-exporter-config
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/jmx-exporter-config.yaml
-  # mc-common-plugin-config
-  - https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/k8s/manifests/apps/templates/minecraft-server/mc-common-plugin-config.yaml
+  # template
+  - ../templates/minecraft-server
   # mc-config
   - ./mc-lobby-configs.yaml
   # luckperms

@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: proxy
+  name: "$(APP_NAME)"
   labels:
-    app: proxy
+    app: "$(APP_NAME)"
   # We wish this deployment to be reloaded
   # when "bungeecord-config" and "bungeecord-plugin-configs" ConfigMap are updated
   annotations:
@@ -13,11 +13,11 @@ spec:
   revisionHistoryLimit: 0
   selector:
     matchLabels:
-      app: proxy
+      app: "$(APP_NAME)"
   template:
     metadata:
       labels:
-        app: proxy
+        app: "$(APP_NAME)"
     spec:
       initContainers:
         # initcontainersでサーバーアイコンをダウンロード
@@ -73,7 +73,7 @@ spec:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
         - image: itzg/bungeecord:latest
-          name: proxy
+          name: "$(APP_NAME)"
           resources:
             requests:
               memory: 768Mi
@@ -92,10 +92,10 @@ spec:
               # ViaVersion
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.7/bungeecord-prometheus-exporter-3.2.7.jar,
-                https://download.luckperms.net/1568/velocity/LuckPerms-Velocity-5.4.151.jar,
+                https://download.luckperms.net/1569/velocity/LuckPerms-Velocity-5.4.152.jar,
                 https://github.com/Camotoy/GeyserSkinManager/releases/download/1.8/GeyserSkinManager-Velocity.jar,
                 https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.0/VELOCITY/minimotd-velocity-2.1.0.jar,
-                https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.2.0/PAPER/ViaVersion-5.2.0.jar
+                https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.2.1/PAPER/ViaVersion-5.2.1.jar
             - name: SPIGET_PLUGINS
               value: 
             - name: JVM_OPTS
@@ -103,7 +103,7 @@ spec:
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
           ports:
             - containerPort: 25577
-              name: service
+              name: proxy-service
             - containerPort: 18321
               name: jmx-metrics
             - containerPort: 9225

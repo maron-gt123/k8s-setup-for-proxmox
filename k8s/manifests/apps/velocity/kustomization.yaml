@@ -12,6 +12,8 @@ resources:
   - ./plugin-config.yaml
   # 環境変数
   - ./env.yaml
+configurations:
+  - varReference.yaml
 vars:
   - name: RESOURCE_MEMORY
     objref:

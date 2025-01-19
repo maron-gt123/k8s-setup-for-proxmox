@@ -58,8 +58,6 @@ spec:
               value: PAPER
             - name: VERSION
               value: "1.21.3"
-            - name: ENABLE_RCON
-              value: "true"
             - name: ONLINE_MODE
               value: "false"
             - name: PLUGINS

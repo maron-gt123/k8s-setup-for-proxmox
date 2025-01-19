@@ -9,3 +9,11 @@ resources:
   - ./metrics-patch.yaml
   # jmx-exporter-config
   - ./jmx-exporter-config.yaml
+vars:
+  - name: RESOURCE_MEMORY
+    objref:
+      kind: ConfigMap
+      name: mc-proxy-env
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.RESOURCE_MEMORY

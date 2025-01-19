@@ -11,7 +11,7 @@ resources:
   # plugin-config
   - ./plugin-config.yaml
   # params
-  - ./params.env
+  - ./params.yaml
 configMapGenerator:
   - name: params-config
     behavior: merge

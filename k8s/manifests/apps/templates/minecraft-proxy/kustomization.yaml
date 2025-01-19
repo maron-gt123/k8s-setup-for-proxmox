@@ -9,3 +9,8 @@ resources:
   - ./metrics-patch.yaml
   # jmx-exporter-config
   - ./jmx-exporter-config.yaml
+configMapGenerator:
+  - name: params-config
+    behavior: merge
+    envs:
+      - params.env

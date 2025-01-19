@@ -63,26 +63,8 @@ spec:
               value: "1.21.3"
             - name: ENABLE_RCON
               value: "true"
-            #- name: INIT_MEMORY
-            #  value: 1G
-            #- name: MAX_MEMORY
-            #  value: 2G
-            #- name: ALLOW_NETHER
-            #  value: "true"
-            #- name: DIFFICULTY
-            #  value: easy
             - name: ONLINE_MODE
               value: "false"
-            #- name: LEVEL_TYPE
-            #  value: normal
-            #- name: SPAWN_ANIMALS
-            #  value: "true"
-            #- name: SPAWN_MONSTERS
-            #  value: "true"
-            #- name: SPAWN_NPCS
-            #  value: "true"
-            #- name: ENABLE_WHITELIST
-            #  value: "false"
             - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # minecraft-prometheus-exporter3.1.0

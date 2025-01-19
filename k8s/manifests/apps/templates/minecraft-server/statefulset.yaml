@@ -93,6 +93,8 @@ spec:
               value: "minecraft"
             - name: CFG_LUCKPERMS_SQLSERVER_PASSWORD
               value: "masaya0209"
+            - name: CFG_LUNACHAT_LANGUAGE
+              value: "ja"
             - name: RCON_CMDS_STARTUP
               value: |-
 

@@ -144,9 +144,9 @@ spec:
               mountPath: /config/plugins/LuckPerms/config.yml
               subPath: luckperms.yml
             # advancedportalsのマウント
-            - name: mc-plugin-advancedportals-config
+            - name: mc-plugin-advancedportals-common-config
               mountPath: /config/plugins/AdvancedPortals/config.yml
-              subPath: advancedportals-config.yml
+              subPath: advancedportals-common-config.yml
 
       volumes:
         # paperのボリューム
@@ -176,6 +176,6 @@ spec:
           configMap:
             name: mc-plugin-luckperms-config
         # advancedportals-configmap格納先
-        - name: mc-plugin-advancedportals-config
+        - name: mc-plugin-advancedportals-common-config
           configMap:
-            name: mc-plugin-advancedportals-config
+            name: mc-plugin-advancedportals-common-config

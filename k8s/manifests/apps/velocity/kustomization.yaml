@@ -11,11 +11,6 @@ resources:
   # plugin-config
   - ./plugin-config.yaml
 
-configMapGenerator:
-  - name: external-env
-    envs:
-      - external.env
-
 patches:
   - target:
       kind: Service
@@ -23,23 +18,14 @@ patches:
     patch: |-
       - op: replace
         path: /spec/loadBalancerIP
-        valueFrom:
-          configMapKeyRef:
-            name: external-env
-            key: LOAD_BALANCER_IP
+        value: 192.168.15.70
   - target:
       kind: Deployment
       name: mc-proxy
     patch: |-
       - op: replace
         path: /spec/template/spec/containers/0/resources/requests/memory
-        valueFrom:
-          configMapKeyRef:
-            name: external-env
-            key: MEMORY_REQUEST
+        value: 1024Mi
       - op: replace
         path: /spec/template/spec/containers/0/env/2/value
-        valueFrom:
-          configMapKeyRef:
-            name: external-env
-            key: RESOURCE_PROXY_MEMORY
+        value: 1024m

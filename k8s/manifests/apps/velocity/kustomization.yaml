@@ -27,3 +27,10 @@ vars:
       apiVersion: v1
     fieldref:
       fieldpath: data.RESOURCE__PROXY_MEMORY
+  - name: LOAD_BALANCER_IP
+    objref:
+      kind: ConfigMap
+      name: mc-proxy-env
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.LOAD_BALANCER_IP

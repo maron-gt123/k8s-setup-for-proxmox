@@ -10,7 +10,7 @@ resources:
   - ./velocity-config.yaml
   # plugin-config
   - ./plugin-config.yaml
-  # params
+  # 環境変数
   - ./env.yaml
 vars:
   - name: RESOURCE_MEMORY

@@ -22,6 +22,12 @@ resources:
   - ./mc-plugin-advancedportals-configs.yaml
   # holograms
   - ./mc-plugin-holograms-configs.yaml
+
+configMapGenerator:
+  - name: mc-properties-config
+    envs:
+      - server-properties.env
+
 patches:
   - target:
       kind: StatefulSet

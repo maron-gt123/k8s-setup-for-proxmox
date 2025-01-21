@@ -31,9 +31,9 @@ spec:
           image: busybox:1.36.1
           env:
             - name: WORLDEDIT_URL
-              value: "https://dev.bukkit.org/projects/worldedit/files/5935693/download"
+              value: "https://cdn.modrinth.com/data/1u6JkXh5/versions/HIoAq6RI/worldedit-bukkit-7.3.10-beta-01.jar"
             - name: WORLDGUARD_URL
-              value: "https://dev.bukkit.org/projects/worldguard/files/5888870/download"
+              value: "https://cdn.modrinth.com/data/DKY9btbd/versions/S1KKDczu/worldguard-bukkit-7.0.13-beta-2-dist.jar"
             - name: SPAWN_URL
               value: "https://cdn.modrinth.com/data/Pw3KRjwE/versions/mgrZ4A8t/Spawn-2.4.1.jar"
           volumeMounts:

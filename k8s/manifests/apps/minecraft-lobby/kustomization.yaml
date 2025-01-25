@@ -13,6 +13,7 @@ resources:
 
 patches:
   - path: mc-lobby-configs.yaml
+  - path: lobby-statefulset.yaml
   - target:
       kind: StatefulSet
       name: minecraft

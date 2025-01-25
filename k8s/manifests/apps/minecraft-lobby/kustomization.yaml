@@ -14,6 +14,7 @@ resources:
   - ./mc-plugin-holograms-configs.yaml
 
 patches:
+  - path: mc-lobby-configs.yaml
   - target:
       kind: StatefulSet
       name: minecraft

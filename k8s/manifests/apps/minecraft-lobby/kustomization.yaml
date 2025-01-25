@@ -6,8 +6,6 @@ resources:
   - ./ns-mc-lobby-sv.yaml
   # template
   - ../templates/minecraft-server
-  # mc-config
-  - ./mc-lobby-configs.yaml
   # advancedportals
   - ./mc-plugin-advancedportals-configs.yaml
   # holograms

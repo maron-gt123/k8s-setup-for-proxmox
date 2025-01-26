@@ -56,7 +56,7 @@ spec:
             # ------lobby用の変数設定 ------
             # ------LuckPermsのサーバー名 ------
             - name: CFG_LUCKPERMS_SERVER_NAME
-              value: "lobby"
+              value: lobby
             # ------lobby用コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-

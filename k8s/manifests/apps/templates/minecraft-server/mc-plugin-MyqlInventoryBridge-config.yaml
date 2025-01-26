@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-plugin-lunachat-config
+  name: mc-plugin-MysqlInventoryBridge-config
 data:
   MysqlInventoryBridge-config.yml: |
     # default config.yml for MysqlInventoryBridge

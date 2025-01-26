@@ -7,9 +7,9 @@ resources:
   # template
   - ../templates/minecraft-server
   # advancedportals
-  - ./mc-plugin-advancedportals-configs.yaml
+  - ./mc-lobby-plugin-advancedportals-configs.yaml
   # holograms
-  - ./mc-plugin-holograms-configs.yaml
+  - ./mc-lobby-plugin-holograms-configs.yaml
 
 patches:
   - path: mc-lobby-configs.yaml

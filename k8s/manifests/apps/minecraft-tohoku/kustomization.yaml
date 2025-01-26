@@ -6,10 +6,10 @@ resources:
   - ./ns-mc-tohoku-sv.yaml
   # template
   - ../templates/minecraft-server
-  # advancedportals
-  - ./mc-plugin-advancedportals-configs.yaml
-  # holograms
-  - ./mc-plugin-holograms-configs.yaml
+  # pv
+  - ./nsf-pv-mc-tohoku.yaml
+  # pvc
+  - ./nsf-pvc-mc-tohoku.yaml
 
 patches:
   - path: mc-tohoku-configs.yaml

@@ -50,7 +50,8 @@ spec:
               rm /root/world-download/world.tar &&
               echo "successfully imported world data"
       containers:
-        - env:
+        - name: minecraft
+          env:
             # ------lobby用の変数設定 ------
             # ------LuckPermsのサーバー名 ------
             - name: CFG_LUCKPERMS_SERVER_NAME

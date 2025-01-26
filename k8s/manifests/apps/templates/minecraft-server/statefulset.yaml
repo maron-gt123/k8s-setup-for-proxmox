@@ -67,7 +67,7 @@ spec:
             - name: REPLACE_ENV_VARIABLE_PREFIX
               value: CFG_
             - name: CFG_SQLSERVER_ADDRESS
-              value: "192.168.10.131"
+              value: "sql.mcnet"
             - name: CFG_SQLSERVER_USERNAME
               value: "minecraft"
             - name: CFG_SQLSERVER_PASSWORD

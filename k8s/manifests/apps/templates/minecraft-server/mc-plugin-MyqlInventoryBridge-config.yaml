@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-plugin-MysqlInventoryBridge-config
+  name: mc-plugin-Inventory-config
 data:
-  MysqlInventoryBridge-config.yml: |
+  Inventory-config.yml: |
     # default config.yml for MysqlInventoryBridge
     # config version 2.4.1
     

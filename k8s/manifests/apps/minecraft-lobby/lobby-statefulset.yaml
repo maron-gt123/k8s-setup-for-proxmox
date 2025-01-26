@@ -31,6 +31,7 @@ spec:
               wget -O /root/initContainer-download/worldedit.jar "${WORLDEDIT_URL}" &&
               wget -O /root/initContainer-download/worldguard.jar "${WORLDGUARD_URL}" &&
               wget -O /root/initContainer-download/Spawn-2.4.1.jar "${SPAWN_URL}"
+
         # ------minecraft lobbyのワールド生成関連------
         - name: download-world
           image: busybox:1.36.1
@@ -64,26 +65,36 @@ spec:
                 /gamerule doDaylightCycle false
                 /gamerule doWeatherCycle false
           volumeMounts:
+            # ------lobby用ワールドマウント ------
             - name: world-download-volume
               mountPath: /data/world
+            # ------initでダウンロードしたプラグインをマウント ------
+            # ------ worldedit ------
             - name: init-download-volume
               mountPath: /data/plugins/worldedit.jar
               subPath: worldedit.jar
+            # ------ worldguard ------
             - name: init-download-volume
               mountPath: /data/plugins/worldguard.jar
               subPath: worldguard.jar
+            # ------ Spawn ------
             - name: init-download-volume
               mountPath: /data/plugins/Spawn-2.4.1.jar
               subPath: Spawn-2.4.1.jar
+            # ------lobby用configファイルマウント ------
+            # ------ holograms-S1_Gateway ------
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-S1_Gateway.yml
               subPath: holograms-S1_Gateway.yml
+            # ------ holograms-S2_Gateway ------
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-S2_Gateway.yml
               subPath: holograms-S2_Gateway.yml
+            # ------ holograms-music_Gateway ------
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-music-Gateway.yml
-              subPath: holograms-music-Gateway.yml
+              subPath: holograms-k8s-Gateway.yml
+            # ------ holograms-music_Gateway ------
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml
               subPath: holograms-k8s_Gateway.yml

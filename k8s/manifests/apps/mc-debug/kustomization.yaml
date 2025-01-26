@@ -16,6 +16,8 @@ patches:
         path: /spec/template/spec/containers/0/env/16/value
         value: debug
       - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/12
+      - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/11
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/10

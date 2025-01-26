@@ -13,8 +13,8 @@ patches:
       name: minecraft
     patch: |-
       - op: replace
-        path: /spec/template/spec/containers/0/env/11/value
-        value: debug-sv
+        path: /spec/template/spec/containers/0/env/16/value
+        value: debug
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/11
       - op: remove

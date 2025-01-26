@@ -8,16 +8,16 @@ resources:
   # metrics-service
   - ./mc-metrics-patch.yaml
   # mc-config
-  - ./mc-configs.yaml
+  - ./config/mc-configs.yaml
   # jmx-exporter-config
-  - ./jmx-exporter-config.yaml
+  - ./config/jmx-exporter-config.yaml
   # prometheusexporter-config
-  - ./mc-plugin-prometheusexporter-config.yaml
+  - ./config/mc-plugin-prometheusexporter-config.yaml
   # luckperms-config
-  - ./mc-plugin-luckperms-config.yaml
+  - ./config/mc-plugin-luckperms-config.yaml
   # lunachat-config
-  - ./mc-plugin-lunachat-config.yaml
+  - ./config/mc-plugin-lunachat-config.yaml
   # advancedportals-common-config
-  - ./mc-plugin-advancedportals-common-config.yaml
+  - ./config/mc-plugin-advancedportals-common-config.yaml
   # MyqlInventoryBridge-config
-  - ./mc-plugin-MyqlInventoryBridge-config.yaml
+  - ./config/mc-plugin-MyqlInventoryBridge-config.yaml

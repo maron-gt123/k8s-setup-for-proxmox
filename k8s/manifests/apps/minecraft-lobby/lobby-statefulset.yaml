@@ -93,7 +93,7 @@ spec:
             # ------ holograms-music_Gateway ------
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-music-Gateway.yml
-              subPath: holograms-k8s-Gateway.yml
+              subPath: holograms-music-Gateway.yml
             # ------ holograms-music_Gateway ------
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml

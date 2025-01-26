@@ -149,9 +149,9 @@ spec:
               mountPath: /config/plugins/LunaChat/config.yml
               subPath: lunachat.yml
             # MysqlInventoryBridgeのマウント
-            - name: mc-plugin-Inventory-config
+            - name: mc-plugin-inventory-config
               mountPath: /config/plugins/MysqlInventoryBridge/config.yml
-              subPath: Inventory-config.yml
+              subPath: inventory-config.yml
 
       volumes:
         # paperのボリューム
@@ -185,6 +185,6 @@ spec:
           configMap:
             name: mc-plugin-lunachat-config
         # MysqlInventoryBridge-configmap格納先
-        - name: mc-plugin-Inventory-config
+        - name: mc-plugin-inventory-config
           configMap:
-            name: mc-plugin-Inventory-config
+            name: mc-plugin-inventory-config

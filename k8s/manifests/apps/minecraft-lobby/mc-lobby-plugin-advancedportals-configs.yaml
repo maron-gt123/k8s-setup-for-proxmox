@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-lobby-plugin-advancedportals-configs
+  name: mc-plugin-advancedportals-configs
 data:
   destinations.yml: |
     #  ExampleDestination:

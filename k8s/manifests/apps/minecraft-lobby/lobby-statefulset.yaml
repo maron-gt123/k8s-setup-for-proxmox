@@ -49,3 +49,13 @@ spec:
               tar -xvf /root/world-download/world.tar -C /root/world-download/ &&
               rm /root/world-download/world.tar &&
               echo "successfully imported world data"
+      containers:
+        - env:
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: "lobby"
+            - name: RCON_CMDS_STARTUP
+              value: |-
+                /time set day
+                /weather clear
+                /gamerule doDaylightCycle false
+                /gamerule doWeatherCycle false

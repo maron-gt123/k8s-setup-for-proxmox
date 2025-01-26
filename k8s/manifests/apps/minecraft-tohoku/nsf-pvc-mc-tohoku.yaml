@@ -1,12 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  namespace: mc-sv
-  name: mc-pvc
+  name: mc-tohoku-pvc
   labels:
-    app: mc
+    app: mc-tohoku
 spec:
-  storageClassName: mc-sc
+  storageClassName: mc-tohoku-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

@@ -152,6 +152,14 @@ spec:
             - name: mc-plugin-inventory-config
               mountPath: /config/plugins/MysqlInventoryBridge/config.yml
               subPath: inventory-config.yml
+            # advancedportals-destinationsのマウント
+            - name: mc-lobby-plugin-advancedportals-configs
+              mountPath: /config/plugins/AdvancedPortals/destinations.yml
+              subPath: destinations.yml
+            # advancedportals-portalsのマウント
+            - name: mc-lobby-plugin-advancedportals-configs
+              mountPath: /config/plugins/AdvancedPortals/portals.yml
+              subPath: portals.yml
 
       volumes:
         # paperのボリューム
@@ -160,7 +168,7 @@ spec:
         # initContainerでダウンロードしてpaperに受け渡すためのvolume
         - name: init-download-volume
           emptyDir: {}
-        # jmx-exporter-configの指定
+        # jmx-exporter-config格納先
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-config
@@ -188,3 +196,11 @@ spec:
         - name: mc-plugin-inventory-config
           configMap:
             name: mc-plugin-inventory-config
+        # holograms-configmap格納先
+        - name: mc-plugin-holograms-config
+          configMap:
+            name: mc-plugin-holograms-configs
+        # advancedportals周辺-configmap格納先
+        - name: mc-lobby-plugin-advancedportals-configs
+          configMap:
+            name: mc-plugin-advancedportals-configs

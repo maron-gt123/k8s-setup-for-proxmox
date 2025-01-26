@@ -98,20 +98,6 @@ spec:
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml
               subPath: holograms-k8s_Gateway.yml
-            # ------ advancedportals-destinations ------
-            - name: mc-lobby-plugin-advancedportals-configs
-              mountPath: /config/plugins/AdvancedPortals/destinations.yml
-              subPath: destinations.yml
-            # ------ advancedportals-portals ------
-            - name: mc-lobby-plugin-advancedportals-configs
-              mountPath: /config/plugins/AdvancedPortals/portals.yml
-              subPath: portals.yml
       volumes:
         - name: world-download-volume
           emptyDir: {}
-        - name: mc-plugin-holograms-config
-          configMap:
-            name: mc-plugin-holograms-configs
-        - name: mc-lobby-plugin-advancedportals-configs
-          configMap:
-            name: mc-lobby-plugin-advancedportals-configs

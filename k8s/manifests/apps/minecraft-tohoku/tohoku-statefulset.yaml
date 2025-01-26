@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minecraft
+  labels:
+    app: minecraft
+spec:
+  template:
+    metadata:
+      labels:
+        app: minecraft
+    spec:
+      containers:
+        - name: minecraft
+            # ------tohoku用の変数設定 ------
+            # ------LuckPermsのサーバー名 ------
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: tohoku
+          volumeMounts:
+            # ------tohoku用configファイルマウント ------
+            # ------AdvancedPortalsの各ゲート座標ファイルマウント ------
+            - name: ad-destinations-config
+              mountPath: /plugins/AdvancedPortals/destinations.yml
+              subPath: Advanced-destinations.yml
+      volumes:
+        # minecraft-musicサーバーの永続ストレージの指定
+        - name: data
+          persistentVolumeClaim:
+            claimName: mc-tohoku-pvc
+        # AdvancedPortalsの各ゲート座標ファイル指定
+        - name: ad-destinations-config
+          configMap:
+            name: ad-destinations-config

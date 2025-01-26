@@ -13,7 +13,7 @@ data:
     # -------------------- General settings --------------------
     
     #Language setting
-    lang: "${CFG_LUNACHAT_LANGUAGE}"
+    lang: ${CFG_LUNACHAT_LANGUAGE}
     
     # Whether to enable channel chat function
     enableChannelChat: true

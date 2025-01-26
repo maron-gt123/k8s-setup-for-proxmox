@@ -10,6 +10,8 @@ resources:
   - ./nsf-pv-mc-tohoku.yaml
   # pvc
   - ./nsf-pvc-mc-tohoku.yaml
+  # ad-destinations-config
+  - ./mc-tohoku-ad-destinations-config.yaml
 
 patches:
   - path: mc-tohoku-configs.yaml

@@ -15,45 +15,21 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/env/11/value
         value: debug-sv
-      # advancedportalsのマウント
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/11
-      # LuckPermsのマウント
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/10
-      # prometheusexporter
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/9
-      # lunachat
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/8
-      # whitelist
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/7
-      # mc-paper-global
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/6
-      # mc-spigot
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/5
-      # mc-bukkit
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/4
-      # mc-server.properties
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/3
-      # mc-plugin-advancedportals-common
-      - op: remove
-        path: /spec/template/spec/volumes/7
-       # luckperms
-      - op: remove
-        path: /spec/template/spec/volumes/6
-       #  lunachat
-      - op: remove
-        path: /spec/template/spec/volumes/5
-       # prometheusexporter
-      - op: remove
-        path: /spec/template/spec/volumes/4
-       # mc-config
-      - op: remove
-        path: /spec/template/spec/volumes/3

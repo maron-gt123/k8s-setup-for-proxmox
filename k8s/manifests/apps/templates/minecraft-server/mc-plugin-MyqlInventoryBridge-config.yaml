@@ -11,17 +11,17 @@ data:
     database:
         mysql:
             #MySQL server address
-            host: "${CFG_SQLSERVER_ADDRESS}"
+            host: ${CFG_SQLSERVER_ADDRESS}
             #MySQL server port (default 3306)
             port: 3306
             #Database name (NOTE! You need to create the database, then the plugin will create the tables.)
-            databaseName: '"${CFG_MYSQLINVENTORYBRIDGE_SQLSERVER_DATABASE}"'
+            databaseName: '${CFG_MYSQLINVENTORYBRIDGE_SQLSERVER_DATABASE}'
             #Tables name (the plugin will auto create it)
             tableName: 'meb_inventory'
             #User name
-            user: '"${CFG_SQLSERVER_USERNAME}"'
+            user: '${CFG_SQLSERVER_USERNAME}'
             #User password
-            password: '"${CFG_SQLSERVER_PASSWORD}"'
+            password: '${CFG_SQLSERVER_PASSWORD}'
             #SSL connection
             sslEnabled: false
         #Remove inactive users from the database. This maintenance task will start each server start with a 2min delay.

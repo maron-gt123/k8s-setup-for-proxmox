@@ -27,25 +27,6 @@ spec:
             - "sh"
             - "-c"
             - 'wget -O /root/initContainer-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
-        - name: plugins-download
-          image: busybox:1.36.1
-          env:
-            - name: WORLDEDIT_URL
-              value: "https://cdn.modrinth.com/data/1u6JkXh5/versions/HIoAq6RI/worldedit-bukkit-7.3.10-beta-01.jar"
-            - name: WORLDGUARD_URL
-              value: "https://cdn.modrinth.com/data/DKY9btbd/versions/S1KKDczu/worldguard-bukkit-7.0.13-beta-2-dist.jar"
-            - name: SPAWN_URL
-              value: "https://cdn.modrinth.com/data/Pw3KRjwE/versions/mgrZ4A8t/Spawn-2.4.1.jar"
-          volumeMounts:
-            - name: init-download-volume
-              mountPath: /root/initContainer-download
-          command:
-            - sh
-            - -c
-            - >
-              wget -O /root/initContainer-download/worldedit.jar "${WORLDEDIT_URL}" &&
-              wget -O /root/initContainer-download/worldguard.jar "${WORLDGUARD_URL}" &&
-              wget -O /root/initContainer-download/Spawn-2.4.1.jar "${SPAWN_URL}"
       containers:
         - image: itzg/minecraft-server:java21
           name: minecraft
@@ -85,18 +66,20 @@ spec:
               value: /data
             - name: REPLACE_ENV_VARIABLE_PREFIX
               value: CFG_
-            - name: CFG_LUCKPERMS_SERVER_NAME
-              value: ""
-            - name: CFG_LUCKPERMS_SQLSERVER_ADDRESS
+            - name: CFG_SQLSERVER_ADDRESS
               value: "192.168.10.131"
-            - name: CFG_LUCKPERMS_SQLSERVER_DATABASE
-              value: "mc_LuckPerms"
-            - name: CFG_LUCKPERMS_SQLSERVER_USERNAME
+            - name: CFG_SQLSERVER_USERNAME
               value: "minecraft"
-            - name: CFG_LUCKPERMS_SQLSERVER_PASSWORD
+            - name: CFG_SQLSERVER_PASSWORD
               value: "masaya0209"
             - name: CFG_LUNACHAT_LANGUAGE
               value: "ja"
+            - name: CFG_LUCKPERMS_SQLSERVER_DATABASE
+              value: "mc_LuckPerms"
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: "server"
+            - name: CFG_MYSQLINVENTORYBRIDGE_SQLSERVER_DATABASE
+              value: "mc_inventory"
             - name: RCON_CMDS_STARTUP
               value: |-
 
@@ -165,6 +148,10 @@ spec:
             - name: mc-plugin-advancedportals-common-config
               mountPath: /config/plugins/AdvancedPortals/config.yml
               subPath: advancedportals-common-config.yml
+            # MysqlInventoryBridgeのマウント
+            - name: mc-plugin-MysqlInventoryBridge-config
+              mountPath: /config/plugins/MysqlInventoryBridge/config.yml
+              subPath: MysqlInventoryBridge-config.yml
 
       volumes:
         # paperのボリューム
@@ -197,3 +184,7 @@ spec:
         - name: mc-plugin-advancedportals-common-config
           configMap:
             name: mc-plugin-advancedportals-common-config
+        # MysqlInventoryBridge-configmap格納先
+        - name: mc-plugin-MysqlInventoryBridge-config
+          configMap:
+            name: mc-plugin-MysqlInventoryBridge-config

@@ -51,11 +51,44 @@ spec:
               echo "successfully imported world data"
       containers:
         - env:
+            # ------lobby用の変数設定 ------
+            # ------LuckPermsのサーバー名 ------
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: "lobby"
+            # ------lobby用コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-
                 /time set day
                 /weather clear
                 /gamerule doDaylightCycle false
                 /gamerule doWeatherCycle false
+          volumeMounts:
+            - name: world-download-volume
+              mountPath: /data/world
+            - name: init-download-volume
+              mountPath: /data/plugins/worldedit.jar
+              subPath: worldedit.jar
+            - name: init-download-volume
+              mountPath: /data/plugins/worldguard.jar
+              subPath: worldguard.jar
+            - name: init-download-volume
+              mountPath: /data/plugins/Spawn-2.4.1.jar
+              subPath: Spawn-2.4.1.jar
+            - name: mc-plugin-holograms-config
+              mountPath: /config/plugins/DecentHolograms/holograms/holograms-S1_Gateway.yml
+              subPath: holograms-S1_Gateway.yml
+            - name: mc-plugin-holograms-config
+              mountPath: /config/plugins/DecentHolograms/holograms/holograms-S2_Gateway.yml
+              subPath: holograms-S2_Gateway.yml
+            - name: mc-plugin-holograms-config
+              mountPath: /config/plugins/DecentHolograms/holograms/holograms-music-Gateway.yml
+              subPath: holograms-music-Gateway.yml
+            - name: mc-plugin-holograms-config
+              mountPath: /config/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml
+              subPath: holograms-k8s_Gateway.yml
+      volumes:
+        - name: world-download-volume
+          emptyDir: {}
+        - name: mc-plugin-holograms-config
+          configMap:
+            name: mc-plugin-holograms-configs

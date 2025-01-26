@@ -19,3 +19,5 @@ resources:
   - ./mc-plugin-lunachat-config.yaml
   # advancedportals-common-config
   - ./mc-plugin-advancedportals-common-config.yaml
+  # MyqlInventoryBridge-config
+  - ./mc-plugin-MyqlInventoryBridge-config.yaml

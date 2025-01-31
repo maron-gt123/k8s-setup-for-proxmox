@@ -27,6 +27,7 @@ spec:
               wget -O /root/initContainer-download/MysqlInventoryBridge.jar "${MYSQLINVENTORYBRIDGE_URL}"
       containers:
         - name: minecraft
+          env:
             # ------tohoku用の変数設定 ------
             # ------LuckPermsのサーバー名 ------
             - name: CFG_LUCKPERMS_SERVER_NAME

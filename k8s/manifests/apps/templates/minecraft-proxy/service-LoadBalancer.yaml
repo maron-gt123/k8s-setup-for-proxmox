@@ -10,7 +10,7 @@ spec:
     - name: proxy-service
       port: 53616
       protocol: TCP
-      targetPort: mc-proxy
+      targetPort: proxy-service
   selector:
     app: mc-proxy
   loadBalancerIP: 172.1.0.0

@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteMany
   capacity:
-    storage: 5Gi
+    storage: 2Gi
   nfs:
     server: 192.168.6.140
     path: /kubanetesu-NFS/mc-tohoku/world/
@@ -28,7 +28,7 @@ spec:
   accessModes:
     - ReadWriteMany
   capacity:
-    storage: 5Gi
+    storage: 2Gi
   nfs:
     server: 192.168.6.140
     path: /kubanetesu-NFS/mc-tohoku/world_nether
@@ -46,7 +46,7 @@ spec:
   accessModes:
     - ReadWriteMany
   capacity:
-    storage: 5Gi
+    storage: 2Gi
   nfs:
     server: 192.168.6.140
     path: /kubanetesu-NFS/mc-tohoku/world_the_end

@@ -94,10 +94,10 @@ spec:
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-music-Gateway.yml
               subPath: holograms-music-Gateway.yml
-            # ------ holograms-music_Gateway ------
+            # ------ holograms-tohoku_Gateway ------
             - name: mc-plugin-holograms-config
-              mountPath: /config/plugins/DecentHolograms/holograms/holograms-k8s_Gateway.yml
-              subPath: holograms-k8s_Gateway.yml
+              mountPath: /config/plugins/DecentHolograms/holograms/holograms-tohoku_Gateway.yml
+              subPath: holograms-tohoku_Gateway.yml
       volumes:
         - name: world-download-volume
           emptyDir: {}

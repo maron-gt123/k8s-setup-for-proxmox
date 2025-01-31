@@ -79,11 +79,11 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = "mc-lobby-service.mc-lobby-sv.svc.cluster.local:25565"
+    lobby = "mc-service.mc-lobby-sv.svc.cluster.local:25565"
     S1 = "mc-paper01.mcnet:25565"
     S2 = "mc-paper02.mcnet:25565"
-    k8s = "mc-service.mc-sv.svc.cluster.local:25565"
-    music = "mc-music-service.mc-music-sv.svc.cluster.local:25565"
+    tohoku = "mc-service.mc-tohoku-sv.svc.cluster.local:25565"
+    music = "mc-service.mc-music-sv.svc.cluster.local:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
@@ -101,8 +101,8 @@ data:
     "S2.example.com" = [
         "S2"
     ]
-    "k8s.example.com" = [
-        "k8s"
+    "tohoku.example.com" = [
+        "tohoku"
     ]
     "music.example.com" = [
         "music"

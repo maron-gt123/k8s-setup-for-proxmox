@@ -10,21 +10,6 @@ spec:
       labels:
         app: minecraft
     spec:
-      initContainers:
-        # ------pluginsファイル生成関連------
-        - name: plugins-download
-          image: busybox:1.36.1
-          env:
-            - name: MYSQLINVENTORYBRIDGE_URL
-              value: "https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/download?version=357227"
-          volumeMounts:
-            - name: init-download-volume
-              mountPath: /root/initContainer-download
-          command:
-            - sh
-            - -c
-            - >
-              wget -O /root/initContainer-download/MysqlInventoryBridge.jar "${MYSQLINVENTORYBRIDGE_URL}"
       containers:
         - name: minecraft
           env:
@@ -32,6 +17,9 @@ spec:
             # ------LuckPermsのサーバー名 ------
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: tohoku
+            - name: SPIGET_RESOURCES
+              # 7849:mysql-inventory-bridge
+              value: 7849
           volumeMounts:
             # ------initでダウンロードしたプラグインをマウント ------
             # ------ MysqlInventoryBridge ------

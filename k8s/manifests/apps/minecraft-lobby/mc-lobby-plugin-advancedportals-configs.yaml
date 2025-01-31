@@ -9,39 +9,6 @@ data:
     #    pos:
     #      X:
     #      Y:
-    
-    s1:
-      world: world
-      pos:
-        X: 5.2012969931911
-        Y: -59.0
-        Z: 9.849745166957218
-        pitch: 9.149864
-        yaw: -88.50077
-    s2:
-      world: world
-      pos:
-        X: -5.782740396413935
-        Y: -59.0
-        Z: 9.364066493754333
-        pitch: 15.299931
-        yaw: 90.15006
-    k8s:
-      world: world
-      pos:
-        X: 6.431926225783346
-        Y: -59.0
-        Z: 20.680558701043147
-        pitch: -6.1502166
-        yaw: -68.696594
-    music:
-      world: world
-      pos:
-        X: -7.540001085910905
-        Y: -59.0
-        Z: 21.433374652970986
-        pitch: 21.74977
-        yaw: 137.24931
   portals.yml: |
     #  ExamplePortal:
     #    world: it will be the world name
@@ -60,56 +27,3 @@ data:
     #      tppos:
     #        X:
     #        Y:
-    
-    s1_gateway:
-      world: world
-      triggerblock: WATER
-      destination: s1
-      bungee: s1
-      pos1:
-        X: 8
-        Y: -55
-        Z: 11
-      pos2:
-        X: 8
-        Y: -60
-        Z: 7
-    s2_gateway:
-      world: world
-      triggerblock: WATER
-      destination: s2
-      bungee: s2
-      pos1:
-        X: -10
-        Y: -55
-        Z: 11
-      pos2:
-        X: -10
-        Y: -60
-        Z: 7
-    k8s_gateway:
-      world: world
-      triggerblock: WATER
-      destination: k8s
-      bungee: k8s
-      pos1:
-        X: 8
-        Y: -55
-        Z: 22
-      pos2:
-        X: 8
-        Y: -60
-        Z: 19
-    music-gateway:
-      world: world
-      triggerblock: WATER
-      destination: music
-      bungee: music
-      pos1:
-        X: -10
-        Y: -56
-        Z: 23
-      pos2:
-        X: -10
-        Y: -59
-        Z: 18

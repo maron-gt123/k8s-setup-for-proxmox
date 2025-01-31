@@ -38,11 +38,6 @@ spec:
             - name: init-download-volume
               mountPath: /data/plugins/MysqlInventoryBridge.jar
               subPath: MysqlInventoryBridge.jar
-            # ------tohoku用configファイルマウント ------
-            # ------AdvancedPortalsの各ゲート座標ファイルマウント ------
-            - name: ad-destinations-config
-              mountPath: /plugins/AdvancedPortals/destinations.yml
-              subPath: Advanced-destinations.yml
       volumes:
         # minecraft-musicサーバーの永続ストレージの指定
         - name: data

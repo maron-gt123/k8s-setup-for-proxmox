@@ -1,14 +1,44 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mc-tohoku-pvc
+  name: mc-tohoku-world-pvc
   labels:
     app: mc-tohoku
 spec:
-  storageClassName: mc-tohoku-sc
+  storageClassName: mc-tohoku-world-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 5Gi
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mc-tohoku-world_nether-pvc
+  labels:
+    app: mc-tohoku
+spec:
+  storageClassName: mc-tohoku-world_nether-sc
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mc-tohoku-world_the_end-pvc
+  labels:
+    app: mc-tohoku
+spec:
+  storageClassName: mc-tohoku-world_the_end-sc
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi

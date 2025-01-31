@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: mc-plugin-advancedportals-configs
 data:
-  destinations.yml: 
+  destinations.yml: |
     #  ExampleDestination:
     #    world: it will be the world name
     #    pos:

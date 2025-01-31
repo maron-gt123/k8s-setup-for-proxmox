@@ -47,7 +47,3 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: mc-tohoku-pvc
-        # AdvancedPortalsの各ゲート座標ファイル指定
-        - name: ad-destinations-config
-          configMap:
-            name: ad-destinations-config

@@ -20,12 +20,6 @@ spec:
             - name: SPIGET_RESOURCES
               # 7849:mysql-inventory-bridge
               value: "7849"
-          volumeMounts:
-            # ------initでダウンロードしたプラグインをマウント ------
-            # ------ MysqlInventoryBridge ------
-            - name: init-download-volume
-              mountPath: /data/plugins/MysqlInventoryBridge.jar
-              subPath: MysqlInventoryBridge.jar
       volumes:
         # minecraft-musicサーバーの永続ストレージの指定
         - name: data

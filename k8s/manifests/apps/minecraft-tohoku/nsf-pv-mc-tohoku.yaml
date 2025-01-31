@@ -5,7 +5,7 @@ metadata:
   labels:
     app: mc-tohoku
 spec:
-  storageClassName: mc-tohoku-sc
+  storageClassName: mc-tohoku-sc-world
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
@@ -13,5 +13,41 @@ spec:
     storage: 5Gi
   nfs:
     server: 192.168.6.140
-    path: /kubanetesu-NFS/mc-tohoku/
+    path: /kubanetesu-NFS/mc-tohoku/world/
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mc-tohoku-pv
+  labels:
+    app: mc-tohoku
+spec:
+  storageClassName: mc-tohoku-sc-world_nether
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 5Gi
+  nfs:
+    server: 192.168.6.140
+    path: /kubanetesu-NFS/mc-tohoku/world_nether
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mc-tohoku-pv
+  labels:
+    app: mc-tohoku
+spec:
+  storageClassName: mc-tohoku-sc-world_the_end
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 5Gi
+  nfs:
+    server: 192.168.6.140
+    path: /kubanetesu-NFS/mc-tohoku/world_the_end
   persistentVolumeReclaimPolicy: Retain

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: mc-tohoku
 spec:
-  storageClassName: mc-tohoku-sc-world
+  storageClassName: mc-tohoku-world-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
@@ -23,7 +23,7 @@ metadata:
   labels:
     app: mc-tohoku
 spec:
-  storageClassName: mc-tohoku-sc-world_nether
+  storageClassName: mc-tohoku-world_nether-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
@@ -41,7 +41,7 @@ metadata:
   labels:
     app: mc-tohoku
 spec:
-  storageClassName: mc-tohoku-sc-world_the_end
+  storageClassName: mc-tohoku-world_the_end-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

@@ -42,7 +42,7 @@ data:
       - content: '&4 music_World'
         height: 0.3
       actions: {}
-  holograms-k8s_Gateway.yml: |
+  holograms-tohoku_Gateway.yml: |
     location: world:7.263:-57.000:21.069
     enabled: true
     display-range: 48
@@ -52,6 +52,6 @@ data:
     down-origin: false
     pages:
     - lines:
-      - content: '&4 k8s_World'
+      - content: '&4 tohoku_World'
         height: 0.3
       actions: {}

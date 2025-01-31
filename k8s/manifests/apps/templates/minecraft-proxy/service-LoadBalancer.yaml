@@ -7,7 +7,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - name: proxy-service
+    - name: ex-service
       port: 53616
       protocol: TCP
       targetPort: proxy-service

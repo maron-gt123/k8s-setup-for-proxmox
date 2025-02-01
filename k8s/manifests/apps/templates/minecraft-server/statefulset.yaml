@@ -43,7 +43,23 @@ spec:
               value: 1G
             - name: MAX_MEMORY
               value: 2G
+            - name: ENABLE_RCON
+              value: "true"
             - name: ONLINE_MODE
+              value: "false"
+            - name: ALLOW_NETHER
+              value: "true"
+            - name: DIFFICULTY
+              value: easy
+            - name: LEVEL_TYPE
+              value: default
+            - name: SPAWN_ANIMALS
+              value: "true"
+            - name: SPAWN_MONSTERS
+              value: "true"
+            - name: SPAWN_NPCS
+              value: "true"
+            - name: ENABLE_WHITELIST
               value: "false"
             - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
@@ -110,10 +126,6 @@ spec:
               subPath: jmx-exporter-config.yaml
  
             # server.properties/bukkit/spigot/paper-global/whitelist configのマウント
-            # server.propertiesの格納先
-            - name: mc-config
-              mountPath: /config/server.properties
-              subPath: mc-server.properties
             # bukkitの格納先
             - name: mc-config
               mountPath: /config/bukkit.yml

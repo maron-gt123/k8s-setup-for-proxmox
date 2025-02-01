@@ -20,6 +20,13 @@ spec:
             - name: SPIGET_RESOURCES
               # 7849:mysql-inventory-bridge
               value: "7849"
+          volumeMounts:
+            - name: world-data
+              mountPath: /data/world
+            - name: nether-data
+              mountPath: /data/world_nether
+            - name: end-data
+              mountPath: /data/world_the_end
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data

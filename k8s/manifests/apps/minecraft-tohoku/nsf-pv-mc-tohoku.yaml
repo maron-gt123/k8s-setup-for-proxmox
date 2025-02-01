@@ -19,11 +19,11 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: mc-tohoku-world_nether-pv
+  name: mc-tohoku-nether-pv
   labels:
     app: mc-tohoku
 spec:
-  storageClassName: mc-tohoku-world_nether-sc
+  storageClassName: mc-tohoku-nether-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
@@ -37,11 +37,11 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: mc-tohoku-world_the_end-pv
+  name: mc-tohoku-end-pv
   labels:
     app: mc-tohoku
 spec:
-  storageClassName: mc-tohoku-world_the_end-sc
+  storageClassName: mc-tohoku-end-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

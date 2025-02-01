@@ -52,7 +52,7 @@ spec:
             - name: DIFFICULTY
               value: easy
             - name: LEVEL_TYPE
-              value: default
+              value: normal
             - name: SPAWN_ANIMALS
               value: "true"
             - name: SPAWN_MONSTERS

@@ -21,7 +21,15 @@ spec:
               # 7849:mysql-inventory-bridge
               value: "7849"
       volumes:
-#        # minecraft-musicサーバーの永続ストレージの指定
-#        - name: data
-#          persistentVolumeClaim:
-#            claimName: mc-tohoku-pvc
+        # worldデータの永続ストレージの指定
+        - name: world-data
+          persistentVolumeClaim:
+            claimName: mc-tohoku-world-pvc
+        # netherデータの永続ストレージの指定
+        - name: nether-data
+          persistentVolumeClaim:
+            claimName: mc-tohoku-nether-pvc
+        # netherデータの永続ストレージの指定
+        - name: end-data
+          persistentVolumeClaim:
+            claimName: mc-tohoku-end-pvc

@@ -53,6 +53,20 @@ spec:
       containers:
         - name: minecraft
           env:
+            - name: ALLOW_NETHER
+              value: "false"
+            - name: DIFFICULTY
+              value: peaceful
+            - name: LEVEL_TYPE
+              value: flat
+            - name: SPAWN_ANIMALS
+              value: "false"
+            - name: SPAWN_MONSTERS
+              value: "false"
+            - name: SPAWN_NPCS
+              value: "false"
+            - name: ENABLE_WHITELIST
+              value: "true"
             # ------lobby用の変数設定 ------
             # ------LuckPermsのサーバー名 ------
             - name: CFG_LUCKPERMS_SERVER_NAME

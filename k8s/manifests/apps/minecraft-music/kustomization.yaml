@@ -6,6 +6,10 @@ resources:
   - ./ns-mc-music-sv.yaml
   # template
   - ../templates/minecraft-server
+  # pv
+  - ./nsf-pv-mc-music.yaml
+    # pvc
+  - ./nsf-pvc-mc-music.yaml
   # holograms
   #- ./
 

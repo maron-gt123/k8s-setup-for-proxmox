@@ -10,6 +10,5 @@ resources:
   - ./mc-lobby-plugin-holograms-configs.yaml
 
 patches:
-  - path: mc-lobby-configs.yaml
   - path: lobby-statefulset.yaml
   - path: mc-lobby-plugin-advancedportals-configs.yaml

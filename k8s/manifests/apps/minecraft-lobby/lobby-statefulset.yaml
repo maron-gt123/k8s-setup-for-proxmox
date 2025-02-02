@@ -65,8 +65,6 @@ spec:
               value: "false"
             - name: SPAWN_NPCS
               value: "false"
-            - name: ENABLE_WHITELIST
-              value: "true"
             # ------lobby用の変数設定 ------
             # ------LuckPermsのサーバー名 ------
             - name: CFG_LUCKPERMS_SERVER_NAME

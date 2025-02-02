@@ -12,6 +12,5 @@ resources:
   - ./nsf-pvc-mc-tohoku.yaml
   
 patches:
-  - path: mc-tohoku-configs.yaml
   - path: tohoku-statefulset.yaml
   - path: mc-tohoku-plugin-advancedportals-configs.yaml

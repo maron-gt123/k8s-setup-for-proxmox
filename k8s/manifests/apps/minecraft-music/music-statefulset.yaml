@@ -16,7 +16,7 @@ spec:
           image: busybox:1.36.1
           env:
             - name: WORLDEDIT_URL
-              value: "https://dev.bukkit.org/projects/worldedit/files/5507246/download"
+              value: "https://dev.bukkit.org/projects/worldedit/files/latest"
           volumeMounts:
             - name: init-download-volume
               mountPath: /root/initContainer-download

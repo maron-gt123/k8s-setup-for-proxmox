@@ -5,7 +5,7 @@ metadata:
 data:
   mc-bukkit.yml: |
     settings:
-      allow-end: false
+      allow-end: ${CFG_ALLOW_END}
       warn-on-overload: true
       permissions-file: permissions.yml
       update-folder: update

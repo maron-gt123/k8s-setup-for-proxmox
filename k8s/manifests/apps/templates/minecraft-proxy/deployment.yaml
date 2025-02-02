@@ -90,7 +90,7 @@ spec:
               # ViaVersion
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.7/bungeecord-prometheus-exporter-3.2.7.jar,
-                https://download.luckperms.net/1569/velocity/LuckPerms-Velocity-5.4.152.jar,
+                https://download.luckperms.net/1570/velocity/LuckPerms-Velocity-5.4.153.jar,
                 https://github.com/Camotoy/GeyserSkinManager/releases/download/1.8/GeyserSkinManager-Velocity.jar,
                 https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.0/VELOCITY/minimotd-velocity-2.1.0.jar,
                 https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.2.1/PAPER/ViaVersion-5.2.1.jar

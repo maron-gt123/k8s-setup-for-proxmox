@@ -65,6 +65,8 @@ spec:
               value: "false"
             - name: SPAWN_NPCS
               value: "false"
+            - name: CFG_ALLOW_END
+              value: "false"
             # ------lobby用の変数設定 ------
             # ------LuckPermsのサーバー名 ------
             - name: CFG_LUCKPERMS_SERVER_NAME

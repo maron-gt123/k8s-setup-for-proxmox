@@ -64,7 +64,7 @@ spec:
             - name: ENABLE_WHITELIST
               value: "false"
             - name: CFG_ALLOW_END
-              value: "false"
+              value: "true"
             - name: CFG_SQLSERVER_ADDRESS
               value: sql.mcnet
             - name: CFG_SQLSERVER_USERNAME

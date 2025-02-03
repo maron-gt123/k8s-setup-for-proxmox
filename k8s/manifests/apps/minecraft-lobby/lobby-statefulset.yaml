@@ -78,7 +78,6 @@ spec:
                 /weather clear
                 /gamerule doDaylightCycle false
                 /gamerule doWeatherCycle false
-                /gamemode survival
           volumeMounts:
             # ------lobby用ワールドマウント ------
             - name: world-download-volume

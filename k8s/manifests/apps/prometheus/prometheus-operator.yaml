@@ -4,32 +4,32 @@ kind: Namespace
 metadata:
   name: monitoring
 ---
-#kube-prometheus-stack-CRD
-#apiVersion: argoproj.io/v1alpha1
-#kind: Application
-#metadata:
-#  name: prometheus-crd
-#  namespace: argocd
-#spec:
-#  project: default
-#  source:
-#    repoURL: https://github.com/prometheus-community/helm-charts.git
-#    path: charts/kube-prometheus-stack/charts/crds/
-#    targetRevision: kube-prometheus-stack-68.1.0
-#    directory:
-#      recurse: true
-#  destination:
-#    server: https://kubernetes.default.svc
-#    namespace: monitoring
-#  syncPolicy:
-#    automated:
-#      prune: true
-#      selfHeal: true
-#    syncOptions:
-#      - CreateNamespace=true
-#      - ServerSideApply=true
-#      - Replace=true
-#---
+kube-prometheus-stack-CRD
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-crd
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/prometheus-community/helm-charts.git
+    path: charts/kube-prometheus-stack/charts/crds/
+    targetRevision: kube-prometheus-stack-68.1.0
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - Replace=true
+---
 #kube-prometheus-stack
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -49,9 +49,7 @@ spec:
       skipCrds: true
       values: |
         crds:
-          enabled: true
-          upgradeJob:
-            enabled: true
+          enabled: false
         defaultRules:
           create: true
           rules:

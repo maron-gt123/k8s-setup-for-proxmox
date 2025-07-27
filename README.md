@@ -70,6 +70,11 @@
       deb http://security.debian.org/debian-security bookworm-security main contrib
       EOF
 
+      # Ceph Quincy No-Subscription Repository
+      cat > /etc/apt/sources.list.d/ceph.list << EOF
+      deb http://download.proxmox.com/debian/ceph-quincy bookworm no-subscription
+      EOF
+
 ### MegaRAIDドライバの導入
 * 以下scriptでMegaRAIDドライバを導入
 

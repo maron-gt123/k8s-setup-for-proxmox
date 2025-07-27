@@ -4,7 +4,7 @@ kind: Namespace
 metadata:
   name: monitoring
 ---
-kube-prometheus-stack-CRD
+#kube-prometheus-stack-CRD
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:

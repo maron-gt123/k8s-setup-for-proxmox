@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: mc-haramis
 resources:
   # template
-  - .../templates/minecraft-proxy
+  - ..../templates/minecraft-proxy
   # velocity-config
   #- ./velocity-config.yaml
   # plugin-config

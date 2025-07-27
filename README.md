@@ -109,8 +109,8 @@
     * backup格納用
 
           # nfs-kernel-serverをインストール
-          ssh prox02 apt-get install nfs-kernel-server
-          ssh prox03 apt-get install nfs-kernel-server
+          ssh onp-prox02 apt-get install nfs-kernel-server
+          ssh onp-prox03 apt-get install nfs-kernel-server
           
           # exports設定
           # ssh prox02

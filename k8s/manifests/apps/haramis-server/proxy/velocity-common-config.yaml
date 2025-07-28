@@ -78,7 +78,7 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = "mc-service.mc-lobby-sv.svc.cluster.local:25565"
+    lobby = "mc-lobby-mc-service.mc-haramis.svc.cluster.local:25565"
     S1 = "localhost:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.

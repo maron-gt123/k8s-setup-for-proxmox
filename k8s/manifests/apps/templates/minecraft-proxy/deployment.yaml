@@ -117,7 +117,7 @@ spec:
             - containerPort: 25577
               name: proxy-service
               protocol: TCP
-            - containerPort: 25577
+            - containerPort: 19132
               name: geyser-service
               protocol: UDP
             - containerPort: 18321

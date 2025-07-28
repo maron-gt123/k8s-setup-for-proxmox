@@ -8,5 +8,7 @@ resources:
   - ./velocity-common-config.yaml
   # plugin-config
   - ./velocity-plugin-config.yaml
+  # service
+  - ./svc-LoadBalancer.yaml
 
 patches:

@@ -11,10 +11,10 @@ spec:
       port: 53616
       protocol: TCP
       targetPort: proxy-service
-    - name: ex2-service
+    - name: bedrock
       port: 53616
       protocol: UDP
-      targetPort: proxy-service
+      targetPort: geyser-port
   selector:
     app: mc-proxy
   loadBalancerIP: 172.1.0.0

@@ -7,10 +7,14 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - name: ex-service
+    - name: java-service
       port: 53616
-      protocol: UDP 
+      protocol: tcp
       targetPort: proxy-service
+    - name: bedrock-service
+      port: 53616
+      protocol: udp
+      targetPort: geyser-service
   selector:
     app: mc-proxy
   loadBalancerIP: 172.1.0.0

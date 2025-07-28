@@ -13,7 +13,7 @@ spec:
     storage: 5Gi
   nfs:
     server: 192.168.6.140
-    path: /kubanetesu-NFS/haramis-lobby/world/
+    path: /kubanetesu-NFS/haramis-server/lobby/world/
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1

@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: mc-haramis
-namePrefix: mc-lobby
+namePrefix: mc-lobby-
 resources:
   # template
   - ../../templates/minecraft-server

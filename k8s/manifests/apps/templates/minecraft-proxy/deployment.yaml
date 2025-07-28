@@ -76,6 +76,8 @@ spec:
             requests:
               memory: "768Mi"
           env:
+            - name: REPLACE_ENV_VARIABLE_PREFIX
+              value: CFG_
             - name: TZ
               value: Asia/Tokyo
             - name: TYPE

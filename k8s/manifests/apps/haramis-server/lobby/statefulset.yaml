@@ -8,7 +8,7 @@ spec:
   template:
     metadata:
       labels:
-        app: minecraft
+        app: mc-lobby
     spec:
       initContainers:
         # ------pluginsファイル生成関連------

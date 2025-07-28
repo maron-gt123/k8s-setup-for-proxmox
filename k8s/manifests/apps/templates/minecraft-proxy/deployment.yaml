@@ -116,7 +116,7 @@ spec:
           ports:
             - containerPort: 25577
               name: proxy-service
-            - containerPort: 25578
+            - containerPort: 25577
               name: geyser-service
             - containerPort: 18321
               name: jmx-metrics

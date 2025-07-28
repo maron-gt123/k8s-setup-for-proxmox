@@ -76,8 +76,18 @@ spec:
             requests:
               memory: "768Mi"
           env:
-            - name: REPLACE_ENV_VARIABLE_PREFIX
+            - name: REPLACE_ENV_VARIABLE_PREFIX #0
               value: CFG_
+            - name: CFG_SQLSERVER_ADDRESS #1
+              value: 
+            - name: CFG_SQLSERVER_USERNAME #2
+              value: 
+            - name: CFG_SQLSERVER_PASSWORD #3
+              value: 
+            - name: CFG_LUCKPERMS_SQLSERVER_DATABASE #4
+              value: 
+            - name: CFG_LUCKPERMS_SERVER_NAME #5
+              value: 
             - name: TZ
               value: Asia/Tokyo
             - name: TYPE

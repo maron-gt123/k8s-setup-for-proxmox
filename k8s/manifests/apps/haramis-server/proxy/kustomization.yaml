@@ -8,7 +8,16 @@ resources:
   - ./velocity-common-config.yaml
   # plugin-config
   - ./velocity-plugin-config.yaml
-  # service
-  - ./svc-LoadBalancer.yaml
 
 patches:
+  - target:
+      kind: Deployment
+      name: mc-proxy
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/requests/memory
+        value: 1024Mi
+      - op: replace
+        path: /spec/template/spec/containers/0/env/2/value
+        value: 1024m
+  - path: svc-LoadBalancer.yaml

@@ -116,6 +116,10 @@ spec:
           ports:
             - containerPort: 25577
               name: proxy-service
+              protocol: TCP
+            - containerPort: 25577
+              name: geyser-service
+              protocol: UDP
             - containerPort: 18321
               name: jmx-metrics
             - containerPort: 9225

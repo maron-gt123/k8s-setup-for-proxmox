@@ -115,6 +115,9 @@ spec:
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
           ports:
             - containerPort: 25577
+              name: geyser-port
+              protocol: UDP
+            - containerPort: 25577
               name: proxy-service
             - containerPort: 18321
               name: jmx-metrics

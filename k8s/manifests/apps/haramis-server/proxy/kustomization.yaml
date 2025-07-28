@@ -14,9 +14,12 @@ patches:
       kind: Deployment
       name: mc-proxy
     patch: |-
+      # コンテナリソース
       - op: replace
         path: /spec/template/spec/containers/0/resources/requests/memory
         value: 1024Mi
+      # MySQL関連
+      # アドレス
       - op: replace
         path: /spec/template/spec/containers/0/env/1/value
         value: sql.mcnet
@@ -26,12 +29,15 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/env/3/value
         value: masaya0209
+      # データベース名
       - op: replace
         path: /spec/template/spec/containers/0/env/4/value
         value: haramis-server
+      # 凡例名称
       - op: replace
         path: /spec/template/spec/containers/0/env/5/value
         value: proxy
+      # javaリソース
       - op: replace
         path: /spec/template/spec/containers/0/env/8/value
         value: 1024m

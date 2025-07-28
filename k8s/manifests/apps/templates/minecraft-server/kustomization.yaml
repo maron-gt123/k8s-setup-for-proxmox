@@ -10,7 +10,7 @@ resources:
   # mc-config
   - ./config/mc-configs.yaml
   # jmx-exporter-config
-  - ./config/jmx-exporter-config.yaml
+  - ../../config/jmx-exporter-config.yaml
   # prometheusexporter-config
   - ./config/mc-plugin-prometheusexporter-config.yaml
   # luckperms-config

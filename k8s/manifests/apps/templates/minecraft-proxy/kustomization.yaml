@@ -8,4 +8,4 @@ resources:
   # metrics-service
   - ./metrics-patch.yaml
   # jmx-exporter-config
-  - ../jmx-exporter-config.yaml
+  - ./jmx-exporter-config.yaml

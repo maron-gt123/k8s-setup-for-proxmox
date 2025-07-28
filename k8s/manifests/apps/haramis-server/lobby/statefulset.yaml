@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: minecraft
+  name: lobby
   labels:
-    app: minecraft
+    app: lobby
 spec:
   template:
     metadata:

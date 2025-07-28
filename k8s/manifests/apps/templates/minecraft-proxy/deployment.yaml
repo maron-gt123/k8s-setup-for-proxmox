@@ -200,7 +200,7 @@ spec:
           emptyDir: {}
         - name: jmx-exporter-config
           configMap:
-            name: jmx-exporter-config
+            name: jmx-exporter-config-proxy
 
         # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: server-icon-download-volume

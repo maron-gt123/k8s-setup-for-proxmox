@@ -5,6 +5,8 @@ resources:
   # namespace
   - ./ns-haramis-lobby-sv.yaml
   # template
-  - .../templates/minecraft-server
+  - ../../templates/minecraft-server
+  # pv & pvc
+  - ./pv-haramis-lobby.yaml
 
 patches:

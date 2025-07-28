@@ -12,7 +12,7 @@ spec:
       protocol: TCP
       targetPort: proxy-service
     - name: ex2-service
-      port: 53616
+      port: 53617
       protocol: UDP
       targetPort: geyser-service
   selector:

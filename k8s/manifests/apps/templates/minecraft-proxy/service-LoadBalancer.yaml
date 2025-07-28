@@ -9,7 +9,7 @@ spec:
   ports:
     - name: ex-service
       port: 53616
-      # protocol: TCP
+      protocol:UDP 
       targetPort: proxy-service
   selector:
     app: mc-proxy

@@ -5,8 +5,8 @@ resources:
   # template
   - ../../templates/minecraft-proxy
   # velocity-config
-  #- ./velocity-config.yaml
+  - ./velocity-common-config.yaml
   # plugin-config
-  #- ./plugin-config.yaml
+  - ./velocity-plugin-config.yaml
 
 patches:

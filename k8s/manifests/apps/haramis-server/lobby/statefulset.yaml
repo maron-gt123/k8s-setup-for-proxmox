@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: minecraft
   labels:
-    app: minecraft
+    app: mc-lobby
 spec:
   template:
     metadata:

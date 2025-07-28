@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: minecraft
+  name: mc-lobby
   labels:
-    app: mc-lobby
+    app: minecraft
 spec:
   template:
     metadata:
       labels:
-        app: mc-lobby
+        app: minecraft
     spec:
       initContainers:
         # ------pluginsファイル生成関連------

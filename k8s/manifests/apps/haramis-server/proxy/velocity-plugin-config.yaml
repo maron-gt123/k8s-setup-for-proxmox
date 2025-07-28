@@ -463,7 +463,7 @@ data:
     # - When set to "global" this setting is effectively ignored.
     # - In all other cases, the value here is added to all players in a "server" context.
     # - See: https://luckperms.net/wiki/Context
-    server: velocity
+    server: ${CFG_LUCKPERMS_SERVER_NAME}
     
     
     
@@ -517,15 +517,15 @@ data:
       # - The standard DB engine port is used by default
       #   (MySQL: 3306, PostgreSQL: 5432, MongoDB: 27017)
       # - Specify as "host:port" if differs
-      address: 192.168.10.131
+      address: ${CFG_SQLSERVER_ADDRESS}
     
       # The name of the database to store LuckPerms data in.
       # - This must be created already. Don't worry about this setting if you're using MongoDB.
-      database: haramis-server
+      database: ${CFG_LUCKPERMS_SQLSERVER_DATABASE}
     
       # Credentials for the database.
-      username: minecraft
-      password: 'masaya0209'
+      username: ${CFG_SQLSERVER_USERNAME}
+      password: '${CFG_SQLSERVER_PASSWORD}'
     
       # These settings apply to the MySQL connection pool.
       # - The default values will be suitable for the majority of users.

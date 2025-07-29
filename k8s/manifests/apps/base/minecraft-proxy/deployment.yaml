@@ -155,7 +155,7 @@ spec:
               mountPath: /config/velocity.toml
               subPath: velocity.toml
             # forwarding.secretを格納
-            - name: velocity-common-config
+            - name: velocity-forwarding-config
               mountPath: /config/forwarding.secret
               subPath: forwarding.secret
             # jmx-exporter-configを格納
@@ -195,7 +195,11 @@ spec:
         # velocity-config
         - name: velocity-common-config
           configMap:
-            name: velocity-configs        
+            name: velocity-config
+        # forwarding-config
+        - name: velocity-forwarding-config
+          configMap:
+            name: velocity-forwarding-config
         # jmx-exporter
         - name: jmx-exporter-config
           configMap:

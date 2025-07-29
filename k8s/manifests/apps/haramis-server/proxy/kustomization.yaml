@@ -2,12 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: mc-haramis
 resources:
-  # template
-  - ../../templates/minecraft-proxy
-  # velocity-config
-  - ./velocity-common-config.yaml
-  # plugin-config
-  - ./velocity-plugin-config.yaml
+  # base
+  - ../../base/minecraft-proxy
 
 patches:
   - target:
@@ -47,3 +43,4 @@ patches:
         path: /spec/template/spec/containers/0/env/8/value
         value: 1024m
   - path: svc-LoadBalancer.yaml
+  - path: velocity-common-haramis-config.yaml

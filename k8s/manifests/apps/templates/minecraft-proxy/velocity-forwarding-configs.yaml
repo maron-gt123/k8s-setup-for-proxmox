@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: velocity-forwarding-configs
+data:
+  forwarding.secret: |
+    ${CFG_FORWARDING_NAME}

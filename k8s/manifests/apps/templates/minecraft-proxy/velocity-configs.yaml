@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: velocity-configs
+  name: velocity-config
 data:
   velocity.toml: |
     # Config version. Do not change this
@@ -159,5 +159,3 @@ data:
     
     # Whether plugins should be shown in query response by default or not
     show-plugins = false
-  forwarding.secret: |
-    ${CFG_FORWARDING_NAME}

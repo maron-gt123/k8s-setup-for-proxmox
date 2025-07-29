@@ -1,6 +1,6 @@
 kind: ConfigMap
 metadata:
-  name: bungeecord-prometheusexporter-config
+  name: velocity-prometheusexporter-config
 apiVersion: v1
 data:
   BungeeCordPrometheusExporter-config.json: |

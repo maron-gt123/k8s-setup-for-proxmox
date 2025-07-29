@@ -4,7 +4,6 @@ metadata:
   name: velocity-minimotd-config
 data:
   minimotd-velocity-main.conf: |
-  minimotd-velocity-main.conf: |
     # MiniMOTD Main Configuration
     
     # Enable server list icon related features

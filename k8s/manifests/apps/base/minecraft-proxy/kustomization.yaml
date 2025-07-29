@@ -18,4 +18,4 @@ resources:
   - ../../templates/minecraft-proxy/velocity-plugin-floodgate-config.yaml
   - ../../templates/minecraft-proxy/velocity-plugin-geyser-config.yaml
   - ../../templates/minecraft-proxy/velocity-plugin-geyserskinmanager-bungeecord-config.yaml
-  - ../../templates/minecraft-proxy/velocity-plugin-minimotd-velocity-config.yaml
+  - ../../templates/minecraft-proxy/velocity-plugin-minimotd-config.yaml

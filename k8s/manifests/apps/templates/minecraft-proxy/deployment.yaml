@@ -157,7 +157,7 @@ spec:
             # forwarding.secretを格納
             - name: velocity-forwarding-config
               mountPath: /config/forwarding.secret
-              subPath: forwarding.yml
+              subPath: forwarding.secret
             # jmx-exporter-configを格納
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml

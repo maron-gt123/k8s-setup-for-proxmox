@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: velocity-configs
+  name: velocity-config
 data:
   velocity.toml: |
     # Config version. Do not change this

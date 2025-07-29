@@ -10,4 +10,4 @@ resources:
 
 patches:
   - path: statefulset-haramis.yaml
-  - path: mc-plugin-advancedportals-haramis-configs.yaml
+  - path: config/mc-plugin-advancedportals-haramis-configs.yaml

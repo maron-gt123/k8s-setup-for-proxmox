@@ -17,8 +17,12 @@ spec:
           env:
             - name: WORLDEDIT_URL
               value: "https://dev.bukkit.org/projects/worldedit/files/latest"
+            - name: WORLDGUARD_URL
+              value: "https://dev.bukkit.org/projects/worldguard/files/latest"
             - name: SETSPAWN_URL
               value: "https://dev.bukkit.org/projects/setspawn/files/latest"
+            - name: HOLOGRAMS_URL
+              value: "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.9.6/DecentHolograms-2.9.6.jar"
           volumeMounts:
             - name: init-download-volume
               mountPath: /root/initContainer-download
@@ -27,7 +31,9 @@ spec:
             - -c
             - >
               wget -O /root/initContainer-download/worldedit.jar "${WORLDEDIT_URL}" &&
-              wget -O /root/initContainer-download/setspawn.jar "${SETSPAWN_URL}"
+              wget -O /root/initContainer-download/worldguard.jar "${WORLDEDIT_URL}" &&
+              wget -O /root/initContainer-download/setspawn.jar "${SETSPAWN_URL}" &&
+              wget -O /root/initContainer-download/DecentHolograms.jar "${HOLOGRAMS_URL}"
       containers:
         - name: minecraft
           env:
@@ -78,11 +84,36 @@ spec:
             - name: init-download-volume
               mountPath: /data/plugins/worldedit.jar
               subPath: worldedit.jar
+            # ------ worldguard ------
+            - name: init-download-volume
+              mountPath: /data/plugins/worldguard.jar
+              subPath: worldguard.jar
+            # ------ setspawn ------
             - name: init-download-volume
               mountPath: /data/plugins/setspawn.jar
               subPath: setspawn.jar
+            # ------ DecentHolograms ------
+            - name: init-download-volume
+              mountPath: /data/plugins/DecentHolograms.jar
+              subPath: DecentHolograms.jar
+            # ------ holograms-S1_Gateway ------
+            - name: mc-plugin-holograms-config
+              mountPath: /config/plugins/DecentHolograms/holograms/holograms-S1_Gateway.yml
+              subPath: holograms-S1_Gateway.yml
+            # ------ holograms-S2_Gateway ------
+            - name: mc-plugin-holograms-config
+              mountPath: /config/plugins/DecentHolograms/holograms/holograms-S2_Gateway.yml
+              subPath: holograms-S2_Gateway.yml
+            # ------ holograms-music_Gateway ------
+            - name: mc-plugin-holograms-config
+              mountPath: /config/plugins/DecentHolograms/holograms/holograms-S3-Gateway.yml
+              subPath: holograms-S3-Gateway.yml
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data
           persistentVolumeClaim:
             claimName: haramis-lobby-pvc
+        # -holograms-configmap格納先
+        - name: mc-plugin-holograms-config
+          configMap:
+            name: mc-plugin-holograms-configs

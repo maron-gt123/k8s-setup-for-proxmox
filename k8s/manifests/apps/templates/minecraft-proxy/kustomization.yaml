@@ -7,8 +7,6 @@ resources:
   - ./svc-LoadBalancer.yaml
   # metrics-service
   - ./metrics-patch.yaml
-  # jmx-exporter-config
-  - ../../templates/common/jmx-exporter-config.yaml
 
   # config関連
   - ./config/velocity-config.yaml
@@ -19,3 +17,4 @@ resources:
   - ./config/velocity-plugin-geyser-config.yaml
   - ./config/velocity-plugin-geyserskinmanager-bungeecord-config.yaml
   - ./config/velocity-plugin-minimotd-config.yaml
+  - ./config/jmx-exporter-velocity-config.yaml

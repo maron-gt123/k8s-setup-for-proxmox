@@ -11,11 +11,11 @@ resources:
   #- ../../templates/common/config/jmx-exporter-config.yaml
 
   # config関連
-  - ../../templates/minecraft-proxy/velocity-config.yaml
-  - ../../templates/minecraft-proxy/velocity-forwarding-config.yaml
-  - ../../templates/minecraft-proxy/velocity-plugin-LuckPerms-config.yaml
-  - ../../templates/minecraft-proxy/velocity-plugin-bungeecord-prometheusexporter-config.yaml
-  - ../../templates/minecraft-proxy/velocity-plugin-floodgate-config.yaml
-  - ../../templates/minecraft-proxy/velocity-plugin-geyser-config.yaml
-  - ../../templates/minecraft-proxy/velocity-plugin-geyserskinmanager-bungeecord-config.yaml
-  - ../../templates/minecraft-proxy/velocity-plugin-minimotd-config.yaml
+  - ./config/velocity-config.yaml
+  - ./config/velocity-forwarding-config.yaml
+  - ./config/velocity-plugin-LuckPerms-config.yaml
+  - ./config/velocity-plugin-bungeecord-prometheusexporter-config.yaml
+  - ./config/velocity-plugin-floodgate-config.yaml
+  - ./config/velocity-plugin-geyser-config.yaml
+  - ./config/velocity-plugin-geyserskinmanager-bungeecord-config.yaml
+  - ./config/velocity-plugin-minimotd-config.yaml

@@ -42,3 +42,13 @@ spec:
               value: gytS9ZohJscB
             - name: MEMORY
               value: 1024m
+        - name: velocity
+          image: your/velocity-image
+          volumeMounts:
+            - name: forwarding-secret
+              mountPath: /server/forwarding.secret
+              subPath: forwarding.secret
+      volumes:
+        - name: forwarding-secret
+          secret:
+            secretName: velocity-forwarding-secret

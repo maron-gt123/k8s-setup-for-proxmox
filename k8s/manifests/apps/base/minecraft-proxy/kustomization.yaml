@@ -9,3 +9,12 @@ resources:
   - ./metrics-patch.yaml
   # jmx-exporter-config
   - ../../templates/common/jmx-exporter-config.yaml
+
+  # config関連
+  - ../../templates/minecraft-proxy/velocity-configs.yaml
+  - ../../templates/minecraft-proxy/velocity-plugin-LuckPerms-config.yaml
+  - ../../templates/minecraft-proxy/velocity-plugin-bungeecord-prometheusexporter-config.yaml
+  - ../../templates/minecraft-proxy/velocity-plugin-floodgate-config.yaml
+  - ../../templates/minecraft-proxy/velocity-plugin-geyser-config.yaml
+  - ../../templates/minecraft-proxy/velocity-plugin-geyserskinmanager-bungeecord-config.yaml
+  - ../../templates/minecraft-proxy/velocity-plugin-minimotd-velocity-config.yaml

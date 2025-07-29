@@ -1,47 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: mc-haramis
+namePrefix: haramis-
 resources:
   # base
   - ../../base/minecraft-proxy
 
 patches:
-  - target:
-      kind: Deployment
-      name: mc-proxy
-    patch: |-
-      # initContainers
-      # サーバーアイコン
-      - op: replace
-        path: /spec/template/spec/initContainers/0/env/0/value
-        value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/a47b0c0ad303f248f1d50a7b5b3ac508f4435389/minecraft/branding/server-icon.png"
-      # コンテナリソース
-      - op: replace
-        path: /spec/template/spec/containers/0/resources/requests/memory
-        value: 1024Mi
-      # MySQL関連
-      # アドレス
-      - op: replace
-        path: /spec/template/spec/containers/0/env/1/value
-        value: sql.mcnet
-      - op: replace
-        path: /spec/template/spec/containers/0/env/2/value
-        value: minecraft
-      - op: replace
-        path: /spec/template/spec/containers/0/env/3/value
-        value: masaya0209
-      # データベース名
-      - op: replace
-        path: /spec/template/spec/containers/0/env/4/value
-        value: haramis-server
-      # 凡例名称
-      - op: replace
-        path: /spec/template/spec/containers/0/env/5/value
-        value: proxy
-      # javaリソース
-      - op: replace
-        path: /spec/template/spec/containers/0/env/8/value
-        value: 1024m
   - path: svc-LoadBalancer.yaml
   - path: velocity-common-haramis-config.yaml
   - path: velocity-plugin-minimotd-haramis-config.yaml

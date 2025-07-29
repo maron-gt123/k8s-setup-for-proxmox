@@ -12,7 +12,7 @@ resources:
 
   # config関連
   - ../../templates/minecraft-proxy/velocity-config.yaml
-  - ../../templates/minecraft-proxy/velocity-forwarding-configs.yaml
+  - ../../templates/minecraft-proxy/velocity-forwarding-config.yaml
   - ../../templates/minecraft-proxy/velocity-plugin-LuckPerms-config.yaml
   - ../../templates/minecraft-proxy/velocity-plugin-bungeecord-prometheusexporter-config.yaml
   - ../../templates/minecraft-proxy/velocity-plugin-floodgate-config.yaml

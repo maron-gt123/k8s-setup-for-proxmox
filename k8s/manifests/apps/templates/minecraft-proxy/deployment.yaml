@@ -88,7 +88,7 @@ spec:
               value: 
             - name: CFG_LUCKPERMS_SERVER_NAME #5
               value: 
-            - name: CFG_FORWARDING_NAME #6
+            - name: CFG_FORWARDING_NAME #6　→将来拡張
               value: 
             - name: TZ #7
               value: Asia/Tokyo

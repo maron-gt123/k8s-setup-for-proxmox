@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: velocity-plugin-floodgate-config
+  name: velocity-floodgate-config
 data:
   floodgate-config.yml: |
     # In Floodgate bedrock player data is send encrypted

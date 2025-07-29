@@ -45,3 +45,4 @@ patches:
   - path: svc-LoadBalancer.yaml
   - path: velocity-common-haramis-config.yaml
   - path: velocity-plugin-minimotd-haramis-config.yaml
+  - path: deployment-haramis.yaml

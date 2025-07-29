@@ -4,4 +4,4 @@ metadata:
   name: velocity-forwarding-config
 data:
   forwarding.secret: |
-    ${CFG_FORWARDING_NAME}
+    "${CFG_FORWARDING_NAME}"

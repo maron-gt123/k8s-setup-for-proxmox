@@ -5,6 +5,7 @@ namePrefix: haramis-
 resources:
   # templates
   - ../../templates/minecraft-proxy
+  - ./job-init-secret.yaml
 patches:
   - path: svc-LoadBalancer.yaml
   - path: velocity-common-haramis-config.yaml

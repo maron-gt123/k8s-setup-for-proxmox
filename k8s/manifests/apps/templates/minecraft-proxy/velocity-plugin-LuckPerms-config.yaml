@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-plugin-inventory-config
+  name: velocity-luckperms-config
 data:
   LuckPerms-config.yml: |
     ####################################################################################################

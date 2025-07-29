@@ -14,6 +14,11 @@ patches:
       kind: Deployment
       name: mc-proxy
     patch: |-
+      # initContainers
+      # サーバーアイコン
+      - op: replace
+        path: /spec/template/spec/initContainers/0/env/0/value
+        value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/a47b0c0ad303f248f1d50a7b5b3ac508f4435389/minecraft/branding/server-icon.png"
       # コンテナリソース
       - op: replace
         path: /spec/template/spec/containers/0/resources/requests/memory

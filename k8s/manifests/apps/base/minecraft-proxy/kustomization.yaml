@@ -4,8 +4,8 @@ resources:
   # deployment
   - ./deployment.yaml
   # service
-  - ./service-LoadBalancer.yaml
+  - ./svc-LoadBalancer.yaml
   # metrics-service
   - ./metrics-patch.yaml
   # jmx-exporter-config
-  - ./jmx-exporter-config.yaml
+  - ../../templates/common/jmx-exporter-config.yaml

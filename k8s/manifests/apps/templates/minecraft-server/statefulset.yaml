@@ -66,19 +66,19 @@ spec:
             - name: CFG_ALLOW_END
               value: "true"
             - name: CFG_SQLSERVER_ADDRESS
-              value: sql.mcnet
+              value: 
             - name: CFG_SQLSERVER_USERNAME
-              value: minecraft
+              value: 
             - name: CFG_SQLSERVER_PASSWORD
-              value: masaya0209
+              value: 
             - name: CFG_LUNACHAT_LANGUAGE
-              value: ja
+              value: 
             - name: CFG_LUCKPERMS_SQLSERVER_DATABASE
-              value: mc_LuckPerms
+              value: 
             - name: CFG_LUCKPERMS_SERVER_NAME
-              value: server
+              value: 
             - name: CFG_MYSQLINVENTORYBRIDGE_SQLSERVER_DATABASE
-              value: mc_inventory
+              value: 
             - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # minecraft-prometheus-exporter3.1.0

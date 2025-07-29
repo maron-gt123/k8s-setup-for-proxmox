@@ -57,7 +57,11 @@ spec:
               value: haramis-server
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: lobby
-            # ------music用コマンド ------
+            - name: CFG_LUNACHAT_LANGUAGE
+              value: ja
+            - name: CFG_MYSQLINVENTORYBRIDGE_SQLSERVER_DATABASE
+              value: haramis_inventory
+            # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-
                 /time set day

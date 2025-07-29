@@ -203,7 +203,7 @@ spec:
         # jmx-exporter
         - name: jmx-exporter-config
           configMap:
-            name: jmx-exporter-config 
+            name: jmx-exporter-velocity-config
         # LuckPerms
         - name: velocity-plugin-luckperms-config
           configMap:

@@ -7,6 +7,8 @@ resources:
   - ../../templates/minecraft-server
   # pv & pvc
   - ./pv-haramis-lobby.yaml
+  # config
+  - ./config/mc-plugin-advancedportals-haramis-configs.yaml
 
 patches:
   - path: statefulset-haramis.yaml

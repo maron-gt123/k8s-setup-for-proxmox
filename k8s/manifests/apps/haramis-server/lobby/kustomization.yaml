@@ -9,4 +9,4 @@ resources:
   - ./pv-haramis-lobby.yaml
 
 patches:
-  - path: statefulset.yaml
+  - path: statefulset-haramis.yaml

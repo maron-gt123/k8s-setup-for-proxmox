@@ -1,6 +1,6 @@
 kind: ConfigMap
 metadata:
-  name: geyserskinmanager-bungeecord-config
+  name: velocity-geyserskinmanager-config
 apiVersion: v1
 data:
   geyserskinmanager-bungeecord.yml: |

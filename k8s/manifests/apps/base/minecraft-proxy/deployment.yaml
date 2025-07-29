@@ -148,6 +148,7 @@ spec:
               subPath: floodgate-velocity.jar
               
             # velocityのconfigファイルが入ったボリューム達のマウント設定
+            # velocity.tomlを格納
             - name: velocity-common-config
               mountPath: /config/velocity.toml
               subPath: velocity.toml
@@ -159,45 +160,44 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
-              
-            # geyserskinmanagerのconfigファイルが入ったボリューム達のマウント設定
-            - name: velocity-plugin-config
-              mountPath: /config/plugins/geyserskinmanager-velocity/config.yml
-              subPath: geyserskinmanager-bungeecord.yml
-            # BungeeCordPrometheusExporterのconfigファイルが入ったボリューム達のマウント設定
-            - name: velocity-plugin-config
-              mountPath: /config/plugins/velocity-prometheus-exporter/config.json
-              subPath: BungeeCordPrometheusExporter-config.json
-            # minimotd-velocity-mainのconfigファイルが入ったボリューム達のマウント設定
-            - name: velocity-plugin-config
-              mountPath: /config/plugins/minimotd-velocity/main.conf
-              subPath: minimotd-velocity-main.conf
-            # minimotd-velocity-plugin_settingsのconfigファイルが入ったボリューム達のマウント設定
-            - name: velocity-plugin-config
-              mountPath: /config/plugins/minimotd-velocity/plugin_settings.conf
-              subPath: minimotd-velocity-plugin_settings.conf
-            # Geyserのconfigファイルが入ったボリューム達のマウント設定
-            - name: velocity-plugin-config
-              mountPath: /config/plugins/Geyser-Velocity/config.yml
-              subPath: Geyser-config.yml
-            # floodgateのconfigファイルが入ったボリューム達のマウント設定
-            - name: velocity-plugin-config
-              mountPath: /config/plugins/floodgate/config.yml
-              subPath: floodgate-config.yml
-            # LuckPermsのconfigファイルが入ったボリューム達のマウント設定
-            - name: velocity-plugin-config
+            # LuckPerms-configを格納
+            - name: velocity-plugin-luckperms-config
               mountPath: /config/plugins/luckperms/config.yml
               subPath: LuckPerms-config.yml
+            # BungeeCordPrometheusExporter-configを格納
+            - name: velocity-plugin-prometheusexporter-config
+              mountPath: /config/plugins/velocity-prometheus-exporter/config.json
+              subPath: BungeeCordPrometheusExporter-config.json
+            # minimotd-main-configを格納
+            - name: velocity-plugin-minimotd-config
+              mountPath: /config/plugins/minimotd-velocity/plugin_settings.conf
+              subPath: minimotd-velocity-main.conf
+            # minimotd-settings-configを格納
+            - name: velocity-plugin-minimotd-config
+              mountPath: /config/plugins/minimotd-velocity/plugin_settings.conf
+              subPath: minimotd-velocity-plugin_settings.conf
+            # geyserskinmanager-configを格納
+            - name: velocity-plugin-geyserskinmanager-config
+              mountPath: /config/plugins/geyserskinmanager-velocity/config.yml
+              subPath: geyserskinmanager-bungeecord.yml
+            # Geyser-configを格納
+            - name: velocity-plugin-geyser-config
+              mountPath: /config/plugins/Geyser-Velocity/config.yml
+              subPath: Geyser-config.yml
+            # floodgate-configを格納
+            - name: velocity-plugin-floodgate-config
+              mountPath: /config/plugins/floodgate/config.yml
+              subPath: floodgate-config.yml
       volumes:
         # config mapで指定したconfigデータを受け渡すためのvolume
         # velocity-config
         - name: velocity-common-config
           configMap:
-            name: velocity-configs
+            name: velocity-configs        
         # jmx-exporter
         - name: jmx-exporter-config
           configMap:
-            name: jmx-exporter-config          
+            name: jmx-exporter-config 
         # LuckPerms
         - name: velocity-plugin-luckperms-config
           configMap:
@@ -225,10 +225,7 @@ spec:
 
         # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: jmx-exporter-download-volume
-          emptyDir: {}
-        - name: jmx-exporter-config
-          configMap:
-            name: jmx-exporter-config-proxy
+          emptyDir: {} 
         # geyser-velocity.jarとfloodgate-velocity.jarをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: ini-plugin-download-volume
           emptyDir: {}

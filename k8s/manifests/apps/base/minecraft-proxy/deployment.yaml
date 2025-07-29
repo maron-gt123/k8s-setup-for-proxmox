@@ -26,7 +26,7 @@ spec:
           env:
             # serverアイコンのダウンロードURL
             - name: SERVER_ICON_URL
-              value: ""
+              value: "" #  サーバーのアイコン画像取得pathを投入
           volumeMounts:
             - name: server-icon-download-volume
               mountPath: /root/server-icon-download
@@ -190,14 +190,34 @@ spec:
               subPath: LuckPerms-config.yml
       volumes:
         # config mapで指定したconfigデータを受け渡すためのvolume
-        - name: velocity-config
+        # velocity-config
+        - name: velocity-common-config
           configMap:
             name: velocity-configs
-
-        # config mapで指定した各種plugin configデータを受け渡すためのvolume
-        - name: velocity-plugin-config
+        # LuckPerms
+        - name: velocity-plugin-luckperms-config
           configMap:
-            name: velocity-plugin-configs
+            name: velocity-luckperms-config
+        # prometheusexporter
+        - name: velocity-plugin-prometheusexporter-config
+          configMap:
+            name: velocity-prometheusexporter-config
+        # minimotd
+        - name: velocity-plugin-minimotd-config
+          configMap:
+            name: velocity-minimotd-config
+        # geyserskinmanager
+        - name: velocity-plugin-geyserskinmanager-config
+          configMap:
+            name: velocity-geyserskinmanager-config
+        # geyser
+        - name: velocity-plugin-geyser-config
+          configMap:
+            name: velocity-geyser-config
+        # floodgate
+        - name: velocity-plugin-floodgate-config
+          configMap:
+            name: velocity-floodgate-config
 
         # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: jmx-exporter-download-volume
@@ -205,10 +225,9 @@ spec:
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-config-proxy
-
-        # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
-        - name: server-icon-download-volume
-          emptyDir: {}
         # geyser-velocity.jarとfloodgate-velocity.jarをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: ini-plugin-download-volume
+          emptyDir: {}
+        # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
+        - name: server-icon-download-volume
           emptyDir: {}

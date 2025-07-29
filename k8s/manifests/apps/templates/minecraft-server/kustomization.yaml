@@ -4,13 +4,14 @@ resources:
   # statefulset
   - ./statefulset.yaml
   # service
-  - ./service.yaml
+  - ./svc-clusterip.yaml
   # metrics-service
   - ./mc-metrics-patch.yaml
-  # mc-config
+
+  # config
   - ./config/mc-configs.yaml
   # jmx-exporter-config
-  - ./config/jmx-exporter-config.yaml
+  - ./config/jmx-exporter-mc-config.yaml
   # prometheusexporter-config
   - ./config/mc-plugin-prometheusexporter-config.yaml
   # luckperms-config

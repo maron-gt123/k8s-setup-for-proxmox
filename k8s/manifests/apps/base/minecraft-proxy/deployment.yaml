@@ -148,11 +148,11 @@ spec:
               subPath: floodgate-velocity.jar
               
             # velocityのconfigファイルが入ったボリューム達のマウント設定
-            - name: velocity-config
+            - name: velocity-common-config
               mountPath: /config/velocity.toml
               subPath: velocity.toml
             # forwarding.secretを格納
-            - name: velocity-config
+            - name: velocity-common-config
               mountPath: /config/forwarding.secret
               subPath: forwarding.secret
             # jmx-exporter-configを格納
@@ -194,6 +194,10 @@ spec:
         - name: velocity-common-config
           configMap:
             name: velocity-configs
+        # jmx-exporter
+        - name: jmx-exporter-config
+          configMap:
+            name: jmx-exporter-config          
         # LuckPerms
         - name: velocity-plugin-luckperms-config
           configMap:

@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: velocity-forwarding-config
 data:
-  forwarding.secret: |
-    bbu${CFG_FORWARDING_NAME}
+  forwarding.yml: |
+    ${CFG_FORWARDING_NAME}

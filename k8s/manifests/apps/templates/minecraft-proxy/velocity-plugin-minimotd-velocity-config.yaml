@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: velocity-plugin-minimotd-velocity-config
+  name: velocity-minimotd-config
 data:
   minimotd-velocity-main.conf: |
     # MiniMOTD Main Configuration

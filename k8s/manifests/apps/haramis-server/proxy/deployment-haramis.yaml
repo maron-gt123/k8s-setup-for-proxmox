@@ -38,7 +38,5 @@ spec:
               value: haramis-server
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: proxy
-            - name: CFG_FORWARDING_NAME
-              value: gytS9ZohJscB
             - name: MEMORY
               value: 1024m

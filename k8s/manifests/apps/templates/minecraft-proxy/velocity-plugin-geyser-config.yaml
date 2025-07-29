@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: velocity-plugin-geyser-config
+  name: velocity-geyser-config
 data:
   Geyser-config.yml: |
     # --------------------------------

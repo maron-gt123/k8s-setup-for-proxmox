@@ -44,3 +44,4 @@ patches:
         value: 1024m
   - path: svc-LoadBalancer.yaml
   - path: velocity-common-haramis-config.yaml
+  - path: velocity-plugin-minimotd-haramis-config.yaml

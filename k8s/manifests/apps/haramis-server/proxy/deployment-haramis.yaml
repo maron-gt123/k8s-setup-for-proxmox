@@ -29,7 +29,7 @@ spec:
               memory: "1024Mi"
           env:
             - name: CFG_SQLSERVER_ADDRESS
-              value: sql.mcnet
+              value: sql.maroncloud
             - name: CFG_SQLSERVER_USERNAME
               value: mainecraft
             - name: CFG_SQLSERVER_PASSWORD

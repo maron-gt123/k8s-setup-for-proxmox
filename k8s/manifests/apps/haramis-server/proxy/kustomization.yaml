@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: mc-haramis
 namePrefix: haramis-
 resources:
-  # base
+  # templates
   - ../../templates/minecraft-proxy
 patches:
   - path: svc-LoadBalancer.yaml

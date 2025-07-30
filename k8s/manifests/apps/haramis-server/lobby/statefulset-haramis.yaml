@@ -53,20 +53,10 @@ spec:
               value: "false"
             - name: ENABLE_WHITELIST
               value: "true"
-            - name: CFG_SQLSERVER_ADDRESS
-              value: sql.maroncloud
-            - name: CFG_SQLSERVER_USERNAME
-              value: minecraft
-            - name: CFG_SQLSERVER_PASSWORD
-              value: masaya0209
-            - name: CFG_LUCKPERMS_SQLSERVER_DATABASE
-              value: haramis-server
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: lobby
             - name: CFG_LUNACHAT_LANGUAGE
               value: ja
-            - name: CFG_MYSQLINVENTORYBRIDGE_SQLSERVER_DATABASE
-              value: haramis_inventory
             # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-

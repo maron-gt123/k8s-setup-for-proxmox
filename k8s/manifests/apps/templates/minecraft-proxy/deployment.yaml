@@ -67,6 +67,22 @@ spec:
             - >
               wget -O /root/ini-plugin-download/geyser-velocity.jar "${GEYSER_URL}" &&
               wget -O /root/ini-plugin-download/floodgate-velocity.jar "${FLOODGATE_URL}"
+        - name: forwarding-key-writer
+          image: busybox:1.36.1
+          env:
+            # VELOCITY_FORWARDINGの呼び出し
+            - name: CFG_FORWARDING_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: velocity-forwarding-secret
+                  key: CFG_FORWARDING_KEY
+          volumeMounts:
+            - name: ini-velocity-forwarding-config
+              mountPath: /root/ini-velocity-forwarding-download
+          command:
+            - sh
+            - -c
+            - 'echo "$CFG_FORWARDING_KEY" > /root/ini-velocity-forwarding-download/forwarding.secret'
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
@@ -152,16 +168,14 @@ spec:
             - name: ini-plugin-download-volume
               mountPath: /server/plugins/floodgate-velocity.jar
               subPath: floodgate-velocity.jar
-              
+            - name: ini-velocity-forwarding-download
+              mountPath: /config/forwarding.secret
+              subPath: forwarding.secret
             # velocityのconfigファイルが入ったボリューム達のマウント設定
             # velocity.tomlを格納
             - name: velocity-common-config
               mountPath: /config/velocity.toml
               subPath: velocity.toml
-            # forwarding.secretを格納
-            - name: velocity-forwarding-config
-              mountPath: /config/forwarding.secret
-              subPath: forwarding.secret
             # jmx-exporter-configを格納
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
@@ -200,10 +214,6 @@ spec:
         - name: velocity-common-config
           configMap:
             name: velocity-config
-        # forwarding-config
-        - name: velocity-forwarding-config
-          configMap:
-            name: velocity-forwarding-config
         # jmx-exporter
         - name: jmx-exporter-config
           configMap:
@@ -241,4 +251,7 @@ spec:
           emptyDir: {}
         # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: server-icon-download-volume
+          emptyDir: {}
+        # velocity-forwarding-KEYをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
+        - name: ini-velocity-forwarding-download
           emptyDir: {}

@@ -65,6 +65,8 @@ spec:
               value: "true"
             - name: CFG_ALLOW_END
               value: "true"
+            - name: CFG_LUNACHAT_LANGUAGE
+              value: 
             - name: CFG_SQLSERVER_ADDRESS
               valueFrom:
                 secretKeyRef:

@@ -10,7 +10,6 @@ resources:
 
   # config関連
   - ./config/velocity-config.yaml
-  - ./config/velocity-forwarding-config.yaml
   - ./config/velocity-plugin-LuckPerms-config.yaml
   - ./config/velocity-plugin-bungeecord-prometheusexporter-config.yaml
   - ./config/velocity-plugin-floodgate-config.yaml

@@ -74,7 +74,7 @@ spec:
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:
-                  name: velocity-forwarding-secret
+                  name: minecraft-secret
                   key: CFG_FORWARDING_KEY
           volumeMounts:
             - name: ini-velocity-forwarding-config
@@ -95,21 +95,42 @@ spec:
             - name: REPLACE_ENV_VARIABLE_PREFIX 
               value: CFG_
             - name: CFG_SQLSERVER_ADDRESS
-              value: 
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_ADDRESS
             - name: CFG_SQLSERVER_USERNAME
-              value: 
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_USERNAME
             - name: CFG_SQLSERVER_PASSWORD
-              value: 
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_PASSWORD
             - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
-              value: 
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_LUCKPERMS_DATABASE
             - name: CFG_SQLSERVER_INVENTORY_DATABASE
-              value: 
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_INVENTORY_DATABASE
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: 
             - name: CFG_FORWARDING_KEY
-              value: 
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_FORWARDING_KEY
             - name: CFG_DISCORD_SRV_KEY
-              value: 
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_DISCORD_SRV_KEY
             - name: TZ
               value: Asia/Tokyo
             - name: TYPE

@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: velocity-forwarding-config
-data:
-  forwarding.secret: |
-    gytS9ZohJscB

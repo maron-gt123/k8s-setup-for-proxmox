@@ -9,7 +9,9 @@ resources:
   - ./pv-haramis-lobby.yaml
   # secret
   - http://nas.mcnet/k8s/secret-haramis.yaml
-
+  
+  # config
+  - config/mc-plugin-holograms-haramis-configs.yaml
 patches:
   - path: statefulset-haramis.yaml
   - path: config/mc-plugin-advancedportals-haramis-configs.yaml

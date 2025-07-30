@@ -4,7 +4,7 @@ metadata:
   name: jmx-exporter-mc-config
 data:
   # https://github.com/prometheus/jmx_exporter/tree/ca972bfe693cca03d3a0fac802968e33828a1dd9#configuration
-  jmx-exporter-mc-config.yaml: |
+  jmx-exporter-config.yaml: |
     ---
     startDelaySeconds: 0
     lowercaseOutputName: false

@@ -24,7 +24,7 @@ spec:
   type: LoadBalancer
   ports:
     - name: rcon-service
-      port: 1337
+      port: 25575
       protocol: TCP
       targetPort: 25575
   selector:

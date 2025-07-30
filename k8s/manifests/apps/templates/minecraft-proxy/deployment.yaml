@@ -76,27 +76,31 @@ spec:
             requests:
               memory: "768Mi"
           env:
-            - name: REPLACE_ENV_VARIABLE_PREFIX #0
+            - name: REPLACE_ENV_VARIABLE_PREFIX 
               value: CFG_
-            - name: CFG_SQLSERVER_ADDRESS #1
+            - name: CFG_SQLSERVER_ADDRESS
               value: 
-            - name: CFG_SQLSERVER_USERNAME #2
+            - name: CFG_SQLSERVER_USERNAME
               value: 
-            - name: CFG_SQLSERVER_PASSWORD #3
+            - name: CFG_SQLSERVER_PASSWORD
               value: 
-            - name: CFG_LUCKPERMS_SQLSERVER_DATABASE #4
+            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
               value: 
-            - name: CFG_LUCKPERMS_SERVER_NAME #5
+            - name: CFG_SQLSERVER_INVENTORY_DATABASE
               value: 
-            - name: CFG_FORWARDING_NAME #6　→将来拡張
+            - name: CFG_LUCKPERMS_SERVER_NAME
               value: 
-            - name: TZ #7
+            - name: CFG_FORWARDING_KEY
+              value: 
+            - name: CFG_DISCORD_SRV_KEY
+              value: 
+            - name: TZ
               value: Asia/Tokyo
-            - name: TYPE #8
+            - name: TYPE
               value: VELOCITY
-            - name: MEMORY #9
+            - name: MEMORY
               value: "768m"
-            - name: PLUGINS #10
+            - name: PLUGINS
               # bungeecord-prometheus-exporter
               # LuckPerms-Velocity
               # GeyserSkinManager-Velocity
@@ -110,9 +114,9 @@ spec:
                 https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.7/VELOCITY/minimotd-velocity-2.1.7.jar,
                 https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.4.2/PAPER/ViaVersion-5.4.2.jar,
                 https://github.com/ygtdmn/VelocityRcon/releases/download/v1.1/VelocityRcon.jar
-            - name: SPIGET_PLUGINS #11
+            - name: SPIGET_PLUGINS
               value: 
-            - name: JVM_OPTS #12
+            - name: JVM_OPTS
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
           ports:

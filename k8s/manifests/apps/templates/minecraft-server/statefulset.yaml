@@ -66,19 +66,42 @@ spec:
             - name: CFG_ALLOW_END
               value: "true"
             - name: CFG_SQLSERVER_ADDRESS
-              value: 
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_ADDRESS
             - name: CFG_SQLSERVER_USERNAME
-              value: 
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_USERNAME
             - name: CFG_SQLSERVER_PASSWORD
-              value: 
-            - name: CFG_LUNACHAT_LANGUAGE
-              value: 
-            - name: CFG_LUCKPERMS_SQLSERVER_DATABASE
-              value: 
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_PASSWORD
+            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_LUCKPERMS_DATABASE
+            - name: CFG_SQLSERVER_INVENTORY_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_INVENTORY_DATABASE
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: 
-            - name: CFG_MYSQLINVENTORYBRIDGE_SQLSERVER_DATABASE
-              value: 
+            - name: CFG_FORWARDING_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_FORWARDING_KEY
+            - name: CFG_DISCORD_SRV_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_DISCORD_SRV_KEY
             - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # minecraft-prometheus-exporter3.1.0

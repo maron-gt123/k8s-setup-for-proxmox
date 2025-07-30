@@ -208,7 +208,7 @@ spec:
         # jmx-exporter-config格納先
         - name: jmx-exporter-config
           configMap:
-            name: jmx-exporter-config
+            name: jmx-exporter-mc-config
         # configmap格納先 
         - name: mc-config
           configMap:

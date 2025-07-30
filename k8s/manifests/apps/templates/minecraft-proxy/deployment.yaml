@@ -77,7 +77,7 @@ spec:
                   name: minecraft-secret
                   key: CFG_FORWARDING_KEY
           volumeMounts:
-            - name: ini-velocity-forwarding-config
+            - name: ini-velocity-forwarding-download-volume
               mountPath: /root/ini-velocity-forwarding-download
           command:
             - sh
@@ -274,5 +274,5 @@ spec:
         - name: server-icon-download-volume
           emptyDir: {}
         # velocity-forwarding-KEYをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
-        - name: ini-velocity-forwarding-download
+        - name: ini-velocity-forwarding-download-volume
           emptyDir: {}

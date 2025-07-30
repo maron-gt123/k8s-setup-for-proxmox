@@ -21,6 +21,6 @@ resources:
   # advancedportals-common-config
   - ./config/mc-plugin-advancedportals-common-config.yaml
   # MyqlInventoryBridge-config
-  - ./config/mc-plugin-MyqlInventoryBridge-config.yaml
+  - ./config/mc-plugin-mysqlInventorybridge-config.yaml
   # advancedportals-configs
   - ./config/mc-plugin-advancedportals-configs.yaml

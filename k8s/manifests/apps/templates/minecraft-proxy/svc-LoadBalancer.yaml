@@ -15,7 +15,10 @@ spec:
       port: 53617
       protocol: UDP
       targetPort: geyser-service
+    - name: rcon-service
+      port: 1337
+      protocol: TCP
+      targetPort: velocity-rcon
   selector:
     app: mc-proxy
   loadBalancerIP: 172.1.0.0
-

@@ -146,9 +146,9 @@ spec:
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
             # jmx-exporter-configの格納先
-            - name: jmx-exporter-mc-config
+            - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
-              subPath: jmx-exporter-mc-config.yaml
+              subPath: jmx-exporter-config.yaml
  
             # server.properties/bukkit/spigot/paper-global/whitelist configのマウント
             # bukkitの格納先
@@ -206,7 +206,7 @@ spec:
         - name: init-download-volume
           emptyDir: {}
         # jmx-exporter-config格納先
-        - name: jmx-exporter-mc-config
+        - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-mc-config
         # configmap格納先 

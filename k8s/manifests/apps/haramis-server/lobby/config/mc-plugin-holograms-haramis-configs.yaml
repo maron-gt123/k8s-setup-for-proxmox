@@ -13,7 +13,7 @@ data:
     down-origin: false
     pages:
     - lines:
-      - content: '&4 S1_World'
+      - content: '&a&l S1_World'
         height: 0.3
       actions: {}
   holograms-S2_Gateway.yml: |
@@ -26,7 +26,7 @@ data:
     down-origin: false
     pages:
     - lines:
-      - content: '&4 S2_World'
+      - content: '&a&l S2_World'
         height: 0.3
       actions: {}
   holograms-S3-Gateway.yml: |
@@ -39,6 +39,6 @@ data:
     down-origin: false
     pages:
     - lines:
-      - content: '&4 S3_World'
+      - content: '&a&l S3_World'
         height: 0.3
       actions: {}

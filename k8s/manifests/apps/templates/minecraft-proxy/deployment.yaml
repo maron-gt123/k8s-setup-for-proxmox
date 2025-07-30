@@ -211,7 +211,7 @@ spec:
               subPath: BungeeCordPrometheusExporter-config.json
             # minimotd-main-configを格納
             - name: velocity-plugin-minimotd-config
-              mountPath: /config/plugins/minimotd-velocity/plugin_settings.conf
+              mountPath: /config/plugins/minimotd-velocity/main.conf
               subPath: minimotd-velocity-main.conf
             # minimotd-settings-configを格納
             - name: velocity-plugin-minimotd-config

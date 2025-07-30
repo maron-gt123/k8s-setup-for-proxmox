@@ -161,5 +161,3 @@ data:
     
     # Whether plugins should be shown in query response by default or not
     show-plugins = false
-  forwarding.secret: |
-    gytS9ZohJscB

@@ -7,8 +7,6 @@ resources:
   - ../../templates/minecraft-server
   # pv & pvc
   - ./pv-haramis-lobby.yaml
-  # config
-  - ./config/mc-plugin-advancedportals-haramis-configs.yaml
   # secret
   - http://nas.mcnet/k8s/secret-haramis.yaml
 

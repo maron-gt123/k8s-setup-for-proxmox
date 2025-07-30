@@ -47,6 +47,8 @@ spec:
               value: 2G
             - name: ENABLE_RCON
               value: "true"
+            - name: RCON_PASSWORD
+              value: "12345"
             - name: ONLINE_MODE
               value: "false"
             - name: ALLOW_NETHER

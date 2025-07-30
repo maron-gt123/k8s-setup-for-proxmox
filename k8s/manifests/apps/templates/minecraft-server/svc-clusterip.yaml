@@ -22,3 +22,10 @@ metadata:
     app: minecraft
 spec:
   type: LoadBalancer
+  ports:
+    - name: rcon-service
+      port: 1337
+      protocol: TCP
+      targetPort: 25575
+  selector:
+    app: minecraft

@@ -167,6 +167,8 @@ spec:
               name: jmx-metrics
             - containerPort: 9225
               name: metrics
+            - containerPort: 1337
+              name: velocity-rcon
           startupProbe:
             tcpSocket:
               port: 25577

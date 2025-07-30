@@ -78,10 +78,10 @@ spec:
             - name: init-download-volume
               mountPath: /data/plugins/worldguard.jar
               subPath: worldguard.jar
-            # ------ setspawn ------
+            # ------ SpawnJoin ------
             - name: init-download-volume
-              mountPath: /data/plugins/setspawn.jar
-              subPath: setspawn.jar
+              mountPath: /data/plugins/SpawnJoin.jar
+              subPath: SpawnJoin.jar
             # ------ DecentHolograms ------
             - name: init-download-volume
               mountPath: /data/plugins/DecentHolograms.jar

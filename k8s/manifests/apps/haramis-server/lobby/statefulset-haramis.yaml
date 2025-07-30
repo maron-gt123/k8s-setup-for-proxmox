@@ -19,8 +19,8 @@ spec:
               value: "https://dev.bukkit.org/projects/worldedit/files/latest"
             - name: WORLDGUARD_URL
               value: "https://dev.bukkit.org/projects/worldguard/files/latest"
-            - name: SETSPAWN_URL
-              value: "https://dev.bukkit.org/projects/setspawn/files/latest"
+            - name: SPAWN_JOIN_URL
+              value: "https://www.curseforge.com/api/v1/mods/90575/files/934517/download"
             - name: HOLOGRAMS_URL
               value: "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.9.6/DecentHolograms-2.9.6.jar"
           volumeMounts:
@@ -32,7 +32,7 @@ spec:
             - >
               wget -O /root/initContainer-download/worldedit.jar "${WORLDEDIT_URL}" &&
               wget -O /root/initContainer-download/worldguard.jar "${WORLDEDIT_URL}" &&
-              wget -O /root/initContainer-download/setspawn.jar "${SETSPAWN_URL}" &&
+              wget -O /root/initContainer-download/SpawnJoin.jar "${SPAWN_JOIN_URL}" &&
               wget -O /root/initContainer-download/DecentHolograms.jar "${HOLOGRAMS_URL}"
       containers:
         - name: minecraft

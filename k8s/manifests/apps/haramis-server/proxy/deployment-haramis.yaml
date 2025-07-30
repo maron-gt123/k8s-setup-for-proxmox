@@ -33,3 +33,6 @@ spec:
               value: proxy
             - name: MEMORY
               value: 1024m
+            - name: RCON_CMDS_STARTUP
+              value: |-
+                /lpv editor

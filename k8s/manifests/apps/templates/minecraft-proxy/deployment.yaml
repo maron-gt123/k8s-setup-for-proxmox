@@ -189,7 +189,7 @@ spec:
             - name: ini-plugin-download-volume
               mountPath: /server/plugins/floodgate-velocity.jar
               subPath: floodgate-velocity.jar
-            - name: ini-velocity-forwarding-download
+            - name: ini-velocity-forwarding-download-volume
               mountPath: /config/forwarding.secret
               subPath: forwarding.secret
             # velocityのconfigファイルが入ったボリューム達のマウント設定

@@ -13,3 +13,4 @@ resources:
   # config
 
 patches:
+  - path: statefulset-haramis.yaml

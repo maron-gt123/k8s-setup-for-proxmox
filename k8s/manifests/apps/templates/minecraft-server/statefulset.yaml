@@ -31,92 +31,92 @@ spec:
         - image: itzg/minecraft-server:java21
           name: minecraft
           env:
-            - name: REPLACE_ENV_VARIABLE_PREFIX
+            - name: REPLACE_ENV_VARIABLE_PREFIX #0
               value: CFG_
-            - name: EULA
+            - name: EULA #1
               value: "TRUE"
-            - name: TZ
+            - name: TZ #2
               value: Asia/Tokyo
-            - name: TYPE
+            - name: TYPE #3
               value: PAPER
-            - name: VERSION
+            - name: VERSION #4
               value: "1.21.8"
-            - name: INIT_MEMORY
+            - name: INIT_MEMORY #5
               value: 1G
-            - name: MAX_MEMORY
+            - name: MAX_MEMORY #6
               value: 2G
-            - name: ENABLE_RCON
+            - name: ENABLE_RCON #7
               value: "true"
-            - name: RCON_PASSWORD
+            - name: RCON_PASSWORD #8
               value: "12345"
-            - name: ONLINE_MODE
+            - name: ONLINE_MODE #9
               value: "false"
-            - name: ALLOW_NETHER
+            - name: ALLOW_NETHER #10
               value: "true"
-            - name: DIFFICULTY
+            - name: DIFFICULTY #11
               value: easy
-            - name: LEVEL_TYPE
+            - name: LEVEL_TYPE #12
               value: normal
-            - name: SPAWN_ANIMALS
+            - name: SPAWN_ANIMALS #13
               value: "true"
-            - name: SPAWN_MONSTERS
+            - name: SPAWN_MONSTERS #14
               value: "true"
-            - name: SPAWN_NPCS
+            - name: SPAWN_NPCS #15
               value: "true"
-            - name: ENABLE_WHITELIST
+            - name: ENABLE_WHITELIST #16
               value: "true"
-            - name: CFG_ALLOW_END
+            - name: CFG_ALLOW_END #17
               value: "true"
-            - name: CFG_LUNACHAT_LANGUAGE
+            - name: CFG_LUNACHAT_LANGUAGE #18
               value: 
-            - name: CFG_SQLSERVER_ADDRESS
+            - name: CFG_SQLSERVER_ADDRESS #19
               valueFrom:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_SQLSERVER_ADDRESS
-            - name: CFG_SQLSERVER_USERNAME
+            - name: CFG_SQLSERVER_USERNAME #20
               valueFrom:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_SQLSERVER_USERNAME
-            - name: CFG_SQLSERVER_PASSWORD
+            - name: CFG_SQLSERVER_PASSWORD #21
               valueFrom:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_SQLSERVER_PASSWORD
-            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
+            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE #22
               valueFrom:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_SQLSERVER_LUCKPERMS_DATABASE
-            - name: CFG_SQLSERVER_INVENTORY_DATABASE
+            - name: CFG_SQLSERVER_INVENTORY_DATABASE #23
               valueFrom:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_SQLSERVER_INVENTORY_DATABASE
-            - name: CFG_LUCKPERMS_SERVER_NAME
+            - name: CFG_LUCKPERMS_SERVER_NAME #24
               value: 
-            - name: CFG_FORWARDING_KEY
+            - name: CFG_FORWARDING_KEY #25
               valueFrom:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_FORWARDING_KEY
-            - name: CFG_DISCORD_SRV_BOT_KEY
+            - name: CFG_DISCORD_SRV_BOT_KEY #26
               valueFrom:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_DISCORD_SRV_BOT_KEY
-            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #27
               valueFrom:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #28
               valueFrom:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-            - name: PLUGINS
+            - name: PLUGINS #29
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # minecraft-prometheus-exporter3.1.0
               # LuckPerms-Bukkit5.4.137
@@ -129,13 +129,13 @@ spec:
                 https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.0/DiscordSRV-Build-1.30.0.jar
-            - name: JVM_OPTS
+            - name: JVM_OPTS #30
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
             # config関連を/configから/dataへmcopy
-            - name: COPY_CONFIG_DEST
+            - name: COPY_CONFIG_DEST #31
               value: /data
-            - name: RCON_CMDS_STARTUP
+            - name: RCON_CMDS_STARTUP #32
               value: |-
 
           ports:

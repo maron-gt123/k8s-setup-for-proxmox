@@ -131,6 +131,11 @@ spec:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_DISCORD_SRV_KEY
+            - name: CFG_VELOCITY_RCON_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_VELOCITY_RCON_PASSWORD
             - name: TZ
               value: Asia/Tokyo
             - name: TYPE
@@ -231,6 +236,10 @@ spec:
             - name: velocity-plugin-floodgate-config
               mountPath: /config/plugins/floodgate/config.yml
               subPath: floodgate-config.yml
+            # velocity rcon-configを格納
+            - name: velocity-plugin-velocity-rcon-config
+              mountPath: /config/plugins/velocircon/rcon.yml
+              subPath: velocity-rcon-config.yml
       volumes:
         # config mapで指定したconfigデータを受け渡すためのvolume
         # velocity-config
@@ -265,6 +274,10 @@ spec:
         - name: velocity-plugin-floodgate-config
           configMap:
             name: velocity-floodgate-config
+        # velocity rcon
+        - name: velocity-plugin-velocity-rcon-config
+          configMap:
+            name: velocity-rcon-config
 
         # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: jmx-exporter-download-volume

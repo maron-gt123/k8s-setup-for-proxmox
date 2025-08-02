@@ -265,6 +265,6 @@ spec:
           configMap:
             name: mc-plugin-discordsrv-config
         # discordsrv-jp_message-configmap格納先
-        - name: mc-plugin-discordsrv-jp_message-config
+        - name: mc-plugin-discordsrv-jp-message-config
           configMap:
             name: mc-plugin-discordsrv-jp-message-config

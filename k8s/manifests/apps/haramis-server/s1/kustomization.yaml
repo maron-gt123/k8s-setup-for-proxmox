@@ -13,4 +13,14 @@ resources:
   # config
 
 patches:
+  - target:
+      kind: StatefulSet
+      name: minecraft
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env/27/valueFrom/secretKeyRef/key
+        value: CFG_DISCORD_SRV_LOG_S1_CHANNEL_KEY
+      - op: replace
+        path: /spec/template/spec/containers/0/env/28/valueFrom/secretKeyRef/key
+        value: CFG_DISCORD_SRV_CONSOLE_S1_CHANNEL_KEY
   - path: statefulset-haramis.yaml

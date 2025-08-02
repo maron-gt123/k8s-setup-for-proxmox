@@ -32,8 +32,8 @@ data:
       # Use {BOT} as a placeholder for the bot's name
       # Use {CODE} as a placeholder for the code people need to DM the bot
       # Use {INVITE} as a placeholder for the invite link people need to join the Discord server, uses DiscordInviteLink configured in config.yml
-      Not linked message: "&7You must link your &9Discord &7account to play.\n\n&7Send a DM to &b{BOT}&7 in the Discord server containing just &b{CODE}&7 to link your account.\n\n&7Discord Invite ≫ &b{INVITE}"
-    
+      Not linked message: "&7このサーバーでプレイするには、&9Discord&7アカウントのリンクが必要です。\n\n&7Discordサーバー内の &b{BOT}&7 に、次のコードをDMで送信してください： &b{CODE}\n\n&7Discordサーバーへの招待リンク： &b{INVITE}"
+          
       # If enabled, players will not only need to have their accounts linked but will also be required
       # to be a member of a Discord server that the bot is also in.
       #

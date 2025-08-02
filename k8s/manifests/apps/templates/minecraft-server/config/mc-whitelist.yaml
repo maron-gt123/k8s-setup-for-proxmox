@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-configs
+  name: mc-config
 data:
   mc-whitelist.json: |
     [

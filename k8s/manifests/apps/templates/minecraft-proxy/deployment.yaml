@@ -149,6 +149,8 @@ spec:
               value: 
             - name: CFG_SERVER_S3_URL
               value: 
+            - name: CFG_PROXY_ENABLE
+              value: 
             - name: TZ
               value: Asia/Tokyo
             - name: TYPE

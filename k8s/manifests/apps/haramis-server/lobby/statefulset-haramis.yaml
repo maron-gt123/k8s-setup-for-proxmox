@@ -55,6 +55,8 @@ spec:
               value: lobby
             - name: CFG_LUNACHAT_LANGUAGE
               value: ja
+            - name: CFG_DISCORDSRV_AUTH #8
+              value: "true"
             # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-

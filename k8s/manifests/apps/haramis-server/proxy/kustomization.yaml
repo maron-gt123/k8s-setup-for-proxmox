@@ -10,5 +10,4 @@ resources:
 patches:
   - path: svc-LoadBalancer.yaml
   - path: deployment-haramis.yaml
-  - path: config/velocity-common-haramis-config.yaml
   - path: config/velocity-plugin-minimotd-haramis-config.yaml

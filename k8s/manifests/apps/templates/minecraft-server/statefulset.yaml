@@ -223,6 +223,10 @@ spec:
             - name: mc-plugin-discordsrv-jp-message-config
               mountPath: /config/plugins/DiscordSRV/messages.yml
               subPath: mc-plugin-discordsrv-jp-message.yml
+            # discordsrv-linkのマウント
+            - name: mc-plugin-discordsrv-link-config
+              mountPath: /config/plugins/DiscordSRV/linking.yml
+              subPath: discordsrv-linking.yml
       volumes:
         # paperのボリューム
         - name: data
@@ -270,3 +274,7 @@ spec:
         - name: mc-plugin-discordsrv-jp-message-config
           configMap:
             name: mc-plugin-discordsrv-jp-message-config
+        # discordsrv-link-configmap格納先
+        - name: mc-plugin-discordsrv-link-config
+          configMap:
+            name: mc-plugin-discordsrv-link-config

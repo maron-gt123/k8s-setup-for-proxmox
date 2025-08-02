@@ -28,4 +28,6 @@ resources:
   - ./config/mc-plugin-discordsrv.yaml
   # discordsrv-jp_message-config
   - ./config/mc-plugin-discordsrv-jp-message-config.yaml
+  # discordsrv-link-config
+  - ./config/mc-plugin-discordsrv-link-config.yaml
 

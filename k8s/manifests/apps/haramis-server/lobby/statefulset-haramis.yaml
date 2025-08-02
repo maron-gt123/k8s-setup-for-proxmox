@@ -51,8 +51,6 @@ spec:
               value: "false"
             - name: CFG_ALLOW_END
               value: "false"
-            - name: ENABLE_WHITELIST
-              value: "true"
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: lobby
             - name: CFG_LUNACHAT_LANGUAGE

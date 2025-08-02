@@ -136,6 +136,14 @@ spec:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_VELOCITY_RCON_PASSWORD
+            - name: CFG_SERVER_LOBBY_URL
+              value: 
+            - name: CFG_SERVER_S1_URL
+              value: 
+            - name: CFG_SERVER_S2_URL
+              value: 
+            - name: CFG_SERVER_S3_URL
+              value: 
             - name: TZ
               value: Asia/Tokyo
             - name: TYPE
@@ -144,6 +152,7 @@ spec:
               value: "768m"
             - name: PLUGINS
               # bungeecord-prometheus-exporter
+              #BanManagerBungeeCord
               # LuckPerms-Velocity
               # GeyserSkinManager-Velocity
               # minimotd-velocity
@@ -151,6 +160,7 @@ spec:
               # VelocityRcon
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.7/bungeecord-prometheus-exporter-3.2.7.jar,
+                https://ci.frostcast.net/job/BanManager/48/artifact/bungee/build/libs/BanManagerBungeeCord.jar,
                 https://download.luckperms.net/1595/velocity/LuckPerms-Velocity-5.5.10.jar,
                 https://github.com/Camotoy/GeyserSkinManager/releases/download/1.8/GeyserSkinManager-Velocity.jar,
                 https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.7/VELOCITY/minimotd-velocity-2.1.7.jar,

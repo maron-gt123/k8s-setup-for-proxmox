@@ -10,6 +10,7 @@ resources:
 
   # config
   - ./config/mc-configs.yaml
+  - ./config/mc-whitelist.yaml
   # jmx-exporter-config
   - ./config/jmx-exporter-mc-config.yaml
   # prometheusexporter-config

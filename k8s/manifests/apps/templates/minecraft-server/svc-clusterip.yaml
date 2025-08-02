@@ -13,19 +13,3 @@ spec:
     targetPort: 25565
   selector:
     app: minecraft
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: mc-rcon-lb
-  labels:
-    app: minecraft
-spec:
-  type: LoadBalancer
-  ports:
-    - name: rcon-service
-      port: 25575
-      protocol: TCP
-      targetPort: 25575
-  selector:
-    app: minecraft

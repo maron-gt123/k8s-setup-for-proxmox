@@ -92,11 +92,7 @@ data:
     # Configure your forced hosts here.
     "lobby.example.com" = [
         "lobby"
-    ]
-    "s1.example.com" = [
-        "s1"
-    ]
-    
+    ]    
     [advanced]
     connection-override-mode = "default"
     force-default-server = true

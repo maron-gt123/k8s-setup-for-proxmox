@@ -214,17 +214,17 @@ spec:
               mountPath: /config/plugins/AdvancedPortals/portals.yml
               subPath: portals.yml
             # discord-SRVのマウント
-            #- name: mc-plugin-discordsrv-config
-            #  mountPath: /config/plugins/DiscordSRV/config.yml
-            #  subPath: discordsrv.yml
+            - name: mc-plugin-discordsrv-config
+              mountPath: /config/plugins/DiscordSRV/config.yml
+              subPath: discordsrv.yml
             # discord-SRV-jp_messageのマウント
             - name: mc-plugin-discordsrv-jp-message-config
               mountPath: /config/plugins/DiscordSRV/messages.yml
               subPath: mc-plugin-discordsrv-jp-message.yml
             # discordsrv-linkのマウント
-            #- name: mc-plugin-discordsrv-link-config
-            #  mountPath: /config/plugins/DiscordSRV/linking.yml
-            #  subPath: discordsrv-linking.yml
+            - name: mc-plugin-discordsrv-link-config
+              mountPath: /config/plugins/DiscordSRV/linking.yml
+              subPath: discordsrv-linking.yml
       volumes:
         # paperのボリューム
         - name: data

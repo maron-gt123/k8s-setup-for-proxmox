@@ -215,7 +215,7 @@ data:
     # - This is disabled by default, as most users will not need it. However, if you're using a remote
     #   storage type without a messaging service setup, you may wish to set this to something like 3.
     # - Set to -1 to disable the task completely.
-    sync-minutes: -1
+    sync-minutes: 5
     
     # If the file watcher should be enabled.
     #

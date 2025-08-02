@@ -31,7 +31,7 @@ spec:
             - -c
             - >
               wget -O /root/initContainer-download/worldedit.jar "${WORLDEDIT_URL}" &&
-              wget -O /root/initContainer-download/worldguard.jar "${WORLDEDIT_URL}" &&
+              wget -O /root/initContainer-download/worldguard.jar "${WORLDGUARD_URL}" &&
               wget -O /root/initContainer-download/SpawnJoin.jar "${SPAWN_JOIN_URL}" &&
               wget -O /root/initContainer-download/DecentHolograms.jar "${HOLOGRAMS_URL}"
       containers:

@@ -41,3 +41,5 @@ spec:
               value: S2 = "mc-s2-mc-service.mc-haramis.svc.cluster.local:25565"
             - name: CFG_SERVER_S3_URL
               value: S3 = "mc-s3-mc-service.mc-haramis.svc.cluster.local:25565"
+            - name: CFG_PROXY_ENABLE
+              value: "true"

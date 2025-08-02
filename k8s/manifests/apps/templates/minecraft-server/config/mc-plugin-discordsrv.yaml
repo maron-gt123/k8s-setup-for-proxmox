@@ -72,7 +72,7 @@ data:
     
     # その他
     CancelConsoleCommandIfLoggingFailed: true
-    ForcedLanguage: none
+    ForcedLanguage: Japanese
     ForceTLSv12: true
     NoopHostnameVerifier: false
     MaximumAttemptsForSystemDNSBeforeUsingFallbackDNS: 3

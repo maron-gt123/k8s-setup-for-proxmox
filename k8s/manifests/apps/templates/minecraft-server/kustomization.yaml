@@ -24,3 +24,5 @@ resources:
   - ./config/mc-plugin-mysqlInventorybridge-config.yaml
   # advancedportals-configs
   - ./config/mc-plugin-advancedportals-configs.yaml
+  # discord-SRV-config
+  - ./config/mc-plugin-discordsrv.yaml

@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: velocity-config
+  name: velocity-banmanager-common-config
 data:
-  velocity.toml: |
+  banmanager-common.yml: |
     debug: false
     databases:
       # Local Database is always required. If not enabled, plugin will disable on startup.
       local:
-        storageType: 'h2'
-        host: 127.0.0.1
+        storageType: 'mysql'
+        host: ${CFG_SQLSERVER_ADDRESS}
         port: 3306
-        name: local_bans
-        user: root
-        password: ''
+        name: ${CFG_SQLSERVER_BANMANAGER_DATABASE}
+        user: ${CFG_SQLSERVER_USERNAME}
+        password: '${CFG_SQLSERVER_PASSWORD}'
         maxConnections: 10
         useSSL: false
         allowPublicKeyRetrieval: false

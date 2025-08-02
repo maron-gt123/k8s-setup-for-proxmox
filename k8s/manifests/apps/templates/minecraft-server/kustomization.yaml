@@ -27,5 +27,5 @@ resources:
   # discord-SRV-config
   - ./config/mc-plugin-discordsrv.yaml
   # discordsrv-jp_message-config
-  - ./config/mc-plugin-discordsrv-jp_message-config.yaml
+  - ./config/mc-plugin-discordsrv-jp-message-config.yaml
 

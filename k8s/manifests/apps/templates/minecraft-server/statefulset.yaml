@@ -64,7 +64,7 @@ spec:
             - name: SPAWN_NPCS #15
               value: "true"
             - name: ENABLE_WHITELIST #16
-              value: "true"
+              value: "false"
             - name: CFG_ALLOW_END #17
               value: "true"
             - name: CFG_LUNACHAT_LANGUAGE #18
@@ -123,12 +123,14 @@ spec:
               # Advanced-Portals-0.9.3
               # LunaChat
               # DiscordSRV
+              # DiscordSRV-Auth
               value: >-
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.2/minecraft-prometheus-exporter-3.1.2.jar,
                 https://download.luckperms.net/1595/bukkit/loader/LuckPerms-Bukkit-5.5.10.jar,
                 https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
-                https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.0/DiscordSRV-Build-1.30.0.jar
+                https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.0/DiscordSRV-Build-1.30.0.jar,
+                https://github.com/PadowYT2/DiscordSRVOAuth/releases/download/v1.0.5/DiscordSRVOAuth-1.0.5.jar
             - name: JVM_OPTS #30
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml

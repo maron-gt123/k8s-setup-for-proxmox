@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: velocity-rcon-config
+data:
+  velocity-rcon-config.yml: |
+    enable: false
+    host: 0.0.0.0
+    port: 25575
+    password: ${CFG_VELOCITY_RCON}
+    colors: true

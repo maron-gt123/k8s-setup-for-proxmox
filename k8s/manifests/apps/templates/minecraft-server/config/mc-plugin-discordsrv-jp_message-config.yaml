@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: mc-plugin-discordsrv-jp_message-config
 data:
-  mc-plugin-discordsrv-jp_message.yml: |
+  mc-plugin-discordsrv-jp-message.yml: |
     # Discord -> Minecraft メッセージ
     #
     # DiscordToMinecraftChatMessageFormat: DiscordからMinecraftにメッセージを送る時に適用されるフォーマット

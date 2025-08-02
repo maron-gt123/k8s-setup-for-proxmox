@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-plugin-discordsrv-jp_message-config
+  name: mc-plugin-discordsrv-jp-message-config
 data:
   mc-plugin-discordsrv-jp-message.yml: |
     # Discord -> Minecraft メッセージ

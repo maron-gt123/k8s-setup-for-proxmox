@@ -196,7 +196,7 @@ data:
     # none: No conversion.
     # kana: Kana conversion only.
     # GoogleIME: After converting kana, convert kanji using GoogleIME.
-    japanizeType: none
+    japanizeType: GoogleIME
     
     # When converting kana or kanji,
     # Display the conversion result in a single line with the original statement content, or

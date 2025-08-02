@@ -218,9 +218,9 @@ spec:
               mountPath: /config/plugins/DiscordSRV/config.yml
               subPath: discordsrv.yml
             # discord-SRV-jp_messageのマウント
-            - name: mc-plugin-discordsrv-jp_message-config
+            - name: mc-plugin-discordsrv-jp-message-config
               mountPath: /config/plugins/DiscordSRV/messages.yml
-              subPath: mc-plugin-discordsrv-jp_message.yml
+              subPath: mc-plugin-discordsrv-jp-message.yml
       volumes:
         # paperのボリューム
         - name: data
@@ -267,4 +267,4 @@ spec:
         # discordsrv-jp_message-configmap格納先
         - name: mc-plugin-discordsrv-jp_message-config
           configMap:
-            name: mc-plugin-discordsrv-jp_message-config
+            name: mc-plugin-discordsrv-jp-message-config

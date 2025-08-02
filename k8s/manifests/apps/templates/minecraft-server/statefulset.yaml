@@ -47,7 +47,7 @@ spec:
               value: 2G
             - name: ENABLE_RCON #7
               value: "true"
-            - name: TENP #8 将来拡張用
+            - name: CFG_DISCORDSRV_AUTH #8
               value: 
             - name: ONLINE_MODE #9
               value: "false"

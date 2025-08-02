@@ -93,8 +93,14 @@ data:
     "lobby.example.com" = [
         "lobby"
     ]
-    "S1.example.com" = [
-        "S1"
+    "s1.example.com" = [
+        "s1"
+    ]
+    "s2.example.com" = [
+        "s2"
+    ]
+    "s3.example.com" = [
+        "s3"
     ]
     
     [advanced]

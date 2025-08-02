@@ -96,12 +96,6 @@ data:
     "s1.example.com" = [
         "s1"
     ]
-    "s2.example.com" = [
-        "s2"
-    ]
-    "s3.example.com" = [
-        "s3"
-    ]
     
     [advanced]
     connection-override-mode = "default"

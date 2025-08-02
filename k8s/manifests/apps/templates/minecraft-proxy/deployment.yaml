@@ -119,6 +119,11 @@ spec:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_SQLSERVER_INVENTORY_DATABASE
+            - name: CFG_SQLSERVER_BANMANAGER_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_BANMANAGER_DATABASE
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: 
             - name: CFG_FORWARDING_KEY
@@ -250,6 +255,11 @@ spec:
             - name: velocity-plugin-velocity-rcon-config
               mountPath: /config/plugins/velocircon/rcon.yml
               subPath: velocity-rcon-config.yml
+            # banmanager-common-configを格納
+            - name: velocity-plugin-banmanager-common-config
+              mountPath: /config/plugins/banmanager/config.yml
+              subPath: banmanager-common.yml
+
       volumes:
         # config mapで指定したconfigデータを受け渡すためのvolume
         # velocity-config
@@ -288,6 +298,10 @@ spec:
         - name: velocity-plugin-velocity-rcon-config
           configMap:
             name: velocity-rcon-config
+        # banmanager-common
+        - name: velocity-plugin-banmanager-common-config
+          configMap:
+            name: velocity-banmanager-common-config
 
         # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: jmx-exporter-download-volume

@@ -26,3 +26,6 @@ resources:
   - ./config/mc-plugin-advancedportals-configs.yaml
   # discord-SRV-config
   - ./config/mc-plugin-discordsrv.yaml
+  # discordsrv-jp_message-config
+  - ./config/mc-plugin-discordsrv-jp_message-config.yaml
+

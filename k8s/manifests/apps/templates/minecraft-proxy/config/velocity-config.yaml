@@ -44,7 +44,7 @@ data:
     
     # If you are using modern or BungeeGuard IP forwarding, configure a file that contains a unique secret here.
     # The file is expected to be UTF-8 encoded and not empty.
-    forwarding-secret-file = "forwarding.yml"
+    forwarding-secret-file = "forwarding.secret"
     
     # Announce whether or not your server supports Forge. If you run a modded server, we
     # suggest turning this on.
@@ -78,8 +78,10 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = "mc-lobby-mc-service.mc-haramis.svc.cluster.local:25565"
-    S1 = "localhost:25565"
+    lobby = "${CFG_SERVER_LOBBY_URL}"
+    S1 = "${CFG_SERVER_S1_URL}"
+    S2 = "${CFG_SERVER_S2_URL}"
+    S3 = "${CFG_SERVER_S3_URL}"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [

@@ -12,7 +12,7 @@ data:
     
     # Bot token: Bot のトークンをここに設定してください。設定方法は、プラグインの導入手順を参照してください。
     # このオプションを変更した後、サーバーを再起動する必要があります
-    BotToken: "${CFG_DISCORD_SRV_KEY}"
+    BotToken: "${CFG_DISCORD_SRV_BOT_KEY}"
     
     # ゲームからDiscordへのチャンネルリンク
     # 構文は Channels: {"Minecraft内のチャンネル名": "Discord内のチャンネルID（数値）", "Minecraft内の別のチャンネル名": "Discord内の別のチャンネルID（数値）"}
@@ -33,10 +33,10 @@ data:
     #
     # 各チャンネルの組の前半部分は Discord チャンネルの設定ではありません！
     # 編集したあとにこの設定を適用するには、「/discord reload」を実行してください
-    Channels: {"global": "000000000000000000"}
+    Channels: {"global": "${CFG_DISCORD_SRV_LOG_CHANNEL_KEY}"}
     
     # コンソールチャンネルのID（数値。チャンネル名ではありません)。コンソールチャンネルを無効にする場合は、空のままにしてください。
-    DiscordConsoleChannelId: "000000000000000000"
+    DiscordConsoleChannelId: "${CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY}"
     
     # /discord でプレイヤーに表示される招待リンク、およびアカウント連携を強制する際にまだ連携していないプレイヤーに表示される招待リンク
     DiscordInviteLink: "https://discord.gg/changethisintheconfig.yml"

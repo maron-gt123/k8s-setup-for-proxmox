@@ -196,14 +196,17 @@ spec:
               mountPath: /config/plugins/MysqlInventoryBridge/config.yml
               subPath: inventory-config.yml
             # advancedportals-destinationsのマウント
-            - name: mc-lobby-plugin-advancedportals-configs
+            - name: mc-plugin-advancedportals-configs
               mountPath: /config/plugins/AdvancedPortals/destinations.yml
               subPath: destinations.yml
             # advancedportals-portalsのマウント
-            - name: mc-lobby-plugin-advancedportals-configs
+            - name: mc-plugin-advancedportals-configs
               mountPath: /config/plugins/AdvancedPortals/portals.yml
               subPath: portals.yml
-
+            # discord-SRVのマウント
+            - name: mc-plugin-discordsrv-config
+              mountPath: /config/plugins/DiscordSRV/config.yml
+              subPath: discordsrv.yml
       volumes:
         # paperのボリューム
         - name: data
@@ -240,6 +243,10 @@ spec:
           configMap:
             name: mc-plugin-inventory-config
         # advancedportals周辺-configmap格納先
-        - name: mc-lobby-plugin-advancedportals-configs
+        - name: mc-plugin-advancedportals-configs
           configMap:
             name: mc-plugin-advancedportals-configs
+        # discord-SRV-configmap格納先
+        - name: mc-plugin-discordsrv-config
+          configMap:
+            name: mc-plugin-discordsrv-config

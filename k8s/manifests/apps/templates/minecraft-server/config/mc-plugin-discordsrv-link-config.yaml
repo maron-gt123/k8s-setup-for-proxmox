@@ -5,7 +5,7 @@ metadata:
 data:
   discordsrv-linking.yml: |
     Require linked account to play:
-      Enabled: true
+      Enabled: ${CFG_DISCORDSRV_AUTH}
     
       # If you don't know what these mean, don't touch them
       #

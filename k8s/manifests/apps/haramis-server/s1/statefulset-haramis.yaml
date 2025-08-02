@@ -32,6 +32,8 @@ spec:
               value: s1
             - name: CFG_LUNACHAT_LANGUAGE
               value: ja
+            - name: CFG_DISCORDSRV_AUTH
+              value: "false"
           volumeMounts:
             # ------ nsfに格納されているmusic_worldのマウント ------
             # ------ worldデータ ------

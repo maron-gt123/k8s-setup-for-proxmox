@@ -101,11 +101,21 @@ spec:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_FORWARDING_KEY
-            - name: CFG_DISCORD_SRV_KEY
+            - name: CFG_DISCORD_SRV_BOT_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-secret
-                  key: CFG_DISCORD_SRV_KEY
+                  key: CFG_DISCORD_SRV_BOT_KEY
+            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
             - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # minecraft-prometheus-exporter3.1.0

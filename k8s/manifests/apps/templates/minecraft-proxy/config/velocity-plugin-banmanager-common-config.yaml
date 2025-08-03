@@ -235,4 +235,4 @@ data:
         key: id
     
     # Allows supporting Bedrock names (via GeyserMC)
-    geyserPrefix: '.
+    geyserPrefix: 'g_.'

@@ -48,7 +48,7 @@ spec:
             - name: ENABLE_RCON #7
               value: "true"
             - name: CFG_DISCORDSRV_AUTH #8
-              value: 
+              value: "true"
             - name: ONLINE_MODE #9
               value: "false"
             - name: ALLOW_NETHER #10

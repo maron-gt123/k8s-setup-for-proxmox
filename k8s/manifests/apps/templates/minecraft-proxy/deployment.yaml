@@ -158,6 +158,7 @@ spec:
             - name: MEMORY
               value: "768m"
             - name: PLUGINS
+              # commander-velocity
               # bungeecord-prometheus-exporter
               #BanManagerBungeeCord
               # LuckPerms-Velocity
@@ -166,6 +167,7 @@ spec:
               # ViaVersion
               # VelocityRcon
               value: >-
+                https://hangarcdn.papermc.io/plugins/TheNextLvl/CommandControl/versions/4.4.0/VELOCITY/commander-velocity-4.4.0-all.jar,
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.7/bungeecord-prometheus-exporter-3.2.7.jar,
                 https://ci.frostcast.net/job/BanManager/lastSuccessfulBuild/artifact/velocity/build/libs/BanManagerVelocity.jar,
                 https://download.luckperms.net/1595/velocity/LuckPerms-Velocity-5.5.10.jar,

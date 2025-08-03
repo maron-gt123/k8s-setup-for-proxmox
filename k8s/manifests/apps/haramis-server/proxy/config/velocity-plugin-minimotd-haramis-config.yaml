@@ -31,7 +31,7 @@ data:
             #    ex: icon="myIconFile"
             icon=random
             line1="<bold><rainbow>🔥 はら民サブスクメンバー限定サーバーへようこそ 🔥"
-            line2="<gradient:blue:green><italic> 入場にはDiscord参加が必要です。<yellow>詳細は「はらむはらみ」のTikTokから</yellow>"
+            line2="<gradient:blue:green><italic> 入場にはDiscord参加が必要です。"
         },
         {
             # Set the icon to use with this MOTD

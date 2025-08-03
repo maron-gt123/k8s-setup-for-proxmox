@@ -36,10 +36,10 @@ spec:
             - name: CFG_SERVER_LOBBY_URL
               value: lobby = "mc-lobby-mc-service.mc-haramis.svc.cluster.local:25565"
             - name: CFG_SERVER_S1_URL
-              value: S1 = "mc-s1-mc-service.mc-haramis.svc.cluster.local:25565"
+              value: s1 = "mc-s1-mc-service.mc-haramis.svc.cluster.local:25565"
             - name: CFG_SERVER_S2_URL
-              value: S2 = "mc-s2-mc-service.mc-haramis.svc.cluster.local:25565"
+              value: s2 = "mc-s2-mc-service.mc-haramis.svc.cluster.local:25565"
             - name: CFG_SERVER_S3_URL
-              value: S3 = "mc-s3-mc-service.mc-haramis.svc.cluster.local:25565"
+              value: s3 = "mc-s3-mc-service.mc-haramis.svc.cluster.local:25565"
             - name: CFG_PROXY_ENABLE
               value: "true"

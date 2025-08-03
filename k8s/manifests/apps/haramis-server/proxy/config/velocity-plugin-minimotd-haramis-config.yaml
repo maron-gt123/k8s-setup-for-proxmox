@@ -21,8 +21,8 @@ data:
             #  of a file in the icons folder (excluding the '.png' extension)
             #    ex: icon="myIconFile"
             icon=random
-            line1="<rainbow>Welcome to Harami's server"
-            line2="<gradient:blue:red>本サーバーはデモンストレーション用兼検証サーバーです"
+            line1="<bold><rainbow>🔥 はら民サブスクメンバー限定サーバーへようこそ 🔥"
+            line2="<rainbow><italic>みんなで遊ぼう🎮</italic>"
         },
         {
             # Set the icon to use with this MOTD
@@ -30,8 +30,17 @@ data:
             #  of a file in the icons folder (excluding the '.png' extension)
             #    ex: icon="myIconFile"
             icon=random
-            line1="<red>Hello, fellow Haramin"
-            line2="<gradient:blue:red>楽しんでね"
+            line1="<bold><rainbow>🔥 はら民サブスクメンバー限定サーバーへようこそ 🔥"
+            line2="<gradient:blue:green><italic> 入場にはDiscord参加が必要です。<yellow>詳細は「はらむはらみ」のTikTokから</yellow>"
+        },
+        {
+            # Set the icon to use with this MOTD
+            #  Either use 'random' to randomly choose an icon, or use the name
+            #  of a file in the icons folder (excluding the '.png' extension)
+            #    ex: icon="myIconFile"
+            icon=random
+            line1="<bold><rainbow>🔥 はら民サブスクメンバー限定サーバーへようこそ 🔥"
+            line2="<obfuscated>VIPZONEXX</obfuscated> <gray>- みんな！！はらみのことが好きだよな？</gray>"
         }
     ]
     player-count-settings {

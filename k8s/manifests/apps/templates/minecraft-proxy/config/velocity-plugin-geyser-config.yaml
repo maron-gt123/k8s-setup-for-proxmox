@@ -41,7 +41,7 @@ data:
       # broadcast-port: 19132
       # Whether to enable PROXY protocol or not for clients. You DO NOT WANT this feature unless you run UDP reverse proxy
       # in front of your Geyser instance.
-      enable-proxy-protocol: false
+      enable-proxy-protocol: ${CFG_PROXY_ENABLE}
       # A list of allowed PROXY protocol speaking proxy IP addresses/subnets. Only effective when "enable-proxy-protocol" is enabled, and
       # should really only be used when you are not able to use a proper firewall (usually true with shared hosting providers etc.).
       # Keeping this list empty means there is no IP address whitelist.

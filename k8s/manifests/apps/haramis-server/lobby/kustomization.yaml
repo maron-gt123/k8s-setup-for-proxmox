@@ -12,6 +12,7 @@ resources:
   
   # config
   - config/mc-plugin-holograms-haramis-configs.yaml
+  - config/mc-plugin-serverspawn-haramis-config.yaml
 patches:
   - target:
       kind: StatefulSet

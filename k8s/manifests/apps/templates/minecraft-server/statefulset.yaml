@@ -116,7 +116,12 @@ spec:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-            - name: PLUGINS #29
+            - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE #29
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-secret
+                  key: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
+            - name: PLUGINS #30
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # minecraft-prometheus-exporter3.1.0
               # LuckPerms-Bukkit5.4.137
@@ -129,13 +134,13 @@ spec:
                 https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.0/DiscordSRV-Build-1.30.0.jar
-            - name: JVM_OPTS #30
+            - name: JVM_OPTS #31
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
             # config関連を/configから/dataへmcopy
-            - name: COPY_CONFIG_DEST #31
+            - name: COPY_CONFIG_DEST #32
               value: /data
-            - name: RCON_CMDS_STARTUP #32
+            - name: RCON_CMDS_STARTUP #33
               value: |-
 
           ports:

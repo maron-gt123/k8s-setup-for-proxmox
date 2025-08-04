@@ -98,12 +98,20 @@ spec:
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-S3-Gateway.yml
               subPath: holograms-S3-Gateway.yml
+            # ------ serverspawn ------
+            - name: mc-plugin-holograms-config
+              mountPath: /config/plugins/ServerSpawn/ServerSpawn.yml
+              subPath: ServerSpawn.yml
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data
           persistentVolumeClaim:
             claimName: haramis-lobby-pvc
-        # -holograms-configmap格納先
+        # holograms-configmap格納先
         - name: mc-plugin-holograms-config
           configMap:
             name: mc-plugin-holograms-configs
+        # serverspawn-configmap格納先
+        - name: mc-plugin-serverspawn-config
+          configMap:
+            name: mc-plugin-serverspawn-config

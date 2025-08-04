@@ -45,10 +45,10 @@ data:
     # These features are not fully optimized; use at your own risk
     
     # JDBC (MySQL/MariaDB)
-    Experiment_JdbcAccountLinkBackend: "jdbc:mysql://HOST:PORT/DATABASE?autoReconnect=true&useSSL=false"
+    Experiment_JdbcAccountLinkBackend: "jdbc:mysql://${CFG_SQLSERVER_ADDRESS}:3306/${CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE}?autoReconnect=true&useSSL=false"
     Experiment_JdbcTablePrefix: "discordsrv"
-    Experiment_JdbcUsername: "username"
-    Experiment_JdbcPassword: "password"
+    Experiment_JdbcUsername: "${CFG_SQLSERVER_USERNAME}"
+    Experiment_JdbcPassword: "${CFG_SQLSERVER_PASSWORD}"
     
     # Webhook Delivery
     Experiment_WebhookChatMessageDelivery: false

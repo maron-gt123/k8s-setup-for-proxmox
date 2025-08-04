@@ -106,6 +106,14 @@ spec:
             - name: mc-plugin-serverspawn-config
               mountPath: /config/plugins/ServerSpawn/ServerSpawn.yml
               subPath: ServerSpawn.yml
+            # ------　advancedportals-destinations ------
+            - name: mc-plugin-advancedportals-configs
+              mountPath: /config/plugins/AdvancedPortals/desti/S1-world.yaml
+              subPath: s1-world-destinations.yml
+            # ------　advancedportals-portals ------
+            - name: mc-plugin-advancedportals-configs
+              mountPath: /config/plugins/AdvancedPortals/portals/S1-world.yaml
+              subPath: s1-world-portals.yml
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data

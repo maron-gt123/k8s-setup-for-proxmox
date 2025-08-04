@@ -34,3 +34,34 @@ data:
       posY: -60
       posZ: 7
       worldName: world
+  s2-world-destinations.yml: |
+    args:
+      name:
+      - S2-world
+    loc:
+      pitch: 24.150032
+      worldName: world
+      x: -7.282844821237515
+      y: -59.0
+      yaw: 139.79993
+      z: 10.129465154426802
+  s2-world-portals.yml: |
+    args:
+      bungee:
+      - s2
+      name:
+      - S2-world
+      destination:
+      - S2-world
+      triggerblock:
+      - WATER
+    maxLoc:
+      posX: -10
+      posY: -55
+      posZ: 11
+      worldName: world
+    minLoc:
+      posX: -10
+      posY: -60
+      posZ: 7
+      worldName: world

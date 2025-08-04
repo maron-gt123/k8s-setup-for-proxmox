@@ -131,11 +131,6 @@ spec:
                 secretKeyRef:
                   name: minecraft-secret
                   key: CFG_FORWARDING_KEY
-            - name: CFG_DISCORD_SRV_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-secret
-                  key: CFG_DISCORD_SRV_KEY
             - name: CFG_VELOCITY_RCON_PASSWORD
               valueFrom:
                 secretKeyRef:

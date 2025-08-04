@@ -19,8 +19,8 @@ spec:
               value: "https://dev.bukkit.org/projects/worldedit/files/latest"
             - name: WORLDGUARD_URL
               value: "https://dev.bukkit.org/projects/worldguard/files/latest"
-            - name: SPAWN_JOIN_URL
-              value: "https://www.curseforge.com/api/v1/mods/90575/files/934517/download"
+            - name: SERVERSPAWN_URL
+              value: "https://dev.bukkit.org/projects/serverspawn-by-goodgamer123/files/latest"
             - name: HOLOGRAMS_URL
               value: "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.9.6/DecentHolograms-2.9.6.jar"
           volumeMounts:
@@ -32,7 +32,7 @@ spec:
             - >
               wget -O /root/initContainer-download/worldedit.jar "${WORLDEDIT_URL}" &&
               wget -O /root/initContainer-download/worldguard.jar "${WORLDGUARD_URL}" &&
-              wget -O /root/initContainer-download/SpawnJoin.jar "${SPAWN_JOIN_URL}" &&
+              wget -O /root/initContainer-download/ServerSpawn.jar "${SERVERSPAWN_URL}" &&
               wget -O /root/initContainer-download/DecentHolograms.jar "${HOLOGRAMS_URL}"
       containers:
         - name: minecraft
@@ -78,10 +78,10 @@ spec:
             - name: init-download-volume
               mountPath: /data/plugins/worldguard.jar
               subPath: worldguard.jar
-            # ------ SpawnJoin ------
+            # ------ ServerSpawn ------
             - name: init-download-volume
-              mountPath: /data/plugins/SpawnJoin.jar
-              subPath: SpawnJoin.jar
+              mountPath: /data/plugins/ServerSpawn.jar
+              subPath: ServerSpawn.jar
             # ------ DecentHolograms ------
             - name: init-download-volume
               mountPath: /data/plugins/DecentHolograms.jar

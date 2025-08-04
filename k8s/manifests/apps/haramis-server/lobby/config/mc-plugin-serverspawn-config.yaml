@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: mc-plugin-serverspawn-config
-data:
-  holograms-S1_Gateway.yml: |

@@ -17,7 +17,7 @@ data:
       - content: '&eこのサーバーでは以下のルールを守ってください。'
       - content: '&a1. 他人に迷惑をかけない'
       - content: '&a2. 不正行為をしない'
-      - content: '&a3. Discordに参加しておくこと'
+      - content: '&a3. 迷惑行為・不正行為が発覚した場合は管理者からkick等の処置をいたします'
       - content: '&a4. 不具合発見時は同Discordメンバー内のmaron_iQSに連絡をお願いします'
       - content: '&e. 各サーバーについて'
       - content: '&aS1：生活サーバー　S2以降：将来拡張用'

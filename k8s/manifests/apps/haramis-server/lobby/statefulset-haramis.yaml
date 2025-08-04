@@ -99,7 +99,7 @@ spec:
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-S3-Gateway.yml
               subPath: holograms-S3-Gateway.yml
             # ------ serverspawn ------
-            - name: mc-plugin-holograms-config
+            - name: mc-plugin-serverspawn-config
               mountPath: /config/plugins/ServerSpawn/ServerSpawn.yml
               subPath: ServerSpawn.yml
       volumes:

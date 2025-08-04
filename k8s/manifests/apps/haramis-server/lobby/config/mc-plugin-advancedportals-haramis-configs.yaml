@@ -3,27 +3,34 @@ kind: ConfigMap
 metadata:
   name: mc-plugin-advancedportals-configs
 data:
-  destinations.yml: |
-    #  ExampleDestination:
-    #    world: it will be the world name
-    #    pos:
-    #      X:
-    #      Y:
-  portals.yml: |
-    #  ExamplePortal:
-    #    world: it will be the world name
-    #    triggerblock: LAVA # will only be used if the hastriggerblock is true and can be id or text
-    #    pos1: # dont mess with the data here, if you do it may stop the portal from working.
-    #      X:
-    #      Y:
-    #      Z:
-    #    pos2:
-    #      X:
-    #      Y:
-    #      Z:
-    #    destination:
-    #      issetpoint: true # if this was false point name would not be used and the coordinates would be saved here, it just adds more customisation.
-    #      pointname: examplepoint # if issetpoint is false this wont be here and tppos will be.
-    #      tppos:
-    #        X:
-    #        Y:
+  s1-world-destinations.yml: |
+    args:
+      name:
+      - S1-world
+    loc:
+      pitch: 22.20002
+      worldName: world
+      x: 6.0877286223835805
+      y: -59.0
+      yaw: -50.850006
+      z: 8.883886294490132
+  s1-world-portals.yml: |
+    args:
+      bungee:
+      - s1
+      name:
+      - S1-world
+      destination:
+      - S1-world
+      triggerblock:
+      - WATER
+    maxLoc:
+      posX: 8
+      posY: -55
+      posZ: 11
+      worldName: world
+    minLoc:
+      posX: 8
+      posY: -60
+      posZ: 7
+      worldName: world

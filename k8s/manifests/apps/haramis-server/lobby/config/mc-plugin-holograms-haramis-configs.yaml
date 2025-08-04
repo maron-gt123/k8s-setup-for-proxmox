@@ -4,7 +4,7 @@ metadata:
   name: mc-plugin-holograms-configs
 data:
   holograms-subscription_welcome.yml: |
-    location: world:-1.0:-60.000:-9.000
+    location: world:-1.0:-55.000:-3.000
     enabled: true
     display-range: 48
     update-range: 48

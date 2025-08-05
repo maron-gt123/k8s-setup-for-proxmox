@@ -34,6 +34,13 @@ spec:
               value: ja
             - name: CFG_DISCORDSRV_AUTH
               value: "true"
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 4G
+          resources:
+            requests:
+              memory: 6G
           volumeMounts:
             # ------ nsfに格納されているmusic_worldのマウント ------
             # ------ worldデータ ------

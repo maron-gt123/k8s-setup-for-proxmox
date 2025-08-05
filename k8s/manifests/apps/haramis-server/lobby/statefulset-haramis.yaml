@@ -106,6 +106,10 @@ spec:
             - name: mc-plugin-serverspawn-config
               mountPath: /config/plugins/ServerSpawn/ServerSpawn.yml
               subPath: ServerSpawn.yml
+            # ------ worldgard-regions ------
+            - name: mc-plugin-worldgard-regions-config
+              mountPath: /config/plugins/WorldGuard/worlds/world/regions.yml
+              subPath: regions.yml
             # ------　advancedportals-destinations ------
             - name: mc-plugin-advancedportals-configs
               mountPath: /config/plugins/AdvancedPortals/desti/S1-world.yaml
@@ -133,3 +137,7 @@ spec:
         - name: mc-plugin-serverspawn-config
           configMap:
             name: mc-plugin-serverspawn-config
+        # worldgard-regions-configmap格納先
+        - name: mc-plugin-worldgard-regions-config
+          configMap:
+            name: mc-plugin-worldgard-regions-config

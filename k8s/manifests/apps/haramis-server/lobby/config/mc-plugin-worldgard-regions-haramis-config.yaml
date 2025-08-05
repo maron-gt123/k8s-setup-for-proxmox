@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mc-plugin-worldgard-regions-config
+data:
+  regions.yml: |
+    regions:
+      lobby:
+        type: cuboid
+        priority: 100
+        owners:
+          players: []
+        flags:
+          build: deny
+          block-break: deny
+          block-place: deny
+          use: deny
+          interact: deny
+          chest-access: deny
+          item-drop: deny
+          item-pickup: deny
+          tnt: deny
+          lighter: deny
+          fire-spread: deny
+          lava-fire: deny
+          enderbuild: deny
+        region-points:
+          min: {x: -10000, y: -64, z: -10000}
+          max: {x: 10000, y: 255, z: 10000}

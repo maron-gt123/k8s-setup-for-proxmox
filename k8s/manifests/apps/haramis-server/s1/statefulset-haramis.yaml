@@ -17,6 +17,8 @@ spec:
           env:
             - name: INVENTORY_URL
               value: "https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/download?version=357227"
+            - name: ONEPLAYERSLEEP_URL
+              value: "https://www.spigotmc.org/resources/one-player-sleep.31585/download?version=384206"
           volumeMounts:
             - name: init-download-volume
               mountPath: /root/initContainer-download
@@ -24,7 +26,8 @@ spec:
             - sh
             - -c
             - >
-              wget -O /root/initContainer-download/MysqlInventoryBridge.jar "${INVENTORY_URL}"
+              wget -O /root/initContainer-download/MysqlInventoryBridge.jar "${INVENTORY_URL}" &&
+              wget -O /root/initContainer-download/OnePlayerSleep.jar "${ONEPLAYERSLEEP_URL}"
       containers:
         - name: minecraft
           env:

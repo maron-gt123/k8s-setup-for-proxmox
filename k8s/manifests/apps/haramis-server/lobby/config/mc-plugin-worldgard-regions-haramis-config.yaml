@@ -25,5 +25,5 @@ data:
           lava-fire: deny
           enderbuild: deny
         region-points:
-          min: {x: -10000, y: -64, z: -10000}
-          max: {x: 10000, y: 255, z: 10000}
+          min: {x: -1000, y: -64, z: -1000}
+          max: {x: 1000, y: 255, z: 1000}

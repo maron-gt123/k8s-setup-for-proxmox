@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: minecraft-restart-warning
+spec:
+  schedule: "55 3 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: notifier
+              image: itzg/minecraft-server:java21
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  rcon-cli --host minecraft.mc-haramis.svc.cluster.local \
+                           --port 25575 \
+                           --password "$RCON_PASSWORD" \
+                           say "§c[警告] 5分後にフロントエンドが再起動されます"
+              env:
+                - name: RCON_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: rcon-secret
+                      key: RCON_PASSWORD
+          restartPolicy: OnFailure

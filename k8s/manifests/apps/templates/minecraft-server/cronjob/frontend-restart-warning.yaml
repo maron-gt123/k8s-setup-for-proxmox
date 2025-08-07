@@ -28,8 +28,8 @@ spec:
                 - name: RCON_PASSWORD
                   valueFrom:
                     secretKeyRef:
-                      name: rcon-secret
-                      key: RCON_PASSWORD
+                      name: minecraft-secret
+                      key: CFG_MC_RCON_PASSWORD
                 - name: RCON_MESSAGE
                   value: |
                     §c[警告] 5分後にフロントエンドサーバーが再起動されます

@@ -27,3 +27,4 @@ patches:
         value: CFG_DISCORD_SRV_CONSOLE_LOBBY_CHANNEL_KEY
   - path: statefulset-haramis.yaml
   - path: config/mc-plugin-advancedportals-haramis-configs.yaml
+  - path: cronjob/frontend-restart-warning-lobby.yaml

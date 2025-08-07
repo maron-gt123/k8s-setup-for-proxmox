@@ -32,3 +32,5 @@ resources:
   # discordsrv-link-config
   - ./config/mc-plugin-discordsrv-link-config.yaml
 
+  # cronjob (frontend-restart warning)
+  # - ./cronjob/frontend-restart-warning.cronjob.yaml

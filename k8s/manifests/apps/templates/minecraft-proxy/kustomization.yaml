@@ -11,7 +11,7 @@ resources:
   # config関連
   - ./config/velocity-config.yaml
   - ./config/velocity-plugin-LuckPerms-config.yaml
-  - ./config/velocity-plugin-bungeecord-prometheusexporter-config.yaml
+  - ./config/velocity-plugin-velocity-prometheusexporter-config.yaml
   - ./config/velocity-plugin-floodgate-config.yaml
   - ./config/velocity-plugin-geyser-config.yaml
   - ./config/velocity-plugin-geyserskinmanager-bungeecord-config.yaml

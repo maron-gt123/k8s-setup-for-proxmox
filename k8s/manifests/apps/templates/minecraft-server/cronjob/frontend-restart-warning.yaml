@@ -22,13 +22,13 @@ spec:
                     say "$RCON_MESSAGE"
               env:
                 - name: RCON_HOST
-                  value: minecraft.mc-haramis.svc.cluster.local  # patchで上書き前提
+                  value: # patchで上書き前提
                 - name: RCON_PORT
                   value: "25575"
                 - name: RCON_PASSWORD
                   valueFrom:
                     secretKeyRef:
-                      name: minecraft-secret
+                      name: minecraft-common-secret
                       key: CFG_MC_RCON_PASSWORD
                 - name: RCON_MESSAGE
                   value: |

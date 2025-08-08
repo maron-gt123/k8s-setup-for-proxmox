@@ -5,9 +5,8 @@ metadata:
   labels:
     app: mc-proxy
   # We wish this deployment to be reloaded
-  # when "bungeecord-config" and "bungeecord-plugin-configs" ConfigMap are updated
   annotations:
-    configmap.reloader.stakater.com/reload: "jmx-exporter-config,velocity-configs,velocity-plugin-configs"
+    configmap.reloader.stakater.com/reload: "jmx-exporter-velocity-config,velocity-config,velocity-luckperms-config,velocity-banmanager-common-config,velocity-prometheusexporter-config,velocity-floodgate-config,velocity-geyser-config,velocity-geyserskinmanager-config,velocity-minimotd-config,velocity-rcon-config"
 spec:
   replicas: 1
   revisionHistoryLimit: 0

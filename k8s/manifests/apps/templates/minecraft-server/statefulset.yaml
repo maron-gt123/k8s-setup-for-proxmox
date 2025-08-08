@@ -47,81 +47,86 @@ spec:
               value: 2G
             - name: ENABLE_RCON #7
               value: "true"
-            - name: CFG_DISCORDSRV_AUTH #8
+            - name: CFG_MC_RCON_PASSWORD #8
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: CFG_MC_RCON_PASSWORD
+            - name: CFG_DISCORDSRV_AUTH #9
               value: "true"
-            - name: ONLINE_MODE #9
+            - name: ONLINE_MODE #10
               value: "false"
-            - name: ALLOW_NETHER #10
+            - name: ALLOW_NETHER #11
               value: "true"
-            - name: DIFFICULTY #11
+            - name: DIFFICULTY #12
               value: easy
-            - name: LEVEL_TYPE #12
+            - name: LEVEL_TYPE #13
               value: normal
-            - name: SPAWN_ANIMALS #13
+            - name: SPAWN_ANIMALS #14
               value: "true"
-            - name: SPAWN_MONSTERS #14
+            - name: SPAWN_MONSTERS #15
               value: "true"
-            - name: SPAWN_NPCS #15
+            - name: SPAWN_NPCS #16
               value: "true"
-            - name: ENABLE_WHITELIST #16
+            - name: ENABLE_WHITELIST #17
               value: "false"
-            - name: CFG_ALLOW_END #17
+            - name: CFG_ALLOW_END #18
               value: "true"
-            - name: CFG_LUNACHAT_LANGUAGE #18
-              value: 
-            - name: CFG_SQLSERVER_ADDRESS #19
+            - name: CFG_LUNACHAT_LANGUAGE #19
+              value: ja
+            - name: CFG_SQLSERVER_ADDRESS #20
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_ADDRESS
-            - name: CFG_SQLSERVER_USERNAME #20
+            - name: CFG_SQLSERVER_USERNAME #21
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_USERNAME
-            - name: CFG_SQLSERVER_PASSWORD #21
+            - name: CFG_SQLSERVER_PASSWORD #22
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_PASSWORD
-            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE #22
+            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE #23
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_LUCKPERMS_DATABASE
-            - name: CFG_SQLSERVER_INVENTORY_DATABASE #23
+            - name: CFG_SQLSERVER_INVENTORY_DATABASE #24
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_INVENTORY_DATABASE
-            - name: CFG_LUCKPERMS_SERVER_NAME #24
+            - name: CFG_LUCKPERMS_SERVER_NAME #25
               value: 
-            - name: CFG_FORWARDING_KEY #25
+            - name: CFG_FORWARDING_KEY #26
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_FORWARDING_KEY
-            - name: CFG_DISCORD_SRV_BOT_KEY #26
+            - name: CFG_DISCORD_SRV_BOT_KEY #27
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_BOT_KEY
-            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #27
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-common-secret
-                  key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #28
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-common-secret
-                  key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-            - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE #29
+            - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE #38
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
-            - name: PLUGINS #30
+            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #29
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #30
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+            - name: PLUGINS #31
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # ServerBackup
               # minecraft-prometheus-exporter3.1.0
@@ -136,13 +141,13 @@ spec:
                 https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.0/DiscordSRV-Build-1.30.0.jar
-            - name: JVM_OPTS #31
+            - name: JVM_OPTS #32
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
             # config関連を/configから/dataへmcopy
-            - name: COPY_CONFIG_DEST #32
+            - name: COPY_CONFIG_DEST #33
               value: /data
-            - name: RCON_CMDS_STARTUP #33
+            - name: RCON_CMDS_STARTUP #34
               value: |-
 
           ports:

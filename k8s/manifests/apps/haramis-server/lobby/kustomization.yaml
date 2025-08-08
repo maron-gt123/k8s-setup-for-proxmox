@@ -8,7 +8,8 @@ resources:
   # pv & pvc
   - ./pv-haramis-lobby.yaml
   # secret
-  - http://nas.mcnet/k8s/secret-haramis.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-common.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-lobby.yaml
   
   # config
   - config/mc-plugin-holograms-haramis-configs.yaml
@@ -16,15 +17,6 @@ resources:
   - config/mc-plugin-worldgard-regions-haramis-config.yaml
 patches:
   - target:
-      kind: StatefulSet
-      name: minecraft
-    patch: |-
-      - op: replace
-        path: /spec/template/spec/containers/0/env/27/valueFrom/secretKeyRef/key
-        value: CFG_DISCORD_SRV_LOG_LOBBY_CHANNEL_KEY
-      - op: replace
-        path: /spec/template/spec/containers/0/env/28/valueFrom/secretKeyRef/key
-        value: CFG_DISCORD_SRV_CONSOLE_LOBBY_CHANNEL_KEY
   - path: statefulset-haramis.yaml
   - path: config/mc-plugin-advancedportals-haramis-configs.yaml
   - path: cronjob/frontend-restart-warning-lobby.yaml

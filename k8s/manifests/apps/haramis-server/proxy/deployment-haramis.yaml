@@ -34,12 +34,24 @@ spec:
             - name: MEMORY
               value: 1024m
             - name: CFG_SERVER_LOBBY_URL
-              value: lobby = "mc-lobby-mc-service.mc-haramis.svc.cluster.local:25565"
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-lobby-secret
+                  key: CFG_SERVER_LOBBY_URL
             - name: CFG_SERVER_S1_URL
-              value: s1 = "mc-s1-mc-service.mc-haramis.svc.cluster.local:25565"
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-s1-secret
+                  key: CFG_SERVER_S1_URL
             - name: CFG_SERVER_S2_URL
-              value: s2 = "mc-s2-mc-service.mc-haramis.svc.cluster.local:25565"
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-s2-secret
+                  key: CFG_SERVER_S2_URL
             - name: CFG_SERVER_S3_URL
-              value: s3 = "mc-s3-mc-service.mc-haramis.svc.cluster.local:25565"
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-s3-secret
+                  key: CFG_SERVER_S3_URL
             - name: CFG_PROXY_ENABLE
               value: "true"

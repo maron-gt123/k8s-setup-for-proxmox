@@ -53,8 +53,6 @@ spec:
               value: "false"
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: lobby
-            - name: CFG_LUNACHAT_LANGUAGE
-              value: ja
             - name: CFG_DISCORDSRV_AUTH
               value: "true"
             # ------時間天候無効化コマンド ------
@@ -98,7 +96,7 @@ spec:
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-S2_Gateway.yml
               subPath: holograms-S2_Gateway.yml
-            # ------ holograms-music_Gateway ------
+            # ------ holograms-S3_Gateway ------
             - name: mc-plugin-holograms-config
               mountPath: /config/plugins/DecentHolograms/holograms/holograms-S3-Gateway.yml
               subPath: holograms-S3-Gateway.yml

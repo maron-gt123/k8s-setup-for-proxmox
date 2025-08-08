@@ -47,7 +47,7 @@ spec:
               value: 2G
             - name: ENABLE_RCON #7
               value: "true"
-            - name: CFG_MC_RCON_PASSWORD #8
+            - name: RCON_PASSWORD #8
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret

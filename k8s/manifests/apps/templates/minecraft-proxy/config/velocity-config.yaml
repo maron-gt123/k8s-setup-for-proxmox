@@ -83,10 +83,10 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = ${CFG_SERVER_LOBBY_URL}
-    s1 = ${CFG_SERVER_S1_URL}
-    s2 = ${CFG_SERVER_S2_URL}
-    s3 = ${CFG_SERVER_S3_URL}
+    lobby = ${CFG_SERVER_LOBBY_URL}:25565"
+    s1 = "${CFG_SERVER_S1_URL}:25565"
+    s2 = "${CFG_SERVER_S2_URL}:25565"
+    s3 = "${CFG_SERVER_S3_URL}:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
@@ -104,7 +104,10 @@ data:
     "s2.example.com" = [
         "s2"
     ]
-    
+    "s3.example.com" = [
+        "s3"
+    ]
+        
     [advanced]
     # How large a Minecraft packet has to be before we compress it. Setting this to zero will
     # compress all packets, and setting it to -1 will disable compression entirely.

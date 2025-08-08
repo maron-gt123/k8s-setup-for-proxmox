@@ -55,6 +55,16 @@ spec:
               value: lobby
             - name: CFG_DISCORDSRV_AUTH
               value: "true"
+            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #29
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-lobby-secret
+                  key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #30
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-lobby-secret
+                  key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
             # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-

@@ -72,54 +72,54 @@ spec:
             - name: CFG_SQLSERVER_ADDRESS #19
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-secret
+                  name: minecraft-common-secret
                   key: CFG_SQLSERVER_ADDRESS
             - name: CFG_SQLSERVER_USERNAME #20
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-secret
+                  name: minecraft-common-secret
                   key: CFG_SQLSERVER_USERNAME
             - name: CFG_SQLSERVER_PASSWORD #21
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-secret
+                  name: minecraft-common-secret
                   key: CFG_SQLSERVER_PASSWORD
             - name: CFG_SQLSERVER_LUCKPERMS_DATABASE #22
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-secret
+                  name: minecraft-common-secret
                   key: CFG_SQLSERVER_LUCKPERMS_DATABASE
             - name: CFG_SQLSERVER_INVENTORY_DATABASE #23
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-secret
+                  name: minecraft-common-secret
                   key: CFG_SQLSERVER_INVENTORY_DATABASE
             - name: CFG_LUCKPERMS_SERVER_NAME #24
               value: 
             - name: CFG_FORWARDING_KEY #25
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-secret
+                  name: minecraft-common-secret
                   key: CFG_FORWARDING_KEY
             - name: CFG_DISCORD_SRV_BOT_KEY #26
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-secret
+                  name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_BOT_KEY
             - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #27
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-secret
+                  name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
             - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #28
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-secret
+                  name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
             - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE #29
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-secret
+                  name: minecraft-common-secret
                   key: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
             - name: PLUGINS #30
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納

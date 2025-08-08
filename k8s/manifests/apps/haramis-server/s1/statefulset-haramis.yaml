@@ -33,14 +33,22 @@ spec:
           env:
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: s1
-            - name: CFG_LUNACHAT_LANGUAGE
-              value: ja
             - name: CFG_DISCORDSRV_AUTH
               value: "true"
             - name: INIT_MEMORY
               value: 1G
             - name: MAX_MEMORY
               value: 4G
+            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-s1-secret
+                  key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-s1-secret
+                  key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
           resources:
             requests:
               memory: 6G
@@ -54,6 +62,10 @@ spec:
             - name: init-download-volume
               mountPath: /data/plugins/MysqlInventoryBridge.jar
               subPath: MysqlInventoryBridge.jar
+            # ------ OnePlayerSleep ------
+            - name: init-download-volume
+              mountPath: /data/plugins/OnePlayerSleep.jar
+              subPath: OnePlayerSleep.jar
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data

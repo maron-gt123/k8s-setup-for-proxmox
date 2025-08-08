@@ -6,7 +6,11 @@ resources:
   # templates
   - ../../templates/minecraft-proxy
   # secret
-  - http://nas.mcnet/k8s/secret-haramis.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-common.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-lobby.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-s1.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-s2.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-s3.yaml
 patches:
   - path: svc-LoadBalancer.yaml
   - path: deployment-haramis.yaml

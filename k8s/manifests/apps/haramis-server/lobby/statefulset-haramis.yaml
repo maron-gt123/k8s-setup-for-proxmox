@@ -55,12 +55,12 @@ spec:
               value: lobby
             - name: CFG_DISCORDSRV_AUTH
               value: "true"
-            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #29
+            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-lobby-secret
                   key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #30
+            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-lobby-secret

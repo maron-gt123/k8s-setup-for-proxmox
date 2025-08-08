@@ -16,7 +16,6 @@ resources:
   - config/mc-plugin-serverspawn-haramis-config.yaml
   - config/mc-plugin-worldgard-regions-haramis-config.yaml
 patches:
-  - target:
   - path: statefulset-haramis.yaml
   - path: config/mc-plugin-advancedportals-haramis-configs.yaml
   - path: cronjob/frontend-restart-warning-lobby.yaml

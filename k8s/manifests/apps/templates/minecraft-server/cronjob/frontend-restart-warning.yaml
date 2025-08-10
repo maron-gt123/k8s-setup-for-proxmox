@@ -10,10 +10,9 @@ spec:
         spec:
           containers:
             - name: notifier
-              image: itzg/rcon-cli:latest
+              image: itzg/minecraft-server:latest
               command:
                 - rcon-cli
-              args:
                 - --host
                 - $(RCON_HOST)
                 - --port

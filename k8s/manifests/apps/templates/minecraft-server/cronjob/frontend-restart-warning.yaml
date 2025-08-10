@@ -1,8 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: mc-s1-minecraft-frontend-restart-warning
-  namespace: mc-haramis
+  name: minecraft-frontend-restart-warning
 spec:
   schedule: "55 3 * * *"  # 毎朝 3:55 に通知
   jobTemplate:
@@ -24,16 +23,13 @@ spec:
                 - "$(RCON_MESSAGE)"
               env:
                 - name: RCON_HOST
-                  valueFrom:
-                    secretKeyRef:
-                      name: mc-s1-minecraft-s1-secret
-                      key: CFG_SERVER_S1_URL
+                  value: # patchで上書き前提
                 - name: RCON_PORT
                   value: "25575"
                 - name: RCON_PASSWORD
                   valueFrom:
                     secretKeyRef:
-                      name: mc-s1-minecraft-common-secret
+                      name: minecraft-common-secret
                       key: CFG_MC_RCON_PASSWORD
                 - name: RCON_MESSAGE
                   value: "§c[警告] 5分後にフロントエンドサーバーが再起動されます §c4時に強制ログアウトとなりますのでご注意ください"

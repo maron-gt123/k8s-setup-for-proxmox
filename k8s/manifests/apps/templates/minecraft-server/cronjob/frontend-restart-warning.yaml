@@ -12,15 +12,10 @@ spec:
             - name: notifier
               image: itzg/rcon-cli:latest
               command:
-                - rcon-cli
-                - --host
-                - "$(RCON_HOST)"
-                - --port
-                - "$(RCON_PORT)"
-                - --password
-                - "$(RCON_PASSWORD)"
-                - say
-                - "$(RCON_MESSAGE)"
+                - /bin/sh
+                - -c
+                - |
+                  rcon-cli --host "$RCON_HOST" --port "$RCON_PORT" --password "$RCON_PASSWORD" say "$RCON_MESSAGE"
               env:
                 - name: RCON_HOST
                   value: # patchで上書き前提

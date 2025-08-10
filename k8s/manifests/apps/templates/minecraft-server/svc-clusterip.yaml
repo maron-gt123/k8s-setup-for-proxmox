@@ -11,5 +11,9 @@ spec:
     port: 25565
     protocol: TCP
     targetPort: 25565
+  - name: mc-cron
+    port: 25575
+    protocol: TCP
+    targetPort: 25575
   selector:
     app: minecraft

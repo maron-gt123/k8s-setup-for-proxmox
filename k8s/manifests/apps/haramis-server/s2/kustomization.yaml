@@ -14,5 +14,5 @@ resources:
   # config
 
 patches:
-  - path: statefulset-haramis.yaml
+  - path: statefulset-haramis-s2.yaml
   - path: cronjob/frontend-restart-warning-s2.yaml

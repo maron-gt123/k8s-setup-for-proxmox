@@ -77,6 +77,9 @@ spec:
             # ------ worldデータ ------
             - name: world-data
               mountPath: /data/world
+            # ------ world-backupデータ ------
+            - name: world-data-backup
+              mountPath: /data/Backups
             # ------initでダウンロードしたプラグインをマウント ------
             # ------ worldedit ------
             - name: init-download-volume
@@ -137,6 +140,10 @@ spec:
         - name: world-data
           persistentVolumeClaim:
             claimName: haramis-lobby-pvc
+        # world-backupデータの永続ストレージの指定
+        - name: world-data-backup
+          persistentVolumeClaim:
+            claimName: haramis-lobby-backup-pvc
         # holograms-configmap格納先
         - name: mc-plugin-holograms-config
           configMap:

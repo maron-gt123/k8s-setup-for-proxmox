@@ -5,3 +5,7 @@ namePrefix: debug-
 resources:
   # templates
   - ../../templates/minecraft-proxy
+  # secret
+  - http://nas.mcnet/k8s/mc-debug
+patches:
+  - path: svc-LoadBalancer.yaml

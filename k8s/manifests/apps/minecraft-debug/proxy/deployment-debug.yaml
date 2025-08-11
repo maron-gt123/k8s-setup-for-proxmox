@@ -80,8 +80,7 @@ spec:
                 https://download.luckperms.net/1595/velocity/LuckPerms-Velocity-5.5.10.jar,
                 https://github.com/Camotoy/GeyserSkinManager/releases/download/1.8/GeyserSkinManager-Velocity.jar,
                 https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.7/VELOCITY/minimotd-velocity-2.1.7.jar,
-                https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.4.2/PAPER/ViaVersion-5.4.2.jar,
-                https://cdn.modrinth.com/data/KkmSfl3v/versions/LsmNou60/Velocircon-1.0.2.jar
+                https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.4.2/PAPER/ViaVersion-5.4.2.jar
             - name: SPIGET_PLUGINS
               value: 
           ports:
@@ -91,12 +90,6 @@ spec:
             - containerPort: 19132
               name: geyser-service
               protocol: UDP
-          startupProbe:
-            tcpSocket:
-              port: 25577
-            # 最大120秒待つ
-            failureThreshold: 6
-            periodSeconds: 20
           volumeMounts:
             # サーバーアイコンファイルのマウント設定
             - name: server-icon-download-volume

@@ -35,5 +35,20 @@ spec:
                 secretKeyRef:
                   name: minecraft-debug1-secret
                   key: CFG_SERVER_URL
+            - name: CFG_SERVER_S1_URL
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-debug2-secret
+                  key: CFG_SERVER_URL
+            - name: CFG_SERVER_S2_URL
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-debug3-secret
+                  key: CFG_SERVER_URL
+            - name: CFG_SERVER_S3_URL
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-debug4-secret
+                  key: CFG_SERVER_URL
             - name: CFG_PROXY_ENABLE
               value: "false"

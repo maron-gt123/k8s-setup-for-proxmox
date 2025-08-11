@@ -57,6 +57,9 @@ spec:
             # ------ worldデータ ------
             - name: world-data
               mountPath: /data/world
+            # ------ world-backupデータ ------
+            - name: world-data-backup
+              mountPath: /data/Backups
             # ------initでダウンロードしたプラグインをマウント ------
             # ------ inventory-bridge ------
             - name: init-download-volume
@@ -71,3 +74,7 @@ spec:
         - name: world-data
           persistentVolumeClaim:
             claimName: haramis-s1-pvc
+        # world-backupデータの永続ストレージの指定
+        - name: world-data-backup
+          persistentVolumeClaim:
+            claimName: haramis-s1-backup-pvc

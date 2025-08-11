@@ -42,6 +42,8 @@ spec:
               value: largeBiomes
             - name: SPAWN_PROTECTION
               value: "0"
+            - name: PVP
+              value: "false"
             - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:

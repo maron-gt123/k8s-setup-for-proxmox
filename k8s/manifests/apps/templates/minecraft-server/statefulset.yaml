@@ -229,6 +229,10 @@ spec:
             - name: mc-plugin-discordsrv-link-config
               mountPath: /config/plugins/DiscordSRV/linking.yml
               subPath: discordsrv-linking.yml
+            # server-backupのマウント
+            - name: mc-plugin-serverbackup-config
+              mountPath: /config/plugins/ServerBackup/config.yml
+              subPath: serverbackup.yml
             ######### advancedportalsは各環境で個別にマウント #########
             # advancedportals-destinationsのマウント
             #- name: mc-plugin-advancedportals-configs
@@ -293,3 +297,7 @@ spec:
         - name: mc-plugin-discordsrv-link-config
           configMap:
             name: mc-plugin-discordsrv-link-config
+        # server-backup-configmap格納先
+        - name: mc-plugin-serverbackup-config
+          configMap:
+            name: mc-plugin-serverbackup-config

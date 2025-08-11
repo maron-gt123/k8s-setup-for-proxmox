@@ -91,12 +91,6 @@ spec:
             - containerPort: 19132
               name: geyser-service
               protocol: UDP
-            - containerPort: 18321
-              name: jmx-metrics
-            - containerPort: 9225
-              name: metrics
-            - containerPort: 25575
-              name: velocity-rcon
           startupProbe:
             tcpSocket:
               port: 25577

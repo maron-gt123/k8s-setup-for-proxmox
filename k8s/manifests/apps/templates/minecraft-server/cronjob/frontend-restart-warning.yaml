@@ -4,6 +4,7 @@ metadata:
   name: minecraft-frontend-restart-warning
 spec:
   schedule: "55 3 * * *"  # 毎朝 3:55 に通知
+  timeZone: "Asia/Tokyo"
   jobTemplate:
     spec:
       template:

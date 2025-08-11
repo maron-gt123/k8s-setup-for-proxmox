@@ -7,3 +7,17 @@ metadata:
 spec:
   type: LoadBalancer
   loadBalancerIP: 192.168.15.70
+    - name: java-service
+      port: 53616
+      protocol: TCP
+      targetPort: proxy-service
+    - name: bedrock-service
+      port: 53617
+      protocol: UDP
+      targetPort: geyser-service
+    - name: rcon-service
+      port: 1337
+      protocol: TCP
+      targetPort: velocity-rcon
+  selector:
+    app: mc-proxy

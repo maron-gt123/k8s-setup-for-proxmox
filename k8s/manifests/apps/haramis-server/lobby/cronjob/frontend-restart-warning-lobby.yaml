@@ -14,4 +14,4 @@ spec:
                   valueFrom:
                     secretKeyRef:
                       name: minecraft-lobby-secret
-                      key: CFG_SERVER_LOBBY_URL
+                      key: CFG_SERVER_URL

@@ -28,7 +28,7 @@ data:
       - SATURDAY
       - SUNDAY
       Times:
-      - 00-00
+      - 04-00
     BackupWorlds:
     - world
     - world_nether
@@ -36,7 +36,7 @@ data:
     Blacklist:
     - libraries
     - plugins/ServerBackup/config.yml
-    DeleteOldBackups: 14
+    DeleteOldBackups: 4
     BackupLimiter: 0
     KeepUniqueBackups: false
     UpdateAvailableMessage: true

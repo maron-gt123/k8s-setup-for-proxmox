@@ -31,6 +31,7 @@ resources:
   - ./config/mc-plugin-discordsrv-jp-message-config.yaml
   # discordsrv-link-config
   - ./config/mc-plugin-discordsrv-link-config.yaml
-
+  # serverbackup-config
+  - ./config/mc-plugin-serverbackup-config.yaml
   # cronjob (frontend-restart warning)
   - ./cronjob/frontend-restart-warning.yaml

@@ -155,7 +155,7 @@ spec:
             - name: PLUGINS
               # commander-velocity
               # bungeecord-prometheus-exporter
-              #BanManagerBungeeCord
+              # BanManagerBungeeCord
               # LuckPerms-Velocity
               # GeyserSkinManager-Velocity
               # minimotd-velocity

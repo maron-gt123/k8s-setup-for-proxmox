@@ -8,6 +8,9 @@ resources:
   # secret
   - http://nas.mcnet/k8s/mc-debug/secret-maron-common.yaml
   - http://nas.mcnet/k8s/mc-debug/secret-maron-debug1.yaml
+  - http://nas.mcnet/k8s/mc-debug/secret-maron-debug2.yaml
+  - http://nas.mcnet/k8s/mc-debug/secret-maron-debug3.yaml
+  - http://nas.mcnet/k8s/mc-debug/secret-maron-debug4.yaml
   - http://nas.mcnet/k8s/mc-debug/secret-mc-maron-whitelist.yaml
 patches:
   - path: deployment-debug.yaml

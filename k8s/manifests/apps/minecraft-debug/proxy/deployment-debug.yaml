@@ -22,7 +22,7 @@ spec:
           env:
             # serverアイコンのダウンロードURL
             - name: SERVER_ICON_URL
-              value: "" #  サーバーのアイコン画像取得pathを投入
+              value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/a47b0c0ad303f248f1d50a7b5b3ac508f4435389/minecraft/branding/server-icon.png" #  サーバーのアイコン画像取得pathを投入
           volumeMounts:
             - name: server-icon-download-volume
               mountPath: /root/server-icon-download

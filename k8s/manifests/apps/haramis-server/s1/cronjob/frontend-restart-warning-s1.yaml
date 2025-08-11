@@ -14,4 +14,4 @@ spec:
                   valueFrom:
                     secretKeyRef:
                       name: minecraft-s1-secret
-                      key: CFG_SERVER_S1_URL
+                      key: CFG_SERVER_URL

@@ -84,9 +84,6 @@ spec:
                 https://cdn.modrinth.com/data/KkmSfl3v/versions/LsmNou60/Velocircon-1.0.2.jar
             - name: SPIGET_PLUGINS
               value: 
-            - name: JVM_OPTS
-              value: >-
-                -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
           ports:
             - containerPort: 25577
               name: proxy-service

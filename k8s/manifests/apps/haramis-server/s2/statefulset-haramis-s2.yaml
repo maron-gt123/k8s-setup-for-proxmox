@@ -36,6 +36,12 @@ spec:
               value: 1G
             - name: MAX_MEMORY
               value: 2G
+            - name: DIFFICULTY
+              value: peaceful
+            - name: LEVEL_TYPE
+              value: largeBiomes
+            - name: SPAWN_PROTECTION
+              value: "0"
             - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:

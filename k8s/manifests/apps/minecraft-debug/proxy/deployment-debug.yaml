@@ -113,9 +113,6 @@ spec:
               subPath: server-icon.png
 
             # init downloadファイルのマウント
-            - name: jmx-exporter-download-volume
-              mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
-              subPath: jmx-exporter-javaagent.jar
             - name: ini-plugin-download-volume
               mountPath: /server/plugins/geyser-velocity.jar
               subPath: geyser-velocity.jar
@@ -123,9 +120,6 @@ spec:
               mountPath: /server/plugins/floodgate-velocity.jar
               subPath: floodgate-velocity.jar
       volumes:
-        # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
-        - name: jmx-exporter-download-volume
-          emptyDir: {} 
         # geyser-velocity.jarとfloodgate-velocity.jarをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: ini-plugin-download-volume
           emptyDir: {}

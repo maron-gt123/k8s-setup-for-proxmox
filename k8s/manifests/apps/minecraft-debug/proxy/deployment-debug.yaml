@@ -30,20 +30,6 @@ spec:
             - "sh"
             - "-c"
             - 'wget -O /root/server-icon-download/server-icon.png "${SERVER_ICON_URL}"'
-        # initcontainersでjmx-exporterをダウンロード
-        - name: jmx-exporter-downloader
-          image: busybox:1.36.1
-          env:
-            # JMX_prometeus_exporterのダウンロードURL
-            - name: JMX_EXPORTER_URL
-              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar"
-          volumeMounts:
-            - name: jmx-exporter-download-volume
-              mountPath: /root/jmx-exporter-download
-          command:
-            - "sh"
-            - "-c"
-            - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
         # initcontainersでpluginファイルをダウンロード
         - name: plugin-downloader
           image: busybox:1.36.1

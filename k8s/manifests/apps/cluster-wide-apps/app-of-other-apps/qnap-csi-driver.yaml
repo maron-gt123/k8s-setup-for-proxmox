@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/qnap-dev/QNAP-CSI-PlugIn'  # QNAP CSI ドライバ GitHub
-    chart: Helm/trident       # Helm チャートパス
-    targetRevision: HEAD      # Git のブランチやタグ、HEADで最新
+    repoURL: 'https://github.com/qnap-dev/QNAP-CSI-PlugIn'
+    chart: Helm/trident
+    targetRevision: HEAD
     helm:
       values: |-
         # ===============================
@@ -16,28 +16,28 @@ spec:
         # ===============================
         trident:
           backend:
-            name: qts-iscsi                   # 任意の backend 名
-            storageDriverName: qnap-iscsi     # iSCSI 用
-            storageAddress: 192.168.6.140     # NAS の iSCSI 接続 IP
+            name: qts-iscsi
+            storageDriverName: qnap-iscsi
+            storageAddress: 192.168.6.140       # NAS の iSCSI 接続 IP
             credentials:
-              name: backend-qts-secret        # Secret 名 (CHAP なしでも Secret は必要)
-            networkInterfaces: ["Adapter1"]   # NAS 上の iSCSI 用インターフェース名
+              name: backend-qts-secret          # Secret 名 (CHAPなしでも必須)
+            networkInterfaces: ["Adapter3"]    # NAS 上の iSCSI 用インターフェース
             storage:
-              - serviceLevel: pool1           # Virtual Pool 名
+              - serviceLevel: pool1             # Virtual Pool 名（任意）
                 labels:
-                  performance: performance1  # Pool ラベル（StorageClass selector と一致させる）
+                  performance: performance1     # StorageClass selector と一致
                 features:
-                  tiering: Enable            # オプション: Tiering 有効化
+                  tiering: Enable               # 必要に応じて
         # ===============================
         # StorageClass 設定
         # ===============================
         storageClass:
-          name: iscsi-storage                 # 作成する StorageClass 名
-          provisioner: csi.trident.qnap.io    # CSI プロビジョナー
+          name: iscsi-storage
+          provisioner: csi.trident.qnap.io
           parameters:
-            selector: "performance=performance1"  # Backend labels と一致必須
-            fsType: ext4                         # ファイルシステムタイプ (ext4/xfs/ext3)
-          allowVolumeExpansion: true             # PVC 容量拡張を許可
+            selector: "performance=performance1" # Virtual Pool ラベルと一致
+            fsType: ext4
+          allowVolumeExpansion: true
         # ===============================
         # Pod 側リソース & アクセスモード
         # ===============================

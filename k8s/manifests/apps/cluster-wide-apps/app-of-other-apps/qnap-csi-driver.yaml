@@ -19,8 +19,6 @@ spec:
             name: qts-iscsi
             storageDriverName: qnap-iscsi
             storageAddress: 192.168.6.140       # NAS の iSCSI 接続 IP
-            credentials:
-              name: backend-qts-secret          # Secret 名 (CHAPなしでも必須)
             networkInterfaces: ["Adapter3"]    # NAS 上の iSCSI 用インターフェース
             storage:
               - serviceLevel: pool1             # Virtual Pool 名（任意）

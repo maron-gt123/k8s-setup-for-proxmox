@@ -1,38 +1,57 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: qnap-iscsi-csi
-  namespace: argocd
+  name: qnap-csi-iscsi       # Argo CD 上でのアプリ名
+  namespace: argocd           # Argo CD がインストールされている namespace
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/qnap-dev/QNAP-CSI-PlugIn'
-    targetRevision: main
-    path: Deploy/Trident
+    repoURL: 'https://github.com/qnap-dev/QNAP-CSI-PlugIn'  # QNAP CSI ドライバ GitHub
+    chart: Helm/trident       # Helm チャートパス
+    targetRevision: HEAD      # Git のブランチやタグ、HEADで最新
     helm:
       values: |-
+        # ===============================
+        # QNAP CSI Driver Backend 設定
+        # ===============================
         trident:
-          namespace: trident
-          # BackendConfig の設定例
-          backends:
-            - name: qts-iscsi-backend
-              storageDriverName: qnap-iscsi
-              backendName: qts
-              networkInterfaces: []
-              storage:
-                - serviceLevel: pool1
-                  labels:
-                    performance: performance1
-        storageClasses:
-          - name: iscsi-storage
-            provisioner: csi.trident.qnap.io
-            parameters:
-              selector: "performance=performance1"
-              fsType: "ext4"
-            allowVolumeExpansion: true
+          backend:
+            name: qts-iscsi                   # 任意の backend 名
+            storageDriverName: qnap-iscsi     # iSCSI 用
+            storageAddress: 192.168.6.140     # NAS の iSCSI 接続 IP
+            credentials:
+              name: backend-qts-secret        # Secret 名 (CHAP なしでも Secret は必要)
+            networkInterfaces: ["Adapter1"]   # NAS 上の iSCSI 用インターフェース名
+            storage:
+              - serviceLevel: pool1           # Virtual Pool 名
+                labels:
+                  performance: performance1  # Pool ラベル（StorageClass selector と一致させる）
+                features:
+                  tiering: Enable            # オプション: Tiering 有効化
+        # ===============================
+        # StorageClass 設定
+        # ===============================
+        storageClass:
+          name: iscsi-storage                 # 作成する StorageClass 名
+          provisioner: csi.trident.qnap.io    # CSI プロビジョナー
+          parameters:
+            selector: "performance=performance1"  # Backend labels と一致必須
+            fsType: ext4                         # ファイルシステムタイプ (ext4/xfs/ext3)
+          allowVolumeExpansion: true             # PVC 容量拡張を許可
+        # ===============================
+        # Pod 側リソース & アクセスモード
+        # ===============================
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        accessModes: ReadWriteOnce              # iSCSI の場合は RWO
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: trident                         # QNAP CSI の推奨 namespace
   syncPolicy:
     automated:
       prune: true

@@ -49,10 +49,8 @@ spec:
         accessModes: ReadWriteOnce              # iSCSI の場合は RWO
   destination:
     server: https://kubernetes.default.svc
-    namespace: trident                         # QNAP CSI の推奨 namespace
+    namespace: trident
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true

@@ -1,51 +1,41 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: qnap-csi-iscsi
+  name: qnap-iscsi-csi
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: 'https://github.com/qnap-dev/QNAP-CSI-PlugIn'
-    chart: Helm/trident
-    targetRevision: HEAD
+    targetRevision: main
+    path: Deploy/Trident
     helm:
       values: |-
         trident:
-          backend:
-            name: qts-iscsi
-            storageDriverName: qnap-iscsi
-            storageAddress: 192.168.6.140
-            credentials:
-              name: backend-qts-secret         # Secret 名
-            networkInterfaces: ["Adapter3"]
-            storage:
-              - serviceLevel: pool1
-                labels:
-                  performance: performance1
-                features:
-                  tiering: Enable
-        storageClass:
-          name: iscsi-storage
-          provisioner: csi.trident.qnap.io
-          parameters:
-            selector: "performance=performance1"
-            fsType: ext4
-          allowVolumeExpansion: true
-        resources:
-          limits:
-            cpu: 100m
-            memory: 128Mi
-          requests:
-            cpu: 100m
-            memory: 128Mi
-        accessModes: ReadWriteOnce
+          namespace: trident
+          # BackendConfig の設定例
+          backends:
+            - name: qts-iscsi-backend
+              storageDriverName: qnap-iscsi
+              backendName: qts
+              networkInterfaces: []
+              storage:
+                - serviceLevel: pool1
+                  labels:
+                    performance: performance1
+        storageClasses:
+          - name: iscsi-storage
+            provisioner: csi.trident.qnap.io
+            parameters:
+              selector: "performance=performance1"
+              fsType: "ext4"
+            allowVolumeExpansion: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: trident
+    namespace: kube-system
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true

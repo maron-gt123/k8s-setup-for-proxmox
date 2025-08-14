@@ -103,6 +103,10 @@ runcmd:
   - su - cloudinit -c "mkdir -p ~/.ssh && chmod 700 ~/.ssh"
   - su - cloudinit -c "curl -sS https://github.com/maron-gt123.keys >> ~/.ssh/authorized_keys"
   - su - cloudinit -c "chmod 600 ~/.ssh/authorized_keys"
+  # set nfs & iscsi client
+  - su - cloudinit -c "sudo apt-get install -y nfs-common"
+  - su - cloudinit -c "sudo apt-get install -y open-iscsi"
+  - su - cloudinit -c "sudo systemctl enable --now iscsid"
   # run install scripts
   - su - cloudinit -c "curl -s ${REPOSITORY_RAW_SOURCE_URL}/k8s/k8s-node-setup.sh > ~/k8s-node-setup.sh"
   - su - cloudinit -c "sudo bash ~/k8s-node-setup.sh ${vmname} ${TARGET_BRANCH}"

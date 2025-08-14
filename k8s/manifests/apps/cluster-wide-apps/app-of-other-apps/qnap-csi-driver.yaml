@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/qnap-dev/QNAP-CSI-PlugIn'
     targetRevision: main
-    path: helm/trident
+    path: Helm/trident
     helm:
       values: |-
         # ===============================

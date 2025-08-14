@@ -1,49 +1,48 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: qnap-csi-driver
+  name: qnap-csi-iscsi
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/qnap-dev/QNAP-CSI-PlugIn/tree/main/Helm/trident'
-    chart: trident
-    targetRevision: 1.5.0
+    repoURL: 'https://github.com/qnap-dev/QNAP-CSI-PlugIn'
+    chart: Helm/trident
+    targetRevision: HEAD
     helm:
       values: |-
-        controller:
-          resources:
-            limits:
-              cpu: 100m
-              memory: 128Mi
-            requests:
-              cpu: 100m
-              memory: 128Mi
-        node:
-          resources:
-            limits:
-              cpu: 100m
-              memory: 128Mi
-            requests:
-              cpu: 100m
-              memory: 128Mi
+        trident:
+          backend:
+            name: qts-iscsi
+            storageDriverName: qnap-iscsi
+            storageAddress: 192.168.6.140
+            credentials:
+              name: backend-qts-secret         # Secret 名
+            networkInterfaces: ["Adapter3"]
+            storage:
+              - serviceLevel: pool1
+                labels:
+                  performance: performance1
+                features:
+                  tiering: Enable
         storageClass:
-          name: qnap-iscsi-sc
-          provisionerName: csi.qnap.com
-          reclaimPolicy: Retain
-          defaultClass: true
+          name: iscsi-storage
+          provisioner: csi.trident.qnap.io
+          parameters:
+            selector: "performance=performance1"
+            fsType: ext4
           allowVolumeExpansion: true
-          accessModes: [ "ReadWriteOnce" ]
-        iscsi:
-          targetPortal: 192.168.6.140:3260
-          iqn: iqn.2004-04.com.qnap:ts253d.lun1
-          lun: 1
-          fsType: ext4
-          chapUsername: iscsiuser
-          chapPassword: your-secret-pass
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        accessModes: ReadWriteOnce
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: trident
   syncPolicy:
     automated:
       prune: true

@@ -23,7 +23,7 @@ spec:
             storage:
               - serviceLevel: pool1             # Virtual Pool 名（任意）
                 labels:
-                  performance: performance1     # StorageClass selector と一致
+                  iqn: iqn.2004-04.com.qnap:ts-253d:iscsi.target-1.4bd441
                 features:
                   tiering: Enable               # 必要に応じて
         # ===============================
@@ -33,7 +33,7 @@ spec:
           name: iscsi-storage
           provisioner: csi.trident.qnap.io
           parameters:
-            selector: "performance=performance1" # Virtual Pool ラベルと一致
+            selector: "iqn=iqn.2004-04.com.qnap:ts-253d:iscsi.target-1.4bd441"
             fsType: ext4
           allowVolumeExpansion: true
         # ===============================

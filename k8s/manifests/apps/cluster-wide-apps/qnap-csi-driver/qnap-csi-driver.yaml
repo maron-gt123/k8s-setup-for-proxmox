@@ -2,11 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- https://raw.githubusercontent.com/qnap-dev/QNAP-CSI-PlugIn/refs/heads/main/Deploy/crds/tridentorchestrator_crd.yaml
----
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-
-resources:
+  - https://raw.githubusercontent.com/qnap-dev/QNAP-CSI-PlugIn/refs/heads/main/Deploy/crds/tridentorchestrator_crd.yaml
   - https://raw.githubusercontent.com/qnap-dev/QNAP-CSI-PlugIn/refs/heads/main/Deploy/Trident/bundle.yaml
   - https://raw.githubusercontent.com/qnap-dev/QNAP-CSI-PlugIn/refs/heads/main/Deploy/Trident/tridentorchestrator.yaml

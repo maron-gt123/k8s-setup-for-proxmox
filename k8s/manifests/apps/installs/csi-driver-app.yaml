@@ -1,15 +1,34 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: qnap-csi-crds
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
+    targetRevision: main
+    path: k8s/manifests/apps/cluster-wide-apps/qnap-csi-driver/crd
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated: {}
+  syncWave: -1
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: qnap-csi-iscsi
 spec:
+  project: default
+  source:
+    repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
+    targetRevision: main
+    path: k8s/manifests/apps/cluster-wide-apps/qnap-csi-driver
   destination:
     namespace: default
     server: https://kubernetes.default.svc
-  project: default
-  source:
-    path: k8s/manifests/apps/cluster-wide-apps/qnap-csi-driver
-    repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
-    targetRevision: main
   syncPolicy:
     automated: {}
+  syncWave: 0

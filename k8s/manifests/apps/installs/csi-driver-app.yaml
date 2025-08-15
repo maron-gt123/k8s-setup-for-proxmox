@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: qnap-csi-crds
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   project: default
   source:
@@ -14,12 +16,14 @@ spec:
     namespace: default
   syncPolicy:
     automated: {}
-  syncWave: -1
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: qnap-csi-iscsi
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   project: default
   source:
@@ -27,8 +31,7 @@ spec:
     targetRevision: main
     path: k8s/manifests/apps/cluster-wide-apps/qnap-csi-driver
   destination:
-    namespace: default
     server: https://kubernetes.default.svc
+    namespace: default
   syncPolicy:
     automated: {}
-  syncWave: 0

@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: k8s/manifests/apps/cluster-wide-apps/csi-driver
+    path: k8s/manifests/apps/cluster-wide-apps/qnap-csi-driver
     repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
     targetRevision: main
   syncPolicy:

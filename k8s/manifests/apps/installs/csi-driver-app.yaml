@@ -31,6 +31,7 @@ spec:
     repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
     targetRevision: main
     path: k8s/manifests/apps/cluster-wide-apps/qnap-csi-driver
+    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: default

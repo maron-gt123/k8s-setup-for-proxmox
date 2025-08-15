@@ -6,4 +6,6 @@ resources:
   - https://raw.githubusercontent.com/qnap-dev/QNAP-CSI-PlugIn/refs/heads/main/Deploy/Trident/tridentorchestrator.yaml
   # secret
   - http://nas.mcnet/k8s/qnap-csi-driver/backend-qts-secret.yaml
+  # backend-config
+  - backend-config.yaml
   # StorageClass

@@ -9,3 +9,4 @@ resources:
   # backend-config
   - backend-config.yaml
   # StorageClass
+  - sc_iscsi.yaml

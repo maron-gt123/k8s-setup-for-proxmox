@@ -18,10 +18,3 @@ spec:
         performance: performance1
       features: # Optional. Define features for your virtual pool.
         tiering: Enable
-    - serviceLevel: pool2
-      labels:
-        performance: performance2
-      features:
-        tiering: Enable
-        ssdCache: "true"
-        raidLevel: "1"

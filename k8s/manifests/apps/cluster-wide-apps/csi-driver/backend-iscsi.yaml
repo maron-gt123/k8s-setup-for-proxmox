@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend-qts-secret       # 任意の名前
+  namespace: trident
+type: Opaque
+stringData:
+  storageAddress: 192.168.6.140 # NAS の iSCSI 接続 IP
+---
+apiVersion: trident.qnap.io/v1
+kind: TridentBackendConfig
+metadata:
+  name: backend-qts
+  namespace: trident
+spec:
+  version: 1
+  storageDriverName: qnap-iscsi    # iSCSI 接続
+  backendName: qts
+  networkInterfaces: ["Adapter3"]  # NAS 上の iSCSI 用インターフェース
+  credentials:
+    name: backend-qts-secret       # 上で作った Secret を指定
+  debugTraceFlags:
+    method: true
+  storage:
+    - serviceLevel: pool1
+      labels:
+        iqn: iqn.2004-04.com.qnap:ts-253d:iscsi.target-1.4bd441
+      features:
+        tiering: Enable

@@ -18,7 +18,7 @@ spec:
         persistence:
           enabled: true
           size: 20Gi
-          storageClass: storageclass1
+          storageClassName: storageclass1
         service:
           type: LoadBalancer
           port: 4040

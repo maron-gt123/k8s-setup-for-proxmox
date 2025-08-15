@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - https://raw.githubusercontent.com/qnap-dev/QNAP-CSI-PlugIn/refs/heads/main/Deploy/Trident/bundle.yaml
   - https://raw.githubusercontent.com/qnap-dev/QNAP-CSI-PlugIn/refs/heads/main/Deploy/Trident/tridentorchestrator.yaml
+  - http://nas.mcnet/k8s/qnap-csi-driver/backend-qts-secret.yaml

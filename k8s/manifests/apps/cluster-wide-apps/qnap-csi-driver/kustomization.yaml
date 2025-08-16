@@ -7,6 +7,6 @@ resources:
   # secret
   - http://nas.mcnet/k8s/qnap-csi-driver/backend-qts-secret.yaml
   # backend-config
-  - backend-config.yaml
+  - iscsi-backend.yaml
   # StorageClass
   - sc_iscsi.yaml

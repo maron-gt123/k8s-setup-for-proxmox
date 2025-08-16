@@ -1,3 +1,4 @@
+# crds
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -18,6 +19,7 @@ spec:
   syncPolicy:
     automated: {}
 ---
+# csi-iscsi
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -31,6 +33,27 @@ spec:
     repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
     targetRevision: main
     path: k8s/manifests/apps/cluster-wide-apps/qnap-csi-driver
+    kustomize: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated: {}
+---
+# volumesnapshot
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: qnap-csi-volumesnapshot
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
+    targetRevision: main
+    path: k8s/manifests/apps/cluster-wide-apps/qnap-csi-driver/VolumeSnapshot
     kustomize: {}
   destination:
     server: https://kubernetes.default.svc

@@ -1,19 +1,19 @@
 apiVersion: trident.qnap.io/v1
 kind: TridentBackendConfig
 metadata:
-  name: backend-qts # Required. Name your backend in Kubernetes.
+  name: backend-qts-iscsi # Required. Name your backend in Kubernetes.
   namespace: trident
 spec:
   version: 1
   storageDriverName: qnap-iscsi #Required. Support 'qnap-nas'(latest) or 'qnap-iscsi'
-  backendName: qts # Required. Name your backend in QNAP CSI.
+  backendName: qts-iscsi # Required. Name your backend in QNAP CSI.
   networkInterfaces: ["Adapter 3"] # Optional. Your adapter name or leave it empty.
   credentials:
     name: backend-qts-secret # Required. Enter the secret name set in metadata.name.
   debugTraceFlags:
     method: true
   storage: # Required. Define one or more virtual pools.
-    - serviceLevel: pool1 # Required. Name your virtual pool.
+    - serviceLevel: "ISCSIVirtualPool1" # Required. Name your virtual pool.
       labels: # Required. Define custom labels for your virtual pool.
         performance: performance1
       features: # Optional. Define features for your virtual pool.

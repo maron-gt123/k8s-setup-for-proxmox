@@ -18,7 +18,7 @@ spec:
         persistence:
           enabled: true
           size: 20Gi
-          storageClassName: storageclass1
+          storageClassName: qnap-iscsi
         service:
           type: LoadBalancer
           port: 4040

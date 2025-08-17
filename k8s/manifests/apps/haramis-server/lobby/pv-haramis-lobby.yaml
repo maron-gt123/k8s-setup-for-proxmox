@@ -31,3 +31,4 @@ spec:
     requests:
       storage: 10Gi
   volumeName: haramis-lobby-pv-iscsi
+  storageClassName: ""

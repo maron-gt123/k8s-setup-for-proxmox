@@ -4,6 +4,6 @@ metadata:
   name: qnap-iscsi
 provisioner: csi.trident.qnap.io
 parameters:
-  selector: "performance=performance1" # Required. Corresponds to the labels in the virtual pool.
+  #selector: "performance=performance1" # Required. Corresponds to the labels in the virtual pool.
   fsType: "ext4" # Optional. You can choose to enter ext4 (default), xfs, or ext3.
 allowVolumeExpansion: true

@@ -5,6 +5,6 @@ metadata:
 provisioner: csi.trident.qnap.io
 parameters:
   backendType: "qnap-iscsi"
-  selector: "Performance=performance1"
+  selector: "performance=performance1"
   fsType: "ext4"
 allowVolumeExpansion: true

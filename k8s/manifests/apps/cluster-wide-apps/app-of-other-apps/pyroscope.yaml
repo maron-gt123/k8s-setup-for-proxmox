@@ -18,7 +18,9 @@ spec:
         persistence:
           enabled: true
           size: 20Gi
-          storageClassName: qnap-iscsi
+          storageClassName: pyroscope-nsf
+          accessModes:
+            - ReadWriteOnce
         service:
           type: LoadBalancer
           port: 4040

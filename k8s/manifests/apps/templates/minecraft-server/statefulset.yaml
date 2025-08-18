@@ -118,17 +118,24 @@ spec:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
-            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #30
+            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH #30
+              value: 
+            - name: CFG_SQLSERVER_DISCORDSRV_ROLE_ID #31
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: CFG_SQLSERVER_DISCORDSRV_ROLE_ID
+            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #32
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #31
+            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #33
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-            - name: PLUGINS #32
+            - name: PLUGINS #34
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # ServerBackup
               # minecraft-prometheus-exporter3.1.0
@@ -143,13 +150,13 @@ spec:
                 https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.0/DiscordSRV-Build-1.30.0.jar
-            - name: JVM_OPTS #33
+            - name: JVM_OPTS #35
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
             # config関連を/configから/dataへmcopy
-            - name: COPY_CONFIG_DEST #34
+            - name: COPY_CONFIG_DEST #36
               value: /data
-            - name: RCON_CMDS_STARTUP #35
+            - name: RCON_CMDS_STARTUP #37
               value: |-
 
           ports:

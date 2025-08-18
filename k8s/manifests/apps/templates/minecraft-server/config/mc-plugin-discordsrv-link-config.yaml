@@ -50,10 +50,10 @@ data:
     
       # Optionally require people to not only be linked but also to have a one of or all specified roles like a Twitch sub role
       Subscriber role:
-        Require subscriber role to join: false
-        Subscriber roles: ["00000000000000000", "00000000000000000", "00000000000000000"]
+        Require subscriber role to join: ${CFG_CFG_DISCORDSRV_ROLE_AUTH}
+        Subscriber roles: ["${CFG_SQLSERVER_DISCORDSRV_ROLE_ID}"]
         Require all of the listed roles: false # when false, only one of the above roles is required
-        Kick message: "&cYou must be subscribed on Twitch to be able to play."
+        Kick message: "&cサブスクメンバーではないため接続できません。"
     
       Messages:
         DiscordSRV still starting: "&cDiscordへの接続中のため、リンク状態を確認できません。\n\nしばらくしてから再度お試しください。"

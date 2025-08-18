@@ -65,6 +65,8 @@ spec:
                 secretKeyRef:
                   name: minecraft-lobby-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
+              value: "true"
             # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-

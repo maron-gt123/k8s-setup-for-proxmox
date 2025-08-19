@@ -59,6 +59,13 @@ spec:
             # ------ worldデータ ------
             - name: world-data
               mountPath: /data/world
+              subPath: world
+            - name: world-data
+              mountPath: /data/world_nether
+              subPath: world_nether
+            - name: world-data
+              mountPath: /data/the_end
+              subPath: the_end
             # ------ world-backupデータ ------
             - name: world-data-backup
               mountPath: /data/Backups

@@ -79,6 +79,7 @@ spec:
             # ------ worldデータ ------
             - name: world-data
               mountPath: /data/world
+              subPath: world
             # ------ world-backupデータ ------
             - name: world-data-backup
               mountPath: /data/Backups

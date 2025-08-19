@@ -6,7 +6,7 @@ resources:
   # template
   - ../../templates/minecraft-server
   # pv & pvc
-  - ./pv-haramis-lobby.yaml
+  - ./pv-haramis-lobby-world.yaml
   - ./pv-haramis-lobby-backup.yaml.yaml
   # secret
   - http://nas.mcnet/k8s/mc-haramis/secret-haramis-common.yaml

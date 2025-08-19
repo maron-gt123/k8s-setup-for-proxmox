@@ -13,7 +13,7 @@ spec:
       initContainers:
         # ------pluginsファイル生成関連------
         - name: plugins-download
-          image: busybox:1.37.1
+          image: busybox:1.37.0
           env:
             - name: WORLDEDIT_URL
               value: "https://dev.bukkit.org/projects/worldedit/files/latest"

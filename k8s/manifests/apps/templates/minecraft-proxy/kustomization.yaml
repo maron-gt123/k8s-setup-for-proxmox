@@ -17,5 +17,4 @@ resources:
   - ./config/velocity-plugin-geyserskinmanager-bungeecord-config.yaml
   - ./config/velocity-plugin-minimotd-config.yaml
   - ./config/jmx-exporter-velocity-config.yaml
-  - ./config/velocity-plugin-rcon-config.yaml
   - ./config/velocity-plugin-banmanager-common-config.yaml

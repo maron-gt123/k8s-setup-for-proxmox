@@ -6,7 +6,7 @@ metadata:
     app: mc-proxy
   # We wish this deployment to be reloaded
   annotations:
-    configmap.reloader.stakater.com/reload: "jmx-exporter-velocity-config,velocity-config,velocity-luckperms-config,velocity-banmanager-common-config,velocity-prometheusexporter-config,velocity-floodgate-config,velocity-geyser-config,velocity-geyserskinmanager-config,velocity-minimotd-config,velocity-rcon-config"
+    configmap.reloader.stakater.com/reload: "jmx-exporter-velocity-config,velocity-config,velocity-luckperms-config,velocity-banmanager-common-config,velocity-prometheusexporter-config,velocity-floodgate-config,velocity-geyser-config,velocity-geyserskinmanager-config,velocity-minimotd-config"
 spec:
   replicas: 1
   revisionHistoryLimit: 0
@@ -19,27 +19,13 @@ spec:
         app: mc-proxy
     spec:
       initContainers:
-        # initcontainersでサーバーアイコンをダウンロード
-        - name: server-icon-downloader
-          image: busybox:1.36.1
-          env:
-            # serverアイコンのダウンロードURL
-            - name: SERVER_ICON_URL
-              value: "" #  サーバーのアイコン画像取得pathを投入
-          volumeMounts:
-            - name: server-icon-download-volume
-              mountPath: /root/server-icon-download
-          command:
-            - "sh"
-            - "-c"
-            - 'wget -O /root/server-icon-download/server-icon.png "${SERVER_ICON_URL}"'
         # initcontainersでjmx-exporterをダウンロード
         - name: jmx-exporter-downloader
-          image: busybox:1.36.1
+          image: busybox:1.37.1
           env:
             # JMX_prometeus_exporterのダウンロードURL
             - name: JMX_EXPORTER_URL
-              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar"
+              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/1.0.1/jmx_prometheus_javaagent-1.0.1.jar"
           volumeMounts:
             - name: jmx-exporter-download-volume
               mountPath: /root/jmx-exporter-download
@@ -49,7 +35,7 @@ spec:
             - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
         # initcontainersでpluginファイルをダウンロード
         - name: plugin-downloader
-          image: busybox:1.36.1
+          image: busybox:1.37.1
           env:
             # GEYSER_MCのダウンロードURL
             - name: GEYSER_URL
@@ -68,7 +54,7 @@ spec:
               wget -O /root/ini-plugin-download/floodgate-velocity.jar "${FLOODGATE_URL}"
         # initcontainersでsecretとして保管しているforwarding-keyを取得
         - name: forwarding-key-writer
-          image: busybox:1.36.1
+          image: busybox:1.37.1
           env:
             # VELOCITY_FORWARDINGの呼び出し
             - name: CFG_FORWARDING_KEY
@@ -86,12 +72,33 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
-        - image: itzg/bungeecord:latest
+        - image: itzg/mc-proxy:java21
           name: mc-proxy
           resources:
             requests:
               memory: "768Mi"
           env:
+            - name: TZ
+              value: Asia/Tokyo
+            - name: TYPE
+              value: VELOCITY
+            - name: VELOCITY_VERSION
+              value: "latest"
+            - name: NETWORKADDRESS_CACHE_TTL
+              value: "60"
+            - name: ENABLE_RCON
+              value: "true"
+            - name: RCON_PORT
+              value: "25575"
+            - name: RCON_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: VELOCITY_RCON_PASSWORD
+            - name: MEMORY
+              value: "768m"
+            - name: ICON
+              value: "" # サーバーアイコンの取得URL
             - name: REPLACE_ENV_VARIABLE_PREFIX 
               value: CFG_
             - name: CFG_SQLSERVER_ADDRESS
@@ -131,11 +138,6 @@ spec:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_FORWARDING_KEY
-            - name: CFG_VELOCITY_RCON_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-common-secret
-                  key: CFG_VELOCITY_RCON_PASSWORD
             - name: CFG_SERVER_LOBBY_URL
               value: 
             - name: CFG_SERVER_S1_URL
@@ -146,30 +148,22 @@ spec:
               value: 
             - name: CFG_PROXY_ENABLE
               value: 
-            - name: TZ
-              value: Asia/Tokyo
-            - name: TYPE
-              value: VELOCITY
-            - name: MEMORY
-              value: "768m"
             - name: PLUGINS
-              # commander-velocity
               # bungeecord-prometheus-exporter
               # BanManagerBungeeCord
               # LuckPerms-Velocity
               # GeyserSkinManager-Velocity
               # minimotd-velocity
               # ViaVersion
-              # VelocityRcon
+              # VServerInfo
               value: >-
-                https://hangarcdn.papermc.io/plugins/TheNextLvl/CommandControl/versions/4.4.0/VELOCITY/commander-velocity-4.4.0-all.jar,
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.7/bungeecord-prometheus-exporter-3.2.7.jar,
                 https://ci.frostcast.net/job/BanManager/lastSuccessfulBuild/artifact/velocity/build/libs/BanManagerVelocity.jar,
                 https://download.luckperms.net/1595/velocity/LuckPerms-Velocity-5.5.10.jar,
                 https://github.com/Camotoy/GeyserSkinManager/releases/download/1.8/GeyserSkinManager-Velocity.jar,
                 https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.7/VELOCITY/minimotd-velocity-2.1.7.jar,
                 https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.4.2/PAPER/ViaVersion-5.4.2.jar,
-                https://cdn.modrinth.com/data/KkmSfl3v/versions/LsmNou60/Velocircon-1.0.2.jar
+                https://cdn.modrinth.com/data/ijxRRNJT/versions/Wdd5C1GQ/VServerInfo-2.2.1.jar
             - name: SPIGET_PLUGINS
               value: 
             - name: JVM_OPTS
@@ -195,11 +189,6 @@ spec:
             failureThreshold: 6
             periodSeconds: 20
           volumeMounts:
-            # サーバーアイコンファイルのマウント設定
-            - name: server-icon-download-volume
-              mountPath: /config/server-icon.png
-              subPath: server-icon.png
-
             # init downloadファイルのマウント
             - name: jmx-exporter-download-volume
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
@@ -250,10 +239,6 @@ spec:
             - name: velocity-plugin-floodgate-config
               mountPath: /config/plugins/floodgate/config.yml
               subPath: floodgate-config.yml
-            # velocity rcon-configを格納
-            - name: velocity-plugin-velocity-rcon-config
-              mountPath: /config/plugins/velocircon/rcon.yml
-              subPath: velocity-rcon-config.yml
             # banmanager-common-configを格納
             - name: velocity-plugin-banmanager-common-config
               mountPath: /config/plugins/banmanager/config.yml
@@ -293,10 +278,6 @@ spec:
         - name: velocity-plugin-floodgate-config
           configMap:
             name: velocity-floodgate-config
-        # velocity rcon
-        - name: velocity-plugin-velocity-rcon-config
-          configMap:
-            name: velocity-rcon-config
         # banmanager-common
         - name: velocity-plugin-banmanager-common-config
           configMap:
@@ -307,9 +288,6 @@ spec:
           emptyDir: {} 
         # geyser-velocity.jarとfloodgate-velocity.jarをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: ini-plugin-download-volume
-          emptyDir: {}
-        # サーバーアイコンをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
-        - name: server-icon-download-volume
           emptyDir: {}
         # velocity-forwarding-KEYをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: ini-velocity-forwarding-download-volume

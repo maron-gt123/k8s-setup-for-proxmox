@@ -21,7 +21,7 @@ spec:
       initContainers:
         # initcontainersでjmx-exporterをダウンロード
         - name: jmx-exporter-downloader
-          image: busybox:1.37.1
+          image: busybox:1.37.0
           env:
             # JMX_prometeus_exporterのダウンロードURL
             - name: JMX_EXPORTER_URL
@@ -35,7 +35,7 @@ spec:
             - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
         # initcontainersでpluginファイルをダウンロード
         - name: plugin-downloader
-          image: busybox:1.37.1
+          image: busybox:1.37.0
           env:
             # GEYSER_MCのダウンロードURL
             - name: GEYSER_URL
@@ -54,7 +54,7 @@ spec:
               wget -O /root/ini-plugin-download/floodgate-velocity.jar "${FLOODGATE_URL}"
         # initcontainersでsecretとして保管しているforwarding-keyを取得
         - name: forwarding-key-writer
-          image: busybox:1.37.1
+          image: busybox:1.37.0
           env:
             # VELOCITY_FORWARDINGの呼び出し
             - name: CFG_FORWARDING_KEY

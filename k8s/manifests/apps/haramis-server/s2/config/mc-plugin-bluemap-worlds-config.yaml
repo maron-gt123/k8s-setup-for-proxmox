@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mc-plugin-bluemap-config
+data:
+  bluemap-world.conf: |
+    storage: "sql"
+  bluemap-world_nether.conf: |
+    storage: "sql"
+  bluemap-world_the_end.conf: |
+    storage: "sql"

@@ -65,13 +65,13 @@ data:
     # The JDBC-Connection URL that is used to connect to the database.
     # The format for this url is usually something like: jdbc:[driver]://[host]:[port]/[database]
     # The exact format of the url is determined by the JDBC-Driver you are using.
-    connection-url: "jdbc:mysql://localhost:3306/bluemap?permitMysqlScheme"
+    connection-url: "jdbc:mariadb://${CFG_SQLSERVER_ADDRESS}:3306/${CFG_********************************************************************************************************************************}"
     
     # You can set any additional (JDBC-Driver-specific) properties here
     # Usually that's your db-user and password
     connection-properties: {
-        user: "root",
-        password: ""
+        user: "${CFG_SQLSERVER_USERNAME}",
+        password: "${CFG_SQLSERVER_PASSWORD}"
     }
     
     # The maximum number of connections to the database that are allowed to be open at the same time.
@@ -83,7 +83,7 @@ data:
     # E.g. if your runtime-environment is not already providing the sql-driver you need,
     # you could download the MariaDB JDBC-Connector from https://mariadb.com/downloads/connectors/connectors-data-access/java8-connector/
     # place it in the './bluemap' folder and use is like this:
-    #driver-jar: "bluemap/mariadb-java-client-3.0.7.jar"
+    driver-jar: "bluemap/mariadb-java-client-3.5.1.jar"
     
     # This is the driver-class that bluemap will try to load and use.
     # Check the documentation of the driver you are using if you don't know this.

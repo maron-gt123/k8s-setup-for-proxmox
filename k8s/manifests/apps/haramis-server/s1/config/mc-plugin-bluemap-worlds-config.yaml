@@ -144,7 +144,7 @@ data:
     # You can find your storage configs next to this config file in the 'storages'-folder.
     # Changing this value requires a re-render of the map. The map in the old storage will not be deleted.
     # Default is "file"
-    storage: "file"
+    storage: "sql"
     
     # Normally BlueMap detects if a chunk has not yet generated it's light-data and omits rendering those chunks.
     # If this is set to true BlueMap will render Chunks even if there is no light-data!
@@ -314,7 +314,7 @@ data:
     # You can find your storage configs next to this config file in the 'storages'-folder.
     # Changing this value requires a re-render of the map. The map in the old storage will not be deleted.
     # Default is "file"
-    storage: "file"
+    storage: "sql"
     
     # Normally BlueMap detects if a chunk has not yet generated it's light-data and omits rendering those chunks.
     # If this is set to true BlueMap will render Chunks even if there is no light-data!
@@ -477,7 +477,7 @@ data:
     # You can find your storage configs next to this config file in the 'storages'-folder.
     # Changing this value requires a re-render of the map. The map in the old storage will not be deleted.
     # Default is "file"
-    storage: "file"
+    storage: "sql"
     
     # Normally BlueMap detects if a chunk has not yet generated it's light-data and omits rendering those chunks.
     # If this is set to true BlueMap will render Chunks even if there is no light-data!

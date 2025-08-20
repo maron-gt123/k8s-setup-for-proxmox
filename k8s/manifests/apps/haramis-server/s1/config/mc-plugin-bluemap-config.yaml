@@ -14,7 +14,7 @@ data:
     # BlueMap が Mojang のサーバー (https://piston-meta.mojang.com/) から Minecraft クライアントファイル（Minecraft のバージョンに応じたもの）をダウンロード・利用することに同意することになります。
     # このファイルには Mojang に帰属するリソースが含まれており、再配布したり、EULA に反する利用をしてはいけません。
     # BlueMap はこのファイルのリソースを使用して、マップの 3D モデルを生成し、それにテクスチャを適用します。（これがないと BlueMap は動作しません。）
-    accept-download: false
+    accept-download: true
     
     # BlueMap がランタイム中に必要とするデータファイルや、レンダリングの進捗を保存して後で再開できるようにするためのフォルダです。
     # デフォルトは "bluemap" です。

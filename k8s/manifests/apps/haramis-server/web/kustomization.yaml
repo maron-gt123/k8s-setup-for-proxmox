@@ -6,3 +6,5 @@ resources:
   - ../../templates/nginx-proxy
   # service
   - svc-LoadBalancer.yaml
+  # config
+  - config/nginx-harami-config.yaml

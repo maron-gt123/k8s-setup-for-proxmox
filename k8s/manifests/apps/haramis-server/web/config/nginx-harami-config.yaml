@@ -14,11 +14,4 @@ data:
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
         }
-
-        # Wiki Service
-        location /wiki/ {
-            proxy_pass http://wiki-service.mc-haramis.svc.cluster.local:80/;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-        }
     }

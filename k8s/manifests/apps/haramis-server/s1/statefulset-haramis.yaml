@@ -30,7 +30,7 @@ spec:
             - >
               wget -O /root/initContainer-download/MysqlInventoryBridge.jar "${INVENTORY_URL}" &&
               wget -O /root/initContainer-download/OnePlayerSleep.jar "${ONEPLAYERSLEEP_URL}" &&
-              wget -O /root/initContainer-download/bluemap-5.11-paper.jar "${BLUE_MAP_URL}"
+              wget -O /root/initContainer-download/bluemap.jar "${BLUE_MAP_URL}"
       containers:
         - name: minecraft
           env:
@@ -84,6 +84,10 @@ spec:
             - name: init-download-volume
               mountPath: /data/plugins/OnePlayerSleep.jar
               subPath: OnePlayerSleep.jar
+            # ------ bluemap ------
+            - name: init-download-volume
+              mountPath: /data/plugins/bluemap.jar
+              subPath: bluemap.jar
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data

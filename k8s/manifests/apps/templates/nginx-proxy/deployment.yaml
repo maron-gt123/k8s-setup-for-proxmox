@@ -18,5 +18,5 @@ spec:
         - name: nginx
           image: nginx:latest
           ports:
-            - containerPort: 81655
+            - containerPort: 817
               name: http

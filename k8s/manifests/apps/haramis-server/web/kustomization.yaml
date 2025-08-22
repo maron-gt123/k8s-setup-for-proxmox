@@ -4,8 +4,7 @@ namespace: mc-haramis
 resources:
   # templates
   - ../../templates/nginx-proxy
-  # service
-  - svc-LoadBalancer.yaml
 
 patches:
+  - path: svc-LoadBalancer.yaml
   - path: config/nginx-harami-config.yaml

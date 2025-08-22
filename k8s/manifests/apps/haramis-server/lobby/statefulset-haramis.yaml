@@ -16,11 +16,11 @@ spec:
           image: busybox:1.37.0
           env:
             - name: WORLDEDIT_URL
-              value: "https://dev.bukkit.org/projects/worldedit/files/latest"
+              value: "https://hangarcdn.papermc.io/plugins/EngineHub/WorldEdit/versions/7.3.16/PAPER/worldedit-bukkit-7.3.16.jar"
             - name: WORLDGUARD_URL
-              value: "https://dev.bukkit.org/projects/worldguard/files/latest"
+              value: "https://cdn.modrinth.com/data/DKY9btbd/versions/PO4MKx7e/worldguard-bukkit-7.0.14-dist.jar"
             - name: SERVERSPAWN_URL
-              value: "https://dev.bukkit.org/projects/serverspawn-by-goodgamer123/files/latest"
+              value: "https://cdn.modrinth.com/data/kfKmwtZp/versions/CuOWUqFJ/ServerSpawn.jar"
             - name: HOLOGRAMS_URL
               value: "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.9.6/DecentHolograms-2.9.6.jar"
           volumeMounts:

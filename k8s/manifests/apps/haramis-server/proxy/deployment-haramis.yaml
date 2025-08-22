@@ -11,12 +11,12 @@ spec:
         - name: mc-proxy
           resources:
             requests:
-              memory: "1024Mi"
+              memory: "2048Mi"
           env:
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: proxy
             - name: MEMORY
-              value: 1024m
+              value: 2048m
             - name: CFG_SERVER_LOBBY_URL
               valueFrom:
                 secretKeyRef:

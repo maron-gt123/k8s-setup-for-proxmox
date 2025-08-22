@@ -51,6 +51,8 @@ spec:
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
             - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
               value: "true"
+            - name: CFG_DISCORDSRV_ADMIN_USER
+              value: haramiten
           resources:
             requests:
               memory: 6G

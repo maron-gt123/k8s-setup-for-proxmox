@@ -30,10 +30,10 @@ spec:
             - sh
             - -c
             - >
-              wget -O /root/initContainer-download/worldedit.jar "${WORLDEDIT_URL}" &&
-              wget -O /root/initContainer-download/worldguard.jar "${WORLDGUARD_URL}" &&
-              wget -O /root/initContainer-download/ServerSpawn.jar "${SERVERSPAWN_URL}" &&
-              wget -O /root/initContainer-download/DecentHolograms.jar "${HOLOGRAMS_URL}"
+              curl -L "${WORLDEDIT_URL}" -o /root/initContainer-download/worldedit.jar &&
+              curl -L "${WORLDGUARD_URL}" -o /root/initContainer-download/worldguard.jar &&
+              curl -L "${SERVERSPAWN_URL}" -o /root/initContainer-download/ServerSpawn.jar &&
+              curl -L "${HOLOGRAMS_URL}" -o /root/initContainer-download/DecentHolograms.jar
       containers:
         - name: minecraft
           env:

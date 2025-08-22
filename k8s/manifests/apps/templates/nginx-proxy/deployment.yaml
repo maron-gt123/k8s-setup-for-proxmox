@@ -18,5 +18,5 @@ spec:
         - name: nginx
           image: nginx:latest
           ports:
-            - containerPort: 80   # ←ここで明示
+            - containerPort: 81655
               name: http

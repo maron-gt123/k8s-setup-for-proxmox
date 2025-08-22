@@ -14,4 +14,8 @@ data:
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
         }
+        # optional: root path
+        location /bluemap/s1/ {
+            return 404;
+        }
     }

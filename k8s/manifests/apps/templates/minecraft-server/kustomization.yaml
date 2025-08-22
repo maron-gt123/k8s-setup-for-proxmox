@@ -34,7 +34,7 @@ resources:
   # serverbackup-config
   - ./config/mc-plugin-serverbackup-config.yaml
     # bluemap-config
-  - ./mc-plugin-bluemap-common-config.yaml
+  - ./config/mc-plugin-bluemap-common-config.yaml
 
     # cronjob (frontend-restart warning)
   - ./cronjob/frontend-restart-warning.yaml

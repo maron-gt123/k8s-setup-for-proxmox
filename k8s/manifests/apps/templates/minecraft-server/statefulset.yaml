@@ -158,7 +158,8 @@ spec:
               value: /data
             - name: RCON_CMDS_STARTUP #37
               value: |-
-
+            - name: CFG_DISCORDSRV_ADMIN_USER
+              value: 
           ports:
             - name: mc-service
               containerPort: 25565

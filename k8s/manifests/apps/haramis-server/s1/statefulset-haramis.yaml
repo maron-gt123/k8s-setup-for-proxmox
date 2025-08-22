@@ -19,6 +19,8 @@ spec:
               value: "https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/download?version=357227"
             - name: ONEPLAYERSLEEP_URL
               value: "https://www.spigotmc.org/resources/one-player-sleep.31585/download?version=384206"
+            - name: BLUE_MAP_URL
+              value: "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-paper.jar"
           volumeMounts:
             - name: init-download-volume
               mountPath: /root/initContainer-download
@@ -27,7 +29,8 @@ spec:
             - -c
             - >
               wget -O /root/initContainer-download/MysqlInventoryBridge.jar "${INVENTORY_URL}" &&
-              wget -O /root/initContainer-download/OnePlayerSleep.jar "${ONEPLAYERSLEEP_URL}"
+              wget -O /root/initContainer-download/OnePlayerSleep.jar "${ONEPLAYERSLEEP_URL}" &&
+              wget -O /root/initContainer-download/bluemap-5.11-paper.jar "${BLUE_MAP_URL}"
       containers:
         - name: minecraft
           env:
@@ -38,7 +41,7 @@ spec:
             - name: INIT_MEMORY
               value: 1G
             - name: MAX_MEMORY
-              value: 4G
+              value: 6G
             - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
@@ -55,6 +58,7 @@ spec:
               value: haramiten
           resources:
             requests:
+              cpu: "4"
               memory: 6G
           volumeMounts:
             # ------ nsfに格納されているmusic_worldのマウント ------

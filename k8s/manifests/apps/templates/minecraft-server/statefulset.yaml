@@ -101,41 +101,46 @@ spec:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_INVENTORY_DATABASE
-            - name: CFG_LUCKPERMS_SERVER_NAME #26
+            - name: CFG_SQLSERVER_BLUEMAP_DATABASE # 26
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: CFG_SQLSERVER_BLUEMAP_DATABASE
+            - name: CFG_LUCKPERMS_SERVER_NAME #27
               value: 
-            - name: CFG_FORWARDING_KEY #27
+            - name: CFG_FORWARDING_KEY #28
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_FORWARDING_KEY
-            - name: CFG_DISCORD_SRV_BOT_KEY #28
+            - name: CFG_DISCORD_SRV_BOT_KEY #29
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_BOT_KEY
-            - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE #29
+            - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE #30
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
-            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH #30
+            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH #31
               value: 
-            - name: CFG_SQLSERVER_DISCORDSRV_ROLE_ID #31
+            - name: CFG_SQLSERVER_DISCORDSRV_ROLE_ID #32
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_DISCORDSRV_ROLE_ID
-            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #32
+            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #33
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #33
+            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #34
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-            - name: PLUGINS #34
+            - name: PLUGINS #35
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # ServerBackup
               # minecraft-prometheus-exporter3.1.0
@@ -150,15 +155,15 @@ spec:
                 https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.0/DiscordSRV-Build-1.30.0.jar
-            - name: JVM_OPTS #35
+            - name: JVM_OPTS #36
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
             # config関連を/configから/dataへmcopy
-            - name: COPY_CONFIG_DEST #36
+            - name: COPY_CONFIG_DEST #37
               value: /data
-            - name: RCON_CMDS_STARTUP #37
+            - name: RCON_CMDS_STARTUP #38
               value: |-
-            - name: CFG_DISCORDSRV_ADMIN_USER
+            - name: CFG_DISCORDSRV_ADMIN_USER #39
               value: 
           ports:
             - name: mc-service
@@ -167,8 +172,8 @@ spec:
               containerPort: 25575
             - name: mc-metrics
               containerPort: 9225
-            - name: mc-jmx-metrics
-              containerPort: 18321
+            - name: mc-map
+              containerPort: 8100
           resources:
             requests:
               memory: 2G
@@ -243,6 +248,16 @@ spec:
             - name: mc-plugin-serverbackup-config
               mountPath: /config/plugins/ServerBackup/config.yml
               subPath: serverbackup.yml
+            # blue mapのマウント
+            - name: mc-plugin-bluemap-common-config
+              mountPath: /config/plugins/BlueMap/core.conf
+              subPath: bluemap-core.conf
+            - name: mc-plugin-bluemap-common-config
+              mountPath: /config/plugins/BlueMap/plugin.conf
+              subPath: bluemap-plugin.conf
+            - name: mc-plugin-bluemap-common-config
+              mountPath: /config/plugins/BlueMap/storages/sql.conf
+              subPath: bluemap-sql.conf
             ######### advancedportalsは各環境で個別にマウント #########
             # advancedportals-destinationsのマウント
             #- name: mc-plugin-advancedportals-configs
@@ -311,3 +326,7 @@ spec:
         - name: mc-plugin-serverbackup-config
           configMap:
             name: mc-plugin-serverbackup-config
+        # blue map-configmap格納先
+        - name: mc-plugin-bluemap-common-config
+          configMap:
+            name: mc-plugin-bluemap-common-config

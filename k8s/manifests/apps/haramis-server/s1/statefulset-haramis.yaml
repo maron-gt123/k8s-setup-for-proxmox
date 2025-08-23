@@ -88,6 +88,20 @@ spec:
             - name: init-download-volume
               mountPath: /data/plugins/bluemap.jar
               subPath: bluemap.jar
+            # ------plugins関連のマウント ------
+            # ------ bluemap-world ------
+            # worldのマウント
+            - name: mc-plugin-bluemap-config
+              mountPath: /config/plugins/BlueMap/maps/s1-world.conf
+              subPath: bluemap-world.conf
+            # world_netherのマウント
+            - name: mc-plugin-bluemap-config
+              mountPath: /config/plugins/BlueMap/maps/s1-world_nether.conf
+              subPath: bluemap-world_nether.conf
+            # world_the_endのマウント
+            - name: mc-plugin-bluemap-config
+              mountPath: /config/plugins/BlueMap/maps/s1-world_the_end.conf
+              subPath: bluemap-world_the_end.conf
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data
@@ -97,3 +111,7 @@ spec:
         - name: world-data-backup
           persistentVolumeClaim:
             claimName: haramis-s1-backup-pvc
+        # bluemap-worldデータの永続ストレージの指定
+        - name: world-data-backup
+          persistentVolumeClaim:
+            claimName: mc-plugin-bluemap-config

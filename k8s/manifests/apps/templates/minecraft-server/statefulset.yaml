@@ -26,10 +26,11 @@ spec:
             - name: init-download-volume
               mountPath: /root/initContainer-download
           command:
-            - "sh"
-            - "-c"
-            - 'wget -O /root/initContainer-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"' &&
-            - 'wget -O /root/initContainer-download/mariadb-java-client.jar "${JMX_JDBC_URL}"'
+            - sh
+            - -c
+            - >
+              wget -O /root/initContainer-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}" &&
+              wget -O /root/initContainer-download/mariadb-java-client.jar "${JMX_JDBC_URL}"
       containers:
         - image: itzg/minecraft-server:java21
           name: minecraft

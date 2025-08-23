@@ -193,7 +193,7 @@ spec:
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
             - name: init-download-volume
-              mountPath: /data/plugins/bluemap/mariadb-java-client.jar
+              mountPath: /data/plugins/BlueMap/JDBC/mariadb-java-client.jar
               subPath: mariadb-java-client.jar
             # jmx-exporter-configの格納先
             - name: jmx-exporter-config

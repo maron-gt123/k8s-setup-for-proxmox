@@ -113,5 +113,5 @@ spec:
             claimName: haramis-s1-backup-pvc
         # bluemap-worldデータの永続ストレージの指定
         - name: mc-plugin-bluemap-config
-          persistentVolumeClaim:
-            claimName: mc-plugin-bluemap-config
+          configMap:
+            name: mc-plugin-bluemap-config

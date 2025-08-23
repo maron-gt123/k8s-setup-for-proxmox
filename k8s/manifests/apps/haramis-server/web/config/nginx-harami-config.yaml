@@ -10,6 +10,9 @@ data:
 
         # BlueMap for s1
         location /bluemap/s1/ {
+            # /bluemap/s1/ の prefix を内部で削除
+            rewrite ^/bluemap/s1/(.*)$ /$1 break;
+
             proxy_pass http://mc-s1-mc-s1map-service.mc-haramis.svc.cluster.local:8100/;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;

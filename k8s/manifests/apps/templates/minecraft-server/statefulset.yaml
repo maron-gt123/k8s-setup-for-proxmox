@@ -267,6 +267,19 @@ spec:
             #- name: mc-plugin-advancedportals-configs
             #  mountPath: /config/plugins/AdvancedPortals/portals/portals.yml
             #  subPath: portals.yml
+            ######### bluemapworldは各環境で個別にマウント #########
+            # worldのマウント
+            #- name: mc-plugin-bluemap-config
+            #  mountPath: /config/plugins/BlueMap/maps/world.conf
+            #  subPath: bluemap-world.conf
+            # world_netherのマウント
+            #- name: mc-plugin-bluemap-config
+            #  mountPath: /config/plugins/BlueMap/maps/world_nether.conf
+            #  subPath: bluemap-world_nether.conf
+            # world_the_endのマウント
+            #- name: mc-plugin-bluemap-config
+            #  mountPath: /config/plugins/BlueMap/maps/world_the_end.conf
+            #  subPath: bluemap-world_the_end.conf
       volumes:
         # paperのボリューム
         - name: data

@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-html-guide
+data:
+  guide.html: |
+    <!DOCTYPE html>
+    <html lang="ja">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>マイクラの入り方 - はら民限定サーバー</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white flex flex-col items-center min-h-screen p-6">
+      
+      <h1 class="text-3xl font-bold mb-6 text-center">マイクラの入り方</h1>
+      <p class="mb-8 max-w-xl text-gray-300 text-center">
+        はら民限定サーバーに参加する手順をご案内します。以下の手順を順番に行ってください。
+      </p>
+
+      <div class="flex flex-col gap-6 max-w-xl w-full">
+        <div class="bg-slate-800 p-4 rounded-xl shadow-md">
+          <h2 class="text-xl font-semibold mb-2">1. Minecraft を準備する</h2>
+          <p>Java Edition または Bedrock Edition の公式クライアントをインストールしてください。</p>
+        </div>
+
+        <div class="bg-slate-800 p-4 rounded-xl shadow-md">
+          <h2 class="text-xl font-semibold mb-2">2. サーバー情報を入力する</h2>
+          <p>サーバーアドレス: <span class="font-mono text-blue-400">mc.harami-server.jp</span><br>
+          ポート: <span class="font-mono text-blue-400">25565</span></p>
+        </div>
+
+        <div class="bg-slate-800 p-4 rounded-xl shadow-md">
+          <h2 class="text-xl font-semibold mb-2">3. サブスク登録済みアカウントでログイン</h2>
+          <p>サブスク限定 Discord ロールまたは TikTok サブスクで認証してください。</p>
+        </div>
+
+        <div class="bg-slate-800 p-4 rounded-xl shadow-md">
+          <h2 class="text-xl font-semibold mb-2">4. サーバーに接続</h2>
+          <p>接続後はサーバー内のルールに従ってプレイしてください。楽しい冒険を！</p>
+        </div>
+      </div>
+
+      <a href="/" class="mt-12 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200">
+        トップページに戻る
+      </a>
+
+      <footer class="mt-12 text-gray-400 text-sm">© 2025 はらみサーバー</footer>
+    </body>
+    </html>

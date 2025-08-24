@@ -11,6 +11,9 @@ data:
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>はらむはらみサブ限サーバの入り方</title>
       <script src="https://cdn.tailwindcss.com"></script>
+      <style>
+        html { scroll-behavior: smooth; }
+      </style>
     </head>
     <body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white flex flex-col items-center justify-start min-h-screen p-6">
       <h1 class="text-3xl font-bold mb-4 text-center">はらむはらみサブ限サーバの入り方ガイド</h1>
@@ -31,20 +34,20 @@ data:
             </li>
             <li>
               <a href="#bedrock" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">
-                ▶ 統合版 (PC)
+                ▶ 統合版 (PC / モバイル)
               </a>
             </li>
             <li>
               <a href="#auth" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">
-                ▶ サブスク認証について
+                ▶ サブスク認証
               </a>
             </li>
           </ul>
         </nav>
       </section>
-      
+
       <!-- Java版 -->
-      <section class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
+      <section id="java" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
         <h2 class="text-2xl font-bold mb-4 text-cyan-400">Java版 (PC)</h2>
         <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
           <li class="bg-gray-700 p-2 rounded">Minecraftを起動 → 「マルチプレイ」</li>
@@ -58,8 +61,8 @@ data:
       </section>
 
       <!-- 統合版 -->
-      <section class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
-        <h2 class="text-2xl font-bold mb-4 text-cyan-400">統合版 (PC)</h2>
+      <section id="bedrock" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
+        <h2 class="text-2xl font-bold mb-4 text-green-400">統合版 (PC / モバイル)</h2>
         <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
           <li class="bg-gray-700 p-2 rounded">Minecraftを起動 → 「プレイ」 → 「サーバー」 → 「+ サーバー追加」</li>
           <li class="bg-gray-700 p-2 rounded">サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
@@ -67,8 +70,18 @@ data:
           <li class="bg-gray-700 p-2 rounded">ポート番号：<span class="font-mono text-green-400">19132</span></li>
           <li class="bg-gray-700 p-2 rounded">サーバーを追加 → 「他のサーバー」に追加確認</li>
         </ol>
-        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/bedrock-login.png" alt="bedrockログイン設定" class="rounded-lg border border-gray-600 w-full mt-2">
-        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/bedrock-server.png" alt="bedrockサーバー検索画面" class="rounded-lg border border-gray-600 w-full mt-2">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/bedrock-login.png" alt="Bedrockログイン設定" class="rounded-lg border border-gray-600 w-full mt-2">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/bedrock-server.png" alt="Bedrockサーバー検索画面" class="rounded-lg border border-gray-600 w-full mt-2">
+      </section>
+
+      <!-- サブスク認証 -->
+      <section id="auth" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
+        <h2 class="text-2xl font-bold mb-4 text-yellow-400">サブスク認証について</h2>
+        <p class="text-gray-200 mb-4">
+          入室にははらむはらみTikTokのサブスク入会が必要です。<br>
+          サブスク確認後、アカウントがサーバーにアクセスできるようになります。
+        </p>
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/subscr-auth.png" alt="サブスク認証" class="rounded-lg border border-gray-600 w-full mt-2">
       </section>
 
       <!-- 戻るボタン -->

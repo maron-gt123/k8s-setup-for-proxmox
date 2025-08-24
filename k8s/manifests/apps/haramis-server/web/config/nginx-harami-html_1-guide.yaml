@@ -50,7 +50,8 @@ data:
       <section id="java" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
         <h2 class="text-2xl font-bold mb-4 text-cyan-400">Java版 (PC)</h2>
         <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
-          <li class="bg-gray-700 p-2 rounded">Minecraftを起動 → 「マルチプレイ」</li>
+          <li class="bg-gray-700 p-2 rounded">Minecraft launcherを起動 → 「Java EDITION」を選択 → 「プレイ」</li>
+          <li class="bg-gray-700 p-2 rounded">Minecraftが起動 → 「マルチプレイ」</li>
           <li class="bg-gray-700 p-2 rounded">「サーバーを追加」をクリック</li>
           <li class="bg-gray-700 p-2 rounded">サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
           <li class="bg-gray-700 p-2 rounded">サーバーアドレス：<span class="font-mono text-green-400">mc.example.com</span></li>
@@ -64,7 +65,8 @@ data:
       <section id="bedrock" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
         <h2 class="text-2xl font-bold mb-4 text-green-400">統合版 (PC / モバイル)</h2>
         <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
-          <li class="bg-gray-700 p-2 rounded">Minecraftを起動 → 「プレイ」 → 「サーバー」 → 「+ サーバー追加」</li>
+          <li class="bg-gray-700 p-2 rounded">Minecraft launcherを起動 → 「BEDROCK EDITION」を選択 → 「プレイ」</li>
+          <li class="bg-gray-700 p-2 rounded">Minecraftが起動 → 「プレイ」 → 「サーバー」 → 「+ サーバー追加」</li>
           <li class="bg-gray-700 p-2 rounded">サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
           <li class="bg-gray-700 p-2 rounded">サーバーアドレス：<span class="font-mono text-green-400">mc.example.com</span> または <span class="font-mono text-green-400">111.111.111.111</span></li>
           <li class="bg-gray-700 p-2 rounded">ポート番号：<span class="font-mono text-green-400">19132</span></li>
@@ -76,12 +78,46 @@ data:
 
       <!-- サブスク認証 -->
       <section id="auth" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
-        <h2 class="text-2xl font-bold mb-4 text-yellow-400">サブスク認証について</h2>
-        <p class="text-gray-200 mb-4">
-          入室にははらむはらみTikTokのサブスク入会が必要です。<br>
-          サブスク確認後、アカウントがサーバーにアクセスできるようになります。
-        </p>
-        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/subscr-auth.png" alt="サブスク認証" class="rounded-lg border border-gray-600 w-full mt-2">
+        <h2 class="text-2xl font-bold mb-4 text-green-400">サブスク認証</h2>
+        <p class="text-gray-200 mb-2 font-semibold">サブスクメンバー認証のため、ワンタイムパスワード認証が必要です</p>
+      
+        <!-- 認証条件 -->
+        <ul class="list-disc list-inside text-gray-200 mb-4 ml-4 space-y-1">
+          <li>
+            認証条件
+            <ul class="list-decimal list-inside ml-6 space-y-1">
+              <li class="bg-gray-700 p-2 rounded">TikTokサブスク入会済み</li>
+              <li class="bg-gray-700 p-2 rounded">サブスク限定Discordに参加</li>
+              <li class="bg-gray-700 p-2 rounded">マインクラフト接続時に発行されるワンタイムパスワードで認証</li>
+            </ul>
+          </li>
+      
+          <li>
+            注意点
+            <ul class="list-decimal list-inside ml-6 space-y-1">
+              <li class="bg-gray-700 p-2 rounded">サブスク解除後、再ログインはできなくなります</li>
+              <li class="bg-gray-700 p-2 rounded">ワンタイムパスワード認証はBOTへのDMで実施</li>
+              <li class="bg-gray-700 p-2 rounded">信頼性担保のため、定期的な再認証があります</li>
+            </ul>
+          </li>
+      
+          <li>
+            認証方法
+            <ul class="list-decimal list-inside ml-6 space-y-1">
+              <li class="bg-gray-700 p-2 rounded">Java版：「サーバーに接続」を選択　統合版：「プレイ」を選択</li>
+              <li class="bg-gray-700 p-2 rounded">「このサーバをプレイするにはDiscordアカウントのリンクが必要です」と表示される</li>
+              <li class="bg-gray-700 p-2 rounded">「次のコードをDMで送信してください：#****」と表示 ※****←ワンタイムパスワード(4桁)</li>
+              <li class="bg-gray-700 p-2 rounded">Discord-BOT(haramis-mc-BOT)にワンタイムパスワードをDM送付</li>
+              <li class="bg-gray-700 p-2 rounded">Discord-BOTは同Discordチャンネルの「～～入退室履歴」で確認可能</li>
+              <li class="bg-gray-700 p-2 rounded">DM送付後、「あなたのDiscordアカウントは、[ユーザ名]とリンクしました」と返信がくる</li>
+              <li class="bg-gray-700 p-2 rounded">認証ができたので再度ログインを実施</li>
+              <li class="bg-gray-700 p-2 rounded">「そのようなコードは知りません。」と返信の場合は再度ワンタイムパスワード発行</li>
+            </ol>
+          </li>
+        </ul>
+      
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/auth-image.png" alt="パスワード発行" class="rounded-lg border border-gray-600 w-full mt-2">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/auth-dm.png" alt="dmイメージ" class="rounded-lg border border-gray-600 w-full mt-2">
       </section>
 
       <!-- 戻るボタン -->

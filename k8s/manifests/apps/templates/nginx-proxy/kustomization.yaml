@@ -7,3 +7,4 @@ resources:
   - ./svc-LoadBalancer.yaml
   # config
   - ./config/nginx-html.yaml
+  - ./confignginx-html-links.yaml

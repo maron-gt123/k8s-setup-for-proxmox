@@ -11,45 +11,40 @@ data:
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>はら民限定マイクラサーバー</title>
       <script src="https://cdn.tailwindcss.com"></script>
-      <style>
-        body {
-          @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white font-sans flex flex-col items-center justify-center min-h-screen p-6;
-        }
-        h1 {
-          @apply text-3xl font-bold mb-4 text-center;
-        }
-        p {
-          @apply text-center mb-8 max-w-xl text-gray-300;
-        }
-        .links {
-          @apply flex flex-col gap-4 w-64;
-        }
-        .link-btn {
-          @apply flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200;
-        }
-        .link-btn img {
-          @apply w-6 h-6;
-        }
-        footer {
-          @apply mt-12 text-gray-400 text-sm;
-        }
-      </style>
     </head>
-    <body>
-      <h1>ようこそ はら民限定マインクラフトサーバーへ</h1>
-      <p>本サイトは配信者「はらみ」のサブスク限定マイクラサーバーの紹介ページです。以下のメニューから詳細を確認してください。</p>
+    <body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white flex flex-col items-center justify-center min-h-screen p-6">
+      <h1 class="text-3xl font-bold mb-4 text-center">ようこそ はら民限定マインクラフトサーバーへ</h1>
+      <p class="text-center mb-8 max-w-xl text-gray-300">
+        本サイトは配信者「はらみ」のサブスク限定マイクラサーバーの紹介ページです。以下のメニューから詳細を確認してください。
+      </p>
 
-      <div class="links">
-        <a href="/guide" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/game-controller.png" alt="Game">マイクラの入り方</a>
-        <a href="/rules" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/rules.png" alt="Rules">サーバー内のルール</a>
-        <a href="/bluemap" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/world-map.png" alt="Map">ワールドマップ</a>
-        <a href="https://www.tiktok.com/@harami" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="TikTok">TikTokアカウント</a>
-        <a href="https://x.com/harami" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="X">X(旧Twitter)</a>
-        <a href="https://lit.link/harami" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/link.png" alt="LitLink">lit.link</a>
-        <a href="https://discord.gg/xxxxxx" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord">Discordサーバー</a>
-        <a href="https://www.amazon.jp/hz/wishlist/ls/xxxxxx" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/amazon.png" alt="Amazon">Amazonほしい物リスト</a>
+      <div class="flex flex-col gap-4 w-64">
+        <a href="/guide" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/game-controller.png" class="w-6 h-6" alt="Game">マイクラの入り方
+        </a>
+        <a href="/rules" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/rules.png" class="w-6 h-6" alt="Rules">サーバー内のルール
+        </a>
+        <a href="/bluemap" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/world-map.png" class="w-6 h-6" alt="Map">ワールドマップ
+        </a>
+        <a href="https://www.tiktok.com/@harami" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" class="w-6 h-6" alt="TikTok">TikTokアカウント
+        </a>
+        <a href="https://x.com/harami" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" class="w-6 h-6" alt="X">X(旧Twitter)
+        </a>
+        <a href="https://lit.link/harami" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/link.png" class="w-6 h-6" alt="LitLink">lit.link
+        </a>
+        <a href="https://discord.gg/xxxxxx" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" class="w-6 h-6" alt="Discord">Discordサーバー
+        </a>
+        <a href="https://www.amazon.jp/hz/wishlist/ls/xxxxxx" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/amazon.png" class="w-6 h-6" alt="Amazon">Amazonほしい物リスト
+        </a>
       </div>
 
-      <footer>© 2025 はらみサーバー</footer>
+      <footer class="mt-12 text-gray-400 text-sm">© 2025 はらみサーバー</footer>
     </body>
     </html>

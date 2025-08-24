@@ -20,3 +20,11 @@ spec:
           ports:
             - containerPort: 80
               name: http
+          volumeMounts:
+            - name: nginx-html
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+      volumes:
+        - name: nginx-html
+          configMap:
+            name: nginx-html

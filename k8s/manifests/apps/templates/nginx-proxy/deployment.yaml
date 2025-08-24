@@ -4,6 +4,9 @@ metadata:
   name: nginx-proxy
   labels:
     app: nginx-proxy
+  annotations:
+    configmap.reloader.stakater.com/reload: "nginx-html"
+
 spec:
   replicas: 1
   selector:

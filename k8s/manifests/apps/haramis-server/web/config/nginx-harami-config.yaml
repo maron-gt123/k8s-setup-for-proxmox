@@ -21,7 +21,7 @@ data:
 
             # BlueMap for s1
             location /bluemap/s1/ {
-                rewrite ^/s1/(.*)$ /$1 break;
+                rewrite ^/bluemap/s1/(.*)$ /$1 break;
 
                 proxy_pass http://mc-s1-mc-s1map-service.mc-haramis.svc.cluster.local:8100/;
                 proxy_set_header Host $host;

@@ -9,35 +9,41 @@ data:
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>はら民限定マイクラサーバー</title>
+      <title>マイクラサーバー接続ガイド</title>
       <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white flex flex-col items-center justify-center min-h-screen p-6">
-      <h1 class="text-3xl font-bold mb-4 text-center">ようこそ はら民限定マインクラフトサーバーへ</h1>
+    <body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white flex flex-col items-center justify-start min-h-screen p-6">
+      <h1 class="text-3xl font-bold mb-4 text-center">マインクラフト サーバー接続方法</h1>
       <p class="text-center mb-8 max-w-xl text-gray-300">
-        本サイトは配信者「はらみ」のサブスク限定マイクラサーバーの紹介ページです。以下のメニューから詳細を確認してください。
+        以下の手順に従って、Java版または統合版からサーバーに接続してください。
       </p>
 
-      <div id="links" class="flex flex-col gap-4 w-64"></div>
+      <!-- Java版 -->
+      <section class="bg-gray-800 rounded-xl shadow-lg p-6 mb-8 max-w-2xl">
+        <h2 class="text-2xl font-bold mb-4">Java版 (PC)</h2>
+        <ol class="list-decimal list-inside text-gray-200 mb-4">
+          <li>Minecraft Java版を起動</li>
+          <li>「マルチプレイ」を選択</li>
+          <li>「サーバーを追加」をクリック</li>
+          <li>サーバーアドレスに <span class="font-mono text-green-400">mc.example.com</span> を入力</li>
+          <li>サーバーに参加！</li>
+        </ol>
+        <img src="/images/java-sample.png" alt="Java版サンプル" class="rounded-lg border border-gray-600">
+      </section>
 
-      <footer class="mt-12 text-gray-400 text-sm flex flex-col items-center gap-4">
-        <a href="#top" class="bg-gray-700 hover:bg-gray-600 text-white rounded-lg px-4 py-2 transition duration-200">トップに戻る</a>
-        <p>© 2025 はらみサーバー</p>
-      </footer>
+      <!-- 統合版 -->
+      <section class="bg-gray-800 rounded-xl shadow-lg p-6 mb-8 max-w-2xl">
+        <h2 class="text-2xl font-bold mb-4">統合版 (スマホ / Switch / Xbox)</h2>
+        <ol class="list-decimal list-inside text-gray-200 mb-4">
+          <li>Minecraftを起動</li>
+          <li>「遊ぶ」 → 「サーバー」 → 「サーバー追加」を選択</li>
+          <li>サーバーアドレスに <span class="font-mono text-green-400">bedrock.example.com</span></li>
+          <li>ポート番号を <span class="font-mono text-green-400">19132</span> に設定</li>
+          <li>保存して接続！</li>
+        </ol>
+        <img src="/images/bedrock-sample.png" alt="統合版サンプル" class="rounded-lg border border-gray-600">
+      </section>
 
-      <script>
-        fetch('/links/links.json')
-          .then(res => res.json())
-          .then(links => {
-            const container = document.getElementById('links');
-            links.forEach(link => {
-              const a = document.createElement('a');
-              a.href = link.url;
-              a.className = 'flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200';
-              a.innerHTML = `<img src="${link.icon}" class="w-6 h-6" alt="${link.name}">${link.name}`;
-              container.appendChild(a);
-            });
-          });
-      </script>
+      <footer class="mt-12 text-gray-400 text-sm">© 2025 はらみサーバー</footer>
     </body>
     </html>

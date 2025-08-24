@@ -20,7 +20,7 @@ data:
 
       <div class="flex flex-col gap-4 w-64">
         <a href="/guide" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/game-controller.png" class="w-6 h-6" alt="Game">マイクラの入り方
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/controller.png" class="w-6 h-6" alt="Game">マイクラの入り方
         </a>
         <a href="/rules" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
           <img src="https://img.icons8.com/ios-filled/50/ffffff/rules.png" class="w-6 h-6" alt="Rules">サーバー内のルール

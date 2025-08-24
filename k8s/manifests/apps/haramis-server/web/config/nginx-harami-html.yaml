@@ -7,75 +7,72 @@ data:
     <!DOCTYPE html>
     <html lang="ja">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Haramis Server</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Haramis Server</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
     <body class="bg-gray-900 text-white font-sans">
-        <!-- Hero Section -->
-        <section class="text-center py-12 px-4">
-            <h1 class="text-4xl font-bold mb-4">ようこそ はら民限定マインクラフトサーバーへ</h1>
-            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-                本サイトは、配信者「はらみ」のサブスク限定マインクラフトサーバーの紹介サイトです。<br>
-                以下のアイコンから各情報をご参照ください。
-            </p>
-        </section>
+      <!-- Hero Section -->
+      <section class="text-center py-12 px-4">
+        <h1 class="text-4xl font-extrabold mb-4 text-yellow-400">ようこそ、はら民限定マインクラフトサーバーへ！</h1>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+          本サイトは配信者「はらみ」のサブスク限定マインクラフトサーバー紹介ページです。  
+          以下のアイコンから、必要な情報にアクセスしてください。
+        </p>
+      </section>
 
-        <!-- Icon Navigation Section -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
-            <!-- Minecraftの入り方 -->
-            <a href="#login" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-md">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/minecraft.png" alt="Minecraft" class="mb-4">
-                <span class="text-xl font-semibold">マインクラフトの入り方</span>
-            </a>
+      <!-- Grid Section -->
+      <section class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+        <!-- Card Template -->
+        <a href="#join" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg">
+          <i class="fas fa-gamepad text-4xl text-yellow-400 mb-4"></i>
+          <h2 class="text-xl font-bold mb-2">マインクラフトの入り方</h2>
+          <p class="text-gray-400 text-center">サーバー参加手順はこちら</p>
+        </a>
 
-            <!-- サーバー内ルール -->
-            <a href="#rules" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-md">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/rules.png" alt="Rules" class="mb-4">
-                <span class="text-xl font-semibold">サーバー内のルール</span>
-            </a>
+        <a href="#rules" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg">
+          <i class="fas fa-scroll text-4xl text-green-400 mb-4"></i>
+          <h2 class="text-xl font-bold mb-2">サーバー内のルール</h2>
+          <p class="text-gray-400 text-center">参加前に必ず確認してください</p>
+        </a>
 
-            <!-- ワールドマップ -->
-            <a href="/bluemap/s1/" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-md">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/map.png" alt="BlueMap" class="mb-4">
-                <span class="text-xl font-semibold">ワールドマップ</span>
-            </a>
+        <a href="/bluemap/s1/" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg">
+          <i class="fas fa-map text-4xl text-blue-400 mb-4"></i>
+          <h2 class="text-xl font-bold mb-2">ワールドマップ</h2>
+          <p class="text-gray-400 text-center">BlueMapでマップを閲覧</p>
+        </a>
 
-            <!-- TikTok -->
-            <a href="https://www.tiktok.com/@harami_tiktok" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-md">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="TikTok" class="mb-4">
-                <span class="text-xl font-semibold">はらみ TikTok</span>
-            </a>
+        <a href="https://www.tiktok.com/@harami" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg">
+          <i class="fab fa-tiktok text-4xl text-pink-400 mb-4"></i>
+          <h2 class="text-xl font-bold mb-2">はらみ TikTok</h2>
+        </a>
 
-            <!-- X -->
-            <a href="https://x.com/harami_x" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-md">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="X" class="mb-4">
-                <span class="text-xl font-semibold">はらみ X</span>
-            </a>
+        <a href="https://x.com/harami" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg">
+          <i class="fab fa-twitter text-4xl text-blue-300 mb-4"></i>
+          <h2 class="text-xl font-bold mb-2">はらむはらみ X</h2>
+        </a>
 
-            <!-- lit.link -->
-            <a href="https://lit.link/harami" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-md">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/link.png" alt="lit.link" class="mb-4">
-                <span class="text-xl font-semibold">lit.link</span>
-            </a>
+        <a href="https://lit.link/harami" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg">
+          <i class="fas fa-link text-4xl text-purple-400 mb-4"></i>
+          <h2 class="text-xl font-bold mb-2">lit.link</h2>
+        </a>
 
-            <!-- Discord -->
-            <a href="https://discord.gg/XXXXX" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-md">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord" class="mb-4">
-                <span class="text-xl font-semibold">サブスク限定Discord鯖</span>
-            </a>
+        <a href="https://discord.gg/XXXX" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg">
+          <i class="fab fa-discord text-4xl text-indigo-400 mb-4"></i>
+          <h2 class="text-xl font-bold mb-2">Discord</h2>
+        </a>
 
-            <!-- Amazon欲しい物リスト -->
-            <a href="https://www.amazon.co.jp/hz/wishlist/ls/XXXXXXXXX" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-md">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/amazon.png" alt="Amazon Wishlist" class="mb-4">
-                <span class="text-xl font-semibold">Amazonほしい物リスト</span>
-            </a>
-        </section>
+        <a href="https://www.amazon.jp/hz/wishlist/ls/XXXX" target="_blank" class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg">
+          <i class="fas fa-gift text-4xl text-red-400 mb-4"></i>
+          <h2 class="text-xl font-bold mb-2">Amazonほしい物リスト</h2>
+        </a>
+      </section>
 
-        <!-- Footer -->
-        <footer class="bg-gray-800 text-center py-6 mt-12">
-            <p>&copy; 2025 Haramis Server</p>
-        </footer>
+      <!-- Footer -->
+      <footer class="text-center py-6 text-gray-500 mt-12">
+        &copy; 2025 Haramis Server
+      </footer>
     </body>
     </html>

@@ -7,3 +7,4 @@ resources:
 patches:
   - path: svc-LoadBalancer.yaml
   - path: config/nginx-harami-html.yaml
+  - path: config/nginx-harami-html-links.yaml

@@ -30,15 +30,23 @@ data:
         }
         h1 { font-size: 2rem; margin-bottom: 10px; }
         p { max-width: 600px; margin-bottom: 40px; font-size: 1rem; line-height: 1.6; }
-        .links { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .links {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          align-items: center;
+          width: 250px; /* 横幅統一 */
+        }
         .link-btn {
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 10px;
+          width: 100%; /* 横幅統一 */
           background: #2563eb;
           color: #fff;
           text-decoration: none;
-          padding: 15px 25px;
+          padding: 15px 0;
           border-radius: 12px;
           font-size: 1rem;
           font-weight: bold;
@@ -58,11 +66,11 @@ data:
         <a href="/guide" class="link-btn"><i class="fas fa-gamepad"></i> マイクラの入り方</a>
         <a href="/rules" class="link-btn"><i class="fas fa-scroll"></i> サーバー内のルール</a>
         <a href="/bluemap" class="link-btn"><i class="fas fa-map"></i> ワールドマップ</a>
-        <a href="https://www.tiktok.com/@harami" target="_self" class="link-btn"><i class="fab fa-tiktok"></i> TikTokアカウント</a>
-        <a href="https://x.com/harami" target="_self" class="link-btn"><i class="fab fa-x-twitter"></i> X(旧Twitter)</a>
-        <a href="https://lit.link/harami" target="_self" class="link-btn"><i class="fas fa-link"></i> lit.link</a>
-        <a href="https://discord.gg/xxxxxx" target="_self" class="link-btn"><i class="fab fa-discord"></i> Discordサーバー</a>
-        <a href="https://www.amazon.jp/hz/wishlist/ls/xxxxxx" target="_self" class="link-btn"><i class="fab fa-amazon"></i> Amazonほしい物リスト</a>
+        <a href="https://www.tiktok.com/@harami" class="link-btn"><i class="fab fa-tiktok"></i> TikTokアカウント</a>
+        <a href="https://x.com/harami" class="link-btn"><i class="fab fa-x-twitter"></i> X(旧Twitter)</a>
+        <a href="https://lit.link/harami" class="link-btn"><i class="fas fa-link"></i> lit.link</a>
+        <a href="https://discord.gg/xxxxxx" class="link-btn"><i class="fab fa-discord"></i> Discordサーバー</a>
+        <a href="https://www.amazon.jp/hz/wishlist/ls/xxxxxx" class="link-btn"><i class="fab fa-amazon"></i> Amazonほしい物リスト</a>
       </div>
 
       <footer>© 2025 はらみサーバー</footer>

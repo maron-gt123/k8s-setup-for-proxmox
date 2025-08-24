@@ -18,36 +18,23 @@ data:
         本サイトは配信者「はらみ」のサブスク限定マイクラサーバーの紹介ページです。以下のメニューから詳細を確認してください。
       </p>
 
-      <div class="flex flex-col gap-4 w-64">
-        <a href="/guide" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/controller.png" class="w-6 h-6" alt="Game">マイクラの入り方
-        </a>
-        <a href="/rules" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/rules.png" class="w-6 h-6" alt="Rules">サーバー内のルール
-        </a>
-        <a href="/bluemap" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/world-map.png" class="w-6 h-6" alt="Map">ワールドマップ
-        </a>
-        <a href="https://www.tiktok.com/@harami" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" class="w-6 h-6" alt="TikTok">TikTokアカウント
-        </a>
-        <a href="https://x.com/harami" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" class="w-6 h-6" alt="X">X(旧Twitter)
-        </a>
-        <a href="https://lit.link/harami" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/link.png" class="w-6 h-6" alt="LitLink">lit.link
-        </a>
-        <a href="https://discord.gg/xxxxxx" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" class="w-6 h-6" alt="Discord">Discordサーバー
-        </a>
-        <a href="https://www.amazon.jp/hz/wishlist/ls/xxxxxx" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/amazon.png" class="w-6 h-6" alt="Amazon">Amazonほしい物リスト
-        </a>
-        <a href="https://github.com/harami" class="flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" class="w-6 h-6" alt="GitHub">GitHub※サーバー開発者用
-        </a>
-      </div>
+      <div id="links" class="flex flex-col gap-4 w-64"></div>
 
       <footer class="mt-12 text-gray-400 text-sm">© 2025 はらみサーバー</footer>
+
+      <script>
+        fetch('/links/links.json')
+          .then(res => res.json())
+          .then(links => {
+            const container = document.getElementById('links');
+            links.forEach(link => {
+              const a = document.createElement('a');
+              a.href = link.url;
+              a.className = 'flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200';
+              a.innerHTML = `<img src="${link.icon}" class="w-6 h-6" alt="${link.name}">${link.name}`;
+              container.appendChild(a);
+            });
+          });
+      </script>
     </body>
     </html>

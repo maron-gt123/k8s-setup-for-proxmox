@@ -19,6 +19,15 @@ data:
         <span class="font-bold text-yellow-400">入室にははらむはらみTikTokのサブスク入会が必要です。</span>
       </p>
 
+      <!-- 目次 -->
+      <section class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
+        <h2 class="text-2xl font-bold mb-4 text-cyan-400">目次</h2>
+        <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
+          <li class="bg-gray-700 p-2 rounded">Java版 (PC)</li>
+          <li class="bg-gray-700 p-2 rounded">統合版 (PC)</li>
+          <li class="bg-gray-700 p-2 rounded">サブスク認証</li>
+      </section>
+      
       <!-- Java版 -->
       <section class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
         <h2 class="text-2xl font-bold mb-4 text-cyan-400">Java版 (PC)</h2>
@@ -35,7 +44,7 @@ data:
 
       <!-- 統合版 -->
       <section class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
-        <h2 class="text-2xl font-bold mb-4 text-cyan-400">統合版 (PC / モバイル)</h2>
+        <h2 class="text-2xl font-bold mb-4 text-cyan-400">統合版 (PC)</h2>
         <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
           <li class="bg-gray-700 p-2 rounded">Minecraftを起動 → 「プレイ」 → 「サーバー」 → 「+ サーバー追加」</li>
           <li class="bg-gray-700 p-2 rounded">サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>

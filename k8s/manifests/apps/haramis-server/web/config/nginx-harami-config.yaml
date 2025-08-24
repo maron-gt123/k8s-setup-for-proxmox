@@ -4,12 +4,19 @@ metadata:
   name: nginx-config
 data:
   nginx.conf: |
-    events {}
+    user  nginx;
+    worker_processes  1;
+
+    error_log  /var/log/nginx/error.log warn;
+    pid        /var/run/nginx.pid;
+
+    events {
+        worker_connections 1024;
+    }
 
     http {
         include       mime.types;
         default_type  application/octet-stream;
-
         sendfile        on;
         keepalive_timeout  65;
 
@@ -23,7 +30,6 @@ data:
             # BlueMap for s1
             location /bluemap/s1/ {
                 rewrite ^/bluemap/s1/(.*)$ /$1 break;
-
                 proxy_pass http://mc-s1-mc-s1map-service.mc-haramis.svc.cluster.local:8100/;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;

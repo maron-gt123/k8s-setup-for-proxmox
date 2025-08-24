@@ -9,43 +9,39 @@ data:
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>マイクラの入り方 - はら民限定サーバー</title>
+      <title>マイクラの入り方</title>
       <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white flex flex-col items-center min-h-screen p-6">
-      
-      <h1 class="text-3xl font-bold mb-6 text-center">マイクラの入り方</h1>
-      <p class="mb-8 max-w-xl text-gray-300 text-center">
-        はら民限定サーバーに参加する手順をご案内します。以下の手順を順番に行ってください。
-      </p>
+    <body class="bg-gray-900 text-white font-sans">
+      <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-6 text-center">マイクラの入り方</h1>
+        
+        <!-- Java版 -->
+        <section class="mb-10 bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h2 class="text-2xl font-bold mb-4">Java版</h2>
+          <p class="mb-2">サーバーアドレス: <span class="font-mono">example.com:25565</span></p>
+          <ol class="list-decimal list-inside space-y-2">
+            <li>Minecraft Java版を起動します。</li>
+            <li>「マルチプレイ」→「サーバーを追加」を選択します。</li>
+            <li>サーバーアドレスに <span class="font-mono">example.com</span> を入力し、完了。</li>
+          </ol>
+          <img src="https://i.imgur.com/1rY9d1U.png" alt="Java版スクリーンショット" class="mt-4 rounded-lg shadow-lg">
+        </section>
 
-      <div class="flex flex-col gap-6 max-w-xl w-full">
-        <div class="bg-slate-800 p-4 rounded-xl shadow-md">
-          <h2 class="text-xl font-semibold mb-2">1. Minecraft を準備する</h2>
-          <p>Java Edition または Bedrock Edition の公式クライアントをインストールしてください。</p>
-        </div>
+        <!-- 統合版 -->
+        <section class="mb-10 bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h2 class="text-2xl font-bold mb-4">統合版 (Bedrock)</h2>
+          <p class="mb-2">サーバーアドレス: <span class="font-mono">example.com</span></p>
+          <p class="mb-2">ポート: <span class="font-mono">19132</span></p>
+          <ol class="list-decimal list-inside space-y-2">
+            <li>Minecraft統合版を起動します。</li>
+            <li>「サーバー」タブ → 「外部サーバーを追加」を選択します。</li>
+            <li>サーバーアドレスに <span class="font-mono">example.com</span> を入力し、ポートは <span class="font-mono">19132</span>。</li>
+          </ol>
+          <img src="https://i.imgur.com/Gy1n3UJ.png" alt="統合版スクリーンショット" class="mt-4 rounded-lg shadow-lg">
+        </section>
 
-        <div class="bg-slate-800 p-4 rounded-xl shadow-md">
-          <h2 class="text-xl font-semibold mb-2">2. サーバー情報を入力する</h2>
-          <p>サーバーアドレス: <span class="font-mono text-blue-400">mc.harami-server.jp</span><br>
-          ポート: <span class="font-mono text-blue-400">25565</span></p>
-        </div>
-
-        <div class="bg-slate-800 p-4 rounded-xl shadow-md">
-          <h2 class="text-xl font-semibold mb-2">3. サブスク登録済みアカウントでログイン</h2>
-          <p>サブスク限定 Discord ロールまたは TikTok サブスクで認証してください。</p>
-        </div>
-
-        <div class="bg-slate-800 p-4 rounded-xl shadow-md">
-          <h2 class="text-xl font-semibold mb-2">4. サーバーに接続</h2>
-          <p>接続後はサーバー内のルールに従ってプレイしてください。楽しい冒険を！</p>
-        </div>
+        <p class="text-center text-gray-400">※ サーバーに関する質問はDiscordでお問い合わせください。</p>
       </div>
-
-      <a href="/" class="mt-12 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200">
-        トップページに戻る
-      </a>
-
-      <footer class="mt-12 text-gray-400 text-sm">© 2025 はらみサーバー</footer>
     </body>
     </html>

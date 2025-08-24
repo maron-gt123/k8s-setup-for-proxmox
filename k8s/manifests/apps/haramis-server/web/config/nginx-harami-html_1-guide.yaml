@@ -44,6 +44,13 @@ data:
         <img src="/images/bedrock-sample.png" alt="統合版サンプル" class="rounded-lg border border-gray-600">
       </section>
 
+      <!-- 戻るボタン -->
+      <div class="mb-8">
+        <a href="/index.html" class="bg-gray-700 hover:bg-gray-600 text-white rounded-lg px-4 py-2 transition duration-200">
+          トップに戻る
+        </a>
+      </div>
+
       <footer class="mt-12 text-gray-400 text-sm">© 2025 はらみサーバー</footer>
     </body>
     </html>

@@ -7,70 +7,47 @@ data:
     <!DOCTYPE html>
     <html lang="ja">
     <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>はら民限定マイクラサーバー</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-      <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.tailwindcss.com"></script>
       <style>
         body {
-          margin: 0;
-          font-family: 'Noto Sans JP', sans-serif;
-          background: linear-gradient(135deg, #0f172a, #1e293b);
-          color: #fff;
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          min-height: 100vh;
-          padding: 20px;
+          @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white font-sans flex flex-col items-center justify-center min-h-screen p-6;
         }
-        h1 { font-size: 2rem; margin-bottom: 10px; }
-        p { max-width: 600px; margin-bottom: 40px; font-size: 1rem; line-height: 1.6; }
+        h1 {
+          @apply text-3xl font-bold mb-4 text-center;
+        }
+        p {
+          @apply text-center mb-8 max-w-xl text-gray-300;
+        }
         .links {
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-          align-items: center;
-          width: 250px; /* 横幅統一 */
+          @apply flex flex-col gap-4 w-64;
         }
         .link-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          width: 100%; /* 横幅統一 */
-          background: #2563eb;
-          color: #fff;
-          text-decoration: none;
-          padding: 15px 0;
-          border-radius: 12px;
-          font-size: 1rem;
-          font-weight: bold;
-          transition: background 0.3s ease, transform 0.2s ease;
+          @apply flex items-center gap-3 justify-start bg-blue-600 hover:bg-blue-700 rounded-xl py-3 px-4 text-white font-semibold transition-all duration-200;
         }
-        .link-btn:hover { background: #1d4ed8; transform: translateY(-2px); }
-        .link-btn i { font-size: 1.2rem; }
-        footer { margin-top: 40px; font-size: 0.9rem; color: #94a3b8; }
+        .link-btn img {
+          @apply w-6 h-6;
+        }
+        footer {
+          @apply mt-12 text-gray-400 text-sm;
+        }
       </style>
     </head>
     <body>
       <h1>ようこそ はら民限定マインクラフトサーバーへ</h1>
-      <p>本サイトは配信者「はらみ」のサブスク限定マイクラサーバーの紹介ページです。<br>
-      以下のメニューから詳細を確認してください。</p>
+      <p>本サイトは配信者「はらみ」のサブスク限定マイクラサーバーの紹介ページです。以下のメニューから詳細を確認してください。</p>
 
       <div class="links">
-        <a href="/guide" class="link-btn"><i class="fas fa-gamepad"></i> マイクラの入り方</a>
-        <a href="/rules" class="link-btn"><i class="fas fa-scroll"></i> サーバー内のルール</a>
-        <a href="/bluemap" class="link-btn"><i class="fas fa-map"></i> ワールドマップ</a>
-        <a href="https://www.tiktok.com/@harami" class="link-btn"><i class="fab fa-tiktok"></i> TikTokアカウント</a>
-        <a href="https://x.com/harami" class="link-btn"><i class="fab fa-x-twitter"></i> X(旧Twitter)</a>
-        <a href="https://lit.link/harami" class="link-btn"><i class="fas fa-link"></i> lit.link</a>
-        <a href="https://discord.gg/xxxxxx" class="link-btn"><i class="fab fa-discord"></i> Discordサーバー</a>
-        <a href="https://www.amazon.jp/hz/wishlist/ls/xxxxxx" class="link-btn"><i class="fab fa-amazon"></i> Amazonほしい物リスト</a>
+        <a href="/guide" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/game-controller.png" alt="Game">マイクラの入り方</a>
+        <a href="/rules" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/rules.png" alt="Rules">サーバー内のルール</a>
+        <a href="/bluemap" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/world-map.png" alt="Map">ワールドマップ</a>
+        <a href="https://www.tiktok.com/@harami" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="TikTok">TikTokアカウント</a>
+        <a href="https://x.com/harami" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="X">X(旧Twitter)</a>
+        <a href="https://lit.link/harami" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/link.png" alt="LitLink">lit.link</a>
+        <a href="https://discord.gg/xxxxxx" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord">Discordサーバー</a>
+        <a href="https://www.amazon.jp/hz/wishlist/ls/xxxxxx" class="link-btn"><img src="https://img.icons8.com/ios-filled/50/ffffff/amazon.png" alt="Amazon">Amazonほしい物リスト</a>
       </div>
 
       <footer>© 2025 はらみサーバー</footer>

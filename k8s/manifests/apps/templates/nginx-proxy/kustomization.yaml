@@ -6,4 +6,5 @@ resources:
   # service
   - ./svc-LoadBalancer.yaml
   # config
+  - ./config/nginx-html.yaml
   - ./config/nginx-config.yaml

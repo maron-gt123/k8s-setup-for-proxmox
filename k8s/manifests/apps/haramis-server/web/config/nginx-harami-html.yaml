@@ -19,8 +19,9 @@ data:
                 <h1 class="text-2xl font-bold">Haramis Server</h1>
                 <nav>
                     <ul class="flex space-x-6">
-                        <li><a href="#login" class="hover:text-yellow-400">ログイン方法</a></li>
+                        <li><a href="/master" class="hover:text-yellow-400">ログイン方法</a></li>
                         <li><a href="#bluemap" class="hover:text-yellow-400">BlueMap</a></li>
+                        <li><a href="#streamer" class="hover:text-yellow-400">配信者リンク</a></li>
                     </ul>
                 </nav>
             </div>
@@ -50,9 +51,25 @@ data:
             </a>
         </section>
 
+        <!-- Streamer Links -->
+        <section id="streamer" class="max-w-4xl mx-auto py-12 px-4">
+            <h3 class="text-3xl font-semibold mb-6 text-pink-400">配信者リンク</h3>
+            <div class="flex flex-col space-y-4">
+                <a href="https://www.tiktok.com/@streamer" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-lg text-lg font-bold">
+                    TikTokで見る
+                </a>
+                <a href="https://streamer.link" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg text-lg font-bold">
+                    配信者リンク集 (.link)
+                </a>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="bg-gray-800 text-center py-6 mt-12">
             <p>&copy; 2025 Haramis Server</p>
+            <p>
+                <a href="https://github.com/your-github" target="_blank" class="text-blue-400 hover:underline">GitHub</a>
+            </p>
         </footer>
     </body>
     </html>

@@ -29,7 +29,8 @@ data:
           <li class="bg-gray-700 p-2 rounded">サーバーアドレス：<span class="font-mono text-green-400">mc.example.com</span></li>
           <li class="bg-gray-700 p-2 rounded">表示されれば接続成功</li>
         </ol>
-        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/java-login.png" alt="Java版ログイン設定" class="rounded-lg border border-gray-600 w-full mt-2">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/java-login.png" alt="Javaログイン設定" class="rounded-lg border border-gray-600 w-full mt-2">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/java-server.png" alt="Javaサーバー検索画面" class="rounded-lg border border-gray-600 w-full mt-2">
       </section>
 
       <!-- 統合版 -->
@@ -42,7 +43,8 @@ data:
           <li class="bg-gray-700 p-2 rounded">ポート番号：<span class="font-mono text-green-400">19132</span></li>
           <li class="bg-gray-700 p-2 rounded">サーバーを追加 → 「他のサーバー」に追加確認</li>
         </ol>
-        <img src="/images/bedrock-sample.png" alt="統合版サンプル" class="rounded-lg border border-gray-600 w-full mt-2">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/bedrock-login.png" alt="bedrockログイン設定" class="rounded-lg border border-gray-600 w-full mt-2">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/bedrock-server.png" alt="bedrockサーバー検索画面" class="rounded-lg border border-gray-600 w-full mt-2">
       </section>
 
       <!-- 戻るボタン -->

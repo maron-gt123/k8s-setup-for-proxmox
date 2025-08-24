@@ -4,19 +4,6 @@ metadata:
   name: nginx-html
 data:
   index.html: |
-    events {}
-    http {
-      server {
-        listen 80;
-        server_name _;
-
-        location / {
-          root /usr/share/nginx/html;
-          index index.html;
-        }
-      }
-    }
-  index.html: |
     <!DOCTYPE html>
     <html lang="ja">
     <head>
@@ -40,41 +27,16 @@ data:
           min-height: 100vh;
           padding: 20px;
         }
-        h1 {
-          font-size: 2rem;
-          margin-bottom: 10px;
-        }
-        p {
-          max-width: 600px;
-          margin-bottom: 40px;
-          font-size: 1rem;
-          line-height: 1.6;
-        }
-        .links {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 15px;
-        }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        p { max-width: 600px; margin-bottom: 40px; font-size: 1rem; line-height: 1.6; }
+        .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
         .link-btn {
-          background: #2563eb;
-          color: #fff;
-          text-decoration: none;
-          padding: 15px 25px;
-          border-radius: 12px;
-          font-size: 1rem;
-          font-weight: bold;
+          background: #2563eb; color: #fff; text-decoration: none;
+          padding: 15px 25px; border-radius: 12px; font-size: 1rem; font-weight: bold;
           transition: background 0.3s ease, transform 0.2s ease;
         }
-        .link-btn:hover {
-          background: #1d4ed8;
-          transform: translateY(-2px);
-        }
-        footer {
-          margin-top: 40px;
-          font-size: 0.9rem;
-          color: #94a3b8;
-        }
+        .link-btn:hover { background: #1d4ed8; transform: translateY(-2px); }
+        footer { margin-top: 40px; font-size: 0.9rem; color: #94a3b8; }
       </style>
     </head>
     <body>
@@ -86,11 +48,11 @@ data:
         <a href="/guide" class="link-btn">マイクラの入り方</a>
         <a href="/rules" class="link-btn">サーバー内のルール</a>
         <a href="/bluemap" class="link-btn">ワールドマップ</a>
-        <a href="https://www.tiktok.com/@harami" class="link-btn">TikTokアカウント</a>
-        <a href="https://x.com/harami" class="link-btn">X(旧Twitter)</a>
-        <a href="https://lit.link/harami" class="link-btn">lit.link</a>
-        <a href="https://discord.gg/xxxxxx" class="link-btn">Discordサーバー</a>
-        <a href="https://www.amazon.jp/hz/wishlist/ls/xxxxxx" class="link-btn">Amazonほしい物リスト</a>
+        <a href="https://www.tiktok.com/@harami" target="_self" class="link-btn">TikTokアカウント</a>
+        <a href="https://x.com/harami" target="_self" class="link-btn">X(旧Twitter)</a>
+        <a href="https://lit.link/harami" target="_self" class="link-btn">lit.link</a>
+        <a href="https://discord.gg/xxxxxx" target="_self" class="link-btn">Discordサーバー</a>
+        <a href="https://www.amazon.jp/hz/wishlist/ls/xxxxxx" target="_self" class="link-btn">Amazonほしい物リスト</a>
       </div>
 
       <footer>© 2025 はらみサーバー</footer>

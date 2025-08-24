@@ -13,5 +13,5 @@ data:
       {"name":"lit.link","url":"https://lit.link/harami","icon":"https://img.icons8.com/ios-filled/50/ffffff/link.png"},
       {"name":"Discordサーバー","url":"https://discord.gg/xxxxxx","icon":"https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png"},
       {"name":"Amazonほしい物リスト","url":"https://www.amazon.jp/hz/wishlist/ls/xxxxxx","icon":"https://img.icons8.com/ios-filled/50/ffffff/amazon.png"},
-      {"name":"GitHub※サーバー開発者用","url":"https://github.com/harami","icon":"https://img.icons8.com/ios-filled/50/ffffff/github.png"}
+      {"name":"GitHub※サーバー開発者用","url":"https://github.com/maron-gt123/k8s-setup-for-proxmox","icon":"https://img.icons8.com/ios-filled/50/ffffff/github.png"}
     ]

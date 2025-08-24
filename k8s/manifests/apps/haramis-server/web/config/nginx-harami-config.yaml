@@ -19,7 +19,6 @@ data:
             root /usr/share/nginx/html;
             index index.html;
 
-            # BlueMap for s1
             location /bluemap/s1/ {
                 rewrite ^/bluemap/s1/(.*)$ /$1 break;
 

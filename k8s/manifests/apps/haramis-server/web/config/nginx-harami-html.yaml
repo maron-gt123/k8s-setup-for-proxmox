@@ -11,6 +11,8 @@ data:
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Haramis Server</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <!-- 404回避用の簡易favicon（必要なら差し替え） -->
+        <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23000000"/><text x="50" y="58" font-size="44" text-anchor="middle" fill="%23ffffff">H</text></svg>' />
     </head>
     <body class="bg-gray-900 text-white font-sans">
         <!-- Header -->
@@ -18,7 +20,8 @@ data:
             <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
                 <h1 class="text-2xl font-bold">Haramis Server</h1>
                 <nav>
-                    <ul class="flex space-x-6">
+                    <ul class="flex flex-wrap gap-6">
+                        <!-- 要望：#login ではなく /master に遷移 -->
                         <li><a href="/master" class="hover:text-yellow-400">ログイン方法</a></li>
                         <li><a href="#bluemap" class="hover:text-yellow-400">BlueMap</a></li>
                         <li><a href="#streamer" class="hover:text-yellow-400">配信者リンク</a></li>
@@ -33,20 +36,43 @@ data:
             <p class="text-lg text-gray-300">楽しいサバイバルと冒険が待っています。</p>
         </section>
 
-        <!-- Login Section -->
+        <!-- Login (条件) Section -->
         <section id="login" class="max-w-4xl mx-auto py-12 px-4">
-            <h3 class="text-3xl font-semibold mb-6 text-yellow-400">ログイン方法</h3>
-            <p class="mb-4">Discordに参加して、ロールを取得してください。</p>
-            <a href="https://discord.gg/XXXXX" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-bold">
-                Discordに参加する
-            </a>
+            <h3 class="text-3xl font-semibold mb-6 text-yellow-400">ログイン条件（サブスクメンバー専用）</h3>
+
+            <div class="bg-gray-800/60 rounded-xl p-6 space-y-4">
+                <p class="text-gray-200">
+                    このサーバーは <span class="font-bold text-yellow-300">TikTokのサブスク登録</span> が必須です。<br>
+                    サブスク登録後、<span class="font-bold">TikTokアカウント付与</span> からアカウント連携（紐づけ）を行ってください。
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <!-- TikTok サブスク登録ボタン（URL差し替え） -->
+                    <a href="https://www.tiktok.com/@YOUR_TIKTOK_ACCOUNT" target="_blank"
+                       class="text-center bg-pink-600 hover:bg-pink-700 px-6 py-3 rounded-lg text-lg font-bold">
+                        TikTokでサブスク登録
+                    </a>
+
+                    <!-- アカウント付与（/master へ） -->
+                    <a href="/master"
+                       class="text-center bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg text-lg font-bold">
+                        TikTokアカウント付与
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-400">
+                    ※ Discord参加は任意です（サポートや交流用）。<br>
+                    ※ 付与（連携）の詳細は <a href="/master" class="underline hover:text-yellow-300">/master</a> ページをご確認ください。
+                </p>
+            </div>
         </section>
 
         <!-- BlueMap Section -->
         <section id="bluemap" class="max-w-4xl mx-auto py-12 px-4">
             <h3 class="text-3xl font-semibold mb-6 text-green-400">BlueMap</h3>
             <p class="mb-4">サーバーのワールドをブラウザで見てみよう！</p>
-            <a href="/bluemap/s1/" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-lg font-bold">
+            <a href="/bluemap/s1/" target="_blank"
+               class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-lg font-bold">
                 s1 マップを見る
             </a>
         </section>
@@ -54,11 +80,15 @@ data:
         <!-- Streamer Links -->
         <section id="streamer" class="max-w-4xl mx-auto py-12 px-4">
             <h3 class="text-3xl font-semibold mb-6 text-pink-400">配信者リンク</h3>
-            <div class="flex flex-col space-y-4">
-                <a href="https://www.tiktok.com/@streamer" target="_blank" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-lg text-lg font-bold">
+            <div class="flex flex-col sm:flex-row gap-4">
+                <!-- TikTok（URL差し替え） -->
+                <a href="https://www.tiktok.com/@YOUR_TIKTOK_ACCOUNT" target="_blank"
+                   class="flex-1 text-center bg-pink-600 hover:bg-pink-700 px-6 py-3 rounded-lg text-lg font-bold">
                     TikTokで見る
                 </a>
-                <a href="https://streamer.link" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg text-lg font-bold">
+                <!-- .link（URL差し替え） -->
+                <a href="https://YOUR_LINK_PAGE.link" target="_blank"
+                   class="flex-1 text-center bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg text-lg font-bold">
                     配信者リンク集 (.link)
                 </a>
             </div>
@@ -67,8 +97,11 @@ data:
         <!-- Footer -->
         <footer class="bg-gray-800 text-center py-6 mt-12">
             <p>&copy; 2025 Haramis Server</p>
-            <p>
-                <a href="https://github.com/your-github" target="_blank" class="text-blue-400 hover:underline">GitHub</a>
+            <p class="mt-2">
+                <!-- GitHub（URL差し替え） -->
+                <a href="https://github.com/YOUR_GITHUB" target="_blank" class="text-blue-400 hover:underline">
+                    GitHub
+                </a>
             </p>
         </footer>
     </body>

@@ -20,12 +20,27 @@ data:
       </p>
 
       <!-- 目次 -->
-      <section class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
+      <section class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full">
         <h2 class="text-2xl font-bold mb-4 text-cyan-400">目次</h2>
-        <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
-          <li class="bg-gray-700 p-2 rounded">Java版 (PC)</li>
-          <li class="bg-gray-700 p-2 rounded">統合版 (PC)</li>
-          <li class="bg-gray-700 p-2 rounded">サブスク認証</li>
+        <nav>
+          <ul class="space-y-3">
+            <li>
+              <a href="#java" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">
+                ▶ Java版 (PC)
+              </a>
+            </li>
+            <li>
+              <a href="#bedrock" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">
+                ▶ 統合版 (PC)
+              </a>
+            </li>
+            <li>
+              <a href="#auth" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">
+                ▶ サブスク認証について
+              </a>
+            </li>
+          </ul>
+        </nav>
       </section>
       
       <!-- Java版 -->

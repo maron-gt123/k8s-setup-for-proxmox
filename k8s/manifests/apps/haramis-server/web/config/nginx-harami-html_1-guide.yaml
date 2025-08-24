@@ -7,59 +7,43 @@ data:
     <!DOCTYPE html>
     <html lang="ja">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>マイクラ接続ガイド</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>マイクラサーバー接続ガイド</title>
+      <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="bg-gray-900 text-gray-100 font-sans leading-relaxed">
-        <header class="bg-gray-800 p-6 text-center shadow-lg">
-            <h1 class="text-3xl font-bold text-white">マインクラフトサーバーへの接続方法</h1>
-            <p class="text-gray-400 mt-2">Java版と統合版で手順が異なります。下記の手順をご確認ください。</p>
-        </header>
+    <body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white flex flex-col items-center justify-start min-h-screen p-6">
+      <h1 class="text-3xl font-bold mb-4 text-center">マインクラフト サーバー接続方法</h1>
+      <p class="text-center mb-8 max-w-xl text-gray-300">
+        以下の手順に従って、Java版または統合版からサーバーに接続してください。
+      </p>
 
-        <main class="max-w-4xl mx-auto py-10 px-6">
-            <!-- Java版 -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-4">Java版 (PC)</h2>
-                <ol class="list-decimal list-inside space-y-4">
-                    <li>Minecraft Java Edition を起動します。</li>
-                    <li>「マルチプレイ」を選択します。</li>
-                    <li>「サーバーを追加」をクリックします。</li>
-                    <li>サーバーアドレスに以下を入力してください：<br>
-                        <span class="bg-gray-700 text-green-400 px-2 py-1 rounded">play.example.com</span>
-                    </li>
-                    <li>「完了」を押し、サーバーを選んで接続します。</li>
-                </ol>
-                <div class="mt-6">
-                    <img src="/images/java-add-server.png" alt="Java版 サーバー追加画面" class="rounded shadow-lg border border-gray-700">
-                </div>
-            </section>
+      <!-- Java版 -->
+      <section class="bg-gray-800 rounded-xl shadow-lg p-6 mb-8 max-w-2xl">
+        <h2 class="text-2xl font-bold mb-4">Java版 (PC)</h2>
+        <ol class="list-decimal list-inside text-gray-200 mb-4">
+          <li>Minecraft Java版を起動</li>
+          <li>「マルチプレイ」を選択</li>
+          <li>「サーバーを追加」をクリック</li>
+          <li>サーバーアドレスに <span class="font-mono text-green-400">mc.example.com</span> を入力</li>
+          <li>サーバーに参加！</li>
+        </ol>
+        <img src="/images/java-sample.png" alt="Java版サンプル" class="rounded-lg border border-gray-600">
+      </section>
 
-            <!-- 統合版 -->
-            <section>
-                <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2 mb-4">統合版 (スマホ・Switch・Xbox)</h2>
-                <ol class="list-decimal list-inside space-y-4">
-                    <li>Minecraft Bedrock Edition を起動します。</li>
-                    <li>「遊ぶ」→「サーバー」タブを開きます。</li>
-                    <li>「サーバーを追加」を選択します。</li>
-                    <li>サーバー名に「Haramis Server」など好きな名前を入力します。</li>
-                    <li>アドレスに以下を入力してください：<br>
-                        <span class="bg-gray-700 text-green-400 px-2 py-1 rounded">play.example.com</span>
-                    </li>
-                    <li>ポート番号を入力してください：<br>
-                        <span class="bg-gray-700 text-green-400 px-2 py-1 rounded">19132</span>
-                    </li>
-                    <li>「保存」→「サーバーに参加」をタップします。</li>
-                </ol>
-                <div class="mt-6">
-                    <img src="/images/bedrock-add-server.png" alt="統合版 サーバー追加画面" class="rounded shadow-lg border border-gray-700">
-                </div>
-            </section>
-        </main>
+      <!-- 統合版 -->
+      <section class="bg-gray-800 rounded-xl shadow-lg p-6 mb-8 max-w-2xl">
+        <h2 class="text-2xl font-bold mb-4">統合版 (スマホ / Switch / Xbox)</h2>
+        <ol class="list-decimal list-inside text-gray-200 mb-4">
+          <li>Minecraftを起動</li>
+          <li>「遊ぶ」 → 「サーバー」 → 「サーバー追加」を選択</li>
+          <li>サーバーアドレスに <span class="font-mono text-green-400">bedrock.example.com</span></li>
+          <li>ポート番号を <span class="font-mono text-green-400">19132</span> に設定</li>
+          <li>保存して接続！</li>
+        </ol>
+        <img src="/images/bedrock-sample.png" alt="統合版サンプル" class="rounded-lg border border-gray-600">
+      </section>
 
-        <footer class="text-center text-gray-500 py-6 border-t border-gray-700">
-            &copy; 2025 Haramis Network
-        </footer>
+      <footer class="mt-12 text-gray-400 text-sm">© 2025 はらみサーバー</footer>
     </body>
     </html>

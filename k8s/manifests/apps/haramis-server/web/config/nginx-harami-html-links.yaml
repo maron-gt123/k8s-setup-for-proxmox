@@ -5,7 +5,7 @@ metadata:
 data:
   links.json: |
     [
-      {"name":"マイクラの入り方","url":"/guide","icon":"https://img.icons8.com/ios-filled/50/ffffff/controller.png"},
+      {"name":"マイクラの入り方","url":"/guide.html","icon":"https://img.icons8.com/ios-filled/50/ffffff/controller.png"},
       {"name":"サーバー内のルール","url":"/rules","icon":"https://img.icons8.com/ios-filled/50/ffffff/rules.png"},
       {"name":"ワールドマップ","url":"/bluemap","icon":"https://img.icons8.com/ios-filled/50/ffffff/world-map.png"},
       {"name":"TikTokアカウント","url":"https://www.tiktok.com/@kaniba_rhythm","icon":"https://img.icons8.com/ios-filled/50/ffffff/tiktok.png"},

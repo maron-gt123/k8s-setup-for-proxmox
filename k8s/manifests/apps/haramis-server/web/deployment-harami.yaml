@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-proxy
+  labels:
+    app: nginx-proxy
+spec:
+  template:
+    spec:
+      containers:
+        - name: nginx
+          volumeMounts:
+            - name: nginx-guide
+              mountPath: /usr/share/nginx/html/guide.html
+              subPath: guide.html
+      volumes:
+        - name: nginx-guide
+          configMap:
+            name: nginx-html-guide

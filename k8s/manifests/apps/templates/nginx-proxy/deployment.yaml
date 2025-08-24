@@ -27,7 +27,13 @@ spec:
             - name: nginx-html
               mountPath: /usr/share/nginx/html/index.html
               subPath: index.html
+            - name: nginx-links
+              mountPath: /usr/share/nginx/html/links/links.json
+              subPath: links.json
       volumes:
         - name: nginx-html
           configMap:
             name: nginx-html
+        - name: nginx-links
+          configMap:
+            name: nginx-links

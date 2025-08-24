@@ -27,6 +27,7 @@ spec:
             - name: nginx-config
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx-config.conf
+              readOnly: true
       volumes:
         - name: nginx-config
           configMap:

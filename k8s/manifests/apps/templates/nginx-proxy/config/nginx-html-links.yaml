@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-links
+data:
+  links.json: |
+    [
+      {"name":"GitHub※サーバー開発者用","url":"https://github.com/harami","icon":"https://img.icons8.com/ios-filled/50/ffffff/github.png"}
+    ]

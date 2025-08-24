@@ -6,4 +6,4 @@ resources:
   - ../../templates/nginx-proxy
 patches:
   - path: svc-LoadBalancer.yaml
-  - path: nginx-harami-html.yaml
+  - path: config/nginx-harami-html.yaml

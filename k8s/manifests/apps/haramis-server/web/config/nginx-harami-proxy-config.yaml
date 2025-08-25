@@ -10,7 +10,7 @@ data:
     
         # BlueMap for s1
         location /bluemap/s1/ {
-            proxy_pass http://bluemap-s1-service:8100/; # Kubernetes Service名に変更
+            proxy_pass http://mc-s1-mc-s1map-service.mc-haramis.svc.cluster.local:8100/
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";

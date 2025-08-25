@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-proxy-config
+data:
+  nginx-server.conf: |
+    server {
+        listen 80;
+        server_name example.com;
+    
+        # BlueMap for s1
+        location /bluemap/s1/ {
+            proxy_pass http://bluemap-s1-service:8100/; # Kubernetes Service名に変更
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            proxy_set_header Host $host;
+        }
+    }

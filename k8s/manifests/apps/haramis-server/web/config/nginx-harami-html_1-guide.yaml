@@ -25,6 +25,8 @@ data:
       <!-- 目次 -->
       <section class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full">
         <h2 class="text-2xl font-bold mb-4 text-cyan-400">目次</h2>
+        <p class="text-gray-200 mb-2 font-semibold">各利用ハードごとのサーバー接続手順を確認しログイン認証を実施してください<br>
+        X-BOX及びSwichでの入室は要望があれば実施いたします</p>
         <nav>
           <ul class="space-y-3">
             <li>
@@ -35,6 +37,11 @@ data:
             <li>
               <a href="#bedrock" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">
                 ▶ 統合版 (PC / モバイル)
+              </a>
+            </li>
+            <li>
+              <a href="#PS5" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">
+                ▶ 統合版 (PS5)
               </a>
             </li>
             <li>

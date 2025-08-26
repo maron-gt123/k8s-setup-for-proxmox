@@ -83,6 +83,15 @@ data:
         <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/web/config/image/bedrock-server.png" alt="Bedrockサーバー検索画面" class="rounded-lg border border-gray-600 w-full mt-2">
       </section>
 
+      <!-- PS5 -->
+      <section id="PS5" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
+        <h2 class="text-2xl font-bold mb-4 text-green-400">統合版 (PS5)</h2>
+        <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
+          <li class="bg-gray-700 p-2 rounded">example</li>
+        </ol>
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/proxy/config/server-icon.png">
+      </section>
+
       <!-- サブスク認証 -->
       <section id="auth" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
         <h2 class="text-2xl font-bold mb-4 text-green-400">サブスク認証</h2>

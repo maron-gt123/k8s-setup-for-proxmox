@@ -10,16 +10,16 @@ spec:
       containers:
         - name: nginx
           volumeMounts:
-            - name: nginx-proxy-config
+            - name: nginx-config
               mountPath: /etc/nginx/conf.d/server.conf
               subPath: nginx-server.conf
             - name: nginx-guide
               mountPath: /usr/share/nginx/html/guide.html
               subPath: guide.html
       volumes:
-        - name: nginx-proxy-config
+        - name: nginx-config
           configMap:
-            name: nginx-proxy-config
+            name: nginx-config
         - name: nginx-guide
           configMap:
             name: nginx-html-guide

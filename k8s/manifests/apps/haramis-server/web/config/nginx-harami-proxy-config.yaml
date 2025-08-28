@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-proxy-config
+  name: nginx-config
 data:
   nginx-server.conf: |
     server {

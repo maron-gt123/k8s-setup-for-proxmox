@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-proxy
+  name: nginx
   labels:
-    app: nginx-proxy
+    app: nginx
   annotations:
     configmap.reloader.stakater.com/reload: "nginx-html"
 
@@ -11,11 +11,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx-proxy
+      app: nginx
   template:
     metadata:
       labels:
-        app: nginx-proxy
+        app: nginx
     spec:
       containers:
         - name: nginx

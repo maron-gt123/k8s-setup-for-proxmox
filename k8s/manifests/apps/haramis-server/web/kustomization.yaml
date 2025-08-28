@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: mc-haramis
 resources:
   # templates
-  - ../../templates/nginx-proxy
+  - ../../templates/nginx
   # config
   - config/nginx-harami-html_1-guide.yaml
   - config/nginx-harami-proxy-config.yaml

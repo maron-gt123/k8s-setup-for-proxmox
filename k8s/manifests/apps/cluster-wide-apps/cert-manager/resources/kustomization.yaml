@@ -2,4 +2,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ClusterIssuer.yaml
-  - http://nas.mcnet/k8s/mc-haramis/secret-ddns-now.yaml
+  - http://nas.mcnet/k8s/secret-ddns-now.yaml

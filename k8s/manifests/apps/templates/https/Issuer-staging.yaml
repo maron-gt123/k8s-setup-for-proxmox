@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-web
+  namespace: web
+spec:
+  acme:
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: maron_gt500@docomo.ne.jp
+    privateKeySecretRef:
+      name: letsencrypt-web-account-key
+    solvers:
+      - dns01:
+          webhook:
+            groupName: acme.ddns-now.haramiverse
+            solverName: ddns-now
+            config:
+              apiTokenSecretRef:
+                name: ddns-now-secret
+                key: HARAMIVERSE_API_TOKEN

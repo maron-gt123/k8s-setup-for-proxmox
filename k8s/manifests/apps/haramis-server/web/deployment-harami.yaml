@@ -4,6 +4,8 @@ metadata:
   name: nginx
   labels:
     app: nginx
+annotations:
+  configmap.reloader.stakater.com/reload: "nginx-html,nginx-html-guide,nginx-links"
 spec:
   template:
     spec:

@@ -3,6 +3,6 @@ kind: Kustomization
 namespace: mc-haramis
 resources:
   # templates
-  - ../../../templates/https/staging/issuer-staging.yaml
+  - ../../../templates/https/staging/
   # secret
   - http://nas.mcnet/k8s/secret-haramiverse-ddns-now.yaml

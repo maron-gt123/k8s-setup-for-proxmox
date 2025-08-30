@@ -4,10 +4,20 @@ namespace: mc-haramis
 resources:
   # templates
   - ../../templates/nginx
-  # config
-  - config/nginx-harami-html_1-guide.yaml
 patches:
   - path: deployment-harami.yaml
   - path: svc-LoadBalancer.yaml
-  - path: config/nginx-harami-html.yaml
-  - path: config/nginx-harami-html-links.yaml
+
+configMapGenerator:
+  - name: nginx-html
+    files:
+      - config/index.html
+  - name: nginx-html-guide
+    files:
+      - config/guide.html
+  - name: nginx-links
+    files:
+      - config/links.json
+
+generatorOptions:
+  disableNameSuffixHash: false

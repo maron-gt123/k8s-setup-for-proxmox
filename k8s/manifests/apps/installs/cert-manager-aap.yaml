@@ -13,3 +13,19 @@ spec:
     targetRevision: main
   syncPolicy:
     automated: {}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager-clusterissuer
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: k8s/manifests/apps/cluster-wide-apps/cert-manager/resources
+    repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
+    targetRevision: main
+  syncPolicy:
+    automated: {}

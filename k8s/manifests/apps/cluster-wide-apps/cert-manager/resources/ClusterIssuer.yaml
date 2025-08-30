@@ -6,7 +6,9 @@ spec:
   acme:
     # ステージング環境のエンドポイント
     server: https://acme-staging-v02.api.letsencrypt.org/directory
-    email: you@example.com
+    emailSecretRef:
+      name: ddns-now-secret
+      key: LETSENCRYPT_EMAIL
     privateKeySecretRef:
       name: letsencrypt-staging-account-key
     solvers:

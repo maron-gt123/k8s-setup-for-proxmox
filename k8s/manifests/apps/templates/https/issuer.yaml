@@ -7,13 +7,13 @@ spec:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: maron_gt500@docomo.ne.jp
     privateKeySecretRef:
-      name: letsencrypt-web-account-key
+      name: letsencrypt-account-key
     solvers:
       - dns01:
           webhook:
-            groupName: acme.ddns-now.haramiverse
-            solverName: ddns-now
+            groupName: 
+            solverName: 
             config:
               apiTokenSecretRef:
-                name: ddns-now-secret
-                key: HARAMIVERSE_API_TOKEN
+                name: dns-api-secret
+                key: API_TOKEN

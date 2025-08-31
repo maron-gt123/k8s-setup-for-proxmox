@@ -10,6 +10,6 @@ spec:
             groupName: acme.ddns-now.haramiverse
             solverName: ddns-now
             config:
-              apiTokenSecretRef:
-                name: dns-api-secret
+              tokenSecretRef:
+                name: ddns-now-secret
                 key: API_TOKEN

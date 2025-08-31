@@ -56,7 +56,7 @@ spec:
                   wget -O /root/.ddnsnow/DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
                   chmod +x /root/.ddnsnow/DDNSNowAcmeSetup.sh
                   # 認証スクリプト作成
-                  cat <<EOF >/root/.ddnsnow/DDNSNowAcmeAuthHook.sh
+                  cat <<'EOF' >/root/.ddnsnow/DDNSNowAcmeAuthHook.sh
                   #!/bin/sh
                   export DDNSNOW_USER=${USERNAME}
                   export DDNSNOW_API_TOKEN=${API_TOKEN}

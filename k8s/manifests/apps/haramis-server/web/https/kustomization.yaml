@@ -6,3 +6,5 @@ resources:
   - ../../../templates/https/staging/
   # secret
   - http://nas.mcnet/k8s/secret-haramiverse-ddns-now.yaml
+patches:
+  - path: 

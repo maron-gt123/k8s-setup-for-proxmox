@@ -1,11 +1,11 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: test-cert
+  name: haramis-web-cert
 spec:
-  secretName: test-cert-secret
+  secretName: haramis-web-tls
   dnsNames:
     - test.haramiverse.f5.si
   issuerRef:
-    name: letsencrypt-staging
-    kind: ClusterIssuer
+    name: letsencrypt-web
+    kind: Issuer

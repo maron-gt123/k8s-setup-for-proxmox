@@ -5,7 +5,7 @@ resources:
   # templates
   - ../../../templates/https/staging/
   # certificate
-  - certificate.yaml
+  #- certificate.yaml
   # secret
   - http://nas.mcnet/k8s/secret-haramiverse-ddns-now.yaml
 patches:

@@ -4,7 +4,8 @@ metadata:
   name: letsencrypt-web
 spec:
   acme:
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-staging-v02.api.letsencrypt.org/directory #テスト用
+    # server: https://acme-v02.api.letsencrypt.org/directory #本番用
     email: maron_gt500@docomo.ne.jp
     privateKeySecretRef:
       name: letsencrypt-staging-account-key

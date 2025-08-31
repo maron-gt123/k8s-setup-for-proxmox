@@ -1,0 +1,71 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: certbot-ddnsnow
+  namespace: certbot
+spec:
+  schedule: "0 0 */30 * *"  # 30日に1回
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          volumes:
+            - name: certs
+              persistentVolumeClaim:
+                claimName: certbot-pvc
+            - name: ddns-secret
+              secret:
+                secretName: ddns-now-secret
+          containers:
+            - name: certbot
+              image: certbot/certbot:latest
+              volumeMounts:
+                - name: certs
+                  mountPath: /etc/letsencrypt
+                - name: ddns-secret
+                  mountPath: /etc/secrets
+                  readOnly: true
+              env:
+                - name: DOMAIN
+                  value: "haramiverse.f5.si"
+                - name: EMAIL
+                  value: "your-email@example.com"
+                - name: USERNAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: ddns-now-secret
+                      key: USERNAME
+                - name: API_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: ddns-now-secret
+                      key: API_TOKEN
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  mkdir -p /root/.ddnsnow
+
+                  # 認証スクリプト作成
+                  cat <<EOF >/root/.ddnsnow/DDNSNowAcmeAuthHook.sh
+                  #!/bin/sh
+                  export DDNSNOW_USER=${USERNAME}
+                  export DDNSNOW_API_TOKEN=${API_TOKEN}
+                  sh /root/.ddnsnow/DDNSNowAcmeSetup.sh auth \$1 \$2
+                  EOF
+                  chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
+
+                  # Certbot 実行 (Staging サーバー)
+                  certbot certonly \
+                    --manual \
+                    --preferred-challenges dns \
+                    --manual-auth-hook /root/.ddnsnow/DDNSNowAcmeAuthHook.sh \
+                    --server https://acme-staging-v02.api.letsencrypt.org/directory \
+                    -d $DOMAIN \
+                    --agree-tos \
+                    -m $EMAIL \
+                    --keep-until-expiring
+
+                  # nginx 再読込
+                  pkill -HUP nginx || true

@@ -6,8 +6,7 @@ resources:
   - ../../../templates/https/staging/
   # secret
   - http://nas.mcnet/k8s/secret-haramiverse-ddns-now.yaml
-  # Certificate
-  - certificate-harami.yaml
+
 patches:
   - path: issuer.yaml
 

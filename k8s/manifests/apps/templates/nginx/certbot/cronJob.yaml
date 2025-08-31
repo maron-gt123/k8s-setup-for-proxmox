@@ -28,12 +28,12 @@ spec:
                   readOnly: true
               env:
                 - name: DOMAIN
-                valueFrom:
+                  valueFrom:
                     secretKeyRef:
                       name: ddns-now-secret
                       key: DOMAIN
                 - name: EMAIL
-                 valueFrom:
+                  valueFrom:
                     secretKeyRef:
                       name: ddns-now-secret
                       key: EMAIL

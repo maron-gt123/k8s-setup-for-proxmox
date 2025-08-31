@@ -2,7 +2,6 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: ddnsnow-webhook
-  namespace: mc-haramis
 spec:
   template:
     spec:
@@ -13,19 +12,21 @@ spec:
         command: ["/bin/sh", "-c"]
         args:
           - |
+            # wget をインストール
             apk add --no-cache wget
+            # スクリプトに実行権限を付与して実行
             chmod +x /scripts/ddnsnow-auth-hook.sh
             /scripts/ddnsnow-auth-hook.sh
         env:
           - name: DDNSNOW_API_TOKEN
             valueFrom:
               secretKeyRef:
-                name: ddnsnow-secret
-                key: DDNSNOW_API_TOKEN
+                name: ddns-now-secret
+                key: API_TOKEN
           - name: CERTBOT_DOMAIN
-            value: "test.haramiverse.f5.si"  # cert-manager が本番時にセット
+            value: "test.haramiverse.f5.si"  # cert-manager が本番時に上書き
           - name: CERTBOT_VALIDATION
-            value: "dummy"  # cert-manager が本番時にセット
+            value: "dummy"  # cert-manager が本番時に上書き
         volumeMounts:
           - name: script
             mountPath: /scripts

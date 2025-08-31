@@ -60,6 +60,7 @@ spec:
 
                   # 2. DDNSNowAcmeSetup.sh 実行（AuthHook生成）
                   sh /root/.ddnsnow/DDNSNowAcmeSetup.sh "${DOMAIN}" "${API_TOKEN}"
+                  chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
                   # 3. 生成された AuthHook の存在確認
                   ls -l /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
                   # 4. Certbot 実行

@@ -7,22 +7,33 @@ spec:
     spec:
       serviceAccountName: default
       containers:
-      - name: ddnsnow-webhook
+      - name: webhook
         image: alpine:3.18
-        command: ["/bin/sh", "-c", "/scripts/ddnsnow-auth-hook.sh; sleep 300"]
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            # スクリプトに実行権限を付与して実行
+            chmod +x /scripts/ddnsnow-auth-hook.sh
+            /scripts/ddnsnow-auth-hook.sh
+
         env:
-        - name: DDNSNOW_API_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: ddns-now-secret
-              key: API_TOKEN
+          - name: DDNSNOW_API_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: ddnsnow-secret
+                key: DDNSNOW_API_TOKEN
+          - name: CERTBOT_DOMAIN
+            value: "test.haramiverse.f5.si"  # cert-manager が本番時にセット
+          - name: CERTBOT_VALIDATION
+            value: "dummy"  # cert-manager が本番時にセット
         volumeMounts:
-        - name: script
-          mountPath: /scripts
-          readOnly: true
-      restartPolicy: OnFailure
+          - name: script
+            mountPath: /scripts
+            readOnly: true
       volumes:
-      - name: script
-        configMap:
-          name: ddnsnow-auth-hook
-          defaultMode: 0755
+        - name: script
+          configMap:
+            name: ddnsnow-auth-hook
+            items:
+              - key: ddnsnow-auth-hook.sh
+                path: ddnsnow-auth-hook.sh

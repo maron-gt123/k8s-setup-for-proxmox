@@ -9,7 +9,7 @@ spec:
       containers:
       - name: ddnsnow-webhook
         image: alpine:3.18
-        command: ["/bin/sh", "/scripts/ddnsnow-auth-hook.sh"]
+        command: ["/bin/sh", "/scripts/ddnsnow-auth-hook.sh; sleep 300"]
         env:
         - name: DDNSNOW_API_TOKEN
           valueFrom:

@@ -6,4 +6,4 @@ metadata:
     app: certbot
 spec:
   nfs:
-    path: /kubanetesu-NFS/certificateauthority/haramis
+    path: /kubanetesu-NFS/certificateauthority/haramiverse.f5.si

@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: haramis-s1-backup-pv
+  name: certbot-pv
   labels:
-    app: haramis-s1
+    app: certbot
 spec:
-  storageClassName: haramis-s1-backup-sc
+  storageClassName: certbot-sc
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   capacity:
-    storage: 5Gi
+    storage: 1Gi
   nfs:
     server: 192.168.6.140
-    path: /usbssd/mic-backup/haramis-server/s1/
+    path: /kubanetesu-NFS/certificateauthority
   persistentVolumeReclaimPolicy: Retain

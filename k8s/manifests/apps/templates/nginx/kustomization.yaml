@@ -9,7 +9,7 @@ resources:
   - ./config/nginx-html.yaml
   - ./config/nginx-html-links.yaml
   # certbot
-  - ./certbot/cronJob.yaml
+  # - ./certbot/cronJob.yaml
   - ./certbot/pv-certbot.yaml
   - ./certbot/pvc-certbot.yaml
   - ./certbot/secret/ddns-now-secret-sample.yaml

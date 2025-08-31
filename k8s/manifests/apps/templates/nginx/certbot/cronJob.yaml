@@ -55,13 +55,8 @@ spec:
                   # 1. 公式スクリプトを wget で取得
                   wget -O /root/.ddnsnow/DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
                   chmod +x /root/.ddnsnow/DDNSNowAcmeSetup.sh
-                  # 2. 認証スクリプト作成
-                  cat <<EOF >/root/.ddnsnow/setup.sh
-                  #!/bin/sh
-                  export DDNSNOW_USER=${USERNAME}
-                  export DDNSNOW_API_TOKEN=${API_TOKEN}
-                  /bin/sh /root/.ddnsnow/DDNSNowAcmeSetup.sh \$CERTBOT_DOMAIN \$DDNSNOW_API_TOKEN
-                  EOF
+                  # 2. DDNSNowAcmeSetup.sh実行
+                  sh /root/.ddnsnow/DDNSNowAcmeSetup.sh ${DOMAIN} ${API_TOKEN}
                   echo "さがしもの"
                   find / -type f -name "DDNSNowAcmeAuthHook.sh" 2>/dev/null
                   echo "さがしもの"
@@ -71,7 +66,7 @@ spec:
                     --server https://acme-staging-v02.api.letsencrypt.org/directory \
                     --manual \
                     --preferred-challenges dns \
-                    --manual-auth-hook /root/.ddnsnow/DDNSNowAcmeAuthHook.sh \
+                    --manual-auth-hook ~/.ddnsnow/DDNSNowAcmeAuthHook.sh \
                     -d $DOMAIN \
                     --agree-tos \
                     -m $EMAIL \

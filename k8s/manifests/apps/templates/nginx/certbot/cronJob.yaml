@@ -5,6 +5,8 @@ metadata:
   namespace: certbot
 spec:
   schedule: "0 0 */30 * *"  # 30日に1回
+  successfulJobsHistoryLimit: 3   # 直近3回分の成功 Job を保持
+  failedJobsHistoryLimit: 1       # 直近1回分の失敗 Job を保持
   jobTemplate:
     spec:
       template:

@@ -60,6 +60,9 @@ spec:
                   echo "さがしもの"
                   find / -type f -name "DDNSNowAcmeAuthHook.sh" 2>/dev/null
                   echo "さがしもの"
+                  echo "ls -l"
+                  ls -l /root/.ddnsnow/
+                  echo "ls -l"
                   chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
                   # 3. 証明書の取得
                   certbot certonly \

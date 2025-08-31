@@ -55,17 +55,5 @@ spec:
                   wget -O DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
                   chmod +x DDNSNowAcmeSetup.sh
                   # 2. DDNSNowAcmeSetup.sh実行
-                  sudo sh DDNSNowAcmeSetup.sh ${DOMAIN} ${API_TOKEN}
-
-                  # 3. 証明書の取得
-                  certbot certonly \
-                    --server https://acme-staging-v02.api.letsencrypt.org/directory \
-                    --manual \
-                    --preferred-challenges dns \
-                    --manual-auth-hook /root/.ddnsnow/DDNSNowAcmeAuthHook.sh \
-                    -d $DOMAIN \
-                    --agree-tos \
-                    -m $EMAIL \
-                    --keep-until-expiring
-                  # 4. nginx 再読込
-                  pkill -HUP nginx || true
+                  sh DDNSNowAcmeSetup.sh ${DOMAIN} ${API_TOKEN}
+                  sleep 180

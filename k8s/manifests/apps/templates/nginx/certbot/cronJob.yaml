@@ -60,10 +60,9 @@ spec:
                   #!/bin/sh
                   export DDNSNOW_USER=${USERNAME}
                   export DDNSNOW_API_TOKEN=${API_TOKEN}
-                  sh /root/.ddnsnow/DDNSNowAcmeSetup.sh auth \$1 \$2
+                  /root/.ddnsnow/DDNSNowAcmeSetup.sh $CERTBOT_DOMAIN $DDNSNOW_API_TOKEN
                   EOF
                   chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
-
                   # Certbot 実行 (Staging サーバー)
                   certbot certonly \
                     --manual \

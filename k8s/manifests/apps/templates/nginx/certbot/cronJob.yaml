@@ -51,21 +51,18 @@ spec:
                 - /bin/sh
                 - -c
                 - |
-                  mkdir -p /root/.ddnsnow
                   # 1. 公式スクリプトを wget で取得
-                  wget -O /root/.ddnsnow/DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
-                  chmod +x /root/.ddnsnow/DDNSNowAcmeSetup.sh
-                  echo "さがしもの"
-                  cat /root/.ddnsnow/DDNSNowAcmeSetup.sh
+                  wget -O DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
+                  chmod +x DDNSNowAcmeSetup.sh
                   # 2. DDNSNowAcmeSetup.sh実行
-                  sh /root/.ddnsnow/DDNSNowAcmeSetup.sh ${DOMAIN} ${API_TOKEN}
+                  sh DDNSNowAcmeSetup.sh ${DOMAIN} ${API_TOKEN}
 
                   # 3. 証明書の取得
                   certbot certonly \
                     --server https://acme-staging-v02.api.letsencrypt.org/directory \
                     --manual \
                     --preferred-challenges dns \
-                    --manual-auth-hook "/opt/certbot/DDNSNowAcmeAuthHook.sh" \
+                    --manual-auth-hook $HOME/.ddnsnow/DDNSNowAcmeAuthHook.sh \
                     -d $DOMAIN \
                     --agree-tos \
                     -m $EMAIL \

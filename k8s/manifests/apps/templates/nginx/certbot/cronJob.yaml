@@ -55,17 +55,15 @@ spec:
                   # 1. 公式スクリプトを wget で取得
                   wget -O /root/.ddnsnow/DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
                   chmod +x /root/.ddnsnow/DDNSNowAcmeSetup.sh
-                  # 認証スクリプト作成
-                  cat <<'EOF' >/root/.ddnsnow/DDNSNowAcmeAuthHook.sh
+                  # 2. 認証スクリプト作成
+                  cat <<EOF >/root/.ddnsnow/DDNSNowAcmeAuthHook.sh
                   #!/bin/sh
                   export DDNSNOW_USER=${USERNAME}
                   export DDNSNOW_API_TOKEN=${API_TOKEN}
-                  /bin/sh /root/.ddnsnow/DDNSNowAcmeSetup.sh $CERTBOT_DOMAIN $DDNSNOW_API_TOKEN
-                  # DNS反映待ち
-                  sleep 65
+                  /bin/sh /root/.ddnsnow/DDNSNowAcmeSetup.sh \$CERTBOT_DOMAIN \$DDNSNOW_API_TOKEN
                   EOF
                   chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
-                  # Certbot 実行 (Staging サーバー)
+                  # 3. 証明書の取得
                   certbot certonly \
                     --manual \
                     --preferred-challenges dns \
@@ -75,6 +73,5 @@ spec:
                     --agree-tos \
                     -m $EMAIL \
                     --keep-until-expiring
-
-                  # nginx 再読込
+                  # 4. nginx 再読込
                   pkill -HUP nginx || true

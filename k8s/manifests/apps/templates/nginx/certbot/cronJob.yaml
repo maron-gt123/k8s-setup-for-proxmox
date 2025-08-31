@@ -65,13 +65,13 @@ spec:
                   pwd
                   ls -l /root/.ddnsnow/
                   echo "ls -l"
-                  chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
+                  chmod +x /opt/certbot/DDNSNowAcmeAuthHook.sh
                   # 3. 証明書の取得
                   certbot certonly \
                     --server https://acme-staging-v02.api.letsencrypt.org/directory \
                     --manual \
                     --preferred-challenges dns \
-                    --manual-auth-hook ~/.ddnsnow/DDNSNowAcmeAuthHook.sh \
+                    --manual-auth-hook "/opt/certbot/DDNSNowAcmeAuthHook.sh" \
                     -d $DOMAIN \
                     --agree-tos \
                     -m $EMAIL \

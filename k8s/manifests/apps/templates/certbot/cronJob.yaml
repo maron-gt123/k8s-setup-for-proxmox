@@ -28,9 +28,15 @@ spec:
                   readOnly: true
               env:
                 - name: DOMAIN
-                  value: "haramiverse.f5.si"
+                valueFrom:
+                    secretKeyRef:
+                      name: ddns-now-secret
+                      key: DOMAIN
                 - name: EMAIL
-                  value: "your-email@example.com"
+                 valueFrom:
+                    secretKeyRef:
+                      name: ddns-now-secret
+                      key: EMAIL
                 - name: USERNAME
                   valueFrom:
                     secretKeyRef:

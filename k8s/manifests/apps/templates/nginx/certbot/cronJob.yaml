@@ -61,6 +61,8 @@ spec:
                   export DDNSNOW_USER=${USERNAME}
                   export DDNSNOW_API_TOKEN=${API_TOKEN}
                   /bin/sh /root/.ddnsnow/DDNSNowAcmeSetup.sh $CERTBOT_DOMAIN $DDNSNOW_API_TOKEN
+                  # DNS反映待ち
+                  sleep 65
                   EOF
                   chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
                   # Certbot 実行 (Staging サーバー)

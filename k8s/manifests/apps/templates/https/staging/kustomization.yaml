@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - issuer-staging.yaml
   - ddnsnow-auth-hook.yaml
+  - job-ddnsnow-webhook.yaml

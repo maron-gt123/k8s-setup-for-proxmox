@@ -6,7 +6,6 @@ resources:
   - ../../templates/nginx
   # config
   - config/nginx-harami-html_1-guide.yaml
-  #- cert-manager/certificate-harami.yaml
 patches:
   - path: deployment-harami.yaml
   - path: svc-LoadBalancer.yaml

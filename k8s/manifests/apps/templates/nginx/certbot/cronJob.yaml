@@ -56,20 +56,20 @@ spec:
                   wget -O /root/.ddnsnow/DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
                   chmod +x /root/.ddnsnow/DDNSNowAcmeSetup.sh
                   # 2. 認証スクリプト作成
-                  cat <<EOF >/root/.ddnsnow/DDNSNowAcmeAuthHook.sh
+                  cat <<EOF >/root/.ddnsnow/setup.sh
                   #!/bin/sh
                   export DDNSNOW_USER=${USERNAME}
                   export DDNSNOW_API_TOKEN=${API_TOKEN}
                   /bin/sh /root/.ddnsnow/DDNSNowAcmeSetup.sh \$CERTBOT_DOMAIN \$DDNSNOW_API_TOKEN
-                  sleep 65
                   EOF
+                  ls -l  /root/.ddnsnow/
                   chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
                   # 3. 証明書の取得
                   certbot certonly \
+                    --server https://acme-staging-v02.api.letsencrypt.org/directory \
                     --manual \
                     --preferred-challenges dns \
                     --manual-auth-hook /root/.ddnsnow/DDNSNowAcmeAuthHook.sh \
-                    --server https://acme-staging-v02.api.letsencrypt.org/directory \
                     -d $DOMAIN \
                     --agree-tos \
                     -m $EMAIL \

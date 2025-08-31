@@ -16,5 +16,5 @@ spec:
             config:
               authScript: /scripts/ddnsnow-auth-hook.sh
               tokenSecretRef:
-                name: ddns-now-secret
-                key: API_TOKEN
+                name: 
+                key: 

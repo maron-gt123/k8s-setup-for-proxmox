@@ -4,9 +4,10 @@ namespace: mc-haramis
 resources:
   # templates
   - ../../../templates/https/staging/
+  # certificate
+  - certificate.yaml
   # secret
   - http://nas.mcnet/k8s/secret-haramiverse-ddns-now.yaml
-
 patches:
   - path: issuer.yaml
 

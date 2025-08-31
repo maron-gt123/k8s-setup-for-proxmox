@@ -8,7 +8,7 @@ spec:
   storageClassName: certbot-sc
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   capacity:
     storage: 1Gi
   nfs:

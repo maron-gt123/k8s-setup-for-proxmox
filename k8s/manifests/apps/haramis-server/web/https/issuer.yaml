@@ -2,7 +2,6 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: letsencrypt-web
-  namespace: web
 spec:
   acme:
     solvers:

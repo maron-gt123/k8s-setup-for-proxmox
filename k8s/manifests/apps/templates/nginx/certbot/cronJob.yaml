@@ -10,6 +10,8 @@ spec:
       template:
         spec:
           restartPolicy: OnFailure
+          securityContext:
+            runAsUser: 0
           volumes:
             - name: certs
               persistentVolumeClaim:
@@ -51,9 +53,24 @@ spec:
                 - /bin/sh
                 - -c
                 - |
-                  # 1. 公式スクリプトを wget で取得
-                  wget -O DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
-                  chmod +x DDNSNowAcmeSetup.sh
-                  # 2. DDNSNowAcmeSetup.sh実行
-                  sh DDNSNowAcmeSetup.sh ${DOMAIN} ${API_TOKEN}
-                  sleep 180
+                  mkdir -p /root/.ddnsnow
+                  # 1. 公式スクリプトを取得
+                  wget -O /root/.ddnsnow/DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
+                  chmod +x /root/.ddnsnow/DDNSNowAcmeSetup.sh
+
+                  # 2. DDNSNowAcmeSetup.sh 実行（AuthHook生成）
+                  sh /root/.ddnsnow/DDNSNowAcmeSetup.sh "${DOMAIN}" "${API_TOKEN}"
+
+                  # 3. Certbot 実行
+                  certbot certonly \
+                    --server https://acme-v02.api.letsencrypt.org/directory \
+                    --manual \
+                    --preferred-challenges dns \
+                    --manual-auth-hook /root/.ddnsnow/DDNSNowAcmeAuthHook.sh \
+                    -d "${DOMAIN}" \
+                    --agree-tos \
+                    -m "${EMAIL}" \
+                    --keep-until-expiring
+
+                  # 4. nginx 再読込
+                  pkill -HUP nginx || true

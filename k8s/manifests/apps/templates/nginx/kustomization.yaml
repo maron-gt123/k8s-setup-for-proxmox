@@ -10,3 +10,4 @@ resources:
   - ./config/nginx-html-links.yaml
   
   - ./certbot/cronJob.yaml
+  - ./certbot/pvc-certbot.yaml

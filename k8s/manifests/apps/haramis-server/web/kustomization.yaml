@@ -12,3 +12,4 @@ patches:
   - path: svc-LoadBalancer.yaml
   - path: config/nginx-harami-html.yaml
   - path: config/nginx-harami-html-links.yaml
+  - path: http://nas.mcnet/k8s/secret-haramiverse-ddns-now.yaml

@@ -53,15 +53,15 @@ spec:
                 - /bin/sh
                 - -c
                 - |
-                  mkdir -p /root/.ddnsnow
                   # 1. 公式スクリプトを取得
                   wget -O /root/.ddnsnow/DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
                   chmod +x /root/.ddnsnow/DDNSNowAcmeSetup.sh
 
                   # 2. DDNSNowAcmeSetup.sh 実行（AuthHook生成）
                   sh /root/.ddnsnow/DDNSNowAcmeSetup.sh "${DOMAIN}" "${API_TOKEN}"
-
-                  # 3. Certbot 実行
+                  # 3. 生成された AuthHook の存在確認
+                  ls -l /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
+                  # 4. Certbot 実行
                   certbot certonly \
                     --server https://acme-v02.api.letsencrypt.org/directory \
                     --manual \

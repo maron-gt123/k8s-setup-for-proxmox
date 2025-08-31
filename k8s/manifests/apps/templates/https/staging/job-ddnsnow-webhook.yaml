@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ddnsnow-webhook
+spec:
+  template:
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: ddnsnow-webhook
+        image: alpine:3.18
+        command: ["/bin/sh", "/scripts/ddnsnow-auth-hook.sh"]
+        env:
+        - name: DDNSNOW_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: ddns-now-secret
+              key: API_TOKEN
+        volumeMounts:
+        - name: script
+          mountPath: /scripts
+          readOnly: true
+      restartPolicy: OnFailure
+      volumes:
+      - name: script
+        configMap:
+          name: ddnsnow-auth-hook
+          defaultMode: 0755

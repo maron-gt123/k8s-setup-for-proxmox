@@ -61,6 +61,8 @@ spec:
                   find / -type f -name "DDNSNowAcmeAuthHook.sh" 2>/dev/null
                   echo "さがしもの"
                   echo "ls -l"
+                  whoami
+                  pwd
                   ls -l /root/.ddnsnow/
                   echo "ls -l"
                   chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh

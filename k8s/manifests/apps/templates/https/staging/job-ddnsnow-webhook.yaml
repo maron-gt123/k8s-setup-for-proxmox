@@ -12,11 +12,10 @@ spec:
         command: ["/bin/sh", "-c"]
         args:
           - |
-            # wget をインストール
             apk add --no-cache wget
-            # スクリプトに実行権限を付与して実行
-            chmod +x /scripts/ddnsnow-auth-hook.sh
-            /scripts/ddnsnow-auth-hook.sh
+            cp /scripts/ddnsnow-auth-hook.sh /tmp/ddnsnow-auth-hook.sh
+            chmod +x /tmp/ddnsnow-auth-hook.sh
+            /tmp/ddnsnow-auth-hook.sh
         env:
           - name: DDNSNOW_API_TOKEN
             valueFrom:

@@ -53,6 +53,7 @@ spec:
                 - /bin/sh
                 - -c
                 - |
+                  mkdir -p /root/.ddnsnow
                   # 1. 公式スクリプトを取得
                   wget -O /root/.ddnsnow/DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
                   chmod +x /root/.ddnsnow/DDNSNowAcmeSetup.sh

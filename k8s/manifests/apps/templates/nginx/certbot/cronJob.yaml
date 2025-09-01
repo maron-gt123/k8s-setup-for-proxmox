@@ -65,6 +65,7 @@ spec:
                   echo "LSの結果"
                   ls -l /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
                   echo "LSの結果終わり"
+                  sleep 300
                   # 4. Certbot 実行
                   certbot certonly \
                     --server https://acme-v02.api.letsencrypt.org/directory \

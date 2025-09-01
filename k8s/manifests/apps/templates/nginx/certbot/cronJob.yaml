@@ -68,7 +68,7 @@ spec:
                     --server https://acme-v02.api.letsencrypt.org/directory \
                     --manual \
                     --preferred-challenges dns \
-                    --manual-auth-hook /root/.ddnsnow/DDNSNowAcmeAuthHook.sh \
+                    --manual-auth-hook ~/.ddnsnow/DDNSNowAcmeAuthHook.sh \
                     -d "${DOMAIN}" \
                     --agree-tos \
                     -m "${EMAIL}" \

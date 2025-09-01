@@ -62,7 +62,10 @@ spec:
                   sh /root/.ddnsnow/DDNSNowAcmeSetup.sh "${DOMAIN}" "${API_TOKEN}"
                   chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
                   # 3. 生成された AuthHook の存在確認
+                  echo "LSの結果"
                   ls -l /root/.ddnsnow/DDNSNowAcmeAuthHook.sh
+                  ls -l ~/.ddnsnow/DDNSNowAcmeAuthHook.sh
+                  echo "LSの結果終わり"
                   # 4. Certbot 実行
                   certbot certonly \
                     --server https://acme-v02.api.letsencrypt.org/directory \

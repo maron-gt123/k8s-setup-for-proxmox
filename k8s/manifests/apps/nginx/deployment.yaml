@@ -14,6 +14,24 @@ spec:
       labels:
         app: nginx
     spec:
+      initContainers:
+        - name: html-downloader
+          image: busybox:1.37.0
+          env:
+            - name: INDEX
+              value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/web/harami-server/master/index.html"
+            - name: STYLE_CSS
+              value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/web/harami-server/master/style.css"
+          volumeMounts:
+            - name: init-html-volume
+              mountPath: /root/html-download
+          command:
+            - sh
+            - -c
+            - >
+              mkdir /usr/share/nginx/debug &&
+              wget -O /root/html-download/index.html "${INDEX}" &&
+              wget -O /root/html-download/style.css "${STYLE_CSS}"
       containers:
         - name: nginx
           image: nginx:latest
@@ -24,7 +42,11 @@ spec:
             - name: conf
               mountPath: /etc/nginx/conf.d/debug.conf
               subPath: debug.conf
+            - name: init-html-volume
+              mountPath: /usr/share/nginx/debug/
       volumes:
         - name: conf
           configMap:
             name: debug-nginx-conf
+        - name: init-html-volume
+          emptyDir: {}

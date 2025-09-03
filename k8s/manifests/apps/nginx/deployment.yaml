@@ -24,13 +24,13 @@ spec:
               value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/web/harami-server/master/style.css"
           volumeMounts:
             - name: init-html-volume
-              mountPath: /root/html-download
+              mountPath: /usr/share/nginx/debug
           command:
             - sh
             - -c
             - >
-              curl -L $INDEX -o /usr/share/nginx/html/index.html &&
-              curl -L $STYLE -o /usr/share/nginx/html/style.css
+              curl -L $INDEX -o /usr/share/nginx/debug/index.html &&
+              curl -L $STYLE_CSS -o /usr/share/nginx/debug/style.css
       containers:
         - name: nginx
           image: nginx:latest
@@ -42,7 +42,7 @@ spec:
               mountPath: /etc/nginx/conf.d/debug.conf
               subPath: debug.conf
             - name: init-html-volume
-              mountPath: /usr/share/nginx/debug/
+              mountPath: /usr/share/nginx/debug
       volumes:
         - name: conf
           configMap:

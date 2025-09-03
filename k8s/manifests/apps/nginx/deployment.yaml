@@ -16,7 +16,7 @@ spec:
     spec:
       initContainers:
         - name: html-downloader
-          image: busybox:1.37.0
+          image: curlimages/curl:8.2.1
           env:
             - name: INDEX
               value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/web/harami-server/master/index.html"
@@ -29,9 +29,9 @@ spec:
             - sh
             - -c
             - >
-              mkdir /usr/share/nginx/debug &&
-              wget -O /root/html-download/index.html "${INDEX}" &&
-              wget -O /root/html-download/style.css "${STYLE_CSS}"
+              mkdir -p /usr/share/nginx/html &&
+              curl -L $INDEX -o /usr/share/nginx/html/index.html &&
+              curl -L $STYLE -o /usr/share/nginx/html/style.css
       containers:
         - name: nginx
           image: nginx:latest

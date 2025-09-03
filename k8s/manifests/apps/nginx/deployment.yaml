@@ -4,9 +4,6 @@ metadata:
   name: nginx
   labels:
     app: nginx
-  annotations:
-    configmap.reloader.stakater.com/reload: "nginx-html"
-
 spec:
   replicas: 1
   selector:

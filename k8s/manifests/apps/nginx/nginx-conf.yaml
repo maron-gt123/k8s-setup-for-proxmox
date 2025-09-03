@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: debug-nginx-conf
 data:
-  default.conf: |
+  debug.conf: |
     server {
         listen 80;
         server_name localhost;

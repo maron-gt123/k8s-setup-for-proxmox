@@ -23,6 +23,7 @@ spec:
           volumeMounts:
             - name: conf
               mountPath: /etc/nginx/conf.d/debug.conf
+              subPath: debug.conf
       volumes:
         - name: conf
           configMap:

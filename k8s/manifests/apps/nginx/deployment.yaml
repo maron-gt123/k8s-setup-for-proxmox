@@ -29,7 +29,6 @@ spec:
             - sh
             - -c
             - >
-              mkdir -p /usr/share/nginx/html &&
               curl -L $INDEX -o /usr/share/nginx/html/index.html &&
               curl -L $STYLE -o /usr/share/nginx/html/style.css
       containers:

@@ -26,4 +26,4 @@ spec:
       volumes:
         - name: conf
           configMap:
-            name: jmx-exporter-mc-config
+            name: debug-nginx-conf

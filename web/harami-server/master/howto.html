@@ -1,130 +1,143 @@
-<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Haramiverse - 参加方法</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>はらむはらみサブ限サーバの入り方</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
-<body class="bg-gray-900 text-gray-200">
-
-  <!-- ナビゲーション（index.html と統一） -->
+<body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
+  <!-- ナビゲーション -->
   <nav class="bg-gray-900 shadow-lg">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
-      <div class="text-2xl font-bold text-cyan-400">Haramiverse</div>
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <div class="text-xl font-bold text-cyan-400">Haramiverse</div>
       <ul class="flex space-x-6 text-gray-300 font-semibold">
         <li><a href="/index.html" class="hover:text-white">ホーム</a></li>
-        <li><a href="/servers.html" class="hover:text-white">サーバー</a></li>
-        <li><a href="/about.html" class="hover:text-white">About</a></li>
+        <li><a href="servers.html" class="hover:text-white">サーバー</a></li>
+        <li><a href="about.html" class="hover:text-white">About</a></li>
         <li><a href="/howto.html" class="text-white font-bold">参加方法</a></li>
       </ul>
     </div>
   </nav>
+  
+  <!-- ヒーロー -->
+  <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-bold mb-4">はらむはらみサブ限サーバの入り方</h1>
+      <p class="text-lg">Java版・統合版どちらでも簡単に接続できます。<br>
+        <span class="font-bold text-yellow-300">入室にははらむはらみTikTokのサブスク入会が必要です。</span>
+      </p>
+    </div>
+  </section>
 
-  <main class="px-6 py-10 max-w-6xl mx-auto space-y-12">
+  <!-- コンテンツ -->
+  <main class="container mx-auto py-12 flex-grow">
 
-    <h1 class="text-4xl font-bold text-cyan-400 text-center mb-6">はらむはらみサブ限サーバの入り方ガイド</h1>
-    <p class="text-center text-gray-300 mb-8 max-w-3xl mx-auto">
-      Java版・統合版どちらでも簡単に接続できます。<br>
-      <span class="font-bold text-yellow-400">入室にははらむはらみTikTokのサブスク入会が必要です。</span>
-    </p>
+    <!-- 目次 -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4 text-center">目次</h2>
+      <p class="text-center text-gray-600 mb-6">
+        各利用ハードごとのサーバー接続手順を確認しログイン認証を実施してください。<br>
+        X-BOX及びSwitchでの入室は要望があれば実施いたします。
+      </p>
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <a href="#java" class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h3 class="font-semibold text-lg text-cyan-600">Java版 (PC)</h3>
+        </a>
+        <a href="#bedrock" class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h3 class="font-semibold text-lg text-green-600">統合版 (PC/モバイル)</h3>
+        </a>
+        <a href="#ps5" class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h3 class="font-semibold text-lg text-indigo-600">統合版 (PS5)</h3>
+        </a>
+        <a href="#auth" class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+          <h3 class="font-semibold text-lg text-purple-600">サブスク認証</h3>
+        </a>
+      </div>
+    </section>
 
     <!-- Java版 -->
-    <section class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform">
-      <h2 class="text-2xl font-bold text-cyan-400 mb-4">Java版 (PC)</h2>
-      <ol class="list-decimal list-inside space-y-1">
-        <li class="bg-gray-700 p-2 rounded">Minecraft launcherを起動 → 「Java EDITION」を選択 → 「プレイ」</li>
-        <li class="bg-gray-700 p-2 rounded">Minecraftが起動 → 「マルチプレイ」</li>
-        <li class="bg-gray-700 p-2 rounded">「サーバーを追加」をクリック</li>
-        <li class="bg-gray-700 p-2 rounded">サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
-        <li class="bg-gray-700 p-2 rounded">サーバーアドレス：<span class="font-mono text-green-400">mc.example.com</span></li>
-        <li class="bg-gray-700 p-2 rounded">表示されれば接続成功</li>
+    <section id="java" class="bg-white shadow-lg rounded-xl p-8 mb-12">
+      <h2 class="text-2xl font-bold mb-4 text-cyan-600">Java版 (PC)</h2>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Minecraft launcherを起動 → 「Java EDITION」を選択 → 「プレイ」</li>
+        <li>「マルチプレイ」</li>
+        <li>「サーバーを追加」をクリック</li>
+        <li>サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
+        <li>サーバーアドレス：<span class="font-mono text-green-600">mc.example.com</span></li>
+        <li>表示されれば接続成功</li>
       </ol>
-      <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/java-login.png" class="rounded-lg border border-gray-600 w-full mt-2">
-      <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/java-server.png" class="rounded-lg border border-gray-600 w-full mt-2">
+      <div class="grid gap-4 mt-4">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/java-login.png" class="rounded-lg border">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/java-server.png" class="rounded-lg border">
+      </div>
     </section>
 
-    <!-- 統合版 / PS5 / 認証 も同様に反映 -->
-    <!-- ここは旧 howto.html の文章を section と Tailwind クラスで置き換え可能 -->
-
-    <div class="flex justify-center mt-8">
-      <a href="/index.html" class="bg-cyan-400 text-gray-900 font-bold px-6
-      py-3 rounded-lg hover:bg-cyan-500 transition">トップに戻る</a>
-    </div>
-
-    <!-- 統合版 (PC / モバイル) -->
-    <section class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform mt-12">
-      <h2 class="text-2xl font-bold text-green-400 mb-4">統合版 (PC / モバイル)</h2>
-      <ol class="list-decimal list-inside space-y-1 text-gray-200">
-        <li class="bg-gray-700 p-2 rounded">Minecraft launcherを起動 → 「BEDROCK EDITION」を選択 → 「プレイ」</li>
-        <li class="bg-gray-700 p-2 rounded">Minecraftが起動 → 「プレイ」 → 「サーバー」 → 「+ サーバー追加」</li>
-        <li class="bg-gray-700 p-2 rounded">サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
-        <li class="bg-gray-700 p-2 rounded">サーバーアドレス：<span class="font-mono text-green-400">mc.example.com</span> または <span class="font-mono text-green-400">111.111.111.111</span></li>
-        <li class="bg-gray-700 p-2 rounded">ポート番号：<span class="font-mono text-green-400">19132</span></li>
-        <li class="bg-gray-700 p-2 rounded">サーバーを追加 → 「他のサーバー」に追加確認</li>
+    <!-- Bedrock -->
+    <section id="bedrock" class="bg-white shadow-lg rounded-xl p-8 mb-12">
+      <h2 class="text-2xl font-bold mb-4 text-green-600">統合版 (PC / モバイル)</h2>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Minecraft launcherを起動 → 「BEDROCK EDITION」を選択 → 「プレイ」</li>
+        <li>「プレイ」 → 「サーバー」 → 「+ サーバー追加」</li>
+        <li>サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
+        <li>サーバーアドレス：<span class="font-mono text-green-600">mc.example.com</span> または <span class="font-mono text-green-600">111.111.111.111</span></li>
+        <li>ポート番号：<span class="font-mono text-green-600">19132</span></li>
+        <li>サーバーを追加 → 「他のサーバー」に追加確認</li>
       </ol>
-      <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/bedrock-login.png" class="rounded-lg border border-gray-600 w-full mt-2">
-      <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/bedrock-server.png" class="rounded-lg border border-gray-600 w-full mt-2">
+      <div class="grid gap-4 mt-4">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/bedrock-login.png" class="rounded-lg border">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/bedrock-server.png" class="rounded-lg border">
+      </div>
     </section>
 
-    <!-- 統合版 (PS5) -->
-    <section class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform mt-12">
-      <h2 class="text-2xl font-bold text-green-400 mb-4">統合版 (PS5)</h2>
-      <ol class="list-decimal list-inside space-y-1 text-gray-200">
-        <li class="bg-gray-700 p-2 rounded">example</li>
-      </ol>
-      <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/proxy/config/server-icon.png" class="rounded-lg border border-gray-600 w-full mt-2">
+    <!-- PS5 -->
+    <section id="ps5" class="bg-white shadow-lg rounded-xl p-8 mb-12">
+      <h2 class="text-2xl font-bold mb-4 text-indigo-600">統合版 (PS5)</h2>
+      <p class="text-gray-700">現在準備中です。要望があれば詳細を追加します。</p>
     </section>
 
     <!-- サブスク認証 -->
-    <section class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform mt-12">
-      <h2 class="text-2xl font-bold text-green-400 mb-4">サブスク認証</h2>
+    <section id="auth" class="bg-white shadow-lg rounded-xl p-8 mb-12">
+      <h2 class="text-2xl font-bold mb-4 text-purple-600">サブスク認証</h2>
+      <p class="text-gray-700 mb-4">サブスクメンバー認証のため、ワンタイムパスワード認証が必要です。</p>
 
-      <ul class="list-disc list-inside text-gray-200 space-y-3 ml-4">
-        <li>
-          認証条件
-          <ul class="list-decimal list-inside ml-6 space-y-1">
-            <li class="bg-gray-700 p-2 rounded">TikTokサブスク入会済み</li>
-            <li class="bg-gray-700 p-2 rounded">サブスク限定Discordに参加</li>
-            <li class="bg-gray-700 p-2 rounded">Minecraft接続時に発行されるワンタイムパスワードで認証</li>
-          </ul>
-        </li>
-        <li>
-          注意点
-          <ul class="list-decimal list-inside ml-6 space-y-1">
-            <li class="bg-gray-700 p-2 rounded">サブスク解除後、再ログインはできなくなります</li>
-            <li class="bg-gray-700 p-2 rounded">ワンタイムパスワード認証はBOTへのDMで実施</li>
-            <li class="bg-gray-700 p-2 rounded">定期的な再認証があります</li>
-          </ul>
-        </li>
-        <li>
-          認証方法
-          <ul class="list-decimal list-inside ml-6 space-y-1">
-            <li class="bg-gray-700 p-2 rounded">Java版：「サーバーに接続」を選択、統合版：「プレイ」を選択</li>
-            <li class="bg-gray-700 p-2 rounded">「このサーバをプレイするにはDiscordアカウントのリンクが必要です」と表示される</li>
-            <li class="bg-gray-700 p-2 rounded">「次のコードをDMで送信してください：#****」と表示 ※****はワンタイムパスワード(4桁)</li>
-            <li class="bg-gray-700 p-2 rounded">Discord-BOT(haramis-mc-BOT)にワンタイムパスワードをDM送付</li>
-            <li class="bg-gray-700 p-2 rounded">BOTは同Discordチャンネルの「入退室履歴」で確認可能</li>
-            <li class="bg-gray-700 p-2 rounded">認証後、再度ログインを実施</li>
-            <li class="bg-gray-700 p-2 rounded">「そのようなコードは知りません。」と返信の場合は再発行</li>
-          </ul>
-        </li>
+      <h3 class="text-xl font-semibold mt-6 mb-2">認証条件</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>TikTokサブスク入会済み</li>
+        <li>サブスク限定Discordに参加</li>
+        <li>マインクラフト接続時に発行されるワンタイムパスワードで認証</li>
       </ul>
 
-      <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/auth-image.png" class="rounded-lg border border-gray-600 w-full mt-2">
-      <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/auth-dm.png" class="rounded-lg border border-gray-600 w-full mt-2">
-    </section>
+      <h3 class="text-xl font-semibold mt-6 mb-2">注意点</h3>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>サブスク解除後、再ログインはできなくなります</li>
+        <li>ワンタイムパスワード認証はBOTへのDMで実施</li>
+        <li>定期的な再認証があります</li>
+      </ul>
 
+      <h3 class="text-xl font-semibold mt-6 mb-2">認証方法</h3>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Java版：「サーバーに接続」 統合版：「プレイ」を選択</li>
+        <li>「このサーバをプレイするにはDiscordアカウントのリンクが必要です」と表示</li>
+        <li>「次のコードをDMで送信してください：#****」と表示（****はワンタイムパスワード4桁）</li>
+        <li>Discord BOT (haramis-mc-BOT) にワンタイムパスワードをDM送信</li>
+        <li>BOTは同Discordチャンネルの「入退室履歴」で確認可能</li>
+        <li>「あなたのDiscordアカウントは [ユーザ名] とリンクしました」と返信が来る</li>
+        <li>認証完了後、再度ログイン可能</li>
+      </ol>
+
+      <div class="grid gap-4 mt-4">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/auth-image.png" class="rounded-lg border">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/auth-dm.png" class="rounded-lg border">
+      </div>
+    </section>
   </main>
 
   <!-- フッター -->
-  <footer class="bg-gray-900 py-6 text-center text-gray-400 mt-12">
-    <p>&copy; 2025 Haramiverse</p>
-    <div class="flex justify-center space-x-4 mt-2">
-      <a href="#" aria-label="Twitter"><img src="https://via.placeholder.com/30" alt="Twitterアイコン"></a>
-      <a href="#" aria-label="Discord"><img src="https://via.placeholder.com/30" alt="Discordアイコン"></a>
-    </div>
+  <footer class="bg-gray-900 text-gray-400 text-sm text-center py-4">
+    © 2025 Haramiverse
   </footer>
-
 </body>
 </html>

@@ -2,36 +2,143 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>参加方法 | Haramiverse</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 text-white">
 
-  <nav class="navbar">
-    <div class="logo">はらむはらみのMinecraftサーバーHP</div>
+  <!-- ナビゲーション -->
+  <nav class="navbar" aria-label="メインナビゲーション">
+    <div class="logo">はらむはらみのMinecraftサーバー</div>
     <ul>
       <li><a href="index.html">ホーム</a></li>
       <li><a href="server.html">サーバー</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="howto.html">参加方法</a></li>
     </ul>
   </nav>
 
-  <section class="page-header">
-    <h1>参加方法</h1>
-    <p>サーバーに参加するための手順</p>
-  </section>
+  <main class="flex flex-col items-center justify-start min-h-screen p-6">
+    <!-- タイトル -->
+    <h1 class="text-3xl font-bold mb-4 text-center">はらむはらみサブ限サーバの入り方ガイド</h1>
+    <p class="text-center mb-8 max-w-xl text-gray-300">
+      Java版・統合版どちらでも簡単に接続できます。<br>
+      <span class="font-bold text-yellow-400">入室にははらむはらみTikTokのサブスク入会が必要です。</span>
+    </p>
 
-  <section class="content">
-    <ol>
-      <li>Minecraft Java版を起動</li>
-      <li>マルチプレイ → サーバー追加</li>
-      <li>アドレス入力: <strong>mc.haramiverse.com</strong></li>
-      <li>サーバーに接続！</li>
-    </ol>
-  </section>
+    <!-- 目次 -->
+    <section class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full">
+      <h2 class="text-2xl font-bold mb-4 text-cyan-400">目次</h2>
+      <p class="text-gray-200 mb-2 font-semibold">
+        各利用ハードごとのサーバー接続手順を確認しログイン認証を実施してください<br>
+        X-BOX及びSwichでの入室は要望があれば実施いたします
+      </p>
+      <nav>
+        <ul class="space-y-3">
+          <li><a href="#java" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">Java版 (PC)</a></li>
+          <li><a href="#bedrock" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">統合版 (PC / モバイル)</a></li>
+          <li><a href="#PS5" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">統合版 (PS5)</a></li>
+          <li><a href="#auth" class="block bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 transition-all duration-200 font-semibold text-white">サブスク認証</a></li>
+        </ul>
+      </nav>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Haramiverse</p>
+    <!-- Java版 -->
+    <section id="java" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
+      <h2 class="text-2xl font-bold mb-4 text-cyan-400">Java版 (PC)</h2>
+      <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
+        <li class="bg-gray-700 p-2 rounded">Minecraft launcherを起動 → 「Java EDITION」を選択 → 「プレイ」</li>
+        <li class="bg-gray-700 p-2 rounded">Minecraftが起動 → 「マルチプレイ」</li>
+        <li class="bg-gray-700 p-2 rounded">「サーバーを追加」をクリック</li>
+        <li class="bg-gray-700 p-2 rounded">サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
+        <li class="bg-gray-700 p-2 rounded">サーバーアドレス：<span class="font-mono text-green-400">mc.example.com</span></li>
+        <li class="bg-gray-700 p-2 rounded">表示されれば接続成功</li>
+      </ol>
+      <img src="image/guide/java-login.png" alt="Javaログイン設定" class="rounded-lg border border-gray-600 w-full mt-2">
+      <img src="image/guide/java-server.png" alt="Javaサーバー検索画面" class="rounded-lg border border-gray-600 w-full mt-2">
+    </section>
+
+    <!-- 統合版 -->
+    <section id="bedrock" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
+      <h2 class="text-2xl font-bold mb-4 text-green-400">統合版 (PC / モバイル)</h2>
+      <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
+        <li class="bg-gray-700 p-2 rounded">Minecraft launcherを起動 → 「BEDROCK EDITION」を選択 → 「プレイ」</li>
+        <li class="bg-gray-700 p-2 rounded">「プレイ」 → 「サーバー」 → 「+ サーバー追加」</li>
+        <li class="bg-gray-700 p-2 rounded">サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
+        <li class="bg-gray-700 p-2 rounded">サーバーアドレス：<span class="font-mono text-green-400">mc.example.com</span> または <span class="font-mono text-green-400">111.111.111.111</span></li>
+        <li class="bg-gray-700 p-2 rounded">ポート番号：<span class="font-mono text-green-400">19132</span></li>
+        <li class="bg-gray-700 p-2 rounded">サーバーを追加 → 「他のサーバー」に追加確認</li>
+      </ol>
+      <img src="image/guide/bedrock-login.png" alt="Bedrockログイン設定" class="rounded-lg border border-gray-600 w-full mt-2">
+      <img src="image/guide/bedrock-server.png" alt="Bedrockサーバー検索画面" class="rounded-lg border border-gray-600 w-full mt-2">
+    </section>
+
+    <!-- PS5 -->
+    <section id="PS5" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
+      <h2 class="text-2xl font-bold mb-4 text-green-400">統合版 (PS5)</h2>
+      <ol class="list-decimal list-inside text-gray-200 mb-4 space-y-1">
+        <li class="bg-gray-700 p-2 rounded">例：サーバーアドレス入力 → ポート番号設定 → 接続確認</li>
+      </ol>
+      <img src="image/server-icon.png" alt="PS5接続例" class="rounded-lg border border-gray-600 w-32 mt-2">
+    </section>
+
+    <!-- サブスク認証 -->
+    <section id="auth" class="bg-gray-800 rounded-2xl shadow-2xl p-6 mb-8 max-w-2xl w-full hover:scale-105 transition-transform">
+      <h2 class="text-2xl font-bold mb-4 text-green-400">サブスク認証</h2>
+      <p class="text-gray-200 mb-2 font-semibold">サブスクメンバー認証のため、ワンタイムパスワード認証が必要です</p>
+
+      <ul class="list-disc list-inside text-gray-200 mb-4 ml-4 space-y-1">
+        <li>
+          認証条件
+          <ul class="list-decimal list-inside ml-6 space-y-1">
+            <li class="bg-gray-700 p-2 rounded">TikTokサブスク入会済み</li>
+            <li class="bg-gray-700 p-2 rounded">サブスク限定Discordに参加</li>
+            <li class="bg-gray-700 p-2 rounded">マインクラフト接続時に発行されるワンタイムパスワードで認証</li>
+          </ul>
+        </li>
+
+        <li>
+          注意点
+          <ul class="list-decimal list-inside ml-6 space-y-1">
+            <li class="bg-gray-700 p-2 rounded">サブスク解除後、再ログインはできなくなります</li>
+            <li class="bg-gray-700 p-2 rounded">ワンタイムパスワード認証はBOTへのDMで実施</li>
+            <li class="bg-gray-700 p-2 rounded">定期的な再認証があります</li>
+          </ul>
+        </li>
+
+        <li>
+          認証方法
+          <ul class="list-decimal list-inside ml-6 space-y-1">
+            <li class="bg-gray-700 p-2 rounded">Java版：「サーバーに接続」を選択　統合版：「プレイ」を選択</li>
+            <li class="bg-gray-700 p-2 rounded">「このサーバをプレイするにはDiscordアカウントのリンクが必要です」と表示</li>
+            <li class="bg-gray-700 p-2 rounded">「次のコードをDMで送信してください：#****」と表示（****＝ワンタイムパスワード）</li>
+            <li class="bg-gray-700 p-2 rounded">Discord BOT (haramis-mc-BOT) にDM送信</li>
+            <li class="bg-gray-700 p-2 rounded">送信後「アカウントがリンクされました」と返信される</li>
+            <li class="bg-gray-700 p-2 rounded">エラー時は再度ワンタイムパスワード発行</li>
+          </ul>
+        </li>
+      </ul>
+
+      <img src="image/guide/auth-image.png" alt="パスワード発行画面" class="rounded-lg border border-gray-600 w-full mt-2">
+      <img src="image/guide/auth-dm.png" alt="DM送信例" class="rounded-lg border border-gray-600 w-full mt-2">
+    </section>
+
+    <!-- 戻るボタン -->
+    <div class="mb-8 flex justify-center w-full">
+      <a href="index.html" class="w-64 text-center bg-gray-700 hover:bg-gray-600 text-white rounded-lg px-4 py-2 font-semibold shadow-md transition duration-200">
+        トップに戻る
+      </a>
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="mt-12 text-gray-400 text-sm text-center">
+    &copy; 2025 Haramiverse
   </footer>
 </body>
 </html>

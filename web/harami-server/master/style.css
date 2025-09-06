@@ -82,8 +82,10 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   max-width: 250px;
   color: #fff;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
+  text-align: center; 
 }
 .card img {
   width: 50px;

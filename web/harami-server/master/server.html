@@ -2,39 +2,53 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>サーバー紹介 | Haramiverse</title>
+  <title>サーバー紹介 - Haramiverse</title>
+  <meta name="description" content="HaramiverseのMinecraftサーバー一覧ページ。ロビーやサバイバルなどの紹介を掲載しています。">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="logo">はらむはらみのMinecraftサーバーHP</div>
-    <ul>
-      <li><a href="index.html">ホーム</a></li>
-      <li><a href="server.html">サーバー</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
+  <!-- ナビゲーション -->
+  <nav class="bg-gray-900 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <a href="/index.html" class="text-xl md:text-2xl font-bold text-cyan-400">
+        Haramiverse
+      </a>
+      <ul class="flex space-x-6 text-gray-300 font-semibold ml-auto">
+        <li><a href="/about.html" class="hover:text-white">About</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <section class="page-header">
-    <h1>サーバー一覧</h1>
-    <p>各サーバーの詳細情報はこちら</p>
-  </section>
+  <main>
+    <!-- サーバー一覧 -->
+    <section class="servers">
+      <h2>サーバー紹介</h2>
+      <div class="server-cards">
+        <a href="#" class="card">
+          <img src="https://img.icons8.com/fluency/96/minecraft-grass-block.png" alt="Lobby">
+          <h3>Lobby</h3>
+          <p>メインロビーサーバー。イベントや案内はこちらから。</p>
+        </a>
+        <a href="#" class="card">
+          <img src="https://img.icons8.com/fluency/96/pickaxe.png" alt="Survival">
+          <h3>Survival</h3>
+          <p>資源を集めてサバイバルを楽しめるサーバー。</p>
+        </a>
+        <a href="#" class="card">
+          <img src="https://img.icons8.com/fluency/96/castle.png" alt="Creative">
+          <h3>Creative</h3>
+          <p>クリエイティブモードで自由に建築を楽しめるサーバー。</p>
+        </a>
+      </div>
+    </section>
+  </main>
 
-  <section class="server-detail">
-    <h2>Lobby</h2>
-    <p>みんなが集まるロビー。イベントや案内はこちらから。</p>
-    <img src="https://via.placeholder.com/300x150" alt="Lobby image">
-  </section>
-
-  <section class="server-detail">
-    <h2>Survival</h2>
-    <p>資源を集めてサバイバルを楽しめる本格サーバー。</p>
-    <img src="https://via.placeholder.com/300x150" alt="Survival image">
-  </section>
-
+  <!-- フッター -->
   <footer>
     <p>&copy; 2025 Haramiverse</p>
   </footer>
+
 </body>
 </html>

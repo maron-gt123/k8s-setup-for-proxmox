@@ -2,62 +2,65 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Haramiverse</title>
+  <title>Haramiverse - はらむはらみのMinecraftサーバー</title>
+  <meta name="description" content="配信者はらむはらみのサブスク限定Minecraftサーバーの紹介ページ。参加方法やサーバー情報を掲載しています。">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- ナビゲーション -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="メインナビゲーション">
     <div class="logo">はらむはらみのMinecraftサーバー</div>
     <ul>
-      <li><a href="#">ホーム</a></li>
-      <li><a href="#">サーバー</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="server.html">サーバー</a></li>
+      <li><a href="about.html">About</a></li>
     </ul>
   </nav>
 
-  <!-- ヒーロー -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to the haramiverse</h1>
-      <p>配信者はらむはらみのサブスク限定Minecraftサーバー紹介ページです</p>
-      <a href="#" class="btn">今すぐ参加</a>
-    </div>
-    <div class="hero-img">
-      <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/master/minecraftsteve.png" alt="Minecraft Steve">
-    </div>
-  </section>
-
-  <!-- サーバー紹介 -->
-  <section class="servers">
-    <h2>サーバー一覧</h2>
-    <div class="server-cards">
-      <div class="card">
-        <img src="https://via.placeholder.com/50" alt="icon">
-        <h3>Lobby</h3>
-        <p>メインロビーサーバー</p>
+  <main>
+    <!-- ヒーロー -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to the Haramiverse</h1>
+        <p>配信者 <strong>はらむはらみ</strong> のサブスク限定Minecraftサーバー紹介ページです</p>
+        <a href="howto.html" class="btn">今すぐ参加</a>
       </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/50" alt="icon">
-        <h3>Survival</h3>
-        <p>サバイバル用サーバー</p>
+      <div class="hero-img">
+        <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/master/minecraftsteve.png" alt="Minecraft キャラクター Steve">
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About -->
-  <section class="about">
-    <h2>About</h2>
-    <p>このページはローカルでのテスト表示用です。</p>
-  </section>
+    <!-- サーバー紹介 -->
+    <section class="servers">
+      <h2>サーバー一覧</h2>
+      <div class="server-cards">
+        <div class="card">
+          <img src="https://via.placeholder.com/50" alt="Lobby サーバーアイコン">
+          <h3>Lobby</h3>
+          <p>メインロビーサーバー。イベントや案内はこちらから。</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/50" alt="Survival サーバーアイコン">
+          <h3>Survival</h3>
+          <p>資源を集めてサバイバルを楽しめるサーバー。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+      <h2>About</h2>
+      <p>「Haramiverse」は、配信者はらむはらみが運営するMinecraftサーバーです。視聴者のみんなで楽しく遊べる空間を目指しています。</p>
+    </section>
+  </main>
 
   <!-- フッター -->
   <footer>
     <p>&copy; 2025 はらむはらみのMinecraftサーバーHP</p>
     <div class="socials">
-      <img src="https://via.placeholder.com/30" alt="Twitter">
-      <img src="https://via.placeholder.com/30" alt="Discord">
+      <a href="#" aria-label="Twitter"><img src="https://via.placeholder.com/30" alt="Twitterアイコン"></a>
+      <a href="#" aria-label="Discord"><img src="https://via.placeholder.com/30" alt="Discordアイコン"></a>
     </div>
   </footer>
 

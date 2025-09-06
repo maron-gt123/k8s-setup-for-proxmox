@@ -88,7 +88,7 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   width: 250px;
   height: 250px;
-  color: #1f1f1f;
+  color: #fff;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }

@@ -83,10 +83,12 @@ body {
   max-width: 250px;
   color: #fff;
   align-items: center;
+  text-align: center;
 }
 .card img {
   width: 50px;
   margin-bottom: 1rem;
+  display: inline-block;
 }
 
 /* About */

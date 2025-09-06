@@ -82,12 +82,11 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   max-width: 250px;
   color: #fff;
-  text-align: center;
+  align-items: center;
 }
 .card img {
   width: 50px;
   margin-bottom: 1rem;
-  display: inline-block;
 }
 
 /* About */

@@ -101,7 +101,12 @@ body {
   margin-bottom: 1rem;
   display: inline-block;
 }
-
+.card h3 {
+  margin: 0.5rem 0;
+}
+.card p {
+  flex-grow: 1;
+}
 /* About */
 .about {
   padding: 3rem 2rem;

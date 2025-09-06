@@ -35,12 +35,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: 3rem 2rem;
   background: linear-gradient(120deg, #1a73e8, #673ab7);
   color: #fff;
 }
 .hero-content {
-  max-width: 80%;
+  max-width: 50%;
+  min-width: 300px;
 }
 .hero-content h1 {
   font-size: 2.5rem;

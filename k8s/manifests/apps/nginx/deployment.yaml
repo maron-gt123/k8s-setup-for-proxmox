@@ -22,6 +22,14 @@ spec:
               value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/web/harami-server/master/index.html"
             - name: STYLE_CSS
               value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/web/harami-server/master/style.css"
+            - name: SERVER
+              value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/web/harami-server/master/server.html"
+            - name: HOWTO
+              value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/web/harami-server/master/howto.html"
+            - name: CONTACT
+              value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/web/harami-server/master/contact.html"
+            - name: ABOUT
+              value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/refs/heads/main/web/harami-server/master/about.html"
           volumeMounts:
             - name: init-html-volume
               mountPath: /usr/share/nginx/debug
@@ -30,7 +38,11 @@ spec:
             - -c
             - >
               curl -L $INDEX -o /usr/share/nginx/debug/index.html &&
-              curl -L $STYLE_CSS -o /usr/share/nginx/debug/style.css
+              curl -L $STYLE_CSS -o /usr/share/nginx/debug/style.css &&
+              curl -L $SERVER -o /usr/share/nginx/debug/server.html &&
+              curl -L $HOWTO -o /usr/share/nginx/debug/howto.html &&
+              curl -L $CONTACT -o /usr/share/nginx/debug/contact.html &&
+              curl -L $ABOUT -o /usr/share/nginx/debug/about.html
       containers:
         - name: nginx
           image: nginx:latest

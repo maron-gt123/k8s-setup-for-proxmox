@@ -76,12 +76,12 @@ body {
   margin-top: 2rem;
 }
 .card {
-  background: #dce9fc;
+  background: #81e6d9;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   max-width: 250px;
-  color: #333;
+  color: #1f1f1f;
   display: flex;
   flex-direction: column;
   align-items: center;

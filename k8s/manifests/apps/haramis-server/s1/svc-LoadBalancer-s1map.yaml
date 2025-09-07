@@ -5,7 +5,8 @@ metadata:
   labels:
     app: minecraft
 spec:
-  type: ClusterIP
+  type: LoadBalancer
+  loadBalancerIP: 192.168.15.202
   ports:
   - name: mc-map
     port: 8100

@@ -6,7 +6,7 @@ resources:
   # template
   - ../../templates/minecraft-server
   # service
-  - svc-clusterip-s1map.yaml
+  - svc-LoadBalancer-s1map.yaml
   # pv & pvc
   - ./pv-haramis-s1-world.yaml
   - ./pv-haramis-s1-backup.yaml.yaml

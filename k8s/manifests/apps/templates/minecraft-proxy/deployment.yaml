@@ -159,7 +159,7 @@ spec:
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.7/bungeecord-prometheus-exporter-3.2.7.jar,
                 https://ci.frostcast.net/job/BanManager/lastSuccessfulBuild/artifact/velocity/build/libs/BanManagerVelocity.jar,
-                https://download.luckperms.net/1595/velocity/LuckPerms-Velocity-5.5.10.jar,
+                https://download.luckperms.net/1596/velocity/LuckPerms-Velocity-5.5.11.jar,
                 https://github.com/Camotoy/GeyserSkinManager/releases/download/1.8/GeyserSkinManager-Velocity.jar,
                 https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.7/VELOCITY/minimotd-velocity-2.1.7.jar,
                 https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.4.2/PAPER/ViaVersion-5.4.2.jar,

@@ -159,15 +159,17 @@ spec:
                 https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.1/DiscordSRV-Build-1.30.1.jar
-            - name: JVM_OPTS #36
+            - name: SPIGET_RESOURCES #36
+              value: 
+            - name: JVM_OPTS #37
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
             # config関連を/configから/dataへmcopy
-            - name: COPY_CONFIG_DEST #37
+            - name: COPY_CONFIG_DEST #38
               value: /data
-            - name: RCON_CMDS_STARTUP #38
+            - name: RCON_CMDS_STARTUP #39
               value: |-
-            - name: CFG_DISCORDSRV_ADMIN_USER #39
+            - name: CFG_DISCORDSRV_ADMIN_USER #40
               value: 
           ports:
             - name: mc-service

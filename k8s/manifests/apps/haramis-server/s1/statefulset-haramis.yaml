@@ -24,8 +24,6 @@ spec:
             - sh
             - -c
             - >
-              wget -O /root/initContainer-download/MysqlInventoryBridge.jar "${INVENTORY_URL}" &&
-              wget -O /root/initContainer-download/OnePlayerSleep.jar "${ONEPLAYERSLEEP_URL}" &&
               wget -O /root/initContainer-download/bluemap.jar "${BLUE_MAP_URL}"
       containers:
         - name: minecraft

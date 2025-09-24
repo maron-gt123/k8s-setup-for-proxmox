@@ -15,10 +15,6 @@ spec:
         - name: plugins-download
           image: busybox:1.37.0
           env:
-            - name: INVENTORY_URL
-              value: "https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/download?version=357227"
-            - name: ONEPLAYERSLEEP_URL
-              value: "https://www.spigotmc.org/resources/one-player-sleep.31585/download?version=384206"
             - name: BLUE_MAP_URL
               value: "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-paper.jar"
           volumeMounts:
@@ -56,6 +52,8 @@ spec:
               value: "true"
             - name: CFG_DISCORDSRV_ADMIN_USER
               value: haramiten
+            - name: SPIGET_RESOURCES
+              value: 357227,384206
           resources:
             requests:
               cpu: "4"

@@ -51,7 +51,7 @@ spec:
             - name: CFG_DISCORDSRV_ADMIN_USER
               value: haramiten
             - name: SPIGET_RESOURCES
-              value: 31585
+              value: "31585"
           resources:
             requests:
               cpu: "4"

@@ -15,6 +15,7 @@ resources:
   - http://nas.mcnet/k8s/mc-haramis/secret-haramis-s1.yaml
   # config
   - ./config/mc-plugin-bluemap-worlds-config.yaml
+  - lb-rcon-service.yaml
 patches:
   - path: statefulset-haramis.yaml
   - path: cronjob/frontend-restart-warning-s1.yaml

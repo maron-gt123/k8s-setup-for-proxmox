@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: haramis-s2-pv
+  labels:
+    app: haramis-s2
+spec:
+  storageClassName: haramis-s2-sc
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 5Gi
+  nfs:
+    server: 192.168.6.140
+    path: /usbssd/mic-backup/haramis-server/s1/
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: haramis-s1-backup-pvc
+  labels:
+    app: haramis-s1
+spec:
+  storageClassName: haramis-s1-backup-sc
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi

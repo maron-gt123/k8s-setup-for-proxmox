@@ -6,13 +6,13 @@ resources:
   # template
   - ../../templates/minecraft-server
   # pv & pvc
-  
+  - ./pv-haramis-s1-world.yaml  
   # secret
   - http://nas.mcnet/k8s/mc-haramis/secret-haramis-common.yaml
   - http://nas.mcnet/k8s/mc-haramis/secret-haramis-s2.yaml
   
   # config
-
+  - ./config/mc-plugin-bluemap-worlds-config.yaml
 patches:
   - path: statefulset-haramis-s2.yaml
   - path: cronjob/frontend-restart-warning-s2.yaml

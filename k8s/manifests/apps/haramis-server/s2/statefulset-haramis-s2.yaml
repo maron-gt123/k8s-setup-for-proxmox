@@ -10,6 +10,21 @@ spec:
       labels:
         app: minecraft
     spec:
+      initContainers:
+        # ------pluginsファイル生成関連------
+        - name: plugins-download
+          image: busybox:1.37.0
+          env:
+            - name: BLUE_MAP_URL
+              value: "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-paper.jar"
+          volumeMounts:
+            - name: init-download-volume
+              mountPath: /root/initContainer-download
+          command:
+            - sh
+            - -c
+            - >
+              wget -O /root/initContainer-download/bluemap.jar "${BLUE_MAP_URL}"
       containers:
         - name: minecraft
           env:
@@ -66,8 +81,21 @@ spec:
             - name: world-data
               mountPath: /data/world
               subPath: world
+            - name: init-download-volume
+              mountPath: /data/plugins/bluemap.jar
+              subPath: bluemap.jar
+            # ------plugins関連のマウント ------
+            # ------ bluemap-world ------
+            # worldのマウント
+            - name: mc-plugin-bluemap-config
+              mountPath: /config/plugins/BlueMap/maps/s1-world.conf
+              subPath: bluemap-world.conf
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data
           persistentVolumeClaim:
             claimName: haramis-s2-pvc
+        # bluemap-worldデータの永続ストレージの指定
+        - name: mc-plugin-bluemap-config
+          configMap:
+            name: mc-plugin-bluemap-config

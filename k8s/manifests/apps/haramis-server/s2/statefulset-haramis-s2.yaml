@@ -10,40 +10,31 @@ spec:
       labels:
         app: minecraft
     spec:
-      initContainers:
-        # ------pluginsファイル生成関連------
-        - name: plugins-download
-          image: busybox:1.36.1
-          env:
-            - name: INVENTORY_URL
-              value: "https://www.spigotmc.org/resources/mysql-inventory-bridge.7849/download?version=357227"
-          volumeMounts:
-            - name: init-download-volume
-              mountPath: /root/initContainer-download
-          command:
-            - sh
-            - -c
-            - >
-              wget -O /root/initContainer-download/MysqlInventoryBridge.jar "${INVENTORY_URL}"
       containers:
         - name: minecraft
           env:
+            - name: ALLOW_NETHER
+              value: "false"
+            - name: DIFFICULTY
+              value: peaceful
+            - name: LEVEL_TYPE
+              value: flat
+            - name: SPAWN_ANIMALS
+              value: "false"
+            - name: SPAWN_MONSTERS
+              value: "false"
+            - name: SPAWN_NPCS
+              value: "false"
+            - name: CFG_ALLOW_END
+              value: "false"
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 4G
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: s2
             - name: CFG_DISCORDSRV_AUTH
               value: "true"
-            - name: INIT_MEMORY
-              value: 1G
-            - name: MAX_MEMORY
-              value: 2G
-            - name: DIFFICULTY
-              value: peaceful
-            - name: LEVEL_TYPE
-              value: largeBiomes
-            - name: SPAWN_PROTECTION
-              value: "0"
-            - name: PVP
-              value: "false"
             - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
@@ -54,7 +45,12 @@ spec:
                 secretKeyRef:
                   name: minecraft-s2-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-            - name: RCON_CMDS_STARTUP #34
+            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
+              value: "true"
+            - name: CFG_DISCORDSRV_ADMIN_USER
+              value: haramiten
+            # ------時間天候無効化コマンド ------
+            - name: RCON_CMDS_STARTUP
               value: |-
                 /time set day
                 /weather clear
@@ -62,15 +58,16 @@ spec:
                 /gamerule doWeatherCycle false
           resources:
             requests:
+              cpu: "2"
               memory: 4G
           volumeMounts:
             # ------ nsfに格納されているmusic_worldのマウント ------
             # ------ worldデータ ------
-
-            # ------ world-backupデータ ------
-
-            # ------initでダウンロードしたプラグインをマウント ------
-            # ------ inventory-bridge ------
-            - name: init-download-volume
-              mountPath: /data/plugins/MysqlInventoryBridge.jar
-              subPath: MysqlInventoryBridge.jar
+            - name: world-data
+              mountPath: /data/world
+              subPath: world
+      volumes:
+        # worldデータの永続ストレージの指定
+        - name: world-data
+          persistentVolumeClaim:
+            claimName: haramis-s2-pvc

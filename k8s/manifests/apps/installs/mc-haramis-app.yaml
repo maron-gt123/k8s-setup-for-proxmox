@@ -53,7 +53,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: harami-s1
+  name: harami-s2
 spec:
   destination:
     namespace: default

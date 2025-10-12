@@ -90,17 +90,22 @@ spec:
               value: "true"
             - name: RCON_PORT
               value: "25575"
-            - name: RCON_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-common-secret
-                  key: VELOCITY_RCON_PASSWORD
             - name: MEMORY
               value: "768m"
             - name: ICON
               value: "" # サーバーアイコンの取得URL
             - name: REPLACE_ENV_VARIABLE_PREFIX 
               value: CFG_
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: "" # LuckPermsの管理用名称
+            - name: CFG_PROXY_ENABLE
+              value: "true" # proxy protocolをフロントエンドに設置している場合trueと設定
+            # --- minecraft-common-secret ---
+            - name: RCON_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: VELOCITY_RCON_PASSWORD
             - name: CFG_SQLSERVER_ADDRESS
               valueFrom:
                 secretKeyRef:
@@ -131,25 +136,12 @@ spec:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_BANMANAGER_DATABASE
-            - name: CFG_LUCKPERMS_SERVER_NAME
-              value: 
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_FORWARDING_KEY
-            - name: CFG_SERVER_LOBBY_URL
-              value: 
-            - name: CFG_SERVER_S1_URL
-              value: 
-            - name: CFG_SERVER_S2_URL
-              value: 
-            - name: CFG_SERVER_S3_URL
-              value: 
-            - name: CFG_SERVER_EXP_URL
-              value: 
-            - name: CFG_PROXY_ENABLE
-              value: 
+            # ------
             - name: PLUGINS
               # bungeecord-prometheus-exporter
               # BanManagerBungeeCord

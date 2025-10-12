@@ -13,7 +13,4 @@ spec:
             - name: notifier
               env:
                 - name: RCON_HOST
-                  valueFrom:
-                    secretKeyRef:
-                      name: minecraft-s1-secret
-                      key: CFG_SERVER_URL
+                  value: mc-s1-mc-service.mc-haramis.svc.cluster.local:25565

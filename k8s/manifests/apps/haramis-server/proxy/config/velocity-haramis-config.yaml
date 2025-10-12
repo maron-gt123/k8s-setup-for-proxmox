@@ -83,7 +83,7 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = 192.168.15.201:25565"
+    lobby = "192.168.15.201:25565"
     s1 = "mc-s1-mc-service.mc-haramis.svc.cluster.local:25565"
     s2 = "mc-s2-mc-service.mc-haramis.svc.cluster.local:25565"
     s3 = "mc-s3-mc-service.mc-haramis.svc.cluster.local:25565"

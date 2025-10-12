@@ -11,7 +11,4 @@ spec:
             - name: notifier
               env:
                 - name: RCON_HOST
-                  valueFrom:
-                    secretKeyRef:
-                      name: minecraft-lobby-secret
-                      key: CFG_SERVER_URL
+                  value: 192.168.15.201

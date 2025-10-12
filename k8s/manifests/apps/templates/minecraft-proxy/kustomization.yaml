@@ -4,7 +4,7 @@ resources:
   # deployment
   - ./deployment.yaml
   # service
-  - ./svc-LoadBalancer.yaml
+  - ./lb-service.yaml
   # metrics-service
   - ./metrics-patch.yaml
 

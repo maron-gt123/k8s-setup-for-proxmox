@@ -10,21 +10,6 @@ spec:
       labels:
         app: minecraft
     spec:
-      initContainers:
-        # ------pluginsファイル生成関連------
-        - name: plugins-download
-          image: busybox:1.37.0
-          env:
-            - name: BLUE_MAP_URL
-              value: "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.11/bluemap-5.11-paper.jar"
-          volumeMounts:
-            - name: init-download-volume
-              mountPath: /root/initContainer-download
-          command:
-            - sh
-            - -c
-            - >
-              wget -O /root/initContainer-download/bluemap.jar "${BLUE_MAP_URL}"
       containers:
         - name: minecraft
           env:
@@ -40,16 +25,21 @@ spec:
               value: "false"
             - name: SPAWN_NPCS
               value: "false"
-            - name: CFG_ALLOW_END
-              value: "false"
             - name: INIT_MEMORY
               value: 1G
             - name: MAX_MEMORY
               value: 4G
-            - name: CFG_LUCKPERMS_SERVER_NAME
-              value: exp-disney
+            - name: CFG_ALLOW_END
+              value: "false"
             - name: CFG_DISCORDSRV_AUTH
               value: "true"
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: exp-disney
+            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
+              value: "true"
+            - name: CFG_DISCORDSRV_ADMIN_USER
+              value: haramiten
+            # --- minecraft-exp-disney-secret ---
             - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
@@ -60,10 +50,6 @@ spec:
                 secretKeyRef:
                   name: minecraft-exp-disney-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
-              value: "true"
-            - name: CFG_DISCORDSRV_ADMIN_USER
-              value: haramiten
             # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-
@@ -81,9 +67,6 @@ spec:
             - name: world-data
               mountPath: /data/world
               subPath: world
-            - name: init-download-volume
-              mountPath: /data/plugins/bluemap.jar
-              subPath: bluemap.jar
             # ------plugins関連のマウント ------
             # ------ bluemap-world ------
             # worldのマウント

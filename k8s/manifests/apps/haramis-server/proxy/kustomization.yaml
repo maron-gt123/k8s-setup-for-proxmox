@@ -11,6 +11,7 @@ resources:
   - http://nas.mcnet/k8s/mc-haramis/secret-haramis-s1.yaml
   - http://nas.mcnet/k8s/mc-haramis/secret-haramis-s2.yaml
   - http://nas.mcnet/k8s/mc-haramis/secret-haramis-s3.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-exp-disney.yaml
 patches:
   - path: svc-LoadBalancer.yaml
   - path: deployment-haramis.yaml

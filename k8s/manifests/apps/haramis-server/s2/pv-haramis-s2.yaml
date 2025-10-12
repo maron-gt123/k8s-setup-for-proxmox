@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: haramis-s2-pv
+  name: haramis-exp-disney-pv
   labels:
-    app: haramis-s2
+    app: haramis-exp-disney
 spec:
-  storageClassName: haramis-s2-sc
+  storageClassName: haramis-exp-disney-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
@@ -13,17 +13,17 @@ spec:
     storage: 5Gi
   nfs:
     server: 192.168.6.140
-    path: /usbssd/mic-backup/haramis-server/s1/
+    path: /usbssd/mic-backup/haramis-server/exp-disney/
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: haramis-s1-backup-pvc
+  name: haramis-exp-disney-pvc
   labels:
-    app: haramis-s1
+    app: haramis-exp-disney
 spec:
-  storageClassName: haramis-s1-backup-sc
+  storageClassName: haramis-exp-disney-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

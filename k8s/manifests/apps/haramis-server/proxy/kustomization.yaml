@@ -10,4 +10,5 @@ resources:
 patches:
   - path: lb-service.yaml
   - path: deployment-haramis.yaml
+  - path: config/velocity-haramis-config.yaml
   - path: config/velocity-plugin-minimotd-haramis-config.yaml

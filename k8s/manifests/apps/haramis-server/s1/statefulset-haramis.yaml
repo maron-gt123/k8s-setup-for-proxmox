@@ -13,14 +13,19 @@ spec:
       containers:
         - name: minecraft
           env:
-            - name: CFG_LUCKPERMS_SERVER_NAME
-              value: s1
-            - name: CFG_DISCORDSRV_AUTH
-              value: "true"
             - name: INIT_MEMORY
               value: 1G
             - name: MAX_MEMORY
               value: 6G
+            - name: CFG_DISCORDSRV_AUTH
+              value: "true"
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: s1
+            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
+              value: "true"
+            - name: CFG_DISCORDSRV_ADMIN_USER
+              value: haramiten
+            # --- minecraft-s1-secret ---
             - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
@@ -31,10 +36,7 @@ spec:
                 secretKeyRef:
                   name: minecraft-s1-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
-              value: "true"
-            - name: CFG_DISCORDSRV_ADMIN_USER
-              value: haramiten
+            # ------
             - name: SPIGET_RESOURCES
               value: "31585,7849"
           resources:
@@ -65,10 +67,6 @@ spec:
             - name: init-download-volume
               mountPath: /data/plugins/OnePlayerSleep.jar
               subPath: OnePlayerSleep.jar
-            # ------ bluemap ------
-            - name: init-download-volume
-              mountPath: /data/plugins/bluemap.jar
-              subPath: bluemap.jar
             # ------plugins関連のマウント ------
             # ------ bluemap-world ------
             # worldのマウント

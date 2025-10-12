@@ -17,31 +17,6 @@ spec:
               value: proxy
             - name: MEMORY
               value: 2048m
-            - name: CFG_SERVER_LOBBY_URL
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-lobby-secret
-                  key: CFG_SERVER_URL
-            - name: CFG_SERVER_S1_URL
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-s1-secret
-                  key: CFG_SERVER_URL
-            - name: CFG_SERVER_S2_URL
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-s2-secret
-                  key: CFG_SERVER_URL
-            - name: CFG_SERVER_S3_URL
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-s3-secret
-                  key: CFG_SERVER_URL
-            - name: CFG_SERVER_EXP_URL
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-exp-disney-secret
-                  key: CFG_SERVER_URL
             - name: CFG_PROXY_ENABLE
               value: "true"
             - name: ICON

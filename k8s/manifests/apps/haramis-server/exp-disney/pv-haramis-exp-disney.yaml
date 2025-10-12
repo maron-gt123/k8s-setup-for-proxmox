@@ -13,7 +13,7 @@ spec:
     storage: 5Gi
   nfs:
     server: 192.168.6.140
-    path: /usbssd/mic-backup/haramis-server/exp-disney/
+    path: /kubanetesu-NFS/haramis-server/exp-disney/
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1

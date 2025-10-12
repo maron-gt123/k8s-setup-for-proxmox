@@ -87,7 +87,7 @@ data:
     s1 = "mc-s1-mc-service.mc-haramis.svc.cluster.local:25565"
     s2 = "mc-s2-mc-service.mc-haramis.svc.cluster.local:25565"
     s3 = "mc-s3-mc-service.mc-haramis.svc.cluster.local:25565"
-    exp = "mc-exp-mc-service.mc-haramis.svc.cluster.local:25565"
+    exp01 = "mc-exp-mc-service.mc-haramis.svc.cluster.local:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
@@ -109,7 +109,7 @@ data:
         "s3"
     ]
     "exp.example.com" = [
-        "exp"
+        "exp01"
     ]
 
     [advanced]

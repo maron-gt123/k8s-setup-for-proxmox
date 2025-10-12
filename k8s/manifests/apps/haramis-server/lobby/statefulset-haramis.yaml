@@ -22,7 +22,7 @@ spec:
             - name: SERVERSPAWN_URL
               value: "https://cdn.modrinth.com/data/kfKmwtZp/versions/CuOWUqFJ/ServerSpawn.jar"
             - name: HOLOGRAMS_URL
-              value: "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.9.6/DecentHolograms-2.9.6.jar"
+              value: "https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.9.7/DecentHolograms-2.9.7.jar"
           volumeMounts:
             - name: init-download-volume
               mountPath: /root/initContainer-download

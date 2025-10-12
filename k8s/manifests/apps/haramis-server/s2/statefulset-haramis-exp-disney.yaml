@@ -47,18 +47,18 @@ spec:
             - name: MAX_MEMORY
               value: 4G
             - name: CFG_LUCKPERMS_SERVER_NAME
-              value: s2
+              value: exp-disney
             - name: CFG_DISCORDSRV_AUTH
               value: "true"
             - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-s2-secret
+                  name: minecraft-exp-disney-secret
                   key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
             - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-s2-secret
+                  name: minecraft-exp-disney-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
             - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
               value: "true"
@@ -94,7 +94,7 @@ spec:
         # worldデータの永続ストレージの指定
         - name: world-data
           persistentVolumeClaim:
-            claimName: haramis-s2-pvc
+            claimName: haramis-exp-disney-pvc
         # bluemap-worldデータの永続ストレージの指定
         - name: mc-plugin-bluemap-config
           configMap:

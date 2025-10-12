@@ -156,7 +156,7 @@ spec:
                 https://download.luckperms.net/1606/velocity/LuckPerms-Velocity-5.5.17.jar,
                 https://github.com/Camotoy/GeyserSkinManager/releases/download/1.8/GeyserSkinManager-Velocity.jar,
                 https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.7/VELOCITY/minimotd-velocity-2.1.7.jar,
-                https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.5.0/PAPER/ViaVersion-5.5.0.jar,
+                https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.5.1/PAPER/ViaVersion-5.5.1.jar,
                 https://cdn.modrinth.com/data/ijxRRNJT/versions/Wdd5C1GQ/VServerInfo-2.2.1.jar
             - name: SPIGET_PLUGINS
               value: 

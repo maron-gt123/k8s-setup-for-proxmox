@@ -8,6 +8,6 @@ resources:
   # secret
   - http://nas.mcnet/k8s/mc-haramis/secret-haramis-common.yaml
 patches:
-  - path: svc-LoadBalancer.yaml
+  - path: lb-service.yaml
   - path: deployment-haramis.yaml
   - path: config/velocity-plugin-minimotd-haramis-config.yaml

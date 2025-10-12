@@ -146,6 +146,8 @@ spec:
               value: 
             - name: CFG_SERVER_S3_URL
               value: 
+            - name: CFG_SERVER_EXP_URL
+              value: 
             - name: CFG_PROXY_ENABLE
               value: 
             - name: PLUGINS

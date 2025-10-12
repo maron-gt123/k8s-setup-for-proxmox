@@ -35,116 +35,118 @@ spec:
         - image: itzg/minecraft-server:java21
           name: minecraft
           env:
-            - name: REPLACE_ENV_VARIABLE_PREFIX #0
-              value: CFG_
-            - name: EULA #1
+            - name: EULA
               value: "TRUE"
-            - name: TZ #2
+            - name: TZ
               value: Asia/Tokyo
-            - name: TYPE #3
+            - name: TYPE
               value: PAPER
-            - name: VERSION #4
+            - name: VERSION
               value: "1.21.8"
-            - name: INIT_MEMORY #5
+            - name: INIT_MEMORY
               value: 1G
-            - name: MAX_MEMORY #6
+            - name: MAX_MEMORY
               value: 2G
-            - name: ENABLE_RCON #7
+            - name: ENABLE_RCON
               value: "true"
-            - name: MAX_TICK_TIME #8
+            - name: MAX_TICK_TIME
               value: "-1"
-            - name: RCON_PASSWORD #9
+            - name: ONLINE_MODE
+              value: "false"
+            - name: ALLOW_NETHER
+              value: "true"
+            - name: DIFFICULTY
+              value: easy
+            - name: LEVEL_TYPE
+              value: normal
+            - name: SPAWN_ANIMALS
+              value: "true"
+            - name: SPAWN_MONSTERS
+              value: "true"
+            - name: SPAWN_NPCS
+              value: "true"
+            - name: ENABLE_WHITELIST
+              value: "false"
+            - name: REPLACE_ENV_VARIABLE_PREFIX
+              value: CFG_
+            - name: CFG_ALLOW_END
+              value: "true"
+            - name: CFG_DISCORDSRV_AUTH
+              value: "true"
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: 
+            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
+              value: 
+            - name: CFG_DISCORDSRV_ADMIN_USER
+              value: 
+            # --- minecraft-common-secret ---
+            - name: RCON_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_MC_RCON_PASSWORD
-            - name: CFG_DISCORDSRV_AUTH #10
-              value: "true"
-            - name: ONLINE_MODE #11
-              value: "false"
-            - name: ALLOW_NETHER #12
-              value: "true"
-            - name: DIFFICULTY #13
-              value: easy
-            - name: LEVEL_TYPE #14
-              value: normal
-            - name: SPAWN_ANIMALS #15
-              value: "true"
-            - name: SPAWN_MONSTERS #16
-              value: "true"
-            - name: SPAWN_NPCS #17
-              value: "true"
-            - name: ENABLE_WHITELIST #18
-              value: "false"
-            - name: CFG_ALLOW_END #19
-              value: "true"
-            - name: CFG_LUNACHAT_LANGUAGE #20
-              value: ja
-            - name: CFG_SQLSERVER_ADDRESS #21
+            - name: CFG_SQLSERVER_ADDRESS
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_ADDRESS
-            - name: CFG_SQLSERVER_USERNAME #22
+            - name: CFG_SQLSERVER_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_USERNAME
-            - name: CFG_SQLSERVER_PASSWORD #23
+            - name: CFG_SQLSERVER_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_PASSWORD
-            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE #24
+            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_LUCKPERMS_DATABASE
-            - name: CFG_SQLSERVER_INVENTORY_DATABASE #25
+            - name: CFG_SQLSERVER_INVENTORY_DATABASE
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_INVENTORY_DATABASE
-            - name: CFG_SQLSERVER_BLUEMAP_DATABASE # 26
+            - name: CFG_SQLSERVER_BLUEMAP_DATABASE
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_BLUEMAP_DATABASE
-            - name: CFG_LUCKPERMS_SERVER_NAME #27
-              value: 
-            - name: CFG_FORWARDING_KEY #28
+            - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_FORWARDING_KEY
-            - name: CFG_DISCORD_SRV_BOT_KEY #29
+            - name: CFG_DISCORD_SRV_BOT_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_BOT_KEY
-            - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE #30
+            - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
-            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH #31
-              value: 
-            - name: CFG_SQLSERVER_DISCORDSRV_ROLE_ID #32
+            - name: CFG_SQLSERVER_DISCORDSRV_ROLE_ID
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_DISCORDSRV_ROLE_ID
-            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY #33
+            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY #34
+            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-            - name: PLUGINS #35
+            # ------
+            - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # ServerBackup
               # minecraft-prometheus-exporter3.1.0
@@ -155,22 +157,20 @@ spec:
               value: >-
                 https://server-backup.net/assets/downloads/ServerBackup-2.10.0.jar,
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.2/minecraft-prometheus-exporter-3.1.2.jar,
-                https://download.luckperms.net/1602/bukkit/loader/LuckPerms-Bukkit-5.5.15.jar,
+                https://download.luckperms.net/1606/bukkit/loader/LuckPerms-Bukkit-5.5.17.jar,
                 https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
                 https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.1/DiscordSRV-Build-1.30.1.jar
-            - name: SPIGET_RESOURCES #36
+            - name: SPIGET_RESOURCES
               value: 
-            - name: JVM_OPTS #37
+            - name: JVM_OPTS
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
             # config関連を/configから/dataへmcopy
-            - name: COPY_CONFIG_DEST #38
+            - name: COPY_CONFIG_DEST
               value: /data
-            - name: RCON_CMDS_STARTUP #39
+            - name: RCON_CMDS_STARTUP
               value: |-
-            - name: CFG_DISCORDSRV_ADMIN_USER #40
-              value: 
           ports:
             - name: mc-service
               containerPort: 25565
@@ -267,28 +267,7 @@ spec:
             - name: mc-plugin-bluemap-common-config
               mountPath: /config/plugins/BlueMap/storages/sql.conf
               subPath: bluemap-sql.conf
-            ######### advancedportalsは各環境で個別にマウント #########
-            # advancedportals-destinationsのマウント
-            #- name: mc-plugin-advancedportals-configs
-            #  mountPath: /config/plugins/AdvancedPortals/desti/destinations.yml
-            #  subPath: destinations.yml
-            # advancedportals-portalsのマウント
-            #- name: mc-plugin-advancedportals-configs
-            #  mountPath: /config/plugins/AdvancedPortals/portals/portals.yml
-            #  subPath: portals.yml
-            ######### bluemapworldは各環境で個別にマウント #########
-            # worldのマウント
-            #- name: mc-plugin-bluemap-config
-            #  mountPath: /config/plugins/BlueMap/maps/world.conf
-            #  subPath: bluemap-world.conf
-            # world_netherのマウント
-            #- name: mc-plugin-bluemap-config
-            #  mountPath: /config/plugins/BlueMap/maps/world_nether.conf
-            #  subPath: bluemap-world_nether.conf
-            # world_the_endのマウント
-            #- name: mc-plugin-bluemap-config
-            #  mountPath: /config/plugins/BlueMap/maps/world_the_end.conf
-            #  subPath: bluemap-world_the_end.conf
+
       volumes:
         # paperのボリューム
         - name: data

@@ -65,3 +65,34 @@ data:
       posY: -60
       posZ: 7
       worldName: world
+  exp01-world-destinations.yml: |
+    args:
+      name:
+      - exp01-world
+    loc:
+      pitch: 19.800003
+      worldName: world
+      x: -7.448048641544446
+      y: -59.0
+      yaw: 94.80014
+      z: 21.549642056474415
+  exp01-world-portals.yml: |
+    args:
+      bungee:
+      - exp01
+      name:
+      - exp01-world
+      destination:
+      - exp01-world
+      triggerblock:
+      - WATER
+    maxLoc:
+      posX: 8
+      posY: -55
+      posZ: 11
+      worldName: world
+    minLoc:
+      posX: 8
+      posY: -60
+      posZ: 7
+      worldName: world

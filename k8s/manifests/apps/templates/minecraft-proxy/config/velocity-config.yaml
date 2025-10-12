@@ -83,11 +83,11 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = "${CFG_SERVER_LOBBY_URL}:25565"
-    s1 = "${CFG_SERVER_S1_URL}:25565"
-    s2 = "${CFG_SERVER_S2_URL}:25565"
-    s3 = "${CFG_SERVER_S3_URL}:25565"
-    exp = "${CFG_SERVER_EXP_URL}:25565"
+    lobby = 172.0.0.1:25565"
+    s1 = 172.0.0.2:25565"
+    s2 = 172.0.0.3:25565"
+    s3 = 172.0.0.4:25565"
+    exp = 172.0.0.5:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [

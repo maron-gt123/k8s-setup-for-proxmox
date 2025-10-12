@@ -135,6 +135,9 @@ spec:
             - name: mc-plugin-advancedportals-configs
               mountPath: /config/plugins/AdvancedPortals/desti/S2-world.yaml
               subPath: s2-world-destinations.yml
+            - name: mc-plugin-advancedportals-configs
+              mountPath: /config/plugins/AdvancedPortals/desti/exp01-world.yaml
+              subPath: exp01-world-destinations.yml
             # ------　advancedportals-portals ------
             - name: mc-plugin-advancedportals-configs
               mountPath: /config/plugins/AdvancedPortals/portals/S1-world.yaml
@@ -142,6 +145,9 @@ spec:
             - name: mc-plugin-advancedportals-configs
               mountPath: /config/plugins/AdvancedPortals/portals/S2-world.yaml
               subPath: s2-world-portals.yml
+            - name: mc-plugin-advancedportals-configs
+              mountPath: /config/plugins/AdvancedPortals/portals/exp01-world.yaml
+              subPath: exp01-world-portals.yml
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data

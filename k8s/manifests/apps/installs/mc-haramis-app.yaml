@@ -49,18 +49,18 @@ spec:
   syncPolicy:
     automated: {}
 ---
-# s2
+# exp-disney
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: harami-s2
+  name: harami-exp-disney
 spec:
   destination:
     namespace: default
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: k8s/manifests/apps/haramis-server/s2
+    path: k8s/manifests/apps/haramis-server/exp-disney
     repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
     targetRevision: main
   syncPolicy:

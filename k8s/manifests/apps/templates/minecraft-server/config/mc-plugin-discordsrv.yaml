@@ -421,7 +421,7 @@ data:
 
 
 
-
+  mc-plugin-discordsrv-jp-message.yml: |
     # Discord -> Minecraft message
     #
     # DiscordToMinecraftChatMessageFormat: the format used when sending messages from Discord to Minecraft

@@ -247,12 +247,10 @@ spec:
             - name: mc-plugin-discordsrv-config
               mountPath: /config/plugins/DiscordSRV/config.yml
               subPath: discordsrv.yml
-            # discord-SRV-jp_messageのマウント
-            - name: mc-plugin-discordsrv-jp-message-config
+            - name: mc-plugin-discordsrv-config
               mountPath: /config/plugins/DiscordSRV/messages.yml
               subPath: mc-plugin-discordsrv-jp-message.yml
-            # discordsrv-linkのマウント
-            - name: mc-plugin-discordsrv-link-config
+            - name: mc-plugin-discordsrv-config
               mountPath: /config/plugins/DiscordSRV/linking.yml
               subPath: discordsrv-linking.yml
             # server-backupのマウント
@@ -317,14 +315,6 @@ spec:
         - name: mc-plugin-discordsrv-config
           configMap:
             name: mc-plugin-discordsrv-config
-        # discordsrv-jp_message-configmap格納先
-        - name: mc-plugin-discordsrv-jp-message-config
-          configMap:
-            name: mc-plugin-discordsrv-jp-message-config
-        # discordsrv-link-configmap格納先
-        - name: mc-plugin-discordsrv-link-config
-          configMap:
-            name: mc-plugin-discordsrv-link-config
         # server-backup-configmap格納先
         - name: mc-plugin-serverbackup-config
           configMap:

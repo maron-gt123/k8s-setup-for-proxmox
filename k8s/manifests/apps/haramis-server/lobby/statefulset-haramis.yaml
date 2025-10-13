@@ -124,6 +124,9 @@ spec:
             - name: mc-plugin-serverspawn-config
               mountPath: /config/plugins/ServerSpawn/ServerSpawn.yml
               subPath: ServerSpawn.yml
+            - name: mc-plugin-serverspawn-config
+              mountPath: /config/plugins/ServerSpawn/Messages.yml
+              subPath: Messages.yml
             # ------ worldgard-regions ------
             - name: mc-plugin-worldgard-regions-config
               mountPath: /config/plugins/WorldGuard/worlds/world/regions.yml

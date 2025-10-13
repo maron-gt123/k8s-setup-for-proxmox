@@ -6,7 +6,6 @@ metadata:
     app: minecraft
 spec:
   type: ClusterIP
-  clusterIP:
   ports:
   - name: mc-service
     port: 25565

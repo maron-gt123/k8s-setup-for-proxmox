@@ -11,4 +11,4 @@ spec:
             - name: notifier
               env:
                 - name: RCON_HOST
-                  value: 192.168.15.201
+                  value: mc-lobby-mc-service.mc-haramis.svc.cluster.local

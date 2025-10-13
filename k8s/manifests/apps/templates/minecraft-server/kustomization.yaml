@@ -27,10 +27,6 @@ resources:
   - ./config/mc-plugin-advancedportals-configs.yaml
   # discord-SRV-config
   - ./config/mc-plugin-discordsrv.yaml
-  # discordsrv-jp_message-config
-  - ./config/mc-plugin-discordsrv-jp-message-config.yaml
-  # discordsrv-link-config
-  - ./config/mc-plugin-discordsrv-link-config.yaml
   # serverbackup-config
   - ./config/mc-plugin-serverbackup-config.yaml
     # bluemap-config

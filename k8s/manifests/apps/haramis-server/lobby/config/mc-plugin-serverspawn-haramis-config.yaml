@@ -18,3 +18,12 @@ data:
       Hub: false
       Spawn: false
       Lobby: false
+
+  Messages.yml: |
+    Custom messages:
+      Join message: '&0[&2+&0] &8%playername%'
+      Quit message: '&0[&4-&0] &8%playername%'
+    Prefix:
+      Message: '&0&l[&2&lServer&a&lSpawn&0&l] '
+      Enabled: true
+    Language: ENGLISH

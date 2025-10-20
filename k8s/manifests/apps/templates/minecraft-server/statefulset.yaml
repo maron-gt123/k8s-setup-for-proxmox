@@ -15,6 +15,7 @@ spec:
         app: minecraft
     spec:
       initContainers:
+        # initcontainersでjmx-exporterをダウンロード
         - name: jmx-exporter-downloader
           image: busybox:1.37.0
           env:
@@ -34,9 +35,16 @@ spec:
       containers:
         - image: itzg/minecraft-server:java21
           name: minecraft
+          resources:
+            requests:
+              # pod リソース設定
+              cpu: "2"
+              memory: 2G
           env:
-            - name: EULA
-              value: "TRUE"
+            # ---- プレフィックスの宣言 ---- 
+            - name: REPLACE_ENV_VARIABLE_PREFIX
+              value: CFG_
+            # ---- 基本設定 ---- 
             - name: TZ
               value: Asia/Tokyo
             - name: TYPE
@@ -47,6 +55,9 @@ spec:
               value: 1G
             - name: MAX_MEMORY
               value: 2G
+            - name: EULA
+              value: "TRUE"
+            # ---- server configの変数 ---- 
             - name: ENABLE_RCON
               value: "true"
             - name: MAX_TICK_TIME
@@ -67,24 +78,19 @@ spec:
               value: "true"
             - name: ENABLE_WHITELIST
               value: "false"
-            - name: REPLACE_ENV_VARIABLE_PREFIX
-              value: CFG_
             - name: CFG_ALLOW_END
               value: "true"
-            - name: CFG_DISCORDSRV_AUTH
-              value: "true"
-            - name: CFG_LUCKPERMS_SERVER_NAME
-              value: 
-            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
-              value: 
-            - name: CFG_DISCORDSRV_ADMIN_USER
-              value: 
-            # --- minecraft-common-secret ---
             - name: RCON_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_MC_RCON_PASSWORD
+            - name: CFG_FORWARDING_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: CFG_FORWARDING_KEY
+            # ---- SQL serverの宛先指定変数 ---- 
             - name: CFG_SQLSERVER_ADDRESS
               valueFrom:
                 secretKeyRef:
@@ -100,51 +106,59 @@ spec:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_PASSWORD
-            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
+            # ---- plugins configの変数 ---- 
+            # ---- discord SRV ---- 
+            - name: CFG_DISCORDSRV_AUTH
+              value: "true"
+            - name: CFG_DISCORDSRV_ROLE_AUTH
+              value: 
+            - name: CFG_DISCORDSRV_ADMIN_USER
+              value: 
+            - name: CFG_DISCORDSRV_BOT_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
-                  key: CFG_SQLSERVER_LUCKPERMS_DATABASE
-            - name: CFG_SQLSERVER_INVENTORY_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-common-secret
-                  key: CFG_SQLSERVER_INVENTORY_DATABASE
-            - name: CFG_SQLSERVER_BLUEMAP_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-common-secret
-                  key: CFG_SQLSERVER_BLUEMAP_DATABASE
-            - name: CFG_FORWARDING_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-common-secret
-                  key: CFG_FORWARDING_KEY
-            - name: CFG_DISCORD_SRV_BOT_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-common-secret
-                  key: CFG_DISCORD_SRV_BOT_KEY
+                  key: CFG_DISCORDSRV_BOT_KEY
             - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
                   key: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
-            - name: CFG_SQLSERVER_DISCORDSRV_ROLE_ID
+            - name: CFG_DISCORDSRV_ROLE_ID
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
-                  key: CFG_SQLSERVER_DISCORDSRV_ROLE_ID
-            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
+                  key: CFG_DISCORDSRV_ROLE_ID
+            - name: CFG_DISCORDSRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
-                  key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+                  key: CFG_DISCORDSRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-common-secret
-                  key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+                  key: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
+            # ---- luckperms ---- 
+            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: CFG_SQLSERVER_LUCKPERMS_DATABASE
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: 
+            # ---- inventory ---- 
+            - name: CFG_SQLSERVER_INVENTORY_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: CFG_SQLSERVER_INVENTORY_DATABASE
+            # ---- bluemap ---- 
+            - name: CFG_SQLSERVER_BLUEMAP_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: minecraft-common-secret
+                  key: CFG_SQLSERVER_BLUEMAP_DATABASE
             # ------
             - name: PLUGINS
               # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
@@ -182,10 +196,6 @@ spec:
               containerPort: 9225
             - name: mc-map
               containerPort: 8100
-          resources:
-            requests:
-              memory: 2G
-              cpu: "2"
           volumeMounts:
             # world関連の格納先マウント
             - name: data

@@ -37,6 +37,7 @@ spec:
       containers:
         - name: minecraft
           env:
+            # ---- server configの変数 ---- 
             - name: ALLOW_NETHER
               value: "false"
             - name: DIFFICULTY
@@ -51,25 +52,26 @@ spec:
               value: "false"
             - name: CFG_ALLOW_END
               value: "false"
+            # ---- plugins configの変数 ---- 
+            # ---- discord SRV ---- 
             - name: CFG_DISCORDSRV_AUTH
               value: "true"
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: lobby
-            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
+            - name: CFG_DISCORDSRV_ROLE_AUTH
               value: "true"
             - name: CFG_DISCORDSRV_ADMIN_USER
               value: haramiten
-            # --- minecraft-lobby-secret ---
-            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORDSRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-lobby-secret
-                  key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+                  key: CFG_DISCORDSRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
                   name: minecraft-lobby-secret
-                  key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+                  key: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
             # ------
             # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP

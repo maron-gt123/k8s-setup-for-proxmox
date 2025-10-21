@@ -3,6 +3,9 @@ kind: ConfigMap
 metadata:
   name: mc-configs
 data:
+  mc-whitelist.json: |
+    [
+    ]
   mc-bukkit.yml: |
     settings:
       allow-end: ${CFG_ALLOW_END}

@@ -10,7 +10,6 @@ resources:
 
   # config
   - ./config/mc-configs.yaml
-  - ./config/mc-whitelist.yaml
   # jmx-exporter-config
   - ./config/jmx-exporter-mc-config.yaml
   # prometheusexporter-config
@@ -19,10 +18,10 @@ resources:
   - ./config/mc-plugin-luckperms-config.yaml
   # lunachat-config
   - ./config/mc-plugin-lunachat-config.yaml
-  # advancedportals-common-config
-  - ./config/mc-plugin-advancedportals-common-config.yaml
   # MyqlInventoryBridge-config
   - ./config/mc-plugin-mysqlInventorybridge-config.yaml
+  # advancedportals-common-config
+  - ./config/mc-plugin-advancedportals-common-config.yaml
   # advancedportals-configs
   - ./config/mc-plugin-advancedportals-configs.yaml
   # discord-SRV-config

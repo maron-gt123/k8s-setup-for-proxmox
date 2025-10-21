@@ -228,7 +228,7 @@ spec:
               mountPath: /config/config/paper-global.yml
               subPath: mc-paper-global.yml
              # whitelistの格納先
-            - name: mc-whitelist
+            - name: mc-config
               mountPath: /config/whitelist.json
               subPath: mc-whitelist.json
 
@@ -293,10 +293,6 @@ spec:
         - name: mc-config
           configMap:
             name: mc-configs
-        # mc-whitelist格納先 
-        - name: mc-whitelist
-          configMap:
-            name: mc-whitelist
         # prometheusexporter-configmap格納先
         - name: mc-plugin-prometheusexporter-config
           configMap:

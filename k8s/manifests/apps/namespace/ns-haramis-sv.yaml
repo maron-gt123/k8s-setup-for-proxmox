@@ -22,6 +22,6 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: mc-haramis-s2
+  name: mc-haramis-disney
   labels:
-    name: mc-haramis-s2
+    name: mc-haramis-disney

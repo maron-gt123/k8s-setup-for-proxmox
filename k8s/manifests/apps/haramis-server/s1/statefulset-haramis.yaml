@@ -37,6 +37,9 @@ spec:
                   name: minecraft-s1-secret
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
             # ------
+            # --- spiget No ---
+            # --- 31585：One Player Sleep
+            # --- 7849：MySQL Inventory Bridge
             - name: SPIGET_RESOURCES
               value: "31585,7849"
           resources:

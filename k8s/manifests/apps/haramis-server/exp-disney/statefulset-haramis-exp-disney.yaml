@@ -43,12 +43,12 @@ spec:
             - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-exp-disney-secret
+                  name: secret-mc-disney
                   key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
             - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-exp-disney-secret
+                  name: secret-mc-disney
                   key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
             # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP

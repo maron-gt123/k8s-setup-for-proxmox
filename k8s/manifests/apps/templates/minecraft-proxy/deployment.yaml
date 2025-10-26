@@ -60,7 +60,7 @@ spec:
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-common
                   key: CFG_FORWARDING_KEY
           volumeMounts:
             - name: ini-velocity-forwarding-download-volume
@@ -78,69 +78,70 @@ spec:
             requests:
               memory: "768Mi"
           env:
+            # ---- プレフィックスの宣言 ---- 
+            - name: REPLACE_ENV_VARIABLE_PREFIX 
+              value: CFG_
+            # ---- 基本設定 ---- 
             - name: TZ
               value: Asia/Tokyo
             - name: TYPE
               value: VELOCITY
             - name: VELOCITY_VERSION
               value: "latest"
-            - name: NETWORKADDRESS_CACHE_TTL
-              value: "60"
-            - name: ENABLE_RCON
-              value: "true"
-            - name: RCON_PORT
-              value: "25575"
             - name: MEMORY
               value: "768m"
             - name: ICON
               value: "" # サーバーアイコンの取得URL
-            - name: REPLACE_ENV_VARIABLE_PREFIX 
-              value: CFG_
-            - name: CFG_LUCKPERMS_SERVER_NAME
-              value: "" # LuckPermsの管理用名称
+            # ---- server configの変数 ---- 
+            - name: NETWORKADDRESS_CACHE_TTL
+              value: "60"
             - name: CFG_PROXY_ENABLE
               value: "true" # proxy protocolをフロントエンドに設置している場合trueと設定
-            # --- minecraft-common-secret ---
+            - name: ENABLE_RCON
+              value: "true"
+            - name: RCON_PORT
+              value: "25575"
             - name: RCON_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-common
                   key: VELOCITY_RCON_PASSWORD
+            - name: CFG_FORWARDING_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mc-common
+                  key: CFG_FORWARDING_KEY
+            # ---- SQL serverの宛先指定変数 ---- 
             - name: CFG_SQLSERVER_ADDRESS
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_ADDRESS
             - name: CFG_SQLSERVER_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_USERNAME
             - name: CFG_SQLSERVER_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_PASSWORD
+            # ---- plugins configの変数 ---- 
+            # ---- luckperms ----
             - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_LUCKPERMS_DATABASE
-            - name: CFG_SQLSERVER_INVENTORY_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-common-secret
-                  key: CFG_SQLSERVER_INVENTORY_DATABASE
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: "" # LuckPermsの管理用名称
+            # ---- banmanager ----
             - name: CFG_SQLSERVER_BANMANAGER_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_BANMANAGER_DATABASE
-            - name: CFG_FORWARDING_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-common-secret
-                  key: CFG_FORWARDING_KEY
             # ------
             - name: PLUGINS
               # bungeecord-prometheus-exporter

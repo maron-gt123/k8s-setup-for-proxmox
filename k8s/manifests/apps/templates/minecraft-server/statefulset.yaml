@@ -83,28 +83,28 @@ spec:
             - name: RCON_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_MC_RCON_PASSWORD
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_FORWARDING_KEY
             # ---- SQL serverの宛先指定変数 ---- 
             - name: CFG_SQLSERVER_ADDRESS
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_ADDRESS
             - name: CFG_SQLSERVER_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_USERNAME
             - name: CFG_SQLSERVER_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_PASSWORD
             # ---- plugins configの変数 ---- 
             # ---- discord SRV ---- 
@@ -117,33 +117,33 @@ spec:
             - name: CFG_DISCORDSRV_BOT_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-discordsrv
                   key: CFG_DISCORDSRV_BOT_KEY
             - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
             - name: CFG_DISCORDSRV_ROLE_ID
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-discordsrv
                   key: CFG_DISCORDSRV_ROLE_ID
             - name: CFG_DISCORDSRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-temp
                   key: CFG_DISCORDSRV_LOG_CHANNEL_KEY
             - name: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-temp
                   key: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
             # ---- luckperms ---- 
             - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_LUCKPERMS_DATABASE
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: 
@@ -151,13 +151,13 @@ spec:
             - name: CFG_SQLSERVER_INVENTORY_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_INVENTORY_DATABASE
             # ---- bluemap ---- 
             - name: CFG_SQLSERVER_BLUEMAP_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-common-secret
+                  name: secret-mc-db_address
                   key: CFG_SQLSERVER_BLUEMAP_DATABASE
             # ------
             - name: PLUGINS

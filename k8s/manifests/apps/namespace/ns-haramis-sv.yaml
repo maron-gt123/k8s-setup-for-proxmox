@@ -1,6 +1,27 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: mc-haramis
+  name: mc-haramis-proxy
   labels:
-    name: mc-haramis
+    name: mc-haramis-proxy
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mc-haramis-lobby
+  labels:
+    name: mc-haramis-lobby
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mc-haramis-s1
+  labels:
+    name: mc-haramis-s1
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mc-haramis-s2
+  labels:
+    name: mc-haramis-s2

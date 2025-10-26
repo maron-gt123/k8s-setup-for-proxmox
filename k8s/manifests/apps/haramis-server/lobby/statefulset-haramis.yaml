@@ -65,12 +65,12 @@ spec:
             - name: CFG_DISCORDSRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-lobby-secret
+                  name: secret-mc-lobby
                   key: CFG_DISCORDSRV_LOG_CHANNEL_KEY
             - name: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
-                  name: minecraft-lobby-secret
+                  name: secret-mc-lobby
                   key: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
             # ------
             # ------時間天候無効化コマンド ------

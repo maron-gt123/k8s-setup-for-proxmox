@@ -243,7 +243,7 @@ spec:
               subPath: luckperms.yml
             # advancedportalsのマウント
             - name: mc-plugin-advancedportals-common-config
-              mountPath: /config/plugins/AdvancedPortals/config.yml
+              mountPath: /config/plugins/AdvancedPortals/config.yaml
               subPath: advancedportals-common-config.yml
             # LunaChatのマウント
             - name: mc-plugin-lunachat-config

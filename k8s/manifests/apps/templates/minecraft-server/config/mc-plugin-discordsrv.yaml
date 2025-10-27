@@ -12,7 +12,7 @@ data:
     
     # Bot token; don't know what this is? Look at the video on the plugin page for instructions
     # You must restart your server after changing this option
-    BotToken: "${CFG_DISCORD_SRV_BOT_KEY}"
+    BotToken: "${CFG_DISCORDSRV_BOT_KEY}"
     
     # Channel links from game to Discord
     # syntax is Channels: {"in-game channel name from Minecraft": "numerical channel ID from Discord", "another in-game channel name from Minecraft": "another numerical channel ID from Discord"}
@@ -33,10 +33,10 @@ data:
     #
     # The first part of channel pairs is not the Discord channel name!
     # Run "/discord reload" after changing this option to apply
-    Channels: {"global": "${CFG_DISCORD_SRV_LOG_CHANNEL_KEY}"}
+    Channels: {"global": "${CFG_DISCORDSRV_LOG_CHANNEL_KEY}"}
     
     # Console channel numerical ID (NOT NAME), leave blank to disable the console channel all together
-    DiscordConsoleChannelId: "${CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY}"
+    DiscordConsoleChannelId: "${CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY}"
     
     # Invitation link shown to players when using /discord and on the message shown to unlinked players when linking is enforced
     DiscordInviteLink: "https://discord.gg/changethisintheconfig.yml"

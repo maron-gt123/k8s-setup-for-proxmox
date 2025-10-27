@@ -88,7 +88,7 @@ spec:
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:
-                  name: secret-mc-dbaddress
+                  name: secret-mc-common
                   key: CFG_FORWARDING_KEY
             # ---- SQL serverの宛先指定変数 ---- 
             - name: CFG_SQLSERVER_ADDRESS

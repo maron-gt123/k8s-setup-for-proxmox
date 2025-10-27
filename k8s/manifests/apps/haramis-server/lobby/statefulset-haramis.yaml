@@ -76,7 +76,7 @@ spec:
                 /gamerule doWeatherCycle false
                 /gamerule doMobSpawning false
                 /gamerule spawn-npcs false
-                /gamerule pvp
+                /gamerule pvp false
           volumeMounts:
             # ------ nsfに格納されているmusic_worldのマウント ------
             # ------ worldデータ ------

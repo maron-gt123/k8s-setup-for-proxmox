@@ -115,24 +115,24 @@ spec:
             - name: CFG_SQLSERVER_ADDRESS
               valueFrom:
                 secretKeyRef:
-                  name: secret-mc-db_address
+                  name: secret-mc-dbaddress
                   key: CFG_SQLSERVER_ADDRESS
             - name: CFG_SQLSERVER_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: secret-mc-db_address
+                  name: secret-mc-dbaddress
                   key: CFG_SQLSERVER_USERNAME
             - name: CFG_SQLSERVER_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: secret-mc-db_address
+                  name: secret-mc-dbaddress
                   key: CFG_SQLSERVER_PASSWORD
             # ---- plugins configの変数 ---- 
             # ---- luckperms ----
             - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: secret-mc-db_address
+                  name: secret-mc-dbaddress
                   key: CFG_SQLSERVER_LUCKPERMS_DATABASE
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: "" # LuckPermsの管理用名称
@@ -140,7 +140,7 @@ spec:
             - name: CFG_SQLSERVER_BANMANAGER_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: secret-mc-db_address
+                  name: secret-mc-dbaddress
                   key: CFG_SQLSERVER_BANMANAGER_DATABASE
             # ------
             - name: PLUGINS

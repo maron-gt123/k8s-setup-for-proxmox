@@ -15,20 +15,6 @@ spec:
         app: minecraft
     spec:
       initContainers:
-        # initcontainersでlocaleデータをダウンロード
-        - name: locale-init
-          image: debian:bookworm-slim  # 軽量 Debian
-          command:
-            - sh
-            - -c
-            - |
-              apt-get update && apt-get install -y locales \
-              && echo "ja_JP.UTF-8 UTF-8" > /etc/locale.gen \
-              && locale-gen ja_JP.UTF-8 \
-              && update-locale LANG=ja_JP.UTF-8
-          volumeMounts:
-            - name: data
-              mountPath: /data
         # initcontainersでjmx-exporterをダウンロード
         - name: jmx-exporter-downloader
           image: busybox:1.37.0
@@ -61,12 +47,6 @@ spec:
             # ---- 基本設定 ---- 
             - name: TZ
               value: Asia/Tokyo
-            - name: LANG
-              value: ja_JP.UTF-8
-            - name: LANGUAGE
-              value: ja_JP:ja
-            - name: LC_ALL
-              value: ja_JP.UTF-8
             - name: TYPE
               value: PAPER
             - name: VERSION
@@ -180,14 +160,12 @@ spec:
               # minecraft-prometheus-exporter3.1.0
               # LuckPerms-Bukkit-5.5.15
               # Advanced-Portals-0.9.3
-              # LunaChat
               # DiscordSRV
               value: >-
                 https://server-backup.net/assets/downloads/ServerBackup-2.10.0.jar,
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.2/minecraft-prometheus-exporter-3.1.2.jar,
                 https://download.luckperms.net/1606/bukkit/loader/LuckPerms-Bukkit-5.5.17.jar,
                 https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
-                https://github.com/ucchyocean/LunaChat/releases/download/v3.0.16/LunaChat.jar,
                 https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.1/DiscordSRV-Build-1.30.1.jar
             - name: SPIGET_RESOURCES
               value: 

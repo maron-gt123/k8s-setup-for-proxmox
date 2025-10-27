@@ -70,12 +70,6 @@ spec:
               value: easy
             - name: LEVEL_TYPE
               value: normal
-            - name: SPAWN_ANIMALS
-              value: "true"
-            - name: SPAWN_MONSTERS
-              value: "true"
-            - name: SPAWN_NPCS
-              value: "true"
             - name: ENABLE_WHITELIST
               value: "false"
             - name: CFG_ALLOW_END

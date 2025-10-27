@@ -47,6 +47,10 @@ spec:
             # ---- 基本設定 ---- 
             - name: TZ
               value: Asia/Tokyo
+            - name: LANG
+              value: ja_JP.UTF-8
+            - name: LANGUAGE
+              value: ja_JP:ja
             - name: TYPE
               value: PAPER
             - name: VERSION
@@ -237,10 +241,6 @@ spec:
             - name: mc-plugin-advancedportals-common-config
               mountPath: /config/plugins/AdvancedPortals/config.yaml
               subPath: advancedportals-common-config.yml
-            # LunaChatのマウント
-            - name: mc-plugin-lunachat-config
-              mountPath: /config/plugins/LunaChat/config.yml
-              subPath: lunachat.yml
             # MysqlInventoryBridgeのマウント
             - name: mc-plugin-inventory-config
               mountPath: /config/plugins/MysqlInventoryBridge/config.yml
@@ -287,10 +287,6 @@ spec:
         - name: mc-plugin-advancedportals-common-config
           configMap:
             name: mc-plugin-advancedportals-common-config
-        # lunachat-configmap格納先
-        - name: mc-plugin-lunachat-config
-          configMap:
-            name: mc-plugin-lunachat-config
         # MysqlInventoryBridge-configmap格納先
         - name: mc-plugin-inventory-config
           configMap:

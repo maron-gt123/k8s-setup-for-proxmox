@@ -16,8 +16,6 @@ resources:
   - ./config/mc-plugin-prometheusexporter-config.yaml
   # luckperms-config
   - ./config/mc-plugin-luckperms-config.yaml
-  # lunachat-config
-  - ./config/mc-plugin-lunachat-config.yaml
   # MyqlInventoryBridge-config
   - ./config/mc-plugin-mysqlInventorybridge-config.yaml
   # advancedportals-common-config

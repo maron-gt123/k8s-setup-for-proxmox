@@ -44,12 +44,6 @@ spec:
               value: peaceful
             - name: LEVEL_TYPE
               value: flat
-            - name: SPAWN_ANIMALS
-              value: "false"
-            - name: SPAWN_MONSTERS
-              value: "false"
-            - name: SPAWN_NPCS
-              value: "false"
             - name: CFG_ALLOW_END
               value: "false"
             # ---- plugins configの変数 ---- 
@@ -80,6 +74,9 @@ spec:
                 /weather clear
                 /gamerule doDaylightCycle false
                 /gamerule doWeatherCycle false
+                /gamerule doMobSpawning false
+                /gamerule spawn-npcs false
+                /gamerule pvp
           volumeMounts:
             # ------ nsfに格納されているmusic_worldのマウント ------
             # ------ worldデータ ------

@@ -83,11 +83,11 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = "10.96.115.160:25565"
-    s1 = "mc-s1-mc-service.mc-haramis.svc.cluster.local:25565"
-    s2 = "mc-s2-mc-service.mc-haramis.svc.cluster.local:25565"
-    s3 = "mc-s3-mc-service.mc-haramis.svc.cluster.local:25565"
-    exp01 = "mc-exp-mc-service.mc-haramis.svc.cluster.local:25565"
+    lobby = "mc-service.mc-haramis-lobby.svc.cluster.local:25565"
+    s1 = "mc-service.mc-haramis-s1.svc.cluster.local:25565"
+    s2 = "mc-service.mc-haramis-s2.svc.cluster.local:25565"
+    s3 = "mc-service.mc-haramis-s3.svc.cluster.local:25565"
+    disney = "mc-service.mc-haramis-disney.svc.cluster.local:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [

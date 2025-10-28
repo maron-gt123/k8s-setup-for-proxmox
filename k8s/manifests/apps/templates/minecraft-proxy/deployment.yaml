@@ -180,8 +180,8 @@ spec:
           startupProbe:
             tcpSocket:
               port: 25577
-            # 最大120秒待つ
-            failureThreshold: 6
+            # 最大300秒待つ
+            failureThreshold: 15
             periodSeconds: 20
           volumeMounts:
             # init downloadファイルのマウント

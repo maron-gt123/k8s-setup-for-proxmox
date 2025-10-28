@@ -108,8 +108,8 @@ data:
     "s3.example.com" = [
         "s3"
     ]
-    "exp.example.com" = [
-        "exp01"
+    "disney.example.com" = [
+        "disney"
     ]
 
     [advanced]

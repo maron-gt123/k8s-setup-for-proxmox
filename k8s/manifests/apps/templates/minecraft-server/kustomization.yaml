@@ -26,8 +26,8 @@ resources:
   - ./config/mc-plugin-discordsrv.yaml
   # serverbackup-config
   - ./config/mc-plugin-serverbackup-config.yaml
-    # bluemap-config
+  # bluemap-config
   - ./config/mc-plugin-bluemap-common-config.yaml
 
-    # cronjob (frontend-restart warning)
+  # cronjob (frontend-restart warning)
   - ./cronjob/frontend-restart-warning.yaml

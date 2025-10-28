@@ -5,6 +5,7 @@ resources:
   # template
   - ../../templates/minecraft-server
   # service
+  - ./lb-bluemap.yaml
   # pv & pvc
   - ./pv-haramis-s1-world.yaml
   - ./pv-haramis-s1-backup.yaml.yaml

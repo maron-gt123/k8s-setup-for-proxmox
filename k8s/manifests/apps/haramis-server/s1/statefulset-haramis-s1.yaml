@@ -10,42 +10,58 @@ spec:
       labels:
         app: minecraft
     spec:
+      initContainers:
+        # ------pluginsファイル生成関連------
+        - name: plugins-download
+          image: busybox:1.37.0
+          env:
+            - name: BLUEMAP_URL
+              value: "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.13/bluemap-5.13-paper.jar"
+          volumeMounts:
+            - name: init-download-volume
+              mountPath: /root/initContainer-download
+          command:
+            - sh
+            - -c
+            - >
+              wget -O /root/initContainer-download/bluemap-paper.jar "${BLUEMAP_URL}"
       containers:
         - name: minecraft
-          env:
-            - name: INIT_MEMORY
-              value: 1G
-            - name: MAX_MEMORY
-              value: 6G
-            - name: CFG_DISCORDSRV_AUTH
-              value: "true"
-            - name: CFG_LUCKPERMS_SERVER_NAME
-              value: s1
-            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
-              value: "true"
-            - name: CFG_DISCORDSRV_ADMIN_USER
-              value: haramiten
-            # --- minecraft-s1-secret ---
-            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-s1-secret
-                  key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: minecraft-s1-secret
-                  key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
-            # ------
-            # --- spiget No ---
-            # --- 31585：One Player Sleep
-            # --- 7849：MySQL Inventory Bridge
-            - name: SPIGET_RESOURCES
-              value: "31585,7849"
           resources:
             requests:
               cpu: "4"
               memory: 6G
+          env:
+            # ---- 基本設定 ---- 
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 6G
+            # ---- discord SRV ---- 
+            - name: CFG_DISCORDSRV_AUTH
+              value: "true"
+            - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
+              value: "true"
+            - name: CFG_DISCORDSRV_ADMIN_USER
+              value: haramiten
+            - name: CFG_DISCORDSRV_LOG_CHANNEL_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mc-s1
+                  key: CFG_DISCORDSRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mc-s1
+                  key: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
+            # ---- luckperms ---- 
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: s1
+            # --- spiget No ---
+            # --- 31585：One Player Sleep
+            # --- 7849：MySQL Inventory Bridge
+            - name: SPIGET_RESOURCES
+              value: "31585"
           volumeMounts:
             # ------ nsfに格納されているmusic_worldのマウント ------
             # ------ worldデータ ------
@@ -62,14 +78,10 @@ spec:
             - name: world-data-backup
               mountPath: /data/Backups
             # ------initでダウンロードしたプラグインをマウント ------
-            # ------ inventory-bridge ------
+            # ------ bluemap-paper ------
             - name: init-download-volume
-              mountPath: /data/plugins/MysqlInventoryBridge.jar
-              subPath: MysqlInventoryBridge.jar
-            # ------ OnePlayerSleep ------
-            - name: init-download-volume
-              mountPath: /data/plugins/OnePlayerSleep.jar
-              subPath: OnePlayerSleep.jar
+              mountPath: /data/plugins/bluemap-paper.jar
+              subPath: bluemap-paper.jar
             # ------plugins関連のマウント ------
             # ------ bluemap-world ------
             # worldのマウント

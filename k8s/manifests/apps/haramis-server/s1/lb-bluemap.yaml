@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: lb-bluemap
   labels:
-    app: mc-map
+    app: minecraft
 spec:
   ports:
   - name: mc-map

@@ -253,7 +253,16 @@ spec:
             - name: mc-plugin-serverbackup-config
               mountPath: /config/plugins/ServerBackup/config.yml
               subPath: serverbackup.yml
-
+            # bluemapのマウント
+             - name: mc-plugin-bluemap-common-config
+              mountPath: /config/plugins/BlueMap/core.conf
+              subPath: bluemap-core.conf
+             - name: mc-plugin-bluemap-common-config
+              mountPath: /config/plugins/BlueMap/plugin.conf
+              subPath: bluemap-plugin.conf
+             - name: mc-plugin-bluemap-common-config
+              mountPath: /config/plugins/BlueMap/storages/sql.conf
+              subPath: bluemap-sql.conf
       volumes:
         # paperのボリューム
         - name: data
@@ -297,3 +306,7 @@ spec:
         - name: mc-plugin-serverbackup-config
           configMap:
             name: mc-plugin-serverbackup-config
+        # mc-plugin-bluemap-common-configmap格納先
+        - name: mc-plugin-bluemap-common-config
+          configMap:
+            name: mc-plugin-bluemap-common-config

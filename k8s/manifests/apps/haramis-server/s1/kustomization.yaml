@@ -9,8 +9,10 @@ resources:
   - ./pv-haramis-s1-world.yaml
   - ./pv-haramis-s1-backup.yaml.yaml
   # secret
-  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-common.yaml
-  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-s1.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-mc-common.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-mc-dbaddress.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-mc-discordsrv.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-mc-s1.yaml
   # config
   - ./config/mc-plugin-bluemap-worlds-config.yaml
 patches:

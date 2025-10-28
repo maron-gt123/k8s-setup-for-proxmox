@@ -408,7 +408,7 @@ data:
       # Optionally require people to not only be linked but also to have a one of or all specified roles like a Twitch sub role
       Subscriber role:
         Require subscriber role to join: ${CFG_DISCORDSRV_ROLE_AUTH}
-        Subscriber roles: ["${CFG_SQLSERVER_DISCORDSRV_ROLE_ID}"]
+        Subscriber roles: ["${CFG_DISCORDSRV_ROLE_ID}"]
         Require all of the listed roles: false # when false, only one of the above roles is required
         Kick message: "&cサブスクメンバーではないため接続できません。"
     

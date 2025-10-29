@@ -1,0 +1,118 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: index-config
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="ja">
+    <head>
+      <meta charset="UTF-8">
+      <title>Haramiverse - はらむはらみのMinecraftサーバー</title>
+      <meta name="description" content="配信者はらむはらみのサブスク限定Minecraftサーバーの紹介ページ。参加方法やサーバー情報を掲載しています。">
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    
+      <!-- ナビゲーション -->
+      <nav class="bg-gray-900 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center p-4">
+        <a href="/index.html" class="text-xl md:text-2xl font-bold text-cyan-400">
+          Haramiverse
+        </a>
+          <ul class="flex space-x-6 text-gray-300 font-semibold ml-auto">
+            <li><a href="/index.html" class="hover:text-white">ホーム</a></li>
+            <li><a href="/about.html" class="hover:text-white">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    
+      <main>
+        <!-- ヒーロー -->
+        <section class="hero">
+          <div class="hero-content">
+            <h1>Welcome to the Haramiverse</h1>
+            <p>配信者はらむはらみと一緒に遊べるMinecraftサーバーです</p>
+            <a href="howto.html" class="btn">参加方法</a>
+          </div>
+          <div class="hero-img">
+            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/master/minecraftsteve.png" alt="Minecraft キャラクター Steve">
+          </div>
+        </section>
+    
+        <!-- マイクラサーバー案内 -->
+        <section class="servers">
+          <h2>マイクラサーバー案内</h2>
+          <div class="server-cards">
+            <!-- サーバー紹介 -->
+            <a href="/server.html" class="card">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/rules.png" alt="サーバー紹介">
+              <h3>サーバー紹介</h3>
+              <p>現在の提供サーバ紹介</p>
+            </a>
+    
+            <!-- ログイン方法 -->
+            <a href="/howto.html" class="card">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/controller.png" alt="ログイン方法">
+              <h3>ログイン方法</h3>
+              <p>Java版及び統合版でのログイン方法</p>
+            </a>
+    
+            <!-- bluemap -->
+            <a href="/map/" class="card">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/world-map.png" alt="ワールドマップ">
+              <h3>world map</h3>
+              <p>サーバmap(接続不良時は更新してください)</p>
+            </a>
+    
+            <!-- GitHub -->
+            <a href="https://github.com/maron-gt123/k8s-setup-for-proxmox" target="_blank" class="card">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
+              <h3>GitHub</h3>
+              <p>公開可能なリソース群(開発者向け)</p>
+            </a>
+          </div>
+        </section>
+    
+        <!-- 各種案内 -->
+        <section class="servers">
+          <h2>配信者関連リンク先</h2>
+          <div class="server-cards">
+            <!-- TiKTok -->
+            <a href="https://www.tiktok.com/@kaniba_rhythm" target="_blank" class="card">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok.png" alt="TiKTok">
+              <h3>TiKTok</h3>
+            </a>
+            <!-- X(旧Twitter) -->
+            <a href="https://x.com/haramin_2929" target="_blank" class="card">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="twitter">
+              <h3>X(旧Twitter)</h3>
+            </a>
+            <!-- lit.link -->
+            <a href="https://t.co/mRf9c4iXor" target="_blank" class="card">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/link.png" alt="lit.link">
+              <h3>lit.link</h3>
+            </a>
+            <!-- Amazonほしい物リスト -->
+            <a href="https://www.amazon.jp/hz/wishlist/ls/EERRAGD0X81F?ref_=wl_share" target="_blank" class="card">
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/amazon.png" alt="amazon">
+              <h3>amazon</h3>
+            </a>
+          </div>
+        </section>
+    
+        <!-- About -->
+        <section class="about">
+          <h2>About</h2>
+          <p>Haramiverseは、配信者はらむはらみのサブスク限定Minecraftサーバーです。視聴者のみんなで楽しく遊べる空間を目指しています。</p>
+        </section>
+      </main>
+    
+      <!-- フッター -->
+      <footer>
+        <p>&copy; 2025 Haramiverse</p>
+      </footer>
+    
+    </body>
+    </html>

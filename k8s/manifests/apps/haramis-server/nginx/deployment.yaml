@@ -8,10 +8,10 @@ spec:
       containers:
           volumeMounts:
             - name: index
-              mountPath: /usr/share/nginx/web/index.html
+              mountPath: /usr/share/nginx/html/index.html
               subPath: index.html
             - name: style
-              mountPath: /usr/share/nginx/web/style.css
+              mountPath: /usr/share/nginx/html/style.css
               subPath: style.css
       volumes:
         - name: index

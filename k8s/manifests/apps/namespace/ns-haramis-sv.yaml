@@ -1,6 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: mc-haramis-web
+  labels:
+    name: mc-haramis-web
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: mc-haramis-proxy
   labels:
     name: mc-haramis-proxy

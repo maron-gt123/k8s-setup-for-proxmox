@@ -5,8 +5,7 @@ resources:
   # templates
   - ../../templates/nginx
   # config
-  - ./config/index-config.yaml
-  - ./config/style-config.yaml
+  - ./config/web-content-config.yaml
 patches:
   - path: deployment.yaml
   - path: lb-service.yaml

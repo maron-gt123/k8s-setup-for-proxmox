@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  template:
+    spec:
+      containers:
+          volumeMounts:
+            - name: index
+              mountPath: /usr/share/nginx/web/index.html
+              subPath: index.html
+            - name: style
+              mountPath: /usr/share/nginx/web/style.css
+              subPath: style.css
+      volumes:
+        - name: index
+          configMap:
+            name: index-config
+        - name: style
+          configMap:
+            name: style-config

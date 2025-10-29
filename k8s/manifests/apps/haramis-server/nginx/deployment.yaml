@@ -6,9 +6,10 @@ spec:
   template:
     spec:
       containers:
-        volumeMounts:
-          - name: web-content
-            mountPath: /usr/share/nginx/html
+        - name: nginx
+          volumeMounts:
+            - name: web-content
+              mountPath: /usr/share/nginx/html
       volumes:
         - name: web-content
           configMap:

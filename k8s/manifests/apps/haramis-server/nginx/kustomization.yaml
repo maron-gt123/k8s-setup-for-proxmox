@@ -4,7 +4,7 @@ namespace: mc-haramis-web
 resources:
   # templates
   - ../../templates/nginx
-  # templates
+  # config
   - ./config/index-config.yaml
   - ./config/style-config.yaml
 patches:

@@ -23,6 +23,11 @@ spec:
             enabled: false
           metrics:
             enabled: true
+          ingressClassResource:
+            name: nginx
+            enabled: true
+            default: true
+          ingressClass: nginx
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx

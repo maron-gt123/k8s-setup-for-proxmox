@@ -37,7 +37,7 @@ data:
             <a href="howto.html" class="btn">参加方法</a>
           </div>
           <div class="hero-img">
-            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/master/minecraftsteve.png" alt="Minecraft キャラクター Steve">
+            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/nginx/image/minecraftsteve.png" alt="Minecraft キャラクター Steve">
           </div>
         </section>
     
@@ -311,8 +311,8 @@ data:
             <li>表示されれば接続成功</li>
           </ol>
           <div class="grid gap-4 mt-4">
-            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/java-login.png" class="rounded-lg border">
-            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/java-server.png" class="rounded-lg border">
+            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/nginx/image/java-login.png" class="rounded-lg border">
+            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/nginx/image/java-server.png" class="rounded-lg border">
           </div>
         </section>
     
@@ -328,8 +328,8 @@ data:
             <li>サーバーを追加 → 「他のサーバー」に追加確認</li>
           </ol>
           <div class="grid gap-4 mt-4">
-            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/bedrock-login.png" class="rounded-lg border">
-            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/bedrock-server.png" class="rounded-lg border">
+            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/nginx/image/bedrock-login.png" class="rounded-lg border">
+            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/nginx/image/bedrock-server.png" class="rounded-lg border">
           </div>
         </section>
     
@@ -385,8 +385,8 @@ data:
           </ol>
     
           <div class="grid gap-4 mt-4">
-            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/auth-image.png" class="rounded-lg border">
-            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/web/harami-server/image/guide/auth-dm.png" class="rounded-lg border">
+            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/nginx/image/auth-image.png" class="rounded-lg border">
+            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/nginx/image/auth-dm.png" class="rounded-lg border">
           </div>
         </section>
     

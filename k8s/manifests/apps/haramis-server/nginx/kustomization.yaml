@@ -8,4 +8,5 @@ resources:
   - ./config/index-config.yaml
   - ./config/style-config.yaml
 patches:
+  - path: deployment.yaml
   - path: lb-service.yaml

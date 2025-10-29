@@ -4,5 +4,8 @@ namespace: mc-haramis-web
 resources:
   # templates
   - ../../templates/nginx
+  # templates
+  - ./config/index-config.yaml
+  - ./config/style-config.yaml
 patches:
   - path: lb-service.yaml

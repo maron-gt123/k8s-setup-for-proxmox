@@ -30,7 +30,7 @@ spec:
                 - name: RCON_PASSWORD
                   valueFrom:
                     secretKeyRef:
-                      name: minecraft-common-secret
+                      name: secret-mc-common
                       key: CFG_MC_RCON_PASSWORD
                 - name: RCON_MESSAGE
                   value: "§c[警告] 5分後にフロントエンドサーバーが再起動されます §c4時に強制ログアウトとなりますのでご注意ください"

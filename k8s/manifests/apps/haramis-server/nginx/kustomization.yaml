@@ -6,6 +6,9 @@ resources:
   - ../../templates/nginx
   # config
   - ./config/web-content-config.yaml
+  # pv&pvc
+  - ./pv-letsencrypt.yaml
+
 patches:
   - path: deployment.yaml
   - path: lb-service.yaml

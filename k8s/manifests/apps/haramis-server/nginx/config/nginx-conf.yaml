@@ -8,6 +8,8 @@ data:
         listen       80;
         listen  [::]:80;
         server_name _;
+        ssl_certificate     /etc/letsencrypt/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/privkey.pem;
         location / {
             root   /usr/share/nginx/html;
             index  index.html index.htm;

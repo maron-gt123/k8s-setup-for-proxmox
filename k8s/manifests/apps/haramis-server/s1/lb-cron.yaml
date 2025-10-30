@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-lb
-  namespace: default
+  name: cron-lb
   labels:
-    app: nginx
+    app: minecraft
 spec:
   type: LoadBalancer
   selector:
-    app: nginx
+    app: minecraft
   ports:
-    - name: http
+    - name: mc-recon
       protocol: TCP
-      port: 80        # 外部公開ポート
-      targetPort: 80  # Pod内のコンテナポート
+      port: 25575       # 外部公開ポート
+      targetPort: 25575  # Pod内のコンテナポート

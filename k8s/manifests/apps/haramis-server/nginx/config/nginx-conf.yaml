@@ -8,6 +8,10 @@ data:
         listen       80;
         listen  [::]:80;
         server_name _;
+        
+        # HTTP → HTTPSリダイレクト
+        return 301 https://$host$request_uri;
+    }
     server {
         listen 443 ssl;
         listen [::]:443 ssl;

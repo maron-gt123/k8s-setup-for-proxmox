@@ -7,3 +7,5 @@ resources:
   - ./lb-service.yaml
   # config関連
   - ./config/nginx-conf.yaml
+  # cronjob
+  - ./cron-job-letsencrypt.yaml

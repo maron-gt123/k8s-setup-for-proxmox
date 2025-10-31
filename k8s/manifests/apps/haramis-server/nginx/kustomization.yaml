@@ -9,6 +9,8 @@ resources:
   # pv&pvc
   - ./pv-letsencrypt.yaml
   - ./pv-ddnsnow.yaml
+  # secret
+  - ./192.168.10.140/Web/k8s/mc-haramis/secret-ddnsnow-credentials.yaml
 
 
 patches:

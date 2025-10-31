@@ -55,7 +55,6 @@ spec:
             - name: ddnsnow-hook
               persistentVolumeClaim:
                 claimName: ddnsnow-pvc
-                    mode: 0755
             - name: letsencrypt
               persistentVolumeClaim:
                 claimName: letsencrypt-pvc

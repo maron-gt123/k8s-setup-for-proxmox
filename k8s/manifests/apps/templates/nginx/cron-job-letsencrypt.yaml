@@ -28,11 +28,6 @@ spec:
                     --work-dir /var/lib/letsencrypt
                   echo "完了"
               env:
-                - name: DDNSNOW_TOKEN
-                  valueFrom:
-                    secretKeyRef:
-                      name: ddnsnow-credentials
-                      key: TOKEN
                 - name: DOMAIN
                   valueFrom:
                     secretKeyRef:
@@ -58,9 +53,12 @@ spec:
           restartPolicy: OnFailure
           volumes:
             - name: ddnsnow-hook
-              configMap:
-                name: ddnsnow-hook-script
-                defaultMode: 0755
+              secret:
+                secretName: ddnsnow-authhook
+                items:
+                  - key: DDNSNowAcmeAuthHook.sh
+                    path: DDNSNowAcmeAuthHook.sh
+                    mode: 0755
             - name: letsencrypt
               persistentVolumeClaim:
                 claimName: letsencrypt-pvc

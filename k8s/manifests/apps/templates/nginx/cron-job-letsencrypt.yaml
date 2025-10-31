@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
             - name: certbot
-              image: debian:bookworm-slim
+              image: certbot/certbot:2.1.0
               command:
                 - /bin/bash
                 - -c

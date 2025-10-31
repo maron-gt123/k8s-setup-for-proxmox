@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: certbot-renew
+spec:
+  schedule: "0 3 * * *"  # 毎日午前3時に実行（任意変更可）
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: certbot
+              image: certbot/certbot:latest
+              args:
+                - renew
+                - --quiet
+                - --agree-tos
+              volumeMounts:
+                - name: letsencrypt
+                  mountPath: /etc/letsencrypt
+                - name: certbot-work
+                  mountPath: /var/lib/letsencrypt
+          restartPolicy: OnFailure
+          volumes:
+            - name: letsencrypt
+              persistentVolumeClaim:
+                claimName: letsencrypt-pvc
+            - name: certbot-work
+              emptyDir: {}

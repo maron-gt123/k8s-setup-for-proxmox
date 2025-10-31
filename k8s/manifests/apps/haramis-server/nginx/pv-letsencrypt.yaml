@@ -11,7 +11,7 @@ spec:
     storage: 1Gi
   nfs:
     server: 192.168.6.140
-    path: /kubanetesu-NFS/haramis-server/letsencrypt/
+    path: /kubanetesu-NFS/haramis-server/web/letsencrypt/
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1

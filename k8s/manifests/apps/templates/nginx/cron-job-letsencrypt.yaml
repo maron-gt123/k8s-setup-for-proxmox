@@ -53,11 +53,8 @@ spec:
           restartPolicy: OnFailure
           volumes:
             - name: ddnsnow-hook
-              secret:
-                secretName: ddnsnow-authhook
-                items:
-                  - key: DDNSNowAcmeAuthHook.sh
-                    path: DDNSNowAcmeAuthHook.sh
+              persistentVolumeClaim:
+                claimName: ddnsnow-pvc
                     mode: 0755
             - name: letsencrypt
               persistentVolumeClaim:

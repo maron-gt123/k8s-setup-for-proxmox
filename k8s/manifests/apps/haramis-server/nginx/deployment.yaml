@@ -10,13 +10,7 @@ spec:
           volumeMounts:
             - name: web-content
               mountPath: /usr/share/nginx/html
-            # letsencryptのキー
-            - name: letsencrypt
-              mountPath: /etc/letsencrypt
       volumes:
         - name: web-content
           configMap:
             name: web-content-config
-        - name: letsencrypt
-          persistentVolumeClaim:
-            claimName: letsencrypt-pvc

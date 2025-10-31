@@ -24,7 +24,7 @@ spec:
                     sh /root/DDNSNowAcmeSetup.sh "${DDNSNOW_USER}" "${DDNSNOW_TOKEN}"
                   fi
 
-                  echo "🚀 証明書を更新中..."
+                  echo "証明書を更新中..."
                   certbot certonly \
                     --server "${SERVER}" \
                     --manual \
@@ -34,6 +34,7 @@ spec:
                     --agree-tos -m "${EMAIL}" --non-interactive --quiet \
                     --config-dir /etc/letsencrypt \
                     --work-dir /var/lib/letsencrypt
+                  echo "完了"
               env:
                 - name: SERVER
                   valueFrom:

@@ -26,7 +26,7 @@ spec:
 
                   echo "🚀 証明書を更新中..."
                   certbot certonly \
-                    --server https://acme-v02.api.letsencrypt.org/directory \
+                    --server "${SERVER}" \
                     --manual \
                     --preferred-challenges dns \
                     --manual-auth-hook /root/.ddnsnow/DDNSNowAcmeAuthHook.sh \
@@ -35,6 +35,11 @@ spec:
                     --config-dir /etc/letsencrypt \
                     --work-dir /var/lib/letsencrypt
               env:
+                - name: SERVER
+                  valueFrom:
+                    secretKeyRef:
+                      name: ddnsnow-credentials
+                      key: SERVER
                 - name: DDNSNOW_USER
                   valueFrom:
                     secretKeyRef:

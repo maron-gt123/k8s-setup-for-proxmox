@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ddnsnow-hook-script
+data:
+  DDNSNowAcmeAuthHook.sh: |
+    #!/bin/bash
+    wget -q -O /var/log/DDNSNow_acme.log "https://f5.si/update.php?domain=${CERTBOT_DOMAIN}&password=${TOKEN}&acme=${CERTBOT_VALIDATION}"
+    sleep 65

@@ -3,4 +3,4 @@ kind: CronJob
 metadata:
   name: certbot-ddnsnow
 spec:
-  schedule: "*/5 * * * *"
+  schedule: "*/10 * * * *"

@@ -15,3 +15,4 @@ patches:
   - path: deployment.yaml
   - path: lb-service.yaml
   - path: config/nginx-conf.yaml
+  - path: cron-job.yaml

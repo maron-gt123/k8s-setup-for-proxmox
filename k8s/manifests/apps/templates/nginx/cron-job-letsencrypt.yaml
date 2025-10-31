@@ -65,8 +65,9 @@ spec:
           restartPolicy: OnFailure
           volumes:
             - name: letsencrypt
-              persistentVolumeClaim:
-                claimName: letsencrypt-pvc
+              emptyDir: {}
+              #persistentVolumeClaim:
+              #  claimName: letsencrypt-pvc
             - name: certbot-work
               emptyDir: {}
             - name: ddnsnow-data

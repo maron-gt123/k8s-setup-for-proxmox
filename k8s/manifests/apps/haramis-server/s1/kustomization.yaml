@@ -8,7 +8,7 @@ resources:
   - ./lb-cron.yaml
   # pv & pvc
   - ./pv-haramis-s1-world.yaml
-  - ./pv-haramis-s1-backup.yaml.yaml
+  - ./pv-haramis-s1-backup.yaml
   # secret
   - http://nas.mcnet/k8s/mc-haramis/secret-mc-common.yaml
   - http://nas.mcnet/k8s/mc-haramis/secret-mc-dbaddress.yaml

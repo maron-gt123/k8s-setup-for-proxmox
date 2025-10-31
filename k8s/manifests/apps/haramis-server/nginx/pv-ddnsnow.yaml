@@ -11,7 +11,7 @@ spec:
     storage: 1Gi
   nfs:
     server: 192.168.6.140
-    path: /kubanetesu-NFS/haramis-server/ddnsnow/
+    path: /kubanetesu-NFS/haramis-server/web/ddnsnow/
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1

@@ -39,12 +39,12 @@ spec:
                       name: ddnsnow-credentials
                       key: DOMAIN
                 - name: EMAIL
-                 valueFrom:
+                  valueFrom:
                     secretKeyRef:
                       name: ddnsnow-credentials
                       key: EMAIL
                 - name: SERVER
-                 valueFrom:
+                  valueFrom:
                     secretKeyRef:
                       name: ddnsnow-credentials
                       key: SERVER

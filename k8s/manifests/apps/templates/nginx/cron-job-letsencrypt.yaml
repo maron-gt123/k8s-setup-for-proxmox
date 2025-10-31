@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
             - name: certbot
-              image: certbot/certbot:2.1.0
+              image: certbot/certbot:latest
               command:
                 - /bin/bash
                 - -c

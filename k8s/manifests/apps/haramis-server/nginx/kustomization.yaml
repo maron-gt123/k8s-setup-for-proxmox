@@ -8,6 +8,8 @@ resources:
   - ./config/web-content-config.yaml
   # pv&pvc
   - ./pv-letsencrypt.yaml
+  - ./pv-ddnsnow.yaml
+
 
 patches:
   - path: deployment.yaml

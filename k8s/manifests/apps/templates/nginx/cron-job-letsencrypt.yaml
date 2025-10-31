@@ -8,6 +8,13 @@ spec:
     spec:
       template:
         spec:
+          initContainers:
+            - name: fix-perms
+              image: busybox:latest
+              command: ["sh", "-c", "chmod +x /root/.ddnsnow/DDNSNowAcmeAuthHook.sh"]
+              volumeMounts:
+                - mountPath: /root/.ddnsnow
+                  name: ddnsnow-hook
           containers:
             - name: certbot
               image: certbot/certbot:latest

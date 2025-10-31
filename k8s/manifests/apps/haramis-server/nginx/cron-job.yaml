@@ -1,25 +1,67 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: certbot-renew
+  name: certbot-ddnsnow
 spec:
-  schedule: "0 3 * * *"  # 毎日午前3時に実行（任意変更可）
+  schedule: "0 3 * * *" # 毎日3時に実行
   jobTemplate:
     spec:
       template:
         spec:
           containers:
             - name: certbot
-              image: certbot/certbot:latest
-              args:
-                - renew
-                - --quiet
-                - --agree-tos
+              image: debian:bookworm-slim
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  set -e
+                  apt-get update -qq && apt-get install -y -qq wget certbot
+                  mkdir -p /root/.ddnsnow
+                  if [ ! -f /root/.ddnsnow/DDNSNowAcmeAuthHook.sh ]; then
+                    echo "🛠 初回セットアップを実行します"
+                    wget -O /root/DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
+                    sh /root/DDNSNowAcmeSetup.sh "${DDNSNOW_USER}" "${DDNSNOW_TOKEN}"
+                  fi
+
+                  echo "🚀 証明書を更新中..."
+                  certbot certonly \
+                    --server https://acme-v02.api.letsencrypt.org/directory \
+                    --manual \
+                    --preferred-challenges dns \
+                    --manual-auth-hook /root/.ddnsnow/DDNSNowAcmeAuthHook.sh \
+                    -d "${DOMAIN}" \
+                    --agree-tos -m "${EMAIL}" --non-interactive --quiet \
+                    --config-dir /etc/letsencrypt \
+                    --work-dir /var/lib/letsencrypt
+              env:
+                - name: DDNSNOW_USER
+                  valueFrom:
+                    secretKeyRef:
+                      name: ddnsnow-credentials
+                      key: USERNAME
+                - name: DDNSNOW_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: ddnsnow-credentials
+                      key: TOKEN
+                - name: DOMAIN
+                  valueFrom:
+                    secretKeyRef:
+                      name: ddnsnow-credentials
+                      key: DOMAIN
+                - name: EMAIL
+                  valueFrom:
+                    secretKeyRef:
+                      name: ddnsnow-credentials
+                      key: EMAIL
               volumeMounts:
                 - name: letsencrypt
                   mountPath: /etc/letsencrypt
                 - name: certbot-work
                   mountPath: /var/lib/letsencrypt
+                - name: ddnsnow-data
+                  mountPath: /root/.ddnsnow
           restartPolicy: OnFailure
           volumes:
             - name: letsencrypt
@@ -27,3 +69,6 @@ spec:
                 claimName: letsencrypt-pvc
             - name: certbot-work
               emptyDir: {}
+            - name: ddnsnow-data
+              persistentVolumeClaim:
+                claimName: ddnsnow-pvc

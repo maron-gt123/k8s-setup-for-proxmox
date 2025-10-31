@@ -12,18 +12,10 @@ spec:
             - name: certbot
               image: certbot/certbot:latest
               command:
-                - /bin/bash
+                - /bin/sh
                 - -c
                 - |
                   set -e
-                  apt-get update -qq && apt-get install -y -qq wget certbot
-                  mkdir -p /root/.ddnsnow
-                  if [ ! -f /root/.ddnsnow/DDNSNowAcmeAuthHook.sh ]; then
-                    echo "🛠 初回セットアップを実行します"
-                    wget -O /root/DDNSNowAcmeSetup.sh "https://ddns.kuku.lu/files/DDNSNowAcmeSetup.txt"
-                    sh /root/DDNSNowAcmeSetup.sh "${DDNSNOW_USER}" "${DDNSNOW_TOKEN}"
-                  fi
-
                   echo "証明書を更新中..."
                   certbot certonly \
                     --server "${SERVER}" \
@@ -36,16 +28,6 @@ spec:
                     --work-dir /var/lib/letsencrypt
                   echo "完了"
               env:
-                - name: SERVER
-                  valueFrom:
-                    secretKeyRef:
-                      name: ddnsnow-credentials
-                      key: SERVER
-                - name: DDNSNOW_USER
-                  valueFrom:
-                    secretKeyRef:
-                      name: ddnsnow-credentials
-                      key: USERNAME
                 - name: DDNSNOW_TOKEN
                   valueFrom:
                     secretKeyRef:
@@ -57,25 +39,30 @@ spec:
                       name: ddnsnow-credentials
                       key: DOMAIN
                 - name: EMAIL
-                  valueFrom:
+                 valueFrom:
                     secretKeyRef:
                       name: ddnsnow-credentials
                       key: EMAIL
+                - name: SERVER
+                 valueFrom:
+                    secretKeyRef:
+                      name: ddnsnow-credentials
+                      key: SERVER
               volumeMounts:
+                - name: ddnsnow-hook
+                  mountPath: /root/.ddnsnow
                 - name: letsencrypt
                   mountPath: /etc/letsencrypt
                 - name: certbot-work
                   mountPath: /var/lib/letsencrypt
-                - name: ddnsnow-data
-                  mountPath: /root/.ddnsnow
           restartPolicy: OnFailure
           volumes:
+            - name: ddnsnow-hook
+              configMap:
+                name: ddnsnow-hook-script
+                defaultMode: 0755
             - name: letsencrypt
-              #emptyDir: {}
               persistentVolumeClaim:
                 claimName: letsencrypt-pvc
             - name: certbot-work
               emptyDir: {}
-            - name: ddnsnow-data
-              persistentVolumeClaim:
-                claimName: ddnsnow-pvc

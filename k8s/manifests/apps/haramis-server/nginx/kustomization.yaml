@@ -10,7 +10,7 @@ resources:
   - ./pv-letsencrypt.yaml
   - ./pv-ddnsnow.yaml
   # secret
-  - ./http://nas.mcnet/k8s/mc-haramis/secret-ddnsnow-credentials.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-ddnsnow-credentials.yaml
 
 
 patches:

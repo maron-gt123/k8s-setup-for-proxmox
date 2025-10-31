@@ -23,7 +23,13 @@ spec:
           volumeMounts:
             - name: conf
               mountPath: /etc/nginx/conf.d
+            # letsencryptのキー
+            - name: letsencrypt
+              mountPath: /etc/letsencrypt
       volumes:
         - name: conf
           configMap:
             name: nginx-conf
+        - name: letsencrypt
+          persistentVolumeClaim:
+            claimName: letsencrypt-pvc

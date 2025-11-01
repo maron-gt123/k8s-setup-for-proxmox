@@ -10,7 +10,7 @@ data:
         server_name _;
         
         # HTTP → HTTPSリダイレクト
-        return 301 https://$host$request_uri;
+        #return 301 https://$host$request_uri;
     }
     server {
         listen 443 ssl;

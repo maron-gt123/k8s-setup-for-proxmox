@@ -7,4 +7,3 @@ spec:
   ports:
     - name: http-service
       port: 53716
-      targetPort: http

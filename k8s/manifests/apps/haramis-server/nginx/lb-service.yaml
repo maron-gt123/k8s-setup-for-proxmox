@@ -3,4 +3,7 @@ kind: Service
 metadata:
   name: nginx
 spec:
-  loadBalancerIP: 192.168.15.202
+  loadBalancerIP: 192.168.15.209
+  ports:
+    - port:  53716
+      targetPort: 80

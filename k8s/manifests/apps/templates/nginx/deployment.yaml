@@ -18,8 +18,8 @@ spec:
         - name: nginx
           image: nginx:latest
           ports:
-            - containerPort: 80
-              name: http
+            - name: http
+              containerPort: 80
           volumeMounts:
             - name: conf
               mountPath: /etc/nginx/conf.d

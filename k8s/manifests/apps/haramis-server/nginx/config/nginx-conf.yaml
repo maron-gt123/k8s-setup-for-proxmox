@@ -8,13 +8,13 @@ data:
         listen 80;
         listen [::]:80;
         server_name _;
-    #}
-    #server {
-        #listen 443 ssl;
-        #listen [::]:443 ssl;
-        #server_name _;    
-        #ssl_certificate     /etc/letsencrypt/fullchain.pem;
-        #ssl_certificate_key /etc/letsencrypt/privkey.pem;
+    }
+    server {
+        listen 443 ssl;
+        listen [::]:443 ssl;
+        server_name _;    
+        ssl_certificate     /etc/letsencrypt/live/haramiverse.f5.si/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/haramiverse.f5.si/privkey.pem;
         location / {
             root   /usr/share/nginx/html;
             index  index.html index.htm;

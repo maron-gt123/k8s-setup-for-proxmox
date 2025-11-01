@@ -7,4 +7,3 @@ resources:
   - ./lb-service.yaml
   # config関連
   - ./config/nginx-conf.yaml
-  - ./config/ddnsnow-hook-script-config.yaml

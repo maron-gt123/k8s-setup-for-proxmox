@@ -8,11 +8,6 @@ resources:
   - ./config/web-content-config.yaml
   # pv&pvc
   - ./pv-letsencrypt.yaml
-  - ./pv-ddnsnow.yaml
-  # secret
-  - http://nas.mcnet/k8s/mc-haramis/secret-ddnsnow-credentials.yaml
-
-
 patches:
   - path: deployment.yaml
   - path: lb-service.yaml

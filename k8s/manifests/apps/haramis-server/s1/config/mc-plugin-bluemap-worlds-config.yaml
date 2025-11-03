@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: mc-plugin-bluemap-config
 data:
-  bluemap-world.conf: |
+  s1-world.conf: |
     ##                          ##
     ##         BlueMap          ##
     ##        Map-Config        ##
@@ -166,7 +166,7 @@ data:
       # https://bluemap.bluecolored.de/wiki/customization/Markers.html
     
     }
-  bluemap-world_nether.conf: |
+  s1-world_nether.conf: |
     ##                          ##
     ##         BlueMap          ##
     ##        Map-Config        ##
@@ -336,7 +336,7 @@ data:
       # https://bluemap.bluecolored.de/wiki/customization/Markers.html
     
     }
-  bluemap-world_the_end.conf: |
+  s1-world_the_end.conf: |
     ##                          ##
     ##         BlueMap          ##
     ##        Map-Config        ##

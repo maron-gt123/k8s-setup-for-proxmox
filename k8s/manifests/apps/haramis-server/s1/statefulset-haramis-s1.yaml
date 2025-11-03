@@ -86,16 +86,8 @@ spec:
             # ------ bluemap-world ------
             # worldのマウント
             - name: mc-plugin-bluemap-config
-              mountPath: /config/plugins/BlueMap/maps/s1-world.conf
-              subPath: bluemap-world.conf
-            # world_netherのマウント
-            - name: mc-plugin-bluemap-config
-              mountPath: /config/plugins/BlueMap/maps/s1-world_nether.conf
-              subPath: bluemap-world_nether.conf
-            # world_the_endのマウント
-            - name: mc-plugin-bluemap-config
-              mountPath: /config/plugins/BlueMap/maps/s1-world_the_end.conf
-              subPath: bluemap-world_the_end.conf
+              mountPath: /config/plugins/BlueMap/maps
+
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data

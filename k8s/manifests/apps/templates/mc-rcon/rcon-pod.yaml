@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-rcon
+  labels:
+    app: ubuntu-rcon
+spec:
+  containers:
+    - name: ubuntu
+      image: ubuntu:24.04
+      command: ["/bin/bash", "-c"]
+      args:
+        - |
+          set -eux;
+          apt update;
+          apt install -y rcon-cli;
+          echo "✅ RCON ready. Use 'kubectl exec -it ubuntu-rcon -n mc-haramis -- bash' to connect.";
+          sleep infinity;
+      tty: true
+      stdin: true
+      resources:
+        requests:
+          cpu: 50m
+          memory: 64Mi
+  restartPolicy: Always

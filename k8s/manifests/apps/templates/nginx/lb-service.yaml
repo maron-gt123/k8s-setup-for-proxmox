@@ -9,5 +9,8 @@ spec:
     - name: http-service
       port: 80
       targetPort: http
+    - name: https-service
+      port: 443
+      targetPort: https
   selector:
     app: nginx

@@ -14,11 +14,11 @@ spec:
           set -eux
           apt update
           apt install -y curl tar
-          # 最新リリースを取得してrcon-cliを配置
-          curl -L -o /tmp/rcon-cli.tar.gz https://github.com/itzg/rcon-cli/releases/latest/download/rcon-cli_linux_amd64.tar.gz
+          # 正しいバージョンURLを指定
+          curl -L -o /tmp/rcon-cli.tar.gz https://github.com/itzg/rcon-cli/releases/download/1.6.2/rcon-cli_1.6.2_linux_amd64.tar.gz
           tar -xzf /tmp/rcon-cli.tar.gz -C /usr/local/bin
           chmod +x /usr/local/bin/rcon-cli
-          echo "✅ rcon-cli installed"
+          echo "✅ rcon-cli installed successfully"
           sleep infinity
       tty: true
       stdin: true

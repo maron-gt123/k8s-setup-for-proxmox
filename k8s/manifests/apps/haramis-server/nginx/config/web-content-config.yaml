@@ -307,7 +307,7 @@ data:
             <li>「マルチプレイ」</li>
             <li>「サーバーを追加」をクリック</li>
             <li>サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
-            <li>サーバーアドレス：<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">example.com</span></li>
+            <li>サーバーアドレス：<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">maroncloud.f5.si</span></li>
             <li>表示されれば接続成功</li>
           </ol>
           <div class="grid gap-4 mt-4">
@@ -323,7 +323,7 @@ data:
             <li>Minecraft launcherを起動 → 「BEDROCK EDITION」を選択 → 「プレイ」</li>
             <li>「プレイ」 → 「サーバー」 → 「+ サーバー追加」</li>
             <li>サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
-            <li>サーバーアドレス：<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">example.com</span> または <span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">111.111.111.111</span></li>
+            <li>サーバーアドレス：<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">haramiverse.f5.si</span> または <span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">155.248.174.175</span></li>
             <li>ポート番号：<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">111111</span></li>
             <li>サーバーを追加 → 「他のサーバー」に追加確認</li>
           </ol>

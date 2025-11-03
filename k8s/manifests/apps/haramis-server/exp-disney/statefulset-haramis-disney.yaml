@@ -10,6 +10,21 @@ spec:
       labels:
         app: minecraft
     spec:
+      initContainers:
+        # ------pluginsファイル生成関連------
+        - name: plugins-download
+          image: busybox:1.37.0
+          env:
+            - name: BLUEMAP_URL
+              value: "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.13/bluemap-5.13-paper.jar"
+          volumeMounts:
+            - name: init-download-volume
+              mountPath: /root/initContainer-download
+          command:
+            - sh
+            - -c
+            - >
+              wget -O /root/initContainer-download/bluemap-paper.jar "${BLUEMAP_URL}"
       containers:
         - name: minecraft
           resources:
@@ -69,8 +84,12 @@ spec:
             - name: world-data
               mountPath: /data/world
               subPath: world
+            # ------initでダウンロードしたプラグインをマウント ------
+            # ------ bluemap ------
+            - name: init-download-volume
+              mountPath: /data/plugins/bluemap-paper.jar
+              subPath: bluemap-paper.jar
             # ------plugins関連のマウント ------
-            # ------ bluemap-world ------
             # worldのマウント
             - name: mc-plugin-bluemap-config
               mountPath: /config/plugins/BlueMap/maps/s1-world.conf

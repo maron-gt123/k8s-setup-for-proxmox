@@ -7,8 +7,10 @@ resources:
   # pv & pvc
   - ./pv-haramis-exp-disney.yaml
   # secret
-  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-common.yaml
-  - http://nas.mcnet/k8s/mc-haramis/secret-haramis-exp-disney.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-mc-common.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-mc-dbaddress.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-mc-discordsrv.yaml
+  - http://nas.mcnet/k8s/mc-haramis/secret-mc-disney.yaml
   
   # config
   - ./config/mc-plugin-bluemap-worlds-config.yaml

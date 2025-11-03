@@ -499,3 +499,5 @@ data:
       # https://bluemap.bluecolored.de/wiki/customization/Markers.html
     
     }
+  disney-world.conf: |
+    storage: "sql"

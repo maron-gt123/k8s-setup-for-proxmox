@@ -12,44 +12,47 @@ spec:
     spec:
       containers:
         - name: minecraft
+          resources:
+            requests:
+              # pod リソース設定
+              cpu: "2"
+              memory: 4G
           env:
+            # ---- 基本設定 ---- 
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 4G            
+            # ---- server configの変数 ---- 
             - name: ALLOW_NETHER
               value: "false"
             - name: DIFFICULTY
               value: peaceful
             - name: LEVEL_TYPE
               value: flat
-            - name: SPAWN_ANIMALS
-              value: "false"
-            - name: SPAWN_MONSTERS
-              value: "false"
-            - name: SPAWN_NPCS
-              value: "false"
-            - name: INIT_MEMORY
-              value: 1G
-            - name: MAX_MEMORY
-              value: 4G
             - name: CFG_ALLOW_END
               value: "false"
+            # ---- plugins configの変数 ---- 
+            # ---- plugins datebase ---- 
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: disney
+            # ---- discord SRV ---- 
             - name: CFG_DISCORDSRV_AUTH
               value: "true"
-            - name: CFG_LUCKPERMS_SERVER_NAME
-              value: exp-disney
             - name: CFG_CFG_DISCORDSRV_ROLE_AUTH
               value: "true"
             - name: CFG_DISCORDSRV_ADMIN_USER
               value: haramiten
-            # --- minecraft-exp-disney-secret ---
-            - name: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORDSRV_LOG_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
                   name: secret-mc-disney
-                  key: CFG_DISCORD_SRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+                  key: CFG_DISCORDSRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
               valueFrom:
                 secretKeyRef:
                   name: secret-mc-disney
-                  key: CFG_DISCORD_SRV_CONSOLE_CHANNEL_KEY
+                  key: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
             # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-
@@ -57,10 +60,9 @@ spec:
                 /weather clear
                 /gamerule doDaylightCycle false
                 /gamerule doWeatherCycle false
-          resources:
-            requests:
-              cpu: "2"
-              memory: 4G
+                /gamerule doMobSpawning false
+                /gamerule spawn-npcs false
+                /gamerule pvp false
           volumeMounts:
             # ------ nsfに格納されているmusic_worldのマウント ------
             # ------ worldデータ ------

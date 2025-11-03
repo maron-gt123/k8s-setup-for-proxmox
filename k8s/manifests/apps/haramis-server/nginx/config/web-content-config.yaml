@@ -324,7 +324,7 @@ data:
             <li>「プレイ」 → 「サーバー」 → 「+ サーバー追加」</li>
             <li>サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
             <li>サーバーアドレス：<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">haramiverse.f5.si</span> または <span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">155.248.174.175</span></li>
-            <li>ポート番号：<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">111111</span></li>
+            <li>ポート番号：<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">40065</span></li>
             <li>サーバーを追加 → 「他のサーバー」に追加確認</li>
           </ol>
           <div class="grid gap-4 mt-4">
@@ -346,8 +346,8 @@ data:
           <ol class="list-decimal list-inside space-y-2 text-gray-700">
             <li>「Minecraft」を起動し「プレイ」 → 「サーバー」 →「任意のサーバーを選択」※The Hiveが実績あり</li>
             <li>「Connection to a Server」が表示されたら以下の内容を入力</li>
-            <li>Server Address:<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">example.com</span> または <span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">111.111.111.111</span></li>
-            <li>Server Port:<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">111111</span></li>
+            <li>Server Address:<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">haramiverse.f5.si</span> または <span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">155.248.174.175</span></li>
+            <li>Server Port:<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">40065</span></li>
             <li>(Option)Display Name on Server List:任意 (例：はらむはらみサブスク限定鯖)</li>
             <li>Add to server list: ON</li>
             <li>送信を押して完了</li>

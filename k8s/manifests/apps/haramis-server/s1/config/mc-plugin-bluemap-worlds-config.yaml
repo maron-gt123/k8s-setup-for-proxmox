@@ -21,7 +21,7 @@ data:
     # The display-name of this map -> how this map will be named on the webapp.
     # You can change this at any time.
     # Default is the id of this map
-    name: "world (overworld)"
+    name: "s1_world (overworld)"
     
     # A lower value makes the map sorted first (in lists and menus), a higher value makes it sorted later.
     # The value needs to be an integer but it can be negative.
@@ -184,7 +184,7 @@ data:
     # The display-name of this map -> how this map will be named on the webapp.
     # You can change this at any time.
     # Default is the id of this map
-    name: "world_nether (the_nether)"
+    name: "s1_world_nether (the_nether)"
     
     # A lower value makes the map sorted first (in lists and menus), a higher value makes it sorted later.
     # The value needs to be an integer but it can be negative.
@@ -354,7 +354,7 @@ data:
     # The display-name of this map -> how this map will be named on the webapp.
     # You can change this at any time.
     # Default is the id of this map
-    name: "world_the_end (the_end)"
+    name: "s1_world_the_end (the_end)"
     
     # A lower value makes the map sorted first (in lists and menus), a higher value makes it sorted later.
     # The value needs to be an integer but it can be negative.

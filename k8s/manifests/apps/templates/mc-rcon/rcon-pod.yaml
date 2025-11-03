@@ -11,11 +11,15 @@ spec:
       command: ["/bin/bash", "-c"]
       args:
         - |
-          set -eux;
-          apt update;
-          apt install -y rcon-cli;
-          echo "✅ RCON ready. Use 'kubectl exec -it ubuntu-rcon -n mc-haramis -- bash' to connect.";
-          sleep infinity;
+          set -eux
+          apt update
+          apt install -y curl tar
+          # 最新リリースを取得してrcon-cliを配置
+          curl -L -o /tmp/rcon-cli.tar.gz https://github.com/itzg/rcon-cli/releases/latest/download/rcon-cli_linux_amd64.tar.gz
+          tar -xzf /tmp/rcon-cli.tar.gz -C /usr/local/bin
+          chmod +x /usr/local/bin/rcon-cli
+          echo "✅ rcon-cli installed"
+          sleep infinity
       tty: true
       stdin: true
       resources:

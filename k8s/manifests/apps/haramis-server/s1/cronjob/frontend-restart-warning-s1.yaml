@@ -13,4 +13,4 @@ spec:
             - name: notifier
               env:
                 - name: RCON_HOST
-                  value: mc-service.mc-haramis-s1.svc.cluster.local:25565
+                  value: mc-service.mc-haramis-s1.svc.cluster.local:25575

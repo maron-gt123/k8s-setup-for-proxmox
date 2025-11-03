@@ -8,6 +8,13 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: mc-haramis-rcon
+  labels:
+    name: mc-haramis-rcon
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: mc-haramis-proxy
   labels:
     name: mc-haramis-proxy

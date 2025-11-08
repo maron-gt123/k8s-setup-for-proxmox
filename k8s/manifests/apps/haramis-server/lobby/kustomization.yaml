@@ -4,6 +4,8 @@ namespace: mc-haramis-lobby
 resources:
   # template
   - ../../templates/minecraft-server
+  # service
+  - lb-cron.yaml
   # pv & pvc
   - ./pv-haramis-lobby-world.yaml
   - ./pv-haramis-lobby-backup.yaml.yaml

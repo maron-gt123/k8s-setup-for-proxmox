@@ -79,7 +79,7 @@ data:
   exp01-world-portals.yml: |
     args:
       bungee:
-      - exp01
+      - disney
       name:
       - exp01-world
       destination:

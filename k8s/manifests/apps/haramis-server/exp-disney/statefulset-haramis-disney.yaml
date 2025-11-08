@@ -15,6 +15,10 @@ spec:
         - name: plugins-download
           image: busybox:1.37.0
           env:
+            - name: WORLDEDIT_URL
+              value: "https://hangarcdn.papermc.io/plugins/EngineHub/WorldEdit/versions/7.3.16/PAPER/worldedit-bukkit-7.3.16.jar"
+            - name: WORLDGUARD_URL
+              value: "https://cdn.modrinth.com/data/DKY9btbd/versions/PO4MKx7e/worldguard-bukkit-7.0.14-dist.jar"
             - name: BLUEMAP_URL
               value: "https://github.com/BlueMap-Minecraft/BlueMap/releases/download/v5.13/bluemap-5.13-paper.jar"
           volumeMounts:
@@ -24,6 +28,8 @@ spec:
             - sh
             - -c
             - >
+              wget -O /root/initContainer-download/worldedit.jar "${WORLDEDIT_URL}" &&
+              wget -O /root/initContainer-download/worldguard.jar "${WORLDGUARD_URL}" &&
               wget -O /root/initContainer-download/bluemap-paper.jar "${BLUEMAP_URL}"
       containers:
         - name: minecraft
@@ -85,6 +91,14 @@ spec:
               mountPath: /data/world
               subPath: world
             # ------initでダウンロードしたプラグインをマウント ------
+            # ------ worldedit ------
+            - name: init-download-volume
+              mountPath: /data/plugins/worldedit.jar
+              subPath: worldedit.jar
+            # ------ worldguard ------
+            - name: init-download-volume
+              mountPath: /data/plugins/worldguard.jar
+              subPath: worldguard.jar
             # ------ bluemap ------
             - name: init-download-volume
               mountPath: /data/plugins/bluemap-paper.jar

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: rcon-script
+  name: rcon-lobby-script
 data:
-  rcon-login.sh: |
+  rcon-lobby-login.sh: |
     #!/bin/bash
     # 自動ログイン用 RCON スクリプト
 

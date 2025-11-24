@@ -1,9 +1,22 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: rcon-lobby-script
+  name: rcon-login-script
 data:
   rcon-lobby-login.sh: |
+    #!/bin/bash
+    # 自動ログイン用 RCON スクリプト
+
+    RCON_HOST=""
+    RCON_PORT="25575"
+    RCON_PASS=""
+
+    /usr/local/bin/rcon-cli \
+      --host $RCON_HOST \
+      --port $RCON_PORT \
+      --password $RCON_PASS \
+      --interactive
+  rcon-s1-login.sh: |
     #!/bin/bash
     # 自動ログイン用 RCON スクリプト
 

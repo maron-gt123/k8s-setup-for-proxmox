@@ -5,18 +5,19 @@ metadata:
   labels:
     app: mc-proxy
 spec:
+  replicas: 3
   template:
     spec:
       containers:
         - name: mc-proxy
           resources:
             requests:
-              memory: "4096Mi"
+              memory: "2048Mi"
           env:
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: proxy
             - name: MEMORY
-              value: 4096m
+              value: 2048m
             - name: CFG_PROXY_ENABLE
               value: "true"
             - name: ICON

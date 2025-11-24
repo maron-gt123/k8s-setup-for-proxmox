@@ -4,3 +4,6 @@ namespace: mc-haramis-rcon
 resources:
   # template
   - ../../templates/mc-rcon
+  # config
+  - config/lobby-rcon.yaml
+  - config/s1-rcon.yaml

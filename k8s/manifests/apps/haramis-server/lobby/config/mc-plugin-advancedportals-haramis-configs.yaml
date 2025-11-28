@@ -65,10 +65,10 @@ data:
       posY: -60
       posZ: 7
       worldName: world
-  exp01-world-destinations.yml: |
+  disney-world-destinations.yml: |
     args:
       name:
-      - exp01-world
+      - disney-world
     loc:
       pitch: 19.800003
       worldName: world
@@ -76,14 +76,14 @@ data:
       y: -59.0
       yaw: 94.80014
       z: 21.549642056474415
-  exp01-world-portals.yml: |
+  disney-world-portals.yml: |
     args:
       bungee:
       - disney
       name:
-      - exp01-world
+      - disney-world
       destination:
-      - exp01-world
+      - disney-world
       triggerblock:
       - WATER
     maxLoc:

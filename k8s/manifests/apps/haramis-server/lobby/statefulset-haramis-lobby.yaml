@@ -138,8 +138,8 @@ spec:
               mountPath: /config/plugins/AdvancedPortals/desti/S2-world.yaml
               subPath: s2-world-destinations.yml
             - name: mc-plugin-advancedportals-configs
-              mountPath: /config/plugins/AdvancedPortals/desti/exp01-world.yaml
-              subPath: exp01-world-destinations.yml
+              mountPath: /config/plugins/AdvancedPortals/desti/disney-world.yaml
+              subPath: disney-world-destinations.yml
             # ------　advancedportals-portals ------
             - name: mc-plugin-advancedportals-configs
               mountPath: /config/plugins/AdvancedPortals/portals/S1-world.yaml
@@ -148,8 +148,8 @@ spec:
               mountPath: /config/plugins/AdvancedPortals/portals/S2-world.yaml
               subPath: s2-world-portals.yml
             - name: mc-plugin-advancedportals-configs
-              mountPath: /config/plugins/AdvancedPortals/portals/exp01-world.yaml
-              subPath: exp01-world-portals.yml
+              mountPath: /config/plugins/AdvancedPortals/portals/disney-world.yaml
+              subPath: disney-world-portals.yml
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data

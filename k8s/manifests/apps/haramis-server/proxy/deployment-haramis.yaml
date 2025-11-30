@@ -12,6 +12,7 @@ spec:
         - name: mc-proxy
           resources:
             requests:
+              cpu: "2"
               memory: "2048Mi"
           env:
             - name: CFG_LUCKPERMS_SERVER_NAME

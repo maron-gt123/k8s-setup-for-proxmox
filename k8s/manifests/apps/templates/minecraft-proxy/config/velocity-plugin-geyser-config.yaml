@@ -115,7 +115,7 @@ data:
     
       # Whether to forward player ping to the server. While enabling this will allow Bedrock players to have more accurate
       # ping, it may also cause players to time out more easily.
-      forward-player-ping: false
+      forward-player-ping: true
     
       # Allows Xbox achievements to be unlocked.
       # If a player types in an unknown command, they will receive a message that states cheats are disabled.

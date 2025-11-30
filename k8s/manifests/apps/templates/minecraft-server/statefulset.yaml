@@ -160,12 +160,14 @@ spec:
               # minecraft-prometheus-exporter3.1.0
               # LuckPerms-Bukkit-5.5.15
               # Advanced-Portals-0.9.3
+              # GeyserSkinManager-Spigot
               # DiscordSRV
               value: >-
                 https://server-backup.net/assets/downloads/ServerBackup-2.10.0.jar,
                 https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.2/minecraft-prometheus-exporter-3.1.2.jar,
                 https://download.luckperms.net/1606/bukkit/loader/LuckPerms-Bukkit-5.5.17.jar,
                 https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
+                https://github.com/Camotoy/GeyserSkinManager/releases/download/1.8/GeyserSkinManager-Spigot.jar,
                 https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.2/DiscordSRV-Build-1.30.2.jar
             - name: SPIGET_RESOURCES
               value: 

@@ -107,7 +107,7 @@ data:
       # Force clients to load all resource packs if there are any.
       # If set to false, it allows the user to connect to the server even if they don't
       # want to download the resource packs.
-      force-resource-packs: true
+      force-resource-packs: false
     
       # Whether to automatically serve a resource pack that is required for some Geyser features to all connecting Bedrock players.
       # If enabled, force-resource-packs will be enabled.
@@ -195,7 +195,7 @@ data:
         # This should only be disabled if a plugin that interfaces with packets or the network does not work correctly with Geyser.
         # If enabled, the remote address and port sections are ignored.
         # If disabled, expect performance decrease and latency increase.
-        use-direct-connection: false
+        use-direct-connection: true #直接サーバーへ
     
         # Whether Geyser should attempt to disable packet compression (from the Java Server to Geyser) for Bedrock players.
         # This should be a benefit as there is no need to compress data when Java packets aren't being handled over the network.

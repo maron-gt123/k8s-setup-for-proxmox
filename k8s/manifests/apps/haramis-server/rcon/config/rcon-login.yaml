@@ -7,9 +7,9 @@ data:
     #!/bin/bash
     # 自動ログイン用 RCON スクリプト
 
-    RCON_HOST=""
+    RCON_HOST="mc-service.mc-haramis-lobby.svc.cluster.local"
     RCON_PORT="25575"
-    RCON_PASS=""
+    RCON_PASS=${CFG_MC_RCON_PASSWORD}
 
     /usr/local/bin/rcon-cli \
       --host $RCON_HOST \
@@ -20,9 +20,9 @@ data:
     #!/bin/bash
     # 自動ログイン用 RCON スクリプト
 
-    RCON_HOST=""
+    RCON_HOST="mc-service.mc-haramis-s1.svc.cluster.local"
     RCON_PORT="25575"
-    RCON_PASS=""
+    RCON_PASS=${CFG_MC_RCON_PASSWORD}
 
     /usr/local/bin/rcon-cli \
       --host $RCON_HOST \

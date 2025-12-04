@@ -5,6 +5,17 @@ metadata:
 spec:
   containers:
     - name: ubuntu
+      env:
+        - name: VELOCITY_RCON_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: secret-mc-common
+              key: VELOCITY_RCON_PASSWORD
+        - name: CFG_MC_RCON_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: secret-mc-common
+              key: CFG_MC_RCON_PASSWORD
       volumeMounts:
         - name: rcon-login
           mountPath: /home/ubuntu/

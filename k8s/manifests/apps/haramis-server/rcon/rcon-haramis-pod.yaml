@@ -6,7 +6,7 @@ spec:
   containers:
     - name: ubuntu
       volumeMounts:
-        - name: mc-config
+        - name: rcon-login
           mountPath: /home/ubuntu/
   volumes:
     - name: rcon-login

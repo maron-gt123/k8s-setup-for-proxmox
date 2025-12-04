@@ -6,5 +6,7 @@ resources:
   - ../../templates/mc-rcon
   # config
   - config/rcon-login.yaml
+  # secret
+  - http://nas.mcnet/k8s/mc-haramis/secret-mc-common.yaml
 patches:
   - path: rcon-haramis-pod.yaml

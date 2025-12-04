@@ -26,4 +26,11 @@ spec:
         requests:
           cpu: 50m
           memory: 64Mi
-  restartPolicy: Always
+      volumeMounts:
+        - name: mc-config
+          mountPath: /home/ubuntu/
+  restartPolicy: Always    
+  volumes:
+    - name: rcon-login
+      configMap:
+        name: rcon-login-script

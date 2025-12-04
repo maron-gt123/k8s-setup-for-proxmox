@@ -6,3 +6,5 @@ resources:
   - ../../templates/mc-rcon
   # config
   - config/rcon-login.yaml
+patches:
+  - path: rcon-haramis-pod.yaml

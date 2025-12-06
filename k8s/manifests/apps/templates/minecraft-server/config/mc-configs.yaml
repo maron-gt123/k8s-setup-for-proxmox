@@ -334,7 +334,8 @@ data:
       all-packets:
         action: KICK
         interval: 7.0
-        max-packet-rate: 500.0
+        # max-packet-rate: 500.0
+        # max-packet-rate: -1
       kick-message: <red><lang:disconnect.exceeded_packet_rate>
       overrides:
         minecraft:place_recipe:

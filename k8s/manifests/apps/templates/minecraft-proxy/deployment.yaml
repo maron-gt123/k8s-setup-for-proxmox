@@ -242,6 +242,9 @@ spec:
         - name: velocity-common-config
           configMap:
             name: velocity-config
+        # initContainerでダウンロードしてpaperに受け渡すためのvolume
+        - name: init-download-volume
+          emptyDir: {}
         # jmx-exporter
         - name: jmx-exporter-config
           configMap:

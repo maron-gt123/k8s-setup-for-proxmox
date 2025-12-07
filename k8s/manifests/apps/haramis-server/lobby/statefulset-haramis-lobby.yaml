@@ -106,22 +106,9 @@ spec:
             - name: init-download-volume
               mountPath: /data/plugins/DecentHolograms.jar
               subPath: DecentHolograms.jar
-            # ------ holograms-subscription_welcome ------
+            # ------ holograms-Gateways ------
             - name: mc-plugin-holograms-config
-              mountPath: /config/plugins/DecentHolograms/holograms/holograms-subscription_welcome.yml
-              subPath: holograms-subscription_welcome.yml
-            # ------ holograms-S1_Gateway ------
-            - name: mc-plugin-holograms-config
-              mountPath: /config/plugins/DecentHolograms/holograms/holograms-S1_Gateway.yml
-              subPath: holograms-S1_Gateway.yml
-            # ------ holograms-S2_Gateway ------
-            - name: mc-plugin-holograms-config
-              mountPath: /config/plugins/DecentHolograms/holograms/holograms-S2_Gateway.yml
-              subPath: holograms-S2_Gateway.yml
-            # ------ holograms-S3_Gateway ------
-            - name: mc-plugin-holograms-config
-              mountPath: /config/plugins/DecentHolograms/holograms/holograms-S3-Gateway.yml
-              subPath: holograms-S3-Gateway.yml
+              mountPath: /config/plugins/DecentHolograms/holograms
             # ------ serverspawn ------
             - name: mc-plugin-serverspawn-config
               mountPath: /config/plugins/ServerSpawn/ServerSpawn.yml

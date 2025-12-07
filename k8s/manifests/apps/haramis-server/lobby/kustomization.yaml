@@ -19,6 +19,7 @@ resources:
   - config/mc-plugin-holograms-haramis-configs.yaml
   - config/mc-plugin-serverspawn-haramis-config.yaml
   - config/mc-plugin-worldgard-regions-haramis-config.yaml
+  - config/mc-plugin-welcometext-haramis-config.yaml
 patches:
   - path: statefulset-haramis-lobby.yaml
   - path: config/mc-plugin-advancedportals-haramis-configs.yaml

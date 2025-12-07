@@ -119,9 +119,9 @@ data:
         online-mode: true
       proxy-protocol: false
       velocity:
-        enabled: false
+        enabled: true
         online-mode: true
-        secret: ''
+        secret: ${CFG_FORWARDING_KEY}
     scoreboards:
       save-empty-scoreboard-teams: true
       track-plugin-scoreboards: false

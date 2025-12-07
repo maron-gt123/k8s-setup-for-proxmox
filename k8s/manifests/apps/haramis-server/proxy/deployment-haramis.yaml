@@ -8,21 +8,6 @@ spec:
   replicas: 1
   template:
     spec:
-      initContainers:
-        # ------pluginsファイル生成関連------
-        - name: plugins-download
-          image: busybox:1.37.0
-          env:
-            - name: UUIDREDIRECT_URL
-              value: "https://hangarcdn.papermc.io/plugins/logo23456/UUIDRedirect/versions/1.0.1/VELOCITY/UUIDRedirect-1.0.1.jar"
-          volumeMounts:
-            - name: init-download-volume
-              mountPath: /root/initContainer-download
-          command:
-            - sh
-            - -c
-            - >
-              wget -O /root/initContainer-download/UUIDRedirect.jar "${UUIDREDIRECT_URL}"
       containers:
         - name: mc-proxy
           resources:
@@ -38,9 +23,3 @@ spec:
               value: "true"
             - name: ICON
               value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/proxy/config/server-icon.png"
-          volumeMounts:
-            # ------initでダウンロードしたプラグインをマウント ------
-            # ------ UUIDRedirect ------
-            - name: init-download-volume
-              mountPath: /data/plugins/UUIDRedirect.jar
-              subPath: UUIDRedirect.jar

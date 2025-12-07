@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: k8s/manifests/apps/nosukero-server
+    path: k8s/manifests/apps/nosukero-server/mc-chaos
     repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
     targetRevision: main
   syncPolicy:

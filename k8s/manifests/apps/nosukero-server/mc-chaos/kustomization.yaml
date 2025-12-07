@@ -8,3 +8,5 @@ resources:
   - http://nas.mcnet/k8s/mc-haramis/secret-mc-common.yaml
   - http://nas.mcnet/k8s/mc-haramis/secret-mc-dbaddress.yaml
   - http://nas.mcnet/k8s/mc-haramis/secret-mc-discordsrv.yaml
+patches:
+  - path: statefulset-nosukero.yaml

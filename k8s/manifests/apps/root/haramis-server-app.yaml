@@ -11,6 +11,6 @@ spec:
   source:
     repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
     targetRevision: main
-    path: k8s/manifests/apps/haramis-server
+    path: k8s/manifests/apps/installs/haramis-mcserver
   syncPolicy:
     automated: {}

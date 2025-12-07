@@ -5,8 +5,8 @@ TARGET_BRANCH=$1
 TEMPLATE_VMID=9999
 VM_LIST=(
     #vmid   #vmname  #cpu  #mem #targetip
-    "201 mic-paper-01 4    4096 192.168.1.143"
-    "202 mic-paper-02 4    4096 192.168.1.143"
+    "201 mc-haramis-s1 4    8192 192.168.6.143"
+    "202 mc-debug-paper 4    2048 192.168.6.141"
 )
 # endregion
 

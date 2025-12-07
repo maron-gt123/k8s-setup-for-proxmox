@@ -5,12 +5,8 @@ metadata:
 data:
   uuidredirect-config.json: |
     {
-      "11111111-1111-1111-1111-111111111111": {
-        "username": "ExamplePlayer",
-        "server": "survival"
-      },
-      "": {
-        "username": "NameOnlyPlayer",
-        "server": "lobby"
+      "ac27d02d-629e-4de2-8a46-90ed95a5cdf3": {
+        "username": "",
+        "server": "ini"
       }
     }

@@ -16,4 +16,5 @@ resources:
   - ./config/mc-plugin-bluemap-worlds-config.yaml
 patches:
   - path: statefulset-haramis-disney.yaml
+  - path: clusterip-haramis-bluemap-service.yaml
   - path: cronjob/frontend-restart-warning-exp-disney.yaml

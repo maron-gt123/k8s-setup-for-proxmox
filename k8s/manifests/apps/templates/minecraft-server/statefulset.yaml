@@ -235,10 +235,6 @@ spec:
             - name: mc-plugin-advancedportals-common-config
               mountPath: /config/plugins/AdvancedPortals/config.yaml
               subPath: advancedportals-common-config.yml
-            # MysqlInventoryBridgeのマウント
-            - name: mc-plugin-inventory-config
-              mountPath: /config/plugins/MysqlInventoryBridge/config.yml
-              subPath: inventory-config.yml
             # discord-SRVのマウント
             - name: mc-plugin-discordsrv-config
               mountPath: /config/plugins/DiscordSRV/config.yml
@@ -290,10 +286,6 @@ spec:
         - name: mc-plugin-advancedportals-common-config
           configMap:
             name: mc-plugin-advancedportals-common-config
-        # MysqlInventoryBridge-configmap格納先
-        - name: mc-plugin-inventory-config
-          configMap:
-            name: mc-plugin-inventory-config
         # advancedportals周辺-configmap格納先
         - name: mc-plugin-advancedportals-configs
           configMap:

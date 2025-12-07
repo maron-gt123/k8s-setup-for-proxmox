@@ -126,26 +126,7 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
- 
-            # server.properties/bukkit/spigot/paper-global/whitelist configのマウント
-            # bukkitの格納先
-            - name: mc-config
-              mountPath: /config/bukkit.yml
-              subPath: mc-bukkit.yml
-            # spigotの格納先
-            - name: mc-config
-              mountPath: /config/spigot.yml
-              subPath: mc-spigot.yml
-             # paper-globalの格納先
-            - name: mc-config
-              mountPath: /config/config/paper-global.yml
-              subPath: mc-paper-global.yml
 
-            ## plugins関連のマウント
-            # prometeusのマウント
-            - name: mc-plugin-prometheusexporter-config
-              mountPath: /config/plugins/PrometheusExporter/config.yml
-              subPath: prometheusexporter.yml
       volumes:
         # paperのボリューム
         - name: data
@@ -157,11 +138,3 @@ spec:
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-mc-config
-        # configmap格納先 
-        - name: mc-config
-          configMap:
-            name: mc-configs
-        # prometheusexporter-configmap格納先
-        - name: mc-plugin-prometheusexporter-config
-          configMap:
-            name: mc-plugin-prometheusexporter-config

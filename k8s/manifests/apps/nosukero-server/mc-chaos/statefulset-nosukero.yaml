@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minecraft
+  labels:
+    app: minecraft
+spec:
+  template:
+    metadata:
+      labels:
+        app: minecraft
+    spec:
+      containers:
+        - name: minecraft
+          env:
+            - name: CFG_DISCORDSRV_LOG_CHANNEL_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mc-s1
+                  key: CFG_DISCORDSRV_LOG_CHANNEL_KEY
+            - name: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mc-s1
+                  key: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY

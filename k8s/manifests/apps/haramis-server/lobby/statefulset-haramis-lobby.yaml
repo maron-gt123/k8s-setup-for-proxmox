@@ -67,6 +67,9 @@ spec:
                   name: secret-mc-lobby
                   key: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
             # ------
+            # 603990：Welcome Text
+            - name: SPIGET_RESOURCES
+              value: 603990
             # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-

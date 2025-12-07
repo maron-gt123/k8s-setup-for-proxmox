@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mc-configs
+  name: paper-globals
 data:
   paper-global.yml: |
     # This is the global configuration file for Paper.

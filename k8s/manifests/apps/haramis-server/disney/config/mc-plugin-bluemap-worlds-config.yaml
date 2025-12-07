@@ -166,3 +166,9 @@ data:
       # https://bluemap.bluecolored.de/wiki/customization/Markers.html
     
     }
+  s1-world.conf: |
+    storage: "sql"
+  s1-world_nether.conf: |
+    storage: "sql"
+  s1-world_the_end.conf: |
+    storage: "sql"

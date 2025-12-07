@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # region : set variables
-PAPER_VER=1.21.1
-PAPER_NO=12
+PAPER_VER=1.21.10
+PAPER_NO=117
 PAPER_URL=https://api.papermc.io/v2/projects/paper/versions/${PAPER_VER}/builds/${PAPER_NO}/downloads/paper-${PAPER_VER}-${PAPER_NO}.jar
 HOSTNAME=$(hostname)
 # --------------------
@@ -52,12 +52,12 @@ ufw status
 echo "y" | ufw enable
 ufw default deny
 # SSH
-# minecraft exporter
-# node exporter
-# minecraft
 ufw allow from 192.168.15.0/24 to any port 22
+# minecraft exporter
 ufw allow from 192.168.15.0/24 to any port 9225
+# node exporter
 ufw allow from 192.168.15.0/24 to any port 9100
+# minecraft
 ufw allow 25565
 ufw reload
 
@@ -119,11 +119,4 @@ screen -p 0 -S \${SCREEN_NAME} -X eval 'stuff "stop\015"'
 $STARTSCRIPT
 EOF
 chmod 700 /minecraft/paper/mc-stop.sh
-
-# config download
-wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/server.properties
-wget -P /minecraft/paper https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/spigot.yml
-wget -P /minecraft/paper/config https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/paper-world-defaults.yml
-wget -P /minecraft/paper/config https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/config/mic-paper/paper-global.yml
-
 echo "---end---"

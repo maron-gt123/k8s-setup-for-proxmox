@@ -88,7 +88,7 @@ data:
     s2 = "mc-service.mc-haramis-s2.svc.cluster.local:25565"
     s3 = "mc-service.mc-haramis-s3.svc.cluster.local:25565"
     disney = "mc-service.mc-haramis-disney.svc.cluster.local:25565"
-    ini = "192.168.15.149:25565"
+    nosukero = "192.168.15.149:25565"
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [

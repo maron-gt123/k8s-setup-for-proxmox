@@ -121,7 +121,9 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
-
+             # paper-globalの格納先
+            - name: paper-global-config
+              mountPath: /config/config
       volumes:
         # paperのボリューム
         - name: data
@@ -133,3 +135,7 @@ spec:
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-mc-config
+        # paper-globalの格納先 
+        - name: paper-global-config
+          configMap:
+            name: paper-global-configs

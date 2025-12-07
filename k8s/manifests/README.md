@@ -29,6 +29,7 @@ k8scluster構築後のセットアップについて示します。<br>
           sleep 60
           #app-of-apps.yaml apply
           kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/root/app-of-apps.yaml
+          kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/root/haramis-server-app.yaml
 
 ### ArgoCD認証パスワードの変更
 * ArgoCDのデプロイ完了後、パスワードを取得しログイン

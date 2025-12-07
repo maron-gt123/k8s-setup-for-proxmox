@@ -4,3 +4,6 @@ resources:
   # statefulset
   - ./statefulset.yaml
   - ./clusterip-service.yaml
+
+  # jmx-exporter-config
+  - ./config/jmx-exporter-mc-config.yaml

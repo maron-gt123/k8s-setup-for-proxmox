@@ -43,8 +43,6 @@ spec:
             # FLOODGATE_MCのダウンロードURL
             - name: FLOODGATE_URL
               value: "https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity"
-            - name: UUIDREDIRECT_URL
-              value: "https://hangarcdn.papermc.io/plugins/logo23456/UUIDRedirect/versions/1.0.1/VELOCITY/UUIDRedirect-1.0.1.jar"
           volumeMounts:     
             - name: ini-plugin-download-volume
               mountPath: /root/ini-plugin-download
@@ -53,8 +51,7 @@ spec:
             - -c
             - >
               wget -O /root/ini-plugin-download/geyser-velocity.jar "${GEYSER_URL}" &&
-              wget -O /root/ini-plugin-download/floodgate-velocity.jar "${FLOODGATE_URL}" &&
-              wget -O /root/ini-plugin-download/UUIDRedirect.jar "${UUIDREDIRECT_URL}"
+              wget -O /root/ini-plugin-download/floodgate-velocity.jar "${FLOODGATE_URL}"
         # initcontainersでsecretとして保管しているforwarding-keyを取得
         - name: forwarding-key-writer
           image: busybox:1.37.0
@@ -158,6 +155,7 @@ spec:
                 https://ci.frostcast.net/job/BanManager/lastSuccessfulBuild/artifact/velocity/build/libs/BanManagerVelocity.jar,
                 https://download.luckperms.net/1606/velocity/LuckPerms-Velocity-5.5.17.jar,
                 https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.7/VELOCITY/minimotd-velocity-2.1.7.jar,
+                https://hangarcdn.papermc.io/plugins/logo23456/UUIDRedirect/versions/1.0.1/VELOCITY/UUIDRedirect-1.0.1.jar,
                 https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.5.1/PAPER/ViaVersion-5.5.1.jar
             - name: SPIGET_PLUGINS
               value: 
@@ -194,9 +192,6 @@ spec:
             - name: ini-plugin-download-volume
               mountPath: /server/plugins/floodgate-velocity.jar
               subPath: floodgate-velocity.jar
-            - name: ini-plugin-download-volume
-              mountPath: /server/plugins/UUIDRedirect.jar
-              subPath: UUIDRedirect.jar
             - name: ini-velocity-forwarding-download-volume
               mountPath: /config/forwarding.secret
               subPath: forwarding.secret
@@ -241,6 +236,10 @@ spec:
             - name: velocity-plugin-banmanager-common-config
               mountPath: /config/plugins/banmanager/config.yml
               subPath: banmanager-common.yml
+            # uuidredirect-configを格納
+            - name: velocity-uuidredirect-config
+              mountPath: /config/plugins/UUIDRedirect/config.json
+              subPath: uuidredirect-config.json
 
       volumes:
         # config mapで指定したconfigデータを受け渡すためのvolume
@@ -280,6 +279,10 @@ spec:
         - name: velocity-plugin-banmanager-common-config
           configMap:
             name: velocity-banmanager-common-config
+        # uuidredirect
+        - name: velocity-uuidredirect-config
+          configMap:
+            name: velocity-uuidredirect-config
 
         # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: jmx-exporter-download-volume

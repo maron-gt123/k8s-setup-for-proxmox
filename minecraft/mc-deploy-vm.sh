@@ -25,7 +25,6 @@ VM_LIST=(
     # ---
     #vmid   #vmname  #cpu  #mem     #vmsrvip     #targetip    #targethost
     "201 mc-haramis-s1 4    8192  192.168.15.201 192.168.6.143 onp-prox03-SV"
-    "202 mc-debug-paper 4    2048  192.168.15.299 192.168.6.141 onp-prox01-SV"
 )
 #endregion
 

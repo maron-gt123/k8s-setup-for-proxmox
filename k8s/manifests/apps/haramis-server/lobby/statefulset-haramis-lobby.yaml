@@ -133,6 +133,9 @@ spec:
             - name: mc-plugin-worldgard-regions-config
               mountPath: /config/plugins/WorldGuard/worlds/world/regions.yml
               subPath: regions.yml
+            # ------　welcome texit ------
+            - name: mc-plugin-welcometext-config
+              mountPath: /config/plugins/WelcomeText
             # ------　advancedportals-destinations ------
             - name: mc-plugin-advancedportals-configs
               mountPath: /config/plugins/AdvancedPortals/desti/S1-world.yaml
@@ -174,3 +177,7 @@ spec:
         - name: mc-plugin-worldgard-regions-config
           configMap:
             name: mc-plugin-worldgard-regions-config
+        # welcome texit configmap格納先
+        - name: mc-plugin-welcometext-config
+          configMap:
+            name: mc-plugin-welcometext-configs

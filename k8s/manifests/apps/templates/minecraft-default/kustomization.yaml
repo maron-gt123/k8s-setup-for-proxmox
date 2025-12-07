@@ -7,3 +7,4 @@ resources:
 
   # jmx-exporter-config
   - ./config/jmx-exporter-mc-config.yaml
+  - ./config/mc-paper-global.yaml

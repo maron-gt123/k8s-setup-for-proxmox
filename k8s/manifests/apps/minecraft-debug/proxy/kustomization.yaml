@@ -1,8 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: minecraft-debug
-namePrefix: mc-debug-
-resources:
-  # templates
-  - ./deployment-debug.yaml
-  - ./svc-LoadBalancer.yaml

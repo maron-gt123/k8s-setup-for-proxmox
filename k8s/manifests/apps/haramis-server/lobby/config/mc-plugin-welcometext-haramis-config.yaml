@@ -17,23 +17,18 @@ data:
       
       TitleAndSubtitles:
         title: true
-        titleText: "&aWelcome %player_name%!"
+        titleText: "&aようこそはら民サーバーへ!"
         subtitle: true
-        subtitleText: "&bHello, %server_online% players are connected"
+        subtitleText: "&bはらみんと一緒に楽しみましょう"
         
       Sound:
-        enabled: true
+        enabled: false
         sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
   
   welcometext-messages.yml: |
     Messages:
       message-welcome-text:
-      - '&a&lWelcome to the &c&l%server_name% &a&l%player_name%'
-      - '&eYou have played %statistic_time_played%'
-      - '&cThere are %server_online% people connected'
-      - '&bDiscord: www.discord.gg'
-      - '&dShop: www.example.com'
-      - '&9Web: www.example.com'
+      - '&a&lようこそはら民サーバーへ'
   
   welcometext-particles.yml: |
     Particles:

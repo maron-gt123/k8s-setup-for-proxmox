@@ -43,6 +43,8 @@ spec:
             # FLOODGATE_MCのダウンロードURL
             - name: FLOODGATE_URL
               value: "https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity"
+            - name: UUIDREDIRECT_URL
+              value: "https://hangarcdn.papermc.io/plugins/logo23456/UUIDRedirect/versions/1.0.1/VELOCITY/UUIDRedirect-1.0.1.jar"
           volumeMounts:     
             - name: ini-plugin-download-volume
               mountPath: /root/ini-plugin-download
@@ -51,7 +53,8 @@ spec:
             - -c
             - >
               wget -O /root/ini-plugin-download/geyser-velocity.jar "${GEYSER_URL}" &&
-              wget -O /root/ini-plugin-download/floodgate-velocity.jar "${FLOODGATE_URL}"
+              wget -O /root/ini-plugin-download/floodgate-velocity.jar "${FLOODGATE_URL}" &&
+              wget -O /root/initContainer-download/UUIDRedirect.jar "${UUIDREDIRECT_URL}"
         # initcontainersでsecretとして保管しているforwarding-keyを取得
         - name: forwarding-key-writer
           image: busybox:1.37.0
@@ -191,6 +194,9 @@ spec:
             - name: ini-plugin-download-volume
               mountPath: /server/plugins/floodgate-velocity.jar
               subPath: floodgate-velocity.jar
+            - name: ini-plugin-download-volume
+              mountPath: /server/plugins/UUIDRedirect.jar
+              subPath: UUIDRedirect.jar
             - name: ini-velocity-forwarding-download-volume
               mountPath: /config/forwarding.secret
               subPath: forwarding.secret
@@ -242,9 +248,6 @@ spec:
         - name: velocity-common-config
           configMap:
             name: velocity-config
-        # initContainerでダウンロードしてpaperに受け渡すためのvolume
-        - name: init-download-volume
-          emptyDir: {}
         # jmx-exporter
         - name: jmx-exporter-config
           configMap:

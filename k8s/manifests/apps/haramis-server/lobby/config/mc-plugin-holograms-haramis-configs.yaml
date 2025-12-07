@@ -3,26 +3,6 @@ kind: ConfigMap
 metadata:
   name: mc-plugin-holograms-configs
 data:
-  holograms-subscription_welcome.yml: |
-    location: world:-1.0:-56.000:-1.000
-    enabled: true
-    display-range: 48
-    update-range: 48
-    update-interval: 20
-    facing: 0.0
-    down-origin: false
-    pages:
-    - lines:
-      - content: '&4&l はら民サブスクメンバー限定サーバーへようこそ'
-      - content: '&e&l このサーバーでは以下のルールを守ってください。'
-      - content: '&e1. 他人に迷惑をかけない'
-      - content: '&e2. 不正行為をしない'
-      - content: '&e3. 迷惑行為・不正行為が発覚した場合は管理者からkick等の処置をいたします'
-      - content: '&e4. 不具合発見時は同Discordメンバー内のmaron_iQSに連絡をお願いします'
-      - content: '&b&l 各サーバーについて'
-      - content: '&b S1：生活サーバー　S2以降：将来拡張用'
-      - content: '&b 各サーバーに入るにはホログラム付近にあるゲートに近づいてください'
-      actions: {}
   holograms-S1_Gateway.yml: |
     location: world:7.065:-57.000:9.394
     enabled: true

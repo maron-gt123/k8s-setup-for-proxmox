@@ -69,7 +69,7 @@ spec:
             # ------
             # 603990：Welcome Text
             - name: SPIGET_RESOURCES
-              # value: "603990"
+              value: "603990"
             # ------時間天候無効化コマンド ------
             - name: RCON_CMDS_STARTUP
               value: |-

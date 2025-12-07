@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: mc-plugin-welcometext-configs
 data:
-  welcometext-config.yml: |
+  config.yml: |
     Config:
       # There are three modes to welcome guests:
       #   - ALWAYS: Always welcome
@@ -25,12 +25,12 @@ data:
         enabled: false
         sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
   
-  welcometext-messages.yml: |
+  messages.yml: |
     Messages:
       message-welcome-text:
       - '&a&lようこそはら民サーバーへ'
   
-  welcometext-particles.yml: |
+  particles.yml: |
     Particles:
       Particle: MOBSPAWNER_FLAMES
       Count: 7

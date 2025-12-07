@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mc-plugin-welcometext-configs
+data:
+  welcometext-config.yml: |
+    Config:
+      # There are three modes to welcome guests:
+      #   - ALWAYS: Always welcome
+      #   - NOT_LOGGED_RECENTLY: If you have not logged in recently
+      #   - ONCE: Only once
+      mode: ALWAYS
+      seconds-threshold: 600 # How many minutes must have passed since the last connection. Only for NOT_LOGGED_RECENTLY
+    
+      welcome-message: true
+      particles: true
+      
+      TitleAndSubtitles:
+        title: true
+        titleText: "&aWelcome %player_name%!"
+        subtitle: true
+        subtitleText: "&bHello, %server_online% players are connected"
+        
+      Sound:
+        enabled: true
+        sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  
+  welcometext-messages.yml: |
+    Messages:
+      message-welcome-text:
+      - '&a&lWelcome to the &c&l%server_name% &a&l%player_name%'
+      - '&eYou have played %statistic_time_played%'
+      - '&cThere are %server_online% people connected'
+      - '&bDiscord: www.discord.gg'
+      - '&dShop: www.example.com'
+      - '&9Web: www.example.com'
+  
+  welcometext-particles.yml: |
+    Particles:
+      Particle: MOBSPAWNER_FLAMES
+      Count: 7
+      totalSeconds: 2
+      intervalSeconds: 1

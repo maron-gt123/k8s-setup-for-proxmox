@@ -54,7 +54,7 @@ spec:
             - >
               wget -O /root/ini-plugin-download/geyser-velocity.jar "${GEYSER_URL}" &&
               wget -O /root/ini-plugin-download/floodgate-velocity.jar "${FLOODGATE_URL}" &&
-              wget -O /root/initContainer-download/UUIDRedirect.jar "${UUIDREDIRECT_URL}"
+              wget -O /root/ini-plugin-download/UUIDRedirect.jar "${UUIDREDIRECT_URL}"
         # initcontainersでsecretとして保管しているforwarding-keyを取得
         - name: forwarding-key-writer
           image: busybox:1.37.0

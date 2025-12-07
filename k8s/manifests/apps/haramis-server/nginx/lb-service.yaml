@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: nginx-lb
 spec:
   loadBalancerIP: 192.168.15.209
   ports:

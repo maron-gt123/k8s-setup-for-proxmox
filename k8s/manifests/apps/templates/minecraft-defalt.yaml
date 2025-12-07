@@ -1,0 +1,167 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minecraft
+  labels:
+    app: minecraft
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft
+  template:
+    metadata:
+      labels:
+        app: minecraft
+    spec:
+      initContainers:
+        # initcontainersでjmx-exporterをダウンロード
+        - name: jmx-exporter-downloader
+          image: busybox:1.37.0
+          env:
+            - name: JMX_EXPORTER_URL
+              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/1.0.1/jmx_prometheus_javaagent-1.0.1.jar"
+            - name: JMX_JDBC_URL
+              value: "https://downloads.mariadb.com/Connectors/java/connector-java-3.5.1/mariadb-java-client-3.5.1.jar"
+          volumeMounts:
+            - name: init-download-volume
+              mountPath: /root/initContainer-download
+          command:
+            - sh
+            - -c
+            - >
+              wget -O /root/initContainer-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}" &&
+              wget -O /root/initContainer-download/mariadb-java-client.jar "${JMX_JDBC_URL}"
+      containers:
+        - image: itzg/minecraft-server:java21
+          name: minecraft
+          resources:
+            requests:
+              # pod リソース設定
+              cpu: "2"
+              memory: 2G
+          env:
+            # ---- プレフィックスの宣言 ---- 
+            - name: REPLACE_ENV_VARIABLE_PREFIX
+              value: CFG_
+            # ---- 基本設定 ---- 
+            - name: TZ
+              value: Asia/Tokyo
+            - name: TYPE
+              value: PAPER
+            - name: VERSION
+              value: "1.21.10"
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 2G
+            - name: EULA
+              value: "TRUE"
+            # ---- server configの変数 ---- 
+            - name: ENABLE_RCON
+              value: "true"
+            - name: MAX_TICK_TIME
+              value: "-1"
+            - name: ONLINE_MODE
+              value: "false"
+            - name: ALLOW_NETHER
+              value: "true"
+            - name: DIFFICULTY
+              value: easy
+            - name: LEVEL_TYPE
+              value: normal
+            - name: ENABLE_WHITELIST
+              value: "false"
+            - name: CFG_ALLOW_END
+              value: "true"
+            - name: RCON_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mc-common
+                  key: CFG_MC_RCON_PASSWORD
+            - name: CFG_FORWARDING_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mc-common
+                  key: CFG_FORWARDING_KEY
+            # ------
+            - name: PLUGINS
+              # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
+              # minecraft-prometheus-exporter3.1.0
+              value: >-
+                https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.2/minecraft-prometheus-exporter-3.1.2.jar
+            - name: SPIGET_RESOURCES
+              value: 
+            - name: JVM_OPTS
+              value: >-
+                -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
+            # config関連を/configから/dataへmcopy
+            - name: COPY_CONFIG_DEST
+              value: /data
+            - name: RCON_CMDS_STARTUP
+              value: |-
+          ports:
+            - name: mc-service
+              containerPort: 25565
+            - name: mc-recon
+              containerPort: 25575
+            - name: mc-metrics
+              containerPort: 9225
+            - name: mc-map
+              containerPort: 8100
+          volumeMounts:
+            # world関連の格納先マウント
+            - name: data
+              mountPath: /data
+
+            ## JMX exporter 周りのファイルが入ったボリューム達のマウント設定
+            # jmx-exporterの格納先
+            - name: init-download-volume
+              mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
+              subPath: jmx-exporter-javaagent.jar
+            - name: init-download-volume
+              mountPath: /data/plugins/BlueMap/bluemap/mariadb-java-client.jar
+              subPath: mariadb-java-client.jar
+            # jmx-exporter-configの格納先
+            - name: jmx-exporter-config
+              mountPath: /jmx-exporter/jmx-exporter-config.yaml
+              subPath: jmx-exporter-config.yaml
+ 
+            # server.properties/bukkit/spigot/paper-global/whitelist configのマウント
+            # bukkitの格納先
+            - name: mc-config
+              mountPath: /config/bukkit.yml
+              subPath: mc-bukkit.yml
+            # spigotの格納先
+            - name: mc-config
+              mountPath: /config/spigot.yml
+              subPath: mc-spigot.yml
+             # paper-globalの格納先
+            - name: mc-config
+              mountPath: /config/config/paper-global.yml
+              subPath: mc-paper-global.yml
+
+            ## plugins関連のマウント
+            # prometeusのマウント
+            - name: mc-plugin-prometheusexporter-config
+              mountPath: /config/plugins/PrometheusExporter/config.yml
+              subPath: prometheusexporter.yml
+      volumes:
+        # paperのボリューム
+        - name: data
+          emptyDir: {}
+        # initContainerでダウンロードしてpaperに受け渡すためのvolume
+        - name: init-download-volume
+          emptyDir: {}
+        # jmx-exporter-config格納先
+        - name: jmx-exporter-config
+          configMap:
+            name: jmx-exporter-mc-config
+        # configmap格納先 
+        - name: mc-config
+          configMap:
+            name: mc-configs
+        # prometheusexporter-configmap格納先
+        - name: mc-plugin-prometheusexporter-config
+          configMap:
+            name: mc-plugin-prometheusexporter-config

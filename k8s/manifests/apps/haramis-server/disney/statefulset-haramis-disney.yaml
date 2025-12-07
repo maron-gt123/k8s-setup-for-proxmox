@@ -106,8 +106,7 @@ spec:
             # ------plugins関連のマウント ------
             # worldのマウント
             - name: mc-plugin-bluemap-config
-              mountPath: /config/plugins/BlueMap/maps/disney-world.conf
-              subPath: bluemap-world.conf
+              mountPath: /config/plugins/BlueMap/maps
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data

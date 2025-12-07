@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: velocity-uuidredirect-config
+data:
+  uuidredirect-config.yml: |
+    {
+      "11111111-1111-1111-1111-111111111111": {
+        "username": "ExamplePlayer",
+        "server": "survival"
+      },
+      "": {
+        "username": "NameOnlyPlayer",
+        "server": "lobby"
+      }
+    }

@@ -3,3 +3,6 @@ kind: Kustomization
 resources:
   # template
   - ../../templates/minecraft-default
+  
+  # secret
+  - http://nas.mcnet/k8s/mc-nosukero/secret-mc-common.yaml

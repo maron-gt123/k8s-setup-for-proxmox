@@ -20,3 +20,5 @@ do
         ssh "${targetip}" qm destroy "${vmid}" --destroy-unreferenced-disks true --purge true
         ## wait due to prevent to cluster-data mismatch on proxmox
         sleep 20s
+    done
+done

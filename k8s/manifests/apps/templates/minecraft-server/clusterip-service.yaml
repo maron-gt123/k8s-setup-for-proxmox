@@ -11,7 +11,7 @@ spec:
     port: 25565
     protocol: TCP
     targetPort: 25565
-  - name: mc-cron
+  - name: mc-rcon
     port: 25575
     protocol: TCP
     targetPort: 25575

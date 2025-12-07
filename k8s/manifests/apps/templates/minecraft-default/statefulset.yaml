@@ -74,11 +74,6 @@ spec:
               value: "false"
             - name: CFG_ALLOW_END
               value: "true"
-            - name: RCON_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-common
-                  key: CFG_MC_RCON_PASSWORD
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:

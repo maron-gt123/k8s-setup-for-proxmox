@@ -84,7 +84,8 @@ data:
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
     lobby = "mc-service.mc-haramis-lobby.svc.cluster.local:25565"
-    s1 = "mc-service.mc-haramis-s1.svc.cluster.local:25565"
+    # s1 = "mc-service.mc-haramis-s1.svc.cluster.local:25565"
+    s1 = "192.168.15.91:25565"
     s2 = "mc-service.mc-haramis-s2.svc.cluster.local:25565"
     s3 = "mc-service.mc-haramis-s3.svc.cluster.local:25565"
     disney = "mc-service.mc-haramis-disney.svc.cluster.local:25565"

@@ -8,11 +8,12 @@ resources:
   - http://nas.mcnet/k8s/mc-nosukero/secret-mc-common.yaml
 
 patches:
-    target:
+  - target:
       group: apps
+      version: v1
       kind: StatefulSet
       name: minecraft
-  - patch: |-
+    patch: |-
       - op: remove
         path: /spec/template/spec/containers/0/env/32
       - op: remove

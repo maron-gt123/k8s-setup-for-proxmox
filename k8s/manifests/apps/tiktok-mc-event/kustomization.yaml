@@ -4,9 +4,10 @@ namespace: tiktok-mc-event
 resources:
   # template
   - ../templates/minecraft-server
+  - https://raw.githubusercontent.com/maron-gt123/tiktok-live-mc-event-runner/refs/heads/main/k8s/deployment.yaml
   # secret
   - http://nas.mcnet/k8s/mc-nosukero/secret-mc-common.yaml
-
+  - http://nas.mcnet/k8s/tiktok-live-mc-event-runner/secret-tiktokuser.yaml
 patches:
   - target:
       group: apps

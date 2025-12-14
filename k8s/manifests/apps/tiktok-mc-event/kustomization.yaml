@@ -46,3 +46,27 @@ patches:
         path: /spec/template/spec/containers/0/env/18
       - op: remove
         path: /spec/template/spec/containers/0/env/17
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/17
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/16
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/15
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/16
+      - op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/15
+        op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/14
+        op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/13
+        op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/12
+        op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/11
+        op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/10
+        op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/9
+        op: remove
+        path: /spec/template/spec/containers/0/volumeMounts/8

@@ -13,3 +13,7 @@ spec:
     targetRevision: main
   syncPolicy:
     automated: {}
+  ignoreDifferences:
+    - group: ""
+      kind: ConfigMap
+      namespace: tiktok-mc-event

@@ -12,7 +12,6 @@ patches:
       group: apps
       kind: StatefulSet
       name: minecraft
-      version: v1
   - patch: |-
       - op: remove
         path: /spec/template/spec/containers/0/env/32

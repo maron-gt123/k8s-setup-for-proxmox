@@ -9,6 +9,7 @@ resources:
   - http://nas.mcnet/k8s/mc-nosukero/secret-mc-common.yaml
   - http://nas.mcnet/k8s/tiktok-live-mc-event-runner/secret-tiktokuser.yaml
 patches:
+  - path: clusterip-tiktok-service.yaml
   - target:
       group: apps
       version: v1

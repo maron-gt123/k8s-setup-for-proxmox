@@ -20,11 +20,6 @@ data:
         # Minecraft (Paper / Spigot プラグイン)
         - name: minecraft
           url: http://minecraft:8080/event
-    
-        # ローカル検証用（必要なければ削除OK）
-        - name: debug
-          url: http://localhost:9000/debug
-    
     # =========================
     # HTTP 通信設定
     # =========================

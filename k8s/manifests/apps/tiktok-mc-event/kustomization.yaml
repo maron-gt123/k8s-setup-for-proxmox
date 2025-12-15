@@ -15,6 +15,12 @@ patches:
       kind: StatefulSet
       name: minecraft
     patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env/32
+        value: >-
+                https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.2/minecraft-prometheus-exporter-3.1.2.jar,
+                http://nas.mcnet/k8s/tiktok-live-mc-event-runner/TikTokEventBridge-1.0.0.jar,
+                https://github.com/DiscordSRV/DiscordSRV/releases/download/v1.30.3/DiscordSRV-Build-1.30.3.jar
       - op: remove
         path: /spec/template/spec/containers/0/env/31
       - op: remove
@@ -65,4 +71,3 @@ patches:
         path: /spec/template/spec/containers/0/volumeMounts/9
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/8
-      - path: statefulset-tiktok.yaml

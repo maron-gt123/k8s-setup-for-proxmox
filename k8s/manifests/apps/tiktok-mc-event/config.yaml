@@ -19,7 +19,7 @@ data:
       endpoints:
         # Minecraft (Paper / Spigot プラグイン)
         - name: minecraft
-          url: 192.168.15.80:30000/event
+          url: http://192.168.15.80:30000/event
     # =========================
     # HTTP 通信設定
     # =========================

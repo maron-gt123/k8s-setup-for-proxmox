@@ -10,7 +10,7 @@ data:
     tiktok:
       # 監視する TikTok 配信者の unique_id
       # 例: https://www.tiktok.com/@yous_name
-      user: kaniba_rhythm
+      user: jrg_7.879
     
     # =========================
     # 探知イベント送信先

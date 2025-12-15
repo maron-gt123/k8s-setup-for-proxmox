@@ -65,4 +65,4 @@ patches:
         path: /spec/template/spec/containers/0/volumeMounts/9
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/8
-      - path: statefulset-haramis-lobby.yaml
+      - path: statefulset-tiktok.yaml

@@ -17,6 +17,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/template/spec/containers/0/env/32
+        name: PLUGINS
         value: >-
           https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.2/minecraft-prometheus-exporter-3.1.2.jar,
           http://nas.mcnet/k8s/tiktok-live-mc-event-runner/TikTokEventBridge-1.0.0.jar,

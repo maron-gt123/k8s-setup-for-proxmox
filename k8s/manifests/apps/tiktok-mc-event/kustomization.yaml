@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: tiktok-mc-event
 resources:
   # tiktok
-  - https://raw.githubusercontent.com/maron-gt123/tiktok-live-mc-event-runner/refs/heads/main/k8s/kustomization.yaml
+  - https://raw.githubusercontent.com/maron-gt123/tiktok-live-mc-event-runner/refs/heads/main/k8s/deployment.yaml

@@ -73,3 +73,9 @@ patches:
         path: /spec/template/spec/containers/0/volumeMounts/9
       - op: remove
         path: /spec/template/spec/containers/0/volumeMounts/8
+      - op: add
+        path: /spec/template/spec/containers/0/ports/-
+        value:
+          name: mc-extra
+          containerPort: 8080
+          protocol: TCP

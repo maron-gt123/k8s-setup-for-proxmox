@@ -15,7 +15,6 @@ patches:
       kind: StatefulSet
       name: minecraft
     patch: |-
-
       - op: remove
         path: /spec/template/spec/containers/0/env/31
       - op: remove

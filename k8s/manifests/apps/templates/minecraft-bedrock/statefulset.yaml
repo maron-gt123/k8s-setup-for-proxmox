@@ -37,3 +37,4 @@ spec:
           ports:
             - name: bedrock-service
               containerPort: 19132
+              protocol: UDP

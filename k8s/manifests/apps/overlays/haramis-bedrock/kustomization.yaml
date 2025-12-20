@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: mc-haramis
 resources:
   # template
-  - ../../../templates/minecraft-bedrock
+  - ../../templates/minecraft-bedrock

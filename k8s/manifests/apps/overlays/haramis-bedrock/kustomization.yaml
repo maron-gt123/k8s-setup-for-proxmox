@@ -4,3 +4,5 @@ namespace: mc-haramis
 resources:
   # template
   - ../../templates/minecraft-bedrock
+patches:
+  - path: haramis-service-lb.yaml

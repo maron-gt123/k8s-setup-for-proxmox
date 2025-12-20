@@ -34,3 +34,6 @@ spec:
               value: survival
             - name: DIFFICULTY
               value: normal
+          ports:
+            - name: bedrock-service
+              containerPort: 19132

@@ -39,3 +39,10 @@ metadata:
   name: mc-haramis-disney
   labels:
     name: mc-haramis-disney
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mc-haramis
+  labels:
+    name: mc-haramis

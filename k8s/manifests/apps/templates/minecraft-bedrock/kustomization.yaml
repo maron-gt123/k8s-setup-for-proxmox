@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
   # statefulset
   - ./statefulset.yaml
+  # service
+  - ./clusterip-service.yaml

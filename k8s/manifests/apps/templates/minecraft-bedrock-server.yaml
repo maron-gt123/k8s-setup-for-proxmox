@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mc-bedrock
+  labels:
+    app: mc-bedrock
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mc-bedrock
+  template:
+    metadata:
+      labels:
+        app: mc-bedrock
+    spec:
+      containers:
+        - image: itzg/minecraft-bedrock-server
+          name: mc-bedrock
+          resources:
+            requests:
+              # pod リソース設定
+              cpu: "2"
+              memory: 2G
+          env:
+            # ---- 基本設定 ---- 
+            - name: TZ
+              value: Asia/Tokyo
+            - name: EULA
+              value: "TRUE"
+            - name: VERSION
+              value: "LATEST"
+            - name: GAMEMODE
+              value: survival
+            - name: DIFFICULTY
+              value: normal

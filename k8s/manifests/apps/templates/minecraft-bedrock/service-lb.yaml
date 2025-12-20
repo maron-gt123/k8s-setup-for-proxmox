@@ -9,6 +9,7 @@ spec:
   ports:
     - name: bedrock-service
       port: 19132
+      protocol: UDP
       targetPort: bedrock-service
   selector:
     app: mc-bedrock

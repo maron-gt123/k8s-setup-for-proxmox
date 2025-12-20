@@ -8,7 +8,7 @@ spec:
   type: LoadBalancer
   ports:
     - name: bedrock-service
-      port: 19132
+      port: 53617
       protocol: UDP
       targetPort: bedrock-service
   selector:

@@ -4,4 +4,4 @@ resources:
   # statefulset
   - ./statefulset.yaml
   # service
-  - ./clusterip-service.yaml
+  - ./service-lb.yaml

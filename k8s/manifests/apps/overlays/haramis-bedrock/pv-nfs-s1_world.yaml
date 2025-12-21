@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: bedrock-s1world-pv
+  labels:
+    app: bedrock-s1world-pv
+spec:
+  storageClassName: bedrock-worlds-sc
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 5Gi
+  nfs:
+    server: 192.168.6.140
+    path: /kubanetesu-NFS/minecraft/haramis_s1
+  persistentVolumeReclaimPolicy: Retain

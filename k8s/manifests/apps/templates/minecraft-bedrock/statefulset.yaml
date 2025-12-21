@@ -38,3 +38,11 @@ spec:
             - name: bedrock-service
               containerPort: 19132
               protocol: UDP
+          volumeMounts:
+            - name: world-data
+              mountPath: /data/worlds/Bedrock level/
+      volumes:
+        # worldデータの永続ストレージの指定
+        - name: world-data
+          persistentVolumeClaim:
+            claimName: bedrock-world-pvc

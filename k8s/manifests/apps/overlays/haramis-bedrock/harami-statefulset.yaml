@@ -6,7 +6,7 @@ spec:
   template:
     spec:
       containers:
-          name: mc-bedrock
+        - name: mc-bedrock
           resources:
             requests:
               # pod リソース設定

@@ -4,5 +4,7 @@ namespace: mc-haramis
 resources:
   # template
   - ../../templates/minecraft-bedrock
+  # pv
+  - ./pv-nfs-s1_world.yaml
 patches:
   - path: haramis-service-lb.yaml

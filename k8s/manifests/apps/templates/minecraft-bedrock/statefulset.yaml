@@ -40,8 +40,7 @@ spec:
               protocol: UDP
           volumeMounts:
             - name: world-data
-              mountPath: /data/worlds/Bedrock level/
-              subpath: worlds
+              mountPath: /data/worlds/Bedrock level
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data

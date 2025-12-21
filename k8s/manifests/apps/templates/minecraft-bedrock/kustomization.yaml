@@ -5,3 +5,5 @@ resources:
   - ./statefulset.yaml
   # service
   - ./service-lb.yaml
+  # pvc
+  - ./pvc-worlds.yaml

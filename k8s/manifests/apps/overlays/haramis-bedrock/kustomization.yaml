@@ -7,4 +7,5 @@ resources:
   # pv
   - ./pv-nfs-s1_world.yaml
 patches:
+  - path: harami-statefulset.yaml
   - path: haramis-service-lb.yaml

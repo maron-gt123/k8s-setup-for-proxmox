@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mc-proxy
+  labels:
+    app: mc-proxy
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: mc-proxy
+          resources:
+            requests:
+              cpu: "2"
+              memory: "2048Mi"
+          env:
+            - name: CFG_LUCKPERMS_SERVER_NAME
+              value: proxy
+            - name: MEMORY
+              value: 1024m
+            - name: CFG_PROXY_ENABLE
+              value: "true"
+            - name: ICON
+              value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/proxy/config/server-icon.png"

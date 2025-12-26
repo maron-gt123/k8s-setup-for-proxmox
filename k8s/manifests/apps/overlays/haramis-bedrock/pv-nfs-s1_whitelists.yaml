@@ -1,1 +1,17 @@
-pv-nfs-s1_world.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: bedrock-s1whitelists-pv
+  labels:
+    app: bedrock-s1whitelists-pv
+spec:
+  storageClassName: bedrock-worlds-sc
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  capacity:
+    storage: 1Gi
+  nfs:
+    server: 192.168.6.140
+    path: /kubanetesu-NFS/minecraft/haramis_s1/whitelists
+  persistentVolumeReclaimPolicy: Retain

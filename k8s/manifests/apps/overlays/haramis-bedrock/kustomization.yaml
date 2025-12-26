@@ -6,6 +6,7 @@ resources:
   - ../../templates/minecraft-bedrock
   # pv
   - ./pv-nfs-s1_world.yaml
+  - ./pv-nfs-s1_whitelists.yaml
 patches:
   - path: harami-statefulset.yaml
   - path: haramis-service-lb.yaml

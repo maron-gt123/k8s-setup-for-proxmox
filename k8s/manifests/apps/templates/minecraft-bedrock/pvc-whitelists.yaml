@@ -1,1 +1,14 @@
-pvc-worlds.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bedrock-s1whitelists-pvc
+  labels:
+    app: bedrock-s1whitelists-pvc
+spec:
+  storageClassName: bedrock-worlds-sc
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

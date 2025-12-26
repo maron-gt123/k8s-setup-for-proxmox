@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: bedrock-s1whitelists-pvc
+  name: bedrock-whitelists-pvc
   labels:
-    app: bedrock-s1whitelists-pvc
+    app: bedrock-whitelists-pvc
 spec:
   storageClassName: bedrock-worlds-sc
   volumeMode: Filesystem

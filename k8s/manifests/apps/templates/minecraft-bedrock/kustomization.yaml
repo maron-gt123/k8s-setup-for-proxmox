@@ -7,3 +7,4 @@ resources:
   - ./service-lb.yaml
   # pvc
   - ./pvc-worlds.yaml
+  - ./pvc-whitelists.yaml

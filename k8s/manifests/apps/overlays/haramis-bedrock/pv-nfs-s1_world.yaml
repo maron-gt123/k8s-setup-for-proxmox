@@ -5,7 +5,7 @@ metadata:
   labels:
     app: bedrock-s1world-pv
 spec:
-  storageClassName: bedrock-worlds-sc
+  storageClassName: mc-bedrock-sc
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

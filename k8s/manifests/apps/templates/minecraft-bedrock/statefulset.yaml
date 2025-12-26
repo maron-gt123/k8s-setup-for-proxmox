@@ -41,8 +41,15 @@ spec:
           volumeMounts:
             - name: world-data
               mountPath: /data/worlds/Bedrock level
+            - name: whitelists-data
+              mountPath: /data/allowlist.json
+              subPath: allowlist.json
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data
           persistentVolumeClaim:
             claimName: bedrock-world-pvc
+        # whitelistの申請用と承認用データの永続ストレージの指定
+        - name: whitelists-data
+          persistentVolumeClaim:
+            claimName: bedrock-whitelists-pvc

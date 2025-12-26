@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bedrock-whitelists-pvc
+spec:
+  volumeName: bedrock-s1whitelists-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bedrock-world-pvc
+spec:
+  volumeName: bedrock-s1world-pv

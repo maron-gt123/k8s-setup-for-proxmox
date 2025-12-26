@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: bedrock-whitelists-pvc
-spec:
-  volumeName: bedrock-whitelists-pv

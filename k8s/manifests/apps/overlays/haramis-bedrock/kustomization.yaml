@@ -9,8 +9,11 @@ resources:
   # pv
   - ./pv-nfs-s1_world.yaml
   - ./pv-nfs-s1_whitelists.yaml
+  # bot-config
+  - ./discordbot/bot-config.yaml
 patches:
   - path: harami-statefulset.yaml
   - path: haramis-service-lb.yaml
   - path: pvc-s1replace.yaml
+  # bot-deployment
   - path: discordbot/deployment.yaml

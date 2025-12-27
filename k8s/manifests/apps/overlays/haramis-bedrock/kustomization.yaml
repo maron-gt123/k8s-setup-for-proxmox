@@ -13,3 +13,4 @@ patches:
   - path: harami-statefulset.yaml
   - path: haramis-service-lb.yaml
   - path: pvc-s1replace.yaml
+  - path: discordbot/deployment.yaml

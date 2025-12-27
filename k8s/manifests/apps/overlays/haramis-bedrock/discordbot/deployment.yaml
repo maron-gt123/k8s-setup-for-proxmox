@@ -16,16 +16,16 @@ spec:
                   key: DISCORD_BOTKEY
             - name: CFG_SERVER_APPLY_CHANNEL
               valueFrom:
-                secretKeyRef: APPLY_CHANNELID
+                secretKeyRef: DISCORD_APPLY_CHANNELID
                   name: secret-discordbot
                   key: 
             - name: CFG_SERVER_APPROVE_CHANNEL
               valueFrom:
-                secretKeyRef: APPROVE_CHANNELID
+                secretKeyRef: DISCORD_APPROVE_CHANNELID
                   name: secret-discordbot
                   key: 
             - name: CFG_SERVER_ADMIN_ROLE
               valueFrom:
                 secretKeyRef:
                   name: secret-discordbot
-                  key: ROLEID
+                  key: DISCORD_ROLEID

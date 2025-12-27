@@ -5,7 +5,7 @@ resources:
   # template
   - ../../templates/minecraft-bedrock
   # bedrock-discord-whitelist
-  - github.com/maron-gt123/bedrock-discord-whitelist/k8s?ref=main
+  - git::https://github.com/maron-gt123/bedrock-discord-whitelist//k8s?ref=main
   # pv
   - ./pv-nfs-s1_world.yaml
   - ./pv-nfs-s1_whitelists.yaml

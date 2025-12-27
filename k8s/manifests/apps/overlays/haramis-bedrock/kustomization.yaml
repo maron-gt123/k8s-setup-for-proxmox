@@ -9,7 +9,8 @@ resources:
   # pv
   - ./pv-nfs-s1_world.yaml
   - ./pv-nfs-s1_whitelists.yaml
-
+  # lan環境下
+  - http://nas.mcnet/k8s/mc-haramis/secret-discordbot.yaml
 patches:
   - path: harami-statefulset.yaml
   - path: haramis-service-lb.yaml

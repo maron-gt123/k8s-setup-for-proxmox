@@ -7,7 +7,6 @@ spec:
     spec:
       containers:
         - name: bot
-          imagePullPolicy: Always
           env:
             - name: CFG_BOT_TOKEN
               valueFrom:

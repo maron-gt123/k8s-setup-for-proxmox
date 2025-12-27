@@ -12,7 +12,7 @@ data:
     # =====================================
     
     bot:
-      token: ""  # CFG_BOT_TOKEN
+      token: ${CFG_BOT_TOKEN}
     
     server:
       apply_channel: 0    # CFG_SERVER_APPLY_CHANNEL

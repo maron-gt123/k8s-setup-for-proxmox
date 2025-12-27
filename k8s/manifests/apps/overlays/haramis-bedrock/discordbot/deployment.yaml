@@ -11,7 +11,7 @@ spec:
             - name: CFG_BOT_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: discord-bot-secret
-                  key: BOT_TOKEN
+                  name: secret-discordbot
+                  key: DISCORD_BOTKEY
             - name: CFG_SERVER_APPLY_CHANNEL
             - name: CFG_SERVER_APPROVE_CHANNEL

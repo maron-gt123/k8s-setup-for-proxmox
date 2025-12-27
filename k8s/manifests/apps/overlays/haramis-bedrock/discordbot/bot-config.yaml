@@ -15,9 +15,9 @@ data:
       token: ${CFG_BOT_TOKEN}
     
     server:
-      apply_channel: 0    # CFG_SERVER_APPLY_CHANNEL
-      approve_channel: 0  # CFG_SERVER_APPROVE_CHANNEL
-      admin_role: ""      # CFG_SERVER_ADMIN_ROLE
+      apply_channel: ${CFG_SERVER_APPLY_CHANNEL}
+      approve_channel: ${CFG_SERVER_APPROVE_CHANNEL}
+      admin_role: ${CFG_SERVER_ADMIN_ROLE}
     
     minecraft:
       whitelist_file: "/data/whitelist.json"  # CFG_MINECRAFT_WHITELIST_FILE

@@ -34,22 +34,22 @@ spec:
             - "-c"
             - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
         # initcontainersでsecretとして保管しているforwarding-keyを取得
-        #- name: forwarding-key-writer
-        #  image: busybox:1.37.0
-        #  env:
-        #    # VELOCITY_FORWARDINGの呼び出し
-        #    - name: CFG_FORWARDING_KEY
-        #      valueFrom:
-        #        secretKeyRef:
-        #          name: secret-mc-common
-        #          key: CFG_FORWARDING_KEY
-        #  volumeMounts:
-        #    - name: ini-velocity-forwarding-download-volume
-        #      mountPath: /root/ini-velocity-forwarding-download
-        #  command:
-        #    - sh
-        #    - -c
-        #    - 'echo "$CFG_FORWARDING_KEY" > /root/ini-velocity-forwarding-download/forwarding.secret'
+        - name: forwarding-key-writer
+          image: busybox:1.37.0
+          env:
+            # VELOCITY_FORWARDINGの呼び出し
+            - name: CFG_FORWARDING_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mc-common
+                  key: CFG_FORWARDING_KEY
+          volumeMounts:
+            - name: ini-velocity-forwarding-download-volume
+              mountPath: /root/ini-velocity-forwarding-download
+          command:
+            - sh
+            - -c
+            - 'echo "$CFG_FORWARDING_KEY" > /root/ini-velocity-forwarding-download/forwarding.secret'
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:

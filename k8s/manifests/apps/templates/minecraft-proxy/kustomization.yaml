@@ -10,6 +10,6 @@ resources:
 
   # config関連
   - ./config/velocity-config.yaml
-  - ./config/plugin-prometheusexporter-config.yaml
   - ./config/jmx-exporter-velocity-config.yaml
-  - ./config/velocity-plugin-UUIDRedirect-config.yaml
+  - ./config/plugin-prometheus-exporter-config.yaml
+  - ./config/plugin-UUIDRedirect-config.yaml

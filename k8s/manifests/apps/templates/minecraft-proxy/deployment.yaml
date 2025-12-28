@@ -41,7 +41,7 @@ spec:
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:
-                  name: secret-mc-common
+                  name: velocity-secret
                   key: CFG_FORWARDING_KEY
           volumeMounts:
             - name: ini-velocity-forwarding-download-volume

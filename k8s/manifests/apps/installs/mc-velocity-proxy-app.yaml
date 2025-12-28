@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: k8s/manifests/apps/haramis-server/proxy
+    path: k8s/manifests/apps/overlays/maroncloud-proxy
     repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
     targetRevision: main
   syncPolicy:

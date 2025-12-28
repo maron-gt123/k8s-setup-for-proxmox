@@ -112,9 +112,6 @@ spec:
             - name: jmx-exporter-download-volume
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
-            - name: velocity-common-config
-              mountPath: /config/velocity.toml
-              subPath: velocity.toml
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml

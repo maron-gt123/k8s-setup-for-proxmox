@@ -30,5 +30,7 @@ spec:
                   key: DISCORD_ROLEID
       volumes:
         - name: whitelist-data
+          $patch: delete
+        - name: whitelist-data
           persistentVolumeClaim:
             claimName: bedrock-whitelists-pvc

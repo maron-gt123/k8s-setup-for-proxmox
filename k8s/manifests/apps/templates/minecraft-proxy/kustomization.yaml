@@ -8,7 +8,7 @@ resources:
   # metrics-service
   - ./metrics-patch.yaml
   # secret-temp
-  - ./secret-forwarding.yaml
+  - ./config/secret-forwarding.yaml
 
   # config関連
   - ./config/velocity-config.yaml

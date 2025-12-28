@@ -6,7 +6,7 @@ metadata:
     app: mc-proxy
   # We wish this deployment to be reloaded
   annotations:
-    configmap.reloader.stakater.com/reload: "jmx-exporter-velocity-config,velocity-config,velocity-luckperms-config,velocity-banmanager-common-config,velocity-prometheusexporter-config,velocity-minimotd-config"
+    configmap.reloader.stakater.com/reload: "jmx-exporter-velocity-config,velocity-config"
 spec:
   replicas: 1
   revisionHistoryLimit: 0

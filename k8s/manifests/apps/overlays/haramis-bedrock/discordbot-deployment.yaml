@@ -11,22 +11,22 @@ spec:
             - name: BOT_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: discordbot-secret
+                  name: secret-discordbot
                   key: DISCORD_BOTKEY
             - name: APPLY_CHANNEL
               valueFrom:
                 secretKeyRef:
-                  name: discordbot-secret
+                  name: secret-discordbot
                   key: DISCORD_APPLY_CHANNELID
             - name: APPROVE_CHANNEL
               valueFrom:
                 secretKeyRef:
-                  name: discordbot-secret
+                  name: secret-discordbot
                   key: DISCORD_APPROVE_CHANNELID
             - name: ADMIN_ROLE
               valueFrom:
                 secretKeyRef:
-                  name: discordbot-secret
+                  name: secret-discordbot
                   key: DISCORD_ROLEID
             - name: WHITELIST_FILE
               value: "whitelist.json"

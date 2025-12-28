@@ -109,49 +109,24 @@ spec:
             failureThreshold: 15
             periodSeconds: 20
           volumeMounts:
-            # init downloadファイルのマウント
             - name: jmx-exporter-download-volume
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
-            # velocityのconfigファイルが入ったボリューム達のマウント設定
-            # velocity.tomlを格納
             - name: velocity-common-config
               mountPath: /config/velocity.toml
               subPath: velocity.toml
-            # jmx-exporter-configを格納
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
-            # BungeeCordPrometheusExporter-configを格納
-            - name: prometheusexporter-config
-              mountPath: /config/plugins/velocity-prometheus-exporter/config.json
-              subPath: BungeeCordPrometheusExporter-config.json
-            # uuidredirect-configを格納
-            - name: velocity-uuidredirect-config
-              mountPath: /config/plugins/UUIDRedirect/config.json
-              subPath: uuidredirect-config.json
 
       volumes:
-        # config mapで指定したconfigデータを受け渡すためのvolume
-        # velocity-config
         - name: velocity-common-config
           configMap:
             name: velocity-config
-        # jmx-exporter
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-velocity-config
-        # prometheusexporter
-        - name: prometheusexporter-config
-          configMap:
-            name: prometheusexporter-config.yaml
-        # uuidredirect
-        - name: velocity-uuidredirect-config
-          configMap:
-            name: velocity-uuidredirect-config
-        # JMX exporterをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: jmx-exporter-download-volume
           emptyDir: {} 
-        # velocity-forwarding-KEYをinitContainerでダウンロードしてvelocityに受け渡すためのvolume
         - name: ini-velocity-forwarding-download-volume
           emptyDir: {}

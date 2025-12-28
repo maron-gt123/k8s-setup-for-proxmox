@@ -1,9 +1,9 @@
 kind: ConfigMap
 metadata:
-  name: prometheusexporter-config
+  name: prometheus-exporter-config
 apiVersion: v1
 data:
-  BungeeCordPrometheusExporter-config.json: |
+  prometheus-exporter-config.json: |
     {
       "bstats": "true",
       "host": "0.0.0.0",

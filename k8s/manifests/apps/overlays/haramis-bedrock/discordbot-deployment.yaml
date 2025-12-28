@@ -28,7 +28,3 @@ spec:
                 secretKeyRef:
                   name: secret-discordbot
                   key: DISCORD_ROLEID
-            - name: WHITELIST_FILE
-              value: "whitelist.json"
-            - name: ALLOWLIST_FILE
-              value: "allowlist.json"

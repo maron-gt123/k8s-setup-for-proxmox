@@ -2,54 +2,34 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: discord-whitelist-bot
+  labels:
+    app: discord-whitelist-bot
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discord-whitelist-bot
   template:
+    metadata:
+      labels:
+        app: discord-whitelist-bot
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
       containers:
         - name: bot
-          imagePullPolicy: Always
-      initContainers:
-        - name: render-config
-          image: busybox:1.37.0
-          command:
-            - sh
-            - -c
-            - |
-              cat /tmpl/config.yaml \
-                | sed "s|\${CFG_BOT_TOKEN}|$CFG_BOT_TOKEN|g" \
-                | sed "s|\${CFG_SERVER_APPLY_CHANNEL}|$CFG_SERVER_APPLY_CHANNEL|g" \
-                | sed "s|\${CFG_SERVER_APPROVE_CHANNEL}|$CFG_SERVER_APPROVE_CHANNEL|g" \
-                | sed "s|\${CFG_SERVER_ADMIN_ROLE}|$CFG_SERVER_ADMIN_ROLE|g" \
-                > /app/config.yaml
-          env:
-            - name: CFG_BOT_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: secret-discordbot
-                  key: DISCORD_BOTKEY
-            - name: CFG_SERVER_APPLY_CHANNEL
-              valueFrom:
-                secretKeyRef:
-                  name: secret-discordbot
-                  key: DISCORD_APPLY_CHANNELID
-            - name: CFG_SERVER_APPROVE_CHANNEL
-              valueFrom:
-                secretKeyRef:
-                  name: secret-discordbot
-                  key: DISCORD_APPROVE_CHANNELID
-            - name: CFG_SERVER_ADMIN_ROLE
-              valueFrom:
-                secretKeyRef:
-                  name: secret-discordbot
-                  key: DISCORD_ROLEID
+          image: marongt123/bedrock-discord-whitelist:latest
           volumeMounts:
-            - name: discord-config
+            - name: whitelist-data
               mountPath: /app
-            - name: discord-config-temp-volume
-              mountPath: /tmpl
+            - name: discord-config
+              mountPath: /app/config.yaml
+              subPath: config.yaml
       volumes:
-        - name: discord-config
+        - name: whitelist-data
           emptyDir: {}
-        - name: discord-config-temp-volume
+        - name: discord-config
           configMap:
             name: discordbot-config

@@ -5,8 +5,7 @@ resources:
   # templates
   - ../../templates/minecraft-proxy
   # secret
-  - http://nas.mcnet/k8s/mc-haramis/secret-mc-common.yaml
-  - http://nas.mcnet/k8s/mc-haramis/secret-mc-dbaddress.yaml
+
 patches:
   - path: lb-service.yaml
   - path: patches-deployment.yaml

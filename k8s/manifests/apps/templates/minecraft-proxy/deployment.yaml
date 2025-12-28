@@ -117,13 +117,22 @@ spec:
               subPath: jmx-exporter-config.yaml
 
       volumes:
+        # ------- initで格納するvolume -------
+        - name: jmx-exporter-download-volume
+          emptyDir: {} 
+        - name: ini-velocity-forwarding-download-volume
+          emptyDir: {}
+        # -----------------------------------
+        # ------- configmap格納 -------
         - name: velocity-common-config
           configMap:
             name: velocity-config
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-velocity-config
-        - name: jmx-exporter-download-volume
-          emptyDir: {} 
-        - name: ini-velocity-forwarding-download-volume
-          emptyDir: {}
+        - name: prometheus-exporter-config
+          configMap:
+            name: prometheus-exporter-config
+        - name: uuidredirect-config
+          configMap:
+            name: velocity-uuidredirect-config

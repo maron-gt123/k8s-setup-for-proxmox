@@ -5,6 +5,9 @@ metadata:
 spec:
   template:
     spec:
+      containers:
+        - name: bot
+          imagePullPolicy: Always
       initContainers:
         - name: render-config
           image: busybox:1.37.0
@@ -40,10 +43,13 @@ spec:
                   name: secret-discordbot
                   key: DISCORD_ROLEID
           volumeMounts:
-            - name: config
-              mountPath: /app
             - name: discord-config
+              mountPath: /app
+            - name: discord-config-temp-volume
               mountPath: /tmpl
-      containers:
-        - name: bot
-          imagePullPolicy: Always
+      volumes:
+        - name: discord-config
+          emptyDir: {}
+        - name: discord-config-temp-volume
+          configMap:
+            name: discordbot-config

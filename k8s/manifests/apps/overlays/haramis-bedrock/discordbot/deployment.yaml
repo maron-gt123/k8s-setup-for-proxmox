@@ -23,7 +23,7 @@ spec:
           image: marongt123/bedrock-discord-whitelist:latest
           volumeMounts:
             - name: whitelist-data
-              mountPath: /app
+              mountPath: /app/data
             - name: discord-config
               mountPath: /app/config.yaml
               subPath: config.yaml

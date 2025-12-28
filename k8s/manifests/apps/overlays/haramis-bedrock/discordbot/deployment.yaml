@@ -12,5 +12,5 @@ spec:
             - name: CFG_BOT_TOKEN
               valueFrom:
                 secretKeyRef:
-                name: secret-discordbot
-                key: DISCORD_BOTKEY
+                  name: secret-discordbot
+                  key: DISCORD_BOTKEY

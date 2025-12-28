@@ -9,4 +9,4 @@ resources:
   - http://nas.mcnet/k8s/mc-haramis/secret-mc-dbaddress.yaml
 patches:
   - path: lb-service.yaml
-  - path: deployment-haramis.yaml
+  - path: patches-deployment.yaml

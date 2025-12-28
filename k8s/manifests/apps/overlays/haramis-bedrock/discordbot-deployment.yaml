@@ -28,3 +28,7 @@ spec:
                 secretKeyRef:
                   name: secret-discordbot
                   key: DISCORD_ROLEID
+      volumes:
+        - name: whitelist-data
+          persistentVolumeClaim:
+            claimName: bedrock-whitelists-pvc

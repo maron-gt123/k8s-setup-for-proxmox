@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: uuidredirect-config
+data:
+  uuidredirect-config.json: |
+    {
+      "ac27d02d-629e-4de2-8a46-90ed95a5cdf3": {
+        "username": "",
+        "server": "nosukero"
+      }
+    }

@@ -7,9 +7,8 @@ resources:
   # pv
   - ./pv-nfs-s1_world.yaml
   - ./pv-nfs-s1_whitelists.yaml
-  # discordbot
-  - ./discordbot/deployment.yaml
-  - ./discordbot/bot-config.yaml
+　# bedrock-discord-whitelist
+  - git::https://github.com/maron-gt123/bedrock-discord-whitelist//k8s?ref=main
   # lan環境下
   - http://nas.mcnet/k8s/mc-haramis/secret-discordbot.yaml
 patches:

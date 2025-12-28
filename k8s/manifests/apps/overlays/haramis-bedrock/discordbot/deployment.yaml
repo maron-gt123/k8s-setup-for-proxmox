@@ -17,7 +17,7 @@ spec:
                 | sed "s|\${CFG_SERVER_APPLY_CHANNEL}|$CFG_SERVER_APPLY_CHANNEL|g" \
                 | sed "s|\${CFG_SERVER_APPROVE_CHANNEL}|$CFG_SERVER_APPROVE_CHANNEL|g" \
                 | sed "s|\${CFG_SERVER_ADMIN_ROLE}|$CFG_SERVER_ADMIN_ROLE|g" \
-                > /config/config.yaml
+                > /app/config.yaml
           env:
             - name: CFG_BOT_TOKEN
               valueFrom:
@@ -41,7 +41,7 @@ spec:
                   key: DISCORD_ROLEID
           volumeMounts:
             - name: config
-              mountPath: /config
+              mountPath: /app
             - name: discord-config
               mountPath: /tmpl
       containers:

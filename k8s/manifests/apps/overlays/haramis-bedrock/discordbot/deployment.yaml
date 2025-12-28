@@ -25,7 +25,7 @@ spec:
             - name: whitelist-data
               mountPath: /app/data
             - name: discord-config
-              mountPath: /app/config.yaml
+              mountPath: /app/data/config.yaml
               subPath: config.yaml
       volumes:
         - name: whitelist-data

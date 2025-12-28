@@ -10,9 +10,6 @@ resources:
 
   # config関連
   - ./config/velocity-config.yaml
-  - ./config/velocity-plugin-LuckPerms-config.yaml
   - ./config/velocity-plugin-velocity-prometheusexporter-config.yaml
-  - ./config/velocity-plugin-minimotd-config.yaml
   - ./config/jmx-exporter-velocity-config.yaml
-  - ./config/velocity-plugin-banmanager-common-config.yaml
   - ./config/velocity-plugin-UUIDRedirect-config.yaml

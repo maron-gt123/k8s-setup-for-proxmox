@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-whitelist-bot
+spec:
+  template:
+    spec:
+      containers:
+        - name: bot
+          env:
+            - name: BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: discordbot-secret
+                  key: DISCORD_BOTKEY
+            - name: APPLY_CHANNEL
+              valueFrom:
+                secretKeyRef:
+                  name: discordbot-secret
+                  key: DISCORD_APPLY_CHANNELID
+            - name: APPROVE_CHANNEL
+              valueFrom:
+                secretKeyRef:
+                  name: discordbot-secret
+                  key: DISCORD_APPROVE_CHANNELID
+            - name: ADMIN_ROLE
+              valueFrom:
+                secretKeyRef:
+                  name: discordbot-secret
+                  key: DISCORD_ROLEID
+            - name: WHITELIST_FILE
+              value: "whitelist.json"
+            - name: ALLOWLIST_FILE
+              value: "allowlist.json"

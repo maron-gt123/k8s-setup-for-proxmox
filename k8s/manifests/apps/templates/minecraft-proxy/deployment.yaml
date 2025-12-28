@@ -34,22 +34,22 @@ spec:
             - "-c"
             - 'wget -O /root/jmx-exporter-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"'
         # initcontainersでsecretとして保管しているforwarding-keyを取得
-        - name: forwarding-key-writer
-          image: busybox:1.37.0
-          env:
-            # VELOCITY_FORWARDINGの呼び出し
-            - name: CFG_FORWARDING_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-common
-                  key: CFG_FORWARDING_KEY
-          volumeMounts:
-            - name: ini-velocity-forwarding-download-volume
-              mountPath: /root/ini-velocity-forwarding-download
-          command:
-            - sh
-            - -c
-            - 'echo "$CFG_FORWARDING_KEY" > /root/ini-velocity-forwarding-download/forwarding.secret'
+        #- name: forwarding-key-writer
+        #  image: busybox:1.37.0
+        #  env:
+        #    # VELOCITY_FORWARDINGの呼び出し
+        #    - name: CFG_FORWARDING_KEY
+        #      valueFrom:
+        #        secretKeyRef:
+        #          name: secret-mc-common
+        #          key: CFG_FORWARDING_KEY
+        #  volumeMounts:
+        #    - name: ini-velocity-forwarding-download-volume
+        #      mountPath: /root/ini-velocity-forwarding-download
+        #  command:
+        #    - sh
+        #    - -c
+        #    - 'echo "$CFG_FORWARDING_KEY" > /root/ini-velocity-forwarding-download/forwarding.secret'
       nodeSelector:
         kubernetes.io/hostname: onp-k8s-wk-3
       containers:
@@ -83,59 +83,23 @@ spec:
               value: "true"
             - name: RCON_PORT
               value: "25575"
-            - name: RCON_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-common
-                  key: VELOCITY_RCON_PASSWORD
-            - name: CFG_FORWARDING_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-common
-                  key: CFG_FORWARDING_KEY
-            # ---- SQL serverの宛先指定変数 ---- 
-            - name: CFG_SQLSERVER_ADDRESS
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_ADDRESS
-            - name: CFG_SQLSERVER_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_USERNAME
-            - name: CFG_SQLSERVER_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_PASSWORD
-            # ---- plugins configの変数 ---- 
-            # ---- luckperms ----
-            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_LUCKPERMS_DATABASE
-            - name: CFG_LUCKPERMS_SERVER_NAME
-              value: "" # LuckPermsの管理用名称
-            # ---- banmanager ----
-            - name: CFG_SQLSERVER_BANMANAGER_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_BANMANAGER_DATABASE
+            #- name: RCON_PASSWORD
+            #  valueFrom:
+            #    secretKeyRef:
+            #      name: secret-mc-common
+            #      key: VELOCITY_RCON_PASSWORD
+            #- name: CFG_FORWARDING_KEY
+            #  valueFrom:
+            #    secretKeyRef:
+            #      name: secret-mc-common
+            #      key: CFG_FORWARDING_KEY
             # ------
             - name: PLUGINS
               # bungeecord-prometheus-exporter
-              # BanManagerBungeeCord
-              # LuckPerms-Velocity
-              # minimotd-velocity
+              # UUIDRedirect
               # ViaVersion
               value: >-
                 https://github.com/weihao/bungeecord-prometheus-exporter/releases/download/3.2.7/bungeecord-prometheus-exporter-3.2.7.jar,
-                https://ci.frostcast.net/job/BanManager/lastSuccessfulBuild/artifact/velocity/build/libs/BanManagerVelocity.jar,
-                https://download.luckperms.net/1610/velocity/LuckPerms-Velocity-5.5.21.jar,
-                https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.1.7/VELOCITY/minimotd-velocity-2.1.7.jar,
                 https://hangarcdn.papermc.io/plugins/logo23456/UUIDRedirect/versions/1.0.1/VELOCITY/UUIDRedirect-1.0.1.jar,
                 https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.6.0/PAPER/ViaVersion-5.6.0.jar
             - name: SPIGET_PLUGINS
@@ -144,15 +108,15 @@ spec:
               value: >-
                 -javaagent:/jmx-exporter/jmx-exporter-javaagent.jar=18321:/jmx-exporter/jmx-exporter-config.yaml
           ports:
-            - containerPort: 25577
-              name: proxy-service
+            - name: proxy-service
+              containerPort: 25577
               protocol: TCP
-            - containerPort: 18321
-              name: jmx-metrics
-            - containerPort: 9225
-              name: metrics
-            - containerPort: 25575
-              name: velocity-rcon
+            - name: jmx-metrics
+              containerPort: 18321
+            - name: metrics
+              containerPort: 9225
+            - name: velocity-rcon
+              containerPort: 25575
           startupProbe:
             tcpSocket:
               port: 25577
@@ -164,9 +128,9 @@ spec:
             - name: jmx-exporter-download-volume
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
-            - name: ini-velocity-forwarding-download-volume
-              mountPath: /config/forwarding.secret
-              subPath: forwarding.secret
+            #- name: ini-velocity-forwarding-download-volume
+            #  mountPath: /config/forwarding.secret
+            #  subPath: forwarding.secret
             # velocityのconfigファイルが入ったボリューム達のマウント設定
             # velocity.tomlを格納
             - name: velocity-common-config
@@ -176,10 +140,6 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
-            # LuckPerms-configを格納
-            - name: velocity-plugin-luckperms-config
-              mountPath: /config/plugins/luckperms/config.yml
-              subPath: LuckPerms-config.yml
             # BungeeCordPrometheusExporter-configを格納
             - name: velocity-plugin-prometheusexporter-config
               mountPath: /config/plugins/velocity-prometheus-exporter/config.json
@@ -192,10 +152,6 @@ spec:
             - name: velocity-plugin-minimotd-config
               mountPath: /config/plugins/minimotd-velocity/plugin_settings.conf
               subPath: minimotd-velocity-plugin_settings.conf
-            # banmanager-common-configを格納
-            - name: velocity-plugin-banmanager-common-config
-              mountPath: /config/plugins/banmanager/config.yml
-              subPath: banmanager-common.yml
             # uuidredirect-configを格納
             - name: velocity-uuidredirect-config
               mountPath: /config/plugins/UUIDRedirect/config.json

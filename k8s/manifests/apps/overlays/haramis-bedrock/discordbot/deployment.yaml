@@ -24,7 +24,7 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /config
-            - name: config-template
+            - name: discord-config
               mountPath: /tmpl
       containers:
         - name: bot

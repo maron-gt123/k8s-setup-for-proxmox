@@ -8,4 +8,4 @@ resources:
 
 patches:
   - path: lb-service.yaml
-  - path: patches-deployment.yaml
+  #- path: patches-deployment.yaml

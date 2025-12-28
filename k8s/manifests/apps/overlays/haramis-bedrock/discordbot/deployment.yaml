@@ -8,27 +8,6 @@ spec:
       initContainers:
         - name: render-config
           image: busybox:1.37.0
-          env:
-            - name: CFG_BOT_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: secret-discordbot
-                  key: DISCORD_BOTKEY
-            - name: CFG_SERVER_APPLY_CHANNEL
-              valueFrom:
-                secretKeyRef: 
-                  name: secret-discordbot
-                  key: DISCORD_APPLY_CHANNELID
-            - name: CFG_SERVER_APPROVE_CHANNEL
-              valueFrom:
-                secretKeyRef: 
-                  name: secret-discordbot
-                  key: DISCORD_APPROVE_CHANNELID
-            - name: CFG_SERVER_ADMIN_ROLE
-              valueFrom:
-                secretKeyRef:
-                  name: secret-discordbot
-                  key: DISCORD_ROLEID
           command:
             - sh
             - -c
@@ -39,9 +18,27 @@ spec:
                 | sed "s|\${CFG_SERVER_APPROVE_CHANNEL}|$CFG_SERVER_APPROVE_CHANNEL|g" \
                 | sed "s|\${CFG_SERVER_ADMIN_ROLE}|$CFG_SERVER_ADMIN_ROLE|g" \
                 > /config/config.yaml
-          envFrom:
-            - secretRef:
-                name: secret-discordbot
+          env:
+            - name: CFG_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_BOTKEY
+            - name: CFG_SERVER_APPLY_CHANNEL
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_APPLY_CHANNELID
+            - name: CFG_SERVER_APPROVE_CHANNEL
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_APPROVE_CHANNELID
+            - name: CFG_SERVER_ADMIN_ROLE
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_ROLEID
           volumeMounts:
             - name: config
               mountPath: /config

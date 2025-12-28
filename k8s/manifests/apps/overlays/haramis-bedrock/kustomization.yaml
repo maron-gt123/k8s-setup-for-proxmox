@@ -4,17 +4,15 @@ namespace: mc-haramis
 resources:
   # template
   - ../../templates/minecraft-bedrock
-  # bedrock-discord-whitelist
-  - git::https://github.com/maron-gt123/bedrock-discord-whitelist//k8s?ref=main
   # pv
   - ./pv-nfs-s1_world.yaml
   - ./pv-nfs-s1_whitelists.yaml
+  # discordbot
+  - ./discordbot/deployment.yaml
+  - ./discordbot/bot-config.yaml
   # lan環境下
   - http://nas.mcnet/k8s/mc-haramis/secret-discordbot.yaml
 patches:
   - path: harami-statefulset.yaml
   - path: haramis-service-lb.yaml
   - path: pvc-s1replace.yaml
-  # discordbot
-  - path: discordbot/deployment.yaml
-  - path: discordbot/bot-config.yaml

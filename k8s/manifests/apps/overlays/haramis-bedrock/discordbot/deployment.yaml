@@ -5,6 +5,27 @@ metadata:
 spec:
   template:
     spec:
+      initContainers:
+        - name: render-config
+          image: busybox:1.37.0
+          command:
+            - sh
+            - -c
+            - |
+              cat /tmpl/config.yaml \
+                | sed "s|\${CFG_BOT_TOKEN}|$CFG_BOT_TOKEN|g" \
+                | sed "s|\${CFG_SERVER_APPLY_CHANNEL}|$CFG_SERVER_APPLY_CHANNEL|g" \
+                | sed "s|\${CFG_SERVER_APPROVE_CHANNEL}|$CFG_SERVER_APPROVE_CHANNEL|g" \
+                | sed "s|\${CFG_SERVER_ADMIN_ROLE}|$CFG_SERVER_ADMIN_ROLE|g" \
+                > /config/config.yaml
+          envFrom:
+            - secretRef:
+                name: secret-discordbot
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: config-template
+              mountPath: /tmpl
       containers:
         - name: bot
           imagePullPolicy: Always

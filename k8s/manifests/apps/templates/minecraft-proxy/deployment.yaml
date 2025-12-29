@@ -131,6 +131,10 @@ spec:
             - name: uuidredirect-config
               mountPath: /config/UUIDRedirec/config.json
               subPath: uuidredirect-config.json
+            # minimotd
+            - name: plugin-minimotd-config
+              mountPath: /config/plugins/minimotd-velocity/
+
       volumes:
         # ------- initで格納するvolume -------
         - name: jmx-exporter-download-volume
@@ -151,3 +155,6 @@ spec:
         - name: uuidredirect-config
           configMap:
             name: velocity-uuidredirect-config
+        - name: plugin-minimotd-config
+          configMap:
+            name: plugin-minimotd-config

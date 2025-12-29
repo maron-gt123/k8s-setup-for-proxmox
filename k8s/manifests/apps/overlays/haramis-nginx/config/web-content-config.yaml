@@ -165,20 +165,11 @@ data:
         <!-- サーバー概要 -->
         <section id="overview" class="bg-white shadow-lg rounded-xl p-8 mb-12">
           <h2 class="text-2xl font-bold mb-4 text-cyan-600">サーバー概要</h2>
-          <p class="text-gray-700">配信者はらむはらみと視聴者で協力や建築、イベントを楽しめるMinecraft環境を提供しています。</p>
+          <p class="text-gray-700">配信者はらむはらみとリスナーで協力や建築、イベントを楽しめるMinecraft環境を提供しています。</p>
           <ul class="list-disc list-inside space-y-2 text-gray-700">
-            <li>動作確認済みversion
+            <li>動作確認済みversion(統合版のみ)
               <ul class="list-disc list-inside ml-4">
-                <li>Java版：1.21.8</li>
-                <li>統合版：1.21.100</li>
-              </ul>
-            </li>
-            <li>ワールド構成
-              <ul class="list-disc list-inside ml-4">
-                <li>lobby：各ワールド移動のための中継ポイント</li>
-                <li>S1：メインワールド</li>
-                <li>S2以降：将来拡張</li>
-                <li>prison：BAN対象者移送先</li>
+                <li>統合版：1.21.130</li>
               </ul>
             </li>
             <li>運用時間</li>
@@ -206,8 +197,6 @@ data:
           <ul class="list-disc list-inside space-y-2 text-gray-700">
             <li>ワールド構成:サバイバル</li>
             <li>Minecraft統合版対応 (PC / モバイル)</li>
-            <li>バージョン: 動作確認済みversionより過去については入室可能です</li>
-            <li>各ワールドに専用ミニマップ (BlueMap) を提供</li>
           </ul>
         </section>
     

@@ -56,7 +56,7 @@ data:
             <a href="/howto.html" class="card">
               <img src="https://img.icons8.com/ios-filled/50/ffffff/controller.png" alt="ログイン方法">
               <h3>ログイン方法</h3>
-              <p>Java版及び統合版でのログイン方法</p>
+              <p>統合版における各ハードごとのログイン方法</p>
             </a>
         
             <!-- GitHub -->
@@ -249,7 +249,6 @@ data:
       <section class="hero">
         <div class="hero-content">
           <h1>サーバーログイン方法</h1>
-          <p>Java版・統合版どちらでも遊べます。<br>
             <span class="font-bold text-yellow-300">入室にははらむはらみTikTokのサブスク入会が必要なので事前にご確認ください。</span>
           </p>
         </div>
@@ -266,38 +265,21 @@ data:
             X-BOX及びSwitchでの入室は要望があれば実施いたします。
           </p>
           <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <a href="#java" class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
-              <h3 class="font-semibold text-lg text-cyan-600">Java版 (PC)</h3>
-            </a>
             <a href="#bedrock" class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
-              <h3 class="font-semibold text-lg text-green-600">統合版 (PC/モバイル)</h3>
+              <h3 class="font-semibold text-lg text-green-600">統合版 (PC)</h3>
             </a>
             <a href="#ps5" class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
               <h3 class="font-semibold text-lg text-indigo-600">統合版 (PS5)</h3>
+            </a>
+            <a href="#switch" class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+              <h3 class="font-semibold text-lg text-indigo-600">統合版 (switch)</h3>
             </a>
             <a href="#auth" class="bg-white shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
               <h3 class="font-semibold text-lg text-purple-600">サブスク認証</h3>
             </a>
           </div>
         </section>
-    
-        <!-- Java版 -->
-        <section id="java" class="bg-white shadow-lg rounded-xl p-8 mb-12">
-          <h2 class="text-2xl font-bold mb-4 text-cyan-600">Java版 (PC)</h2>
-          <ol class="list-decimal list-inside space-y-2 text-gray-700">
-            <li>Minecraft launcherを起動 → 「Java EDITION」を選択 → 「プレイ」</li>
-            <li>「マルチプレイ」</li>
-            <li>「サーバーを追加」をクリック</li>
-            <li>サーバー名：任意 (例：はらむはらみサブスク限定鯖)</li>
-            <li>サーバーアドレス：<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">maroncloud.f5.si</span></li>
-            <li>表示されれば接続成功</li>
-          </ol>
-          <div class="grid gap-4 mt-4">
-            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/overlays/haramis-nginx/image/java-login.png" class="rounded-lg border">
-            <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/overlays/haramis-nginx/image/java-server.png" class="rounded-lg border">
-          </div>
-        </section>
-    
+        
         <!-- Bedrock -->
         <section id="bedrock" class="bg-white shadow-lg rounded-xl p-8 mb-12">
           <h2 class="text-2xl font-bold mb-4 text-green-600">統合版 (PC / モバイル)</h2>
@@ -323,6 +305,27 @@ data:
             <li>ホーム画面右上の設定(歯車マーク)  → 「ネットワーク」  → 「設定」  → 「インターネット接続を設定」</li>
             <li>「接続済みのネットワーク」を選択した状態で「オプションキー」→「詳細設定」</li>
             <li>IPアドレス設定：自動 | DHCPホスト：指定しない | DNS設定：手動→<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">プライマリ：45.55.68.52　セカンダリ：8.8.8.8</span></li>
+          </ol>
+          <h3 class="text-xl font-semibold mt-6 mb-2">本接続</h3>
+          <ol class="list-decimal list-inside space-y-2 text-gray-700">
+            <li>「Minecraft」を起動し「プレイ」 → 「サーバー」 →「任意のサーバーを選択」※The Hiveが実績あり</li>
+            <li>「Connection to a Server」が表示されたら以下の内容を入力</li>
+            <li>Server Address:<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">haramiverse.f5.si</span> または <span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">155.248.174.175</span></li>
+            <li>Server Port:<span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">40065</span></li>
+            <li>(Option)Display Name on Server List:任意 (例：はらむはらみサブスク限定鯖)</li>
+            <li>Add to server list: ON</li>
+            <li>送信を押して完了</li>
+          </ol>
+        </section>
+
+        <!-- switch -->
+        <section id="switch" class="bg-white shadow-lg rounded-xl p-8 mb-12">
+          <h2 class="text-2xl font-bold mb-4 text-indigo-600">統合版 (switch)</h2>
+          <h3 class="text-xl font-semibold mt-6 mb-2">事前準備</h3>
+          <ol class="list-decimal list-inside space-y-2 text-gray-700">
+            <li>ホーム画面の設定(歯車マーク)  → 「インターネット」  → 「インターネット設定」  → 接続しているネットワーク(Wi-Fiなど)を選択  → 「設定の変更」</li>
+            <li>「DNS設定」  → 「手動」に変更</li>
+            <li><span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">優先DNS：104.238.130.180　代替DNS：8.8.8.8</span></li>
           </ol>
           <h3 class="text-xl font-semibold mt-6 mb-2">本接続</h3>
           <ol class="list-decimal list-inside space-y-2 text-gray-700">

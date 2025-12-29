@@ -40,7 +40,7 @@ data:
     #                  unable to implement network level firewalling (on a shared host).
     # - "modern":      Forward player IPs and UUIDs as part of the login process using
     #                  Velocity's native forwarding. Only applicable for Minecraft 1.13 or higher.
-    player-info-forwarding-mode = "NONE"
+    player-info-forwarding-mode = "modern"
     
     # If you are using modern or BungeeGuard IP forwarding, configure a file that contains a unique secret here.
     # The file is expected to be UTF-8 encoded and not empty.
@@ -120,7 +120,7 @@ data:
     
     # Enables compatibility with HAProxy's PROXY protocol. If you don't know what this is for, then
     # don't enable it.
-    haproxy-protocol = false
+    haproxy-protocol = true
     
     # Enables TCP fast open support on the proxy. Requires the proxy to run on Linux.
     tcp-fast-open = false

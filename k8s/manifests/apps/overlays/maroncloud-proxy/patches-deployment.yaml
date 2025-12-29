@@ -22,4 +22,4 @@ spec:
             - name: CFG_PROXY_ENABLE
               value: "true"
             - name: ICON
-              value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/haramis-server/proxy/config/server-icon.png"
+              value: "https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/minecraft/branding/maroncloud-server-icon.png"

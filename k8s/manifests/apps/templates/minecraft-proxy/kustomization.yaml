@@ -15,3 +15,4 @@ resources:
   - ./config/jmx-exporter-velocity-config.yaml
   - ./config/plugin-prometheus-exporter-config.yaml
   - ./config/plugin-UUIDRedirect-config.yaml
+  - ./config/plugin-minimotd-config.yaml

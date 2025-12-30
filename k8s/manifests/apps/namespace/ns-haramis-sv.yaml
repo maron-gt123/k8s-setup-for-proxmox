@@ -8,41 +8,6 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: mc-haramis-rcon
-  labels:
-    name: mc-haramis-rcon
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mc-haramis-proxy
-  labels:
-    name: mc-haramis-proxy
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mc-haramis-lobby
-  labels:
-    name: mc-haramis-lobby
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mc-haramis-s1
-  labels:
-    name: mc-haramis-s1
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mc-haramis-disney
-  labels:
-    name: mc-haramis-disney
----
-apiVersion: v1
-kind: Namespace
-metadata:
   name: mc-haramis
   labels:
     name: mc-haramis

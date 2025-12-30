@@ -60,7 +60,10 @@ spec:
                   name: secret-mc-common
                   key: CFG_FORWARDING_KEY
             - name: PLUGINS
-              value: 
+              valueFrom:
+                configMapKeyRef:
+                  name: mc-plugins
+                  key: plugins
             - name: SPIGET_RESOURCES
               value: 
             # config関連を/configから/dataへmcopy

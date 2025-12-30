@@ -4,7 +4,7 @@ resources:
   - ./statefulset.yaml
 
   # secret
-  - ./secret-mcserver.yaml
+  - ./config/secret-mcserver.yaml
   - ./../minecraft-proxy/config/secret-forwarding.yaml
 configMapGenerator:
 - name: mc-plugins

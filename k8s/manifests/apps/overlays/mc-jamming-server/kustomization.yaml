@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: mc-jamming
 resources:
   # template
-  - ../../templates/minecraft-server
+  - ../../templates/minecraft-java

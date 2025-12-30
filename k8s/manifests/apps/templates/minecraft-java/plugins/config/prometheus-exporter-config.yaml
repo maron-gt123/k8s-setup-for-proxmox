@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: plugin-prometheus-exporter-config
+  name: prometheus-exporter-config
 data:
   prometheus-exporter-config.yml: |
     host: 0.0.0.0

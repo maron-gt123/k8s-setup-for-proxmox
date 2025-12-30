@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: jmx-exporter-mc-config
+  name: jmx-exporter-config
 data:
   jmx-exporter-config.yaml: |
     ---

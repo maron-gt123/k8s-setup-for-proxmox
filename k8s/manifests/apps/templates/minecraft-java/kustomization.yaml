@@ -9,6 +9,7 @@ resources:
 
   # plugins-config
   - ./plugins/config/prometheus-exporter-config.yaml
+  - ./plugins/config/serverbackup-config.yaml
 configMapGenerator:
 - name: mc-plugins
   files:

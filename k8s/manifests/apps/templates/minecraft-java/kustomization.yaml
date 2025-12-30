@@ -6,6 +6,9 @@ resources:
   # secret
   - ./config/secret-mcserver.yaml
   - ./config/secret-forwarding.yaml
+
+  # plugins-config
+  - ./plugins/config/prometheus-exporter-config.yaml
 configMapGenerator:
 - name: mc-plugins
   files:

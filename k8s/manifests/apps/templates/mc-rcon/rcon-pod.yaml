@@ -8,6 +8,9 @@ spec:
   containers:
     - name: ubuntu
       image: ubuntu:24.04
+      env:
+        - name: RCON_PASSWORD
+          value: ""
       command: ["/bin/bash", "-c"]
       args:
         - |
@@ -27,3 +30,10 @@ spec:
           cpu: 50m
           memory: 64Mi
   restartPolicy: Always
+      volumeMounts:
+        - name: rcon-login
+          mountPath: /home/ubuntu/
+  volumes:
+    - name: rcon-login
+      configMap:
+        name: rcon-login-script

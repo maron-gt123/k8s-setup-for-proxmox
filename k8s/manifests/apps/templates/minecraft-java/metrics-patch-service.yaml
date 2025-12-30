@@ -1,0 +1,32 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: minecraft
+    release: prometheus
+  name: mc-metrics
+spec:
+  endpoints:
+    - interval: 30s
+      port: metrics
+  selector:
+    matchLabels:
+      app: minecraft
+      role: metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mc-metrics
+  labels:
+    app: minecraft
+    role: metrics
+spec:
+  type: ClusterIP
+  ports:
+    - name: metrics
+      port: 9225
+      protocol: TCP
+      targetPort: 9225
+  selector:
+    app: minecraft

@@ -57,7 +57,7 @@ spec:
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:
-                  name: velocity-secret
+                  name: secret-velocity
                   key: CFG_FORWARDING_KEY
             - name: PLUGINS
               valueFrom:

@@ -64,16 +64,10 @@ spec:
               value: "-1"
             - name: ONLINE_MODE
               value: "false"
-            - name: ALLOW_NETHER
-              value: "true"
             - name: DIFFICULTY
               value: easy
             - name: LEVEL_TYPE
               value: normal
-            - name: ENABLE_WHITELIST
-              value: "false"
-            - name: CFG_ALLOW_END
-              value: "true"
             - name: RCON_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -84,78 +78,7 @@ spec:
                 secretKeyRef:
                   name: secret-mc-common
                   key: CFG_FORWARDING_KEY
-            # ---- SQL serverの宛先指定変数 ---- 
-            - name: CFG_SQLSERVER_ADDRESS
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_ADDRESS
-            - name: CFG_SQLSERVER_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_USERNAME
-            - name: CFG_SQLSERVER_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_PASSWORD
-            # ---- plugins configの変数 ---- 
-            # ---- discord SRV ---- 
-            - name: CFG_DISCORDSRV_AUTH
-              value: "true"
-            - name: CFG_DISCORDSRV_ROLE_AUTH
-              value: 
-            - name: CFG_DISCORDSRV_ADMIN_USER
-              value: 
-            - name: CFG_DISCORDSRV_BOT_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-discordsrv
-                  key: CFG_DISCORDSRV_BOT_KEY
-            - name: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_DISCORDSRV_LINKS_DATABASE
-            - name: CFG_DISCORDSRV_ROLE_ID
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-discordsrv
-                  key: CFG_DISCORDSRV_ROLE_ID
-            - name: CFG_DISCORDSRV_LOG_CHANNEL_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-temp
-                  key: CFG_DISCORDSRV_LOG_CHANNEL_KEY
-            - name: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-temp
-                  key: CFG_DISCORDSRV_CONSOLE_CHANNEL_KEY
-            # ---- luckperms ---- 
-            - name: CFG_SQLSERVER_LUCKPERMS_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_LUCKPERMS_DATABASE
-            - name: CFG_LUCKPERMS_SERVER_NAME
-              value: 
-            # ---- inventory ---- 
-            - name: CFG_SQLSERVER_INVENTORY_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_INVENTORY_DATABASE
-            # ---- bluemap ---- 
-            - name: CFG_SQLSERVER_BLUEMAP_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mc-dbaddress
-                  key: CFG_SQLSERVER_BLUEMAP_DATABASE
-            # ------
             - name: PLUGINS
-              # フルpathのpluginが公開されているものはここで直接ダウンロードし/data/pluginsに格納
               # ServerBackup
               # minecraft-prometheus-exporter3.1.0
               # LuckPerms-Bukkit-5.5.15
@@ -187,118 +110,23 @@ spec:
             - name: mc-map
               containerPort: 8100
           volumeMounts:
-            # world関連の格納先マウント
-            - name: data
-              mountPath: /data
-
-            ## JMX exporter 周りのファイルが入ったボリューム達のマウント設定
-            # jmx-exporterの格納先
+            # ------- init-file mount -------
             - name: init-download-volume
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
             - name: init-download-volume
               mountPath: /data/plugins/BlueMap/bluemap/mariadb-java-client.jar
               subPath: mariadb-java-client.jar
-            # jmx-exporter-configの格納先
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
- 
-            # server.properties/bukkit/spigot/paper-global/whitelist configのマウント
-            # bukkitの格納先
-            - name: mc-config
-              mountPath: /config/bukkit.yml
-              subPath: mc-bukkit.yml
-            # spigotの格納先
-            - name: mc-config
-              mountPath: /config/spigot.yml
-              subPath: mc-spigot.yml
-             # paper-globalの格納先
-            - name: mc-config
-              mountPath: /config/config/paper-global.yml
-              subPath: mc-paper-global.yml
-             # whitelistの格納先
-            - name: mc-config
-              mountPath: /config/whitelist.json
-              subPath: mc-whitelist.json
-
-            ## plugins関連のマウント
-            # prometeusのマウント
-            - name: mc-plugin-prometheusexporter-config
-              mountPath: /config/plugins/PrometheusExporter/config.yml
-              subPath: prometheusexporter.yml
-            # LuckPermsのマウント
-            - name: mc-plugin-luckperms-config
-              mountPath: /config/plugins/LuckPerms/config.yml
-              subPath: luckperms.yml
-            # advancedportalsのマウント
-            - name: mc-plugin-advancedportals-common-config
-              mountPath: /config/plugins/AdvancedPortals/config.yaml
-              subPath: advancedportals-common-config.yml
-            # discord-SRVのマウント
-            - name: mc-plugin-discordsrv-config
-              mountPath: /config/plugins/DiscordSRV/config.yml
-              subPath: discordsrv.yml
-            - name: mc-plugin-discordsrv-config
-              mountPath: /config/plugins/DiscordSRV/messages.yml
-              subPath: mc-plugin-discordsrv-jp-message.yml
-            - name: mc-plugin-discordsrv-config
-              mountPath: /config/plugins/DiscordSRV/linking.yml
-              subPath: discordsrv-linking.yml
-            # server-backupのマウント
-            - name: mc-plugin-serverbackup-config
-              mountPath: /config/plugins/ServerBackup/config.yml
-              subPath: serverbackup.yml
-            # bluemapのマウント
-            - name: mc-plugin-bluemap-common-config
-              mountPath: /config/plugins/BlueMap/core.conf
-              subPath: bluemap-core.conf
-            - name: mc-plugin-bluemap-common-config
-              mountPath: /config/plugins/BlueMap/plugin.conf
-              subPath: bluemap-plugin.conf
-            - name: mc-plugin-bluemap-common-config
-              mountPath: /config/plugins/BlueMap/storages/sql.conf
-              subPath: bluemap-sql.conf
+            # -----------------------------------
+            
       volumes:
-        # paperのボリューム
-        - name: data
-          emptyDir: {}
-        # initContainerでダウンロードしてpaperに受け渡すためのvolume
+        # ------- initで格納するvolume -------
         - name: init-download-volume
           emptyDir: {}
         # jmx-exporter-config格納先
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-mc-config
-        # configmap格納先 
-        - name: mc-config
-          configMap:
-            name: mc-configs
-        # prometheusexporter-configmap格納先
-        - name: mc-plugin-prometheusexporter-config
-          configMap:
-            name: mc-plugin-prometheusexporter-config
-        # luckperms-configmap格納先
-        - name: mc-plugin-luckperms-config
-          configMap:
-            name: mc-plugin-luckperms-config
-        # advancedportals-configmap格納先
-        - name: mc-plugin-advancedportals-common-config
-          configMap:
-            name: mc-plugin-advancedportals-common-config
-        # advancedportals周辺-configmap格納先
-        - name: mc-plugin-advancedportals-configs
-          configMap:
-            name: mc-plugin-advancedportals-configs
-        # discord-SRV-configmap格納先
-        - name: mc-plugin-discordsrv-config
-          configMap:
-            name: mc-plugin-discordsrv-config
-        # server-backup-configmap格納先
-        - name: mc-plugin-serverbackup-config
-          configMap:
-            name: mc-plugin-serverbackup-config
-        # mc-plugin-bluemap-common-configmap格納先
-        - name: mc-plugin-bluemap-common-config
-          configMap:
-            name: mc-plugin-bluemap-common-config

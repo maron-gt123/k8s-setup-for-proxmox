@@ -5,7 +5,7 @@ resources:
 
   # secret
   - ./config/secret-mcserver.yaml
-  - ./../minecraft-proxy/config/secret-forwarding.yaml
+  - ./config/secret-forwarding.yaml
 configMapGenerator:
 - name: mc-plugins
   files:

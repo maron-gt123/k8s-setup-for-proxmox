@@ -52,12 +52,12 @@ spec:
             - name: RCON_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: secret-mc-common
+                  name: secret-mcserver
                   key: CFG_MC_RCON_PASSWORD
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:
-                  name: secret-mc-common
+                  name: velocity-secret
                   key: CFG_FORWARDING_KEY
             - name: PLUGINS
               valueFrom:

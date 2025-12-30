@@ -10,3 +10,4 @@ patches:
   - path: lb-service.yaml
   - path: patches-deployment.yaml
   - path: config/velocity-config.yaml
+  - path: config/plugin-minimotd-config.yaml

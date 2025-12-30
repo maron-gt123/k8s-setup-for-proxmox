@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minecraft
+  labels:
+    app: minecraft
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft
+  template:
+    metadata:
+      labels:
+        app: minecraft
+    spec:
+      containers:
+        - image: itzg/minecraft-server:java21
+          name: minecraft
+          resources:
+            requests:
+              cpu: "2"
+              memory: 2G
+          env:
+            # ---- プレフィックスの宣言 ---- 
+            - name: REPLACE_ENV_VARIABLE_PREFIX
+              value: CFG_
+            # ---- 基本設定 ---- 
+            - name: TZ
+              value: Asia/Tokyo
+            - name: TYPE
+              value: PAPER
+            - name: VERSION
+              value: "1.21.10"
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 2G
+            - name: EULA
+              value: "TRUE"
+            # ---- server configの変数 ---- 
+            - name: ENABLE_RCON
+              value: "true"
+            - name: MAX_TICK_TIME
+              value: "-1"
+            - name: ONLINE_MODE
+              value: "false"
+            - name: DIFFICULTY
+              value: easy
+            - name: LEVEL_TYPE
+              value: normal
+            - name: RCON_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mc-common
+                  key: CFG_MC_RCON_PASSWORD
+            - name: CFG_FORWARDING_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mc-common
+                  key: CFG_FORWARDING_KEY
+            - name: PLUGINS
+              value: 
+            - name: SPIGET_RESOURCES
+              value: 
+            # config関連を/configから/dataへmcopy
+            - name: COPY_CONFIG_DEST
+              value: /data
+            - name: RCON_CMDS_STARTUP
+              value: |-
+          ports:
+            - name: mc-service
+              containerPort: 25565
+            - name: mc-rcon
+              containerPort: 25575
+            - name: mc-metrics
+              containerPort: 9225
+          volumeMounts:
+      volumes:

@@ -7,6 +7,8 @@ resources:
   - ./config/secret-mcserver.yaml
   - ./config/secret-forwarding.yaml
 
+  # config
+  - ./config/jmx-exporter-config.yaml
   # plugins-config
   - ./plugins/config/prometheus-exporter-config.yaml
   - ./plugins/config/serverbackup-config.yaml

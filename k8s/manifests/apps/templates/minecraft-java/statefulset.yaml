@@ -14,6 +14,24 @@ spec:
       labels:
         app: minecraft
     spec:
+      initContainers:
+        # initcontainersでjmx-exporterをダウンロード
+        - name: jmx-exporter-downloader
+          image: busybox:1.37.0
+          env:
+            - name: JMX_EXPORTER_URL
+              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/1.0.1/jmx_prometheus_javaagent-1.0.1.jar"
+            - name: JMX_JDBC_URL
+              value: "https://downloads.mariadb.com/Connectors/java/connector-java-3.5.1/mariadb-java-client-3.5.1.jar"
+          volumeMounts:
+            - name: init-download-volume
+              mountPath: /root/initContainer-download
+          command:
+            - sh
+            - -c
+            - >
+              wget -O /root/initContainer-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}" &&
+              wget -O /root/initContainer-download/mariadb-java-client.jar "${JMX_JDBC_URL}"
       containers:
         - image: itzg/minecraft-server:java21
           name: minecraft
@@ -79,4 +97,22 @@ spec:
             - name: mc-metrics
               containerPort: 9225
           volumeMounts:
+            # ------- init-file mount -------
+            - name: init-download-volume
+              mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
+              subPath: jmx-exporter-javaagent.jar
+            - name: init-download-volume
+              mountPath: /data/plugins/BlueMap/bluemap/mariadb-java-client.jar
+              subPath: mariadb-java-client.jar
+            - name: jmx-exporter-config
+              mountPath: /jmx-exporter/jmx-exporter-config.yaml
+              subPath: jmx-exporter-config.yaml
+            # -----------------------------------
       volumes:
+        # ------- initで格納するvolume -------
+        - name: init-download-volume
+          emptyDir: {}
+        # jmx-exporter-config格納先
+        - name: jmx-exporter-config
+          configMap:
+            name: jmx-exporter-mc-config

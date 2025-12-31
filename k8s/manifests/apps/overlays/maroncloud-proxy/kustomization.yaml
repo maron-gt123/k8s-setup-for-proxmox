@@ -9,4 +9,5 @@ patches:
   - path: patches-deployment.yaml
   - path: config/velocity-config.yaml
   - path: config/plugin-minimotd-config.yaml
+  - path: config/plugin-UUIDRedirect-config.yaml
   - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml

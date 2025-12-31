@@ -89,8 +89,8 @@ data:
     
     [forced-hosts]
     # Configure your forced hosts here.
-    "lobby.example.com" = [
-        "lobby"
+    "jamming.example.com" = [
+        "jamming"
     ]
     "factions.example.com" = [
         "factions"

@@ -13,7 +13,7 @@ spec:
           resources:
             requests:
               cpu: "2"
-              memory: "2048Mi"
+              memory: "1024Mi"
           env:
             - name: CFG_LUCKPERMS_SERVER_NAME
               value: proxy

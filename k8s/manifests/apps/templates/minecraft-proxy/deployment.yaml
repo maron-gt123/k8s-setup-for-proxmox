@@ -81,6 +81,7 @@ spec:
               value: "25575"
             - name: PLUGINS
               # bungeecord-prometheus-exporter
+              # minimotd-velocity
               # UUIDRedirect
               # ViaVersion
               value: >-
@@ -114,6 +115,9 @@ spec:
             - name: jmx-exporter-download-volume
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
+            - name: ini-velocity-forwarding-download-volume
+              mountPath: /server/forwarding.secret
+              subPath: forwarding.secret
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
@@ -125,11 +129,11 @@ spec:
               subPath: velocity.toml
             # prometeus-exporter
             - name: prometheus-exporter-config
-              mountPath: /config/velocity-prometheus-exporter/config.json
+              mountPath: /config/plugins/velocity-prometheus-exporter/config.json
               subPath: prometheus-exporter-config.json
             # UUIDRedirect
             - name: uuidredirect-config
-              mountPath: /config/UUIDRedirec/config.json
+              mountPath: /config/plugins/UUIDRedirec/config.json
               subPath: uuidredirect-config.json
             # minimotd
             - name: plugin-minimotd-config

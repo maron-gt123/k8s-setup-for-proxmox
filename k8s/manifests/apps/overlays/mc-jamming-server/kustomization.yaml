@@ -4,3 +4,5 @@ namespace: mc-jamming
 resources:
   # template
   - ../../templates/minecraft-java
+patches:
+  - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml

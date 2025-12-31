@@ -133,7 +133,7 @@ spec:
               subPath: prometheus-exporter-config.json
             # UUIDRedirect
             - name: uuidredirect-config
-              mountPath: /config/plugins/UUIDRedirec/config.json
+              mountPath: /config/plugins/UUIDRedirect/config.json
               subPath: uuidredirect-config.json
             # minimotd
             - name: plugin-minimotd-config

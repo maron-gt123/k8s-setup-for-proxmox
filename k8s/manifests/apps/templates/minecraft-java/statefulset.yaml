@@ -102,12 +102,17 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
-            # -----------------------------------
+            # ------- paper-config mount -------
+            - name: paper-config
+              mountPath: /config/config/
       volumes:
         # ------- initで格納するvolume -------
         - name: init-download-volume
           emptyDir: {}
-        # jmx-exporter-config格納先
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-config
+        # ------- papermcのvolume -------
+        - name: paper-config
+          configMap:
+            name: paper-config

@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: mc-restart-warning
+spec:
+  schedule: "55 3 * * *"  # 毎朝 3:55 に通知
+  timeZone: "Asia/Tokyo"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: notifier
+              image: itzg/minecraft-server:latest
+              command:
+                - rcon-cli
+                - --host
+                - $(RCON_HOST)
+                - --port
+                - $(RCON_PORT)
+                - --password
+                - $(RCON_PASSWORD)
+                - say
+                - $(RCON_MESSAGE)
+              env:
+                - name: RCON_HOST
+                  value: 192.168.1.1 # アドレスを指定
+                - name: RCON_PORT
+                  value: "25575"
+                - name: RCON_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: secret-mcserver
+                      key: CFG_MC_RCON_PASSWORD
+                - name: RCON_MESSAGE
+                  value: "§c[警告] 5分後にサーバーが再起動されます §c4時に強制ログアウトとなりますのでご注意ください"
+          restartPolicy: OnFailure

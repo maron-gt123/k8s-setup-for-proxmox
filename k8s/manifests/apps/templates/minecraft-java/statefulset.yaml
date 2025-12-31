@@ -67,11 +67,11 @@ spec:
               value: easy
             - name: LEVEL_TYPE
               value: normal
-            - name: RCON_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mcserver
-                  key: CFG_MC_RCON_PASSWORD
+            #- name: RCON_PASSWORD
+            #  valueFrom:
+            #    secretKeyRef:
+            #      name: secret-mcserver
+            #      key: CFG_MC_RCON_PASSWORD
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:

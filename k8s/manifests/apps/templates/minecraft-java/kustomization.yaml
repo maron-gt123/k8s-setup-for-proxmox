@@ -6,6 +6,8 @@ resources:
   # secret
   - ./config/secret-mcserver.yaml
   - ./config/secret-forwarding.yaml
+  # cron-job
+  - ./cronjob/restart-warning.yaml
 
   # config
   - ./config/jmx-exporter-config.yaml

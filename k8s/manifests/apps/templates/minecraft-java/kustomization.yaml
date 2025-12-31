@@ -10,6 +10,7 @@ resources:
   - ./cronjob/restart-warning.yaml
 
   # config
+  - ./config/paper-global.yaml
   - ./config/jmx-exporter-config.yaml
   # plugins-config
   - ./plugins/config/prometheus-exporter-config.yaml

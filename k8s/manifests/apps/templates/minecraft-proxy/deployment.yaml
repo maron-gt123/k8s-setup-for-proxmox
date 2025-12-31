@@ -128,11 +128,11 @@ spec:
               mountPath: /config/velocity.toml
               subPath: velocity.toml
             # prometeus-exporter
-            - name: prometheus-exporter-config
+            - name: plugin-prometheus-exporter-config
               mountPath: /config/plugins/velocity-prometheus-exporter/config.json
               subPath: prometheus-exporter-config.json
             # UUIDRedirect
-            - name: uuidredirect-config
+            - name: plugin-uuidredirect-config
               mountPath: /config/plugins/UUIDRedirect/config.json
               subPath: uuidredirect-config.json
             # minimotd
@@ -153,12 +153,12 @@ spec:
         - name: jmx-exporter-config
           configMap:
             name: jmx-exporter-velocity-config
-        - name: prometheus-exporter-config
+        - name: plugin-prometheus-exporter-config
           configMap:
-            name: prometheus-exporter-config
-        - name: uuidredirect-config
+            name: plugin-prometheus-exporter-config
+        - name: plugin-uuidredirect-config
           configMap:
-            name: velocity-uuidredirect-config
+            name: plugin-uuidredirect-config
         - name: plugin-minimotd-config
           configMap:
             name: plugin-minimotd-config

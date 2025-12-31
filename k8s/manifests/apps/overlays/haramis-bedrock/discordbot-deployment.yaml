@@ -28,6 +28,10 @@ spec:
                 secretKeyRef:
                   name: secret-discordbot
                   key: DISCORD_ROLEID
+            - name: BEDROCK_NAMESPACE
+              value: mc-haramis
+            - name: BEDROCK_POD
+              value: mc-bedrock-0
       volumes:
         - name: whitelist-data
           persistentVolumeClaim:

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: velocity-uuidredirect-config
+  name: plugin-uuidredirect-config
 data:
   uuidredirect-config.json: |
     {

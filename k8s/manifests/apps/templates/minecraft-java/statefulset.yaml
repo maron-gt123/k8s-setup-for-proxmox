@@ -40,9 +40,6 @@ spec:
               cpu: "2"
               memory: 2G
           env:
-            # ---- プレフィックスの宣言 ---- 
-            - name: REPLACE_ENV_VARIABLE_PREFIX
-              value: CFG_
             # ---- 基本設定 ---- 
             - name: TZ
               value: Asia/Tokyo
@@ -56,6 +53,15 @@ spec:
               value: 2G
             - name: EULA
               value: "TRUE"
+            - name: COPY_CONFIG_DEST
+              value: /data
+            - name: REPLACE_ENV_VARIABLE_PREFIX
+              value: CFG_
+            - name: PLUGINS
+              valueFrom:
+                configMapKeyRef:
+                  name: mc-plugins
+                  key: plugins
             # ---- server configの変数 ---- 
             - name: ENABLE_RCON
               value: "true"
@@ -67,26 +73,18 @@ spec:
               value: easy
             - name: LEVEL_TYPE
               value: normal
-            #- name: RCON_PASSWORD
-            #  valueFrom:
-            #    secretKeyRef:
-            #      name: secret-mcserver
-            #      key: CFG_MC_RCON_PASSWORD
+            - name: RCON_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mcserver
+                  key: CFG_MC_RCON_PASSWORD
             - name: CFG_FORWARDING_KEY
               valueFrom:
                 secretKeyRef:
                   name: secret-velocity
                   key: CFG_FORWARDING_KEY
-            - name: PLUGINS
-              valueFrom:
-                configMapKeyRef:
-                  name: mc-plugins
-                  key: plugins
             - name: SPIGET_RESOURCES
               value: 
-            # config関連を/configから/dataへmcopy
-            - name: COPY_CONFIG_DEST
-              value: /data
             - name: RCON_CMDS_STARTUP
               value: |-
           ports:

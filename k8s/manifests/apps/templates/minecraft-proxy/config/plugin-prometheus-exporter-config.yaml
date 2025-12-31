@@ -1,6 +1,6 @@
 kind: ConfigMap
 metadata:
-  name: prometheus-exporter-config
+  name: plugin-prometheus-exporter-config
 apiVersion: v1
 data:
   prometheus-exporter-config.json: |

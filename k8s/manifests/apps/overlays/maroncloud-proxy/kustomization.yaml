@@ -4,10 +4,9 @@ namespace: mc-maroncloud-proxy
 resources:
   # templates
   - ../../templates/minecraft-proxy
-  # secret
-
 patches:
   - path: lb-service.yaml
   - path: patches-deployment.yaml
   - path: config/velocity-config.yaml
   - path: config/plugin-minimotd-config.yaml
+  - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml

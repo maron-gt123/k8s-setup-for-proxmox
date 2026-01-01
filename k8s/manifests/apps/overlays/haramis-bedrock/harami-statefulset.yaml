@@ -13,9 +13,5 @@ spec:
               cpu: "2"
               memory: 4G
           env:
-            - name: GAMEMODE
-              value: survival
-            - name: DIFFICULTY
-              value: normal
             - name: ALLOW_LIST
               value: "true"

@@ -338,33 +338,52 @@ data:
             <li>送信を押して完了</li>
           </ol>
         </section>
-    
+
+
+
+
         <!-- サブスク認証 -->
         <section id="auth" class="bg-white shadow-lg rounded-xl p-8 mb-12">
-          <h2 class="text-2xl font-bold mb-4 text-purple-600">サブスク(whitelist)認証</h2>
-          <p class="text-gray-700 mb-4">サブスクメンバー認証のため、ホワイトリスト機能を利用した認証が必要です。</p>
-    
+          <h2 class="text-2xl font-bold mb-4 text-purple-600">
+            サブスク（Whitelist）認証
+          </h2>
+        
+          <p class="text-gray-700 mb-4">
+            本サーバーは <strong>サブスクメンバー限定</strong> です。  
+            マインクラフトへの参加には、Whitelist を利用した事前認証が必要となります。
+          </p>
+        
           <h3 class="text-xl font-semibold mt-6 mb-2">認証条件</h3>
           <ul class="list-disc list-inside space-y-2 text-gray-700">
-            <li>TikTokサブスク入会済み(discordのロールで判定)</li>
-            <li>サブスク限定Discordに参加</li>
-            <li>マイクラ参加申請用チャンネルでの申請→承認完了</li>
+            <li>TikTokサブスクに加入済みであること（Discordロールにて確認）</li>
+            <li>サブスク限定Discordサーバーに参加していること</li>
+            <li>マイクラ参加申請用チャンネルで申請し、承認されていること</li>
           </ul>
-    
-          <h3 class="text-xl font-semibold mt-6 mb-2">注意点</h3>
+        
+          <h3 class="text-xl font-semibold mt-6 mb-2">注意事項</h3>
           <ul class="list-disc list-inside space-y-2 text-gray-700">
-            <li>管理者は配信者は「らむはらみ」と「maron_iQS」の2名となります</li>
-            <li>申請後上記2名の承認完了をもってログイン可能となります</li>
-            <li>定期的な再認証があります</li>
+            <li>管理者（配信者）は「らむはらみ」「maron_iQS」の2名です</li>
+            <li>申請後、上記管理者による承認が完了次第ログイン可能となります</li>
+            <li>不正防止のため、定期的に再認証を行う場合があります</li>
           </ul>
-    
+        
           <h3 class="text-xl font-semibold mt-6 mb-2">認証方法</h3>
-          <ol class="list-decimal list-inside space-y-2 text-gray-700">
-            <li>はらむはらみdiscordサーバーより「マイクラ参加申請用チャンネル」に参加申請を実施</li>
-            <li>参加コマンドは以下</li>
-            <span class="font-mono text-green-600 font-extrabold text-xl bg-green-100 px-2 py-1 rounded">/apply <Gamertag></span></li>
+          <ol class="list-decimal list-inside space-y-3 text-gray-700">
+            <li>
+              「はらむはらみ Discord サーバー」に参加
+            </li>
+            <li>
+              「マイクラ参加申請用チャンネル」にて、以下のコマンドを実行
+              <div class="mt-2">
+                <span class="font-mono text-green-700 font-extrabold text-xl bg-green-100 px-3 py-1 rounded">
+                  /apply &lt;Gamertag&gt;
+                </span>
+              </div>
+            </li>
+            <li>
+              管理者による承認完了後、マインクラフトへログイン可能となります
+            </li>
           </ol>
-    
           <div class="grid gap-4 mt-4">
             <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/overlays/haramis-nginx/image/auth-image.png" class="rounded-lg border">
             <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/overlays/haramis-nginx/image/auth-dm.png" class="rounded-lg border">

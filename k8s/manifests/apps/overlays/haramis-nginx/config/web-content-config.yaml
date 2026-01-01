@@ -383,13 +383,84 @@ data:
             <li>
               管理者による承認完了後、マインクラフトへログイン可能となります
             </li>
-            <li>
-              チャンネル内コマンド紹介
+            </ol>
+            
+            <h3 class="text-xl font-semibold mt-8 mb-3">チャンネル内コマンド一覧</h3>
+            
+            <p class="text-gray-700 mb-4">
+              マイクラ参加申請用チャンネルでは、以下のコマンドが利用できます。
+              申請状況の確認や管理操作もすべて Discord 上で行えます。
+            </p>
+            
+            <div class="space-y-6">
+            
+              <!-- 一般ユーザー -->
               <div>
-                /apply &lt;Gamertag&gt;
+                <h4 class="text-lg font-semibold mb-2">👤 一般ユーザー</h4>
+                <ul class="space-y-2">
+                  <li>
+                    <span class="font-mono text-green-700 font-bold bg-green-100 px-2 py-1 rounded">
+                      /apply &lt;Gamertag&gt;
+                    </span>
+                    <p class="text-gray-600 mt-1">
+                      マインクラフトのホワイトリスト申請を行います。
+                    </p>
+                  </li>
+            
+                  <li>
+                    <span class="font-mono text-green-700 font-bold bg-green-100 px-2 py-1 rounded">
+                      /wl_list pending
+                    </span>
+                    <p class="text-gray-600 mt-1">
+                      現在申請中の一覧を表示します。
+                    </p>
+                  </li>
+                </ul>
               </div>
-            </li>
-          </ol>
+            
+              <!-- 管理者 -->
+              <div>
+                <h4 class="text-lg font-semibold mb-2">🛠️ 管理者専用</h4>
+                <ul class="space-y-2">
+                  <li>
+                    <span class="font-mono text-purple-700 font-bold bg-purple-100 px-2 py-1 rounded">
+                      /approve &lt;Gamertag&gt;
+                    </span>
+                    <p class="text-gray-600 mt-1">
+                      申請を承認し、ホワイトリストに追加します。
+                    </p>
+                  </li>
+            
+                  <li>
+                    <span class="font-mono text-purple-700 font-bold bg-purple-100 px-2 py-1 rounded">
+                      /revoke &lt;Gamertag&gt;
+                    </span>
+                    <p class="text-gray-600 mt-1">
+                      ホワイトリストから対象ユーザーを削除します。
+                    </p>
+                  </li>
+            
+                  <li>
+                    <span class="font-mono text-purple-700 font-bold bg-purple-100 px-2 py-1 rounded">
+                      /wl_list approved
+                    </span>
+                    <p class="text-gray-600 mt-1">
+                      承認済みユーザーの一覧を表示します。
+                    </p>
+                  </li>
+            
+                  <li>
+                    <span class="font-mono text-purple-700 font-bold bg-purple-100 px-2 py-1 rounded">
+                      /reload
+                    </span>
+                    <p class="text-gray-600 mt-1">
+                      Bedrock の allowlist を即時再読み込みします。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            
+            </div>
           <div class="grid gap-4 mt-4">
             <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/overlays/haramis-nginx/image/auth-image.png" class="rounded-lg border">
             <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/overlays/haramis-nginx/image/auth-dm.png" class="rounded-lg border">

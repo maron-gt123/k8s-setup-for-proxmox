@@ -17,3 +17,5 @@ spec:
               value: survival
             - name: DIFFICULTY
               value: normal
+            - name: ALLOW_LIST
+              value: "true"

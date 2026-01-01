@@ -15,17 +15,6 @@ spec:
         app: mc-bedrock
     spec:
       containers:
-        - name: bedrock-stdin
-          image: busybox
-          command:
-            - /bin/sh
-            - -c
-            - |
-              mkfifo /tmp/bedrock.stdin
-              cat /tmp/bedrock.stdin > /proc/1/fd/0
-          volumeMounts:
-            - name: bedrock-tmp
-              mountPath: /tmp
         - name: mc-bedrock
           image: itzg/minecraft-bedrock-server
           resources:
@@ -45,10 +34,6 @@ spec:
               value: survival
             - name: DIFFICULTY
               value: normal
-            - name: ENABLE_CONSOLE
-              value: "true"
-            - name: CONSOLE_FIFO
-              value: "/tmp/bedrock.stdin"
           ports:
             - name: bedrock-service
               containerPort: 19132
@@ -69,5 +54,3 @@ spec:
         - name: whitelists-data
           persistentVolumeClaim:
             claimName: bedrock-whitelists-pvc
-        - name: bedrock-tmp
-          emptyDir: {}

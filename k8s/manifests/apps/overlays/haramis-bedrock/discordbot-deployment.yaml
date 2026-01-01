@@ -32,6 +32,8 @@ spec:
               value: mc-haramis
             - name: BEDROCK_POD
               value: mc-bedrock-0
+            - name: BEDROCK_CONTAINER
+              value: mc-bedrock
       volumes:
         - name: whitelist-data
           persistentVolumeClaim:

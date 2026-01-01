@@ -15,13 +15,19 @@ spec:
         app: mc-bedrock
     spec:
       containers:
-        - image: itzg/minecraft-bedrock-server
-          name: mc-bedrock
+        - name: mc-bedrock
+          image: itzg/minecraft-bedrock-server
           resources:
             requests:
               # pod リソース設定
               cpu: "2"
               memory: 2G
+          command:
+            - /bin/sh
+            - -c
+            - |
+              mkfifo /tmp/bedrock.stdin
+              cat /tmp/bedrock.stdin | /usr/local/bin/bedrock_server
           env:
             # ---- 基本設定 ---- 
             - name: TZ
@@ -44,6 +50,9 @@ spec:
             - name: whitelists-data
               mountPath: /data/allowlist.json
               subPath: allowlist.json
+            - name: bedrock-tmp
+              mountPath: /tmp
+    
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data
@@ -53,3 +62,5 @@ spec:
         - name: whitelists-data
           persistentVolumeClaim:
             claimName: bedrock-whitelists-pvc
+        - name: bedrock-tmp
+          emptyDir: {}

@@ -27,8 +27,7 @@ spec:
             - -c
             - |
               mkfifo /tmp/bedrock.stdin
-              cat /tmp/bedrock.stdin | /usr/local/bin/start-bedrock.sh
-
+              cat /tmp/bedrock.stdin | /start-bedrock.sh
           env:
             # ---- 基本設定 ---- 
             - name: TZ

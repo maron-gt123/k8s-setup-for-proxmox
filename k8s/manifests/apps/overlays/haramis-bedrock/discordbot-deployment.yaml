@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-whitelist-bot
+spec:
+  template:
+    spec:
+      containers:
+        - name: bot
+          env:
+            - name: BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_BOTKEY
+            - name: APPLY_CHANNEL
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_APPLY_CHANNELID
+            - name: APPROVE_CHANNEL
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_APPROVE_CHANNELID
+            - name: ADMIN_ROLE
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_ROLEID
+            - name: BEDROCK_NAMESPACE
+              value: mc-haramis
+            - name: BEDROCK_POD
+              value: mc-bedrock-0
+      volumes:
+        - name: whitelist-data
+          persistentVolumeClaim:
+            claimName: bedrock-whitelists-pvc

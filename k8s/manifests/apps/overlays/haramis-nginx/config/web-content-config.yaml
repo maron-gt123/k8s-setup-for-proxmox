@@ -383,6 +383,12 @@ data:
             <li>
               管理者による承認完了後、マインクラフトへログイン可能となります
             </li>
+            <li>
+              チャンネル内コマンド紹介
+              <div>
+                /apply &lt;Gamertag&gt;
+              </div>
+            </li>
           </ol>
           <div class="grid gap-4 mt-4">
             <img src="https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/overlays/haramis-nginx/image/auth-image.png" class="rounded-lg border">

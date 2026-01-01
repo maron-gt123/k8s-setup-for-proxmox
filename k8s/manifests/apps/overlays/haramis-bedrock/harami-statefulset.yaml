@@ -17,6 +17,7 @@ spec:
               value: survival
             - name: DIFFICULTY
               value: normal
+        # discord-whitelist-bot
         - name: discord-whitelist-bot
           image: marongt123/bedrock-discord-whitelist:latest
           imagePullPolicy: Always
@@ -46,5 +47,5 @@ spec:
             - name: BEDROCK_POD
               value: mc-bedrock-0
           volumeMounts:
-            - name: whitelist-data
+            - name: whitelists-data 
               mountPath: /app/data

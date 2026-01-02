@@ -16,11 +16,20 @@ spec:
                   name: secret-discordbot
                   key: DISCORD_BOTKEY
             - name: APPLY_CHANNEL
-              value: "1456518809165889761"
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_APPLY_CHANNELID
             - name: APPROVE_CHANNEL
-              value: "1456518866107629570"
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_APPROVE_CHANNELID
             - name: ADMIN_ROLE
-              value: "1454495091535118388"
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_ROLEID
             - name: BEDROCK_NAMESPACE
               value: debug
             - name: BEDROCK_POD

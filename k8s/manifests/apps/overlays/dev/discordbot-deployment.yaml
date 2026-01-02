@@ -27,8 +27,11 @@ spec:
               value: mc-bedrock-0
             - name: BEDROCK_CONTAINER
               value: mc-bedrock
+          volumeMounts:
+            - name: whitelist-data2
+              mountPath: /app/data
       volumes:
         - name: whitelist-data
           $patch: delete
-        - name: whitelist-data
+        - name: whitelist-data2
           emptyDir: {}

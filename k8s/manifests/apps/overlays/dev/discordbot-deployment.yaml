@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-whitelist-bot
+spec:
+  template:
+    spec:
+      containers:
+        - name: bot
+          env:
+            - name: BOT_LANG
+              value: ja            
+            - name: BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-discordbot
+                  key: DISCORD_BOTKEY
+            - name: APPLY_CHANNEL
+              value: 1454494898865569926
+            - name: APPROVE_CHANNEL
+              value: 1454494931539333282
+            - name: ADMIN_ROLE
+              value: 1454495091535118388
+            - name: BEDROCK_NAMESPACE
+              value: debug
+            - name: BEDROCK_POD
+              value: mc-bedrock-0
+            - name: BEDROCK_CONTAINER
+              value: mc-bedrock

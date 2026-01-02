@@ -8,6 +8,8 @@ spec:
       containers:
         - name: bot
           env:
+            - name: BOT_LANG
+              value: ja            
             - name: BOT_TOKEN
               valueFrom:
                 secretKeyRef:

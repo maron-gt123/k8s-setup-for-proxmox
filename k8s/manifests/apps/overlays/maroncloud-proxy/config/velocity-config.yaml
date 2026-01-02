@@ -92,8 +92,8 @@ data:
     "jamming.example.com" = [
         "jamming"
     ]
-    "factions.example.com" = [
-        "factions"
+    "java.example.com" = [
+        "java"
     ]
     "minigames.example.com" = [
         "minigames"

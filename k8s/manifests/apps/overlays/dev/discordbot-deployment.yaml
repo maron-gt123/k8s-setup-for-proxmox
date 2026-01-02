@@ -9,7 +9,7 @@ spec:
         - name: bot
           env:
             - name: BOT_LANG
-              value: ja            
+              value: en
             - name: BOT_TOKEN
               valueFrom:
                 secretKeyRef:

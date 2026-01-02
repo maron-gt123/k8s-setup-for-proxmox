@@ -6,6 +6,6 @@ resources:
   - git::https://github.com/maron-gt123/bedrock-discord-whitelist//k8s?ref=main
 
   # lan環境下
-  - http://nas.mcnet/k8s/mc-haramis/secret-discordbot.yaml
+  - http://nas.mcnet/k8s/debug/secret-discordbot.yaml
 patches:
   - path: discordbot-deployment.yaml

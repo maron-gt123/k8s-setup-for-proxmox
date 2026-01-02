@@ -7,3 +7,5 @@ resources:
 
   # lan環境下
   - http://nas.mcnet/k8s/mc-haramis/secret-discordbot.yaml
+patches:
+  - path: discordbot-deployment.yaml

@@ -27,3 +27,7 @@ spec:
               value: mc-bedrock-0
             - name: BEDROCK_CONTAINER
               value: mc-bedrock
+      volumes:
+        - name: whitelist-data
+          $patch: delete
+          emptyDir: {}

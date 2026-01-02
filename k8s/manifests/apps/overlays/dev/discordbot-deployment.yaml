@@ -16,9 +16,9 @@ spec:
                   name: secret-discordbot
                   key: DISCORD_BOTKEY
             - name: APPLY_CHANNEL
-              value: "1454494898865569926"
+              value: "1456518809165889761"
             - name: APPROVE_CHANNEL
-              value: "1454494931539333282"
+              value: "1456518866107629570"
             - name: ADMIN_ROLE
               value: "1454495091535118388"
             - name: BEDROCK_NAMESPACE

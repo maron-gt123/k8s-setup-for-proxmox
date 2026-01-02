@@ -4,3 +4,6 @@ namespace: debug
 resources:
   # template
   - git::https://github.com/maron-gt123/bedrock-discord-whitelist//k8s?ref=main
+
+  # lan環境下
+  - http://nas.mcnet/k8s/mc-haramis/secret-discordbot.yaml

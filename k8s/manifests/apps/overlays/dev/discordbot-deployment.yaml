@@ -30,4 +30,5 @@ spec:
       volumes:
         - name: whitelist-data
           $patch: delete
+        - name: whitelist-data
           emptyDir: {}

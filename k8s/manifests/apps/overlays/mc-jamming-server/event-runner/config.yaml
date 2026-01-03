@@ -5,17 +5,12 @@ metadata:
 data:
   access-config.yaml: |
     # =========================
-    # 送信モード設定 production または dummyで切替
-    # =========================
-      # production / dummy
-    mode: production
-    # =========================
     # TikTok Live 設定
     # =========================
     tiktok:
       # 監視する TikTok 配信者の unique_id
       # 例: https://www.tiktok.com/@yours_name
-      user: weathernewslive
+      user: tv_asahi_news
     
     # =========================
     # 探知イベント送信先

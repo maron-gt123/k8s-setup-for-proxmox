@@ -8,11 +8,7 @@ data:
     # 送信モード設定 production または dummyで切替
     # =========================
       # production / dummy
-    mode: dummy
-    ws_url: "http://192.168.15.80:30000/event"
-    user_id: "dummy_user"
-    user_nick: "DummyMC"
-
+    mode: production
     # =========================
     # TikTok Live 設定
     # =========================

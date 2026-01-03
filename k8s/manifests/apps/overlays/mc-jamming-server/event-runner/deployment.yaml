@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: tiktok-live
-          image: marongt123/tiktok-live-mc-event-runner:dummy
+          image: marongt123/tiktok-live-mc-event-runner:production

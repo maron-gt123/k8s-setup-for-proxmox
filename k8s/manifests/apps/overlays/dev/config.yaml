@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: access-config
+data:
+  config.yml: |
+    # =====================
+    # TikTok Live 設定
+    # =====================
+    tiktok:
+      user: "tv_asahi_news"  # TikTok 配信者の ID を指定
+
+    http:
+      timeout: 2  # 旧仕様用、必要に応じて
+
+    # =====================
+    # イベント → Minecraft コマンド
+    # =====================
+    event_commands:
+      gift: "/say {nickname} さんが {gift_name} x{count} ギフトを贈った！"
+      like: "/say {nickname} さんがいいね x{total_likes} (合計 {overallLikes})"
+      follow: "/say {nickname} さんがフォローしました！"
+      share: "/say {nickname} さんがシェアしました！"
+      subscribe: "/say {nickname} さんがサブスクライブしました！"
+
+    # =====================
+    # Minecraft RCON 設定
+    # =====================
+    minecraft:
+      host: "127.0.0.1"      # Minecraft サーバーの IP または localhost
+      port: 25575            # RCON ポート（server.properties で設定）
+      password: "YOUR_RCON_PASSWORD"  # RCON パスワード

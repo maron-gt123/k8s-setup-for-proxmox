@@ -3,9 +3,7 @@ kind: Kustomization
 namespace: debug
 resources:
   # template
-  - git::https://github.com/maron-gt123/bedrock-discord-whitelist//k8s?ref=main
+  - git::https://github.com/maron-gt123/jamming-minecraft-stream//sample/k8s?ref=develop
 
-  # lan環境下
-  - http://nas.mcnet/k8s/debug/secret-discordbot.yaml
-patches:
-  - path: discordbot-deployment.yaml
+#patches:
+#  - path: discordbot-deployment.yaml

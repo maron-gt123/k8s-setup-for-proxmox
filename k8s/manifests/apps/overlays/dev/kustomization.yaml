@@ -5,5 +5,5 @@ resources:
   # template
   - git::https://github.com/maron-gt123/jamming-minecraft-stream//sample/k8s?ref=develop
 
-#patches:
-#  - path: discordbot-deployment.yaml
+patches:
+  - path: config.yaml

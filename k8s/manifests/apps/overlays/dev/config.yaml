@@ -8,7 +8,7 @@ data:
     # TikTok Live 設定
     # =====================
     tiktok:
-      user: "tv_asahi_news"  # TikTok 配信者の ID を指定
+      user: tv_asahi_news  # TikTok 配信者の ID を指定
 
     http:
       timeout: 2  # 旧仕様用、必要に応じて

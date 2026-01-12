@@ -5,10 +5,9 @@ resources:
   # template
   - ../../templates/minecraft-java
   # tiktok-live-mc-event-runner
-  - git::https://github.com/maron-gt123/tiktok-live-mc-event-runner/k8s?ref=main
+  - git::https://github.com/maron-gt123/jamming-minecraft-stream/sample/k8s?ref=main
 patches:
   - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml
 
   # tiktok-event-runner
   - path: event-runner/config.yaml
-  - path: event-runner/deployment.yaml

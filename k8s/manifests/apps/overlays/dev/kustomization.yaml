@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: debug
 resources:
   # template
-  - git::https://github.com/maron-gt123/jamming-minecraft-stream//sample/k8s?ref=develop
+  - https://github.com/maron-gt123/jamming-minecraft-stream//sample/k8s?ref=main
 
 patches:
   - path: config.yaml

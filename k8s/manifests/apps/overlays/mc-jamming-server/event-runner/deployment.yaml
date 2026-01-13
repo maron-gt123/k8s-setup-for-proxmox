@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rcon-tiktok
+spec:
+  template:
+    spec:
+      containers:
+        - name: rcon-tiktok
+          env:
+            - name: TZ
+              value: Asia/Tokyo

@@ -14,7 +14,7 @@ data:
     # Minecraft RCON
     # =====================
     minecraft:
-      RCON_HOST: mc-service.mc-jamming
+      RCON_HOST: mc-service.mc-jamming.svc.cluster.local
       RCON_PORT: 25575
       RCON_PASSWORD: "123456789"
 

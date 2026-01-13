@@ -10,4 +10,5 @@ patches:
   - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml
 
   # tiktok-event-runner
+  - path: event-runner/deployment.yaml
   - path: event-runner/config.yaml

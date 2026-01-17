@@ -16,7 +16,7 @@ data:
     # =====================
     http:
       # HTTP endpoint to which events are forwarded
-      endpoint: "http://192.168.15.2:8080/event"
+      endpoint: "http://192.168.15.80:8080/event"
       # Timeout for HTTP requests (in seconds)
       timeout: 5
 

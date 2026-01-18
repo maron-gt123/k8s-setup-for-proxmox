@@ -9,7 +9,7 @@ data:
     # =====================
     tiktok:
       # TikTok Live streamer username (without @)
-      user: tv_asahi_news
+      user: nosu_kero_kero
 
     # =====================
     # HTTP forward settings

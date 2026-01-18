@@ -22,22 +22,6 @@ spec:
               value: normal
             - name: RCON_PASSWORD
               value: "123456789"
-            - name: CFG_FORWARDING_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: secret-velocity
-                  key: CFG_FORWARDING_KEY
-            - name: SPIGET_RESOURCES
-              value: 
-            - name: RCON_CMDS_STARTUP
-              value: |-
-          ports:
-            - name: mc-service
-              containerPort: 25565
-            - name: mc-rcon
-              containerPort: 25575
-            - name: mc-metrics
-              containerPort: 9225
           volumeMounts:
             - name: jamming-mc-stream-config
               mountPath: /config/plugins/JammingStream/

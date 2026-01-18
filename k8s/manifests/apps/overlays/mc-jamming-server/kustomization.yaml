@@ -4,11 +4,14 @@ namespace: mc-jamming
 resources:
   # template
   - ../../templates/minecraft-java
+  # config
+  - config/jamming-mc-stream-config.yaml
+  
   # tiktok-live-mc-event-runner
   - https://github.com/maron-gt123/jamming-minecraft-stream//sample/k8s?ref=main
 patches:
   - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml
-
+  - path: patch-statefulset.yaml
   # tiktok-event-runner
   - path: event-runner/deployment.yaml
   - path: event-runner/config.yaml

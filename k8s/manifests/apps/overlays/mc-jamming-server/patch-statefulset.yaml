@@ -40,7 +40,7 @@ spec:
               containerPort: 9225
           volumeMounts:
             - name: jamming-mc-stream-config
-              mountPath: /config/JammingStream/
+              mountPath: /config/plugins/JammingStream/
       volumes:
         - name: jamming-mc-stream-config
           configMap:

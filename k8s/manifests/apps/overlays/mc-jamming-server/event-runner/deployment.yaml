@@ -6,7 +6,7 @@ spec:
   template:
     spec:
       containers:
-        - name:   name: tiktok-live-runner
+        - name: tiktok-live-runner
           env:
             - name: TZ
               value: Asia/Tokyo

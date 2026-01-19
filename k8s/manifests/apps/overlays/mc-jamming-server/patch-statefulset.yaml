@@ -19,7 +19,7 @@ spec:
           command:
             - "sh"
             - "-c"
-            - 'wget -O /root/plugins-download/jamming-minecraft-stream.jar "${JMX_EXPORTER_URL}"'
+            - 'wget -O /root/plugins-download/jamming-minecraft-stream.jar "${JAMMING-MC-STREAM_URL}"'
       containers:
         - name: minecraft
           env:

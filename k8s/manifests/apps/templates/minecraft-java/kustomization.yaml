@@ -14,9 +14,5 @@ resources:
   - ./config/paper-config.yaml
   - ./config/jmx-exporter-config.yaml
   # plugins-config
-  - ./plugins/config/prometheus-exporter-config.yaml
-  - ./plugins/config/serverbackup-config.yaml
-configMapGenerator:
-- name: mc-plugins
-  files:
-    - plugins=plugins/common.txt
+  - ./config/prometheus-exporter-config.yaml
+  - ./config/serverbackup-config.yaml

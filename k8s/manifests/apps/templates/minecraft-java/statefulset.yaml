@@ -58,10 +58,11 @@ spec:
             - name: REPLACE_ENV_VARIABLE_PREFIX
               value: CFG_
             - name: PLUGINS
-              valueFrom:
-                configMapKeyRef:
-                  name: mc-plugins
-                  key: plugins
+              value: >-
+                https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.2/minecraft-prometheus-exporter-3.1.2.jar,
+                https://cdn.modrinth.com/data/axTqSWQA/versions/I8wYnsdu/Advanced-Portals-Spigot-2.5.0.jar,
+                https://download.luckperms.net/1610/bukkit/loader/LuckPerms-Bukkit-5.5.21.jar,
+                https://server-backup.net/assets/downloads/ServerBackup-2.10.0.jar
             # ---- server configの変数 ---- 
             - name: ENABLE_RCON
               value: "true"

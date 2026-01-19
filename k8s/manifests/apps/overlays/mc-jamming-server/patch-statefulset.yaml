@@ -37,7 +37,7 @@ spec:
               $patch: delete
           volumeMounts:
             - name: plugins-download-volume
-              mountPath: /data/plugins/jamming-minecraft-stream.jar
+              mountPath: /config/plugins/jamming-minecraft-stream.jar
               subPath: jamming-minecraft-stream.jar
             - name: jamming-mc-stream-config
               mountPath: /config/plugins/JammingStream/

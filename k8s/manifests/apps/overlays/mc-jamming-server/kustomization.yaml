@@ -15,3 +15,4 @@ patches:
   # tiktok-event-runner
   - path: event-runner/deployment.yaml
   - path: event-runner/config.yaml
+  - path: plugins/common.txt

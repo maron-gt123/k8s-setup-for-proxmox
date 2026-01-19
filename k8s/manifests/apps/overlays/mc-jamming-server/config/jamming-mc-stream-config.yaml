@@ -5,8 +5,8 @@ metadata:
 data:
   config.yml: |
     http:
-    port: 8080
-    path: /event
+      port: 8080
+      path: /event
     
     events:
       gift:
@@ -28,7 +28,7 @@ data:
       subscribe:
         - command: "say {nickname} subscribe"
       like:
-         - count: 50
+        - count: 50
           command: "say {nickname} reached 50 likes!"
     
         - count: 100

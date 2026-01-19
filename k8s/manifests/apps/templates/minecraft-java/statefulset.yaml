@@ -106,6 +106,14 @@ spec:
             # ------- paper-config mount -------
             - name: paper-config
               mountPath: /config/config/
+            # ------- prometeus-exporter mount -------
+            - name: prometheus-exporter-config
+              mountPath: /config/plugins/PrometheusExporter/config.yml
+              subPath: prometheus-exporter-config.yml
+            # ------- serverbackup mount -------
+            - name: serverbackup-config
+              mountPath: /config/plugins/ServerBackup/config.yml
+              subPath: serverbackup.yml
       volumes:
         # ------- initで格納するvolume -------
         - name: init-download-volume
@@ -117,3 +125,11 @@ spec:
         - name: paper-config
           configMap:
             name: paper-config
+        # ------- prometeus-exporterのvolume -------
+        - name: prometheus-exporter-config
+          configMap:
+            name: prometheus-exporter-config
+        # ------- serverbackupのvolume -------
+        - name: serverbackup-config
+          configMap:
+            name: serverbackup-config

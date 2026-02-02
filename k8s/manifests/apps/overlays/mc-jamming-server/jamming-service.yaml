@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jamming-service
+  labels:
+    app: jamming-service
+spec:
+  type: ClusterIP
+  ports:
+  - name: jamming-service
+    port: 8080
+    protocol: TCP
+    targetPort: mc-jamming
+  selector:
+    app: minecraft

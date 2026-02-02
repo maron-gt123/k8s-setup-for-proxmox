@@ -9,6 +9,7 @@ resources:
   
   # tiktok-live-mc-event-runner
   - https://github.com/maron-gt123/jamming-minecraft-stream//sample/k8s?ref=main
+  - ./jamming-service.yaml
 patches:
   - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml
   - path: patch-statefulset.yaml

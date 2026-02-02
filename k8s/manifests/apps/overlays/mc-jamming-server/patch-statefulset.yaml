@@ -7,43 +7,29 @@ metadata:
 spec:
   template:
     spec:
-      initContainers:
-        - name: plugins-downloader
-          image: busybox:1.37.0
-          env:
-            - name: JAMMING_MC_STREAM_URL
-              value: https://github.com/maron-gt123/jamming-minecraft-stream/releases/download/0.1/jamming-minecraft-stream-0.1-SNAPSHOT.jar
-          volumeMounts:
-            - name: plugins-download-volume
-              mountPath: /root/plugins-download
-          command:
-            - "sh"
-            - "-c"
-            - wget -O /root/plugins-download/jamming-minecraft-stream.jar "${JAMMING_MC_STREAM_URL}"
       containers:
         - name: minecraft
           env:
-            - name: ENABLE_RCON
-              value: "false"
-            - name: MAX_TICK_TIME
-              value: "-1"
-            - name: ONLINE_MODE
-              value: "false"
-            - name: DIFFICULTY
-              value: easy
-            - name: LEVEL_TYPE
-              value: normal
             - name: RCON_PASSWORD
               $patch: delete
+            - name: MODE
+              value: "creative"
+            - name: PLUGINS
+              value: >-
+                https://github.com/maron-gt123/jamming-minecraft-stream/releases/download/0.2/jamming-minecraft-stream-0.2-SNAPSHOT.jar
+            - name: RCON_CMDS_STARTUP
+              value: |-
+                time set day
+                weather clear
+                gamerule doDaylightCycle false
+                gamerule doWeatherCycle false
+          ports:
+            - name: mc-jamming
+              containerPort: 8080
           volumeMounts:
-            - name: plugins-download-volume
-              mountPath: /config/plugins/jamming-minecraft-stream.jar
-              subPath: jamming-minecraft-stream.jar
             - name: jamming-mc-stream-config
               mountPath: /config/plugins/JammingStream/
       volumes:
-        - name: plugins-download-volume
-          emptyDir: {} 
         - name: jamming-mc-stream-config
           configMap:
             name: jamming-mc-stream-config

@@ -16,7 +16,7 @@ data:
     # =====================
     http:
       # HTTP endpoint to which events are forwarded
-      endpoint: "http://192.168.15.80:8080/event"
+      endpoint: "http://jamming-service:8080/event"
       # Timeout for HTTP requests (in seconds)
       timeout: 5
 
@@ -28,4 +28,4 @@ data:
     #   60        = 1 minute
     #   3600     = 1 hour
     #   86400    = 24 hours
-    reset_interval_seconds: 60
+    reset_interval_seconds: 3600

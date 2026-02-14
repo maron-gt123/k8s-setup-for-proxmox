@@ -76,9 +76,16 @@ ufw allow from 192.168.10.0/24 to any port 443
 ufw allow 53
 ```
 ---
-## 8. UFW ファイアウォール設定
+## 8. PowerDNS関連パッケージインストール
+以下パッケージをインストールします。
+
+- PowerDNS Authoritative Server
+- MySQL Backend
+- Recursor
+- Nginx
+- PHP-FPM
 ```bash
-sudo apt-get install -y \
+apt-get install -y \
 pdns-server \
 pdns-backend-mysql \
 pdns-recursor \

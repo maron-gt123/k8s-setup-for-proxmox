@@ -128,8 +128,6 @@ local-port=8053
 ```bash
 systemctl start pdns
 systemctl enable pdns
-systemctl restart php8.4-fpm
-systemctl restart nginx
 ```
 ---
 ## 2. poweradmin導入
@@ -180,13 +178,10 @@ default削除して有効化
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/poweradmin /etc/nginx/sites-enabled/
 ```
-PHP-FPM 起動
+PHP-FPM & nginx起動
 ```bash
 systemctl enable php8.4-fpm
 systemctl restart php8.4-fpm
-```
-Nginx 再起動
-```bash
 systemctl restart nginx
 ```
 webブラウザアクセス

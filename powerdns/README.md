@@ -94,7 +94,13 @@ git \
 nginx \
 php-fpm \
 php-mysql \
-php-intl
+php-intl \
+php8.4-mysql \
+php8.4-intl \
+php8.4-xml \
+php8.4-gettext \
+php8.4-curl \
+php8.4-mbstring
 ```
 ---
 # PowerDNS 設定

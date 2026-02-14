@@ -1,11 +1,96 @@
-##  PowerDNSを活用したサーバー内名前解決
-*  本件では自宅サーバーのバックエンドとして動作している内部DNS(powerdns)について記載
+# PowerDNS 初期セットアップ手順（Raspberry Pi / Debian）
+本手順では、PowerDNS を導入する前段階として以下の初期設定を実施します。
 
-### 設定
-*  本scriptを実行し各種依存関係となるソフトをインストール   [script](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/powerdns/setup.sh)
-*  script実行後各種設定を実施とする前提条件は以下
-   *  powerdns:4.7.3
-   *  poweradmin:3.7.0
+- SSH公開鍵登録
+- ルートログイン
+- 固定IP設定
+- 自動アップデートスクリプト作成
+- NTP同期設定
+- タイムゾーン設定
+- UFW ファイアウォール設定
+- PowerDNS関連パッケージインストール
+
+---
+## 1. SSH公開鍵登録
+公開鍵を取得しSSHの認証をセキュアにかつログインの簡易化
+```bash
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+curl -sS https://github.com/maron-gt123.keys >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
+---
+## 2. rootログイン
+以降の設定をrootで実行
+```bash
+sudo su -
+```
+---
+## 3. 固定IPアドレス設定（NetworkManager）
+IPアドレスを固定IP化
+```bash
+nmcli connection modify netplan-eth0 \
+ipv4.method manual \
+ipv4.addresses 192.168.10.132/24 \
+ipv4.gateway 192.168.10.1 \
+ipv4.dns "9.9.9.9" \
+ipv4.ignore-auto-dns yes
+nmcli connection modify netplan-eth0 ipv6.method disabled
+```
+---
+## 4. 自動アップデートスクリプト作成
+update行為を簡易化
+```bash
+cat > update.sh <<EOF
+#!/bin/bash
+sudo apt update
+sudo apt -y upgrade
+sudo apt -y autoremove
+EOF
+
+chmod 700 update.sh
+./update.sh
+```
+---
+## 5. NTP同期設定（systemd-timesyncd）
+NTPを設定し正確な時刻を取得しtimezoneも日本に
+```bash
+cat > /etc/systemd/timesyncd.conf <<EOF
+[Time]
+NTP=ntp.jst.mfeed.ad.jp
+EOF
+systemctl restart systemd-timesyncd
+timedatectl timesync-status
+timedatectl set-timezone Asia/Tokyo
+timedatectl
+```
+---
+## 7. UFW ファイアウォール設定
+ファイアーウォールを最小限だけ許可
+```bash
+apt install -y ufw
+echo "y" | ufw enable
+ufw default deny
+ufw allow from 192.168.10.0/24 to any port 22
+ufw allow from 192.168.10.0/24 to any port 80
+ufw allow from 192.168.10.0/24 to any port 443
+ufw allow 53
+```
+---
+## 8. UFW ファイアウォール設定
+```bash
+sudo apt-get install -y \
+pdns-server \
+pdns-backend-mysql \
+pdns-recursor \
+git \
+php \
+php-fpm \
+nginx \
+php-mysql \
+php-intl
+```
+
+
 *  手動設定
     *  PowerDNSの設定ファイルを編集
 

@@ -84,91 +84,116 @@ ufw allow 53
 - Recursor
 - Nginx
 - PHP-FPM
+
 ```bash
 apt-get install -y \
 pdns-server \
 pdns-backend-mysql \
 pdns-recursor \
 git \
-php \
-php-fpm \
 nginx \
+php-fpm \
 php-mysql \
 php-intl
 ```
+---
+# PowerDNS 設定
+以降では、PowerDNS設定を実施します。
 
+- PowerDNSのSQL設定
+- poweradmin導入
+- nginx設定
+---
+## 1. PowerDNSのSQL設定
+PowerDNSの設定ファイルを編集
+```bash
+nano /etc/powerdns/pdns.conf
+```
+以下を追加
+```bash
+launch=gmysql
+gmysql-host=192.168.10.131
+gmysql-dbname=powerdns
+gmysql-user=<pdns_ID>
+gmysql-password=<password>
+local-port=8053
+```
+その後再起動
+```bash
+systemctl start pdns
+systemctl enable pdns
+```
+---
+## 2. poweradmin導入
+dns管理用にpoweradminを導入します<br>
+プロジェクトファイルのダウンロードしhtmlに格納   [バージョン管理](https://github.com/poweradmin/poweradmin)
 
-*  手動設定
-    *  PowerDNSの設定ファイルを編集
+```bash
+cd /var/www
+git clone https://github.com/poweradmin/poweradmin.git
+cd poweradmin
+git checkout tags/v****
+cd /var/www/html
+sudo chown -R www-data:www-data poweradmin
+cd
+rm -rf /var/www/html/poweradmin/.git
+```
+---
+## 3. nginx設定
+nginxの設定ファイルを編集
+```bash
+nano /etc/nginx/sites-available/poweradmin
+```
+以下のように設定
+```bash
+server {
+    listen 80;
+    server_name _;
 
-           sudo nano /etc/powerdns/pdns.conf
-       *  設定内容
-          
-              launch=gmysql
-              gmysql-host=192.168.10.131
-              gmysql-dbname=powerdns
-              gmysql-user=<pdns_ID>
-              gmysql-password=<password>
-              local-port=8053
-       
-    *  PowerDNSを起動
-    
-           sudo systemctl start pdns
-           sudo systemctl enable pdns
-    
-    * プロジェクトファイルのダウンロードしhtmlに格納   [バージョン管理](https://github.com/poweradmin/poweradmin)
- 
-          cd /var/www/html
-          git clone https://github.com/poweradmin/poweradmin.git
-          cd poweradmin
-          git checkout tags/v****
-          cd /var/www/html
-          sudo chown -R www-data:www-data poweradmin
-          cd
-          rm -rf /var/www/html/poweradmin/.git
-    * webブラウザアクセス
-       * install設定に沿って設定を実施とするが原則mariaDBへのアカウント設定とphpの設定関連
+    root /var/www/poweradmin;
+    index index.php index.html;
 
-             http://<poweradminIPaddress>/poweradmin/install/
-    * install設定完了後のinstalldirectory削除
- 
-          rm -rf /var/www/html/poweradmin/install
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
 
-    * Apache2の設定
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
+    }
 
-          cat > /etc/apache2/sites-available/poweradmin.conf <<EOF
-          <VirtualHost *:80>
-              ServerAdmin webmaster@<IPaddress>
-              DocumentRoot /var/www/html/poweradmin
-              ErrorLog ${APACHE_LOG_DIR}/error.log
-              CustomLog ${APACHE_LOG_DIR}/access.log combined
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+default削除して有効化
+```bash
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/poweradmin /etc/nginx/sites-enabled/
+```
+PHP-FPM 起動
+```bash
+systemctl enable php8.4-fpm
+systemctl restart php8.4-fpm
+```
+Nginx 再起動
+```bash
+systemctl restart nginx
+```
+webブラウザアクセス
+```bash
+http://<ラズパイIP>/install/
+```
+---
 
-              <Directory /var/www/html/poweradmin>
-                  Options Indexes FollowSymLinks
-                  AllowOverride All
-                  Require all granted
-              </Directory>
-          </VirtualHost>
-          EOF
-    * Apache2再起動
-
-          sudo a2ensite poweradmin
-          sudo systemctl restart apache2
-    * webGUIへのアクセス
-        * 以下画面が表示されれば成功
-           * 初期ユーザー名はadmin
-      ![スタート画面](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/powerdns/poweradmin_startmonitor.png)
-    * recursorの設定
-       * /etc/powerdns/recursor.confを編集
-     
-             allow-from=192.168.10.0/24, 192.168.15.0/24, 192.168.1.0/24
-             forward-zones=mcnet=127.0.0.1:8053, maroncloud=127.0.0.1:8053, 10.168.192.in-addr.arpa=127.0.0.1:8053, 15.168.192.in-addr.arpa=127.0.0.1:8053
-             forward-zones-recurse=.=9.9.9.9
-             local-address=192.168.10.132, 127.0.0.1
-             local-port=53
-             threads=4
-             max-cache-entries=1000000
-             max-negative-ttl=3600
-       * 設定反映
-         
-             sudo systemctl restart pdns-recursor
+ ```bash   
+allow-from=192.168.10.0/24, 192.168.15.0/24, 192.168.1.0/24
+forward-zones=mcnet=127.0.0.1:8053, maroncloud=127.0.0.1:8053, 10.168.192.in-addr.arpa=127.0.0.1:8053, 15.168.192.in-addr.arpa=127.0.0.1:8053
+forward-zones-recurse=.=9.9.9.9
+local-address=192.168.10.132, 127.0.0.1
+local-port=53
+threads=4
+max-cache-entries=1000000
+max-negative-ttl=3600
+```

@@ -128,6 +128,8 @@ local-port=8053
 ```bash
 systemctl start pdns
 systemctl enable pdns
+systemctl restart php8.4-fpm
+systemctl restart nginx
 ```
 ---
 ## 2. poweradmin導入

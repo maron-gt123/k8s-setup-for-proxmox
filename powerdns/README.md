@@ -9,7 +9,10 @@
 - タイムゾーン設定
 - UFW ファイアウォール設定
 - PowerDNS関連パッケージインストール
-
+- PowerDNSのSQL設定
+- poweradmin導入
+- nginx設定
+- 
 ---
 ## 1. SSH公開鍵登録
 公開鍵を取得しSSHの認証をセキュアにかつログインの簡易化
@@ -89,6 +92,7 @@ ufw allow 53
 apt-get install -y \
 pdns-server \
 pdns-backend-mysql \
+mariadb-client \
 pdns-recursor \
 git \
 nginx \
@@ -103,14 +107,7 @@ php8.4-curl \
 php8.4-mbstring
 ```
 ---
-# PowerDNS 設定
-以降では、PowerDNS設定を実施します。
-
-- PowerDNSのSQL設定
-- poweradmin導入
-- nginx設定
----
-## 1. PowerDNSのSQL設定
+## 9. PowerDNSのSQL設定
 PowerDNSの設定ファイルを編集
 ```bash
 nano /etc/powerdns/pdns.conf
@@ -124,13 +121,17 @@ gmysql-user=<pdns_ID>
 gmysql-password=<password>
 local-port=8053
 ```
+テーブルインポート
+```bash
+mysql --ssl=0 -u pdns -p -h 192.168.10.131 powerdns < /usr/share/pdns-backend-mysql/schema/schema.mysql.sql
+```
 その後再起動
 ```bash
 systemctl start pdns
 systemctl enable pdns
 ```
 ---
-## 2. poweradmin導入
+## 10. poweradmin導入
 dns管理用にpoweradminを導入します<br>
 プロジェクトファイルのダウンロードしhtmlに格納   [バージョン管理](https://github.com/poweradmin/poweradmin)
 
@@ -145,7 +146,7 @@ cd
 rm -rf /var/www/html/poweradmin/.git
 ```
 ---
-## 3. nginx設定
+## 11. nginx設定
 nginxの設定ファイルを編集
 ```bash
 nano /etc/nginx/sites-available/poweradmin
@@ -178,6 +179,12 @@ default削除して有効化
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/poweradmin /etc/nginx/sites-enabled/
 ```
+locale変更
+```bash
+apt install -y locales
+locale-gen ja_JP.UTF-8
+update-locale LANG=ja_JP.UTF-8
+```
 PHP-FPM & nginx起動
 ```bash
 systemctl enable php8.4-fpm
@@ -188,15 +195,84 @@ webブラウザアクセス
 ```bash
 http://<ラズパイIP>/install/
 ```
----
-
- ```bash   
-allow-from=192.168.10.0/24, 192.168.15.0/24, 192.168.1.0/24
-forward-zones=mcnet=127.0.0.1:8053, maroncloud=127.0.0.1:8053, 10.168.192.in-addr.arpa=127.0.0.1:8053, 15.168.192.in-addr.arpa=127.0.0.1:8053
-forward-zones-recurse=.=9.9.9.9
-local-address=192.168.10.132, 127.0.0.1
-local-port=53
-threads=4
-max-cache-entries=1000000
-max-negative-ttl=3600
+/install/ で設定した内容を以下に転記
+```bash
+nano /var/www/poweradmin/config/settings.php
 ```
+/install/ 削除
+```bash
+rm -rf /var/www/poweradmin/install
+systemctl reload nginx
+```
+---
+## 12. Recursor設定
+override ディレクトリ作成
+ ```bash   
+mkdir -p /etc/systemd/system/pdns-recursor.service.d
+ ```
+ 以下記載
+ ```bash  
+cat > /etc/systemd/system/pdns-recursor.service.d/override.conf <<EOF
+[Service]
+ExecStart=
+ExecStart=/usr/sbin/pdns_recursor --config-dir=/etc/powerdns --daemon=no --write-pid=no --disable-syslog --log-timestamp=no
+EOF
+```
+ 以下のように設定
+ ```bash  
+ cat > /etc/powerdns/recursor.yml <<EOF
+ dnssec:
+  trustanchorfile: /usr/share/dns/root.key
+
+recursor:
+  hint_file: /usr/share/dns/root.hints
+  include_dir: /etc/powerdns/recursor.d
+  security_poll_suffix: ''
+  socket_dir: /run/pdns-recursor
+  threads: 4
+
+  forward_zones:
+    - zone: "mcnet"
+      forwarders:
+        - 127.0.0.1:8053
+    - zone: "maroncloud"
+      forwarders:
+        - 127.0.0.1:8053
+    - zone: "10.168.192.in-addr.arpa"
+      forwarders:
+        - 127.0.0.1:8053
+    - zone: "15.168.192.in-addr.arpa"
+      forwarders:
+        - 127.0.0.1:8053
+  forward_zones_recurse:
+    - zone: "."
+      forwarders:
+        - 9.9.9.9
+incoming:
+  listen:
+    - 192.168.10.132:53
+    - 127.0.0.1:53
+  allow_from:
+    - 192.168.10.0/24
+    - 192.168.15.0/24
+    - 192.168.1.0/24
+    - 127.0.0.1/8
+recordcache:
+  max_entries: 1000000
+  max_negative_ttl: 3600
+
+outgoing:
+ # source_address:
+ # - 0.0.0.0 # default
+webservice:
+  webserver: true
+  api_key: changeme
+  address: 127.0.0.1
+  port: 8082
+ EOF
+ ```
+反映
+ ```bash   
+systemctl daemon-reload
+systemctl restart pdns-recursor
+ ```

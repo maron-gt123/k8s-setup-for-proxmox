@@ -1,94 +1,177 @@
 ## mariaDBの構築
-* minecraftのプラグイン機能群のバックグラウンドとしてSQLを使用する場合があるため、本項で記載する。
-* 初期セットアップ
-  * 以下のscript実行により一括実行　[script](https://github.com/maron-gt123/k8s-setup-for-proxmox/blob/main/sql/setup.sh)
-      * apt updateの実行
-      * ntpサーバの指定
-      * timezoneの設定
-      * mariaDBのインストール
-      * Apache2のインストール
-      * phpのインストール
-      * influxdbのインストール
-* mariadbの初期設定
-  * 初期設定については手動で設定する。※意図的な変更も加味して
-    * 対話型で設定とする
-    
-          mysql_secure_installation
-    * Enter current password for root (enter for none):
-      * Ente入力
-    * Switch to unix_socket authentication [Y/n]
-      * noを入力
-    * Change the root password? [Y/n]
-      * yesを入力 任意のパスワードを入力
-    * Remove anonymous users? [Y/n]
-      * yesを入力
-    * Disallow root login remotely? [Y/n]
-      * yesを入力
-    * Remove test database and access to it? [Y/n]
-      * yesを入力
-    * Reload privilege tables now? [Y/n]
-      * yesを入力
-* phpmyadminのインストール
-  
-      apt -y install phpmyadmin
-  * apache2を選択
-    * 以降すべての内容Yesで設定 
-  * apache2.configの編集
-  
-        cat >> /etc/apache2/apache2.conf << EOF
-        
-        # phpmyadmin set
-        Include /etc/phpmyadmin/apache.conf
-        EOF
-        
-  * PHP-FPMの編集
-    */etc/apache2/sites-available/default-ssl.conf 
-  
-         # </VirtualHost> </VirtualHost>間に記載
-                <FilesMatch \.php$>
-                    SetHandler "proxy:unix:/var/run/php/php8.3-fpm.sock|fcgi://localhost/"
-                </FilesMatch>
-  * 設定反映
- 
-        a2enmod proxy_fcgi setenvif
-        a2enconf php8.3-fpm
-        systemctl restart php8.3-fpm apache2
-  * mariadb 50-server.cnfの編集
-  
-        nano /etc/mysql/mariadb.conf.d/50-server.cnf
-        # 以下コメントアウト
-        bind-address            = 127.0.0.1
-* 権限関連
-  * 本番環境としてはminecraftのユーザー管理及びインベントリ管理、powerdnsのバックエンドDBとして機能させるため2つのユーザーを作成します。
-  * mariaDBへのログイン
-  
-        mysql -u root -p
-  * minecraftデータ管理用
-    * 新規ユーザ設定
+本手順では、mariaDB を導入する前段階として以下の初期設定を実施します。
 
-          CREATE USER '<任意のユーザ名>'@'%' IDENTIFIED BY '<任意のパスワード>' ;
-    * 新規ユーザに権限付与
-  
-          GRANT ALL ON *.* to <任意のユーザ名>@'%' ;
+- SSH公開鍵登録
+- ルートログイン
+- 固定IP設定
+- 自動アップデートスクリプト作成
+- NTP同期・タイムゾーン設定
+- UFW ファイアウォール設定
+- mariaDB及びphpmyadminパッケージインストール
+- phpmyadmin設定
+---
+## 1. SSH公開鍵登録
+公開鍵を取得しSSHの認証をセキュアにかつログインの簡易化
+```bash
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+curl -sS https://github.com/maron-gt123.keys >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
+---
+## 2. rootログイン
+以降の設定をrootで実行
+```bash
+sudo su -
+```
+## 3. 固定IPアドレス設定（netplan）
+IPアドレスを固定IP化 ※install時に設定の場合は不要
+```bash
+cat > /etc/netplan/50-cloud-init.yaml <<EOF
+# This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+network:
+    ethernets:
+        enp1s0:
+            addresses:
+            - 192.168.10.131/24
+            nameservers:
+                addresses:
+                - 9.9.9.9
+                search: []
+            routes:
+            -   to: default
+                via: 192.168.10.1
+    version: 2
+EOF
+# netplan 適応　※SSH接続中の実行時は注意
+netplan apply
+```
+---
+## 4. 自動アップデートスクリプト作成
+update行為を簡易化
+```bash
+cat > update.sh <<EOF
+#!/bin/bash
+sudo apt update
+sudo apt -y upgrade
+sudo apt -y autoremove
+EOF
 
-  * powerdnsデータ管理用
-    * DB作成
+chmod 700 update.sh
+./update.sh
+```
+---
+## 5. NTP同期・タイムゾーン設定
+NTPを設定し正確な時刻を取得しtimezoneも日本に
+```bash
+cat > /etc/systemd/timesyncd.conf <<EOF
+[Time]
+NTP=ntp.jst.mfeed.ad.jp
+EOF
+systemctl restart systemd-timesyncd
+timedatectl timesync-status
+timedatectl set-timezone Asia/Tokyo
+timedatectl
+```
+---
+## 6. UFW ファイアウォール設定
+ファイアーウォールを最小限だけ許可
+```bash
+apt install -y ufw
+echo "y" | ufw enable
+ufw default deny
+ufw allow from 192.168.10.0/24 to any port 22
+ufw allow from 192.168.10.0/24 to any port 9100
+ufw allow from 192.168.10.0/24 to any port 8086
+ufw allow from 192.168.10.0/24 to any port 80
+ufw allow from 192.168.10.0/24 to any port 3306
+```
+---
+## 7. mariaDB及びphpmyadminパッケージインストール
+以下パッケージをインストールします。
 
-           CREATE DATABASE powerdns;
-           CREATE DATABASE mc_LuckPerms;
-           CREATE DATABASE mc_inventory;
-    * 新規ユーザ設定
+- prometheus prometheus-node-exporter
+- mariadb-server
+- php-fpm
+- nginx
+- phpmyadmin
+```bash
+apt-get install -y \
+prometheus prometheus-node-exporter \
+mariadb-server \
+php-fpm \
+nginx
+```
+アクセス許可設定
+```bash
+nano /etc/mysql/mariadb.conf.d/50-server.cnf
+#↓以下に設定
+bind-address = 0.0.0.0
+```
 
-          CREATE USER '<任意のユーザ名>'@'<powerdnsホストアドレス>' IDENTIFIED BY '<任意のパスワード>' ;
-    * 新規ユーザに権限付与
-  
-          GRANT ALL PRIVILEGES ON powerdns.* TO '<任意のユーザ名>'@'<powerdnsホストアドレス>';
-  * 権限反映
-    
-        FLUSH PRIVILEGES;
-  * ログアウト
+phpmyadminをインストール<br>
+インストール時の設定はApacheを選択しないこと
+```bash
+apt -y install phpmyadmin
+```
+---
+## 8. phpmyadmin設定
+nginxにphpmyadminの設定付与
+```bash
+nano /etc/nginx/sites-enabled/default
+```
+以下を追加
+```bash
+    location /phpmyadmin {
+        alias /usr/share/phpmyadmin/;
+        index index.php;
+    }
 
-        exit;
-  * データベースのインポート
-  
-        mysql -u root -p powerdns < /usr/share/doc/pdns-backend-mysql/schema.mysql.sql
+    location ~ ^/phpmyadmin/(.+\.php)$ {
+        alias /usr/share/phpmyadmin/$1;
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /usr/share/phpmyadmin/$1;
+    }
+
+    location ~* ^/phpmyadmin/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
+        alias /usr/share/phpmyadmin/$1;
+    }
+```
+記載後、適応
+```bash
+nginx -t
+systemctl restart nginx
+```
+ブラウザより以下確認
+```bash
+http://192.168.10.131/phpmyadmin/
+```
+---
+## 9. mariadb設定
+minecraftとpowerdnsのデータベースなので2つのアカウントを作成します<br>
+MariaDBにログイン
+```bash
+mysql -u root -p
+```
+minecraft用
+```bash
+CREATE USER '<任意のユーザ名>'@'%' IDENTIFIED BY '<任意のパスワード>' ;
+GRANT ALL ON *.* to <任意のユーザ名>@'%' ;
+FLUSH PRIVILEGES;
+```
+powerdns用
+```bash
+CREATE USER '<任意のユーザ名>'@'<powerdnsホストアドレス>' IDENTIFIED BY '<任意のパスワード>' ;
+GRANT ALL PRIVILEGES ON powerdns.* TO '<任意のユーザ名>'@'<powerdnsホストアドレス>';
+FLUSH PRIVILEGES;
+```
+各種datebase作成
+```bash
+CREATE DATABASE powerdns;
+CREATE DATABASE mc_LuckPerms;
+```
+---

@@ -13,6 +13,3 @@ spec:
     targetRevision: main
   syncPolicy:
     automated: {}
-    syncOptions:
-      - ServerSideApply=true
-      - Replace=true

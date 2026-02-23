@@ -4,6 +4,8 @@ k8scluster構築後のセットアップについて示します。<br>
 - ArgoCDの導入
 - application錬成
 - ArgoCD認証パスワードの変更
+- ArgoCD初期認証情報削除
+- pod内ログイン方法
 
 
 ## 1. ArgoCDの導入
@@ -33,30 +35,20 @@ kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-pro
 ArgoCDのデプロイ完了後、パスワードを取得しログイン
 
 ```bash
-ARGOCD_ADMIN_PASSWORD='Admin123!' && \
-HASHED_PASSWORD=$(htpasswd -nbBC 10 "" ${ARGOCD_ADMIN_PASSWORD} | tr -d ':\n') && \
-kubectl -n argocd patch secret argocd-secret \
--p "{\"stringData\": {
-\"admin.password\": \"${HASHED_PASSWORD}\",
-\"admin.passwordMtime\": \"$(date +%FT%T%Z)\"
-}}" && \
-kubectl -n argocd rollout restart deployment argocd-server
+# Argo CDの初期管理者パスワードを取得
+PASSWORD=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
+# Argo CDにログイン
+echo "y" | argocd login 192.168.15.60 --username=admin --password=$PASSWORD
+# パスワード変更
+argocd account update-password --current-password $PASSWORD
 ```
-
-* ArgoCDの初期パスワードを削除
-
+## 4. ArgoCD初期認証情報削除
 ```bash
 kubectl -n argocd delete secret/argocd-initial-admin-secret
 ```
 
-### dashboard認証コードの表示<br>
-* k8sdashboardのデプロイ完了後、以下のpashを取得しログイン
-
-```bash
-kubectl -n kubernetes-dashboard create token admin-user
-```
-### pod内へのリモートアクセス<br>
-* 以下のコマンドでリモートログインが可能
+## 5. pod内ログイン方法
+以下のコマンドでリモートログインが可能
 ```bash
 kubectl exec -it <pod-name> -- /bin/bash
 ```

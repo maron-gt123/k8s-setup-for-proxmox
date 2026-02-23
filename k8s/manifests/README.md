@@ -1,38 +1,36 @@
-## applicationセットアップ<br>
+# applicationセットアップ<br>
 k8scluster構築後のセットアップについて示します。<br>
 
-### ArgoCDの導入<br>
-* 公式githubrepositoryからArgoCDをデプロイし、本リポジトリのapps配下のmanifestから各種applicationを錬成します。
-  * 手順については以下の順序となります。
-    * SSHログイン
-    
-          # SSHログイン
-          ssh onp-k8s-cp-1
-          
-    * ArgoCLIのインストール
-    * namespaceの作成
-    * ArgoCDを公式manifestから投入
-    * appを投入
-          
-          # onp-k8s-cp-1にArgoCLIのインストール
-          curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-          sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
-          rm argocd-linux-amd64
-          
-          # namespaceの作成
-          ## argocd
-          kubectl create namespace argocd
-           
-          # argocdデプロイ
-          kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-          
-          sleep 60
-          #app-of-apps.yaml apply
-          kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/root/app-of-apps.yaml
-          kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/root/haramis-server-app.yaml
+- ArgoCDの導入
+- application錬成
+- ArgoCD認証パスワードの変更
 
-### ArgoCD認証パスワードの変更
-* ArgoCDのデプロイ完了後、パスワードを取得しログイン
+
+## 1. ArgoCDの導入
+公式githubrepositoryからArgoCDをデプロイし、本リポジトリのapps配下のmanifestから各種applicationを錬成します<br>
+
+- ArgoCLIのインストール
+- namespaceの作成
+- ArgoCDを公式manifestから投入
+
+```bash
+# onp-k8s-cp-1にArgoCLIのインストール
+curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+rm argocd-linux-amd64
+# namespaceの作成
+kubectl create namespace argocd
+# ArgoCDを公式manifestから投入
+kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+## 2. application錬成
+本GitHubに登録されているmanifest関連をapplication経由で読込をさせる<br>          
+```bash
+kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/root/app-of-apps.yaml
+```
+
+## 3. ArgoCD認証パスワードの変更
+ArgoCDのデプロイ完了後、パスワードを取得しログイン
 
 ```bash
 ARGOCD_ADMIN_PASSWORD='Admin123!' && \

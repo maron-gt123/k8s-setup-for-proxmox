@@ -5,9 +5,12 @@ metadata:
 data:
   uuidredirect-config.json: |
     {
+      "ebd6ed5c-7a32-49fd-b287-df57f2ffb33b": {
+        "username": "maron_12345",
+        "server": "jamming"
       },
-      "ac27d02d-629e-4de2-8a46-90ed95a5cdf3": {
-        "username": "nosukero",
+      "cc0d7d56-8a2a-49b7-b5b9-e9c3d889bde5": {
+        "username": "KodamaRei",
         "server": "jamming"
       }
     }

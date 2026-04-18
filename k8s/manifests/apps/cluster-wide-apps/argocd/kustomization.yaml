@@ -9,15 +9,14 @@ resources:
 patches:
   - patch: |-
       - op: add
-        path: /data
+        path: /data/resource.exclusions
         value:
-          resource.exclusions: |
-            - apiGroups:
-                - cilium.io
-              kinds:
-                - CiliumIdentity
-              clusters:
-                - "*"
+          - apiGroups:
+              - cilium.io
+            kinds:
+              - CiliumIdentity
+            clusters:
+              - "*"
     target:
       version: v1
       kind: ConfigMap

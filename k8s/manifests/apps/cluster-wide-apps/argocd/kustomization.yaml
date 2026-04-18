@@ -6,9 +6,30 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - ./argocd-server-lb.yaml
   - ./argocd-metrics-path.yaml
-  - ./config/argocd-secret.yaml
 patches:
-  - target:
+  - patch: |-
+      - op: add
+        path: /data
+        value:
+          resource.exclusions: |
+            - apiGroups:
+                - cilium.io
+              kinds:
+                - CiliumIdentity
+              clusters:
+                - "*"
+    target:
+      version: v1
       kind: ConfigMap
       name: argocd-cm
-    path: ./config/argocd-cm-patch.yaml
+
+  - patch: |-
+      - op: add
+        path: /stringData
+        value:
+          admin.password: $2y$10$mqhcbzPnSWTukQc2n.uUvecI9Tk0BFjeaPcdpBeFpnzTnq/wjQYuW
+          admin.passwordMtime: "2026-04-18T00:00:00Z"
+    rget:
+      version: v1
+      kind: Secret
+      name: argocd-secret

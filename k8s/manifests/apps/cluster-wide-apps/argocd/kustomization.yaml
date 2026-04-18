@@ -6,19 +6,9 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - ./argocd-server-lb.yaml
   - ./argocd-metrics-path.yaml
+  - ./config/argocd-secret.yaml
 patches:
-  - patch: |-
-      - op: add
-        path: /data
-        value:
-          resource.exclusions: |
-            - apiGroups:
-                - cilium.io
-              kinds:
-                - CiliumIdentity
-              clusters:
-                - "*"
-    target:
-      version: v1
+  - target:
       kind: ConfigMap
       name: argocd-cm
+    path: ./config/argocd-cm-patch.yaml

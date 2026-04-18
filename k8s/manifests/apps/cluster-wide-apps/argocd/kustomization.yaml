@@ -10,7 +10,7 @@ patches:
   - patch: |-
       - op: add
         path: /data/resource.exclusions
-        value:
+        value: |
           - apiGroups:
               - cilium.io
             kinds:

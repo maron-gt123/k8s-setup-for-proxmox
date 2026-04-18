@@ -29,7 +29,7 @@ patches:
         value:
           admin.password: $2y$10$mqhcbzPnSWTukQc2n.uUvecI9Tk0BFjeaPcdpBeFpnzTnq/wjQYuW
           admin.passwordMtime: "2026-04-18T00:00:00Z"
-    rget:
+    target:
       version: v1
       kind: Secret
       name: argocd-secret

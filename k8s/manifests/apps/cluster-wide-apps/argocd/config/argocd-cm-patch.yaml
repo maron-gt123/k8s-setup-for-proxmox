@@ -1,9 +1,0 @@
-- op: add
-  path: /data/resource.exclusions
-  value: |
-    - apiGroups:
-        - cilium.io
-      kinds:
-        - CiliumIdentity
-      clusters:
-        - "*"

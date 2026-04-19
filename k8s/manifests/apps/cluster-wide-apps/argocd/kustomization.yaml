@@ -3,8 +3,8 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/crds.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/namespace-install.yaml
+  - https://github.com/argoproj/argo-cd/manifests/crds?ref=stable
+  - https://github.com/argoproj/argo-cd/manifests/namespace-install?ref=stable
   - ./argocd-server-lb.yaml
   - ./argocd-metrics-path.yaml
 patches:

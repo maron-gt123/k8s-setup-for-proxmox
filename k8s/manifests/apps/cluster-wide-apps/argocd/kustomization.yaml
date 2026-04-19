@@ -22,6 +22,14 @@ patches:
       version: v1
       kind: ConfigMap
       name: argocd-cm
+  - patch: |-
+      - op: add
+        path: /data/application.resourceTrackingMethod
+        value: label
+    target:
+      version: v1
+      kind: ConfigMap
+      name: argocd-cm
 
   - patch: |-
       - op: add

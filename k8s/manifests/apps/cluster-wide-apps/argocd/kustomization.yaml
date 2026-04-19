@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - https://github.com/argoproj/argo-cd/manifests/crds?ref=stable
   - https://github.com/argoproj/argo-cd/manifests/namespace-install?ref=stable
   - ./argocd-server-lb.yaml
   - ./argocd-metrics-path.yaml
@@ -18,14 +17,6 @@ patches:
               - CiliumIdentity
             clusters:
               - "*"
-    target:
-      version: v1
-      kind: ConfigMap
-      name: argocd-cm
-  - patch: |-
-      - op: add
-        path: /data/application.resourceTrackingMethod
-        value: label
     target:
       version: v1
       kind: ConfigMap

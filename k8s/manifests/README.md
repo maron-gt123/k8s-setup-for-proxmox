@@ -22,8 +22,14 @@ sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
 rm argocd-linux-amd64
 # namespaceの作成
 kubectl create namespace argocd
+# Arco-CDのCRD
+kubectl create -k https://github.com/argoproj/argo-cd/manifests/crds?ref=stable
 # kustomization.yamlから投入
 kubectl apply -k https://github.com/maron-gt123/k8s-setup-for-proxmox/k8s/manifests/apps/cluster-wide-apps/argocd?ref=main --server-side --force-conflicts
+# 権限付与
+kubectl create clusterrolebinding argocd-application-controller-cluster-admin \
+  --clusterrole=cluster-admin \
+  --serviceaccount=argocd:argocd-application-controller
 ```
 ## 2. application錬成
 本GitHubに登録されているmanifest関連をapplication経由で読込をさせる<br>          

@@ -22,8 +22,8 @@ sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
 rm argocd-linux-amd64
 # namespaceの作成
 kubectl create namespace argocd
-# ArgoCDを公式manifestから投入
-kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+# kustomization.yamlから投入
+kubectl apply -k https://github.com/maron-gt123/k8s-setup-for-proxmox/k8s/manifests/apps/cluster-wide-apps/argocd?ref=main --server-side --force-conflicts
 ```
 ## 2. application錬成
 本GitHubに登録されているmanifest関連をapplication経由で読込をさせる<br>          

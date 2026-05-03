@@ -154,9 +154,8 @@ case $1 in
 esac
 
 # Install HAProxy
-apt-get install -y --no-install-recommends software-properties-common
-add-apt-repository ppa:vbernat/haproxy-3.1 -y
-sudo apt-get install -y haproxy=3.1.\*
+apt-get update
+apt-get install -y haproxy
 
 cat > /etc/haproxy/haproxy.cfg <<EOF
 global

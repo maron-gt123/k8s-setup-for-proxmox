@@ -60,7 +60,7 @@ spec:
             - name: TYPE
               value: PAPER
             - name: VERSION
-              value: "1.21.10"
+              value: "1.21.11"
             - name: INIT_MEMORY
               value: 1G
             - name: MAX_MEMORY

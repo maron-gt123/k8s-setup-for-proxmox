@@ -92,7 +92,7 @@ spec:
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
             - name: init-prometheus-download-volume
-              mountPath: /prometheus-exporter/minecraft-prometheus-exporter.jar
+              mountPath: /config/plugins/minecraft-prometheus-exporter.jar
               subPath: minecraft-prometheus-exporter.jar
             # ------- jmx-exporter-config mount -------
             - name: jmx-exporter-config
@@ -101,6 +101,10 @@ spec:
             # ------- paper-config mount -------
             - name: paper-config
               mountPath: /config/config/
+            # ------- prometeus-exporter mount -------
+            - name: prometheus-exporter-config
+              mountPath: /config/plugins/PrometheusExporter/config.yml
+              subPath: prometheus-exporter-config.yml
       volumes:
         # ------- initで格納するvolume -------
         - name: init-jmx-download-volume
@@ -114,3 +118,7 @@ spec:
         - name: paper-config
           configMap:
             name: paper-config
+        # ------- prometeus-exporterのvolume -------
+        - name: prometheus-exporter-config
+          configMap:
+            name: prometheus-exporter-config

@@ -6,6 +6,7 @@ resources:
   - https://github.com/argoproj/argo-cd/manifests/namespace-install?ref=stable
   - ./argocd-server-lb.yaml
   - ./argocd-metrics-path.yaml
+  - ./argocd-server-rbac.yaml
 patches:
   - patch: |-
       - op: add

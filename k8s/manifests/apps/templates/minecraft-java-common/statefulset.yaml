@@ -22,7 +22,7 @@ spec:
             - name: JMX_EXPORTER_URL
               value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/1.0.1/jmx_prometheus_javaagent-1.0.1.jar"
             - name: JMX_JDBC_URL
-              value: "https://downloads.mariadb.com/Connectors/java/connector-java-3.5.1/mariadb-java-client-3.5.1.jar"
+              value: "https://repo1.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/3.5.1/mariadb-java-client-3.5.1.jar"
           volumeMounts:
             - name: init-jmx-download-volume
               mountPath: /root/initContainer-download

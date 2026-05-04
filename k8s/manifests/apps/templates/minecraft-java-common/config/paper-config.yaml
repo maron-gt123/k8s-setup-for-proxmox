@@ -122,7 +122,7 @@ data:
       velocity:
         enabled: true
         online-mode: true
-        secret: '${CFG_FORWARDING_KEY}'
+        secret: ''${CFG_FORWARDING_KEY}''
     scoreboards:
       save-empty-scoreboard-teams: true
       track-plugin-scoreboards: false

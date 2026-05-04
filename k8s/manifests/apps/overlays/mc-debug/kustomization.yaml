@@ -4,3 +4,5 @@ namespace: debug
 resources:
   # template
   - ../../templates/minecraft-java-common
+patches:
+  - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml

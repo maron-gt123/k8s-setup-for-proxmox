@@ -5,71 +5,33 @@ metadata:
   labels:
     app: minecraft
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: minecraft
   template:
-    metadata:
-      labels:
-        app: minecraft
     spec:
       initContainers:
-        # initcontainersでjmx-exporterをダウンロード
-        - name: jmx-exporter-downloader
-          image: busybox:1.37.0
-          env:
-            - name: JMX_EXPORTER_URL
-              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/1.0.1/jmx_prometheus_javaagent-1.0.1.jar"
-            - name: JMX_JDBC_URL
-              value: "https://downloads.mariadb.com/Connectors/java/connector-java-3.5.1/mariadb-java-client-3.5.1.jar"
-          volumeMounts:
-            - name: init-download-volume
-              mountPath: /root/initContainer-download
-          command:
-            - sh
-            - -c
-            - >
-              wget -O /root/initContainer-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}" &&
-              wget -O /root/initContainer-download/mariadb-java-client.jar "${JMX_JDBC_URL}"
       containers:
-        - image: itzg/minecraft-server:java21
-          name: minecraft
+        - name: minecraft
           resources:
             requests:
               cpu: "2"
-              memory: 2G
+              memory: 4096M
           env:
             # ---- 基本設定 ---- 
-            - name: TZ
-              value: Asia/Tokyo
-            - name: TYPE
-              value: PAPER
             - name: VERSION
-              value: "1.21.10"
+              value: "26.1.2"
             - name: INIT_MEMORY
               value: 1G
             - name: MAX_MEMORY
-              value: 2G
+              value: 4096M
             - name: EULA
               value: "TRUE"
-            - name: COPY_CONFIG_DEST
-              value: /data
-            - name: REPLACE_ENV_VARIABLE_PREFIX
-              value: CFG_
             - name: PLUGINS
               value: >-
-                https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.2/minecraft-prometheus-exporter-3.1.2.jar,
                 https://cdn.modrinth.com/data/axTqSWQA/versions/SqR0biky/Advanced-Portals-Spigot-2.6.1.jar,
                 https://download.luckperms.net/1631/bukkit/loader/LuckPerms-Bukkit-5.5.42.jar,
                 https://server-backup.net/assets/downloads/ServerBackup-2.10.0.jar
             # ---- server configの変数 ---- 
             - name: ENABLE_RCON
               value: "true"
-            - name: MAX_TICK_TIME
-              value: "-1"
-            - name: ONLINE_MODE
-              value: "false"
             - name: DIFFICULTY
               value: easy
             - name: LEVEL_TYPE
@@ -79,11 +41,6 @@ spec:
                 secretKeyRef:
                   name: secret-mcserver
                   key: CFG_MC_RCON_PASSWORD
-            - name: CFG_FORWARDING_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: secret-velocity
-                  key: CFG_FORWARDING_KEY
             - name: SPIGET_RESOURCES
               value: 
             - name: RCON_CMDS_STARTUP
@@ -115,20 +72,6 @@ spec:
               mountPath: /config/plugins/ServerBackup/config.yml
               subPath: serverbackup.yml
       volumes:
-        # ------- initで格納するvolume -------
-        - name: init-download-volume
-          emptyDir: {}
-        - name: jmx-exporter-config
-          configMap:
-            name: jmx-exporter-config
-        # ------- papermcのvolume -------
-        - name: paper-config
-          configMap:
-            name: paper-config
-        # ------- prometeus-exporterのvolume -------
-        - name: prometheus-exporter-config
-          configMap:
-            name: prometheus-exporter-config
         # ------- serverbackupのvolume -------
         - name: serverbackup-config
           configMap:

@@ -1,0 +1,115 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minecraft
+  labels:
+    app: minecraft
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft
+  template:
+    metadata:
+      labels:
+        app: minecraft
+    spec:
+      initContainers:
+        # initcontainersでjmx-exporterをダウンロード
+        - name: jmx-exporter-downloader
+          image: busybox:1.37.0
+          env:
+            - name: JMX_EXPORTER_URL
+              value: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/1.0.1/jmx_prometheus_javaagent-1.0.1.jar"
+          volumeMounts:
+            - name: init-download-volume
+              mountPath: /root/initContainer-download
+          command:
+            - sh
+            - -c
+            - >
+              wget -O /root/initContainer-download/jmx-exporter-javaagent.jar "${JMX_EXPORTER_URL}"
+      containers:
+        - image: itzg/minecraft-server:java21
+          name: minecraft
+          resources:
+            requests:
+              cpu: "2"
+              memory: 2G
+          env:
+            # ---- 基本設定 ---- 
+            - name: TZ
+              value: Asia/Tokyo
+            - name: TYPE
+              value: PAPER
+            - name: VERSION
+              value: "1.21.11"
+            - name: INIT_MEMORY
+              value: 1G
+            - name: MAX_MEMORY
+              value: 2G
+            - name: EULA
+              value: "TRUE"
+            - name: COPY_CONFIG_DEST
+              value: /data
+            - name: REPLACE_ENV_VARIABLE_PREFIX
+              value: CFG_
+            - name: PLUGINS
+              value: >-
+                https://github.com/sladkoff/minecraft-prometheus-exporter/releases/download/v3.1.2/minecraft-prometheus-exporter-3.1.2.jar,
+                https://github.com/maron-gt123/jamming-minecraft-stream/releases/download/1.0/jamming-minecraft-stream-1.0.jar
+            - name: MAX_TICK_TIME
+              value: "-1"
+            - name: ONLINE_MODE
+              value: "false"
+            - name: DIFFICULTY
+              value: peaceful
+            - name: CFG_FORWARDING_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-velocity
+                  key: CFG_FORWARDING_KEY
+            - name: SPIGET_RESOURCES
+              value: 
+            - name: RCON_CMDS_STARTUP
+              value: |-
+                weather clear,
+                gamerule doWeatherCycle false,
+                time set day,
+                gamerule doDaylightCycle false
+
+          ports:
+            - name: mc-service
+              containerPort: 25565
+            - name: mc-metrics
+              containerPort: 9225
+          volumeMounts:
+            # ------- init-file mount -------
+            - name: init-download-volume
+              mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
+              subPath: jmx-exporter-javaagent.jar
+            - name: jmx-exporter-config
+              mountPath: /jmx-exporter/jmx-exporter-config.yaml
+              subPath: jmx-exporter-config.yaml
+            # ------- paper-config mount -------
+            - name: paper-config
+              mountPath: /config/config/
+            # ------- prometeus-exporter mount -------
+            - name: prometheus-exporter-config
+              mountPath: /config/plugins/PrometheusExporter/config.yml
+              subPath: prometheus-exporter-config.yml
+      volumes:
+        # ------- initで格納するvolume -------
+        - name: init-download-volume
+          emptyDir: {}
+        - name: jmx-exporter-config
+          configMap:
+            name: jmx-exporter-config
+        # ------- papermcのvolume -------
+        - name: paper-config
+          configMap:
+            name: paper-config
+        # ------- prometeus-exporterのvolume -------
+        - name: prometheus-exporter-config
+          configMap:
+            name: prometheus-exporter-config

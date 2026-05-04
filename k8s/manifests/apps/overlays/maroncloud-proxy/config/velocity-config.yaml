@@ -78,14 +78,13 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = "172.0.0.0:25565"
+    lobby = "mc-service.debug:25565"
     jamming = "mc-service.mc-jamming:25565"
-    debug = "mc-service.debug:25565"
 
     
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
-        "debug"
+        "lobby"
     ]
     
     [forced-hosts]
@@ -96,9 +95,7 @@ data:
     "jamming.example.com" = [
         "jamming"
     ]
-    "debug.example.com" = [
-        "debug"
-    ]
+
     [advanced]
     # How large a Minecraft packet has to be before we compress it. Setting this to zero will
     # compress all packets, and setting it to -1 will disable compression entirely.

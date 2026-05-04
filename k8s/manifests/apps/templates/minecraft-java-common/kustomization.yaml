@@ -8,3 +8,4 @@ resources:
   - ./config/secret-forwarding.yaml
   - ./config/paper-config.yaml
   - ./config/jmx-exporter-config.yaml
+  - ./config/prometheus-exporter-config.yaml

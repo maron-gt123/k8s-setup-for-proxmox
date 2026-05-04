@@ -4,7 +4,7 @@ metadata:
   name: mc-debug-server
 spec:
   destination:
-    namespace: debug
+    namespace: default
     server: https://kubernetes.default.svc
   project: default
   source:

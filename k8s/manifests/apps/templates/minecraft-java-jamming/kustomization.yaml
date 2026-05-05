@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   # template
   - ../templates/minecraft-java-common
-  - https://github.com/maron-gt123/jamming-minecraft-stream/tree/main/sample/k8s
+  - github.com/maron-gt123/jamming-minecraft-stream//sample/k8s?ref=main
   - config/jammingstream-config.yaml
 patches:
   - path: patches-statefulset.yaml

@@ -1,19 +1,20 @@
-# applicationセットアップ<br>
-k8scluster構築後のセットアップについて示します。<br>
+# Applicationセットアップ（ArgoCD）
+本ドキュメントでは、Kubernetesクラスタ構築後に実施する<BR>
+ArgoCDを用いたアプリケーションデプロイ手順を示す
+
+## 概要
+以下の手順を実施する
 
 - ArgoCDの導入
-- application錬成
-- ArgoCD認証パスワードの変更
-- ArgoCD初期認証情報削除
-- pod内ログイン方法
+- Applicationのデプロイ（App of Apps構成）
+- 管理者パスワードの変更
+- 初期認証情報の削除
+- Podへのアクセス方法
 
 
-## 1. ArgoCDの導入
-公式githubrepositoryからArgoCDをデプロイし、本リポジトリのapps配下のmanifestから各種applicationを錬成します<br>
 
-- ArgoCLIのインストール
-- namespaceの作成
-- ArgoCDを公式manifestから投入
+## ArgoCDの導入
+公式マニフェストおよび本リポジトリの定義を用いてArgoCDをデプロイする。
 
 ```bash
 # onp-k8s-cp-1にArgoCLIのインストール
@@ -31,34 +32,19 @@ kubectl create clusterrolebinding argocd-application-controller-cluster-admin \
   --clusterrole=cluster-admin \
   --serviceaccount=argocd:argocd-application-controller
 ```
-## 2. application錬成
-本GitHubに登録されているmanifest関連をapplication経由で読込をさせる<br>          
+
+## Applicationデプロイ
+App of Appsパターンを利用して、本リポジトリ内のマニフェストを一括適用する。      
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/apps/root/app-of-apps.yaml
 ```
 
-## 3. ArgoCD認証パスワードの変更
-ArgoCDのデプロイ完了後、パスワードを取得しログイン
-
+## Podへのログイン方法
+デバッグ用途でPod内部へアクセスする場合
 ```bash
-# Argo CDの初期管理者パスワードを取得
-PASSWORD=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
-# Argo CDにログイン
-echo "y" | argocd login 192.168.15.60 --username=admin --password=$PASSWORD
-# パスワード変更
-argocd account update-password --current-password $PASSWORD
-```
-## 4. ArgoCD初期認証情報削除
-```bash
-kubectl -n argocd delete secret/argocd-initial-admin-secret
+kubectl exec -it -n <namespace> <pod-name> -- /bin/bash
 ```
 
-## 5. pod内ログイン方法
-以下のコマンドでリモートログインが可能
-```bash
-kubectl exec -it <pod-name> -- /bin/bash
-```
-
-### 全体構成図<br>
-* ArgoCDによる錬成後以下のような収容となる
+## 構成イメージ
+ArgoCDによるデプロイ後の構成
   ![収容時](https://raw.githubusercontent.com/maron-gt123/k8s-setup-for-proxmox/main/k8s/manifests/kubanetesu.svg)

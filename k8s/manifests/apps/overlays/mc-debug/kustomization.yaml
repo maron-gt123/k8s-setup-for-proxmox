@@ -4,6 +4,6 @@ namespace: debug
 resources:
   # template
   - ../../templates/minecraft-java-jamming
-  - tiktok-access-config.yaml
+  - config/tiktok-access-config.yaml
 patches:
   - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml

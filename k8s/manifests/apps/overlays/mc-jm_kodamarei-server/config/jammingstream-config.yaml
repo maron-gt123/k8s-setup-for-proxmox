@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jammingstream-config
+data:
+  jammingstream-config-config.yml: |
+    http:
+      port: 8080
+      path: /event
+
+    events:
+      gift:
+        enabled: true
+      like:
+        enabled: true
+      follow:
+        enabled: true
+      share:
+        enabled: true
+      subscribe:
+        enabled: true
+      comment:
+        enabled: true
+
+    jammingbox:
+      clear:
+        countdown: 15
+      replace:
+        enabled: true
+        bottom: IRON_BLOCK
+        middle: GOLD_BLOCK
+        top: DIAMOND_BLOCK
+
+    commands:
+      follow:
+      share:
+      subscribe:
+      like:
+      gift:

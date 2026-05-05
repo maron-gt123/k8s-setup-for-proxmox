@@ -10,3 +10,6 @@ resources:
 patches:
   - path: patches-statefulset.yaml
   - path: config/tiktok-access-config.yaml
+    target:
+      kind: ConfigMap
+      name: access-config

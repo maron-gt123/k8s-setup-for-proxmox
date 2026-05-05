@@ -3,6 +3,6 @@ kind: Kustomization
 namespace: debug
 resources:
   # template
-  - ../../templates/minecraft-java-common
+  - ../../templates/minecraft-java-jamming
 patches:
   - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml

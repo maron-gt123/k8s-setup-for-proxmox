@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minecraft
+spec:
+  template:
+    spec:
+      containers:
+        - name: minecraft
+          env:
+            # ---- server configの変数 ---- 
+            - name: MODE
+              value: "creative"
+            - name: DIFFICULTY
+              value: "peaceful"
+            - name: LEVEL_TYPE
+              value: normal
+            - name: RCON_CMDS_STARTUP
+              value: |-
+                time set day
+                weather clear
+                gamerule doDaylightCycle false
+                gamerule doWeatherCycle false
+            - name: PLUGINS
+              value: >-
+                https://github.com/maron-gt123/jamming-minecraft-stream/releases/download/1.0/jamming-minecraft-stream-1.0.jar
+          ports:
+            - name: tiktok-stream
+              containerPort: 8080
+          volumeMounts:
+            - name: jammingstream-config
+              mountPath: /config/plugins/JammingStream/
+      volumes:
+        - name: jammingstream-config
+          configMap:
+            name: jammingstream-config

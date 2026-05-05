@@ -3,6 +3,19 @@ kind: ClusterRole
 metadata:
   name: argocd-server-logs
 rules:
+  - apiGroups: ["argoproj.io"]
+    resources:
+      - applications
+      - applicationsets
+      - appprojects
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
+      - patch
+      - delete
   - apiGroups: [""]
     resources:
       - pods

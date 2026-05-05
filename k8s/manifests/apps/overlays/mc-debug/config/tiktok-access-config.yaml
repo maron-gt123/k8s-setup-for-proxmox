@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: access-config
+data:
+  config.yml: |
+    # =====================
+    # TikTok settings
+    # =====================
+    tiktok:
+      # TikTok Live streamer username (without @)
+      user: maron_iscsi_k8s
+
+    # =====================
+    # HTTP forward settings
+    # =====================
+    http:
+      # HTTP endpoint to which events are forwarded
+      endpoint: "tiktok-stream.debug.svc.cluster.local:8080/event"
+      # Timeout for HTTP requests (in seconds)
+      timeout: 5

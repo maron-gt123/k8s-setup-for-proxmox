@@ -7,3 +7,4 @@ resources:
   - config/jammingstream-config.yaml
 patches:
   - path: patches-statefulset.yaml
+  - path: config/tiktok-access-config.yaml

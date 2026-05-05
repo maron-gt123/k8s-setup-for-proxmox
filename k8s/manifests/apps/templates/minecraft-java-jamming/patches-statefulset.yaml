@@ -23,7 +23,7 @@ spec:
                   gamerule minecraft:advance_weather false
             - name: PLUGINS
               value: >-
-                https://github.com/maron-gt123/jamming-minecraft-stream/releases/download/1.0/jamming-minecraft-stream-1.0.jar
+                https://github.com/maron-gt123/jamming-minecraft-stream/releases/download/1.1/jamming-minecraft-stream-1.1.jar
           ports:
             - name: tiktok-stream
               containerPort: 8080

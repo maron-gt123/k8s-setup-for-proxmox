@@ -16,6 +16,6 @@ data:
     # =====================
     http:
       # HTTP endpoint to which events are forwarded
-      endpoint: "tiktok-stream.debug.svc.cluster.local:8080/event"
+      endpoint: "http://tiktok-stream.debug.svc.cluster.local:8080/event"
       # Timeout for HTTP requests (in seconds)
       timeout: 5

@@ -8,6 +8,17 @@ rules:
       - pods
       - pods/log
       - events
+      - services
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups: ["apps"]
+    resources:
+      - deployments
+      - replicasets
+      - statefulsets
+      - daemonsets
     verbs:
       - get
       - list

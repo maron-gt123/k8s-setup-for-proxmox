@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mc-jm_kodamarei-server
+  name: jm_kodamarei-server
 spec:
   destination:
     namespace: default

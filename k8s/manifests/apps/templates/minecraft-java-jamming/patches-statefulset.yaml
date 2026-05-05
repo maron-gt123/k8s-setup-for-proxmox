@@ -19,8 +19,8 @@ spec:
               value: |-
                   time set 1000
                   weather clear
-                  gamerule doDaylightCycle false
-                  gamerule doWeatherCycle false
+                  gamerule minecraft:advance_time false
+                  gamerule minecraft:advance_weather false
             - name: PLUGINS
               value: >-
                 https://github.com/maron-gt123/jamming-minecraft-stream/releases/download/1.0/jamming-minecraft-stream-1.0.jar

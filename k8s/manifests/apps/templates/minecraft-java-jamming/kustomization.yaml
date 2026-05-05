@@ -9,7 +9,3 @@ resources:
   - github.com/maron-gt123/jamming-minecraft-stream//sample/k8s?ref=main
 patches:
   - path: patches-statefulset.yaml
-  - path: config/tiktok-access-config.yaml
-    target:
-      kind: ConfigMap
-      name: access-config

@@ -118,7 +118,7 @@ data:
     proxies:
       bungee-cord:
         online-mode: false
-      proxy-protocol: true
+      proxy-protocol: false
       velocity:
         enabled: true
         online-mode: false

@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../minecraft-java-common
-  - ../pvc-worlds.yaml
+  - pvc-worlds.yaml
 
 patches:
   - path: multi-statefulset.yaml

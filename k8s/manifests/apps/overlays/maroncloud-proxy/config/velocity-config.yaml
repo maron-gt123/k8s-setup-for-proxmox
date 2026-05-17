@@ -88,18 +88,18 @@ data:
     [servers]
     # Configure your servers here. Each key represents the server's name, and the value
     # represents the IP address of the server to connect to.
-    lobby = "mc-service.debug.svc.cluster.local:25565"
+    mc-kanata = "mc-service.mc-kanata.svc.cluster.local:25565"
     jm_kodamarei = "mc-service.mc-jm-kodamarei.svc.cluster.local:25565"
 
     # In what order we should try servers when a player logs in or is kicked from a server.
     try = [
-        "lobby"
+        "mc-kanata"
     ]
 
     [forced-hosts]
     # Configure your forced hosts here.
-    "lobby.example.com" = [
-        "lobby"
+    "mc-kanata.example.com" = [
+        "mc-kanata"
     ]
     "jm_kodamarei.example.com" = [
         "jm_kodamarei"

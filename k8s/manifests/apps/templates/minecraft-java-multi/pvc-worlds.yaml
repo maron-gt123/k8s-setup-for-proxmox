@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: java-world-pvc
+  labels:
+    app: java-world-pvc
+spec:
+  storageClassName: mc-java-sc
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi

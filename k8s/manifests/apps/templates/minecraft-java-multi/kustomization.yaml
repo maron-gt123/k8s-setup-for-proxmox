@@ -4,6 +4,7 @@ resources:
   - ./statefulset.yaml
   - ./service.yaml
   - ./service-metrics-patch.yaml
+  - ./pvc-worlds.yaml
   # secret
   - ./config/secret-mcserver.yaml
   - ./config/secret-forwarding.yaml

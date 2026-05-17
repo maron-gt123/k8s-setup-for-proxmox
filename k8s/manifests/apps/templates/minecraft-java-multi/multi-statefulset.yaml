@@ -54,6 +54,10 @@ spec:
               containerPort: 9225
           volumeMounts:
             # ------- init-file mount -------
+            - name: world-data
+              mountPath: /date
+
+            # ------- init-file mount -------
             - name: init-download-volume
               mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
               subPath: jmx-exporter-javaagent.jar
@@ -72,6 +76,10 @@ spec:
               mountPath: /config/plugins/ServerBackup/config.yml
               subPath: serverbackup.yml
       volumes:
+        # worldデータの永続ストレージの指定
+        - name: world-data
+          persistentVolumeClaim:
+            claimName: java-world-pvc
         # ------- serverbackupのvolume -------
         - name: serverbackup-config
           configMap:

@@ -57,30 +57,8 @@ spec:
             - name: world-data
               mountPath: /data
 
-            # ------- init-file mount -------
-            - name: init-download-volume
-              mountPath: /jmx-exporter/jmx-exporter-javaagent.jar
-              subPath: jmx-exporter-javaagent.jar
-            - name: jmx-exporter-config
-              mountPath: /jmx-exporter/jmx-exporter-config.yaml
-              subPath: jmx-exporter-config.yaml
-            # ------- paper-config mount -------
-            - name: paper-config
-              mountPath: /config/config/
-            # ------- prometeus-exporter mount -------
-            - name: prometheus-exporter-config
-              mountPath: /config/plugins/PrometheusExporter/config.yml
-              subPath: prometheus-exporter-config.yml
-            # ------- serverbackup mount -------
-            - name: serverbackup-config
-              mountPath: /config/plugins/ServerBackup/config.yml
-              subPath: serverbackup.yml
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data
           persistentVolumeClaim:
             claimName: java-world-pvc
-        # ------- serverbackupのvolume -------
-        - name: serverbackup-config
-          configMap:
-            name: serverbackup-config

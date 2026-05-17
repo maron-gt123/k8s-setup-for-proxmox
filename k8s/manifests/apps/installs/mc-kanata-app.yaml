@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: jm-kanata-server
+  name: kanata-server
 spec:
   destination:
     namespace: default

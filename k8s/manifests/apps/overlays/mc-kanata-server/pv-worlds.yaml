@@ -5,6 +5,7 @@ metadata:
   labels:
     app: kanata-java-world-pv
 spec:
+  storageClassName: "nfs-storage"
   capacity:
     storage: 5Gi
   volumeMode: Filesystem
@@ -22,6 +23,7 @@ metadata:
   labels:
     app: kanata-java-nether-pv
 spec:
+  storageClassName: "nfs-storage"
   capacity:
     storage: 5Gi
   volumeMode: Filesystem
@@ -39,6 +41,7 @@ metadata:
   labels:
     app: kanata-java-end-pv
 spec:
+  storageClassName: "nfs-storage"
   capacity:
     storage: 5Gi
   volumeMode: Filesystem

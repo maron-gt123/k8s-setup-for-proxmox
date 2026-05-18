@@ -7,4 +7,4 @@ resources:
   - pv-worlds.yaml
 patches:
   - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml
-  - path: pv-worlds.yaml
+  - path: pvc-worlds.yaml

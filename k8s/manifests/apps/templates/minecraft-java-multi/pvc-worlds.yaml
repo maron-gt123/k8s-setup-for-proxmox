@@ -5,7 +5,37 @@ metadata:
   labels:
     app: java-world-pvc
 spec:
-  storageClassName: mc-java-sc
+  volumeName: java-world-pv
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: java-nether-pvc
+  labels:
+    app: java-nether-pvc
+spec:
+  volumeName: java-nether-pv
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: java-end-pvc
+  labels:
+    app: java-end-pvc
+spec:
+  volumeName: java-end-pv
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany

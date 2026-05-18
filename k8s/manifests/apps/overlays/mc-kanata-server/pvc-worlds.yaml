@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: java-world-pvc
+spec:
+  volumeName: kanata-java-world-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: java-nether-pvc
+spec:
+  volumeName: kanata-java-nether-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: java-end-pvc
+spec:
+  volumeName: kanata-java-end-pv

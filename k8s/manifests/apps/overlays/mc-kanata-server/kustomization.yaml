@@ -4,5 +4,7 @@ namespace: mc-kanata
 resources:
   # template
   - ../../templates/minecraft-java-multi
+  - pv-worlds.yaml
 patches:
   - path: http://nas.mcnet/k8s/maroncloud-proxy/secret-velocity.yaml
+  - path: pv-worlds.yaml

@@ -16,6 +16,10 @@ spec:
         - name: geyser-standalone
           image: portiz93/geysermc-proxy:latest
           env:
+            - name: BEDROCK_ADDRESS
+              value: 0.0.0.0
+            - name: BEDROCK_PORT
+              value: "19132"
             - name: JAVA_ADDRESS
               value: 192.168.15.200
             - name: JAVA_PORT

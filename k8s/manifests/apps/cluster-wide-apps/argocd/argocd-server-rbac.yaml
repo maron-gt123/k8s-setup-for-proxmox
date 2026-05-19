@@ -22,10 +22,15 @@ rules:
       - pods/log
       - events
       - services
+      - persistentvolumeclaims
     verbs:
       - get
       - list
       - watch
+      - create
+      - update
+      - patch
+      - delete
   - apiGroups: ["apps"]
     resources:
       - deployments

@@ -52,19 +52,17 @@ spec:
           resources:
             requests:
               cpu: "2"
-              memory: 2G
+              memory: 2048M
           env:
             # ---- 基本設定 ---- 
             - name: TZ
               value: Asia/Tokyo
             - name: TYPE
               value: PAPER
-            - name: VERSION
-              value: "1.21.11"
             - name: INIT_MEMORY
-              value: 1G
+              value: 2048M
             - name: MAX_MEMORY
-              value: 2G
+              value: 2048M
             - name: EULA
               value: "TRUE"
             - name: COPY_CONFIG_DEST

@@ -19,7 +19,7 @@ spec:
             - name: VERSION
               value: "26.1.2"
             - name: INIT_MEMORY
-              value: 1G
+              value: 4096M
             - name: MAX_MEMORY
               value: 4096M
             - name: EULA
@@ -28,6 +28,7 @@ spec:
               value: >-
                 https://cdn.modrinth.com/data/axTqSWQA/versions/SqR0biky/Advanced-Portals-Spigot-2.6.1.jar,
                 https://download.luckperms.net/1631/bukkit/loader/LuckPerms-Bukkit-5.5.42.jar,
+                https://hangarcdn.papermc.io/plugins/ArcanePlugins/SleepFixer/versions/2.1.0/PAPER/SleepFixer-2.1.0.jar,
                 https://server-backup.net/assets/downloads/ServerBackup-2.10.0.jar
             # ---- server configの変数 ---- 
             - name: ENABLE_RCON

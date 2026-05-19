@@ -52,19 +52,9 @@ spec:
             # ------- world-data mount -------
             - name: world-data
               mountPath: /data/world
-            - name: nether-data
-              mountPath: /data/world_nether
-            - name: end-data
-              mountPath: /data/world_the_end
 
       volumes:
         # worldデータの永続ストレージの指定
         - name: world-data
           persistentVolumeClaim:
             claimName: java-world-pvc
-        - name: nether-data
-          persistentVolumeClaim:
-            claimName: java-nether-pvc
-        - name: end-data
-          persistentVolumeClaim:
-            claimName: java-end-pvc

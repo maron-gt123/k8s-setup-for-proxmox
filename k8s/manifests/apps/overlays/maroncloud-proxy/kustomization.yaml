@@ -4,6 +4,7 @@ namespace: mc-maroncloud-proxy
 resources:
   # templates
   - ../../templates/minecraft-proxy
+  - ../../templates/geysermc-standalone
 patches:
   - path: lb-service.yaml
   - path: patches-deployment.yaml

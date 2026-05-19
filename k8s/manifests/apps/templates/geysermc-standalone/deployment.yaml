@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geyser-standalone
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: geyser-standalone
+  template:
+    metadata:
+      labels:
+        app: geyser-standalone
+    spec:
+      containers:
+        - name: geyser-standalone
+          image: portiz93/geysermc-proxy:latest
+          env:
+            - name: JAVA_ADDRESS
+              value: 192.168.15.200
+            - name: JAVA_PORT
+              value: "25577"
+            - name: JAVA_AUTH_TYPE
+              value: "floodgate"
+          ports:
+            - containerPort: 19132
+              protocol: UDP

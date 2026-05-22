@@ -29,3 +29,14 @@ spec:
           ports:
             - containerPort: 19132
               protocol: UDP
+          volumeMounts:
+            # ------- key-pem mount -------
+            - name: key-pem
+              mountPath: /Geyser/floodgate/key.pem
+              subPath: key.pem
+
+      volumes:
+        # key-pemの永続ストレージの指定
+        - name: key-pem
+          persistentVolumeClaim:
+            claimName: floodgate-pvc

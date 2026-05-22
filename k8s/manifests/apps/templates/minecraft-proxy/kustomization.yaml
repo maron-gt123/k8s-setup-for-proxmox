@@ -7,8 +7,10 @@ resources:
   - ./lb-service.yaml
   # metrics-service
   - ./metrics-patch.yaml
-  # secret-temp
+  # secret
   - ./config/secret-forwarding.yaml
+  # floodgatekey.pem
+  - ./pvc-floodgate.yaml
 
   # config関連
   - ./config/velocity-config.yaml

@@ -139,6 +139,9 @@ spec:
             - name: jmx-exporter-config
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
+            - name: floodgate-volume
+              mountPath: /server/plugins/floodgate/key.pem
+              subPath: key.pem
             # -----------------------------------
             # --------- config mount ---------
             # velocity.tomi
@@ -165,6 +168,10 @@ spec:
           emptyDir: {} 
         - name: ini-velocity-forwarding-download-volume
           emptyDir: {}
+        - name: floodgate-volume
+          persistentVolumeClaim:
+            claimName: floodgate-pvc
+
         # -----------------------------------
         # --------- configmap格納 -----------
         - name: velocity-common-config

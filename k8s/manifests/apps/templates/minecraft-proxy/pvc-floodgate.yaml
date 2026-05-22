@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: floodgate-pvc
+  labels:
+    app: floodgate-pvc
+spec:
+  volumeName: floodgate-pv
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

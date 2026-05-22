@@ -140,7 +140,8 @@ spec:
               mountPath: /jmx-exporter/jmx-exporter-config.yaml
               subPath: jmx-exporter-config.yaml
             - name: floodgate-volume
-              mountPath: /server/plugins/floodgate/
+              mountPath: /config/plugins/floodgate/key.pem
+              subPath: key.pem
             # -----------------------------------
             # --------- config mount ---------
             # velocity.tomi

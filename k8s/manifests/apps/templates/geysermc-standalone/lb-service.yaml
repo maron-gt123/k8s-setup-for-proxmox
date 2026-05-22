@@ -12,5 +12,5 @@ spec:
       protocol: UDP
       targetPort: bedrock-service
   selector:
-    app: mc-geyser
+    app: geyser-standalone
   loadBalancerIP: 172.1.0.0

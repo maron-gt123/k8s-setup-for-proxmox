@@ -103,7 +103,7 @@ spec:
                 https://hangarcdn.papermc.io/plugins/jmp/MiniMOTD/versions/2.2.3/VELOCITY/minimotd-velocity-2.2.3.jar,
                 https://hangarcdn.papermc.io/plugins/logo23456/UUIDRedirect/versions/1.0.1/VELOCITY/UUIDRedirect-1.0.1.jar,
                 https://github.com/MusclePr/GeyserSkinManager/releases/download/1.10-SNAPSHOT/GeyserSkinManager-Velocity.jar,
-                https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.9.2-SNAPSHOT%2B996/PAPER/ViaVersion-5.9.2-SNAPSHOT.jar                
+                https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.9.1/PAPER/ViaVersion-5.9.1.jar
             - name: SPIGET_PLUGINS
               value: 
             - name: JVM_OPTS

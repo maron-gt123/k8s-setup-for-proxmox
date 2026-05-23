@@ -23,11 +23,12 @@ spec:
             - name: BEDROCK_PORT
               value: "53617"
             - name: JAVA_ADDRESS
-              value: 192.168.15.200
+              value: geyser-service
             - name: JAVA_AUTH_TYPE
               value: "floodgate"
           ports:
-            - containerPort: 53617
+            - name: bedrock-service
+              containerPort: 53617
               protocol: UDP
               
           volumeMounts:

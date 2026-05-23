@@ -24,6 +24,8 @@ spec:
               value: "53617"
             - name: JAVA_ADDRESS
               value: geyser-service
+            - name: JAVA_PORT
+              value: "25565"
             - name: JAVA_AUTH_TYPE
               value: "floodgate"
           ports:

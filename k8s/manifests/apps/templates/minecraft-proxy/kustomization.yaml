@@ -5,6 +5,7 @@ resources:
   - ./deployment.yaml
   # service
   - ./lb-service.yaml
+  - ./service.yaml
   # metrics-service
   - ./metrics-patch.yaml
   # secret

@@ -24,8 +24,6 @@ spec:
               value: "53617"
             - name: JAVA_ADDRESS
               value: 192.168.15.200
-            - name: JAVA_PORT
-              value: "53616"
             - name: JAVA_AUTH_TYPE
               value: "floodgate"
           ports:

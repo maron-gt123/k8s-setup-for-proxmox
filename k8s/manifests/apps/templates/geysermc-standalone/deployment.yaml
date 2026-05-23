@@ -28,6 +28,10 @@ spec:
               value: "25565"
             - name: JAVA_AUTH_TYPE
               value: "floodgate"
+            - name: ADVANCED_JAVA_USE_HAPROXY_PROTOCOL
+              value: "true"
+            - name : ADVANCED_BEDROCK_USE_HAPROXY_PROTOCOL
+              value: "true"
           ports:
             - name: bedrock-service
               containerPort: 53617

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: kanata-java-world-pv
+  name: maron-java-lobby-world-pv
   labels:
-    app: kanata-java-world-pv
+    app: maron-java-lobby-world-pv
 spec:
   storageClassName: "nfs-storage"
   capacity:
@@ -14,4 +14,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: 192.168.6.140
-    path: /kubanetesu-NFS/mc-kanata/s1/world
+    path: /kubanetesu-NFS/mc-maron/lobby/world

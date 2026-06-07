@@ -3,4 +3,4 @@ kind: PersistentVolumeClaim
 metadata:
   name: java-world-pvc
 spec:
-  volumeName: kanata-java-world-pv
+  volumeName: maron-java-lobby-world-pv

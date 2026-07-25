@@ -45,7 +45,7 @@ spec:
 
           volumeMounts:
             - name: world-data
-              mountPath: /palworld
+              mountPath: /palworld/Pal/Saved/SaveGames/
 
           resources:
             requests:

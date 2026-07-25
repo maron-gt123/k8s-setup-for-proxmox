@@ -10,5 +10,5 @@ spec:
   ports:
   - name: game
     port: 53617
-]」   protocol: UDP
+    protocol: UDP
     targetPort: game

@@ -1,6 +1,6 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: java-world-pvc
+  name: palworld-server-data
 spec:
   volumeName: world-pv

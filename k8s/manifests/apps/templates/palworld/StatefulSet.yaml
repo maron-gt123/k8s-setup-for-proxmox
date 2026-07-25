@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: palworld-server
+  namespace: palworld
+spec:
+  serviceName: palworld-server
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: palworld-server
+
+  template:
+    metadata:
+      labels:
+        app: palworld-server
+
+    spec:
+      terminationGracePeriodSeconds: 120
+
+      containers:
+        - name: palworld
+          image: thijsvanloef/palworld-server-docker:latest
+          imagePullPolicy: IfNotPresent
+
+          ports:
+            - name: game
+              containerPort: 8211
+              protocol: UDP
+
+            - name: query
+              containerPort: 27015
+              protocol: UDP
+
+          env:
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: palworld-secrets
+                  key: rconPassword
+
+          envFrom:
+            - configMapRef:
+                name: palworld-cm
+
+          volumeMounts:
+            - name: datadir
+              mountPath: /palworld
+
+          resources:
+            requests:
+              cpu: "2"
+              memory: 6Gi
+            limits:
+              cpu: "4"
+              memory: 8Gi
+
+          startupProbe:
+            tcpSocket:
+              port: 8211
+            periodSeconds: 10
+            failureThreshold: 60
+
+          livenessProbe:
+            tcpSocket:
+              port: 8211
+            periodSeconds: 30
+
+          readinessProbe:
+            tcpSocket:
+              port: 8211
+            periodSeconds: 10
+
+  volumeClaimTemplates: []

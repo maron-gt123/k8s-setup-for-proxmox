@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: palworld-server
-  namespace: palworld
 spec:
   serviceName: palworld-server
   replicas: 1
@@ -26,7 +25,7 @@ spec:
 
           ports:
             - name: game
-              containerPort: 8211
+              containerPort: 53167
               protocol: UDP
 
             - name: query
@@ -56,20 +55,7 @@ spec:
               cpu: "4"
               memory: 8Gi
 
-          startupProbe:
-            tcpSocket:
-              port: 8211
-            periodSeconds: 10
-            failureThreshold: 60
-
-          livenessProbe:
-            tcpSocket:
-              port: 8211
-            periodSeconds: 30
-
-          readinessProbe:
-            tcpSocket:
-              port: 8211
-            periodSeconds: 10
-
-  volumeClaimTemplates: []
+      volumes:
+        - name: world-data
+          persistentVolumeClaim:
+            claimName: palworld-server-data

@@ -4,5 +4,7 @@ namespace: haramis-palworld
 resources:
   # templates
   - ../../templates/palworld
+  - pv-worlds.yaml
 patches:
   - path: lb-service.yaml
+  - path: pvc-worlds.yaml

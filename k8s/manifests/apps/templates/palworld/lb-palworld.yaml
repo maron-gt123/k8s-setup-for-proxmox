@@ -7,9 +7,6 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - name: game
-    protocol: UDP
-    targetPort: game
   - name: query
     port: 27015
     protocol: UDP

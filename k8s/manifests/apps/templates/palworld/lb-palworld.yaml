@@ -8,7 +8,6 @@ spec:
   type: LoadBalancer
   ports:
   - name: game
-    port: 53167
     protocol: UDP
     targetPort: game
   - name: query

@@ -44,7 +44,7 @@ spec:
                 name: palworld-cm
 
           volumeMounts:
-            - name: datadir
+            - name: world-data
               mountPath: /palworld
 
           resources:

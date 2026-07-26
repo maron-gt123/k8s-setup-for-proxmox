@@ -25,7 +25,7 @@ spec:
 
           ports:
             - name: game
-              containerPort: 53617
+              containerPort: 8211
               protocol: UDP
 
             - name: query
@@ -45,7 +45,7 @@ spec:
 
           volumeMounts:
             - name: world-data
-              mountPath: /palworld/Pal/Saved/SaveGames/
+              mountPath: /palworld/Pal/Saved/
 
           resources:
             requests:

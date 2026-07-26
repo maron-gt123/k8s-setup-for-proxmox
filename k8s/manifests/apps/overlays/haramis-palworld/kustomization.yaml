@@ -8,3 +8,4 @@ resources:
 patches:
   - path: lb-service.yaml
   - path: pvc-worlds.yaml
+  - path: config/config.yaml

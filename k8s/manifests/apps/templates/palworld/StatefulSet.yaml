@@ -25,7 +25,7 @@ spec:
 
           ports:
             - name: game
-              containerPort: 8211
+              containerPort: 53617
               protocol: UDP
 
             - name: query
@@ -33,11 +33,11 @@ spec:
               protocol: UDP
 
           env:
-            #- name: ADMIN_PASSWORD
-            #  valueFrom:
-            #    secretKeyRef:
-            #      name: palworld-secrets
-            #      key: ADMIN_PASSWORD
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: palworld-secrets
+                  key: ADMIN_PASSWORD
 
           envFrom:
             - configMapRef:

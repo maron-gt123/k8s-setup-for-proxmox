@@ -33,11 +33,11 @@ spec:
               protocol: UDP
 
           env:
-            - name: ADMIN_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: palworld-secrets
-                  key: ADMIN_PASSWORD
+            #- name: ADMIN_PASSWORD
+            #  valueFrom:
+            #    secretKeyRef:
+            #      name: palworld-secrets
+            #      key: ADMIN_PASSWORD
 
           envFrom:
             - configMapRef:

@@ -6,4 +6,4 @@ resources:
   - ./pvc-palworld.yaml
   # config & secret
   - ./config/config.yaml
-  - ./config/secret-rcon.yaml
+  - ./config/palworld-secrets.yaml

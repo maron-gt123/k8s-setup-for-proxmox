@@ -6,7 +6,6 @@ metadata:
 data:
   PUID: "1000"
   PGID: "1000"
-  PORT: "53617" # Optional but recommended
   PLAYERS: "16" # Optional but recommended
   SERVER_PASSWORD: "4545" # Optional but recommended
   ENABLE_PERF_THREADING_ARGS: "true"

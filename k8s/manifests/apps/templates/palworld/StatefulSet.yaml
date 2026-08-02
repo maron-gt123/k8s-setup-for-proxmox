@@ -18,6 +18,9 @@ spec:
     spec:
       terminationGracePeriodSeconds: 120
 
+      nodeSelector:
+        kubernetes.io/hostname: onp-k8s-wk-3
+
       containers:
         - name: palworld
           image: thijsvanloef/palworld-server-docker:latest
@@ -25,7 +28,7 @@ spec:
 
           ports:
             - name: game
-              containerPort: 53617
+              containerPort: 8211
               protocol: UDP
 
             - name: query

@@ -7,7 +7,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - name: query
+  - name: query-service
     port: 27015
     protocol: UDP
     targetPort: query

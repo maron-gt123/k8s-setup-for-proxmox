@@ -11,7 +11,7 @@ data:
   ENABLE_PERF_THREADING_ARGS: "true"
   REST_API_ENABLED: "false"
   WORKER_THREADS_SERVER: "4"
-  RCON_ENABLED: "true"
+  RCON_ENABLED: "false"
   RCON_PORT: "25575"
   TZ: Asia/Tokyo
   COMMUNITY: "false"  # Enable this if you want your server to show up in the community servers tab, USE WITH SERVER_PASSWORD!

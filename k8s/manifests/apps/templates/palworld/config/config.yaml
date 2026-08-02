@@ -9,6 +9,7 @@ data:
   PLAYERS: "16" # Optional but recommended
   SERVER_PASSWORD: "worldofpals" # Optional but recommended
   ENABLE_PERF_THREADING_ARGS: "true"
+  REST_API_ENABLED: "false"
   WORKER_THREADS_SERVER: "4"
   RCON_ENABLED: "true"
   RCON_PORT: "25575"

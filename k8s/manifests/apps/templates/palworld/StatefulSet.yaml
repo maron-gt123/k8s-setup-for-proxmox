@@ -24,12 +24,15 @@ spec:
       containers:
         - name: palworld
           image: thijsvanloef/palworld-server-docker:latest
-          imagePullPolicy: IfNotPresent
 
           ports:
             - name: game
               containerPort: 8211
               protocol: UDP
+
+            - name: rest
+              containerPort: 8212
+              protocol: TCP
 
             - name: query
               containerPort: 27015
@@ -41,6 +44,12 @@ spec:
                 secretKeyRef:
                   name: palworld-secrets
                   key: ADMIN_PASSWORD
+
+            - name: SERVER_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: palworld-secrets
+                  key: SERVER_PASSWORD
 
           envFrom:
             - configMapRef:

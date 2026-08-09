@@ -9,3 +9,4 @@ patches:
   - path: lb-service.yaml
   - path: pvc-worlds.yaml
   - path: config/config.yaml
+  - path: http://nas.mcnet/k8s/haramis-palworld/palworld-secrets.yaml

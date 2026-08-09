@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  name: palworld-server-data
   labels:
     app: palworld-server
-  name: palworld-server-data
 spec:
   accessModes:
   - ReadWriteMany

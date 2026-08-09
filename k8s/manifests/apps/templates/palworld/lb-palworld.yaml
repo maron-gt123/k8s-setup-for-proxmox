@@ -11,6 +11,12 @@ spec:
     port: 27015
     protocol: UDP
     targetPort: query
+
+  - name: rest-service
+    port: 8212
+    protocol: TCP
+    targetPort: rest
+
   selector:
     app: palworld-server
   loadBalancerIP: 172.0.0.0

@@ -4,3 +4,4 @@ metadata:
   name: palworld-server-data
 spec:
   volumeName: world-pv
+  storageClassName: nfs-storage

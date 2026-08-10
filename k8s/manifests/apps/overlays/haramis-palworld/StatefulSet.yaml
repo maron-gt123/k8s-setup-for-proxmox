@@ -16,8 +16,3 @@ metadata:
             limits:
               cpu: "8"
               memory: 32Gi
-
-      volumes:
-        - name: world-data
-          persistentVolumeClaim:
-            claimName: palworld-server-data

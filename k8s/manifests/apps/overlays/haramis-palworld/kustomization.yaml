@@ -6,7 +6,7 @@ resources:
   - ../../templates/palworld
   - pv-worlds.yaml
 patches:
-  - path: replace-StatefulSet.yaml
+  - path: StatefulSet.yaml
   - path: lb-service.yaml
   - path: pvc-worlds.yaml
   - path: config/config.yaml

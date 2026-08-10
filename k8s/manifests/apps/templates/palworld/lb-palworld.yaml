@@ -7,15 +7,20 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - name: query-service
-    port: 27015
+  - name: game-service
+    port: 8211
     protocol: UDP
-    targetPort: query
+    targetPort: game
 
   - name: rest-service
     port: 8212
     protocol: TCP
     targetPort: rest
+
+  - name: query-service
+    port: 27015
+    protocol: UDP
+    targetPort: query
 
   selector:
     app: palworld-server

@@ -14,8 +14,8 @@ metadata:
               cpu: "2"
               memory: 6Gi
             limits:
-              cpu: "4"
-              memory: 20Gi
+              cpu: "8"
+              memory: 32Gi
 
       volumes:
         - name: world-data

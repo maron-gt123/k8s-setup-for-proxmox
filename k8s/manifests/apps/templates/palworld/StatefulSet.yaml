@@ -50,7 +50,7 @@ spec:
 
           volumeMounts:
             - name: world-data
-              mountPath: /palworld/Pal/Saved/
+              mountPath: /palworld
 
           resources:
             requests:

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: palworld-server
+  template:
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: onp-k8s-wk-3
+
+      containers:
+        - name: palworld
+          resources:
+            requests:
+              cpu: "2"
+              memory: 6Gi
+            limits:
+              cpu: "4"
+              memory: 20Gi
+
+      volumes:
+        - name: world-data
+          persistentVolumeClaim:
+            claimName: palworld-server-data

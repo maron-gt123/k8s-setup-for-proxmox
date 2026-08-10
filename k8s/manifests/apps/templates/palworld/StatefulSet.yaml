@@ -5,22 +5,15 @@ metadata:
 spec:
   serviceName: palworld-server
   replicas: 1
-
   selector:
     matchLabels:
       app: palworld-server
-
   template:
     metadata:
       labels:
         app: palworld-server
-
     spec:
       terminationGracePeriodSeconds: 120
-
-      nodeSelector:
-        kubernetes.io/hostname: onp-k8s-wk-3
-
       containers:
         - name: palworld
           image: thijsvanloef/palworld-server-docker:latest
@@ -65,7 +58,7 @@ spec:
               memory: 6Gi
             limits:
               cpu: "4"
-              memory: 10Gi
+              memory: 8Gi
 
       volumes:
         - name: world-data

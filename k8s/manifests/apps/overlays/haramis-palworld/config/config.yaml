@@ -17,7 +17,7 @@ data:
   AUTO_REBOOT_ENABLED: "false"
   AUTO_PAUSE_ENABLED: "false"
   SERVER_NAME: "haramis-palworld"
-  COMMUNITY: "false"
+  COMMUNITY: "true"
   ENABLE_PERF_THREADING_ARGS: "true"
   WORKER_THREADS_SERVER: "4"
   SERVER_DESCRIPTION: ""

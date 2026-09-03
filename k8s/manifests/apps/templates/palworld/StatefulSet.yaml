@@ -44,6 +44,18 @@ spec:
                   name: palworld-secrets
                   key: SERVER_PASSWORD
 
+            - name: PUBLIC_IP
+              valueFrom:
+                secretKeyRef:
+                  name: palworld-secrets
+                  key: PUBLIC_IP
+
+            - name: PUBLIC_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: palworld-secrets
+                  key: PUBLIC_PORT
+
           envFrom:
             - configMapRef:
                 name: palworld-cm

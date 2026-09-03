@@ -19,8 +19,6 @@ data:
   AUTO_PAUSE_ENABLED: "false"
   SERVER_NAME: "haramis-palworld"
   COMMUNITY: "true"
-  # PUBLIC_IP: ""
-  PUBLIC_PORT: "40065"
   ENABLE_PERF_THREADING_ARGS: "true"
   WORKER_THREADS_SERVER: "4"
   SERVER_DESCRIPTION: ""

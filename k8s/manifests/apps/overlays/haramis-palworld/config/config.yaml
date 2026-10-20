@@ -10,6 +10,7 @@ data:
   TZ: Asia/Tokyo
   PLAYERS: "16" # Optional but recommended
   REST_API_ENABLED: "true"
+  ENABLE_GAMEDATA_API: "true"
   RCON_ENABLED: "true"
   UPDATE_ON_BOOT: "true"
   BACKUP_ENABLED: "false"

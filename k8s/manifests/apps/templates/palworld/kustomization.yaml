@@ -7,3 +7,6 @@ resources:
   # config & secret
   - ./config/config.yaml
   - ./config/palworld-secrets.yaml
+  # metrics
+  - ./prometheus-exporter/deployment.yaml
+  - ./prometheus-exporter/service.yaml

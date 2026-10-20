@@ -10,12 +10,14 @@ data:
   TZ: Asia/Tokyo
   PLAYERS: "16" # Optional but recommended
   REST_API_ENABLED: "true"
-  RCON_ENABLED: "false"
+  RCON_ENABLED: "true"
   UPDATE_ON_BOOT: "true"
   BACKUP_ENABLED: "false"
   CROSSPLAY_PLATFORMS: "(Steam,Xbox,PS5,Mac)"
-  AUTO_UPDATE_ENABLED: "false"
-  AUTO_REBOOT_ENABLED: "false"
+  AUTO_UPDATE_ENABLED: "true"
+  AUTO_UPDATE_WARN_MINUTES: "60"
+  AUTO_REBOOT_CRON_EXPRESSION: "0 4 * * *"
+  AUTO_REBOOT_ENABLED: "true"
   AUTO_PAUSE_ENABLED: "false"
   SERVER_NAME: "haramis-palworld"
   COMMUNITY: "true"

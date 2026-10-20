@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palworld-exporter
+spec:
+  template:
+    spec:
+      containers:
+        - name: exporter
+          env:
+            - name: PALWORLD_URL
+              value: "http://lb-palworld.haramis-palworld.svc.cluster.local:8212/v1/api"

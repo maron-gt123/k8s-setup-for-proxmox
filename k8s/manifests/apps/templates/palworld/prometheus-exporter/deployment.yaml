@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palworld-exporter
+  labels:
+    app: palworld-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: palworld-exporter
+  template:
+    metadata:
+      labels:
+        app: palworld-exporter
+    spec:
+      containers:
+        - name: exporter
+          image: ghcr.io/lotusssb/palworld-exporter:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: metrics
+              containerPort: 9877
+              protocol: TCP
+          env:
+            - name: PALWORLD_URL
+              value: "http://palworld-server.palworld.svc.cluster.local:8212/v1/api"
+            - name: PALWORLD_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: palworld-secrets
+                  key: ADMIN_USERNAME
+            - name: PALWORLD_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: palworld-secrets
+                  key: ADMIN_PASSWORD
+            - name: METRICS_POLL_INTERVAL
+              value: "5s"
+            - name: PLAYERS_POLL_INTERVAL
+              value: "5s"
+            - name: GAME_DATA_POLL_INTERVAL
+              value: "15s"
+          readinessProbe:
+            httpGet:
+              path: /-/ready
+              port: metrics
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /-/healthy
+              port: metrics
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

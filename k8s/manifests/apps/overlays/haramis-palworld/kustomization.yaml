@@ -10,4 +10,5 @@ patches:
   - path: lb-service.yaml
   - path: pvc-worlds.yaml
   - path: config/config.yaml
+  - path: prometheus-exporter/deployment.yaml
   - path: http://nas.mcnet/k8s/haramis-palworld/palworld-secrets.yaml

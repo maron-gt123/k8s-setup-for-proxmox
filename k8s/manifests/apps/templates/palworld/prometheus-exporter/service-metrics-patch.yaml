@@ -1,0 +1,30 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus
+  name: palworld-metrics
+spec:
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 15s
+  selector:
+    matchLabels:
+      app: palworld-metrics
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: palworld-metrics
+  labels:
+    app: palworld-metrics
+spec:
+  type: ClusterIP
+  ports:
+    - name: metrics
+      port: 9877
+      targetPort: metrics
+      protocol: TCP
+  selector:
+    app: palworld-exporter

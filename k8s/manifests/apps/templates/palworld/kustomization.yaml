@@ -9,4 +9,4 @@ resources:
   - ./config/palworld-secrets.yaml
   # metrics
   - ./prometheus-exporter/deployment.yaml
-  - ./prometheus-exporter/service.yaml
+  - ./prometheus-exporter/service-metrics-patch.yaml

@@ -11,5 +11,7 @@ spec:
     path: k8s/manifests/apps/cluster-wide-apps/prometheus
     repoURL: https://github.com/maron-gt123/k8s-setup-for-proxmox.git
     targetRevision: main
+    directory:
+      recurse: true
   syncPolicy:
     automated: {}

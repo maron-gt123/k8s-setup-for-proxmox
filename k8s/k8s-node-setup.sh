@@ -102,7 +102,7 @@ sudo sed -i 's#sandbox_image = "registry.k8s.io/pause:3.8"#sandbox_image = "regi
 if grep -q "SystemdCgroup = true" "/etc/containerd/config.toml"; then
 echo "Config found, skip rewriting..."
 else
-sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml  
+sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
 fi
 
 sudo systemctl restart containerd
@@ -126,11 +126,14 @@ EOF
 sysctl --system
 
 # Install kubeadm
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.37/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.37/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
-sudo apt-get install -y kubeadm=1.32.1-1.1 kubectl=1.32.1-1.1 kubelet=1.32.1-1.1
-sudo apt-mark hold kubelet kubectl
+sudo apt-get install -y \
+    kubeadm=1.37.1-1.1 \
+    kubelet=1.37.1-1.1 \
+    kubectl=1.37.1-1.1
+sudo apt-mark hold kubeadm kubelet kubectl
 
 # Disable swap
 swapoff -a
@@ -282,7 +285,7 @@ KUBEADM_LOCAL_ENDPOINT=$(ip -4 addr show ens19 | grep -oP '(?<=inet\s)\d+(\.\d+)
 
 # Set init configuration for the first control plane
 cat > "$HOME"/init_kubeadm.yaml <<EOF
-apiVersion: kubeadm.k8s.io/v1beta3
+apiVersion: kubeadm.k8s.io/v1beta4
 kind: InitConfiguration
 bootstrapTokens:
 - token: "$KUBEADM_BOOTSTRAP_TOKEN"
@@ -291,14 +294,15 @@ bootstrapTokens:
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
   kubeletExtraArgs:
-    node-ip: "$KUBEADM_LOCAL_ENDPOINT"
+    - name: node-ip
+      value: "$KUBEADM_LOCAL_ENDPOINT"
 localAPIEndpoint:
   advertiseAddress: "$KUBEADM_LOCAL_ENDPOINT"
   bindPort: 6443
 skipPhases:
   - addon/kube-proxy
 ---
-apiVersion: kubeadm.k8s.io/v1beta3
+apiVersion: kubeadm.k8s.io/v1beta4
 kind: ClusterConfiguration
 networking:
   serviceSubnet: "10.96.64.0/18"
@@ -306,8 +310,9 @@ networking:
 etcd:
   local:
     extraArgs:
-      listen-metrics-urls: http://0.0.0.0:2381
-kubernetesVersion: "v1.32.0"
+      - name: listen-metrics-urls
+        value: http://0.0.0.0:2381
+kubernetesVersion: "v1.37.1"
 controlPlaneEndpoint: "${KUBE_API_SERVER_VIP}:8443"
 apiServer:
   certSANs:
@@ -325,10 +330,12 @@ apiServer:
 # https://prometheus-operator.dev/docs/kube-prometheus-on-kubeadm/#kubeadm-pre-requisites
 controllerManager:
   extraArgs:
-    bind-address: "0.0.0.0"
+    - name: bind-address
+      value: "0.0.0.0"
 scheduler:
   extraArgs:
-    bind-address: "0.0.0.0"
+    - name: bind-address
+      value: "0.0.0.0"
 clusterName: "maron-cloud"
 
 ---
@@ -366,12 +373,13 @@ kind: KubeletConfiguration
 cgroupDriver: "systemd"
 protectKernelDefaults: true
 ---
-apiVersion: kubeadm.k8s.io/v1beta3
+apiVersion: kubeadm.k8s.io/v1beta4
 kind: JoinConfiguration
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
   kubeletExtraArgs:
-    node-ip: "abcdefg"
+    - name: node-ip
+      value: "abcdefg"
 discovery:
   bootstrapToken:
     apiServerEndpoint: "${KUBE_API_SERVER_VIP}:8443"
@@ -391,12 +399,13 @@ kind: KubeletConfiguration
 cgroupDriver: "systemd"
 protectKernelDefaults: true
 ---
-apiVersion: kubeadm.k8s.io/v1beta3
+apiVersion: kubeadm.k8s.io/v1beta4
 kind: JoinConfiguration
 nodeRegistration:
   criSocket: "unix:///var/run/containerd/containerd.sock"
   kubeletExtraArgs:
-    node-ip: "abcdefg"
+    - name: node-ip
+      value: "abcdefg"
 discovery:
   bootstrapToken:
     apiServerEndpoint: "${KUBE_API_SERVER_VIP}:8443"

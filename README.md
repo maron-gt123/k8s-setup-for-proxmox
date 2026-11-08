@@ -11,7 +11,7 @@
 ### proxmox構成
 
 - Proxmox Virtual Environment
-  - バージョン: 9.1.9
+  - バージョン: 9.2.25
   - ベアメタル3node
   - cluster構成
 
@@ -19,7 +19,7 @@
   - QNAP TS-253D
 
 - VMベースイメージ
-  - Ubuntu 24.04 LTS (cloud-init)
+  - Ubuntu 26.04 LTS (cloud-init)
     - Kubernetesノード用
     - Minecraftサーバ用
 

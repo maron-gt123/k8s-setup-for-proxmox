@@ -91,16 +91,36 @@ ssh onp-k8s-wk-3 "sudo kubeadm join --config ~/join_kubeadm_wk.yaml"
 ssh onp-k8s-cp-2 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
 ssh onp-k8s-cp-3 "mkdir -p \$HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config &&sudo chown \$(id -u):\$(id -g) \$HOME/.kube/config"
 
+# workerのラベル設定
+ssh onp-k8s-cp-1 "kubectl label nodes onp-k8s-wk-1 node-role.kubernetes.io/worker-plane="" --overwrite"
+ssh onp-k8s-cp-2 "kubectl label nodes onp-k8s-wk-2 node-role.kubernetes.io/worker-plane="" --overwrite"
+ssh onp-k8s-cp-3 "kubectl label nodes onp-k8s-wk-3 node-role.kubernetes.io/worker-plane="" --overwrite"
+
 # 動作確認
 echo ""
-echo "---------------------------------- node ----------------------------------"
-ssh onp-k8s-cp-1 "kubectl get node -o wide"
+echo "================================================================"
+echo " Kubernetes Cluster - Verification"
+echo "================================================================"
+
 echo ""
-echo "---------------------------------- pod ----------------------------------"
-ssh onp-k8s-cp-2 "kubectl get pod -A -o wide"
+echo "[1/3] Nodes (onp-k8s-cp-1)"
+echo "----------------------------------------------------------------"
+ssh onp-k8s-cp-1 "kubectl get nodes -o wide"
+
 echo ""
-echo "---------------------------------- service ----------------------------------"
-ssh onp-k8s-cp-3 "kubectl get service -A -o wide"
+echo "[2/3] Pods (onp-k8s-cp-2)"
+echo "----------------------------------------------------------------"
+ssh onp-k8s-cp-2 "kubectl get pods -A -o wide"
+
+echo ""
+echo "[3/3] Services (onp-k8s-cp-3)"
+echo "----------------------------------------------------------------"
+ssh onp-k8s-cp-3 "kubectl get services -A -o wide"
+
+echo ""
+echo "================================================================"
+echo " Verification completed"
+echo "================================================================"
 ```
 
 ## 削除

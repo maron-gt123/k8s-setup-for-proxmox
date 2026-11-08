@@ -361,7 +361,10 @@ helm install cilium cilium/cilium \
     --namespace kube-system \
     --set kubeProxyReplacement=true \
     --set k8sServiceHost=${KUBE_API_SERVER_VIP} \
-    --set k8sServicePort=8443
+    --set k8sServicePort=8443 \
+    --set ipam.mode=cluster-pool \
+    --set ipam.operator.clusterPoolIPv4PodCIDRList="{10.96.128.0/18}" \
+    --set ipam.operator.clusterPoolIPv4MaskSize=24
 
 # Generate control plane certificate
 KUBEADM_UPLOAD_CERTS_OUTPUT=$(

@@ -34,8 +34,8 @@
 ---
 ### Kubernetes構成（VM上）
 - Internal
-  - Pod Network: `10.128.0.0/16`
-  - Service Network: `10.96.0.0/16`
+  - Pod Network: `10.96.128.0/18`
+  - Service Network: `10.96.64.0/18`
 - External
   - Node IP
     - Service Network `192.168.15.0/24`

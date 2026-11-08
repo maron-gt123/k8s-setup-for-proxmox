@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prometheus-db-pv
+  labels:
+    app: prometheus-db-pv
+spec:
+  storageClassName: "nfs-storage"
+  capacity:
+    storage: 50Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: 192.168.6.140
+    path: /kubanetesu-NFS/kube-prometheus-prometheus-db

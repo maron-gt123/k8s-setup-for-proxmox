@@ -179,6 +179,10 @@ spec:
             storageSpec:
               volumeClaimTemplate:
                 spec:
+                  volumeName: prometheus-db-pv
+                  storageClassName: "nfs-storage"
+                  accessModes:
+                    - ReadWriteMany
                   resources:
                     requests:
                       storage: 50Gi

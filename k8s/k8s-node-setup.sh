@@ -364,7 +364,22 @@ helm install cilium cilium/cilium \
     --set k8sServicePort=8443
 
 # Generate control plane certificate
-KUBEADM_UPLOADED_CERTS=$(kubeadm init phase upload-certs --upload-certs | tail -n 1)
+KUBEADM_UPLOAD_CERTS_OUTPUT=$(
+    kubeadm init phase upload-certs \
+        --upload-certs \
+        --config "$HOME/init_kubeadm.yaml"
+)
+
+KUBEADM_UPLOADED_CERTS=$(
+    echo "${KUBEADM_UPLOAD_CERTS_OUTPUT}" |
+    grep -oE '[[:xdigit:]]{64}' |
+    tail -n 1
+)
+
+if [[ -z "${KUBEADM_UPLOADED_CERTS}" ]]; then
+    echo "Failed to upload control plane certificates." >&2
+    exit 1
+fi
 
 # Set join configuration for other control plane nodes
 cat > "$HOME"/join_kubeadm_cp.yaml <<EOF

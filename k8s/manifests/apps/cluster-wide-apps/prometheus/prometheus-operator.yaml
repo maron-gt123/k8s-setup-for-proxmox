@@ -129,9 +129,6 @@ spec:
                 gnetId: 1860
                 revision: 31
                 datasource: Prometheus
-              palworld:
-                url: https://raw.githubusercontent.com/LOTUSSSB/palworld-exporter/v1.0.0/deploy/grafana/dashboards/palword_exporter_v1.json?utm_source=chatgpt.com
-                datasource: Prometheus
         prometheus:
           prometheusSpec:
             additionalScrapeConfigs: 

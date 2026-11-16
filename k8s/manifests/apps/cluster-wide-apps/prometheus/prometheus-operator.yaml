@@ -129,6 +129,8 @@ spec:
                 gnetId: 1860
                 revision: 31
                 datasource: Prometheus
+              palworld:
+                url: https://raw.githubusercontent.com/LOTUSSSB/palworld-exporter/refs/heads/main/deploy/grafana/dashboards/palword_exporter_v1.json
         prometheus:
           prometheusSpec:
             additionalScrapeConfigs: 

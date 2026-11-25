@@ -80,8 +80,7 @@ spec:
           deploymentStrategy:
             type: Recreate
           persistence:
-            enabled: true
-            size: 10Gi
+            enabled: false
           datasources:
             datasources.yaml:
               apiVersion: 1
